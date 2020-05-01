@@ -8,9 +8,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'big-game';
   public isCollapsed = false;
+  public rate=10;
 
   //ctrl = new FormControl(null, Validators.required);
 
@@ -18,11 +20,11 @@ export class AppComponent {
   
   //this.ctrl.disable();
 
-  toggle() {
+  //toggle() {
  //   if (this.ctrl.disabled) {
   //    this.ctrl.enable();
   //  } else {
-    //  this.ctrl.disable();
+  //    this.ctrl.disable();
    // }
-  }
+  //}
 }
