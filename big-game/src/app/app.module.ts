@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import '@angular/localize/init';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
