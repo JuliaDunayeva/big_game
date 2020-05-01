@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -11,4 +10,5 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent {
   title = 'big-game';
   public isCollapsed = false;
+
 }
