@@ -126,9 +126,5 @@
       }
     }
   },
-
-  "defaultProject": "big-game",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "big-game"
 }
