@@ -12,7 +12,9 @@ export class AppComponent {
   title = 'big-game';
   public isCollapsed = false;
 
-  ctrl = new FormControl(null, Validators.required);
+  //ctrl = new FormControl(null, Validators.required);
+
+  public readonly = false;
   
   //this.ctrl.disable();
 
@@ -20,7 +22,7 @@ export class AppComponent {
  //   if (this.ctrl.disabled) {
   //    this.ctrl.enable();
   //  } else {
-      this.ctrl.disable();
+    //  this.ctrl.disable();
    // }
   }
 }
