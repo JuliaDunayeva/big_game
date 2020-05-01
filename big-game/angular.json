@@ -25,7 +25,10 @@
             ],
             "styles": [
               "node_modules/semantic-ui-css/semantic.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              {
+                "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
+              }
             ],
             "scripts": []
           },
@@ -120,6 +123,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "big-game"
 }
