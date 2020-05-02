@@ -16,22 +16,17 @@
     "@angular/compiler": "~9.1.1",
     "@angular/core": "~9.1.1",
     "@angular/forms": "~9.1.1",
-    "@angular/localize": "~9.1.1",
+    "@angular/localize": "^9.1.4",
     "@angular/platform-browser": "~9.1.1",
     "@angular/platform-browser-dynamic": "~9.1.1",
     "@angular/router": "~9.1.1",
-<<<<<<< HEAD
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
-    "bootstrap": "^4.4.1",
-=======
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
->>>>>>> 9c463efde9bf82cd600f7369bcd3811ea3ecb116
+    "bootstrap": "^4.0.0",
     "rxjs": "~6.5.4",
     "semantic-ui-css": "^2.4.1",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "@ng-bootstrap/ng-bootstrap": "^6.1.0",
-    "bootstrap": "^4.0.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",
