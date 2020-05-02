@@ -126,12 +126,9 @@
       }
     }
   },
-<<<<<<< HEAD
+
   "defaultProject": "big-game",
   "cli": {
     "analytics": false
   }
-=======
-  "defaultProject": "big-game"
->>>>>>> 9c463efde9bf82cd600f7369bcd3811ea3ecb116
 }
