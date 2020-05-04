@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-btn',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginBtnComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
+  logIn() {
+    this.router.navigate(['/horse-page'])
+  }
   ngOnInit(): void {
   }
 
