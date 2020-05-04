@@ -1,0 +1,19 @@
+.footer-bkgrd {
+    display: flex;
+    justify-content: center;
+    border-style: none;
+    margin: 5px 25px 5px 25px;
+    border-radius: 5px;
+}
+
+.list .footer-font {
+    color: #F5F5F1;
+}
+
+.icon-size {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    color: #F5F5F1;
+    background-color: transparent;
+}
