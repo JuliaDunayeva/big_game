@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+/*import {Component} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 
 @Component({
@@ -16,3 +16,4 @@ export class NgbdRatingForm {
     }
   }
 }
+*/

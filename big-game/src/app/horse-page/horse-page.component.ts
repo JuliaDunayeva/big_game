@@ -18,6 +18,8 @@ export class HorsePageComponent implements OnInit {
   }
 
   public rate=10;
+  
+  active = 1;
 
   ctrl = new FormControl(null, Validators.required);
 

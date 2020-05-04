@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbdRatingForm } from './rating-form';
+//import { NgbdRatingForm } from './rating-form';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HorsePageComponent } from './horse-page/horse-page.component';
@@ -21,7 +22,7 @@ import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NgbdRatingForm,
+  //  NgbdRatingForm,
     HomePageComponent,
     SignUpComponent,
     HorsePageComponent,
@@ -42,9 +43,9 @@ import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
     ReactiveFormsModule
     //,NgbModule.forRoot()
   ],
-  exports: [NgbdRatingForm],
+ // exports: [NgbdRatingForm],
   providers: [],
-  bootstrap: [AppComponent,NgbdRatingForm]
+  bootstrap: [AppComponent]//,NgbdRatingForm]
 })
 export class AppModule { }
 export class NgbdRatingFormModule {}
