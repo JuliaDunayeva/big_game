@@ -30,7 +30,7 @@ import { PlayBarComponent } from './play-bar/play-bar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
