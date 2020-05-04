@@ -1,8 +1,7 @@
 .footer-bkgrd {
     display: flex;
     justify-content: center;
-    background-color: #9E9C7B;
-    color: #E7E6DE;
+    border-style: none;
     margin: 5px 25px 5px 25px;
     border-radius: 5px;
 }
@@ -11,11 +10,12 @@
     color: #F5F5F1;
 }
 
-.list .item on:hover {
-    color: #F5F5F1;
-    font-display: all;
-}
+
 
 .icon-size {
+    display: flex;
+    justify-content: center;
     font-size: x-large;
+    color: #F5F5F1;
+    background-color: transparent;
 }
