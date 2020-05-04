@@ -124,7 +124,15 @@
             </div>
         </div>
         <div class="col-6">
-            horse picture and other info here
+            <p class="col-8">horse picture and other info here</p>
+            <img class="col-8" src="/assets/images/horses/horse1.jpg" />
+            <p class="col-8">horse picture and other info here</p>
+
+            <p class="col-8 center-text">Rating</p>
+            <div class="col-8 form-group center-text">
+                <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="10" class="gold-color"></ngb-rating>
+            </div>
+
         </div>
         <div class="col-sm">
             <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
