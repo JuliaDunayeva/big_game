@@ -13,6 +13,7 @@ import { CompetitionPageComponent } from './competition-page/competition-page.co
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PlayBarComponent } from './play-bar/play-bar.component';
+import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PlayBarComponent } from './play-bar/play-bar.component';
     CompetitionPageComponent,
     NavBarComponent,
     FooterComponent,
-    PlayBarComponent
+    PlayBarComponent,
+    LoginBtnComponent
   ],
   imports: [
     BrowserModule,
