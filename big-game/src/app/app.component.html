@@ -6,6 +6,8 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<!--
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -21,7 +23,9 @@
     </ol>
 
 </nav>
+-->
 
+<!--
 <hr>
 
 <p>Bootstrap split buttons and dropdowns on button groups are supported with the existing dropdown directives.</p>
@@ -68,33 +72,73 @@
         </div>
     </div>
 </div>
+-->
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!--
 <p>
     <ngb-alert [dismissible]="false">
         <strong>Warning!</strong> Better check yourself, you're not looking too good.
     </ngb-alert>
 </p>
+-->
 
 
 
 <!--<router-outlet></router-outlet>-->
 
+<!--  rating system not changeable 
+
 <p>NgModel and reactive forms can be used without the 'rate' binding</p>
 
 <div class="form-group">
     <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="10" class="gold-color"></ngb-rating>
-    <!--<ngb-rating [readonly]="readonly" [rate]="10"></ngb-rating>--->
-    <!--<div class="form-text small">
-        <div *ngIf="ctrl.valid" class="text-success">Thanks!</div>
-        <div *ngIf="ctrl.invalid" class="text-danger">Please rate us</div>
-    </div>-->
+</div>
+-->
+
+<div class="container-sm">
+
+    <!-- account nav bar here-->
+    <div class="row">
+        <div class="col-sm">
+            <p>accojunt nav bar here</p>
+
+        </div>
+    </div>
+
+    <!-- game nav bar placement-->
+    <div class="row">
+        <div class="col-sm">
+            <p>header nav bar here</p>
+
+        </div>
+    </div>
+
+    <!-- horse information placement-->
+
+    <div class="row">
+        <div class="col-sm">
+            <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
+            <div class="row">
+                <p>blag</p>
+            </div>
+        </div>
+        <div class="col-6">
+            horse picture and other info here
+        </div>
+        <div class="col-sm">
+            <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
+        </div>
+    </div>
+
+    <!-- foter goes here placement-->
+    <div class="row">
+        <div class="col-sm">
+            <p>footer goes here</p>
+        </div>
+    </div>
+
+
+
 </div>
 
 <!--<hr>
