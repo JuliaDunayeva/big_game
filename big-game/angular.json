@@ -78,11 +78,11 @@
                                     }
                                 }
                             }
-                        } <<
-                        << << < HEAD
+                        }
+
                     },
-                    "defaultProject": "big-game" ===
-                        === =
+                    "defaultProject": "big-game"
+
                 }
             }
         },
@@ -90,6 +90,5 @@
         "defaultProject": "big-game",
         "cli": {
             "analytics": false
-        } >>>
-        >>> > develop
+        }
     }
