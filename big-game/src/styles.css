@@ -18,22 +18,22 @@
     background-color: rgb(226, 229, 206);
 }
 
-.color-dark-gray{/* used in the fotter backgroind*/
+.color-dark-gray{/* used in the footer background*/
     background-color:rgba(0, 0, 0, 0.3); 
 
 }
 
-.color-beige{/* used in the "folder" backgroind*/
+.color-beige{/* used in the "folder" background*/
     background-color:rgb(226, 225, 139); 
 
 }
 
-.color-dark-beige{/* used in the darker erias in "folder" backgroind*/
+.color-dark-beige{/* used in the darker areas in "folder" background*/
     background-color:rgb(216, 215, 124); 
 
 }
 
-.color-light-beige{/* used in the lighter erias in "folder" backgroind*/
+.color-light-beige{/* used in the lighter areas in "folder" background*/
     background-color:rgb(226, 225, 140); 
 
 }
@@ -42,11 +42,11 @@
     background-color: #f2f2b6;
 }
 
-.color-tx-maroon{/*used in text in the stors in the h1 */
+.color-tx-maroon{/*used in text in the stores in the h1 */
     color: #630;
 }
 
-.color-tx-green{/*used in text in the stors, black market..etc in the h2 */
+.color-tx-green{/*used in text in the stores, black market..etc in the h2 */
     color: #133300;
 }
 
