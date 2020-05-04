@@ -1,0 +1,21 @@
+.footer-bkgrd {
+    display: flex;
+    justify-content: center;
+    background-color: #9E9C7B;
+    color: #E7E6DE;
+    margin: 5px 25px 5px 25px;
+    border-radius: 5px;
+}
+
+.list .footer-font {
+    color: #F5F5F1;
+}
+
+.list .item on:hover {
+    color: #F5F5F1;
+    font-display: all;
+}
+
+.icon-size {
+    font-size: x-large;
+}
