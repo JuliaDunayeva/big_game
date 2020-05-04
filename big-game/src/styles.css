@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+/* colors*/
+
+
+.color-tx-brown{ /*used text colors in log in buttons*/
+    color: #4a543a;
+}
+
+.color-yellow{ /*used background colors in log in buttons*/
+    background-color: rgb(229, 254, 112);
+}
+
+.color-dark-blue{
+    background-color: rgb(66, 95, 156);
+}
+
+.color-light-gray{
+    background-color: rgb(226, 229, 206);
+}
+
+.color-dark-gray{/* used in the fotter backgroind*/
+    background-color:rgba(0, 0, 0, 0.3); 
+
+}
+
+.color-beige{/* used in the "folder" backgroind*/
+    background-color:rgb(226, 225, 139); 
+
+}
+
+.color-dark-beige{/* used in the darker erias in "folder" backgroind*/
+    background-color:rgb(216, 215, 124); 
+
+}
+
+.color-light-beige{/* used in the lighter erias in "folder" backgroind*/
+    background-color:rgb(226, 225, 140); 
+
+}
+
+.color-off-white{/*used in the horse page in the center divs */
+    background-color: #f2f2b6;
+}
+
+.color-tx-maroon{/*used in text in the stors in the h1 */
+    color: #630;
+}
+
+.color-tx-green{/*used in text in the stors, black market..etc in the h2 */
+    color: #133300;
+}
+
+.color-green{/*used in green botton in the 'equip my horse */
+    background-color:#cee15b ;
+}
+
+
+
