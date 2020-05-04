@@ -14,17 +14,17 @@ export class AppComponent {
   public isCollapsed = false;
   public rate=10;
 
-  //ctrl = new FormControl(null, Validators.required);
+  ctrl = new FormControl(null, Validators.required);
 
-  public readonly = false;
+  public readonly = true;
   
   //this.ctrl.disable();
 
-  //toggle() {
- //   if (this.ctrl.disabled) {
-  //    this.ctrl.enable();
-  //  } else {
-  //    this.ctrl.disable();
-   // }
-  //}
-}
+  toggle() {
+    if (this.ctrl.disabled) {
+      this.ctrl.enable();
+    } else {
+      this.ctrl.disable();
+    }
+  }
+};
