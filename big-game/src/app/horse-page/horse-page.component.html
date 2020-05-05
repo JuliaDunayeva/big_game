@@ -87,6 +87,10 @@
 </div>
 -->
 
+
+
+
+
 <div class="container-sm">
 
     <!-- account nav bar here-->
@@ -112,8 +116,18 @@
 
             <div class="row center-text">
 
+                <div class="card" style="width:300px">
+                    <img class="card-img-bottom" src="../../assets/images/care-tab-top.png" alt="Card image" style="width:100%">
+                    <img class="card-img-bottom" src="../../assets/images/care-tab-bottom.png" alt="Card image" style="width:100%">
+                </div>
+
+                <div class="card" style="width:300px">
+                    <img class="card-img-bottom" src="../../assets/images/night-tab-top.png" alt="Card image" style="width:100%">
+                    <img class="card-img-bottom" src="../../assets/images/night-tab-bottom.png" alt="Card image" style="width:100%">
+                </div>
+
                 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-                    <ngb-panel title="Care">
+                    <!--<ngb-panel title="Care">
                         <ng-template ngbPanelContent class="color-beige">
                             <img src="/assets/images/care-tab.png" />
                         </ng-template>
@@ -122,7 +136,7 @@
                         <ng-template ngbPanelContent>
                             left column panel 2 goes here
                         </ng-template>
-                    </ngb-panel>
+                    </ngb-panel>-->
                     <ngb-panel title="Equestrian Centre" class="center-text">
                         <ng-template ngbPanelContent>
                             left column panel 3 goes here
@@ -154,6 +168,7 @@
                         <div class="col-6 form-group center-text ">
                             Health
                             <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
+                            <p>{{value}}</p>
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
                         <div class="col-6 form-group center-text ">
@@ -161,7 +176,6 @@
                             <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
-                        middle column panel 1 goes here
 
                     </ng-template>
                 </ngb-panel>
@@ -192,7 +206,7 @@
                             Jumping
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        middle column panel 2 goes here
+
                     </ng-template>
                 </ngb-panel>
 
