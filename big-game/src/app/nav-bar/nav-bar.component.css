@@ -1,0 +1,65 @@
+/*roaa code*/
+.navbar{
+    align-content: center;
+    height: 80px;
+}
+
+.nav-btn{
+    margin-left: 20px;
+    padding:20px;
+    color: white;
+    background: rgba(55,101,154,.5);
+    border-radius: 35%;
+    border:rgba(55,101,154,.5);
+}
+
+.nav-btn-big{
+    width: 208px;
+}
+.nav-profile{
+    background: rgba(55,101,154,.5);
+    margin-left: 20px;
+    padding:20px;
+    color: white;
+    border-radius: 10%;
+    border:rgba(55,101,154,.5);
+}
+
+.nav-link {
+    
+    padding: 1rem 1rem!important;
+}
+.flex-center{
+    justify-content: center;
+}
+
+.inline-flex{
+    display: inline-flex;
+}
+.navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: center;
+}
+.icon-qualty{
+    color: white;
+    border-radius: 50%;
+    border-color: #f8f9fa;
+}
+
+.bg-blue {
+    background-color: #60c4c9!important;
+}
+
+.background{
+background-color: #61C5C9;
+}
+
+.icon-margin{
+    margin-left: 10px;
+    font-size: 150%;
+}
+
+.rock-img{
+    width: 18%;
+}
