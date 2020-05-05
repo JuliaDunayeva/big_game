@@ -7,13 +7,13 @@
 }
 
 .list .footer-font {
-    color: #F5F5F1;
+    color: white;
 }
 
 .icon-size {
     display: flex;
     justify-content: center;
     font-size: x-large;
-    color: #F5F5F1;
+    color: white;
     background-color: transparent;
 }
