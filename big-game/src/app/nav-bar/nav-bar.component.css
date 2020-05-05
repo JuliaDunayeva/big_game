@@ -1,40 +1,59 @@
 /*roaa code*/
 .navbar{
     align-content: center;
-    height: 80px;
+    height: 100px;
 }
 
 .nav-btn{
+    /*background: rgba(55,101,154,.5);
+    border:rgba(55,101,154,.5);*/
     margin-left: 20px;
-    padding:20px;
+    padding:0px;
+    border-radius: 20px;
     color: white;
-    background: rgba(55,101,154,.5);
-    border-radius: 35%;
-    border:rgba(55,101,154,.5);
+    background:rgb(73, 131, 186);
+    border:none;
+    width: 88px;
+    height: 45px;
+    
 }
 
 .nav-btn-big{
     width: 208px;
+    margin-top: -12px;
+
 }
 .nav-profile{
-    background: rgba(55,101,154,.5);
+   /* background: rgba(55,101,154,.5);
+    border:rgba(55,101,154,.5);*/
     margin-left: 20px;
-    padding:20px;
+    padding:0px;
     color: white;
-    border-radius: 10%;
-    border:rgba(55,101,154,.5);
+    border-radius: 5px;
+    background: rgb(73, 131, 186);
+    border:none;
+    
 }
 
 .nav-link {
     
-    padding: 1rem 1rem!important;
+    padding: .7rem 1rem!important;
 }
+
 .flex-center{
     justify-content: center;
 }
 
+.inline-block{
+    display: block;
+}
+
 .inline-flex{
     display: inline-flex;
+   
+}
+.padding-bottom{
+    padding-bottom: 5px;
 }
 .navbar-expand-lg .navbar-collapse {
     display: flex !important;
@@ -62,4 +81,22 @@ background-color: #61C5C9;
 
 .rock-img{
     width: 18%;
+}
+
+.font-sm{
+    font-size: 11px;
+}
+
+.font-md{
+    font-size: 20px;
+}
+
+h6{
+    margin-bottom: 0rem;
+    font-weight: 500;
+    line-height: 1.5
+}
+
+.nav-link {
+    padding: .3rem 1rem 1em 1rem!important;
 }
