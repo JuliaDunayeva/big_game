@@ -26,7 +26,7 @@ const routes: Routes = [
     component: StorePageComponent
   },
   {
-    path: 'black-page',
+    path: 'bmarket-page',
     component: BlackMarketPageComponent
   },
   {
