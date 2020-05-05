@@ -7,3 +7,7 @@
 }
 
 .card-bkgrnd {}
+
+.max-width-column{
+	max-width:300px;
+}
