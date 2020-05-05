@@ -110,13 +110,12 @@
     <div class="row">
         <div class="col-sm">
 
-            <div class="row">
-
+            <div class="row center-text">
 
                 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-                    <ngb-panel title="Care" class="center-text card-bkgrnd">
-                        <ng-template ngbPanelContent>
-                            left column panel 1 goes here
+                    <ngb-panel title="Care">
+                        <ng-template ngbPanelContent class="color-beige">
+                            <img src="/assets/images/care-tab.png" />
                         </ng-template>
                     </ngb-panel>
                     <ngb-panel title="Night" class="center-text">
@@ -138,7 +137,7 @@
 
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-6 center-text">
 
             <img class="col-8" src="/assets/images/horses/horse1.jpg" />
 
@@ -242,7 +241,7 @@
         </div>
         <div class="col-sm">
             <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
-            <div class="row">
+            <div class="row center-text">
 
                 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0 ">
                     <ngb-panel title="Rides " class="center-text ">
