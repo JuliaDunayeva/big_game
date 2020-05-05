@@ -1,1 +1,291 @@
-<p>horse-page works!</p>
+<!--
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+        <li class="breadcrumb">
+            <a href="#"></a>
+        </li>
+        <button type="button" class="btn btn-primary">
+          Notifications <span class="badge badge-light">4</span>
+        </button>
+
+    </ol>
+
+</nav>
+-->
+
+<!--
+<hr>
+
+<p>Bootstrap split buttons and dropdowns on button groups are supported with the existing dropdown directives.</p>
+
+<div class="btn-group mr-3">
+    <button type="button" class="btn btn-outline-success">Plain ol' button</button>
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-outline-primary" ngbDropdownToggle>Drop me</button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem>One</button>
+            <button ngbDropdownItem>Two</button>
+            <button ngbDropdownItem>Four!</button>
+        </div>
+    </div>
+</div>
+
+<div class="btn-group mr-3">
+    <button type="button" class="btn btn-primary">Split me</button>
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem>One</button>
+            <button ngbDropdownItem>Two</button>
+            <button ngbDropdownItem>Four!</button>
+        </div>
+    </div>
+</div>
+
+<div class="btn-group mr-3">
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-outline-danger" ngbDropdownToggle>Select me</button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem>One</button>
+            <button ngbDropdownItem>Two</button>
+            <button ngbDropdownItem>Four!</button>
+        </div>
+    </div>
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-outline-success" ngbDropdownToggle>Or me</button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem>One</button>
+            <button ngbDropdownItem>Two</button>
+            <button ngbDropdownItem>Four!</button>
+        </div>
+    </div>
+</div>
+-->
+
+<!--
+<p>
+    <ngb-alert [dismissible]="false">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </ngb-alert>
+</p>
+-->
+
+
+
+<!--<router-outlet></router-outlet>-->
+
+<!--  rating system not changeable, works finally -->
+
+<!--
+<p>NgModel and reactive forms can be used without the 'rate' binding</p>
+
+<div class="form-group">
+    <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="10" class="gold-color"></ngb-rating>
+</div>
+-->
+
+<div class="container-sm">
+
+    <!-- account nav bar here-->
+    <div class="row">
+        <div class="col-sm">
+            <app-nav-bar></app-nav-bar>
+
+        </div>
+    </div>
+
+    <!-- game nav bar placement-->
+    <div class="row">
+        <div class="col-sm">
+
+            <app-play-bar></app-play-bar>
+        </div>
+    </div>
+
+    <!-- horse information placement-->
+
+    <div class="row">
+        <div class="col-sm">
+
+            <div class="row">
+
+
+                <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                    <ngb-panel title="Care" class="center-text">
+                        <ng-template ngbPanelContent>
+                            left column panel 1 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Night" class="center-text">
+                        <ng-template ngbPanelContent>
+                            left column panel 2 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Equestrian Centre" class="center-text">
+                        <ng-template ngbPanelContent>
+                            left column panel 3 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="History" class="center-text">
+                        <ng-template ngbPanelContent>
+                            left column panel 4 goes here
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <p class="col-6">horse picture and other info here</p>
+            <img class="col-6" src="/assets/images/horses/horse1.jpg" />
+
+
+            <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-1" (toggle)="preventchange_1" (panelChange)="beforeChange($event)">
+                <ngb-panel id="preventchange_1" title=" Horse Name ">
+                    <ng-template ngbPanelContent>
+
+                        <div class="col-6 form-group center-text ">
+                            Energy
+                            <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
+                        </div>
+                        <div class="col-6 form-group center-text ">
+                            Health
+                            <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
+                        </div>
+                        <div class="col-6 form-group center-text ">
+                            Morale
+                            <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
+                        </div>
+                        middle column panel 1 goes here
+
+                    </ng-template>
+                </ngb-panel>
+
+                <ngb-panel id="preventchange_1" title="Skills">
+                    <ng-template ngbPanelContent>
+                        <div class="col-6 form-group center-text ">
+                            Stamina
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-6 form-group center-text ">
+                            Speed
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-6 form-group center-text ">
+                            Dressage
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-6 form-group center-text ">
+                            Gallop
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-6 form-group center-text ">
+                            Trot
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-6 form-group center-text ">
+                            Jumping
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        middle column panel 2 goes here
+                    </ng-template>
+                </ngb-panel>
+
+
+                <ngb-panel id="preventchange_1" title="">
+                    <ng-template ngbPanelContent>
+
+                        <nav ngbNav #nav="ngbNav" class="nav-tabs">
+                            <ng-container ngbNavItem>
+                                <a ngbNavLink>Characteristics</a>
+                                <ng-template ngbNavContent>
+                                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+                                        dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                                </ng-template>
+                            </ng-container>
+                            <ng-container ngbNavItem>
+                                <a ngbNavLink>Genetic</a>
+                                <ng-template ngbNavContent>
+                                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                                        ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+                                        8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                                </ng-template>
+                            </ng-container>
+                            <ng-container ngbNavItem>
+                                <a ngbNavLink>Bonus</a>
+                                <ng-template ngbNavContent>
+                                    <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue
+                                        et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus
+                                        nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
+                                        ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+                                </ng-template>
+                            </ng-container>
+                        </nav>
+
+                        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+                        <!--middle column panel 3 goes here-->
+                    </ng-template>
+                </ngb-panel>
+
+            </ngb-accordion>
+
+
+
+
+        </div>
+        <div class="col-sm ">
+            <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
+            <div class="row">
+
+                <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0 ">
+                    <ngb-panel title="Rides " class="center-text ">
+                        <ng-template ngbPanelContent>
+                            right column panel 1 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Training " class="center-text ">
+                        <ng-template ngbPanelContent>
+                            right column panel 2 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Competitons " class="center-text ">
+                        <ng-template ngbPanelContent>
+                            right column panel 3 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Breading " class="center-text ">
+                        <ng-template ngbPanelContent>
+                            right column panel 4 goes here
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- foter goes here placement-->
+    <div class="row ">
+        <div class="col-sm ">
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!--<hr>
+<pre>Model: <b>{{ ctrl.value }}</b></pre>
+<button class="btn btn-sm btn-outline-{{ ctrl.disabled ? 'danger' : 'success'}} mr-2 " (click)="toggle() ">
+  {{ ctrl.disabled ? "control disabled " : " control enabled " }}
+</button>
+<button class="btn btn-sm btn-outline-primary mr-2 " (click)="ctrl.setValue(null) ">Clear</button>-->
