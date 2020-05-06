@@ -91,3 +91,13 @@ body {
     height: 25px;
     font-weight: 500;
 }
+
+.folder {           /* Basic folder background for use on any page */
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 480px;
+    background: url("./assets/folder.svg") no-repeat;
+    background-clip: content-box;
+    background-size: 100%;
+}

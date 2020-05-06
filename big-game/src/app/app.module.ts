@@ -18,6 +18,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PlayBarComponent } from './play-bar/play-bar.component';
 import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
+import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
     NavBarComponent,
     FooterComponent,
     PlayBarComponent,
-    LoginBtnComponent
+    LoginBtnComponent,
+    SignFormComponent
   ],
   
    
