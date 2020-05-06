@@ -1,0 +1,19 @@
+.test {
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 480px;
+    background: url("../../assets/folder.svg") no-repeat;
+    background-clip: content-box;
+    background-size: 100%;
+}
+
+/* .test p {
+    position: relative;
+}
+.test img {
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+    z-index: 0;
+} */
