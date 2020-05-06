@@ -30,7 +30,9 @@ export class HorsePageComponent implements OnInit {
 
   public isLCollapsed4 = false;
   public isRCollapsed4 = false;
-  
+
+  public isMCollapsed =false;
+
   public rate=10;
   
   active = 1;

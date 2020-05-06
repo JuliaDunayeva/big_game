@@ -80,29 +80,79 @@
             <img class="col-6" src="/assets/images/horses/horse1.jpg" />
 
 
-            <ngb-accordion #acc="ngbAccordion" activeIds="preventchange_1" (toggle)="preventchange_1" (panelChange)="beforeChange($event)">
-                <ngb-panel id="preventchange_1" title=" Horse Name ">
-                    <ng-template ngbPanelContent let-opened="opened">
+            <p class="no-padding">
+                <button type="button" class="btn btn-primary max-width-column mycard-brown" [attr.aria-expanded]="!isMCollapsed" aria-controls="collapseExample">Horse Name</button>
+                <!-- (click)="isMCollapsed = !isMCollapsed" -->
+            </p>
 
+            <div id="collapseExample" [ngbCollapse]="isMCollapsed">
+                <div class="card mycard-brown">
+
+                    <div class="card-body">
                         <div class="col-10 form-group center-text">
                             Energy
-                            <ngb-progressbar type="" [value]="25"></ngb-progressbar>
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+
+                            <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>-->
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
                         <div class="col-10 form-group center-text ">
                             Health
-                            <ngb-progressbar type="warning" [value]="50"></ngb-progressbar>
-                            <p>{{value}}</p>
+                            <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>-->
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
                         <div class="col-10 form-group center-text">
                             Morale
-                            <ngb-progressbar type="success" [value]="100"></ngb-progressbar>
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+                            <!--<ngb-progressbar type="success" [value]="100"></ngb-progressbar>-->
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ngb-accordion #acc="ngbAccordion" activeIds="preventchange_1" (toggle)="preventchange_1" (panelChange)="beforeChange($event)">
+                <!-- <ngb-panel id="preventchange_1" title=" Horse Name ">
+                               <ng-template ngbPanelContent let-opened="opened">
+
+                        <div class="col-10 form-group center-text">
+                            Energy
+
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+
+                            <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>--
+                            --<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Health
+                            <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>--
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>--
+                        </div>
+                        <div class="col-10 form-group center-text">
+                            Morale
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+                            <!--<ngb-progressbar type="success" [value]="100"></ngb-progressbar>--
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>--
                         </div>
 
                     </ng-template>
-                </ngb-panel>
+                </ngb-panel>-->
 
                 <ngb-panel id="preventchange_1" title="Skills">
                     <ng-template ngbPanelContent>

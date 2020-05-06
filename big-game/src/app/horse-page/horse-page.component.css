@@ -40,3 +40,23 @@ div>.card-body div>.card {
 .no-padding {
     top-padding: 25px;
 }
+
+.progress-bar {
+    background-image: linear-gradient(to right, green, red);
+}
+
+#progressbar {
+    background-color: white;
+    border-radius: 13px;
+    /* (height of inner div) / 2 + padding */
+    padding: 3px;
+}
+
+#progressbar>div {
+    background-color: orange;
+    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+    width: 70%;
+    /* Adjust with JavaScript */
+    height: 15px;
+    border-radius: 10px;
+}
