@@ -10,6 +10,10 @@
     color: white;
 }
 
+div a {
+    padding: 0;
+}
+
 ul a {      /* Space between link icons */
     margin: 0 10px;
 }
