@@ -16,7 +16,7 @@ export class HorsePageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  public isCollapsed = false;
   public rate=10;
   
   active = 1;
