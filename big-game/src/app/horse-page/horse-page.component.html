@@ -127,7 +127,7 @@
     <!-- horse information placement-->
 
     <div class="row">
-        <div class="col-4 max-width-column">
+        <div class="col-3 max-width-column">
 
             <div class="row center-text">
 
@@ -141,11 +141,59 @@
                     <img class="card-img-bottom" src="../../assets/images/night-tab-bottom.png" alt="Card image" style="width:100%">
                 </div>
 -->
-                <ngb-accordion [destroyOnHide]='false' #acc="ngbAccordion" activeIds="ngb-panel-0">
-                    <ngb-panel title="Care" id="ngb-panel-0">
+                <!-- left panel 1-->
+                <p class="no-padding">
+                    <button type="button" class="btn btn-primary max-width-column mycard" (click)="isLCollapsed1 = !isLCollapsed1" [attr.aria-expanded]="!isLCollapsed1" aria-controls="collapseExample">Care </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isLCollapsed1">
+                    <div class="card mycard ">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
+                <!-- left panel 2-->
+                <p class="no-padding">
+                    <button type="button" class="btn btn-primary max-width-column" (click)="isLCollapsed2 = !isLCollapsed2" [attr.aria-expanded]="!isLCollapsed2" aria-controls="collapseExample">Night </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isLCollapsed2">
+                    <div class="card ">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
+
+                <!-- left panel 3-->
+                <p class="no-padding">
+                    <button type="button" class="btn btn-primary max-width-column" (click)="isLCollapsed3 = !isLCollapsed3" [attr.aria-expanded]="!isLCollapsed3" aria-controls="collapseExample">Equestrian Centre </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isLCollapsed3">
+                    <div class="card">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
+
+                <!-- left panel 4-->
+                <p class="no-padding">
+                    <button type="button" class="btn btn-primary max-width-column" (click)="isLCollapsed4 = !isLCollapsed4" [attr.aria-expanded]="!isLCollapsed4" aria-controls="collapseExample">History</button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isLCollapsed4">
+                    <div class="card">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 
+                    <ngb-accordion [destroyOnHide]='false' #acc="ngbAccordion" activeIds="ngb-panel-0">
+                
+                        <ngb-panel title="Care" id="ngb-panel-0">
                         <ng-template ngbPanelContent class="color-beige">
                             left column panel 1 goes here
-                            <!--<img src="/assets/images/care-tab.png" />-->
                         </ng-template>
                     </ngb-panel>
                     <ngb-panel title="Night" class="center-text">
@@ -153,6 +201,7 @@
                             left column panel 2 goes here
                         </ng-template>
                     </ngb-panel>
+                
                     <ngb-panel title="Equestrian Centre" class="center-text">
                         <ng-template ngbPanelContent let-opened="opened">
                             left column panel 3 goes here
@@ -164,6 +213,7 @@
                         </ng-template>
                     </ngb-panel>
                 </ngb-accordion>
+            -->
 
             </div>
         </div>
@@ -269,10 +319,59 @@
 
 
         </div>
-        <div class="col-4 max-width-column">
+        <div class="col-3 max-width-column">
             <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
             <div class="row center-text">
+                <!--right  panel 1-->
+                <p>
+                    <button type="button" class="btn btn-primary max-width-column" (click)="isRCollapsed = !isRCollapsed" [attr.aria-expanded]="!isRCollapsed" aria-controls="collapseExample">Rides </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isRCollapsed">
+                    <div class="card ">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
 
+                <!--right  panel 2-->
+                <p>
+                    <button type="button" class="btn btn-primary max-width-column" (click)="isRCollapsed2 = !isRCollapsed2" [attr.aria-expanded]="!isRCollapsed2" aria-controls="collapseExample">Training </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isRCollapsed2">
+                    <div class="card ">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
+
+                <!--right  panel 3 -->
+                <p>
+                    <button type="button" class="btn btn-primary max-width-column" (click)="isRCollapsed3 = !isRCollapsed3" [attr.aria-expanded]="!isRCollapsed3" aria-controls="collapseExample">Competition </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isRCollapsed3">
+                    <div class="card ">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
+
+                <!--right  panel 4-->
+                <p>
+                    <button type="button" class="btn btn-primary max-width-column" (click)="isRCollapsed4 = !isRCollapsed4" [attr.aria-expanded]="!isRCollapsed4" aria-controls="collapseExample">Breeding </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isRCollapsed4">
+                    <div class="card ">
+                        <div class="card-body">
+                            You can collapse this card by clicking Toggle
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--
                 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-2">
                     <ngb-panel title="Rides" id="ngb-panel-2">
                         <ng-template ngbPanelContent>
@@ -295,7 +394,7 @@
                         </ng-template>
                     </ngb-panel>
                 </ngb-accordion>
-
+            -->
 
             </div>
         </div>
