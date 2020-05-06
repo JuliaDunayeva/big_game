@@ -2,6 +2,11 @@
     color: gold;
 }
 
+.gradient {
+    background: rgb(242,6,6);
+    background: linear-gradient(90deg, rgba(242,6,6,1) 0%, rgba(247,244,5,1) 50%, rgba(0,255,29,1) 100%); 
+}
+
 .center-text {
     text-align: center;
 }
