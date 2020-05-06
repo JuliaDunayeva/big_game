@@ -126,7 +126,7 @@
                     <img class="card-img-bottom" src="../../assets/images/night-tab-bottom.png" alt="Card image" style="width:100%">
                 </div>
 -->
-                <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                <ngb-accordion [destroyOnHide]='false' #acc="ngbAccordion" activeIds="ngb-panel-0">
                     <ngb-panel title="Care" id="ngb-panel-0">
                         <ng-template ngbPanelContent class="color-beige">
                             left column panel 1 goes here
