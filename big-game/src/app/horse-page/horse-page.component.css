@@ -13,8 +13,13 @@
 
 .card-bkgrnd {}
 
-.mycard {
+.mycard-red {
     background-color: red;
+    color: white;
+}
+
+.mycard-brown {
+    background-color: burlywood;
     color: white;
 }
 
