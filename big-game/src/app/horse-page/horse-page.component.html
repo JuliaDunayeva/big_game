@@ -87,6 +87,10 @@
 </div>
 -->
 
+
+
+
+
 <div class="container-sm">
 
     <!-- account nav bar here-->
@@ -108,24 +112,34 @@
     <!-- horse information placement-->
 
     <div class="row">
-        <div class="col-sm">
+        <div class="col-4 max-width-column">
 
-            <div class="row">
+            <div class="row center-text">
 
+                <!--                <div class="card" style="width:300px">
+                    <img class="card-img-bottom" src="../../assets/images/care-tab-top.png" alt="Card image" style="width:100%">
+                    <img class="card-img-bottom" src="../../assets/images/care-tab-bottom.png" alt="Card image" style="width:100%">
+                </div>
 
+                <div class="card" style="width:300px">
+                    <img class="card-img-bottom" src="../../assets/images/night-tab-top.png" alt="Card image" style="width:100%">
+                    <img class="card-img-bottom" src="../../assets/images/night-tab-bottom.png" alt="Card image" style="width:100%">
+                </div>
+-->
                 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-                    <ngb-panel title="Care" class="center-text">
-                        <ng-template ngbPanelContent>
+                    <ngb-panel title="Care" id="ngb-panel-0">
+                        <ng-template ngbPanelContent class="color-beige">
                             left column panel 1 goes here
+                            <!--<img src="/assets/images/care-tab.png" />-->
                         </ng-template>
                     </ngb-panel>
                     <ngb-panel title="Night" class="center-text">
-                        <ng-template ngbPanelContent>
+                        <ng-template ngbPanelContent let-opened="opened">
                             left column panel 2 goes here
                         </ng-template>
                     </ngb-panel>
                     <ngb-panel title="Equestrian Centre" class="center-text">
-                        <ng-template ngbPanelContent>
+                        <ng-template ngbPanelContent let-opened="opened">
                             left column panel 3 goes here
                         </ng-template>
                     </ngb-panel>
@@ -138,62 +152,62 @@
 
             </div>
         </div>
-        <div class="col-6">
-            <p class="col-6">horse picture and other info here</p>
+        <div class="col-6 center-text">
+
             <img class="col-6" src="/assets/images/horses/horse1.jpg" />
 
 
-            <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-1" (toggle)="preventchange_1" (panelChange)="beforeChange($event)">
+            <ngb-accordion #acc="ngbAccordion" activeIds="preventchange_1" (toggle)="preventchange_1" (panelChange)="beforeChange($event)">
                 <ngb-panel id="preventchange_1" title=" Horse Name ">
-                    <ng-template ngbPanelContent>
+                    <ng-template ngbPanelContent let-opened="opened">
 
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Energy
                             <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Health
                             <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
+                            <p>{{value}}</p>
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Morale
                             <ngb-progressbar type="warning" [value]="25"></ngb-progressbar>
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
-                        middle column panel 1 goes here
 
                     </ng-template>
                 </ngb-panel>
 
                 <ngb-panel id="preventchange_1" title="Skills">
                     <ng-template ngbPanelContent>
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Stamina
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Speed
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Dressage
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Gallop
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Trot
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-6 form-group center-text ">
+                        <div class="col-10 form-group center-text ">
                             Jumping
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        middle column panel 2 goes here
+
                     </ng-template>
                 </ngb-panel>
 
@@ -240,12 +254,12 @@
 
 
         </div>
-        <div class="col-sm ">
+        <div class="col-4 max-width-column">
             <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
-            <div class="row">
+            <div class="row center-text">
 
-                <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0 ">
-                    <ngb-panel title="Rides " class="center-text ">
+                <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-2">
+                    <ngb-panel title="Rides" id="ngb-panel-2">
                         <ng-template ngbPanelContent>
                             right column panel 1 goes here
                         </ng-template>
@@ -273,7 +287,7 @@
     </div>
 
     <!-- foter goes here placement-->
-    <div class="row ">
+    <div class="row">
         <div class="col-sm ">
             <app-footer></app-footer>
         </div>

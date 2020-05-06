@@ -26,6 +26,8 @@ export class HorsePageComponent implements OnInit {
   public preventchange_1:true;
 
   public readonly = true;
+
+  public value = 0;
   
   //this.ctrl.disable();
 
