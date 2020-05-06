@@ -65,3 +65,29 @@ body {
     /*used in green botton in the 'equip my horse */
     background-color: #cee15b;
 }
+
+.btn-shops {     /* Basic green button settings */
+    color: white;
+    box-shadow:inset 0px 2px 2px 0px #a4e271;
+    background: rgb(206,226,92);
+    background: linear-gradient(180deg, rgba(206,226,92,1) 0%, rgba(151,183,0,1) 50%, rgba(132,153,0,1) 100%);
+    border:.5px solid rgb(134, 155, 1);
+    border-width: 1px;
+    border-radius: 6px;
+}
+
+.btn-shops :hover {     /* Basic green button hover settings */
+    background: rgb(132,153,0);
+    background: linear-gradient(0deg, rgba(206,226,92,1) 0%, rgba(151,183,0,1) 50%, rgba(132,153,0,1) 100%);
+}
+
+.btn-shops-sml {     /* Basic green button size for shopping cart */
+    width: 40px;
+    height: 25px;
+}
+
+.btn-shops-lrg {     /* Basic green button size for Participate */
+    width: 85px;
+    height: 25px;
+    font-weight: 500;
+}
