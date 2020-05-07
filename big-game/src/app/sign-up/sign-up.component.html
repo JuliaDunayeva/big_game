@@ -1,14 +1,27 @@
 <app-nav-bar></app-nav-bar>
-<div class="container inline-flex flex-center">
-    <form>
-        <div *ngFor="let horse of horseCollection.horses">
-            <label>
-                {{horse.name}}
-                <input type="radio" [id]="horse.name" name="horseName" [value]="horse.name">
-                <br>
-            </label>
-        </div>
-    </form>
+<div class="container">
+    <div class="row">
+        <form class="col-sm">
+            <div *ngFor="let horse of horseCollection.horses">
+                <label>
+                    {{horse.name}}
+                    <input type="radio" [id]="horse.name" name="horseName" [value]="horse.name" [checked]="horse.name == 'Paint Horse'?'checked':false"  (click)="horseSelected($event)">
+                    <br>
+                </label>
+            </div>
+        </form>
+        <img src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png">
+        <form class="col-sm">
+            <div *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
+                <label>
+                    <input type="radio" [id]="coatColor" name="coatColor" [value]="coatColor" (click)="coatSelected($event)" [(ngModel)]="selectedCoatName">
+                    {{coatColor}}
+                    <br>
+                </label>
+            </div>
+        </form>
+        {{coatIndex}}
+    </div>
 </div>
 <br>
 <app-sign-form></app-sign-form>
