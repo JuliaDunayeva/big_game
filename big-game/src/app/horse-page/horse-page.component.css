@@ -7,6 +7,8 @@
     background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
+.card-title::hover {}
+
 .center-text {
     text-align: center;
 }
@@ -15,6 +17,10 @@
 
 .card-title {
     font-weight: bold;
+}
+
+.card-title-border {
+    border: 2px solid #BEBD58;
 }
 
 .mycard-red {
