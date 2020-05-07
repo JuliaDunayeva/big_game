@@ -67,7 +67,19 @@ div>.card-body div>.card {
 }
 
 .no-padding {
-    top-padding: 25px;
+    padding: 0px;
+}
+
+.no-top-margin {
+    margin-top: 0px;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0px;
+}
+
+.bottom-margin {
+    margin-bottom: 10px;
 }
 
 .progress-bar {
