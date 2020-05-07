@@ -7,7 +7,7 @@
             <form>
                 <div class="form-group">
                     <input required placeholder="User Name" ngModel name="userName" #userName="ngModel" id="userName"
-                        type="text" class="form-control" minlength="5" maxlength="20">
+                        type="text" class="form-control" minlength="4" maxlength="20">
                     <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
                         <div *ngIf="userName.errors.required">
                             Login Name is required
