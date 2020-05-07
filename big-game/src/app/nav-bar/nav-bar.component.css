@@ -1,11 +1,11 @@
 /*roaa code*/
-.navbar{
+.navbar {
     align-content: center;
     height: 100px;
     cursor: pointer;
 }
 
-.nav-btn{
+.nav-btn {
     /*background: rgba(55,101,154,.5);
     border:rgba(55,101,154,.5);*/
     margin-left: 20px;
@@ -22,7 +22,7 @@
     background-color: turquoise;
 }
 
-.nav-profile{
+.nav-profile {
    /* background: rgba(55,101,154,.5);
     border:rgba(55,101,154,.5);*/
     margin-left: 20px;
@@ -37,51 +37,44 @@
     background-color: turquoise;
 }
 
-.nav-btn-big{
+.nav-btn-big {
     width: 208px;
     margin-top: -12px;
-
 }
 
 .nav-btn-big:hover {
     background-color: turquoise;
 }
 
-.hover-box{
-    background-color: #ffff;
-}
 
-.hover-box:hover {
-    background-color: turquoise;
-    text-decoration: none;
-}
 
 .nav-link {
-    
     padding: .7rem 1rem!important;
 }
 
-.flex-center{
+.flex-center {
     justify-content: center;
 }
 
-.inline-block{
+.inline-block {
     display: block;
 }
 
-.inline-flex{
+.inline-flex {
     display: inline-flex;
-   
 }
+
 .padding-bottom{
     padding-bottom: 5px;
 }
+
 .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
     justify-content: center;
 }
-.icon-qualty{
+
+.icon-qualty {
     color: white;
     border-radius: 50%;
     border-color: #f8f9fa;
@@ -100,34 +93,34 @@
     width: 18%;
 }
 
-.font-sm{
+.font-sm {
     font-size: 11px;
 }
 
-.font-md{
+.font-md {
     font-size: 20px;
     color: white;
 }
 
-.font-xmd{
+.font-xmd {
     font-size: 15px;
     color:rgb(73, 131, 186);
     margin-left: 23px;
 }
 
-.font-lg{
+.font-lg {
     font-size: 25px;
     color: white;
 }
 
-.font-xl{
+.font-xl {
     font-size: 60px!important;
     color:rgb(73, 131, 186);
     margin-left: 23px;
     margin-bottom: 24px;
 }
 
-h6{
+h6 {
     margin-bottom: 0rem;
     font-weight: 500;
     line-height: 1.5
@@ -142,16 +135,16 @@ h6{
     padding: .3rem 1.3rem!important;
 }
 
-.icon-angle{
+.icon-angle {
     padding-bottom: 2px;
 }
 
-.img-size{
+.img-size {
     height: 75px;
     width: 151px;
     margin-top: -5px;
 }
-
+/* Profile menu styling */
 .dropdown-divider {
     height: 0;
     width: 155px;
@@ -160,7 +153,16 @@ h6{
     border-top: 1px solid #e9ecef;
 }
 
-.drop-box{
+.hover-box {
+    background-color: #ffff;
+}
+
+.hover-box:hover {
+    background-color: turquoise;
+    text-decoration: none;
+}
+
+.drop-box {
     width: 181px;
 }
 
@@ -169,22 +171,21 @@ h6{
     width: 87%;
 }
 
-.flag-bg{
+.flag-bg {
     height: 55px;
     width: 25px;
     background-color: #ffff;
 }
 
 .flag-bg:hover {
-    
     background-color: turquoise;
 }
 
-.seperate{
+.seperate {
     padding-left: 12px;
     padding-right: 6px;
 }
 
-.up{
+.up {
     margin-top: -4px;
 }
