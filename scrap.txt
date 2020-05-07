@@ -175,3 +175,70 @@
 -->
 
 
+
+     <!-- <ngb-panel id="preventchange_1" title=" Horse Name ">
+                               <ng-template ngbPanelContent let-opened="opened">
+
+                        <div class="col-10 form-group center-text">
+                            Energy
+
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+
+                            <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>--
+                            --<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Health
+                            <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>--
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>--
+                        </div>
+                        <div class="col-10 form-group center-text">
+                            Morale
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+                            <!--<ngb-progressbar type="success" [value]="100"></ngb-progressbar>--
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>--
+                        </div>
+
+                    </ng-template>
+                </ngb-panel>-->
+
+                <!-- 
+                    <ngb-panel id="preventchange_1" title="Skills">
+                    <ng-template ngbPanelContent>
+                        <div class="col-10 form-group center-text ">
+                            Stamina
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Speed
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Dressage
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Gallop
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Trot
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Jumping
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                
+
+                </ng-template>
+                </ngb-panel>
+            -->

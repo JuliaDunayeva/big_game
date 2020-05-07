@@ -26,10 +26,10 @@
 
                 <!-- left panel 1-->
                 <p class="no-padding">
-                    <button type="button" class="btn btn-primary max-width-column mycard-brown" (click)="isLCollapsed1 = !isLCollapsed1" [attr.aria-expanded]="!isLCollapsed1" aria-controls="collapseExample">Care </button>
+                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isLCollapsed1 = !isLCollapsed1" [attr.aria-expanded]="!isLCollapsed1" aria-controls="collapseExample">Care </button>
                 </p>
                 <div id="collapseExample" [ngbCollapse]="isLCollapsed1">
-                    <div class="card mycard-brown ">
+                    <div class="card mycard-green ">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
                         </div>
@@ -37,10 +37,10 @@
                 </div>
                 <!-- left panel 2-->
                 <p class="no-padding">
-                    <button type="button" class="btn btn-primary max-width-column mycard-red" (click)="isLCollapsed2 = !isLCollapsed2" [attr.aria-expanded]="!isLCollapsed2" aria-controls="collapseExample">Night </button>
+                    <button type="button" class="btn btn-primary max-width-column mycard-green  card-title" (click)="isLCollapsed2 = !isLCollapsed2" [attr.aria-expanded]="!isLCollapsed2" aria-controls="collapseExample">Night </button>
                 </p>
                 <div id="collapseExample" [ngbCollapse]="isLCollapsed2">
-                    <div class="card mycard-red">
+                    <div class="card mycard-green">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
                         </div>
@@ -49,10 +49,10 @@
 
                 <!-- left panel 3-->
                 <p class="no-padding">
-                    <button type="button" class="btn btn-primary max-width-column" (click)="isLCollapsed3 = !isLCollapsed3" [attr.aria-expanded]="!isLCollapsed3" aria-controls="collapseExample">Equestrian Centre </button>
+                    <button type="button" class="btn btn-primary max-width-column mycard-green  card-title" (click)="isLCollapsed3 = !isLCollapsed3" [attr.aria-expanded]="!isLCollapsed3" aria-controls="collapseExample">Equestrian Centre </button>
                 </p>
                 <div id="collapseExample" [ngbCollapse]="isLCollapsed3">
-                    <div class="card">
+                    <div class="card mycard-green">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
                         </div>
@@ -61,10 +61,10 @@
 
                 <!-- left panel 4-->
                 <p class="no-padding">
-                    <button type="button" class="btn btn-primary max-width-column" (click)="isLCollapsed4 = !isLCollapsed4" [attr.aria-expanded]="!isLCollapsed4" aria-controls="collapseExample">History</button>
+                    <button type="button" class="btn btn-primary max-width-column  mycard-green card-title" (click)="isLCollapsed4 = !isLCollapsed4" [attr.aria-expanded]="!isLCollapsed4" aria-controls="collapseExample">History</button>
                 </p>
                 <div id="collapseExample" [ngbCollapse]="isLCollapsed4">
-                    <div class="card">
+                    <div class="card mycard-green">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
                         </div>
@@ -81,12 +81,12 @@
 
 
             <p class="no-padding">
-                <button type="button" class="btn btn-primary max-width-column mycard-brown" [attr.aria-expanded]="!isMCollapsed" aria-controls="collapseExample">Horse Name</button>
+                <button type="button" class="btn btn-primary max-width-top-middle-column mycard-light-green  card-title" [attr.aria-expanded]="!isMCollapsed" aria-controls="collapseExample">Horse Name</button>
                 <!-- (click)="isMCollapsed = !isMCollapsed" -->
             </p>
 
             <div id="collapseExample" [ngbCollapse]="isMCollapsed">
-                <div class="card mycard-brown">
+                <div class="card mycard-light-green  card-middle-title">
 
                     <div class="card-body">
                         <div class="col-10 form-group center-text">
@@ -98,7 +98,7 @@
                             <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>-->
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
-                        <div class="col-10 form-group center-text ">
+                        <div class="col-10 form-group center-text  card-middle-title">
                             Health
                             <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>-->
                             <div id="progressbar">
@@ -107,7 +107,7 @@
 
                             <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                         </div>
-                        <div class="col-10 form-group center-text">
+                        <div class="col-10 form-group center-text  card-middle-title">
                             Morale
                             <div id="progressbar">
                                 <div></div>
@@ -119,76 +119,98 @@
                 </div>
             </div>
 
-            <ngb-accordion #acc="ngbAccordion" activeIds="preventchange_1" (toggle)="preventchange_1" (panelChange)="beforeChange($event)">
-                <!-- <ngb-panel id="preventchange_1" title=" Horse Name ">
-                               <ng-template ngbPanelContent let-opened="opened">
+            <p class="no-padding">
+                <button type="button" class="btn btn-primary max-width-middle-column mycard-light-green  card-title" [attr.aria-expanded]="!isMCollapsed" aria-controls="collapseExample">Skills</button>
+                <!-- (click)="isMCollapsed = !isMCollapsed" -->
+            </p>
 
-                        <div class="col-10 form-group center-text">
-                            Energy
+            <div id="collapseExample" [ngbCollapse]="isMCollapsed">
+                <div class="card mycard-light-green">
 
-                            <div id="progressbar">
-                                <div></div>
-                            </div>
+                    <div class="card-body">
 
-                            <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>--
-                            --<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-
-                        </div>
-                        <div class="col-10 form-group center-text ">
-                            Health
-                            <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>--
-                            <div id="progressbar">
-                                <div></div>
-                            </div>
 
-                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>--
-                        </div>
-                        <div class="col-10 form-group center-text">
-                            Morale
-                            <div id="progressbar">
-                                <div></div>
-                            </div>
-                            <!--<ngb-progressbar type="success" [value]="100"></ngb-progressbar>--
-                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>--
-                        </div>
-
-                    </ng-template>
-                </ngb-panel>-->
-
-                <ngb-panel id="preventchange_1" title="Skills">
-                    <ng-template ngbPanelContent>
-                        <div class="col-10 form-group center-text ">
+                        <div class="col-10 form-group center-text  card-middle-title">
                             Stamina
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-10 form-group center-text ">
+                        <div class="col-10 form-group center-text  card-middle-title ">
                             Speed
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-10 form-group center-text ">
+                        <div class="col-10 form-group center-text  card-middle-title ">
                             Dressage
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-10 form-group center-text ">
+                        <div class="col-10 form-group center-text  card-middle-title">
                             Gallop
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-10 form-group center-text ">
+                        <div class="col-10 form-group center-text card-middle-title ">
                             Trot
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-10 form-group center-text ">
+                        <div class="col-10 form-group center-text card-middle-title ">
                             Jumping
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
 
-                    </ng-template>
-                </ngb-panel>
+                        <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>-->
+                        <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
 
 
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <ngb-accordion #acc="ngbAccordion" activeIds="preventchange_1" (toggle)="preventchange_1" (panelChange)="beforeChange($event)">
                 <ngb-panel id="preventchange_1" title="">
-                    <ng-template ngbPanelContent>
+                    <ng-template ngbPanelContent>-->
+            <div class="row">
+                <div class="col-6">
+                    <div id="collapseExample" [ngbCollapse]="isMCollapsed">
+                        <div class="card mycard-light-green  card-middle-title">
 
-                        <nav ngbNav #nav="ngbNav" class="nav-tabs">
+                            <div class="card-body">
+                                Tack
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="collapseExample" [ngbCollapse]="isMCollapsed">
+                        <div class="card mycard-light-green  card-middle-title">
+
+                            <div class="card-body">
+                                Items
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div id="collapseExample" [ngbCollapse]="isMCollapsed">
+                        <div class="card mycard-light-green card-middle-title">
+
+                            <div class="card-body">
+                                Victories
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="collapseExample" [ngbCollapse]="isMCollapsed">
+                <div class="card mycard-light-green">
+
+                    <div class="card-body">
+
+                        <nav ngbNav #nav="ngbNav" class="nav-tabs mycard-light-green">
                             <ng-container ngbNavItem>
                                 <a ngbNavLink>Characteristics</a>
                                 <ng-template ngbNavContent>
@@ -205,7 +227,7 @@
                                 </ng-template>
                             </ng-container>
                             <ng-container ngbNavItem>
-                                <a ngbNavLink>Bonus</a>
+                                <a ngbNavLink class="mycard-light-green">Bonus</a>
                                 <ng-template ngbNavContent>
                                     <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue
                                         et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus
@@ -215,13 +237,16 @@
                             </ng-container>
                         </nav>
 
-                        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                        <div [ngbNavOutlet]="nav" class="mt-2 mycard-light-green"></div>
 
                         <!--middle column panel 3 goes here-->
-                    </ng-template>
-                </ngb-panel>
+                        <!-- </ng-template>
+                        </ngb-panel>
 
-            </ngb-accordion>
+                        </ngb-accordion> -->
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -232,10 +257,10 @@
             <div class="row center-text">
                 <!--right  panel 1-->
                 <p>
-                    <button type="button" class="btn btn-primary max-width-column" (click)="isRCollapsed = !isRCollapsed" [attr.aria-expanded]="!isRCollapsed" aria-controls="collapseExample">Rides </button>
+                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isRCollapsed = !isRCollapsed" [attr.aria-expanded]="!isRCollapsed" aria-controls="collapseExample">Rides </button>
                 </p>
                 <div id="collapseExample" [ngbCollapse]="isRCollapsed">
-                    <div class="card ">
+                    <div class="card mycard-green ">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
                         </div>
@@ -244,10 +269,10 @@
 
                 <!--right  panel 2-->
                 <p>
-                    <button type="button" class="btn btn-primary max-width-column" (click)="isRCollapsed2 = !isRCollapsed2" [attr.aria-expanded]="!isRCollapsed2" aria-controls="collapseExample">Training </button>
+                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isRCollapsed2 = !isRCollapsed2" [attr.aria-expanded]="!isRCollapsed2" aria-controls="collapseExample">Training </button>
                 </p>
                 <div id="collapseExample" [ngbCollapse]="isRCollapsed2">
-                    <div class="card ">
+                    <div class="card mycard-green">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
                         </div>
@@ -256,10 +281,10 @@
 
                 <!--right  panel 3 -->
                 <p>
-                    <button type="button" class="btn btn-primary max-width-column" (click)="isRCollapsed3 = !isRCollapsed3" [attr.aria-expanded]="!isRCollapsed3" aria-controls="collapseExample">Competition </button>
+                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isRCollapsed3 = !isRCollapsed3" [attr.aria-expanded]="!isRCollapsed3" aria-controls="collapseExample">Competition </button>
                 </p>
                 <div id="collapseExample" [ngbCollapse]="isRCollapsed3">
-                    <div class="card ">
+                    <div class="card mycard-green">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
                         </div>
@@ -268,10 +293,10 @@
 
                 <!--right  panel 4-->
                 <p>
-                    <button type="button" class="btn btn-primary max-width-column" (click)="isRCollapsed4 = !isRCollapsed4" [attr.aria-expanded]="!isRCollapsed4" aria-controls="collapseExample">Breeding </button>
+                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isRCollapsed4 = !isRCollapsed4" [attr.aria-expanded]="!isRCollapsed4" aria-controls="collapseExample">Breeding </button>
                 </p>
                 <div id="collapseExample" [ngbCollapse]="isRCollapsed4">
-                    <div class="card ">
+                    <div class="card mycard-green ">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
                         </div>
