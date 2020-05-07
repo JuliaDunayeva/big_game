@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 
 @Component({
   selector: 'app-horse-page',
