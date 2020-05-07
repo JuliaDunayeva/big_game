@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-4">
-            <button class="btn-signup" type="submit" (click)="signUp()">Sign-Up</button>
+            <button class="btn btn-primary sign-up" type="submit" (click)="signUp()">Sign-Up</button>
             <a href ="https://www.facebook.com/">
                 <h6 class="info-facebook">Or sign up with Facebook 
                     <img class="fb-icon" src="./assets/images/home-page/facebook.jpg">
@@ -53,16 +53,16 @@
             <h2 class="info-lowertext">
                 Howrse on your mobile device</h2>
             <h5 class="info-lowertext">
-                Get Howrse on your iPhone or Android phone: look for Howrse on the Appstore and Google Play Store.
+                Get Howrse on your iPhone or Android phone: look for Howrse on the Appstore and Google Play.
             </h5>
             <a href="https://apps.apple.com/ca/app/app-store-connect/id1234793120">
-                <button class="btn-white" type="submit">
-                    <img class="fb-icon" src="./assets/images/home-page/app-store.png"> App Store
+                <button class=" store-btn btn btn-primary" type="submit">
+                    <i class="app store icon"></i>App Store
                 </button>
             </a>
             <a href="https://play.google.com/store">
-                <button class="btn-white" type="submit">
-                    <img class="fb-icon" src="./assets/images/home-page/2.png"> Google Play
+                <button class=" store-btn btn btn-primary" type="submit">
+                    <i class="google play icon"></i> Google Play
                 </button>
             </a>
         </div>
@@ -80,5 +80,10 @@
         viruses or other harmful components.
     </p>
 </div>
-
-<app-footer></app-footer>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <app-footer></app-footer>
+    </div>
+    <div class="col-md-2"></div>
+</div>

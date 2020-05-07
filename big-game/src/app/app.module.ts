@@ -23,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PlayBarComponent } from './play-bar/play-bar.component';
 import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
 import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
+import { FlagsComponent } from './home-page/flags/flags.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
     FooterComponent,
     PlayBarComponent,
     LoginBtnComponent,
-    SignFormComponent
+    SignFormComponent,
+    FlagsComponent
   ],
   
    
