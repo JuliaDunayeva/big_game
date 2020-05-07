@@ -3,8 +3,9 @@
     <form>
         <div *ngFor="let horse of horseCollection.horses">
             <label>
+                {{horse.name}}
                 <input type="radio" [id]="horse.name" name="horseName" [value]="horse.name">
-                {{horse.name}}<br>
+                <br>
             </label>
         </div>
     </form>
