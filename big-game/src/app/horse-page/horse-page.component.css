@@ -3,8 +3,8 @@
 }
 
 .gradient {
-    background: rgb(242,6,6);
-    background: linear-gradient(90deg, rgba(242,6,6,1) 0%, rgba(247,244,5,1) 50%, rgba(0,255,29,1) 100%); 
+    background: rgb(242, 6, 6);
+    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
 .center-text {
@@ -13,13 +13,79 @@
 
 .card-bkgrnd {}
 
-.max-width-column {
-    min-width: 200px;
-    max-width: 250px;
+.card-title {
+    font-weight: bold;
 }
 
-ngb-accordion>div.card {
-    border-radius: 0;
-    border-style: dotted red;
-    ;
+.mycard-red {
+    background-color: red;
+    color: white;
+}
+
+.mycard-brown {
+    background-color: burlywood;
+    color: white;
+}
+
+.mycard-green {
+    background-color: #DCDB81;
+    color: #663300;
+}
+
+.mycard-dark-red {
+    /*background-color: #663300;*/
+    color: #663300;
+}
+
+.mycard-light-green {
+    background-color: #F0F0B2;
+    color: #663300;
+}
+
+.max-width-column {
+    min-width: 285px;
+    /*max-width: 250px;*/
+}
+
+.max-width-top-middle-column {
+    width: 400px;
+    /*max-width: 250px;*/
+}
+
+.max-width-middle-column {
+    width: 540px;
+    /*max-width: 250px;*/
+}
+
+div>.card-body div>.card {
+    padding: 0px;
+    color: red;
+}
+
+.panel-padding {
+    padding: 10px;
+}
+
+.no-padding {
+    top-padding: 25px;
+}
+
+.progress-bar {
+    background-image: linear-gradient(to right, green, red);
+}
+
+#progressbar {
+    background-color: white;
+    border-radius: 13px;
+    /* (height of inner div) / 2 + padding */
+    padding: 3px;
+}
+
+#progressbar>div {
+    background-color: orange;
+    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+    width: 70%;
+    /* Adjust with JavaScript */
+    height: 15px;
+    border-radius: 10px;
 }
