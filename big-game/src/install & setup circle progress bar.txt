@@ -1,0 +1,3 @@
+npm install ng-circle-progress --save
+
+npm run build

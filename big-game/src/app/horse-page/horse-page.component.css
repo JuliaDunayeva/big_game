@@ -7,6 +7,12 @@
     background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
+.btn::active {
+    /*color: #bebd59;*/
+    color: red;
+    border: 1px solid #BEBD58;
+}
+
 .center-text {
     text-align: center;
 }
@@ -15,6 +21,10 @@
 
 .card-title {
     font-weight: bold;
+}
+
+.card-title-border {
+    border: 2px solid #BEBD58;
 }
 
 .mycard-red {
@@ -67,7 +77,23 @@ div>.card-body div>.card {
 }
 
 .no-padding {
-    top-padding: 25px;
+    padding: 0px;
+}
+
+.no-top-margin {
+    margin-top: 0px;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0px;
+}
+
+.top-margin: {
+    margin-top: 20px;
+}
+
+.bottom-margin {
+    margin-bottom: 20px;
 }
 
 .progress-bar {
@@ -79,6 +105,14 @@ div>.card-body div>.card {
     border-radius: 13px;
     /* (height of inner div) / 2 + padding */
     padding: 3px;
+}
+
+.time-left-padding {
+    padding-left: 35px;
+}
+
+.time-top-padding {
+    padding-top: 50px;
 }
 
 #progressbar>div {

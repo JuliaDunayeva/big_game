@@ -1,53 +1,59 @@
+<!-- You can now use it in app.component.html -->
+
+
 <div class="container">
-    <app-nav-bar></app-nav-bar> <!-- account nav bar here-->
+    <app-nav-bar></app-nav-bar>
+    <!-- account nav bar here-->
     <br>
-    <app-play-bar></app-play-bar> <!-- game nav bar placement-->
+    <app-play-bar></app-play-bar>
+    <!-- game nav bar placement-->
     <br><br>
-    <div class="row">  <!-- horse information placement-->
+    <div class="row">
+        <!-- horse information placement-->
         <div class="col-3 max-width-column">
             <div class="row center-text">
                 <!-- left panel 1-->
-                <p class="no-padding">
-                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isLCollapsed1 = !isLCollapsed1" [attr.aria-expanded]="!isLCollapsed1" aria-controls="collapseExample">Care </button>
+                <p class="no-bottom-margin  top-margin">
+                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title no-bottom-margin  card-title-border" (click)="isLCollapsed1=! isLCollapsed1 " [attr.aria-expanded]="!isLCollapsed1 " aria-controls="collapseExample ">Care </button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="isLCollapsed1">
-                    <div class="card mycard-green ">
-                        <div class="card-body">
+                <div class="no-top-margin" id="collapseExample" [ngbCollapse]="isLCollapsed1">
+                    <div class="card mycard-green bottom-margin ">
+                        <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
                 </div>
                 <!-- left panel 2-->
-                <p class="no-padding">
-                    <button type="button" class="btn btn-primary max-width-column mycard-green  card-title" (click)="isLCollapsed2 = !isLCollapsed2" [attr.aria-expanded]="!isLCollapsed2" aria-controls="collapseExample">Night </button>
+                <p class="no-bottom-margin top-margin">
+                    <button type="button " class="btn btn-primary max-width-column mycard-green card-title no-bottom-margin card-title-border " (click)="isLCollapsed2=! isLCollapsed2 " [attr.aria-expanded]="!isLCollapsed2 " aria-controls="collapseExample ">Night </button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="isLCollapsed2">
-                    <div class="card mycard-green">
-                        <div class="card-body">
+                <div id="collapseExample " [ngbCollapse]="isLCollapsed2 ">
+                    <div class="card mycard-green bottom-margin no-padding ">
+                        <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
                 </div>
 
                 <!-- left panel 3-->
-                <p class="no-padding">
-                    <button type="button" class="btn btn-primary max-width-column mycard-green  card-title" (click)="isLCollapsed3 = !isLCollapsed3" [attr.aria-expanded]="!isLCollapsed3" aria-controls="collapseExample">Equestrian Centre </button>
+                <p class="no-bottom-margin">
+                    <button type="button " class="btn btn-primary max-width-column mycard-green card-title no-bottom-margin  top-margin  card-title-border" (click)="isLCollapsed3=! isLCollapsed3 " [attr.aria-expanded]="!isLCollapsed3 " aria-controls="collapseExample ">Equestrian Centre </button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="isLCollapsed3">
-                    <div class="card mycard-green">
-                        <div class="card-body">
+                <div id="collapseExample " [ngbCollapse]="isLCollapsed3 ">
+                    <div class="card mycard-green  bottom-margin no-padding">
+                        <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
                 </div>
 
                 <!-- left panel 4-->
-                <p class="no-padding">
-                    <button type="button" class="btn btn-primary max-width-column  mycard-green card-title" (click)="isLCollapsed4 = !isLCollapsed4" [attr.aria-expanded]="!isLCollapsed4" aria-controls="collapseExample">History</button>
+                <p class="no-bottom-margin">
+                    <button type="button " class="btn btn-primary max-width-column mycard-green card-title no-bottom-margin  top-margin card-title-border " (click)="isLCollapsed4=! isLCollapsed4 " [attr.aria-expanded]="!isLCollapsed4 " aria-controls="collapseExample ">History</button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="isLCollapsed4">
-                    <div class="card mycard-green">
-                        <div class="card-body">
+                <div id="collapseExample " [ngbCollapse]="isLCollapsed4 ">
+                    <div class="card mycard-green  bottom-margin no-padding">
+                        <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
@@ -57,74 +63,80 @@
 
             </div>
         </div>
-        <div class="col-6 center-text">
+        <div class="col-6 center-text ">
 
-            <img class="col-6" src="/assets/images/horses/horse1.jpg" />
+            <img class="col-6 " src="/assets/images/horses/horse1.jpg " />
 
 
-            <p class="no-padding">
-                <button type="button" class="btn btn-primary max-width-top-middle-column mycard-light-green  card-title" [attr.aria-expanded]="!isMCollapsed" aria-controls="collapseExample">Horse Name</button>
-                <!-- (click)="isMCollapsed = !isMCollapsed" -->
+            <p class="no-bottom-margin">
+                <button type="button " class="btn btn-primary max-width-top-middle-column mycard-light-green card-title no-bottom-margin card-title-border " [attr.aria-expanded]="!isMCollapsed " aria-controls="collapseExample ">Horse Name</button>
+                <!-- (click)="isMCollapsed=! isMCollapsed " -->
             </p>
 
-            <div id="collapseExample" [ngbCollapse]="isMCollapsed">
-                <div class="card mycard-light-green  card-middle-title">
+            <div id="collapseExample " [ngbCollapse]="isMCollapsed ">
+                <div class="card mycard-light-green card-middle-title ">
+                    <div class="row ">
+                        <circle-progress class="time-left-padding time-top-padding " [clockwise]="false " [percent]="85 " [radius]="35 " [outerStrokeWidth]="10 " [innerStrokeWidth]="4 " [outerStrokeColor]=" '#78C000' " [innerStrokeColor]=" '#C7E596'
+                    " [animation]="false " [animationDuration]="300 " [showBackground]="true "></circle-progress>
 
-                    <div class="card-body">
-                        <div class="col-10 form-group center-text">
-                            Energy
-                            <div id="progressbar">
-                                <div></div>
-                            </div>
+                        <div class="card-body ">
+                            <div class="col-10 form-group center-text ">
+                                Energy
+                                <div id="progressbar">
+                                    <div></div>
+                                </div>
 
-                            <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>-->
-                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
-                        </div>
-                        <div class="col-10 form-group center-text  card-middle-title">
-                            Health
-                            <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>-->
-                            <div id="progressbar">
-                                <div></div>
+                                <!--<ngb-progressbar type=" " [value]="25 "></ngb-progressbar>-->
+                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
+                            <div class="col-10 form-group center-text card-middle-title ">
+                                Health
+                                <!--<ngb-progressbar type="warning " [value]="50 "></ngb-progressbar>-->
+                                <div id="progressbar">
+                                    <div></div>
+                                </div>
 
-                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
-                        </div>
-                        <div class="col-10 form-group center-text  card-middle-title">
-                            Morale
-                            <div id="progressbar">
-                                <div></div>
+                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
-                            <!--<ngb-progressbar type="success" [value]="100"></ngb-progressbar>-->
-                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
+                            <div class="col-10 form-group center-text card-middle-title ">
+                                Morale
+                                <div id="progressbar">
+                                    <div></div>
+                                </div>
+                                <!--<ngb-progressbar type="success " [value]="100 "></ngb-progressbar>-->
+                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
-            <p class="no-padding">
-                <button type="button" class="btn btn-primary max-width-middle-column mycard-light-green  card-title" [attr.aria-expanded]="!isMCollapsed" aria-controls="collapseExample">Skills</button>
-                <!-- (click)="isMCollapsed = !isMCollapsed" -->
+            <!-- top middle panel -->
+            <p class="no-bottom-margin">
+                <button type="button " class="btn btn-primary max-width-middle-column mycard-light-green card-title  no-bottom-margin card-title-border " [attr.aria-expanded]="!isMCollapsed " aria-controls="collapseExample ">Skills</button>
+
             </p>
 
-            <div id="collapseExample" [ngbCollapse]="isMCollapsed">
-                <div class="card mycard-light-green">
+            <div class="no-top-margin " id="collapseExample " [ngbCollapse]="isMCollapsed ">
+                <div class="card mycard-light-green ">
 
-                    <div class="card-body">
+                    <div class="card-body ">
 
 
-                        <div class="col-10 form-group center-text  card-middle-title">
+                        <div class="col-10 form-group center-text card-middle-title ">
                             Stamina
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-10 form-group center-text  card-middle-title ">
+                        <div class="col-10 form-group center-text card-middle-title ">
                             Speed
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-10 form-group center-text  card-middle-title ">
+                        <div class="col-10 form-group center-text card-middle-title ">
                             Dressage
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-10 form-group center-text  card-middle-title">
+                        <div class="col-10 form-group center-text card-middle-title ">
                             Gallop
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
@@ -137,35 +149,27 @@
                             <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
                         </div>
 
-                        <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>-->
-                        <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
-
-
-
                     </div>
                 </div>
             </div>
 
-
-            <!-- <ngb-accordion #acc="ngbAccordion" activeIds="preventchange_1" (toggle)="preventchange_1" (panelChange)="beforeChange($event)">
-                <ngb-panel id="preventchange_1" title="">
-                    <ng-template ngbPanelContent>-->
-            <div class="row">
+            <!-- middle panel-->
+            <div class="row ">
                 <div class="col-6">
-                    <div id="collapseExample" [ngbCollapse]="isMCollapsed">
-                        <div class="card mycard-light-green  card-middle-title">
+                    <div id="collapseExample " [ngbCollapse]="isMCollapsed ">
+                        <div class="card mycard-light-green card-middle-title">
 
-                            <div class="card-body">
+                            <div class="card-body card-title ">
                                 Tack
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div id="collapseExample" [ngbCollapse]="isMCollapsed">
-                        <div class="card mycard-light-green  card-middle-title">
+                    <div id="collapseExample " [ngbCollapse]="isMCollapsed ">
+                        <div class="card mycard-light-green card-middle-title">
 
-                            <div class="card-body">
+                            <div class="card-body card-title ">
                                 Items
                             </div>
                         </div>
@@ -173,13 +177,18 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <div id="collapseExample" [ngbCollapse]="isMCollapsed">
-                        <div class="card mycard-light-green card-middle-title">
+            <!-- middle bottom panel -->
+            <div class="row ">
+                <div class="col-12 ">
+                    <div id="collapseExample " [ngbCollapse]="isMCollapsed ">
+                        <div class="card mycard-light-green card-middle-title ">
 
-                            <div class="card-body">
+                            <div class="card-body card-title ">
                                 Victories
+                            </div>
+                            <div>
+                                <p>Breed</p>
+
                             </div>
                         </div>
                     </div>
@@ -187,21 +196,21 @@
             </div>
 
 
-            <div id="collapseExample" [ngbCollapse]="isMCollapsed">
-                <div class="card mycard-light-green">
+            <div id="collapseExample " [ngbCollapse]="isMCollapsed ">
+                <div class="card mycard-light-green ">
 
-                    <div class="card-body">
+                    <div class="card-body ">
 
-                        <nav ngbNav #nav="ngbNav" class="nav-tabs mycard-light-green">
+                        <nav ngbNav #nav="ngbNav" class="nav-tabs mycard-light-green ">
                             <ng-container ngbNavItem>
-                                <a ngbNavLink class="mycard-light-green">Characteristics</a>
+                                <a ngbNavLink class="mycard-light-green ">Characteristics</a>
                                 <ng-template ngbNavContent>
                                     <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
                                         dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
                                 </ng-template>
                             </ng-container>
                             <ng-container ngbNavItem>
-                                <a ngbNavLink class="mycard-light-green">Genetic</a>
+                                <a ngbNavLink class="mycard-light-green ">Genetic</a>
                                 <ng-template ngbNavContent>
                                     <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
                                         ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
@@ -209,7 +218,7 @@
                                 </ng-template>
                             </ng-container>
                             <ng-container ngbNavItem>
-                                <a ngbNavLink class="mycard-light-green">Bonus</a>
+                                <a ngbNavLink class="mycard-light-green ">Bonus</a>
                                 <ng-template ngbNavContent>
                                     <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue
                                         et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus
@@ -219,13 +228,8 @@
                             </ng-container>
                         </nav>
 
-                        <div [ngbNavOutlet]="nav" class="mt-2 mycard-light-green"></div>
+                        <div [ngbNavOutlet]="nav " class="mt-2 mycard-light-green "></div>
 
-                        <!--middle column panel 3 goes here-->
-                        <!-- </ng-template>
-                        </ngb-panel>
-
-                        </ngb-accordion> -->
                     </div>
                 </div>
             </div>
@@ -234,52 +238,52 @@
 
 
         </div>
-        <div class="col-3 max-width-column">
+        <div class="col-3 max-width-column ">
             <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
-            <div class="row center-text">
+            <div class="row center-text ">
                 <!--right  panel 1-->
-                <p>
-                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isRCollapsed = !isRCollapsed" [attr.aria-expanded]="!isRCollapsed" aria-controls="collapseExample">Rides </button>
+                <p class="no-bottom-margin">
+                    <button type="button " class="btn btn-primary max-width-column mycard-green card-title no-bottom-margin card-title-border " (click)="isRCollapsed=! isRCollapsed " [attr.aria-expanded]="!isRCollapsed " aria-controls="collapseExample ">Rides </button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="isRCollapsed">
-                    <div class="card mycard-green ">
-                        <div class="card-body">
+                <div id="collapseExample " [ngbCollapse]="isRCollapsed ">
+                    <div class="card mycard-green  bottom-margin no-padding">
+                        <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
                 </div>
 
                 <!--right  panel 2-->
-                <p>
-                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isRCollapsed2 = !isRCollapsed2" [attr.aria-expanded]="!isRCollapsed2" aria-controls="collapseExample">Training </button>
+                <p class="no-bottom-margin">
+                    <button type="button " class="btn btn-primary max-width-column mycard-green card-title  no-bottom-margin card-title-border" (click)="isRCollapsed2=! isRCollapsed2 " [attr.aria-expanded]="!isRCollapsed2 " aria-controls="collapseExample ">Training </button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="isRCollapsed2">
-                    <div class="card mycard-green">
-                        <div class="card-body">
+                <div id="collapseExample " [ngbCollapse]="isRCollapsed2 ">
+                    <div class="card mycard-green  bottom-margin no-padding">
+                        <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
                 </div>
 
                 <!--right  panel 3 -->
-                <p>
-                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isRCollapsed3 = !isRCollapsed3" [attr.aria-expanded]="!isRCollapsed3" aria-controls="collapseExample">Competition </button>
+                <p class="no-bottom-margin">
+                    <button type="button " class="btn btn-primary max-width-column mycard-green card-title  no-bottom-margin card-title-border " (click)="isRCollapsed3=! isRCollapsed3 " [attr.aria-expanded]="!isRCollapsed3 " aria-controls="collapseExample ">Competition </button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="isRCollapsed3">
-                    <div class="card mycard-green">
-                        <div class="card-body">
+                <div id="collapseExample " [ngbCollapse]="isRCollapsed3 ">
+                    <div class="card mycard-green bottom-margin no-padding ">
+                        <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
                 </div>
 
                 <!--right  panel 4-->
-                <p>
-                    <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isRCollapsed4 = !isRCollapsed4" [attr.aria-expanded]="!isRCollapsed4" aria-controls="collapseExample">Breeding </button>
+                <p class="no-bottom-margin">
+                    <button type="button " class="btn btn-primary max-width-column mycard-green card-title no-bottom-margin  card-title-border" (click)="isRCollapsed4=! isRCollapsed4 " [attr.aria-expanded]="!isRCollapsed4 " aria-controls="collapseExample ">Breeding </button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="isRCollapsed4">
-                    <div class="card mycard-green ">
-                        <div class="card-body">
+                <div id="collapseExample " [ngbCollapse]="isRCollapsed4 ">
+                    <div class="card mycard-green  bottom-margin no-padding">
+                        <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
@@ -293,7 +297,7 @@
     </div>
 
     <!-- foter goes here placement-->
-    <div class="row">
+    <div class="row ">
         <div class="col-sm ">
             <app-footer></app-footer>
         </div>
