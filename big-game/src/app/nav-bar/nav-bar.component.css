@@ -1,30 +1,22 @@
-/*roaa code*/
-.navbar{
+/* Main Nav Bar styling components */
+
+.navbar {
     align-content: center;
     height: 100px;
     cursor: pointer;
 }
 
-.nav-btn{
-    /*background: rgba(55,101,154,.5);
-    border:rgba(55,101,154,.5);*/
-    margin-left: 20px;
-    padding:0px;
-    border-radius: 20px;
-    color: white;
-    background:rgb(73, 131, 186);
-    border:none;
-    width: 88px;
-    height: 45px;
+ul {
+ margin: 0;
 }
 
-.nav-btn:hover {
-    background-color: turquoise;
+.navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: center;
 }
 
-.nav-profile{
-   /* background: rgba(55,101,154,.5);
-    border:rgba(55,101,154,.5);*/
+.nav-profile {
     margin-left: 20px;
     padding:0px;
     color: white;
@@ -37,58 +29,89 @@
     background-color: turquoise;
 }
 
-.nav-btn-big{
-    width: 208px;
-    margin-top: -12px;
+.nav-btn {
+    margin-left: 20px;
+    padding:0px;
+    border-radius: 25px;
+    color: white !important;
+    background:rgb(73, 131, 186);
+    border:none;
+    width: 105px;
+    height: 45px;
+}
 
+.nav-btn:hover {
+    background-color: turquoise;
 }
 
 .nav-btn-big:hover {
     background-color: turquoise;
 }
 
-.hover-box{
-    background-color: #ffff;
+.img-size {
+    margin-top: 10px;
 }
 
-.hover-box:hover {
-    background-color: turquoise;
-    text-decoration: none;
+/* Start Pack Styling Components */
+.nav-btn-big {
+    width: 208px;
+    margin-top: 0px;
+}
+
+h4{ 
+    margin-right: -8px;
+    margin-top: 4px;
+}
+
+.btn-round {
+    margin-top: -9px;
+    margin-right: -17px;
+    margin-left: 59px;
+    border-style: solid;
+    border-color: #61C5C9;
+    border-width: 5px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+/* Equus & Passes Styling Components */
+h6 {
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.btn-round-sml {
+    margin-top: -10px;
+    margin-right: -17px;
+    margin-left: 14px;
+    border-style: solid;
+    border-color: #61C5C9;
+    border-width: 5px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.over-right {
+    margin-left: 20px;
 }
 
 .nav-link {
-    
-    padding: .7rem 1rem!important;
+    padding: .4rem 1rem!important;
+    color: white;
 }
 
-.flex-center{
-    justify-content: center;
+.inline-flex {
+    display: inline-flex;
 }
 
-.inline-block{
+.inline-block {
     display: block;
 }
 
-.inline-flex{
-    display: inline-flex;
-   
-}
-.padding-bottom{
-    padding-bottom: 5px;
-}
-.navbar-expand-lg .navbar-collapse {
-    display: flex !important;
-    flex-basis: auto;
+.flex-center {
     justify-content: center;
-}
-.icon-qualty{
-    color: white;
-    border-radius: 50%;
-    border-color: #f8f9fa;
-}
-
-.bg-blue {
-    background-color: #60c4c9!important;
 }
 
 .icon-margin{
@@ -100,58 +123,56 @@
     width: 18%;
 }
 
-.font-sm{
+.font-sm {
     font-size: 11px;
 }
 
-.font-md{
+.font-md {              /* used by +'s */
     font-size: 20px;
-    color: white;
+    margin-left: 8px;
+    margin-top: 5px;
 }
 
-.font-xmd{
+.font-md2 {              /* used by mail & profile buttons */
+    font-size: 25px;
+    margin: 0;
+    height: 38px;
+}
+
+.font-xmd {
     font-size: 15px;
     color:rgb(73, 131, 186);
     margin-left: 23px;
 }
 
-.font-lg{
-    font-size: 25px;
+.font-lg {          /* used by > symbol in start pack */
+    font-size: 30px;
+    margin-left: 4px;
+    margin-top: -1px;
+}
+
+.leaf-size {        /* used by the leaf on nav bar */
+    font-size: 30px;
+    margin-top: -10px;
     color: white;
 }
 
-.font-xl{
+.font-xl {      /* used by profile pic icon */
     font-size: 60px!important;
     color:rgb(73, 131, 186);
     margin-left: 23px;
     margin-bottom: 24px;
 }
 
-h6{
-    margin-bottom: 0rem;
-    font-weight: 500;
-    line-height: 1.5
-}
-
-.nav-link {
-    padding: .3rem 1rem 1em 1.3rem!important;
-    color: #ffff;
-}
-
-.nav-link-big {
+/* .nav-link-big {
     padding: .3rem 1.3rem!important;
-}
+} */
 
-.icon-angle{
+.icon-angle {
     padding-bottom: 2px;
 }
 
-.img-size{
-    height: 75px;
-    width: 151px;
-    margin-top: -5px;
-}
-
+/* Profile menu styling */
 .dropdown-divider {
     height: 0;
     width: 155px;
@@ -160,7 +181,16 @@ h6{
     border-top: 1px solid #e9ecef;
 }
 
-.drop-box{
+.hover-box {
+    background-color: #ffff;
+}
+
+.hover-box:hover {
+    background-color: turquoise;
+    text-decoration: none;
+}
+
+.drop-box {
     width: 181px;
 }
 
@@ -169,22 +199,22 @@ h6{
     width: 87%;
 }
 
-.flag-bg{
+.seperate {
+    padding-left: 12px;
+    padding-right: 6px;
+}
+
+.flag-bg {
     height: 55px;
     width: 25px;
     background-color: #ffff;
 }
 
 .flag-bg:hover {
-    
     background-color: turquoise;
 }
 
-.seperate{
-    padding-left: 12px;
-    padding-right: 6px;
-}
-
-.up{
-    margin-top: -4px;
-}
+    /* keep if needed ...
+    background: rgba(55,101,154,.5);
+    border:rgba(55,101,154,.5);
+    */
