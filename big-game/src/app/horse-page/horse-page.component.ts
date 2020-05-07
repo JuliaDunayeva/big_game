@@ -4,6 +4,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
 
+
+
 @Component({
   selector: 'app-horse-page',
   templateUrl: './horse-page.component.html',

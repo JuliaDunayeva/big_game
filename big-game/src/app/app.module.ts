@@ -2,8 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 //import { NgbdRatingForm } from './rating-form';
+
+// Import ng-circle-progress
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PlayBarComponent } from './play-bar/play-bar.component';
 import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
 import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
+
 
 @NgModule({
   declarations: [
@@ -42,8 +47,19 @@ import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
     //,NgbModule.forRoot()
+     // Specify ng-circle-progress as an import
+     NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
+
   ],
  // exports: [NgbdRatingForm],
   providers: [],
