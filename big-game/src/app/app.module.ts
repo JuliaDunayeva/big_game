@@ -42,7 +42,7 @@ import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
     //,NgbModule.forRoot()
   ],
  // exports: [NgbdRatingForm],
