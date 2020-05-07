@@ -4,10 +4,10 @@
   margin-top: 10px;
 }
 
-.sign-up {
+.btn-signup {
   background-color: #E5FF70;
   color: black;
-  border: 2px solid black;
+  border: 2px solid green;
   font-weight: 600;
   font-size: 1rem;
   padding: 8px 50px 8px 50px;
