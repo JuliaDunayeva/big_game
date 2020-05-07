@@ -20,19 +20,19 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="email" id="Emaill" class="form-control" required placeholder="Emaill" ngModel
-                        name="Emaill" #Emaill="ngModel" required>
+                    <input type="email" id="Email" class="form-control" required placeholder="Email" ngModel
+                        name="Email" #Email="ngModel" required>
 
-                    <div class="alert alert-danger" *ngIf="Emaill.touched">
-                        <div *ngIf="Emaill.errors.required">
-                            Emaill is required
+                    <div class="alert alert-danger" *ngIf="Email.touched">
+                        <div *ngIf="Email.errors.required">
+                            Email is required
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <input type="password" id="password" class="form-control" ngModel name="Password"
-                        #Password="ngModel" required placeholder="Pssword">
+                        #Password="ngModel" required placeholder="Password">
                     <div class="alert alert-danger" *ngIf="Password.touched && !Password.valid">
                         <div *ngIf="Password.errors.required">
                             Password is required
@@ -43,7 +43,7 @@
 
                 <div class="form-group">
                     <input type="password" id="confirmPassword" class="form-control" required
-                        placeholder="Confirm Pssword" ngModel name="confirmPassword" #confirmPassword="ngModel"
+                        placeholder="Confirm Password" ngModel name="confirmPassword" #confirmPassword="ngModel"
                         required>
                     <div class="alert alert-danger" *ngIf="confirmPassword.touched && !confirmPassword.valid">
                         <div *ngIf="confirmPassword.errors.required">
