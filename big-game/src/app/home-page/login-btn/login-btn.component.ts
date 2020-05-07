@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login-btn',
@@ -10,7 +11,7 @@ export class LoginBtnComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  logIn() {
+  logIn(form: NgForm) {
     this.router.navigate(['/horse-page'])
   }
   ngOnInit(): void {
