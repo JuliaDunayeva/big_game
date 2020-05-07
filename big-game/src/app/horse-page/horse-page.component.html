@@ -1,5 +1,5 @@
 <!-- You can now use it in app.component.html -->
-<!-- <ng-circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></ng-circle-progress> -->
+
 
 <div class="container">
     <app-nav-bar></app-nav-bar>
@@ -75,34 +75,38 @@
 
             <div id="collapseExample" [ngbCollapse]="isMCollapsed">
                 <div class="card mycard-light-green  card-middle-title">
+                    <div class="row">
+                        <circle-progress class="time-left-padding" [clockwise]="false" [percent]="85" [radius]="35" [outerStrokeWidth]="10" [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false" [animationDuration]="300"></circle-progress>
 
-                    <div class="card-body">
-                        <div class="col-10 form-group center-text">
-                            Energy
-                            <div id="progressbar">
-                                <div></div>
-                            </div>
+                        <div class="card-body">
+                            <div class="col-10 form-group center-text">
+                                Energy
+                                <div id="progressbar">
+                                    <div></div>
+                                </div>
 
-                            <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>-->
-                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
-                        </div>
-                        <div class="col-10 form-group center-text  card-middle-title">
-                            Health
-                            <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>-->
-                            <div id="progressbar">
-                                <div></div>
+                                <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>-->
+                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
+                            <div class="col-10 form-group center-text  card-middle-title">
+                                Health
+                                <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>-->
+                                <div id="progressbar">
+                                    <div></div>
+                                </div>
 
-                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
-                        </div>
-                        <div class="col-10 form-group center-text  card-middle-title">
-                            Morale
-                            <div id="progressbar">
-                                <div></div>
+                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
-                            <!--<ngb-progressbar type="success" [value]="100"></ngb-progressbar>-->
-                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
+                            <div class="col-10 form-group center-text  card-middle-title">
+                                Morale
+                                <div id="progressbar">
+                                    <div></div>
+                                </div>
+                                <!--<ngb-progressbar type="success" [value]="100"></ngb-progressbar>-->
+                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
