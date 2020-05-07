@@ -1,4 +1,50 @@
-.radio-size{ 
+.radio-size { 
     height: 20px;
     width: 20px;
+}
+
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+
+input {
+    font-size: 1.2em;
+    width: 40%;
+    margin-bottom: 1em;
+}
+
+.alert-danger {
+    width: 40%;
+}
+
+a:not([href]) {
+    font: 18px Arial, Helvetica, sans-serif;
+}
+
+p:last-child {
+    font: 18px Arial, Helvetica, sans-serif;
+}
+
+.color-white {
+    color: #fff;
+}
+
+a {
+    color: #e5ff70;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: .5rem 8rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.btn-sing-up {
+    padding-left: 43%;
+}
+
+.form-check {
+    padding-left: 11.25rem;
 }
