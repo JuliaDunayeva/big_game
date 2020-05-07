@@ -1,0 +1,21 @@
+.look {
+    color: white;
+    padding: 5px 20px 5px 20px;
+    font-weight: 400;
+    border: 2px solid white;
+}
+
+.text-right {
+    margin-top: 15px;
+}
+
+.dropdown-menu {
+    width: 190px;
+    height: 210px;
+}
+
+.flag-position>i {
+    font-size: 2rem;
+    ;
+    margin-left: 6px;
+}
