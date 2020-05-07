@@ -1,0 +1,244 @@
+  <!-- 
+                    <ngb-accordion [destroyOnHide]='false' #acc="ngbAccordion" activeIds="ngb-panel-0">
+                
+                        <ngb-panel title="Care" id="ngb-panel-0">
+                        <ng-template ngbPanelContent class="color-beige">
+                            left column panel 1 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Night" class="center-text">
+                        <ng-template ngbPanelContent let-opened="opened">
+                            left column panel 2 goes here
+                        </ng-template>
+                    </ngb-panel>
+                
+                    <ngb-panel title="Equestrian Centre" class="center-text">
+                        <ng-template ngbPanelContent let-opened="opened">
+                            left column panel 3 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="History" class="center-text">
+                        <ng-template ngbPanelContent>
+                            left column panel 4 goes here
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+            -->
+
+              <!--
+                <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-2">
+                    <ngb-panel title="Rides" id="ngb-panel-2">
+                        <ng-template ngbPanelContent>
+                            right column panel 1 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Training " class="center-text ">
+                        <ng-template ngbPanelContent>
+                            right column panel 2 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Competitons " class="center-text ">
+                        <ng-template ngbPanelContent>
+                            right column panel 3 goes here
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Breading " class="center-text ">
+                        <ng-template ngbPanelContent>
+                            right column panel 4 goes here
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+            -->
+
+            
+<!--<hr>
+<pre>Model: <b>{{ ctrl.value }}</b></pre>
+<button class="btn btn-sm btn-outline-{{ ctrl.disabled ? 'danger' : 'success'}} mr-2 " (click)="toggle() ">
+  {{ ctrl.disabled ? "control disabled " : " control enabled " }}
+</button>
+<button class="btn btn-sm btn-outline-primary mr-2 " (click)="ctrl.setValue(null) ">Clear</button>-->
+
+
+                <!--                <div class="card" style="width:300px">
+                    <img class="card-img-bottom" src="../../assets/images/care-tab-top.png" alt="Card image" style="width:100%">
+                    <img class="card-img-bottom" src="../../assets/images/care-tab-bottom.png" alt="Card image" style="width:100%">
+                </div>
+
+                <div class="card" style="width:300px">
+                    <img class="card-img-bottom" src="../../assets/images/night-tab-top.png" alt="Card image" style="width:100%">
+                    <img class="card-img-bottom" src="../../assets/images/night-tab-bottom.png" alt="Card image" style="width:100%">
+                </div>
+
+
+                <!--<div class="container-sm">.
+    <p>
+        <button type="button" class="btn btn-primary max-width-column" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      Toggle
+    </button>
+    </p>
+    <div class="max-width-column" id="collapseExample" [ngbCollapse]="isCollapsed">
+        <div class="card">
+            <div class="card-body">
+                You can collapse this card by clicking Toggle
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!--
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+        <li class="breadcrumb">
+            <a href="#"></a>
+        </li>
+        <button type="button" class="btn btn-primary">
+          Notifications <span class="badge badge-light">4</span>
+        </button>
+
+    </ol>
+
+</nav>
+-->
+
+<!--
+<hr>
+
+<p>Bootstrap split buttons and dropdowns on button groups are supported with the existing dropdown directives.</p>
+
+<div class="btn-group mr-3">
+    <button type="button" class="btn btn-outline-success">Plain ol' button</button>
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-outline-primary" ngbDropdownToggle>Drop me</button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem>One</button>
+            <button ngbDropdownItem>Two</button>
+            <button ngbDropdownItem>Four!</button>
+        </div>
+    </div>
+</div>
+
+<div class="btn-group mr-3">
+    <button type="button" class="btn btn-primary">Split me</button>
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem>One</button>
+            <button ngbDropdownItem>Two</button>
+            <button ngbDropdownItem>Four!</button>
+        </div>
+    </div>
+</div>
+
+<div class="btn-group mr-3">
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-outline-danger" ngbDropdownToggle>Select me</button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem>One</button>
+            <button ngbDropdownItem>Two</button>
+            <button ngbDropdownItem>Four!</button>
+        </div>
+    </div>
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-outline-success" ngbDropdownToggle>Or me</button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem>One</button>
+            <button ngbDropdownItem>Two</button>
+            <button ngbDropdownItem>Four!</button>
+        </div>
+    </div>
+</div>
+-->
+
+<!--
+<p>
+    <ngb-alert [dismissible]="false">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </ngb-alert>
+</p>
+-->
+
+
+
+<!--<router-outlet></router-outlet>-->
+
+<!--  rating system not changeable, works finally -->
+
+<!--
+<p>NgModel and reactive forms can be used without the 'rate' binding</p>
+
+<div class="form-group">
+    <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="10" class="gold-color"></ngb-rating>
+</div>
+-->
+
+
+
+     <!-- <ngb-panel id="preventchange_1" title=" Horse Name ">
+                               <ng-template ngbPanelContent let-opened="opened">
+
+                        <div class="col-10 form-group center-text">
+                            Energy
+
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+
+                            <!--<ngb-progressbar type="" [value]="25"></ngb-progressbar>--
+                            --<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Health
+                            <!--<ngb-progressbar type="warning" [value]="50"></ngb-progressbar>--
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>--
+                        </div>
+                        <div class="col-10 form-group center-text">
+                            Morale
+                            <div id="progressbar">
+                                <div></div>
+                            </div>
+                            <!--<ngb-progressbar type="success" [value]="100"></ngb-progressbar>--
+                            <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>--
+                        </div>
+
+                    </ng-template>
+                </ngb-panel>-->
+
+                <!-- 
+                    <ngb-panel id="preventchange_1" title="Skills">
+                    <ng-template ngbPanelContent>
+                        <div class="col-10 form-group center-text ">
+                            Stamina
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Speed
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Dressage
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Gallop
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Trot
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-10 form-group center-text ">
+                            Jumping
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        </div>
+                
+
+                </ng-template>
+                </ngb-panel>
+            -->
