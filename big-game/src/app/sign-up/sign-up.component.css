@@ -1,0 +1,131 @@
+.img-size{
+    margin-left: 66%;
+}
+
+.inline-block{
+    display: block;
+}
+
+.inline-flex{
+    display: inline-flex;
+    
+}
+
+.flex-center{
+    justify-content: center;
+    align-self: center;
+}
+
+.align-right {
+    text-align: right;
+}
+.inscription-legend {
+    margin: 5px 0 10px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.radio-size{ 
+    height: 25px;
+    width: 25px;
+}
+
+.inscription-robe-icon {
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #3d251b;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: all .15s;
+}
+
+.inscription-robe-icon:hover {
+    border-color: rgb(201, 132, 155);
+}
+
+.selected>.inscription-robe-icon {
+    width: 40px;
+    height: 40px;
+    border-color: #fff;
+}
+
+.selected{
+    font-weight: 700;
+}
+.inscription-robe-text {
+    display: table-cell;
+    padding-left: 200px;
+    vertical-align: middle;
+    font-size: 1.25rem;
+}
+
+.bai-b-bg-horse{
+    background-image: url(/assets/images/horses/achal_tecke/bai-b.png);
+}
+
+.alz-bg-horse {
+    background-image: url(/assets/images/horses/achal_tecke/alz.png);
+}
+
+.nr-bg-horse {
+    background-image: url(/assets/images/horses/achal_tecke/nr.png);
+}
+
+.bai-bg-horse{
+    background-image: url(/assets/images/horses/achal_tecke/bai.png);
+}
+
+.alz-b-bg-horse{
+    background-image: url(/assets/images/horses/achal_tecke/alz-b.png);
+}
+
+.gr-pml-bg-horse{
+    background-image: url(/assets/images/horses/achal_tecke/gr-pml.png);
+}
+
+.bai-cer-bg-horse{
+    background-image: url(/assets/images/horses/achal_tecke/bai-cer.png);
+}
+
+
+.btn-1{
+    left: 60%;
+    top: 20%;
+}
+
+.btn-2{
+    left: 60%;
+    top: 27%;
+}
+
+.btn-3{
+    left: 60%;
+    top: 34%;
+}
+
+.btn-4{
+    left: 60%;
+    top: 41%;
+}
+
+.btn-5{
+    left: 60%;
+    top: 48%;
+}
+
+.btn-6{
+    left: 60%;
+    top: 55%;
+}
+
+.btn-7{
+    left: 60%;
+    top: 62%;
+}

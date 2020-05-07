@@ -1,3 +1,8 @@
+.radio-size { 
+    height: 20px;
+    width: 20px;
+}
+
 .form-control.ng-touched.ng-invalid {
     border: 2px solid red;
 }
@@ -7,6 +12,7 @@ input {
     width: 40%;
     margin-bottom: 1em;
 }
+
 .alert-danger {
     width: 40%;
 }
@@ -14,9 +20,11 @@ input {
 a:not([href]) {
     font: 18px Arial, Helvetica, sans-serif;
 }
+
 p:last-child {
     font: 18px Arial, Helvetica, sans-serif;
 }
+
 .color-white {
     color: #fff;
 }
@@ -27,32 +35,16 @@ a {
 
 .btn-group-lg>.btn, .btn-lg {
     padding: .5rem 8rem;
-    
 }
 
-.center{
+.center {
     text-align: center;
 }
-.btn-sing-up{
+
+.btn-sing-up {
     padding-left: 43%;
 }
+
 .form-check {
-    
     padding-left: 11.25rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
