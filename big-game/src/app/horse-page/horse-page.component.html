@@ -1,29 +1,11 @@
-<div class="container-sm">
-
-    <!-- account nav bar here-->
-    <div class="row">
-        <div class="col-sm">
-            <app-nav-bar></app-nav-bar>
-
-        </div>
-    </div>
-
-    <!-- game nav bar placement-->
-    <div class="row">
-        <div class="col-sm">
-
-            <app-play-bar></app-play-bar>
-        </div>
-    </div>
-
-    <!-- horse information placement-->
-
-    <div class="row">
+<div class="container">
+    <app-nav-bar></app-nav-bar> <!-- account nav bar here-->
+    <br>
+    <app-play-bar></app-play-bar> <!-- game nav bar placement-->
+    <br><br>
+    <div class="row">  <!-- horse information placement-->
         <div class="col-3 max-width-column">
-
             <div class="row center-text">
-
-
                 <!-- left panel 1-->
                 <p class="no-padding">
                     <button type="button" class="btn btn-primary max-width-column mycard-green card-title" (click)="isLCollapsed1 = !isLCollapsed1" [attr.aria-expanded]="!isLCollapsed1" aria-controls="collapseExample">Care </button>
