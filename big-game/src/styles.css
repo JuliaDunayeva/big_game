@@ -66,6 +66,10 @@ body {
     background-color: #cee15b;
 }
 
+.color-white {
+    color: white;
+}
+
 .btn-shops {     /* Basic green button settings */
     color: white;
     box-shadow:inset 0px 2px 2px 0px #a4e271;
