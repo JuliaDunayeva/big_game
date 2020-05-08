@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit{
     switch(event.target.value) {
       case "Paint Horse": {
         this.horseIndex = 0;
-        console.log(this.horseCollection.horses[this.horseIndex].coat[0]);
+        this.selectedHorseName = event.target.value;
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
         } 
