@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.background-all {
+    background-color: #61C5C9;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+
+/* colors*/
+
+.color-tx-brown {
+    /*used text colors in log in buttons*/
+    color: #4a543a;
+}
+
+.color-yellow {
+    /*used background colors in log in buttons*/
+    background-color: rgb(229, 254, 112);
+}
+
+.color-dark-blue {
+    background-color: rgb(66, 95, 156);
+}
+
+.color-light-gray {
+    background-color: rgb(226, 229, 206);
+}
+
+.color-dark-gray {
+    /* used in the footer background*/
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.color-beige {
+    /* used in the "folder" background*/
+    background-color: rgb(226, 225, 139);
+}
+
+.color-dark-beige {
+    /* used in the darker areas in "folder" background*/
+    background-color: rgb(216, 215, 124);
+}
+
+.color-light-beige {
+    /* used in the lighter areas in "folder" background*/
+    background-color: rgb(226, 225, 140);
+}
+
+.color-off-white {
+    /*used in the horse page in the center divs */
+    background-color: #f2f2b6;
+}
+
+.color-tx-maroon {
+    /*used in text in the stores in the h1 */
+    color: #630;
+}
+
+.color-tx-green {
+    /*used in text in the stores, black market..etc in the h2 */
+    color: #133300;
+}
+
+.color-green {
+    /*used in green botton in the 'equip my horse */
+    background-color: #cee15b;
+}
+
+.color-white {
+    color: white;
+}
+
+.btn-signup {
+    background-color: #E5FF70;
+    color: black;
+    border: 2px solid green;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 50px 8px 50px;
+    margin-top: 10px;
+  }
+
+  .btn-signup:hover {
+    background-color: rgb(224, 253, 94);
+  }
+
+  .btn-white {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 4px;
+    color: white;
+    margin: 5px;
+    padding: 5px 20px 5px 20px;
+    font-size: 1.25rem;
+  }
+
+  .btn-white:hover {
+      background-color: #007BFF;
+  }
+
+.btn-shops {     /* Basic green button settings */
+    color: white;
+    box-shadow:inset 0px 2px 2px 0px #a4e271;
+    background: rgb(206,226,92);
+    background: linear-gradient(180deg, rgba(206,226,92,1) 0%, rgba(151,183,0,1) 50%, rgba(132,153,0,1) 100%);
+    border:.5px solid rgb(134, 155, 1);
+    border-width: 1px;
+    border-radius: 6px;
+}
+
+.btn-shops :hover {     /* Basic green button hover settings */
+    background: rgb(132,153,0);
+    background: linear-gradient(0deg, rgba(206,226,92,1) 0%, rgba(151,183,0,1) 50%, rgba(132,153,0,1) 100%);
+}
+
+.btn-shops-sml {     /* Basic green button size for shopping cart */
+    width: 40px;
+    height: 25px;
+}
+
+.btn-shops-lrg {     /* Basic green button size for Participate */
+    width: 85px;
+    height: 25px;
+    font-weight: 500;
+}
+
+.folder {           /* Basic folder background for use on any page */
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 480px;
+    background: url("./assets/folder.svg") no-repeat;
+    background-clip: content-box;
+    background-size: 100%;
+}
