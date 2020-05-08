@@ -11,7 +11,7 @@ export class SignUpComponent implements OnInit{
 
   horseCollection: HorseCollection = new HorseCollection();
   horseIndex: number = 0;
-  selectedHorseName: string = "Paint Horse";
+  selectedHorseName: string = "Paint";
   selectedCoatName: string = "Bay Tobiano";
   constructor(private router: Router) { }
 
@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit{
     switch(event.target.value) {
       case "Paint Horse": {
         this.horseIndex = 0;
-        this.selectedHorseName = event.target.value;
+        this.selectedHorseName = "Paint";
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
         } 
@@ -31,31 +31,31 @@ export class SignUpComponent implements OnInit{
         } 
       case "Purebred Spanish Horse": {
         this.horseIndex = 2;
-        this.selectedHorseName = event.target.value;
+        this.selectedHorseName = "Purebred";
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
         } 
       case "Shetland (Pony)": {
         this.horseIndex = 3;
-        this.selectedHorseName = event.target.value;
+        this.selectedHorseName = "Shetland";
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
         } 
       case "Welsh (Pony)": {
         this.horseIndex = 4;
-        this.selectedHorseName = event.target.value;
+        this.selectedHorseName = "Welsh";
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
       case "Quarter Horse": {
         this.horseIndex = 5;
-        this.selectedHorseName = event.target.value;
+        this.selectedHorseName = "Quarter";
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
       case "Shagya Arabian": {
         this.horseIndex = 6;
-        this.selectedHorseName = event.target.value;
+        this.selectedHorseName = "Shagya";
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
@@ -67,13 +67,13 @@ export class SignUpComponent implements OnInit{
       }
       case "Canadian Horse": {
         this.horseIndex = 8;
-        this.selectedHorseName = event.target.value;
+        this.selectedHorseName = "Canadian";
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
       case "Newfoundland Pony (Pony)": {
         this.horseIndex = 9;
-        this.selectedHorseName = event.target.value;
+        this.selectedHorseName = "Newfoundland";
         this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
