@@ -134,10 +134,28 @@
 
 
 /*****Moj*******/
-input[type="radio"][name="coatColor"] {
+input[name="coatColor"], input[name="horseName"] {
     position: absolute;
-  opacity: 0;
-  cursor: pointer;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position:absolute;
+    margin-left: 4px;
+    height: 25px;
+    width: 25px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+#horseName input:checked ~ .checkmark{
+    padding: 5px;
+    margin-top: -2px;
+    height: 29px;
+    width: 29px;
+    background-color: green;
 }
 
 #coatColor input:checked ~ .coatColor{

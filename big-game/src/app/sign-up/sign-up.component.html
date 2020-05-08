@@ -3,9 +3,10 @@
     <div class="row">
         <form class="col-sm">
             <div *ngFor="let horse of horseCollection.horses">
-                <label>
+                <label id="horseName" class="flex">
                     {{horse.name}}
                     <input type="radio" [id]="horse.name" name="horseName" [value]="horse.name" [checked]="horse.name == 'Paint Horse'?'checked':false"  (click)="horseSelected($event)">
+                    <span class="checkmark"></span>
                     <br>
                 </label>
             </div>
