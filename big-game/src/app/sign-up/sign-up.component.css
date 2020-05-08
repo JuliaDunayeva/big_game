@@ -129,3 +129,26 @@
     left: 60%;
     top: 62%;
 }
+
+
+
+
+/*****Moj*******/
+input[type="radio"][name="coatColor"] {
+    position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#coatColor input:checked ~ .coatColor{
+    height: 34px;
+    width: 34px;
+}
+
+.coatColor {
+    padding: 1px;
+    border: 2px solid white;
+    width:30px;
+    height: 30px;
+    border-radius: 50%;
+}
