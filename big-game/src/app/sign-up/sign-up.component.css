@@ -128,3 +128,44 @@
     left: 60%;
     top: 62%;
 }
+
+
+
+
+/*****Moj*******/
+input[name="coatColor"], input[name="horseName"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position:absolute;
+    margin-left: 4px;
+    height: 25px;
+    width: 25px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+#horseName input:checked ~ .checkmark{
+    padding: 5px;
+    margin-top: -2px;
+    height: 29px;
+    width: 29px;
+    background-color: green;
+}
+
+#coatColor input:checked ~ .coatColor{
+    height: 34px;
+    width: 34px;
+}
+
+.coatColor {
+    padding: 1px;
+    border: 2px solid white;
+    width:30px;
+    height: 30px;
+    border-radius: 50%;
+}
