@@ -7,11 +7,10 @@ import { HorseCollection } from './horse-collection';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit{
 
   horseCollection: HorseCollection = new HorseCollection();
   horseIndex: number = 0;
-  // coatIndex: number = 0;
   selectedHorseName: string = "Paint Horse";
   selectedCoatName: string = "Bay Tobiano";
   constructor(private router: Router) { }
@@ -20,64 +19,69 @@ export class SignUpComponent {
     switch(event.target.value) {
       case "Paint Horse": {
         this.horseIndex = 0;
-        this.selectedHorseName = event.target.value;
+        console.log(this.horseCollection.horses[this.horseIndex].coat[0]);
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
         } 
       case "Akhal-Teke": {
         this.horseIndex = 1;
         this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
         } 
       case "Purebred Spanish Horse": {
         this.horseIndex = 2;
         this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
         } 
       case "Shetland (Pony)": {
         this.horseIndex = 3;
         this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
         } 
       case "Welsh (Pony)": {
         this.horseIndex = 4;
         this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
       case "Quarter Horse": {
         this.horseIndex = 5;
         this.selectedHorseName = event.target.value;
-        break;
-      }
-      case "Welsh (Pony": {
-        this.horseIndex = 6;
-        this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
       case "Shagya Arabian": {
-        this.horseIndex = 7;
+        this.horseIndex = 6;
         this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
       case "Nokota": {
-        this.horseIndex = 8;
+        this.horseIndex = 7;
         this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
       case "Canadian Horse": {
-        this.horseIndex = 9;
+        this.horseIndex = 8;
         this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
       case "Newfoundland Pony (Pony)": {
-        this.horseIndex = 10;
+        this.horseIndex = 9;
         this.selectedHorseName = event.target.value;
+        this.selectedCoatName = this.horseCollection.horses[this.horseIndex].coat[0];
         break;
       }
     }
-    console.log(event.target.value)
   }
 
-  coatSelected(event: any) {
+  ngOnInit() {
 
   }
+
 }

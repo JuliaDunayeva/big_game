@@ -11,10 +11,10 @@
             </div>
         </form>
         <img src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png">
-        <form class="col-sm">
+        <form id="coatForm" class="col-sm">
             <div *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
                 <label>
-                    <input type="radio" [id]="coatColor" name="coatColor" [value]="coatColor" (click)="coatSelected($event)" [(ngModel)]="selectedCoatName">
+                    <input type="radio" [id]="coatColor" name="coatColor" [value]="coatColor"  [(ngModel)]="selectedCoatName" [checked]="coatColor==horseCollection.horses[horseIndex].coat[0]?'checked':false">
                     {{coatColor}}
                     <br>
                 </label>
