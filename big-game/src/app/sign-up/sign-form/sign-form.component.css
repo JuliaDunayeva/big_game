@@ -9,7 +9,7 @@
 
 input {
     font-size: 1.2em;
-    width: 60%;
+    width: 300px;
     margin-bottom: 1em;
 }
 
@@ -40,4 +40,7 @@ a {
 .center {
     text-align: center;
 }
-
+.form-check-input {
+    margin-top: 0.5rem;
+    margin-left: 13.75rem;
+}

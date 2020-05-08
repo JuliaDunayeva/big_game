@@ -16,6 +16,18 @@
 
 .flag-position>i {
     font-size: 2rem;
-    ;
     margin-left: 6px;
+    margin-top: 0px;;
+}
+
+.dropdown-item{
+    width:100%;
+}
+.dropdown-item:hover{
+    background-color: white;
+
+}
+
+p{
+    margin-block-end: 0px;
 }
