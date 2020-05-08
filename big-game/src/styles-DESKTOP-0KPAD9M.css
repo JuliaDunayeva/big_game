@@ -2,6 +2,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.background-all {
+    background-color: #61C5C9;
+}
 
 /* You can add global styles to this file, and also import other style files */
 
@@ -65,6 +68,38 @@ body {
     /*used in green botton in the 'equip my horse */
     background-color: #cee15b;
 }
+
+.color-white {
+    color: white;
+}
+
+.btn-signup {
+    background-color: #E5FF70;
+    color: black;
+    border: 2px solid green;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 50px 8px 50px;
+    margin-top: 10px;
+  }
+
+  .btn-signup:hover {
+    background-color: rgb(224, 253, 94);
+  }
+
+  .btn-white {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 4px;
+    color: white;
+    margin: 5px;
+    padding: 5px 20px 5px 20px;
+    font-size: 1.25rem;
+  }
+
+  .btn-white:hover {
+      background-color: #007BFF;
+  }
 
 .btn-shops {     /* Basic green button settings */
     color: white;
