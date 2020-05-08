@@ -4,16 +4,6 @@
   margin-top: 10px;
 }
 
-.sign-up {
-  background-color: #E5FF70;
-  color: black;
-  border: 2px solid black;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 8px 50px 8px 50px;
-  margin-top: 10px;
-}
-
 .info-heading {
   margin-top: 25px;
 }
@@ -39,15 +29,7 @@
   text-align: left;
 }
 
-.store-btn {
-  background-color: transparent;
-  border: 2px solid white;
-  color: white;
-  margin: 5px;
-  padding: 5px 20px 5px 20px;
-  font-size: 1.25rem;
-}
-
 .disclaimer {
   margin: 2em auto;
+  text-align: justify;
 }

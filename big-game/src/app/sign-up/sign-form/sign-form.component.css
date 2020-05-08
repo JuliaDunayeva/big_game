@@ -9,12 +9,12 @@
 
 input {
     font-size: 1.2em;
-    width: 40%;
+    width: 60%;
     margin-bottom: 1em;
 }
 
 .alert-danger {
-    width: 40%;
+    width: 60%;
 }
 
 a:not([href]) {
@@ -41,10 +41,3 @@ a {
     text-align: center;
 }
 
-.btn-sing-up {
-    padding-left: 43%;
-}
-
-.form-check {
-    padding-left: 3.25rem;
-}

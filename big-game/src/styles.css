@@ -73,6 +73,34 @@ body {
     color: white;
 }
 
+.btn-signup {
+    background-color: #E5FF70;
+    color: black;
+    border: 2px solid green;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 50px 8px 50px;
+    margin-top: 10px;
+  }
+
+  .btn-signup:hover {
+    background-color: rgb(224, 253, 94);
+  }
+
+  .btn-white {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 4px;
+    color: white;
+    margin: 5px;
+    padding: 5px 20px 5px 20px;
+    font-size: 1.25rem;
+  }
+
+  .btn-white:hover {
+      background-color: #007BFF;
+  }
+
 .btn-shops {     /* Basic green button settings */
     color: white;
     box-shadow:inset 0px 2px 2px 0px #a4e271;
