@@ -1,7 +1,15 @@
-<app-nav-bar></app-nav-bar>
 <div class="container">
     <div class="row">
-        <form class="col-sm">
+        <div class="col-md-2">
+            <img class="img-size" src="./assets/images/Project Samples/howrse.png">
+            <img class="img-size-sm" src="./assets/images/game_pieces/wold-map.PNG">
+            <!-- <h1>Sign up Today . . .</h1> -->
+        </div>
+    </div>
+    <br><br>
+<h1 class="color-white">Choose a Horse</h1>
+    <div class="row">
+        <form class="col-sm color-white font-md">
             <div *ngFor="let horse of horseCollection.horses">
                 <label id="horseName" class="flex">
                     {{horse.name}}
@@ -10,9 +18,11 @@
                     <br>
                 </label>
             </div>
+            
         </form>
+        
         <img src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png">
-        <form id="coatForm" class="col-sm">
+        <form id="coatForm" class="col-sm color-white font-md">
             <div *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
                 <label id="coatColor">
                     <input type="radio" [id]="coatColor" name="coatColor" [value]="coatColor"  [(ngModel)]="selectedCoatName" [checked]="coatColor==horseCollection.horses[horseIndex].coat[0]?'checked':false">
