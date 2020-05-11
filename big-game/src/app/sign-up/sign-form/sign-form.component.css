@@ -4,13 +4,15 @@
 }
 
 .form-control.ng-touched.ng-invalid {
-    border: 2px solid red;
+    border-left: 5px solid red;
+   
 }
+
 
 input {
     font-size: 1.2em;
     width: 300px;
-    margin-bottom: 1em;
+    margin-bottom: .3em;
 }
 
 .alert-danger {
@@ -22,7 +24,8 @@ a:not([href]) {
 }
 
 p:last-child {
-    font: 18px Arial, Helvetica, sans-serif;
+    font: 16px Arial, Helvetica, sans-serif;
+    padding-left: 1%;
 }
 
 .color-white {
@@ -43,4 +46,8 @@ a {
 .form-check-input {
     margin-top: 0.5rem;
     margin-left: 13.75rem;
+}
+.alert {
+    
+    padding: 0.3rem 1.25rem;
 }

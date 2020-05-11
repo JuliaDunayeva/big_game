@@ -4,14 +4,16 @@
             <form #signForm = "ngForm">
                 <div class="form-group">
                     <input required placeholder="User Name" ngModel name="userName" #userName="ngModel" id="userName"
-                        type="text" class="form-control" minlength="4" maxlength="20">
-                    <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
+                        type="text" class="form-control" minlength="4" maxlength="20" >
+                        
+                    <div *ngIf="userName.touched && !userName.valid">
                         <div *ngIf="userName.errors.required">
-                            Login Name is required
+                            <p class="alert text-danger">Login Name is required</p>
                         </div>
+                        
                         <div *ngIf="userName.errors.minlength">
-                            Login name should be minimum
-                            {{ userName.errors.minlength.requiredLength }} characters
+                           <p class="alert text-danger">Login name should be minimum
+                            {{ userName.errors.minlength.requiredLength }} characters</p>
                         </div>
                     </div>
                 </div>
@@ -20,9 +22,9 @@
                     <input type="email" id="Email" class="form-control" required placeholder="Email" ngModel
                         name="Email" #Email="ngModel" required >
 
-                    <div class="alert alert-danger" *ngIf="Email.touched">
+                    <div *ngIf="Email.touched && !Email.valid">
                         <div *ngIf="Email.errors.required">
-                            Email is required
+                            <p class="alert text-danger">Email is required</p>
                         </div>
                     </div>
                 </div>
@@ -30,9 +32,10 @@
                 <div class="form-group">
                     <input type="password" id="password" class="form-control" ngModel name="Password"
                         #Password="ngModel" required placeholder="Password">
-                    <div class="alert alert-danger" *ngIf="Password.touched && !Password.valid">
+
+                    <div *ngIf="Password.touched && !Password.valid">
                         <div *ngIf="Password.errors.required">
-                            Password is required
+                            <p class="alert text-danger">Password is required</p> 
                         </div>
                     </div>
 
@@ -42,9 +45,9 @@
                     <input type="password" id="confirmPassword" class="form-control" required
                         placeholder="Confirm Password" ngModel name="confirmPassword" #confirmPassword="ngModel"
                         required>
-                    <div class="alert alert-danger" *ngIf="confirmPassword.touched && !confirmPassword.valid">
+                    <div *ngIf="confirmPassword.touched && !confirmPassword.valid">
                         <div *ngIf="confirmPassword.errors.required">
-                            Password is required
+                            <p class="alert text-danger">Password is required</p> 
                         </div>
                     </div>
                 </div>
