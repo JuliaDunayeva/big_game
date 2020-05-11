@@ -52,6 +52,19 @@
     color: #663300;
 }
 
+.max-btn-width {
+    width: 76px;
+    padding: 0px;
+    margin: 0px;
+    /*padding: 15px;*/
+}
+
+.img-btn-width {
+    width: 76px;
+    margin: 0px;
+    padding: 0px;
+}
+
 .max-width-column {
     min-width: 285px;
     /*max-width: 250px;*/
@@ -78,6 +91,10 @@ div>.card-body div>.card {
 
 .no-padding {
     padding: 0px;
+}
+
+.no-margin {
+    margin: 0px;
 }
 
 .no-top-margin {
@@ -114,6 +131,13 @@ div>.card-body div>.card {
 .time-top-padding {
     padding-top: 50px;
 }
+
+.btn-padding {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.btn-right-padding {}
 
 #progressbar>div {
     background-color: orange;
