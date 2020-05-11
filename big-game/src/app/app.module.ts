@@ -24,6 +24,9 @@ import { PlayBarComponent } from './play-bar/play-bar.component';
 import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
 import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
 import { FlagsComponent } from './home-page/flags/flags.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -50,6 +53,8 @@ import { FlagsComponent } from './home-page/flags/flags.component';
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     //,NgbModule.forRoot()
      // Specify ng-circle-progress as an import
      NgCircleProgressModule.forRoot({
