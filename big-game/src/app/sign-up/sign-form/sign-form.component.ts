@@ -1,3 +1,4 @@
+import { User } from './../../user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-form.component.css']
 })
 export class SignFormComponent implements OnInit {
-
+  public user: User
+  
   constructor() { }
 
   ngOnInit(): void {
-  }
-
+    this.user = {
+      userName: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
 }
+  }
+  onWrite(){
+    if(this.user.password === this.user.confirmPassword){
+      return null
+    }else{ 
+      "password dose not match"
+    }
+  }
+  }
