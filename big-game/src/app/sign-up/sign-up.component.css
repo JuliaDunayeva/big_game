@@ -26,21 +26,21 @@ h1{
     display: inline-flex;
 }
 
-.flex-center{
-    justify-content: center;
-    align-self: center;
+.best-skill{
+    margin-top: -58px;
+    margin-left: 24%;
 }
 
 /*****Moj*******/
-input[name="coatColor"], input[name="horseName"] {
+input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     position: absolute;
     opacity: 0;
     cursor: pointer;
-  }  
+}  
 
 .checkmark {
     position:absolute;
-    margin-left: 4px;
+    margin-left: 20%;
     height: 22px;
     width: 22px;
     border: 2px solid #c5bebb;
@@ -60,7 +60,7 @@ input[name="coatColor"], input[name="horseName"] {
     margin-top: -2px;
     height: 25px;
     width: 25px;
-    background-color:#bfd16c;
+    background-color:#E5FF70;
     border-color: white;
 }
 
@@ -75,17 +75,22 @@ input[name="coatColor"], input[name="horseName"] {
 #horseSkill input:checked ~ .horseSkill{
     padding: 1px;
     border: 2px solid #3d251b;
-    width:90px;
-    height: 90px;
+    width: 125px;
     border-radius: 40px;
+    padding-top: 5%;
+    margin-left: 45%;
 }
 
 .horseSkill{
     padding: 1px;
-    border: 2px solid #3d251b;
-    width:90px;
-    height: 90px;
+    background: rgba(74,84,58,.4);
+    width: 131px;
     border-radius: 40px;
+    padding-top: 5%;
+    margin-left: 42%;
+    color: #fff;
+    box-sizing: border-box;
+    display: inline-block;
 }
 
 .coatColor {
@@ -99,6 +104,4 @@ input[name="coatColor"], input[name="horseName"] {
 .coatColor:hover {
     border-color: rgb(182, 122, 142);
     cursor: pointer;
-    
-    
 }
