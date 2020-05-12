@@ -42,10 +42,11 @@ a {
 
 .center {
     text-align: center;
+    padding-right: 56%;
 }
 .form-check-input {
     margin-top: 0.5rem;
-    margin-left: 13.75rem;
+    margin-left: -21.25rem;
 }
 .alert {
     
