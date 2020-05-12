@@ -9,9 +9,9 @@
     <br><br>
 <h1 class="color-white">Choose a Horse</h1>
     <div class="row">
-        <form class="col-sm color-white font-md">
-            <div *ngFor="let horse of horseCollection.horses">
-                <label id="horseName" class="flex">
+        <form class="form-inline col-sm color-white font-md">
+            <div class="col-sm-11 " *ngFor="let horse of horseCollection.horses">
+                <label id="horseName" class=" justify-content-end">
                     {{horse.name}}
                     <input type="radio" [id]="horse.name" name="horseName" [value]="horse.name" [checked]="horse.name == 'Paint Horse'?'checked':false"  (click)="horseSelected($event)">
                     <span class="checkmark"></span>
@@ -19,12 +19,12 @@
                 </label>
             </div>
         </form>
-        <img src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png">
+        <img class="col-sm" src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png">
         
-        <form id="coatForm" class="col-sm color-white font-md">
-            <div *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
-                <label id="coatColor">
-                    <input type="radio" [id]="coatColor" name="coatColor" [value]="coatColor"  [(ngModel)]="selectedCoatName" [checked]="coatColor==horseCollection.horses[horseIndex].coat[0]?'checked':false">
+        <form id="coatForm" class="form-inline col-sm color-white font-md">
+            <div class="col-sm-11" *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
+                <label id="coatColor" class=" justify-content-start">
+                    <input class="" type="radio" [id]="coatColor" name="coatColor" [value]="coatColor"  [(ngModel)]="selectedCoatName" [checked]="coatColor==horseCollection.horses[horseIndex].coat[0]?'checked':false">
                     <img class="coatColor" src="../../assets/images/coats/{{coatColor.toLowerCase()}}.png">
                     {{coatColor}}
                     <br>

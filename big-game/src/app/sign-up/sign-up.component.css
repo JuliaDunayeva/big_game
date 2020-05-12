@@ -39,8 +39,7 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 }  
 
 .checkmark {
-    position:absolute;
-    margin-left: 20%;
+    /* margin-left: 20%; */
     height: 22px;
     width: 22px;
     border: 2px solid #c5bebb;
