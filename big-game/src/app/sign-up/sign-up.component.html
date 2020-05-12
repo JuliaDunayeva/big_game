@@ -9,11 +9,11 @@
     <br><br>
 <h1 class="color-white">Choose a Horse</h1>
     <div class="row">
-        <form class="col-sm color-white font-md">
-            <div *ngFor="let horse of horseCollection.horses">
-                <label id="horseName" class="flex">
+        <form class="form-inline align-items-center col-sm color-white font-md">
+            <div class="form-group col-sm-12" *ngFor="let horse of horseCollection.horses">
+                <label class="justify-content-end" id="horseName" class="flex">
                     {{horse.name}}
-                    <input type="radio" [id]="horse.name" name="horseName" [value]="horse.name" [checked]="horse.name == 'Paint Horse'?'checked':false"  (click)="horseSelected($event)">
+                    <input class="form-control" type="radio" [id]="horse.name" name="horseName" [value]="horse.name" [checked]="horse.name == 'Paint Horse'?'checked':false"  (click)="horseSelected($event)">
                     <span class="checkmark"></span>
                     <br>
                 </label>
@@ -21,11 +21,11 @@
             
         </form>
         
-        <img src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png">
-        <form id="coatForm" class="col-sm color-white font-md">
-            <div *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
-                <label id="coatColor">
-                    <input type="radio" [id]="coatColor" name="coatColor" [value]="coatColor"  [(ngModel)]="selectedCoatName" [checked]="coatColor==horseCollection.horses[horseIndex].coat[0]?'checked':false">
+        <img src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png" class=" img-fluid">
+        <form id="coatForm" class="form-inline align-items-center col-sm color-white font-md">
+            <div class="form-group col-sm-12" *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
+                <label class="justify-content-start" id="coatColor">
+                    <input class="form-control" type="radio" [id]="coatColor" name="coatColor" [value]="coatColor"  [(ngModel)]="selectedCoatName" [checked]="coatColor==horseCollection.horses[horseIndex].coat[0]?'checked':false">
                     <img class="coatColor" src="../../assets/images/coats/{{coatColor.toLowerCase()}}.png">
                     {{coatColor}}
                     <br>
