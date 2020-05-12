@@ -36,7 +36,7 @@ export class HorseCollection {
         {
             name: "Welsh (Pony)",
             skill: "Galloping",
-            coat: ["Chestnut", "Dark Bay", "Bay", "Cherry Bay", "Flaxen Chestnut", "Dapple Grey", "Liver Chestnut"],
+            coat: ["Chestnut", "Dark Bay", "Bay", "Cherry Bay", "Dapple Grey", "Black", "Dun"],
             // baseUrl: "wel",
             // coatImage: ["ch", "db", "bay","cb","dg","bl"],
             // horseImage: ["w-ch","w-db","w-bay","w-cb", "w-dg", "w-bl"]

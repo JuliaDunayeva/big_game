@@ -1,17 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 //import { NgbdRatingForm } from './rating-form';
-
 // Import ng-circle-progress
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HorsePageComponent } from './horse-page/horse-page.component';
@@ -27,8 +22,9 @@ import { FlagsComponent } from './home-page/flags/flags.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { environment } from '../environments/environment';
 
@@ -58,8 +54,8 @@ import { environment } from '../environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule, // Only required for auth features,
-    AngularFireStorageModule, // Only required for storage features
+    HttpClientModule,
+    AngularFireDatabaseModule,
     //,NgbModule.forRoot()
      // Specify ng-circle-progress as an import
      NgCircleProgressModule.forRoot({
