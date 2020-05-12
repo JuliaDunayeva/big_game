@@ -26,8 +26,6 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
-import { environment } from '../environments/environment';
-
 @NgModule({
   declarations: [
     AppComponent,
