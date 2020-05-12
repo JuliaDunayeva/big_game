@@ -27,6 +27,9 @@ import { FlagsComponent } from './home-page/flags/flags.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -55,6 +58,8 @@ import { environment } from '../environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule, // Only required for auth features,
+    AngularFireStorageModule, // Only required for storage features
     //,NgbModule.forRoot()
      // Specify ng-circle-progress as an import
      NgCircleProgressModule.forRoot({
