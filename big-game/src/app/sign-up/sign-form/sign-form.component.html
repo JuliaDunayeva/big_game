@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 ml-md-auto">
-            <form #signForm = "ngForm">
+            <form #signForm = "ngForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <input required placeholder="User Name" ngModel name="userName" #userName="ngModel" id="userName"
                         type="text" class="form-control" minlength="4" maxlength="20" >
@@ -51,38 +51,44 @@
                         </div>
                     </div>
                 </div>
+               <br>
+               <br>
+               
+                  <div class="center">
+                    <div>
+                        <div>
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <h4> I have read and agree to the following: <br>
+                                <a href="https://www.owlient.com/tou/ca">Terms and Conditions of Use</a><br>
+                                the <a href="https://www.owlient.com/eula/ca">End User License Agreement</a><br>
+                                and the <a href="https://www.owlient.com/pp/ca"> Privacy Policy</a></h4>
+                        </div>
+                
+                    </div>
+                        <br>
+                        <div><button routerLink="login" 
+                            class="btn-signup btn-lg"
+                            type="submit" value="Play" [disabled]="!signForm.form.valid">Play</button>
+                        </div>
+                        <br>
+                    <div>
+                        <p>This information is collected by Owlient to create your account.
+                            <br>
+                            <a>More information about the processing of your personal data and your rights.
+                            </a>
+                        </p>
+                    </div>
+                  </div>
+                   
+               
+               
+             
+                
+                
             </form>
         </div>
     </div>
     <br>
     <br>
-    <div class="col-sm-1">
-        <div class="form-check">
-            
-        </div>
-    </div>
-    <div>
-        <div>
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <h4 class="center"> I have read and agree to the following: <br>
-                <a href="https://www.owlient.com/tou/ca">Terms and Conditions of Use</a>,<br>
-                the <a href="https://www.owlient.com/eula/ca">End User License Agreement</a>,<br>
-                and the <a href="https://www.owlient.com/pp/ca"> Privacy Policy</a>.</h4>
-        </div>
-
-    </div>
-        <br>
-        <div class="center"><button routerLink="login" 
-            class="btn-signup btn-lg"
-            type="submit" value="Play">Play</button>
-        </div>
-        <br>
-    <div class="center">
-        <p>This information is collected by Owlient to create your account.
-            <br>
-            <a>More information about the processing of your personal data and your rights.
-            </a>
-        </p>
-    </div>
+   
 </div>
-
