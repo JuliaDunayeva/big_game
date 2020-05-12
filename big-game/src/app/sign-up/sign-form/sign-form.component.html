@@ -8,11 +8,11 @@
                         
                     <div *ngIf="userName.touched && !userName.valid">
                         <div *ngIf="userName.errors.required">
-                            <p class="alert text-danger">Login Name is required</p>
+                            <p class="alert text-danger">A User Name is required</p>
                         </div>
                         
                         <div *ngIf="userName.errors.minlength">
-                           <p class="alert text-danger">Login name should be minimum
+                           <p class="alert text-danger">Login name should be a minimum of
                             {{ userName.errors.minlength.requiredLength }} characters</p>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
 
                     <div *ngIf="Email.touched && !Email.valid">
                         <div *ngIf="Email.errors.required">
-                            <p class="alert text-danger">Email is required</p>
+                            <p class="alert text-danger">A valid Email is required</p>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
 
                     <div *ngIf="Password.touched && !Password.valid">
                         <div *ngIf="Password.errors.required">
-                            <p class="alert text-danger">Password is required</p> 
+                            <p class="alert text-danger">A Password is required</p> 
                         </div>
                     </div>
 
@@ -43,11 +43,11 @@
 
                 <div class="form-group">
                     <input type="password" id="confirmPassword" class="form-control" required
-                        placeholder="Confirm Password" ngModel name="confirmPassword" #confirmPassword="ngModel"
+                        placeholder="Password Confirmation" ngModel name="confirmPassword" #confirmPassword="ngModel"
                         required>
                     <div *ngIf="confirmPassword.touched && !confirmPassword.valid">
                         <div *ngIf="confirmPassword.errors.required">
-                            <p class="alert text-danger">Password is required</p> 
+                            <p class="alert text-danger">Confirm the Password is required</p> 
                         </div>
                     </div>
                 </div>
