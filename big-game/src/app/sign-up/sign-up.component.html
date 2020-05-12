@@ -18,10 +18,9 @@
                     <br>
                 </label>
             </div>
-            
         </form>
-        
         <img src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png">
+        
         <form id="coatForm" class="col-sm color-white font-md">
             <div *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
                 <label id="coatColor">
@@ -34,6 +33,19 @@
         </form>
     </div>
 </div>
+<div >
+    <form id="horseSkill" class="col-sm color-white font-md horseSkill">
+        <h5 class="best-skill">Best Skill</h5>
+        <div *ngFor="let horseSkill of horseCollection.horses" >
+            <label id="horseSkill" class="">
+                <input [id]="horseSkill" name="horseSkill" [value]="horseSkill"  [(ngModel)]="selectedHorseSkill" [checked]="horseSkill==horseCollection.horses[horseIndex].skill[0]?'checked':false">
+                {{horseSkill}}
+                <br>
+            </label>
+        </div>
+    </form>
+</div>
+
 <br>
 <app-sign-form></app-sign-form>
 <br>
