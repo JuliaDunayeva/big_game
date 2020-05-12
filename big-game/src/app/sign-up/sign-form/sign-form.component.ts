@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignFormComponent implements OnInit {
   public user: User
+  submitted = false;
   
   constructor() { }
 
@@ -25,5 +26,9 @@ export class SignFormComponent implements OnInit {
     }else{ 
       "password dose not match"
     }
+  }
+  onSubmit(){
+    this.submitted = true;
+
   }
   }
