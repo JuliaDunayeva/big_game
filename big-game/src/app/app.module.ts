@@ -27,6 +27,7 @@ import { FlagsComponent } from './home-page/flags/flags.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    HttpClientModule,
     //,NgbModule.forRoot()
      // Specify ng-circle-progress as an import
      NgCircleProgressModule.forRoot({

@@ -1,15 +1,17 @@
 import { UserData } from 'src/app/user-data';
 import { Component, OnInit } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-form',
   templateUrl: './sign-form.component.html',
   styleUrls: ['./sign-form.component.css']
 })
+
 export class SignFormComponent implements OnInit {
   public user: UserData
   submitted = false;
+  private http: HttpClient;
   
   constructor() { }
 
