@@ -1,5 +1,6 @@
-import { User } from './../../user';
+import { UserData } from 'src/app/user-data';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-sign-form',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-form.component.css']
 })
 export class SignFormComponent implements OnInit {
-  public user: User
+  public user: UserData
   submitted = false;
   
   constructor() { }
@@ -24,7 +25,7 @@ export class SignFormComponent implements OnInit {
     if(this.user.password === this.user.confirmPassword){
       return null
     }else{ 
-      "password dose not match"
+      "password does not match"
     }
   }
   onSubmit(){
