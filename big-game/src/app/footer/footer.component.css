@@ -15,7 +15,7 @@ div a {
 }
 
 ul a {      /* Space between link icons */
-    margin: 0 10px;
+    margin: 0 25px 0 0;
 }
 
 .icon-size {
