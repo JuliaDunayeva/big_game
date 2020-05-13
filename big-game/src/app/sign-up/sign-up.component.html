@@ -8,7 +8,7 @@
     </div>
     <br><br>
 <h1 class="color-white">Choose a Horse</h1>
-    <div class="row align-items-stretch">
+    <div class="row align-items-center">
         <div class="col-sm  div-coat">
             <form class="color-white font-md">
                 <div class="circle-left"></div>
@@ -27,13 +27,22 @@
             <div> {{skill}}</div>
         </div>
       
-        <div class="col-sm div-coat">
+        <div class="col-sm align-items-center div-coat">
             <form class=" color-white font-md">
                 <div class="circle-right"></div>
                 <div class="text-left listDiv" *ngFor="let color of allColors">
                     <label id="coatColor" class=" justify-content-start">
-                        <input class="" type="radio" [id]="" name="color.color" [value]="color.color"  >
+                        <input class="" type="radio" [id]="" name="color.color" [value]="color.color" >
+                        <img src="">
                         {{color.color}}
+                        <br>
+                    </label>
+                </div>
+                <div class="text-left listDiv">
+                    <label id="coatColor" class=" justify-content-start">
+                        <input class="" type="radio" [id]="" name="getcoat" [value]="">
+                        <img src="">
+                        get new coats
                         <br>
                     </label>
                 </div>
