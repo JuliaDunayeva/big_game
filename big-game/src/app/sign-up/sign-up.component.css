@@ -41,8 +41,8 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 .checkmark {
     /* margin-left: 20%; commented bout by Moj*/
     display: inline-block;
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     border: 2px solid #c5bebb;
     background-color: white;
     border-radius: 50%;
@@ -58,8 +58,8 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 #horseName input:checked ~ .checkmark{
     padding: 5px;
     margin-top: -2px;
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
     background-color:#E5FF70;
     border-color: white;
 }
