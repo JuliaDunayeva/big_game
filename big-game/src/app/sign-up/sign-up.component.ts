@@ -17,6 +17,8 @@ export class SignUpComponent implements OnInit{
   colors: Color[] = [];
   allColors: Color[];
   allBreeds: Breed[];
+  allSkills: string[];
+  skill: string;
 
   constructor(private router: Router, 
               private http: HttpClient,
@@ -45,9 +47,20 @@ export class SignUpComponent implements OnInit{
       result => {
         console.log(result);
         this.allBreeds = result as Array<Breed>;
-        console.log(this.allBreeds[0].breed)
+        // for (let i = 0 ; i < this.allBreeds.length ; i++) {
+        //   this.allSkills.push(this.allBreeds[i].skill)
+        // }
+        console.log(this.allBreeds[0].skill);
+        // console.log(this.allSkills);
       }
     )
     return ;
   }
-}
+
+  getSkill(event: Event){
+    var index = this.allBreeds.map((o) => o.breed).indexOf(event.target.value);
+    console.log(index);
+    this.skill = this.allBreeds[index].skill;
+    console.log(this.skill);
+  }
+} 
