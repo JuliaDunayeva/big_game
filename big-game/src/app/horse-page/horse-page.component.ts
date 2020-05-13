@@ -3,7 +3,13 @@ import { FormControl, Validators } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
-
+//import { HorseCollection } from './horse-collection';
+import { HttpClient } from '@angular/common/http';
+import { getLocaleDateFormat } from '@angular/common';
+import { Color } from '../color';
+import { ColorService } from '../services/color.service';
+import { BreedService } from '../services/breed.service';
+import { Breed } from '../breed';
 
 
 @Component({
@@ -14,6 +20,12 @@ import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
 export class HorsePageComponent implements OnInit {
 
+  colors: Color[] = [];
+  allColors: Color[];
+  allBreeds: Breed[];
+  allSkills: string[];
+  skill: string;
+  
   constructor() { }
 
   ngOnInit(): void {
