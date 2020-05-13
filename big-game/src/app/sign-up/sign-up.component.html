@@ -11,28 +11,25 @@
     <div class="row align-items-stretch">
         <div class="col-sm  div-coat">
             <form class="color-white font-md">
-                <div class="circle-left"></div>
-                <div class="text-right" *ngFor="let horse of horseCollection.horses">
-                    <label  id="horseName">
-                        {{horse.name}}
-                        <input type="radio" [id]="horse.name" name="horseName" [value]="horse.name" [checked]="horse.name == 'Paint Horse'?'checked':false"  (click)="horseSelected($event)">
+                <!-- <div class="circle-left"></div> -->
+                <div class="text-right" *ngFor="let breed of allBreeds" >
+                    <label>
+                        {{breed.breed}}
+                        <input type="radio" [id]="breed.breed" name="horseName" [value]="breed.breed">
                         <span class="checkmark"></span>
                         <br>
                     </label>
                 </div>
             </form>
         </div>
-        <div class="col-sm">
-            <img src="../../assets/images/horses/{{selectedHorseName}}/{{selectedCoatName}}.png">
-        </div>
+      
         <div class="col-sm div-coat">
             <form id="coatForm" class=" color-white font-md">
                 <div class="circle-right"></div>
-                <div class="text-left coatDiv" *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
+                <div class="text-left coatDiv" *ngFor="let color of allColors">
                     <label id="coatColor" class=" justify-content-start">
-                        <input class="" type="radio" [id]="coatColor" name="coatColor" [value]="coatColor"  [(ngModel)]="selectedCoatName" [checked]="coatColor==horseCollection.horses[horseIndex].coat[0]?'checked':false">
-                        <img class="coatColor" src="../../assets/images/coats/{{coatColor.toLowerCase()}}.png">
-                        {{coatColor}}
+                        <input class="" type="radio" [id]="" name="color.color" [value]="color.color"  >
+                        {{color.color}}
                         <br>
                     </label>
                 </div>
@@ -41,7 +38,7 @@
     </div>
 </div>
 <div >
-    <form id="horseSkill" class="col-sm color-white font-md horseSkill">
+    <!-- <form id="horseSkill" class="col-sm color-white font-md horseSkill">
         <h5 class="best-skill">Best Skill</h5>
         <div *ngFor="let horseSkill of horseCollection.horses" >
             <label id="horseSkill" class="">
@@ -50,10 +47,10 @@
                 <br>
             </label>
         </div>
-    </form>
+    </form> -->
 </div>
 
 <br>
-<app-sign-form></app-sign-form>
+<!-- <app-sign-form></app-sign-form> -->
 <br>
 <app-footer></app-footer>
