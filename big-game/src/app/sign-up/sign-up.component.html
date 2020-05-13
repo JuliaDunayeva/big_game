@@ -8,12 +8,12 @@
     </div>
     <br><br>
 <h1 class="color-white">Choose a Horse</h1>
-    <div class="row align-items-center">
+    <div class="row align-items-stretch">
         <div class="col-sm  div-coat">
             <form class="color-white font-md">
                 <div class="circle-left"></div>
-                <div *ngFor="let horse of horseCollection.horses">
-                    <label id="horseName" class=" justify-content-end">
+                <div class="text-right" *ngFor="let horse of horseCollection.horses">
+                    <label  id="horseName">
                         {{horse.name}}
                         <input type="radio" [id]="horse.name" name="horseName" [value]="horse.name" [checked]="horse.name == 'Paint Horse'?'checked':false"  (click)="horseSelected($event)">
                         <span class="checkmark"></span>
@@ -28,7 +28,7 @@
         <div class="col-sm div-coat">
             <form id="coatForm" class=" color-white font-md">
                 <div class="circle-right"></div>
-                <div *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
+                <div class="text-left coatDiv" *ngFor="let coatColor of horseCollection.horses[horseIndex].coat">
                     <label id="coatColor" class=" justify-content-start">
                         <input class="" type="radio" [id]="coatColor" name="coatColor" [value]="coatColor"  [(ngModel)]="selectedCoatName" [checked]="coatColor==horseCollection.horses[horseIndex].coat[0]?'checked':false">
                         <img class="coatColor" src="../../assets/images/coats/{{coatColor.toLowerCase()}}.png">
