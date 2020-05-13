@@ -10,17 +10,21 @@
 <h1 class="color-white">Choose a Horse</h1>
     <div class="row align-items-stretch">
         <div class="col-sm  div-coat">
-            <form class="color-white font-md">
+            <form id="list-horse" class="color-white font-md">
                 <!-- <div class="circle-left"></div> -->
                 <div class="text-right" *ngFor="let breed of allBreeds" >
                     <label>
                         {{breed.breed}}
-                        <input type="radio" [id]="breed.breed" name="horseName" [value]="breed.breed">
+                        <input type="radio" [id]="breed.breed" name="horseName" [value]="breed.breed" (click)="getSkill($event)">
                         <span class="checkmark"></span>
                         <br>
                     </label>
                 </div>
             </form>
+        </div>
+        <div>
+            <img>
+            <div> {{skill}}</div>
         </div>
       
         <div class="col-sm div-coat">
