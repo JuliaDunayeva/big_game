@@ -58,7 +58,7 @@ export class SignUpComponent implements OnInit{
   }
 
   getSkill(event: Event){
-    var index = this.allBreeds.map((o) => o.breed).indexOf(event.target.value);
+    var index = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).value);
     console.log(index);
     this.skill = this.allBreeds[index].skill;
     console.log(this.skill);
