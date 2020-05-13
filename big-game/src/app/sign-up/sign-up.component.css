@@ -108,18 +108,20 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 
 .circle-right {
     float: left;
-    width: 165px;
-    height: 350px;
-    shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%);
+    width: 180px;
+    height: 390px;
+    /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
+    shape-outside: circle(175px at -20% 50%);
+
 }
 
 .circle-left {
     margin: auto auto;
     float: right;
-    width: 165px;
-    height: 350px;
-    shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%);
-    background-color: orange;
+    width: 180px;
+    height: 390px;
+    shape-outside: circle(175px at 120% 50%);
+
 
 }
 
@@ -127,6 +129,6 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     margin: auto auto;
 } */
 
-.coatDiv {
+.listDiv {
     margin: 15px auto;
 }
