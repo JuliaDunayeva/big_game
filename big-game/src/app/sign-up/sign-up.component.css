@@ -39,10 +39,10 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 }  
 
 .checkmark {
-    position:absolute;
-    margin-left: 20%;
-    height: 22px;
-    width: 22px;
+    /* margin-left: 20%; commented bout by Moj*/
+    display: inline-block;
+    height: 30px;
+    width: 30px;
     border: 2px solid #c5bebb;
     background-color: white;
     border-radius: 50%;
@@ -58,8 +58,8 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 #horseName input:checked ~ .checkmark{
     padding: 5px;
     margin-top: -2px;
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
     background-color:#E5FF70;
     border-color: white;
 }
@@ -104,4 +104,29 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 .coatColor:hover {
     border-color: rgb(182, 122, 142);
     cursor: pointer;
+}
+
+.circle-right {
+    float: left;
+    width: 165px;
+    height: 350px;
+    shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%);
+}
+
+.circle-left {
+    margin: auto auto;
+    float: right;
+    width: 165px;
+    height: 350px;
+    shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%);
+    background-color: orange;
+
+}
+
+/* .div-coat {
+    margin: auto auto;
+} */
+
+.coatDiv {
+    margin: 15px auto;
 }
