@@ -26,9 +26,16 @@ h1{
     display: inline-flex;
 }
 
-.best-skill{
-    margin-top: -58px;
-    margin-left: 24%;
+
+
+
+h5:first-child {
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+h5, .h5 {
+    font-size: 1.25rem;
 }
 
 /*****Moj*******/
@@ -78,16 +85,16 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     width: 125px;
     border-radius: 40px;
     padding-top: 5%;
-    margin-left: 45%;
+    margin-left: 47%;
 }
 
-.horseSkill{
+.skill{
     padding: 1px;
     background: rgba(74,84,58,.4);
-    width: 131px;
+    width: 87px;
     border-radius: 40px;
-    padding-top: 5%;
-    margin-left: 42%;
+    padding-top: 2%;
+    margin-left: 33%;
     color: #fff;
     box-sizing: border-box;
     display: inline-block;
