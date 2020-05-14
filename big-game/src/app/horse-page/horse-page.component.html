@@ -1,7 +1,17 @@
 <!-- You can now use it in app.component.html -->
 
-
+<label>
+    
+    <br>
+</label>
 <div class="container">
+
+
+
+
+
+
+
     <app-nav-bar></app-nav-bar>
     <!-- account nav bar here-->
     <br>
@@ -242,9 +252,14 @@
                                 Victories
                             </div>
                             <div>
-                                <p>Breed</p>
+                                <p>Breed -> {{ allBreeds[1].breed }}</p>
+                            </div>
+                            <div>
+                                <p>Color -> {{ allColors[0].color }}</p>
+
 
                             </div>
+                            <p>User Name -> {{ userData[0].userName }} </p>
                         </div>
                     </div>
                 </div>
