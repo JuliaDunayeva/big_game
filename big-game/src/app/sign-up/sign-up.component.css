@@ -32,15 +32,17 @@ h1{
 }
 
 /*****Moj*******/
+.breed-div *, .coat-div * {
+    box-sizing: border-box;
+} 
+
 input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] { 
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }  
 
-/***** Breed Part *****
-***********************/
-.breed-checkmark {
+.radio-border {
     margin-left: 10px;
     display: inline-block;
     height: 30px;
@@ -51,11 +53,16 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     cursor: pointer;
 }
 
-.breed-label:hover .breed-checkmark{
+.breed-label:hover .radio-border, .coat-label:hover .radio-border  {
     border:2px solid white;
     background-color:  #d8d5d3;
 }
 
+/***** Breed Part *****
+***********************/
+.breed-item {
+    margin: 12px auto;
+}
 
 .breed-label input:checked ~ .breed-checkmark{
     padding: 5px;
@@ -68,11 +75,31 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 
 /***** Coat Part *****
 ***********************/
-#coatColor input:checked ~ .coatColor{
+.coat-div {
+    display: grid;
+    align-items: center;
+}
+
+.coat-item {
+    margin: 12px auto;
+}
+
+/* .coat-input {
+    margin: 12px auto;
+} */
+
+.coat-form img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.coat-label input:checked ~ .radio-border{
+    margin-top: -3px;
+    padding: 1px;
     height: 35px;
     width: 35px;
     border-color: white;
-
 }
 
 #horseSkill input:checked ~ .horseSkill{
@@ -109,11 +136,6 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     cursor: pointer;
 }
 
-#getCoat {
-    padding: 0;
-    margin: 0;
-}
-
 /***** shape-outside part ******
 *******************************/
 .circle-right {
@@ -122,7 +144,7 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     width: 180px;
     height: 390px;
     /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
-    shape-outside: circle(175px at -30% 45%);
+    shape-outside: circle(175px at -15% 51%);
 
 }
 
@@ -131,5 +153,5 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     float: right;
     width: 180px;
     height: 390px;
-    shape-outside: circle(175px at 120% 50%);
+    shape-outside: circle(175px at 110% 50%);
 }
