@@ -142,7 +142,7 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     width: 180px;
     height: 390px;
     /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
-    shape-outside: circle(175px at -15% 48.5%);
+    shape-outside: circle(175px at -30% 48.5%);
 
 }
 
