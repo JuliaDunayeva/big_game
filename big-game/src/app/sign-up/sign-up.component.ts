@@ -28,7 +28,6 @@ export class SignUpComponent implements OnInit{
   ngOnInit() {
    this.getColors();
    this.getBreeds();
-  
   }
 
   getColors(): Color[] {
@@ -36,7 +35,6 @@ export class SignUpComponent implements OnInit{
       result =>{
         console.log(result);
         this.allColors = result as Array<Color>;
-        console.log(this.allColors[0].color)
       }
     )
     return this.colors;
@@ -47,14 +45,11 @@ export class SignUpComponent implements OnInit{
       result => {
         console.log(result);
         this.allBreeds = result as Array<Breed>;
-        // for (let i = 0 ; i < this.allBreeds.length ; i++) {
-        //   this.allSkills.push(this.allBreeds[i].skill)
-        // }
+        this.skill = this.allBreeds[0].skill;
         console.log(this.allBreeds[0].skill);
-        // console.log(this.allSkills);
       }
     )
-    return ;
+    return;
   }
 
   getSkill(event: Event){
