@@ -32,14 +32,16 @@ h1{
 }
 
 /*****Moj*******/
-input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
+input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] { 
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }  
 
-.checkmark {
-    /* margin-left: 20%; commented bout by Moj*/
+/***** Breed Part *****
+***********************/
+.breed-checkmark {
+    margin-left: 10px;
     display: inline-block;
     height: 30px;
     width: 30px;
@@ -49,13 +51,13 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     cursor: pointer;
 }
 
-.checkmark:hover {
-     border:2px solid white;
-     background-color:  #d8d5d3;
-   
+.breed-label:hover .breed-checkmark{
+    border:2px solid white;
+    background-color:  #d8d5d3;
 }
 
-#horseName input:checked ~ .checkmark{
+
+.breed-label input:checked ~ .breed-checkmark{
     padding: 5px;
     margin-top: -2px;
     height: 35px;
@@ -64,13 +66,14 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     border-color: white;
 }
 
+/***** Coat Part *****
+***********************/
 #coatColor input:checked ~ .coatColor{
     height: 35px;
     width: 35px;
     border-color: white;
 
 }
-
 
 #horseSkill input:checked ~ .horseSkill{
     padding: 1px;
@@ -106,7 +109,15 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     cursor: pointer;
 }
 
+#getCoat {
+    padding: 0;
+    margin: 0;
+}
+
+/***** shape-outside part ******
+*******************************/
 .circle-right {
+    margin: auto auto;
     float: left;
     width: 180px;
     height: 390px;
@@ -121,14 +132,4 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     width: 180px;
     height: 390px;
     shape-outside: circle(175px at 120% 50%);
-
-
-}
-
-/* .div-coat {
-    margin: auto auto;
-} */
-
-.listDiv {
-    margin: 15px auto;
 }
