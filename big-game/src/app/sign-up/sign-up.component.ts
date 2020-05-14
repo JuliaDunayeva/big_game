@@ -46,14 +46,10 @@ export class SignUpComponent implements OnInit{
         console.log(result);
         this.allBreeds = result as Array<Breed>;
         this.skill = this.allBreeds[0].skill;
-        // for (let i = 0 ; i < this.allBreeds.length ; i++) {
-        //   this.allSkills.push(this.allBreeds[i].skill)
-        // }
         console.log(this.allBreeds[0].skill);
-        // console.log(this.allSkills);
       }
     )
-    return ;
+    return;
   }
 
   getSkill(event: Event){
