@@ -75,18 +75,9 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 
 /***** Coat Part *****
 ***********************/
-.coat-div {
-    display: grid;
-    align-items: center;
-}
-
 .coat-item {
     margin: 12px auto;
 }
-
-/* .coat-input {
-    margin: 12px auto;
-} */
 
 .coat-form img {
     margin-right: 10px;
@@ -123,7 +114,7 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     display: inline-block;
 }
 
-.coatColor {
+/* .coatColor {
     padding: 1px;
     border: 2px solid rgb(133, 70, 91);
     width:30px;
@@ -134,7 +125,7 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 .coatColor:hover {
     border-color: rgb(182, 122, 142);
     cursor: pointer;
-}
+} */
 
 /***** shape-outside part ******
 *******************************/
@@ -144,7 +135,7 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     width: 180px;
     height: 390px;
     /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
-    shape-outside: circle(175px at -15% 51%);
+    shape-outside: circle(175px at -15% 48.5%);
 
 }
 
