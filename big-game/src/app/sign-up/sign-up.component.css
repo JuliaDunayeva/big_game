@@ -11,7 +11,7 @@
 }
 
 h1{
-    margin-left: 34%;
+    text-align: center;;
 }
 
 .font-md{
@@ -26,20 +26,28 @@ h1{
     display: inline-flex;
 }
 
-.best-skill{
-    margin-top: -58px;
-    margin-left: 24%;
+h5:first-child {
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+h5, .h5 {
+    font-size: 1.25rem;
 }
 
 /*****Moj*******/
-input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
+.breed-div *, .coat-div * {
+    box-sizing: border-box;
+} 
+
+input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] { 
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }  
 
-.checkmark {
-    /* margin-left: 20%; commented bout by Moj*/
+.radio-border {
+    margin-left: 10px;
     display: inline-block;
     height: 30px;
     width: 30px;
@@ -49,13 +57,18 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     cursor: pointer;
 }
 
-.checkmark:hover {
-     border:2px solid white;
-     background-color:  #d8d5d3;
-   
+.breed-label:hover .radio-border, .coat-label:hover .radio-border  {
+    border:2px solid white;
+    background-color:  #d8d5d3;
 }
 
-#horseName input:checked ~ .checkmark{
+/***** Breed Part *****
+***********************/
+.breed-item {
+    margin: 12px auto;
+}
+
+.breed-label input:checked ~ .breed-checkmark{
     padding: 5px;
     margin-top: -2px;
     height: 35px;
@@ -64,13 +77,25 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     border-color: white;
 }
 
-#coatColor input:checked ~ .coatColor{
+/***** Coat Part *****
+***********************/
+.coat-item {
+    margin: 12px auto;
+}
+
+.coat-form img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.coat-label input:checked ~ .radio-border{
+    margin-top: -3px;
+    padding: 1px;
     height: 35px;
     width: 35px;
     border-color: white;
-
 }
-
 
 #horseSkill input:checked ~ .horseSkill{
     padding: 1px;
@@ -78,22 +103,21 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     width: 125px;
     border-radius: 40px;
     padding-top: 5%;
-    margin-left: 45%;
+    margin-left: 47%;
 }
 
-.horseSkill{
-    padding: 1px;
+.skill{
+    padding: 5px 2px;
+    width: 50%;
+    margin: auto;
     background: rgba(74,84,58,.4);
-    width: 131px;
     border-radius: 40px;
-    padding-top: 5%;
-    margin-left: 42%;
     color: #fff;
     box-sizing: border-box;
     display: inline-block;
 }
 
-.coatColor {
+/* .coatColor {
     padding: 1px;
     border: 2px solid rgb(133, 70, 91);
     width:30px;
@@ -104,29 +128,24 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
 .coatColor:hover {
     border-color: rgb(182, 122, 142);
     cursor: pointer;
-}
+} */
 
+/***** shape-outside part ******
+*******************************/
 .circle-right {
+    margin: auto auto;
     float: left;
-    width: 165px;
-    height: 350px;
-    shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%);
+    width: 180px;
+    height: 390px;
+    /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
+    shape-outside: circle(175px at -30% 48.5%);
+
 }
 
 .circle-left {
     margin: auto auto;
     float: right;
-    width: 165px;
-    height: 350px;
-    shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%);
-    background-color: orange;
-
-}
-
-/* .div-coat {
-    margin: auto auto;
-} */
-
-.coatDiv {
-    margin: 15px auto;
+    width: 180px;
+    height: 390px;
+    shape-outside: circle(175px at 110% 50%);
 }

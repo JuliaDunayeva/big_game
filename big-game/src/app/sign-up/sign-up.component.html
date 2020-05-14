@@ -8,33 +8,48 @@
     </div>
     <br><br>
 <h1 class="color-white">Choose a Horse</h1>
-    <div class="row align-items-stretch">
-        <div class="col-sm  div-coat">
-            <form id="list-horse" class="color-white font-md">
-                <!-- <div class="circle-left"></div> -->
-                <div class="text-right" *ngFor="let breed of allBreeds" >
-                    <label>
+    <div class="row align-items-center">
+        <div class="col-sm">
+            <form class="color-white font-md breed-form">
+                <div class="circle-left"></div>
+                <div class="text-right breed-item" *ngFor="let breed of allBreeds" >
+                    <label class="d-inline-flex align-middle breed-label">
                         {{breed.breed}}
-                        <input type="radio" [id]="breed.breed" name="horseName" [value]="breed.breed" (click)="getSkill($event)">
-                        <span class="checkmark"></span>
-                        <br>
+                        <input class="breed-input" type="radio" [id]="breed.breed" name="horseName" [value]="breed.breed" [checked]="breed.breed === allBreeds[0].breed?'checked': false" (click)="getSkill($event)">
+                        <span class="breed-checkmark radio-border"></span>
+                    </label>
+                </div>
+                <div class="text-right">
+                    <label class="d-inline-flex align-middle breed-label">
+                        Unlock new breeds
+                        <input type="radio" [id]="" name="horseName" value="Unlock new breeds">
+                        <span class="breed-checkmark radio-border"></span>
                     </label>
                 </div>
             </form>
         </div>
-        <div>
-            <img>
-            <div> {{skill}}</div>
+        <div class="d-flex flex-column justify-content-center">
+            <img src="../../assets/images/horses/akhal_teke/alz-b.png">
+            <div class="d-flex flex-column align-items-center justify-content-center skill"> 
+                <h5>Best Skills</h5>
+                {{skill}}</div>
         </div>
       
-        <div class="col-sm div-coat">
-            <form id="coatForm" class=" color-white font-md">
+        <div class="col-sm coat-div">
+            <form class="color-white font-md coat-form">
                 <div class="circle-right"></div>
-                <div class="text-left coatDiv" *ngFor="let color of allColors">
-                    <label id="coatColor" class=" justify-content-start">
-                        <input class="" type="radio" [id]="" name="color.color" [value]="color.color"  >
+                <div class="text-left coat-item" *ngFor="let color of allColors">
+                    <label class="d-inline-flex align-middle coat-label">
+                        <input class="coat-input" type="radio" [id]="" name="coatColor" [value]="color.color" [checked]="color.color === allColors[0].color?'checked': false" >
+                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png">
                         {{color.color}}
-                        <br>
+                    </label>
+                </div>
+                <div id="getCoat" class="text-left coat-item">
+                    <label class="d-inline-flex align-middle coat-label">
+                        <input class="coat-input" type="radio" [id]="" name="coatColor" value="Unlock new coats">
+                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png">
+                        Unlock new coats
                     </label>
                 </div>
             </form>
