@@ -1,3 +1,6 @@
+import { Color } from './color';
+import { Breed } from './breed';
+
 export class HorseData {
     id: string;
     breed: number;
