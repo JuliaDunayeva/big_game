@@ -15,6 +15,8 @@ import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
+import { HorseData } from '../horse-data';
+import { HorseDataService} from '../services/horse-data.service';
 
 @Component({
   selector: 'app-horse-page',
@@ -28,22 +30,23 @@ export class HorsePageComponent implements OnInit {
   allColors: Color[];
   allBreeds: Breed[];
   allSkills: string[];
+  allHorseData: HorseData[];
   skill: string;
-
   userData: UserData[];
-  //UserDataService: any;
-  
+    
   constructor(private router: Router, 
     private http: HttpClient,
     public colorService: ColorService, 
     public breedService: BreedService,
-    public userDataService: UserDataService) { }
+    public userDataService: UserDataService,
+    public HorseDataService: HorseDataService) { }
 
   ngOnInit(): void {
     //SignUpComponent.getColors();
 this.getBreeds();
 this.getColors();   
 this.getUserData(); 
+this.getHorseData();
     //SignUpComponent.getBreeds();
   }
   public isLCollapsed = false;
@@ -63,7 +66,7 @@ this.getUserData();
 
   public isMCollapsed =false;
 
-  public rate=10;
+  public rating=1;
   
   active = 1;
 
@@ -77,7 +80,7 @@ this.getUserData();
   
   //this.ctrl.disable();
 
-  toggle() {
+   toggle() {
     if (this.ctrl.disabled) {
       this.ctrl.enable();
     } else {
@@ -120,6 +123,17 @@ this.getUserData();
       }
     )
     return this.userData;
+  }
+
+  getHorseData(): HorseData[] {
+    this.HorseDataService.getHorseData().subscribe(
+      result =>{
+        console.log(result);
+        this.allHorseData = result as Array<HorseData>;
+        console.log(this.allHorseData[0].stamina)
+      }
+    )
+    return this.allHorseData;
   }
  
  public beforeChange($event: NgbPanelChangeEvent) {

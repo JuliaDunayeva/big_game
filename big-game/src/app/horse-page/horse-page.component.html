@@ -110,31 +110,33 @@
             <div id="collapseExample " [ngbCollapse]="isMCollapsed ">
                 <div class="card mycard-light-green card-middle-title ">
                     <div class="row ">
-                        <circle-progress class="time-left-padding time-top-padding " [clockwise]="false " [percent]="85 " [radius]="35 " [outerStrokeWidth]="10 " [innerStrokeWidth]="4 " [outerStrokeColor]=" '#78C000' " [innerStrokeColor]=" '#C7E596'
+                        <circle-progress class="time-left-padding time-top-padding " [clockwise]="false " [percent]="(allHorseData[2].dayTime) " [radius]="35 " [outerStrokeWidth]="10 " [innerStrokeWidth]="4 " [outerStrokeColor]=" '#78C000' " [innerStrokeColor]=" '#C7E596'
                     " [animation]="false " [animationDuration]="300 " [showBackground]="true "></circle-progress>
                         <div class="card-body ">
                             <div class="col-10 form-group center-text ">
                                 Energy
-                                <div id="progressbar">
+                                <!-- <div id="progressbar">
                                     <div></div>
-                                </div>
-                                <!--<ngb-progressbar type=" " [value]="25 "></ngb-progressbar>-->
+                                </div> -->
+                                <ngb-progressbar type=" " [value]="(allHorseData[2].energy) "></ngb-progressbar>
                                 <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
                             <div class="col-10 form-group center-text card-middle-title ">
                                 Health
                                 <!--<ngb-progressbar type="warning " [value]="50 "></ngb-progressbar>-->
-                                <div id="progressbar">
+                                <!-- <div id="progressbar">
                                     <div></div>
-                                </div>
+                                </div>-->
+                                <ngb-progressbar type=" " [value]="(allHorseData[2].health) "></ngb-progressbar>
                                 <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
                             <div class="col-10 form-group center-text card-middle-title ">
                                 Morale
-                                <div id="progressbar">
+                                <!-- <div id="progressbar">
                                     <div></div>
-                                </div>
-                                <!--<ngb-progressbar type="success " [value]="100 "></ngb-progressbar>-->
+                                </div> -->
+                                <ngb-progressbar type=" " [value]="(allHorseData[2].morale) "></ngb-progressbar>
+
                                 <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
                         </div>
@@ -146,70 +148,82 @@
                 <button type="button " class="btn btn-primary max-width-middle-column mycard-light-green card-title  no-bottom-margin card-title-border " [attr.aria-expanded]="!isMCollapsed " aria-controls="collapseExample ">Skills</button>
             </p>
             <div class="no-top-margin " id="collapseExample " [ngbCollapse]="isMCollapsed ">
-                <div class="card mycard-light-green ">
+                <div class="card-header mycard-light-green ">
 
                     <div class="card-body row">
-                        <div class="col-4 form-group center-text card-middle-title">
-                            Stamina
+                        <div class="col-4 form-group left-align card-middle-title">
+                            Skills
                         </div>
-                        <div class="col-4">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text">
+
+                            <div class="center-text">Total</div>
+                            <!-- <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[1].stamina)" class="gold-color "></ngb-rating> -->
                         </div>
-                        <div class="col-3">1,000</div>
+                        <div class="col-3 center-text">1,000</div>
                     </div>
 
                     <div class="card-body row">
-                        <div class="col-4 form-group center-text card-middle-title ">
+                        <div class="col-4 form-group left-align card-middle-title">
+                            Stamina
+                        </div>
+                        <div class="col-4 center-text">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[1].stamina)" class="gold-color "></ngb-rating>
+                        </div>
+                        <div class="col-3 center-text">1,000</div>
+                    </div>
+
+                    <div class="card-body row">
+                        <div class="col-4 form-group center-text card-middle-title">
                             Speed
                         </div>
-                        <div class="col-4">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[1].speed)" class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3">1,000</div>
+                        <div class="col-3 center-text">1,000</div>
                     </div>
 
                     <div class="card-body row">
                         <div class="col-4 form-group center-text card-middle-title ">
                             Dressage
                         </div>
-                        <div class="col-4">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[1].dressage) " class="gold-color "></ngb-rating>
                         </div>
 
-                        <div class="row-3">1,000</div>
+                        <div class="col-3 center-text">1,000</div>
                     </div>
 
                     <div class="card-body row">
                         <div class="col-4 form-group center-text card-middle-title ">
                             Gallop
                         </div>
-                        <div class="col-4">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[1].gallop) " class="gold-color "></ngb-rating>
                         </div>
 
-                        <div class="row-3">1,000</div>
+                        <div class="col-3 center-text">1,000</div>
                     </div>
 
                     <div class="card-body row">
                         <div class="col-4 form-group center-text card-middle-title ">
                             Trot
                         </div>
-                        <div class="col-4">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[1].trot) " class="gold-color "></ngb-rating>
                         </div>
 
-                        <div class="row-3">1,000</div>
+                        <div class="col-3 center-text">1,000</div>
                     </div>
 
                     <div class="card-body row">
                         <div class="col-4 form-group center-text card-middle-title ">
                             Jumping
                         </div>
-                        <div class="col-4">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[1].jumping) " class="gold-color "></ngb-rating>
                         </div>
 
-                        <div class="row-3">1,000</div>
+                        <div class="col-3 center-text">1,000</div>
                     </div>
 
                 </div>
