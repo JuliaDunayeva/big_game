@@ -18,6 +18,10 @@ import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
 
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-horse-page',
   templateUrl: './horse-page.component.html',
@@ -40,8 +44,30 @@ export class HorsePageComponent implements OnInit {
     public breedService: BreedService,
     public userDataService: UserDataService,
     public HorseDataService: HorseDataService) { }
+   // public 
 
-  ngOnInit(): void {
+  createdata(){
+    this.userDataService.createdata();
+    //let db: AngularFirestore;
+/*    let docRef = db.collection('testdata').doc('user');
+
+let setAda = docRef.set({
+  first: 'Ada',
+  last: 'Lovelace',
+  born: 1815
+});*/
+/*let data = {
+  name: 'Los Angeles',
+  state: 'CA',
+  country: 'USA'
+};
+
+// Add a new document in collection "cities" with ID 'LA'
+let setDoc = db.collection('testdata').doc('user').set(data);
+*/
+console.log('add user');
+  }
+    ngOnInit(): void {
     //SignUpComponent.getColors();
 this.getBreeds();
 this.getColors();   
