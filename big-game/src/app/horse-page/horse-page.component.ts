@@ -103,6 +103,8 @@ this.getHorseData();
   public readonly = true;
 
   public value = 0;
+
+  public userIndex=1;
   
   //this.ctrl.disable();
 
@@ -145,7 +147,7 @@ this.getHorseData();
       result =>{
         console.log(result);
         this.userData = result as Array<UserData>;
-        console.log(this.userData[0].password);
+        console.log(this.userData[0].userName);
       }
     )
     return this.userData;
