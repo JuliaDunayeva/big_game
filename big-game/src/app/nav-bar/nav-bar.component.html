@@ -1,14 +1,15 @@
-
 <div class="container">
   <nav class="navbar navbar-expand-lg">
-    <img class="img-size" src="./assets/images/home-page/logo.png">
-    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+    <img class="img-size" src="./assets/images/home-page/logo.png" />
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul>
-      <li class="nav-item active inline-flex">
+        <li class="nav-item active inline-flex">
           <a class="nav-link nav-btn nav-btn-big">
-            <div class=" inline-flex">
+            <div class="inline-flex">
               <h4>Start Pack</h4>
-              <div class="btn-round"><i class="font-lg icon-qualty angle right icon"></i></div>
+              <div class="btn-round">
+                <i class="font-lg icon-qualty angle right icon"></i>
+              </div>
             </div>
           </a>
         </li>
@@ -17,10 +18,11 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link nav-btn ">
+          <a class="nav-link nav-btn">
             <div class="inline-flex">
               <div class="inline-block">
-                <h6>1197</h6>  <!-- DB Value of tokens to be placed here-->
+                <h6>1197</h6>
+                <!-- DB Value of tokens to be placed here-->
                 <p class="font-sm">Equus</p>
               </div>
               <div class="btn-round-sml"><i class="font-md plus icon"></i></div>
@@ -28,69 +30,76 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-btn ">
+          <a class="nav-link nav-btn">
             <div class="inline-flex">
               <div class="inline-block">
-                <h6>10</h6>  <!-- DB Value of passes to be placed here-->
+                <h6>10</h6>
+                <!-- DB Value of passes to be placed here-->
                 <p class="font-sm">Passes</p>
               </div>
               <div class="btn-round-sml"><i class="font-md plus icon"></i></div>
             </div>
           </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link icon-margin " >
-        <i class="leaf-size leaf icon"></i>
-      </a>
-      </li> 
-      <li class="nav-item">
-          <a class="nav-link nav-profile" >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link icon-margin">
+            <i class="leaf-size leaf icon"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-profile">
             <i class="font-md2 icon-qualty envelope icon"></i>
           </a>
-      </li> 
-      <li ngbDropdown class="nav-item">
-        <a href (click)="false" class="nav-link nav-profile " ngbDropdownToggle>
-          <i class="font-md2 icon-qualty user icon"></i>
-        </a>
-        <div ngbDropdownMenu class="drop-box">
-          <button ngbDropdownItem class=" hover-box disabled">
-            <div class="inline-block">
-            <i class="font-xl user circle icon"></i>
-            <p class="font-xmd">User Name</p>
+        </li>
+        <li ngbDropdown class="nav-item">
+          <a
+            href
+            (click)="(false)"
+            class="nav-link nav-profile"
+            ngbDropdownToggle
+          >
+            <i class="font-md2 icon-qualty user icon"></i>
+          </a>
+          <div ngbDropdownMenu class="drop-box">
+            <button ngbDropdownItem class="hover-box disabled">
+              <div class="inline-block">
+                <i class="font-xl user circle icon"></i>
+                <p class="font-xmd">User Name</p>
+              </div>
+            </button>
+            <div class="dropdown-divider hover-box"></div>
+            <button ngbDropdownItem class="font-xmd hover-box disabled">
+              <i class="key icon"></i>
+              Supscription
+            </button>
+            <div class="dropdown-divider hover-box"></div>
+            <button ngbDropdownItem class="font-xmd hover-box disabled">
+              <i class="cog icon"></i>
+              Account
+            </button>
+            <div class="dropdown-divider hover-box"></div>
+            <button ngbDropdownItem class="disabled">
+              <i class="seperate flag-bg canada flag"></i>
+              <i class="seperate united states flag"></i>
+              <i class="seperate japan flag"></i>
+              <i class="seperate palestine flag"></i>
+            </button>
+            <div class="dropdown-divider hover-box"></div>
+            <button ngbDropdownItem class="font-xmd hover-box disabled">
+              <i class="angle right icon"></i>
+              Versions
+            </button>
+            <div class="dropdown-divider hover-box"></div>
+            <li>
+              <a routerLink="/home-page">
+                <button ngbDropdownItem class="font-xmd hover-box">
+                  <i class="power off icon"></i>
+                  log Out
+                </button>
+              </a>
+            </li>
           </div>
-          </button>
-          <div class="dropdown-divider hover-box"></div>
-          <button ngbDropdownItem class="font-xmd hover-box disabled">
-            <i class="key icon"></i>
-            Supscription
-          </button>
-          <div class="dropdown-divider hover-box"></div>
-          <button ngbDropdownItem class="font-xmd hover-box disabled">
-            <i class="cog icon"></i>
-            Account
-          </button>
-          <div class="dropdown-divider hover-box"></div>
-          <button ngbDropdownItem class="disabled ">
-            <i class="seperate flag-bg canada flag"></i>
-            <i class="seperate united states flag"></i>
-            <i class="seperate japan flag"></i>
-            <i class="seperate palestine flag"></i>
-          </button>
-          <div class="dropdown-divider hover-box"></div> 
-          <button ngbDropdownItem class="font-xmd hover-box disabled">
-            <i class="angle right icon"></i>
-            Versions
-          </button>
-          <div class="dropdown-divider hover-box "></div>
-          <li>
-          <a routerLink = "/home-page">
-            <button ngbDropdownItem class="font-xmd hover-box">
-            <i class="power off icon"></i>
-            log Out
-          </button>
-          </a></li>
-        </div>
-      </li>
+        </li>
       </ul>
     </div>
   </nav>

@@ -4,15 +4,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-play-bar',
   templateUrl: './play-bar.component.html',
-  styleUrls: ['./play-bar.component.css']
+  styleUrls: ['./play-bar.component.css'],
 })
 export class PlayBarComponent implements OnInit {
+  
+  constructor(private router: Router) {}
 
-  constructor(private router: Router) { 
-    
-  }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
+  
 }

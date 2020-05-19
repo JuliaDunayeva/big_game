@@ -6,11 +6,10 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-sign-form',
   templateUrl: './sign-form.component.html',
-  styleUrls: ['./sign-form.component.css']
+  styleUrls: ['./sign-form.component.css'],
 })
-
 export class SignFormComponent implements OnInit {
-  signForm: FormGroup
+  signForm: FormGroup;
   //   public user: UserData
   submitted = false;
   //   private http: HttpClient;
@@ -20,22 +19,24 @@ export class SignFormComponent implements OnInit {
     this.signForm = this.signUpForm();
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
+  
   signUpForm(): FormGroup {
     return new FormGroup({
       userData: new FormGroup({
-        username: new FormControl(null, [Validators.required, Validators.minLength(4)]),
-        email: new FormControl(null, [Validators.required, Validators.email,]),
+        username: new FormControl(null, [
+          Validators.required,
+          Validators.minLength(4),
+        ]),
+        email: new FormControl(null, [Validators.required, Validators.email]),
         password: new FormControl(null, [Validators.required]),
-        confirmpassword: new FormControl(null, [Validators.required])
-      })
-
-    })
+        confirmpassword: new FormControl(null, [Validators.required]),
+      }),
+    });
   }
+  
   onSubmit() {
     // console.log(this.signForm)
-
   }
+  
 }
