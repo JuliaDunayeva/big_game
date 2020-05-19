@@ -25,4 +25,5 @@ export class UserDataService {
   getUserData() {
     return this.db.collection('/testdata').valueChanges()
   }
+  
 }

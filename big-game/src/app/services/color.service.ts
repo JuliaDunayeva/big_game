@@ -14,4 +14,5 @@ export class ColorService {
   getColors() {
     return this.db.collection('/color').valueChanges()
   }
+  
 }

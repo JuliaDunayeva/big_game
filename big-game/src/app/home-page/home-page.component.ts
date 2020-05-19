@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   constructor(private router: Router) { }
-
+  
+  ngOnInit(): void {
+  }
+  
   signUp():boolean {
     this.router.navigate(['/sign-up']);
     return false;
   }
   
-  ngOnInit(): void {
-  }
-
 }

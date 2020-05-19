@@ -20,6 +20,7 @@ export class SignFormComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  
   signUpForm(): FormGroup {
     return new FormGroup({
       userData: new FormGroup({
@@ -33,7 +34,9 @@ export class SignFormComponent implements OnInit {
       }),
     });
   }
+  
   onSubmit() {
     // console.log(this.signForm)
   }
+  
 }

@@ -11,10 +11,12 @@
         <div class="col-sm">
             <form class="color-white font-md breed-form">
                 <div class="circle-left"></div>
-                <div class="text-right breed-item" *ngFor="let breed of allBreeds" >
+                <div class="text-right breed-item" *ngFor="let breed of allBreeds">
                     <label class="d-inline-flex align-middle breed-label">
                         {{breed.breed}}
-                        <input class="breed-input" type="radio" [id]="breed.breed" name="horseName" [value]="breed.breed" [checked]="breed.breed === allBreeds[0].breed?'checked': false" (click)="getSkill($event)">
+                        <input class="breed-input" type="radio" [id]="breed.breed" name="horseName"
+                            [value]="breed.breed" [checked]="breed.breed === allBreeds[0].breed?'checked': false"
+                            (click)="getSkill($event)">
                         <span class="breed-checkmark radio-border"></span>
                     </label>
                 </div>
@@ -29,16 +31,18 @@
         </div>
         <div class="d-flex flex-column justify-content-center">
             <img src="../../assets/images/horses/akhal_teke/alz-b.png"><br>
-            <div class="d-flex flex-column align-items-center justify-content-center skill"> 
+            <div class="d-flex flex-column align-items-center justify-content-center skill">
                 <h5>Best Skills</h5>
-                {{skill}}</div>
+                {{skill}}
+            </div>
         </div>
         <div class="col-sm coat-div">
             <form class="color-white font-md coat-form">
                 <div class="circle-right"></div>
                 <div class="text-left coat-item" *ngFor="let color of allColors">
                     <label class="d-inline-flex align-middle coat-label">
-                        <input class="coat-input" type="radio" [id]="" name="coatColor" [value]="color.color" [checked]="color.color === allColors[0].color?'checked': false" >
+                        <input class="coat-input" type="radio" [id]="" name="coatColor" [value]="color.color"
+                            [checked]="color.color === allColors[0].color?'checked': false">
                         <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png">
                         {{color.color}}
                     </label>
@@ -53,7 +57,7 @@
             </form>
         </div>
     </div>
-    <div >
+    <div>
         <br><br>
         <app-sign-form></app-sign-form>
         <br>

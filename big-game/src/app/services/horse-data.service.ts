@@ -14,4 +14,5 @@ export class HorseDataService {
     getHorseData(){
     return this.db.collection('/horseData').valueChanges()
   }
+  
 }
