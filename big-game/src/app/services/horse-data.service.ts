@@ -11,8 +11,8 @@ export class HorseDataService {
 
   constructor(public db: AngularFirestore) { }
 
-  getHorseData() {
-    return this.db.collection('/horse-data').valueChanges()
+    getHorseData(){
+    return this.db.collection('/horseData').valueChanges()
   }
   
 }
