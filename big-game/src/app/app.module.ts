@@ -40,7 +40,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     FlagsComponent
   ],
   
-   
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,8 +50,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFirestoreModule,
     HttpClientModule,
     AngularFireDatabaseModule,
-    //,NgbModule.forRoot()
-     // Specify ng-circle-progress as an import
      NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,
@@ -64,9 +61,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     })
 
   ],
- // exports: [NgbdRatingForm],
+  
   providers: [],
-  bootstrap: [AppComponent]//,NgbdRatingForm]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 export class NgbdRatingFormModule {}
