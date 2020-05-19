@@ -7,7 +7,7 @@
 }
 
 ul {
- margin: 0;
+    margin: 0;
 }
 
 .navbar-expand-lg .navbar-collapse {
@@ -18,11 +18,11 @@ ul {
 
 .nav-profile {
     margin-left: 20px;
-    padding:0px;
+    padding: 0px;
     color: white;
     border-radius: 5px;
     background: rgb(73, 131, 186);
-    border:none;
+    border: none;
 }
 
 .nav-profile:hover {
@@ -31,11 +31,11 @@ ul {
 
 .nav-btn {
     margin-left: 20px;
-    padding:0px;
+    padding: 0px;
     border-radius: 25px;
     color: white !important;
-    background:rgb(73, 131, 186);
-    border:none;
+    background: rgb(73, 131, 186);
+    border: none;
     width: 105px;
     height: 45px;
 }
@@ -52,13 +52,15 @@ ul {
     margin-top: 10px;
 }
 
+
 /* Start Pack Styling Components */
+
 .nav-btn-big {
     width: 208px;
     margin-top: 0px;
 }
 
-h4{ 
+h4 {
     margin-right: -8px;
     margin-top: 4px;
 }
@@ -75,7 +77,9 @@ h4{
     width: 50px;
 }
 
+
 /* Equus & Passes Styling Components */
+
 h6 {
     margin-bottom: 0;
     font-weight: 700;
@@ -114,12 +118,12 @@ h6 {
     justify-content: center;
 }
 
-.icon-margin{
+.icon-margin {
     margin-left: 20px;
     font-size: 150%;
 }
 
-.rock-img{
+.rock-img {
     width: 18%;
 }
 
@@ -127,13 +131,15 @@ h6 {
     font-size: 11px;
 }
 
-.font-md {              /* used by +'s */
+.font-md {
+    /* used by +'s */
     font-size: 20px;
     margin-left: 8px;
     margin-top: 5px;
 }
 
-.font-md2 {              /* used by mail & profile buttons */
+.font-md2 {
+    /* used by mail & profile buttons */
     font-size: 25px;
     margin: 0;
     height: 38px;
@@ -141,28 +147,32 @@ h6 {
 
 .font-xmd {
     font-size: 15px;
-    color:rgb(73, 131, 186);
+    color: rgb(73, 131, 186);
     margin-left: 23px;
 }
 
-.font-lg {          /* used by > symbol in start pack */
+.font-lg {
+    /* used by > symbol in start pack */
     font-size: 30px;
     margin-left: 4px;
     margin-top: -1px;
 }
 
-.leaf-size {        /* used by the leaf on nav bar */
+.leaf-size {
+    /* used by the leaf on nav bar */
     font-size: 30px;
     margin-top: -10px;
     color: white;
 }
 
-.font-xl {      /* used by profile pic icon */
+.font-xl {
+    /* used by profile pic icon */
     font-size: 60px!important;
-    color:rgb(73, 131, 186);
+    color: rgb(73, 131, 186);
     margin-left: 23px;
     margin-bottom: 24px;
 }
+
 
 /* .nav-link-big {
     padding: .3rem 1.3rem!important;
@@ -172,7 +182,9 @@ h6 {
     padding-bottom: 2px;
 }
 
+
 /* Profile menu styling */
+
 .dropdown-divider {
     height: 0;
     width: 155px;
@@ -214,7 +226,8 @@ h6 {
     background-color: turquoise;
 }
 
-    /* keep if needed ...
+
+/* keep if needed ...
     background: rgba(55,101,154,.5);
     border:rgba(55,101,154,.5);
     */

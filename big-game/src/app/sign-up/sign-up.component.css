@@ -1,28 +1,29 @@
-.img-size{
+.img-size {
     height: 78px;
     width: 261px;
     padding-top: 20px;
 }
 
-.img-size-sm{
+.img-size-sm {
     margin-top: -40%;
     margin-left: 110%;
     height: 19px;
 }
 
-h1{
-    text-align: center;;
+h1 {
+    text-align: center;
+    ;
 }
 
-.font-md{
+.font-md {
     font-size: 17px;
 }
 
-.inline-block{
+.inline-block {
     display: block;
 }
 
-.inline-flex{
+.inline-flex {
     display: inline-flex;
 }
 
@@ -31,20 +32,26 @@ h5:first-child {
     margin-bottom: 2px;
 }
 
-h5, .h5 {
+h5,
+.h5 {
     font-size: 1.25rem;
 }
 
-/*****Moj*******/
-.breed-div *, .coat-div * {
-    box-sizing: border-box;
-} 
 
-input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] { 
+/*****Moj*******/
+
+.breed-div *,
+.coat-div * {
+    box-sizing: border-box;
+}
+
+input[name="coatColor"],
+input[name="horseName"],
+input[name="horseSkill"] {
     position: absolute;
     opacity: 0;
     cursor: pointer;
-}  
+}
 
 .radio-border {
     margin-left: 10px;
@@ -57,28 +64,33 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     cursor: pointer;
 }
 
-.breed-label:hover .radio-border, .coat-label:hover .radio-border  {
-    border:2px solid white;
-    background-color:  #d8d5d3;
+.breed-label:hover .radio-border,
+.coat-label:hover .radio-border {
+    border: 2px solid white;
+    background-color: #d8d5d3;
 }
+
 
 /***** Breed Part *****
 ***********************/
+
 .breed-item {
     margin: 12px auto;
 }
 
-.breed-label input:checked ~ .breed-checkmark{
+.breed-label input:checked~.breed-checkmark {
     padding: 5px;
     margin-top: -2px;
     height: 35px;
     width: 35px;
-    background-color:#E5FF70;
+    background-color: #E5FF70;
     border-color: white;
 }
 
+
 /***** Coat Part *****
 ***********************/
+
 .coat-item {
     margin: 12px auto;
 }
@@ -89,7 +101,7 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     height: 30px;
 }
 
-.coat-label input:checked ~ .radio-border{
+.coat-label input:checked~.radio-border {
     margin-top: -3px;
     padding: 1px;
     height: 35px;
@@ -97,7 +109,7 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     border-color: white;
 }
 
-#horseSkill input:checked ~ .horseSkill{
+#horseSkill input:checked~.horseSkill {
     padding: 1px;
     border: 2px solid #3d251b;
     width: 125px;
@@ -106,16 +118,17 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     margin-left: 47%;
 }
 
-.skill{
+.skill {
     padding: 5px 2px;
     width: 50%;
     margin: auto;
-    background: rgba(74,84,58,.4);
+    background: rgba(74, 84, 58, .4);
     border-radius: 40px;
     color: #fff;
     box-sizing: border-box;
     display: inline-block;
 }
+
 
 /* .coatColor {
     padding: 1px;
@@ -130,8 +143,10 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     cursor: pointer;
 } */
 
+
 /***** shape-outside part ******
 *******************************/
+
 .circle-right {
     margin: auto auto;
     float: left;
@@ -139,7 +154,6 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     height: 390px;
     /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
     shape-outside: circle(175px at -30% 48.5%);
-
 }
 
 .circle-left {

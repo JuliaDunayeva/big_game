@@ -13,26 +13,26 @@ import { Breed } from '../breed';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent implements OnInit{
+export class SignUpComponent implements OnInit {
   colors: Color[] = [];
   allColors: Color[];
   allBreeds: Breed[];
   allSkills: string[];
   skill: string;
 
-  constructor(private router: Router, 
-              private http: HttpClient,
-              public colorService: ColorService, 
-              public breedService: BreedService) { }
+  constructor(private router: Router,
+    private http: HttpClient,
+    public colorService: ColorService,
+    public breedService: BreedService) { }
 
   ngOnInit() {
-   this.getColors();
-   this.getBreeds();
+    this.getColors();
+    this.getBreeds();
   }
 
   getColors(): Color[] {
     this.colorService.getColors().subscribe(
-      result =>{
+      result => {
         console.log(result);
         this.allColors = result as Array<Color>;
       }
@@ -40,7 +40,7 @@ export class SignUpComponent implements OnInit{
     return this.colors;
   }
 
-  getBreeds(): Breed[]{
+  getBreeds(): Breed[] {
     this.breedService.getBreeds().subscribe(
       result => {
         console.log(result);
@@ -52,7 +52,7 @@ export class SignUpComponent implements OnInit{
     return;
   }
 
-  getSkill(event: Event){
+  getSkill(event: Event) {
     var index = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).value);
     console.log(index);
     this.skill = this.allBreeds[index].skill;
