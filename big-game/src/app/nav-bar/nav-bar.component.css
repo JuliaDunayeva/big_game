@@ -1,5 +1,4 @@
 /* Main Nav Bar styling components */
-
 .navbar {
     align-content: center;
     height: 100px;
@@ -52,9 +51,7 @@ ul {
     margin-top: 10px;
 }
 
-
 /* Start Pack Styling Components */
-
 .nav-btn-big {
     width: 208px;
     margin-top: 0px;
@@ -77,9 +74,7 @@ h4 {
     width: 50px;
 }
 
-
 /* Equus & Passes Styling Components */
-
 h6 {
     margin-bottom: 0;
     font-weight: 700;
@@ -173,18 +168,11 @@ h6 {
     margin-bottom: 24px;
 }
 
-
-/* .nav-link-big {
-    padding: .3rem 1.3rem!important;
-} */
-
 .icon-angle {
     padding-bottom: 2px;
 }
 
-
 /* Profile menu styling */
-
 .dropdown-divider {
     height: 0;
     width: 155px;
@@ -225,7 +213,6 @@ h6 {
 .flag-bg:hover {
     background-color: turquoise;
 }
-
 
 /* keep if needed ...
     background: rgba(55,101,154,.5);
