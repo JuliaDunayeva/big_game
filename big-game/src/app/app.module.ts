@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-//import { NgbdRatingForm } from './rating-form';
-// Import ng-circle-progress
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +17,6 @@ import { PlayBarComponent } from './play-bar/play-bar.component';
 import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
 import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
 import { FlagsComponent } from './home-page/flags/flags.component';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
