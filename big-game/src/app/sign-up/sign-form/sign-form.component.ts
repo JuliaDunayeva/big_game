@@ -17,19 +17,24 @@ export class SignFormComponent implements OnInit {
 contactForm: FormGroup;
 
   
-   constructor() { }
+   constructor() {
+    this.signForm = this.signUpForm();
+    }
 
   ngOnInit(): void {
-    this.signForm = new FormGroup({
+    
+
+}
+   signUpForm(): FormGroup
+ {
+    return new FormGroup({
       userData : new FormGroup({username : new FormControl(null, [Validators.required, Validators.minLength(4)]),
         email : new FormControl(null, [Validators.required, Validators.email,]),
         password: new FormControl(null, [Validators.required]),
         confirmpassword: new FormControl(null, [Validators.required])})
       
     })
-
-}
-
+ }
   onSubmit(){
     // console.log(this.signForm)
     
