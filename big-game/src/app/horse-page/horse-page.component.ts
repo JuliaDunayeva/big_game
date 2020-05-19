@@ -90,7 +90,7 @@ this.getHorseData();
   public isLCollapsed4 = false;
   public isRCollapsed4 = false;
 
-  public isMCollapsed =false;
+  public isMiddleCollapsed =false;
 
   public rating=1;
   
