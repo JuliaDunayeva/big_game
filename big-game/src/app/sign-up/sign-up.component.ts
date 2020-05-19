@@ -1,10 +1,14 @@
+import { UserDataService } from './../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Color } from '../color';
 import { ColorService } from '../services/color.service';
 import { BreedService } from '../services/breed.service';
-import { Breed } from '../breed';
+import { Breed } from '../breed'; 
+import { FormBuilder, Validators }  from '@angular/forms'
+
+
 
 @Component({
 	selector: 'app-sign-up',
@@ -19,11 +23,21 @@ export class SignUpComponent implements OnInit {
 	skill: string;
 
 	constructor(
+		private fb: FormBuilder,
 		private router: Router,
 		private http: HttpClient,
 		public colorService: ColorService,
-		public breedService: BreedService
+		public breedService: BreedService,
+		public userService: UserDataService
 	) {}
+
+	signupForm = this.fb.group({
+		username: [null, [Validators.required, Validators.maxLength(4)]],
+		email: ['', [Validators.required, Validators.email]],
+		password: [null, [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-z\d$@$!%*?&].{8,}')]],
+		breed: [null],
+		color: [null]
+	})
 
 	ngOnInit() {
 		this.getColors();
@@ -54,4 +68,12 @@ export class SignUpComponent implements OnInit {
 		this.skill = this.allBreeds[index].skill;
 		console.log(this.skill);
 	}
+	onSubmit() {
+		this.userService.createUser(this.signupForm.value).then(res => {
+			//console.log("Success")
+		}).catch(error => {
+			console.log(error)
+		});
+	  }
 }
+
