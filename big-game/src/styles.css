@@ -8,9 +8,7 @@ body {
 
 /* You can add global styles to this file, and also import other style files */
 
-
 /* colors*/
-
 .color-tx-brown {
     /*used text colors in log in buttons*/
     color: #4a543a;
@@ -83,11 +81,11 @@ body {
     margin-top: 10px;
   }
 
-  .btn-signup:hover {
+.btn-signup:hover {
     background-color: rgb(224, 253, 94);
   }
 
-  .btn-white {
+.btn-white {
     background-color: transparent;
     border: 2px solid white;
     border-radius: 4px;
@@ -97,7 +95,7 @@ body {
     font-size: 1.25rem;
   }
 
-  .btn-white:hover {
+.btn-white:hover {
       background-color: #007BFF;
   }
 
