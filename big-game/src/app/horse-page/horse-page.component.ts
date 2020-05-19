@@ -44,13 +44,7 @@ public isCompetitionCollapsed = false;
 public isHistoryCollapsed = false;
 public isBreedingCollapsed = false;
 
-public isLCollapsed4 = false;
-
 public isMiddleCollapsed =false;
-
-public rating=1;
-  
-active = 1;
 
 ctrl = new FormControl(null, Validators.required);
 
