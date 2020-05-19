@@ -7,6 +7,11 @@
     background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
+.btn::active {
+    color: red;
+    border: 1px solid #BEBD58;
+}
+
 .center-text {
     text-align: center;
 }
@@ -19,12 +24,26 @@
     border: 2px solid #BEBD58;
 }
 
-.card-green {
+.mycard-red {
+    background-color: red;
+    color: white;
+}
+
+.mycard-brown {
+    background-color: burlywood;
+    color: white;
+}
+
+.mycard-green {
     background-color: #DCDB81;
     color: #663300;
 }
 
-.card-light-green {
+.mycard-dark-red {
+    color: #663300;
+}
+
+.mycard-light-green {
     background-color: #F0F0B2;
     color: #663300;
 }
@@ -53,6 +72,11 @@
     width: 540px;
 }
 
+div>.card-body div>.card {
+    padding: 0px;
+    color: red;
+}
+
 .panel-padding {
     padding: 10px;
 }
@@ -73,7 +97,7 @@
     margin-bottom: 0px;
 }
 
-.top-margin {
+.top-margin: {
     margin-top: 20px;
 }
 
@@ -104,7 +128,7 @@
     margin-left: 10px;
 }
 
-#progressbar>div {
+#progressbar > div {
     background-color: orange;
     background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
     width: 70%;
