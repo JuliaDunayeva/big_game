@@ -7,17 +7,9 @@
     background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
-.btn::active {
-    /*color: #bebd59;*/
-    color: red;
-    border: 1px solid #BEBD58;
-}
-
 .center-text {
     text-align: center;
 }
-
-.card-bkgrnd {}
 
 .card-title {
     font-weight: bold;
@@ -27,27 +19,12 @@
     border: 2px solid #BEBD58;
 }
 
-.mycard-red {
-    background-color: red;
-    color: white;
-}
-
-.mycard-brown {
-    background-color: burlywood;
-    color: white;
-}
-
-.mycard-green {
+.card-green {
     background-color: #DCDB81;
     color: #663300;
 }
 
-.mycard-dark-red {
-    /*background-color: #663300;*/
-    color: #663300;
-}
-
-.mycard-light-green {
+.card-light-green {
     background-color: #F0F0B2;
     color: #663300;
 }
@@ -78,11 +55,6 @@
 .max-width-middle-column {
     width: 540px;
     /*max-width: 250px;*/
-}
-
-div>.card-body div>.card {
-    padding: 0px;
-    color: red;
 }
 
 .panel-padding {

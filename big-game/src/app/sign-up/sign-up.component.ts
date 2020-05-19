@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HorseCollection } from './horse-collection';
 import { HttpClient } from '@angular/common/http';
 import { getLocaleDateFormat } from '@angular/common';
 import { Color } from '../color';
