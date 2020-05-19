@@ -7,7 +7,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HorsePageComponent } from './horse-page/horse-page.component';
 
-
 const routes: Routes = [
   {
     path:'sign-up',
@@ -38,12 +37,12 @@ const routes: Routes = [
     path: '',
     redirectTo: '/home-page',
     pathMatch:'full'
-},
-{
-    path: '**', 
-    redirectTo: '/home-page',
-    pathMatch: 'full'
-}
+  },
+  {
+      path: '**', 
+      redirectTo: '/home-page',
+      pathMatch: 'full'
+  }
 ];
 
 @NgModule({
