@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./play-bar.component.css'],
 })
 export class PlayBarComponent implements OnInit {
+  
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+  
 }
