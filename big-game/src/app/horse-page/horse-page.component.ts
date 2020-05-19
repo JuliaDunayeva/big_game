@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-//import { SignUpComponent } from '../sign-up/sign-up.component'
-
-//import { HorseCollection } from './horse-collection';
 import { HttpClient } from '@angular/common/http';
 import { getLocaleDateFormat } from '@angular/common';
 import { Color } from '../color';
@@ -17,7 +13,6 @@ import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
-
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -37,44 +32,7 @@ export class HorsePageComponent implements OnInit {
   allHorseData: HorseData[];
   skill: string;
   userData: UserData[];
-    
-  constructor(private router: Router, 
-    private http: HttpClient,
-    public colorService: ColorService, 
-    public breedService: BreedService,
-    public userDataService: UserDataService,
-    public HorseDataService: HorseDataService) { }
-   // public 
 
-  createdata(){
-    this.userDataService.createdata();
-    //let db: AngularFirestore;
-/*    let docRef = db.collection('testdata').doc('user');
-
-let setAda = docRef.set({
-  first: 'Ada',
-  last: 'Lovelace',
-  born: 1815
-});*/
-/*let data = {
-  name: 'Los Angeles',
-  state: 'CA',
-  country: 'USA'
-};
-
-// Add a new document in collection "cities" with ID 'LA'
-let setDoc = db.collection('testdata').doc('user').set(data);
-*/
-console.log('add user');
-  }
-    ngOnInit(): void {
-    //SignUpComponent.getColors();
-this.getBreeds();
-this.getColors();   
-this.getUserData(); 
-this.getHorseData();
-    //SignUpComponent.getBreeds();
-  }
   public isCareCollapsed = false;
   public isRCollapsed = false;
 
@@ -98,17 +56,33 @@ this.getHorseData();
 
   ctrl = new FormControl(null, Validators.required);
 
-  public preventchange_1:true;
-
-  public readonly = true;
+ public readonly = true;
 
   public value = 0;
 
   public userIndex=1;
+    
+  constructor(private router: Router, 
+    private http: HttpClient,
+    public colorService: ColorService, 
+    public breedService: BreedService,
+    public userDataService: UserDataService,
+    public HorseDataService: HorseDataService) { }
   
-  //this.ctrl.disable();
-
-   toggle() {
+  createdata(){
+    this.userDataService.createdata();
+  
+console.log('add user');
+  }
+    ngOnInit(): void {
+    
+this.getBreeds();
+this.getColors();   
+this.getUserData(); 
+this.getHorseData();
+  }
+  
+  toggle() {
     if (this.ctrl.disabled) {
       this.ctrl.enable();
     } else {
@@ -121,11 +95,7 @@ this.getHorseData();
       result => {
         console.log(result);
         this.allBreeds = result as Array<Breed>;
-        // for (let i = 0 ; i < this.allBreeds.length ; i++) {
-        //   this.allSkills.push(this.allBreeds[i].skill)
-        // }
         console.log(this.allBreeds[0].skill);
-        // console.log(this.allSkills);
       }
     )
     return this.allBreeds;
@@ -166,7 +136,7 @@ this.getHorseData();
  
  public beforeChange($event: NgbPanelChangeEvent) {
 
-    if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
+    if ($event.panelId === 'preventchange' && $event.nextState === false) {
       $event.preventDefault();
     }
   }
