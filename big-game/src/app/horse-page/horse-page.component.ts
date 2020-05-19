@@ -24,43 +24,39 @@ import { map } from 'rxjs/operators';
 })
 
 export class HorsePageComponent implements OnInit {
+colors: Color[] = [];
+allColors: Color[];
+allBreeds: Breed[];
+allSkills: string[];
+allHorseData: HorseData[];
+skill: string;
+userData: UserData[];
 
-  colors: Color[] = [];
-  allColors: Color[];
-  allBreeds: Breed[];
-  allSkills: string[];
-  allHorseData: HorseData[];
-  skill: string;
-  userData: UserData[];
+public isCareCollapsed = false;
+public isRideCollapsed = false;
 
-  public isCareCollapsed = false;
-  public isRCollapsed = false;
+public isNightCollapsed = false;
+public isTrainingCollapsed = false;
 
-  public isNightCollapsed = false;
-  public isRCollapsed1 = false;
+public isECCollapsed = false;
+public isCompetitionCollapsed = false;
 
-  public isECCollapsed = false;
-  public isRCollapsed2 = false;
+public isHistoryCollapsed = false;
+public isBreedingCollapsed = false;
 
-  public isHistoryCollapsed = false;
-  public isRCollapsed3 = false;
+public isLCollapsed4 = false;
 
-  public isLCollapsed4 = false;
-  public isRCollapsed4 = false;
+public isMiddleCollapsed =false;
 
-  public isMiddleCollapsed =false;
-
-  public rating=1;
+public rating=1;
   
-  active = 1;
+active = 1;
 
-  ctrl = new FormControl(null, Validators.required);
+ctrl = new FormControl(null, Validators.required);
 
- public readonly = true;
-
-  public value = 0;
-
-  public userIndex=1;
+public readonly = true;
+public value = 0;
+public userIndex=1;
     
   constructor(private router: Router, 
     private http: HttpClient,
@@ -69,17 +65,17 @@ export class HorsePageComponent implements OnInit {
     public userDataService: UserDataService,
     public HorseDataService: HorseDataService) { }
   
-  createdata(){
-    this.userDataService.createdata();
-  
-console.log('add user');
-  }
+	createdata(){
+		this.userDataService.createdata();
+  		console.log('add user');
+	}
+	  
     ngOnInit(): void {
     
-this.getBreeds();
-this.getColors();   
-this.getUserData(); 
-this.getHorseData();
+      this.getBreeds();
+      this.getColors();   
+      this.getUserData(); 
+      this.getHorseData();
   }
   
   toggle() {

@@ -33,7 +33,6 @@
     width: 76px;
     padding: 0px;
     margin: 0px;
-    /*padding: 15px;*/
 }
 
 .img-btn-width {
@@ -44,17 +43,14 @@
 
 .max-width-column {
     min-width: 285px;
-    /*max-width: 250px;*/
 }
 
 .max-width-top-middle-column {
     width: 400px;
-    /*max-width: 250px;*/
 }
 
 .max-width-middle-column {
     width: 540px;
-    /*max-width: 250px;*/
 }
 
 .panel-padding {
