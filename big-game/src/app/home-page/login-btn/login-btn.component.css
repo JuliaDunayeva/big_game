@@ -1,13 +1,15 @@
-.look{
+.look {
   color: white;
   padding:5px 20px 5px 20px;
   font-weight: 600;
   border: 2px solid white;
 }
-.text-right{
+
+.text-right {
   margin-top:15px;
 }
-.dropdown-menu{
+
+.dropdown-menu {
   width: 250px;
   height:250px;
 }
