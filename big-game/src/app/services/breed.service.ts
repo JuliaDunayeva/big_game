@@ -13,4 +13,5 @@ export class BreedService {
   getBreeds() {
     return this.db.collection('/breed').valueChanges()
   }
+  
 }

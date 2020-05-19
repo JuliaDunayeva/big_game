@@ -117,19 +117,6 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     display: inline-block;
 }
 
-/* .coatColor {
-    padding: 1px;
-    border: 2px solid rgb(133, 70, 91);
-    width:30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.coatColor:hover {
-    border-color: rgb(182, 122, 142);
-    cursor: pointer;
-} */
-
 /***** shape-outside part ******
 *******************************/
 .circle-right {
@@ -139,7 +126,6 @@ input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] {
     height: 390px;
     /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
     shape-outside: circle(175px at -30% 48.5%);
-
 }
 
 .circle-left {

@@ -8,7 +8,6 @@
 }
 
 .btn::active {
-    /*color: #bebd59;*/
     color: red;
     border: 1px solid #BEBD58;
 }
@@ -16,8 +15,6 @@
 .center-text {
     text-align: center;
 }
-
-.card-bkgrnd {}
 
 .card-title {
     font-weight: bold;
@@ -43,7 +40,6 @@
 }
 
 .mycard-dark-red {
-    /*background-color: #663300;*/
     color: #663300;
 }
 
@@ -56,7 +52,6 @@
     width: 76px;
     padding: 0px;
     margin: 0px;
-    /*padding: 15px;*/
 }
 
 .img-btn-width {
@@ -67,17 +62,14 @@
 
 .max-width-column {
     min-width: 285px;
-    /*max-width: 250px;*/
 }
 
 .max-width-top-middle-column {
     width: 400px;
-    /*max-width: 250px;*/
 }
 
 .max-width-middle-column {
     width: 540px;
-    /*max-width: 250px;*/
 }
 
 div>.card-body div>.card {
@@ -120,7 +112,6 @@ div>.card-body div>.card {
 #progressbar {
     background-color: white;
     border-radius: 13px;
-    /* (height of inner div) / 2 + padding */
     padding: 3px;
 }
 
@@ -137,9 +128,7 @@ div>.card-body div>.card {
     margin-left: 10px;
 }
 
-.btn-right-padding {}
-
-#progressbar>div {
+#progressbar > div {
     background-color: orange;
     background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
     width: 70%;
