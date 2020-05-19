@@ -75,16 +75,16 @@ this.getUserData();
 this.getHorseData();
     //SignUpComponent.getBreeds();
   }
-  public isLCollapsed = false;
+  public isCareCollapsed = false;
   public isRCollapsed = false;
 
-  public isLCollapsed1 = false;
+  public isNightCollapsed = false;
   public isRCollapsed1 = false;
 
-  public isLCollapsed2 = false;
+  public isECCollapsed = false;
   public isRCollapsed2 = false;
 
-  public isLCollapsed3 = false;
+  public isHistoryCollapsed = false;
   public isRCollapsed3 = false;
 
   public isLCollapsed4 = false;
