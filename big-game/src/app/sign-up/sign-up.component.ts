@@ -20,8 +20,8 @@ export class SignUpComponent implements OnInit {
 	allSkills: string[];
 	skill: string;
 	imagePath: string = '../../assets/images/horses/akhal_teke/alz-b.png';
-	breedIndex: number;
-	colorIndex: number;
+	breedIndex: number = 0;
+	colorIndex: number = 0;
 
 	constructor(
 		private fb: FormBuilder,
@@ -74,8 +74,9 @@ export class SignUpComponent implements OnInit {
 	}
 
 	getImage(event: Event) {
-		console.log('color pressed');
 		this.colorIndex = this.allColors.map((o) => o.color).indexOf((<HTMLInputElement>event.target).value);
+		console.log((<HTMLInputElement>event.target).value);
+		console.log(this.colorIndex);
 		this.imagePath = '../../assets/images/horses/';
 		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 		console.log(this.imagePath);
