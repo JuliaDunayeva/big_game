@@ -9,8 +9,6 @@ import { Breed } from '../breed';
 import { FormBuilder, Validators }  from '@angular/forms'
 import { HorseDataService } from '../services/horse-data.service';
 
-
-
 @Component({
 	selector: 'app-sign-up',
 	templateUrl: './sign-up.component.html',

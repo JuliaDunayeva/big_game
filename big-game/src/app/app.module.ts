@@ -15,7 +15,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PlayBarComponent } from './play-bar/play-bar.component';
 import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
-import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
 import { FlagsComponent } from './home-page/flags/flags.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -36,7 +35,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     FooterComponent,
     PlayBarComponent,
     LoginBtnComponent,
-    SignFormComponent,
     FlagsComponent
   ],
   
