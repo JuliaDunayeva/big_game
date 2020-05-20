@@ -7,6 +7,7 @@ import { ColorService } from '../services/color.service';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed'; 
 import { FormBuilder, Validators }  from '@angular/forms'
+import { HorseDataService } from '../services/horse-data.service';
 
 
 
@@ -28,7 +29,8 @@ export class SignUpComponent implements OnInit {
 		private http: HttpClient,
 		public colorService: ColorService,
 		public breedService: BreedService,
-		public userService: UserDataService
+    public userService: UserDataService,
+    public horseService: HorseDataService
 	) {}
 
 	signupForm = this.fb.group({
@@ -70,7 +72,9 @@ export class SignUpComponent implements OnInit {
 	}
 	onSubmit() {
 		this.userService.createUser(this.signupForm.value).then(res => {
-			//console.log("Success")
+			this.horseService.createRandomHorse(this.signupForm.value, res.id).subscribe(e => {
+        console.log('Success')
+      });
 		}).catch(error => {
 			console.log(error)
 		});
