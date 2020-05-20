@@ -32,7 +32,7 @@
 
             </div>
             <div class="d-flex flex-column justify-content-center">
-                <img src="../../assets/images/horses/akhal_teke/alz-b.png"><br>
+                <img [src]="imagePath"><br>
                 <div class="d-flex flex-column align-items-center justify-content-center skill">
                     <h5>Best Skills</h5>
                     {{skill}}
@@ -44,7 +44,7 @@
                 <div class="text-left coat-item" *ngFor="let color of allColors">
                     <label class="d-inline-flex align-middle coat-label">
                         <input class="coat-input" type="radio" [id]="" name="coatColor" [value]="color.color"
-                            [checked]="color.color === allColors[0].color?'checked': false">
+                            [checked]="color.color === allColors[0].color?'checked': false" (click)="getImage($event)">
                         <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png">
                         {{color.color}}
                     </label>
