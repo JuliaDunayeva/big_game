@@ -64,7 +64,7 @@
           " class="text-danger">
                     <ul>
                         <li>Please enter a valid username!</li>
-                        <li>must be 4 characters</li>
+                        <li>must be 8 characters or more</li>
                     </ul>
                 </span>
             </div>
@@ -80,7 +80,7 @@
                 <input type="password" formControlName="password" class="form-control" />
                 <span *ngIf="
             !signupForm.get('password').valid &&
-            signupForm.get('password').touched
+            signupForm.get('password').touched 
           " class="text-danger">
                     <ul>
                         <li>Please enter a valid password!</li>
@@ -91,10 +91,18 @@
                     </ul>
                 </span>
             </div>
+            <div>
+                <label for="password">Confirm Password</label>
+                <input type="password" formControlName="confirmpassword" class="form-control">
+                <span *ngIf="signupForm.get('confirmpassword').valid && signupForm.get('confirmpassword').value
+                != signupForm.get('password').value" class="text-danger">
+                    The passwords entered do not match
+                </span>
+            </div>
             <div class="center">
                 <div>
                     <div>
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                        <input formControlName="checkbox" class="form-check-input" type="checkbox" id="defaultCheck1">
                         <h4>
                             I have read and agree to the following: <br />
                             <a href="https://www.owlient.com/tou/ca">Terms and Conditions of Use</a><br />
