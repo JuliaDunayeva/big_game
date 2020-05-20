@@ -1,66 +1,130 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <img class="img-size" src="./assets/images/Project Samples/howrse.png">
-            <img class="img-size-sm" src="./assets/images/game_pieces/wold-map.PNG">
+            <img class="img-size" src="./assets/images/Project Samples/howrse.png" />
+            <img class="img-size-sm" src="./assets/images/game_pieces/wold-map.PNG" />
         </div>
     </div>
-    <br><br>
-    <h1 class="color-white">Choose a Horse</h1>
-    <div class="row align-items-center">
-        <div class="col-sm">
-            <form class="color-white font-md breed-form">
+    <br /><br />
+    <form [formGroup]="signupForm" class="color-white font-md breed-form" (ngSubmit)="onSubmit()">
+        <h1 class="color-white">Choose a Horse</h1>
+        <div class="row align-items-center">
+            <div class="col-sm">
                 <div class="circle-left"></div>
                 <div class="text-right breed-item" *ngFor="let breed of allBreeds">
                     <label class="d-inline-flex align-middle breed-label">
-                        {{breed.breed}}
+                        {{ breed.breed }}
                         <input class="breed-input" type="radio" [id]="breed.breed" name="horseName"
-                            [value]="breed.breed" [checked]="breed.breed === allBreeds[0].breed?'checked': false"
-                            (click)="getSkill($event)">
+                            [value]="breed.breed" [checked]="breed.breed === allBreeds[0].breed ? 'checked' : false"
+                            (click)="getSkill($event)" />
                         <span class="breed-checkmark radio-border"></span>
                     </label>
                 </div>
                 <div class="text-right">
                     <label class="d-inline-flex align-middle breed-label">
                         Unlock New Breeds
-                        <input type="radio" [id]="" name="horseName" value="Unlock new breeds">
+                        <input type="radio" [id]="" name="horseName" value="Unlock new breeds" />
                         <span class="breed-checkmark radio-border"></span>
                     </label>
                 </div>
-            </form>
-        </div>
-        <div class="d-flex flex-column justify-content-center">
-            <img src="../../assets/images/horses/akhal_teke/alz-b.png"><br>
-            <div class="d-flex flex-column align-items-center justify-content-center skill">
-                <h5>Best Skills</h5>
-                {{skill}}
             </div>
-        </div>
-        <div class="col-sm coat-div">
-            <form class="color-white font-md coat-form">
+            <div class="d-flex flex-column justify-content-center">
+                <img src="../../assets/images/horses/akhal_teke/alz-b.png" /><br />
+                <div class="d-flex flex-column align-items-center justify-content-center skill">
+                    <h5>Best Skills</h5>
+                    {{ skill }}
+                </div>
+            </div>
+            <div class="col-sm coat-div">
                 <div class="circle-right"></div>
                 <div class="text-left coat-item" *ngFor="let color of allColors">
                     <label class="d-inline-flex align-middle coat-label">
                         <input class="coat-input" type="radio" [id]="" name="coatColor" [value]="color.color"
-                            [checked]="color.color === allColors[0].color?'checked': false">
-                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png">
-                        {{color.color}}
+                            [checked]="color.color === allColors[0].color ? 'checked' : false" />
+                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png" />
+                        {{ color.color }}
                     </label>
                 </div>
                 <div id="getCoat" class="text-left coat-item">
                     <label class="d-inline-flex align-middle coat-label">
-                        <input class="coat-input" type="radio" [id]="" name="coatColor" value="Unlock new coats">
-                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png">
+                        <input class="coat-input" type="radio" [id]="" name="coatColor" value="Unlock new coats" />
+                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png" />
                         Unlock New Coats
                     </label>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
-    <div>
-        <br><br>
-        <app-sign-form></app-sign-form>
-        <br>
-        <app-footer></app-footer>
-    </div>
+        <div class="col-md-8 ml-md-auto">
+            <div>
+                <label for="username">User Name</label>
+                <input formControlName="username" type="text" class="form-control" />
+                <span *ngIf="
+            !signupForm.get('username').valid &&
+            signupForm.get('username').touched
+          " class="text-danger">
+                    <ul>
+                        <li>Please enter a valid username!</li>
+                        <li>must be 4 characters</li>
+                    </ul>
+                </span>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" formControlName="email" class="form-control" />
+                <span *ngIf="
+            !signupForm.get('email').valid && signupForm.get('email').touched
+          " class="text-danger">Please enter a valid email!</span>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" />
+                <span *ngIf="
+            !signupForm.get('password').valid &&
+            signupForm.get('password').touched
+          " class="text-danger">
+                    <ul>
+                        <li>Please enter a valid password!</li>
+                        <li>Password must be 8 characters</li>
+                        <li>Include numbers</li>
+                        <li>Capital and small letters</li>
+                        <li>special character</li>
+                    </ul>
+                </span>
+            </div>
+            <div class="center">
+                <div>
+                    <div>
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                        <h4>
+                            I have read and agree to the following: <br />
+                            <a href="https://www.owlient.com/tou/ca">Terms and Conditions of Use</a><br />
+                            the
+                            <a href="https://www.owlient.com/eula/ca">End User License Agreement</a><br />
+                            and the
+                            <a href="https://www.owlient.com/pp/ca"> Privacy Policy</a>
+                        </h4>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <button routerLink="login" class="btn-signup btn-lg" type="submit" value="Play"
+                        [disabled]="!signupForm.valid">
+                        Play
+                    </button>
+                </div>
+                <br />
+                <div>
+                    <p>
+                        This information is collected by Owlient to create your account.
+                        <br />
+                        <a>More information about the processing of your personal data and
+                            your rights.
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <app-footer></app-footer>
 </div>
