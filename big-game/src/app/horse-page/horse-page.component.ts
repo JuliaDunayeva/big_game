@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
@@ -58,17 +58,27 @@ export class HorsePageComponent implements OnInit {
   public readonly = true;
 
   public value = 0;
+
+  private horse: HorseData;
+
+  private id: string;
   
   //UserDataService: any;
   
-  constructor(private router: Router, 
+  constructor(private router: ActivatedRoute, 
     private http: HttpClient,
     public colorService: ColorService, 
     public breedService: BreedService,
     public userDataService: UserDataService,
-    public horseDataService: HorseDataService) { }
+    public horseDataService: HorseDataService) {
+      this.id = 'this.router.snapshot.params.id'
+    }
 
 ngOnInit(): void {
+  //this.router.snapshot.params.id
+  this.horseDataService.getHorseById(this.id).subscribe(res => {
+    this.horse = res;
+  })
 	this.getBreeds();
 	this.getColors();   
 	this.getUserData(); 
