@@ -13,6 +13,15 @@ export class HorseDataService {
 
 	constructor(public db: AngularFirestore) {}
 
+	getHorseByID(id : string) : Observable<HorseData> {
+		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
+			map(res => { 
+				const horse = res.payload.data() as HorseData;
+				return horse;
+			})			
+		);
+	}
+
 	getHorseData() {
 		return this.db.collection('/horse_data').valueChanges();
 	}
