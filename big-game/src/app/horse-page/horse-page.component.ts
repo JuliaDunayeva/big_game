@@ -60,7 +60,7 @@ export class HorsePageComponent implements OnInit {
 
   public value = 0;
 
-  public  horse : HorseData;
+  public horse : HorseData;
 
   public id : string;
   
@@ -73,7 +73,7 @@ export class HorsePageComponent implements OnInit {
     public userDataService: UserDataService,
     public horseDataService: HorseDataService) { 
 
-	this.id='p1EFUOP2zyIDKWKwVRzM';
+	this.id='AoaRFYizbSo0e0PFBy6j';
     }
 
 ngOnInit(): void {
@@ -106,12 +106,12 @@ toggle() {
   getBreeds(): Breed[]{
     this.breedService.getBreeds().subscribe(
       result => {
-        console.log(result);
+       // console.log(result);
         this.allBreeds = result as Array<Breed>;
         // for (let i = 0 ; i < this.allBreeds.length ; i++) {
         //   this.allSkills.push(this.allBreeds[i].skill)
         // }
-        console.log(this.allBreeds[0].skill);
+       // console.log(this.allBreeds[0].skill);
         // console.log(this.allSkills);
       }
     )
@@ -121,9 +121,9 @@ toggle() {
   getColors(): Color[] {
     this.colorService.getColors().subscribe(
       result =>{
-        console.log(result);
+        //console.log(result);
         this.allColors = result as Array<Color>;
-        console.log(this.allColors[0].color)
+        //console.log(this.allColors[0].color)
       }
     )
     return this.colors;
@@ -132,22 +132,24 @@ toggle() {
   getUserData(): UserData[] {
     this.userDataService.getUserData().subscribe(
       result =>{
-        console.log(result);
+        //console.log(result);
         this.userData = result as Array<UserData>;
-        console.log(this.userData[0].password);
+        //console.log(this.userData[0].password);
       }
     )
     return this.userData;
   }
+
   getHorseData(): HorseData[] {
     this.horseDataService.getHorseData().subscribe(
             result =>{
               console.log(result);
               this.allHorseData = result as Array<HorseData>;
-              console.log(this.allHorseData[0].stamina)
+              //console.log(this.allHorseData[0].stamina)
             }
-        )
-      return this.allHorseData;
+        );
+     // console.log(this.allHorseData);
+	return this.allHorseData;
   }
 
  public beforeChange($event: NgbPanelChangeEvent) {
