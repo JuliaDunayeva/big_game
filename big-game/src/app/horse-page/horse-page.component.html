@@ -103,11 +103,12 @@
         <div class="col-6 center-text ">
             <img class="col-6 " src="assets/images/horses/mustang/alz-b.png" />
             <!-- Temp fixed picture -->
-            <p class="no-bottom-margin">
-                <button type="button " class="btn btn-primary max-width-top-middle-column card-light-green card-title no-bottom-margin card-title-border " [attr.aria-expanded]="!isMiddleCollapsed " aria-controls="collapseExample ">Horse Name</button>
-                <!-- (click)="isMiddleCollapsed=! isMiddleCollapsed " -->
-            </p>
-            <div id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
+
+            <div class="max-width-middle-column  card-light-green card-title no-bottom-margin card-title-border">
+                {{ horse?.name }}
+            </div>
+
+            <div>
                 <div class="card card-light-green">
                     <div class="row ">
                         <circle-progress class="time-left-padding time-top-padding " [clockwise]="false " [percent]="85 " [radius]="35 " [outerStrokeWidth]="10 " [innerStrokeWidth]="4 " [outerStrokeColor]=" '#78C000' " [innerStrokeColor]=" '#C7E596'
@@ -115,7 +116,7 @@
                         <div class="card-body ">
                             <div class="col-10 form-group center-text  card-middle-title ">
                                 Energy
-                                <ngb-progressbar type=" " [value]="(allHorseData[0].energy) ">%{{ allHorseData[0].energy }}</ngb-progressbar>
+                                <ngb-progressbar type=" " [value]="(horse?.energy) ">%{{ horse?.energy }}</ngb-progressbar>
                                 <!--<ngb-progressbar type=" " [value]="25 "></ngb-progressbar>-->
                                 <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
@@ -123,12 +124,12 @@
                                 Health
                                 <!-- <div class="progress-bar" [style.width]="(allHorseData[0].health)">_</div>-->
                                 <!--<ngb-progressbar type="warning " [value]="50 "></ngb-progressbar>-->
-                                <ngb-progressbar type=" " [value]="(allHorseData[2].health) ">%{{ allHorseData[2].health }}</ngb-progressbar>
+                                <ngb-progressbar type=" " [value]="(horse?.health) ">%{{ horse?.health }}</ngb-progressbar>
                                 <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
                             <div class="col-10 form-group center-text card-middle-title ">
                                 Morale
-                                <ngb-progressbar type=" " [value]="(allHorseData[2].morale) ">%{{ allHorseData[2].morale }}</ngb-progressbar>
+                                <ngb-progressbar type=" " [value]="(horse?.morale) ">%{{ horse?.morale }}</ngb-progressbar>
                                 <!--<ngb-progressbar type="success " [value]="100 "></ngb-progressbar>-->
                                 <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
@@ -136,10 +137,12 @@
                     </div>
                 </div>
             </div>
-            <p class="no-bottom-margin ">
-                <!-- Middle panels - Skills -->
-                <button type="button " class="btn btn-primary max-width-middle-column card-light-green card-title no-bottom-margin card-title-border " [attr.aria-expanded]="!isMiddleCollapsed " aria-controls="collapseExample ">Skills</button>
-            </p>
+
+            <!-- Middle panels - Skills -->
+            <div class="max-width-middle-column card-light-green card-title no-bottom-margin card-title-border">
+                Skills
+            </div>
+
             <div class="no-top-margin " id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
                 <div class="card card-light-green ">
 
@@ -157,9 +160,9 @@
                             Stamina
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].stamina/3) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.stamina) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text ">1,000</div>
+                        <div class="col-3 center-text ">{{ horse?.stamina }}</div>
 
                     </div>
 
@@ -168,9 +171,9 @@
                             Speed
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].speed/3) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.speed) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text ">1,000</div>
+                        <div class="col-3 center-text ">{{ horse?.speed }}</div>
                     </div>
 
                     <div class="card-body row ">
@@ -178,9 +181,9 @@
                             Dressage
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].dressage/3) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.dressage) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text ">1,000</div>
+                        <div class="col-3 center-text ">{{ horse?.dressage }}</div>
                     </div>
 
                     <div class="card-body row ">
@@ -188,9 +191,9 @@
                             Gallop
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].gallop/3) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.gallop) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text ">1,000</div>
+                        <div class="col-3 center-text ">{{ horse?.gallop }}</div>
                     </div>
 
                     <div class="card-body row ">
@@ -198,9 +201,9 @@
                             Trot
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].trot/3) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.trot) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text ">1,000</div>
+                        <div class="col-3 center-text ">{{ horse?.trot }}</div>
                     </div>
 
 
@@ -209,9 +212,9 @@
                             Jumping
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].jumping/3) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.jumping) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text ">1,000</div>
+                        <div class="col-3 center-text ">{{ horse?.jumping }}</div>
                     </div>
 
                 </div>
@@ -251,46 +254,46 @@
                     </div>
                 </div>
             </div>
-            <div id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
-                <div class="card card-light-green ">
-                    <div class="card-body ">
-                        <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green ">
-                            <ng-container ngbNavItem>
-                                <a ngbNavLink class="card-light-green ">Characteristics</a>
-                                <ng-template ngbNavContent>
 
-                                    <div>
-                                        <p>Breed -> {{ allBreeds[1].breed }}</p>
-                                    </div>
-                                    <div>
-                                        <p>Color -> {{ allColors[0].color }}</p>
-                                    </div>
-                                    <p>User Name -> {{ userData[0].userName }} </p>
+            <div class="card card-light-green ">
+                <div class="card-body ">
+                    <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green ">
+                        <ng-container ngbNavItem>
+                            <a ngbNavLink class="card-light-green ">Characteristics</a>
+                            <ng-template ngbNavContent>
 
-                                </ng-template>
-                            </ng-container>
-                            <ng-container ngbNavItem>
-                                <a ngbNavLink class="card-light-green ">Genetic</a>
-                                <ng-template ngbNavContent>
-                                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
-                                        ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-                                        8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-                                </ng-template>
-                            </ng-container>
-                            <ng-container ngbNavItem>
-                                <a ngbNavLink class="card-light-green ">Bonus</a>
-                                <ng-template ngbNavContent>
-                                    <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue
-                                        et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus
-                                        nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
-                                        ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
-                                </ng-template>
-                            </ng-container>
-                        </nav>
-                        <div [ngbNavOutlet]="nav " class="mt-2 card-light-green "></div>
-                    </div>
+                                <div>
+                                    <p>Breed -> {{ horse?.breed }}</p>
+                                </div>
+                                <div>
+                                    <p>Color -> {{ horse?.color }}</p>
+                                </div>
+                                <p>User Name -> {{ horse }} </p>
+
+                            </ng-template>
+                        </ng-container>
+                        <ng-container ngbNavItem>
+                            <a ngbNavLink class="card-light-green ">Genetic</a>
+                            <ng-template ngbNavContent>
+                                <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                                    ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
+                                    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                            </ng-template>
+                        </ng-container>
+                        <ng-container ngbNavItem>
+                            <a ngbNavLink class="card-light-green ">Bonus</a>
+                            <ng-template ngbNavContent>
+                                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim,
+                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
+                                    in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+                            </ng-template>
+                        </ng-container>
+                    </nav>
+                    <div [ngbNavOutlet]="nav " class="mt-2 card-light-green "></div>
                 </div>
             </div>
+
         </div>
         <div class="col-3 max-width-column ">
             <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
