@@ -14,7 +14,7 @@
                 <div class="text-right breed-item" *ngFor="let breed of allBreeds">
                     <label class="d-inline-flex align-middle breed-label">
                         {{ breed.breed }}
-                        <input class="breed-input" type="radio" [id]="breed.breed" name="horseName"
+                        <input class="breed-input" type="radio" formControlName="breed" [id]="breed.breed" name="breed"
                             [value]="breed.breed" [checked]="breed.breed === allBreeds[0].breed ? 'checked' : false"
                             (click)="getSkill($event)" />
                         <span class="breed-checkmark radio-border"></span>
@@ -23,7 +23,7 @@
                 <div class="text-right">
                     <label class="d-inline-flex align-middle breed-label">
                         Unlock New Breeds
-                        <input type="radio" [id]="" name="horseName" value="Unlock new breeds" />
+                        <input type="radio" [id]="" name="breed" value="Unlock new breeds" />
                         <span class="breed-checkmark radio-border"></span>
                     </label>
                 </div>
@@ -39,15 +39,15 @@
                 <div class="circle-right"></div>
                 <div class="text-left coat-item" *ngFor="let color of allColors">
                     <label class="d-inline-flex align-middle coat-label">
-                        <input class="coat-input" type="radio" [id]="" name="coatColor" [value]="color.color"
+                        <input class="coat-input" type="radio" formControlName="color" [id]="color.color" name="color" [value]="color.color"
                             [checked]="color.color === allColors[0].color?'checked': false" (click)="getImage($event)">
-                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png">
+                            <span class="breed-checkmark radio-border"></span>
                         {{color.color}}
                     </label>
                 </div>
                 <div id="getCoat" class="text-left coat-item">
                     <label class="d-inline-flex align-middle coat-label">
-                        <input class="coat-input" type="radio" [id]="" name="coatColor" value="Unlock new coats" />
+                        <input class="coat-input" type="radio" [id]="" name="color" value="Unlock new coats" />
                         <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png" />
                         Unlock New Coats
                     </label>

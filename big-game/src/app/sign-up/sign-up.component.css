@@ -1,190 +1,198 @@
-.img-size{
-    height: 78px;
-    width: 261px;
-    padding-top: 20px;
+.img-size {
+  height: 78px;
+  width: 261px;
+  padding-top: 20px;
 }
 
-.img-size-sm{
-    margin-top: -40%;
-    margin-left: 110%;
-    height: 19px;
+.img-size-sm {
+  margin-top: -40%;
+  margin-left: 110%;
+  height: 19px;
 }
 
-h1{
-    text-align: center;;
+h1 {
+  text-align: center;
+  ;
 }
 
-.font-md{
-    font-size: 17px;
+.font-md {
+  font-size: 17px;
 }
 
-.inline-block{
-    display: block;
+.inline-block {
+  display: block;
 }
 
-.inline-flex{
-    display: inline-flex;
+.inline-flex {
+  display: inline-flex;
 }
 
 h5:first-child {
-    margin-top: 8px;
-    margin-bottom: 2px;
+  margin-top: 8px;
+  margin-bottom: 2px;
 }
 
-h5, .h5 {
-    font-size: 1.25rem;
+h5,
+.h5 {
+  font-size: 1.25rem;
 }
 
 /*****Moj*******/
-.breed-div *, .coat-div * {
-    box-sizing: border-box;
-} 
-
-input[name="coatColor"], input[name="horseName"], input[name="horseSkill"] { 
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}  
-
-.radio-border {
-    margin-left: 10px;
-    display: inline-block;
-    height: 30px;
-    width: 30px;
-    border: 2px solid #c5bebb;
-    background-color: white;
-    border-radius: 50%;
-    cursor: pointer;
+.breed-div *,
+.coat-div * {
+  box-sizing: border-box;
 }
 
-.breed-label:hover .radio-border, .coat-label:hover .radio-border  {
-    border:2px solid white;
-    background-color:  #d8d5d3;
+input[name="color"],
+input[name="breed"],
+input[name="horseSkill"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-border {
+  margin-left: 10px;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border: 2px solid #c5bebb;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.breed-label:hover .radio-border,
+.coat-label:hover .radio-border {
+  border: 2px solid white;
+  background-color: #d8d5d3;
 }
 
 /***** Breed Part *****
 ***********************/
 .breed-item {
-    margin: 12px auto;
+  margin: 12px auto;
 }
 
-.breed-label input:checked ~ .breed-checkmark{
-    padding: 5px;
-    margin-top: -2px;
-    height: 35px;
-    width: 35px;
-    background-color:#E5FF70;
-    border-color: white;
+.breed-label input:checked~.breed-checkmark {
+  padding: 5px;
+  margin-top: -2px;
+  height: 35px;
+  width: 35px;
+  background-color: #E5FF70;
+  border-color: white;
 }
 
 /***** Coat Part *****
 ***********************/
 .coat-item {
-    margin: 12px auto;
+  margin: 12px auto;
 }
 
 .coat-form img {
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
 }
 
-.coat-label input:checked ~ .radio-border{
-    margin-top: -3px;
-    padding: 1px;
-    height: 35px;
-    width: 35px;
-    border-color: white;
+.coat-label input:checked~.radio-border {
+  margin-top: -3px;
+  padding: 1px;
+  height: 35px;
+  width: 35px;
+  border-color: white;
 }
 
-#horseSkill input:checked ~ .horseSkill{
-    padding: 1px;
-    border: 2px solid #3d251b;
-    width: 125px;
-    border-radius: 40px;
-    padding-top: 5%;
-    margin-left: 47%;
+#horseSkill input:checked~.horseSkill {
+  padding: 1px;
+  border: 2px solid #3d251b;
+  width: 125px;
+  border-radius: 40px;
+  padding-top: 5%;
+  margin-left: 47%;
 }
 
-.skill{
-    padding: 5px 2px;
-    width: 50%;
-    margin: auto;
-    background: rgba(74,84,58,.4);
-    border-radius: 40px;
-    color: #fff;
-    box-sizing: border-box;
-    display: inline-block;
+.skill {
+  padding: 5px 2px;
+  width: 50%;
+  margin: auto;
+  background: rgba(74, 84, 58, .4);
+  border-radius: 40px;
+  color: #fff;
+  box-sizing: border-box;
+  display: inline-block;
 }
 
 /***** shape-outside part ******
 *******************************/
 .circle-right {
-    margin: auto auto;
-    float: left;
-    width: 180px;
-    height: 390px;
-    /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
-    shape-outside: circle(175px at -30% 48.5%);
+  margin: auto auto;
+  float: left;
+  width: 180px;
+  height: 390px;
+  /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
+  shape-outside: circle(175px at -30% 48.5%);
 }
 
 .circle-left {
-    margin: auto auto;
-    float: right;
-    width: 180px;
-    height: 390px;
-    shape-outside: circle(175px at 110% 50%);
+  margin: auto auto;
+  float: right;
+  width: 180px;
+  height: 390px;
+  shape-outside: circle(175px at 110% 50%);
 }
+
 .radio-size {
-    height: 20px;
-    width: 20px;
-  }
-  
-  .form-control.ng-touched.ng-invalid {
-    border-left: 5px solid red;
-  }
-  
-  input {
-    font-size: 1.2em;
-    width: 300px;
-    margin-bottom: 0.3em;
-  }
-  
-  .alert-danger {
-    width: 42%;
-  }
-  
-  a:not([href]) {
-    font: 18px Arial, Helvetica, sans-serif;
-  }
-  
-  p:last-child {
-    font: 16px Arial, Helvetica, sans-serif;
-    padding-left: 1%;
-  }
-  
-  .color-white {
-    color: #fff;
-  }
-  
-  a {
-    color: #e5ff70;
-  }
-  
-  .btn-group-lg > .btn,
-  .btn-lg {
-    padding: 0.5rem 8rem;
-  }
-  
-  .center {
-    text-align: center;
-    padding-right: 56%;
-  }
-  .form-check-input {
-    margin-top: 0.5rem;
-    margin-left: -21.25rem;
-  }
-  .alert {
-    padding: 0.3rem 1.25rem;
-  }
-  
+  height: 20px;
+  width: 20px;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border-left: 5px solid red;
+}
+
+input {
+  font-size: 1.2em;
+  width: 300px;
+  margin-bottom: 0.3em;
+}
+
+.alert-danger {
+  width: 42%;
+}
+
+a:not([href]) {
+  font: 18px Arial, Helvetica, sans-serif;
+}
+
+p:last-child {
+  font: 16px Arial, Helvetica, sans-serif;
+  padding-left: 1%;
+}
+
+.color-white {
+  color: #fff;
+}
+
+a {
+  color: #e5ff70;
+}
+
+.btn-group-lg>.btn,
+.btn-lg {
+  padding: 0.5rem 8rem;
+}
+
+.center {
+  text-align: center;
+  padding-right: 56%;
+}
+
+.form-check-input {
+  margin-top: 0.5rem;
+  margin-left: -21.25rem;
+}
+
+.alert {
+  padding: 0.3rem 1.25rem;
+}

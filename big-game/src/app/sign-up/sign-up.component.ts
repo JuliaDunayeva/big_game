@@ -43,7 +43,7 @@ export class SignUpComponent implements OnInit {
 		],
 		breed: [ null ],
 		color: [ null ],
-		skill: [ null ]
+		skill: this.skill
 	});
 
 	ngOnInit() {
@@ -70,19 +70,16 @@ export class SignUpComponent implements OnInit {
 	}
 
 	getSkill(event: Event) {
-		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).value);
+		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).id);
 		this.skill = this.allBreeds[this.breedIndex].skill;
 		this.imagePath = '../../assets/images/horses/';
 		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 	}
 
 	getImage(event: Event) {
-		this.colorIndex = this.allColors.map((o) => o.color).indexOf((<HTMLInputElement>event.target).value);
-		console.log((<HTMLInputElement>event.target).value);
-		console.log(this.colorIndex);
+		this.colorIndex = this.allColors.map((o) => o.color).indexOf((<HTMLInputElement>event.target).id);
 		this.imagePath = '../../assets/images/horses/';
 		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
-		console.log(this.imagePath);
 	}
 
 	onSubmit() {
