@@ -19,6 +19,7 @@ const routes: Routes = [
   {
     path:'home-page',
     component: HomePageComponent
+
   },
   {
     path: 'store-page',

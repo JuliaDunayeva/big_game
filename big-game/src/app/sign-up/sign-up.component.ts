@@ -8,6 +8,7 @@ import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
+import { Command } from 'protractor';
 
 @Component({
 	selector: 'app-sign-up',
@@ -92,8 +93,9 @@ export class SignUpComponent implements OnInit {
 			.createUser(this.signupForm.value)
 			.then((res) => {
 				this.horseService.createRandomHorse(this.signupForm.value, res.id).subscribe((e) => {
-					this.router.navigate(['horse-page/'+ e.id])
-					//console.log('Success '+e.id);
+
+				this.router.navigate(['horse-page/'+ e.id])
+
 				});
 			})
 			.catch((error) => {
