@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Color } from '../color';
 import { ColorService } from '../services/color.service';
 import { BreedService } from '../services/breed.service';
-import { Breed } from '../breed'; 
-import { FormBuilder, Validators }  from '@angular/forms'
+import { Breed } from '../breed';
+import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 
 @Component({
@@ -20,6 +20,9 @@ export class SignUpComponent implements OnInit {
 	allBreeds: Breed[];
 	allSkills: string[];
 	skill: string;
+	imagePath: string = '../../assets/images/horses/akhal_teke/alz-b.png';
+	breedIndex: number = 0;
+	colorIndex: number = 0;
 
 	constructor(
 		private fb: FormBuilder,
@@ -27,17 +30,21 @@ export class SignUpComponent implements OnInit {
 		private http: HttpClient,
 		public colorService: ColorService,
 		public breedService: BreedService,
-    public userService: UserDataService,
-    public horseService: HorseDataService
+		public userService: UserDataService,
+		public horseService: HorseDataService
 	) {}
 
 	signupForm = this.fb.group({
-		username: [null, [Validators.required, Validators.maxLength(4)]],
-		email: ['', [Validators.required, Validators.email]],
-		password: [null, [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-z\d$@$!%*?&].{8,}')]],
-		breed: [null],
-		color: [null]
-	})
+		username: [ null, [ Validators.required, Validators.maxLength(4) ] ],
+		email: [ '', [ Validators.required, Validators.email ] ],
+		password: [
+			null,
+			[ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]
+		],
+		breed: [ null ],
+		color: [ null ],
+		skill: [ null ]
+	});
 
 	ngOnInit() {
 		this.getColors();
@@ -63,19 +70,31 @@ export class SignUpComponent implements OnInit {
 	}
 
 	getSkill(event: Event) {
-		var index = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).value);
-		console.log(index);
-		this.skill = this.allBreeds[index].skill;
-		console.log(this.skill);
+		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).value);
+		this.skill = this.allBreeds[this.breedIndex].skill;
+		this.imagePath = '../../assets/images/horses/';
+		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 	}
-	onSubmit() {
-		this.userService.createUser(this.signupForm.value).then(res => {
-			this.horseService.createRandomHorse(this.signupForm.value, res.id).subscribe(e => {
-        console.log('Success')
-      });
-		}).catch(error => {
-			console.log(error)
-		});
-	  }
-}
 
+	getImage(event: Event) {
+		this.colorIndex = this.allColors.map((o) => o.color).indexOf((<HTMLInputElement>event.target).value);
+		console.log((<HTMLInputElement>event.target).value);
+		console.log(this.colorIndex);
+		this.imagePath = '../../assets/images/horses/';
+		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+		console.log(this.imagePath);
+	}
+
+	onSubmit() {
+		this.userService
+			.createUser(this.signupForm.value)
+			.then((res) => {
+				this.horseService.createRandomHorse(this.signupForm.value, res.id).subscribe((e) => {
+					console.log('Success');
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+}
