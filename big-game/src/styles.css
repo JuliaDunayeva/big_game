@@ -138,4 +138,5 @@ body {
   background: url("./assets/folder.svg") no-repeat;
   background-clip: content-box;
   background-size: 100%;
+  z-index: -99;
 }

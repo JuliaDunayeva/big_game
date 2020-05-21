@@ -1,0 +1,19 @@
+.pad-left { /* common spacing to set left margin in folder */
+    margin-left: 1rem;
+    margin-top: .1 rem;
+}
+
+.display {
+    display: flex;
+}
+
+.hr {
+    border-style: solid;
+    width: 2px;
+    border-top-color: burlywood;
+    z-index: 10;
+}
+
+a {
+    font-weight: 700;
+}
