@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="d-flex flex-column justify-content-center">
-                <img src="../../assets/images/horses/akhal_teke/alz-b.png" /><br />
+                <img [src]="imagePath"><br>
                 <div class="d-flex flex-column align-items-center justify-content-center skill">
                     <h5>Best Skills</h5>
                     {{ skill }}
@@ -40,9 +40,9 @@
                 <div class="text-left coat-item" *ngFor="let color of allColors">
                     <label class="d-inline-flex align-middle coat-label">
                         <input class="coat-input" type="radio" [id]="" name="coatColor" [value]="color.color"
-                            [checked]="color.color === allColors[0].color ? 'checked' : false" />
-                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png" />
-                        {{ color.color }}
+                            [checked]="color.color === allColors[0].color?'checked': false" (click)="getImage($event)">
+                        <img class="img-fluid coat-image radio-border" src="../../assets/images/game_pieces/play.png">
+                        {{color.color}}
                     </label>
                 </div>
                 <div id="getCoat" class="text-left coat-item">
@@ -59,9 +59,8 @@
                 <label for="username">User Name</label>
                 <input formControlName="username" type="text" class="form-control" />
                 <span *ngIf="
-            !signupForm.get('username').valid &&
-            signupForm.get('username').touched
-          " class="text-danger">
+                            !signupForm.get('username').valid &&
+                            signupForm.get('username').touched" class="text-danger">
                     <ul>
                         <li>Please enter a valid username!</li>
                         <li>must be 4 characters</li>
@@ -72,16 +71,16 @@
                 <label for="email">Email</label>
                 <input type="email" formControlName="email" class="form-control" />
                 <span *ngIf="
-            !signupForm.get('email').valid && signupForm.get('email').touched
-          " class="text-danger">Please enter a valid email!</span>
+                            !signupForm.get('email').valid && signupForm.get('email').touched"
+                    class="text-danger">Please enter a valid email!
+                </span>
             </div>
             <div>
                 <label for="password">Password</label>
                 <input type="password" formControlName="password" class="form-control" />
                 <span *ngIf="
-            !signupForm.get('password').valid &&
-            signupForm.get('password').touched
-          " class="text-danger">
+                            !signupForm.get('password').valid &&
+                            signupForm.get('password').touched" class="text-danger">
                     <ul>
                         <li>Please enter a valid password!</li>
                         <li>Password must be 8 characters</li>
@@ -107,8 +106,7 @@
                 </div>
                 <br />
                 <div>
-                    <button class="btn-signup btn-lg" type="submit" value="Play"
-                        [disabled]="!signupForm.valid">
+                    <button class="btn-signup btn-lg" type="submit" value="Play" [disabled]="!signupForm.valid">
                         Play
                     </button>
                 </div>
