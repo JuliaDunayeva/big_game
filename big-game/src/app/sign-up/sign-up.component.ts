@@ -8,6 +8,7 @@ import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
+import { Command } from 'protractor';
 
 @Component({
 	selector: 'app-sign-up',
@@ -35,12 +36,14 @@ export class SignUpComponent implements OnInit {
 	) {}
 
 	signupForm = this.fb.group({
-		username: [ null, [ Validators.required, Validators.maxLength(4) ] ],
+		username: [ null, [ Validators.required, Validators.minLength(8) ] ],
 		email: [ '', [ Validators.required, Validators.email ] ],
 		password: [
 			null,
 			[ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]
 		],
+		checkbox: [null, [Validators.requiredTrue]],
+		confirmpassword: [null, [Validators.required,]],
 		breed: [ null ],
 		color: [ null ],
 		skill: this.skill
@@ -87,7 +90,7 @@ export class SignUpComponent implements OnInit {
 			.createUser(this.signupForm.value)
 			.then((res) => {
 				this.horseService.createRandomHorse(this.signupForm.value, res.id).subscribe((e) => {
-					console.log('Success');
+				this.router.navigate(['horse-page/'+ e.id])
 				});
 			})
 			.catch((error) => {

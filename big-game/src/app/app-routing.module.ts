@@ -13,12 +13,13 @@ const routes: Routes = [
     component: SignUpComponent
   },
   {
-    path: 'horse-page',
+    path: 'horse-page/:id',
     component: HorsePageComponent 
   },
   {
     path:'home-page',
     component: HomePageComponent
+
   },
   {
     path: 'store-page',
