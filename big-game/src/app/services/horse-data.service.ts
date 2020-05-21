@@ -40,7 +40,7 @@ export class HorseDataService {
 		return from(
 			this.db.collection('/horse_data').add({
 				breed: value.breed,
-				skill: '',
+				skill: value.skill,
 				color: value.color,
 				name: 'Watermelon II',
 				gender: gender,

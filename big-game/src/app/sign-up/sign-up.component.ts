@@ -42,7 +42,8 @@ export class SignUpComponent implements OnInit {
 			[ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]
 		],
 		breed: [ null ],
-		color: [ null ]
+		color: [ null ],
+		skill: [ null ]
 	});
 
 	ngOnInit() {
