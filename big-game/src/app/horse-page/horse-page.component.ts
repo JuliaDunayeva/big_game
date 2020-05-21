@@ -123,7 +123,7 @@ toggle() {
       result =>{
         //console.log(result);
         this.userData = result as Array<UserData>;
-        //console.log(this.userData[0].password);
+        console.log(this.userData);
       }
     )
     return this.userData;
