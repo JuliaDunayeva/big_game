@@ -45,8 +45,7 @@ export class SignUpComponent implements OnInit {
 		checkbox: [ null, [ Validators.requiredTrue ] ],
 		confirmpassword: [ null, [ Validators.required ] ],
 		breed: 'Akhal-Teke',
-		color: 'Chestnut',
-		skill: this.skillSelected
+		color: 'Chestnut'
 	});
 
 	ngOnInit() {
@@ -89,9 +88,11 @@ export class SignUpComponent implements OnInit {
 		this.userService
 			.createUser(this.signupForm.value)
 			.then((res) => {
-				this.horseService.createRandomHorse(this.signupForm.value, res.id).subscribe((e) => {
-					this.router.navigate([ 'horse-page/' + e.id ]);
-				});
+				this.horseService
+					.createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
+					.subscribe((e) => {
+						this.router.navigate([ 'horse-page/' + e.id ]);
+					});
 			})
 			.catch((error) => {
 				console.log(error);

@@ -28,7 +28,7 @@ export class HorseDataService {
 		return 'mare';
 	}
 
-	createRandomHorse(value, userId): Observable<DocumentReference> {
+	createRandomHorse(value, skill, userId): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
 		let speed = this.getRandStats();
 		let gallop = this.getRandStats();
@@ -40,7 +40,7 @@ export class HorseDataService {
 		return from(
 			this.db.collection('/horse_data').add({
 				breed: value.breed,
-				skill: value.skill,
+				skill: skill,
 				color: value.color,
 				name: 'Watermelon II',
 				gender: gender,
