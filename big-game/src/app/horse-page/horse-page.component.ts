@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+
 import { Router, ActivatedRoute } from '@angular/router';
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
@@ -59,6 +61,7 @@ export class HorsePageComponent implements OnInit {
 
   public value = 0;
 
+
   private horse: HorseData;
 
   private id: string;
@@ -70,6 +73,7 @@ export class HorsePageComponent implements OnInit {
     public colorService: ColorService, 
     public breedService: BreedService,
     public userDataService: UserDataService,
+
     public horseDataService: HorseDataService) {
       this.id = 'this.router.snapshot.params.id'
     }
@@ -79,6 +83,7 @@ ngOnInit(): void {
   this.horseDataService.getHorseById(this.id).subscribe(res => {
     this.horse = res;
   })
+
 	this.getBreeds();
 	this.getColors();   
 	this.getUserData(); 
@@ -97,12 +102,12 @@ toggle() {
   getBreeds(): Breed[]{
     this.breedService.getBreeds().subscribe(
       result => {
-        console.log(result);
+       // console.log(result);
         this.allBreeds = result as Array<Breed>;
         // for (let i = 0 ; i < this.allBreeds.length ; i++) {
         //   this.allSkills.push(this.allBreeds[i].skill)
         // }
-        console.log(this.allBreeds[0].skill);
+       // console.log(this.allBreeds[0].skill);
         // console.log(this.allSkills);
       }
     )
@@ -112,9 +117,9 @@ toggle() {
   getColors(): Color[] {
     this.colorService.getColors().subscribe(
       result =>{
-        console.log(result);
+        //console.log(result);
         this.allColors = result as Array<Color>;
-        console.log(this.allColors[0].color)
+        //console.log(this.allColors[0].color)
       }
     )
     return this.colors;
@@ -123,22 +128,24 @@ toggle() {
   getUserData(): UserData[] {
     this.userDataService.getUserData().subscribe(
       result =>{
-        console.log(result);
+        //console.log(result);
         this.userData = result as Array<UserData>;
-        console.log(this.userData[0].password);
+        //console.log(this.userData[0].password);
       }
     )
     return this.userData;
   }
+
   getHorseData(): HorseData[] {
     this.horseDataService.getHorseData().subscribe(
             result =>{
               console.log(result);
               this.allHorseData = result as Array<HorseData>;
-              console.log(this.allHorseData[0].stamina)
+              //console.log(this.allHorseData[0].stamina)
             }
-        )
-      return this.allHorseData;
+        );
+     // console.log(this.allHorseData);
+	return this.allHorseData;
   }
 
  public beforeChange($event: NgbPanelChangeEvent) {
