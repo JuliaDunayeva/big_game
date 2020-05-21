@@ -1,6 +1,6 @@
 .pad-left { /* common spacing to set left margin in folder */
     margin-left: 1rem;
-    margin-top: .1 rem;
+    margin-top: 1 rem;
 }
 
 .display {
@@ -12,8 +12,46 @@
     width: 2px;
     border-top-color: burlywood;
     z-index: 10;
+    padding: 0;
+    margin: 0;
 }
 
-a {
+/* a {
     font-weight: 700;
+} */
+
+/* from Dave's */
+.gold-color {
+    color: gold;
 }
+
+.mycard-light-green {
+    background-color: #F0F0B2;
+    color: #663300;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-title-border {
+    border: 2px solid #BEBD58;
+}
+
+.max-width-top-middle-column {
+    width: 400px;
+}
+
+.max-width-column {
+    min-width: 285px;
+}
+
+.no-top-margin {
+    margin-top: 0px;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0px;
+}
+
+
