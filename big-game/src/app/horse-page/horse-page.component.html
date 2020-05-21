@@ -108,12 +108,12 @@
                 <!-- (click)="isMiddleCollapsed=! isMiddleCollapsed " -->
             </p>
             <div id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
-                <div class="card card-light-green card-middle-title ">
+                <div class="card card-light-green">
                     <div class="row ">
                         <circle-progress class="time-left-padding time-top-padding " [clockwise]="false " [percent]="85 " [radius]="35 " [outerStrokeWidth]="10 " [innerStrokeWidth]="4 " [outerStrokeColor]=" '#78C000' " [innerStrokeColor]=" '#C7E596'
                     " [animation]="false " [animationDuration]="300 " [showBackground]="true "></circle-progress>
                         <div class="card-body ">
-                            <div class="col-10 form-group center-text ">
+                            <div class="col-10 form-group center-text  card-middle-title ">
                                 Energy
                                 <ngb-progressbar type=" " [value]="(allHorseData[2].energy) ">%{{ allHorseData[2].energy }}</ngb-progressbar>
                                 <!--<ngb-progressbar type=" " [value]="25 "></ngb-progressbar>-->
@@ -121,6 +121,7 @@
                             </div>
                             <div class="col-10 form-group center-text card-middle-title ">
                                 Health
+                                <!-- <div class="progress-bar" [style.width]="(allHorseData[0].health)">_</div>-->
                                 <!--<ngb-progressbar type="warning " [value]="50 "></ngb-progressbar>-->
                                 <ngb-progressbar type=" " [value]="(allHorseData[2].health) ">%{{ allHorseData[2].health }}</ngb-progressbar>
                                 <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
@@ -135,30 +136,30 @@
                     </div>
                 </div>
             </div>
-            <p class="no-bottom-margin">
+            <p class="no-bottom-margin ">
                 <!-- Middle panels - Skills -->
-                <button type="button " class="btn btn-primary max-width-middle-column card-light-green card-title  no-bottom-margin card-title-border " [attr.aria-expanded]="!isMiddleCollapsed " aria-controls="collapseExample ">Skills</button>
+                <button type="button " class="btn btn-primary max-width-middle-column card-light-green card-title no-bottom-margin card-title-border " [attr.aria-expanded]="!isMiddleCollapsed " aria-controls="collapseExample ">Skills</button>
             </p>
             <div class="no-top-margin " id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
                 <div class="card card-light-green ">
 
-                    <div class="card-body row">
-                        <div class="col-4 form-group left-align card-middle-title">
+                    <div class="card-body row ">
+                        <div class="col-4 form-group left-align card-header-title ">
                             Skills
                         </div>
-                        <div class="col-4 center-text">
+                        <div class="col-4 center-text ">
                         </div>
-                        <div class="col-3 center-text">Total: 1,000</div>
+                        <div class="col-3 center-text ">Total: 1,000</div>
                     </div>
 
-                    <div class="card-body row">
-                        <div class="col-4 form-group center-text card-middle-title">
+                    <div class="card-body row ">
+                        <div class="col-4 form-group center-text card-middle-title ">
                             Stamina
                         </div>
-                        <div class="col-4 center-text">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].stamina/3)" class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text ">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].stamina/3) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">1,000</div>
+                        <div class="col-3 center-text ">1,000</div>
 
                     </div>
 
@@ -166,40 +167,40 @@
                         <div class="col-4 form-group center-text card-middle-title ">
                             Speed
                         </div>
-                        <div class="col-4 center-text">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].speed/3)" class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text ">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].speed/3) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">1,000</div>
+                        <div class="col-3 center-text ">1,000</div>
                     </div>
 
                     <div class="card-body row ">
                         <div class="col-4 form-group center-text card-middle-title ">
                             Dressage
                         </div>
-                        <div class="col-4 center-text">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].dressage/3)" class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text ">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].dressage/3) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">1,000</div>
+                        <div class="col-3 center-text ">1,000</div>
                     </div>
 
                     <div class="card-body row ">
                         <div class="col-4 form-group center-text card-middle-title ">
                             Gallop
                         </div>
-                        <div class="col-4 center-text">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].gallop/3)" class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text ">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].gallop/3) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">1,000</div>
+                        <div class="col-3 center-text ">1,000</div>
                     </div>
 
                     <div class="card-body row ">
                         <div class="col-4 form-group center-text card-middle-title ">
                             Trot
                         </div>
-                        <div class="col-4 center-text">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].trot/3)" class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text ">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].trot/3) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">1,000</div>
+                        <div class="col-3 center-text ">1,000</div>
                     </div>
 
 
@@ -207,10 +208,10 @@
                         <div class="col-4 form-group center-text card-middle-title ">
                             Jumping
                         </div>
-                        <div class="col-4 center-text">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].jumping/3)" class="gold-color "></ngb-rating>
+                        <div class="col-4 center-text ">
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(allHorseData[0].jumping/3) " class="gold-color "></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">1,000</div>
+                        <div class="col-3 center-text ">1,000</div>
                     </div>
 
                 </div>
@@ -218,18 +219,18 @@
 
             <div class="row ">
                 <!-- middle panel - after skills -->
-                <div class="col-6">
+                <div class="col-6 ">
                     <div id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
-                        <div class="card card-light-green card-middle-title">
+                        <div class="card card-light-green card-middle-title ">
                             <div class="card-body card-title ">
                                 Tack
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 ">
                     <div id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
-                        <div class="card card-light-green card-middle-title">
+                        <div class="card card-light-green card-middle-title ">
                             <div class="card-body card-title ">
                                 Items
                             </div>
@@ -294,85 +295,88 @@
         <div class="col-3 max-width-column ">
             <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
             <div class="row center-text ">
-                <p class="no-bottom-margin">
+                <p class="no-bottom-margin ">
                     <!--right  panel 1 - Rides-->
                     <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isRidesCollapsed=! isRidesCollapsed " [attr.aria-expanded]="!isRidesCollapsed " aria-controls="collapseExample ">Rides </button>
                 </p>
                 <div id="collapseExample " [ngbCollapse]="isRidesCollapsed ">
-                    <div class="card card-green  bottom-margin no-padding">
+                    <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
-                            <div class="row">
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/forest-button-enabled.png"></button>
+                            <div class="row ">
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/forest-button-enabled.png "></button>
                                 </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="../../assets/images/horse-page-icons/empty-button.png"></button>
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width disabled "><img class="img-btn-width " src="../../assets/images/horse-page-icons/empty-button.png "></button>
                                 </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/mountain-button-enabled.png"></button>
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/mountain-button-enabled.png "></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="no-bottom-margin">
+                <p class="no-bottom-margin ">
                     <!--right panel 2 - Training -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title  no-bottom-margin card-title-border" (click)="isTrainingCollapsed=! isTrainingCollapsed " [attr.aria-expanded]="!isTrainingCollapsed " aria-controls="collapseExample ">Training </button>
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isTrainingCollapsed=! isTrainingCollapsed " [attr.aria-expanded]="!isTrainingCollapsed
+                                    " aria-controls="collapseExample ">Training </button>
                 </p>
                 <div id="collapseExample " [ngbCollapse]="isTrainingCollapsed ">
-                    <div class="card card-green  bottom-margin no-padding">
+                    <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
                 </div>
-                <p class="no-bottom-margin">
+                <p class="no-bottom-margin ">
                     <!--right  panel 3 - Competition -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title  no-bottom-margin card-title-border " (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed " aria-controls="collapseExample ">Competition </button>
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
+                                    " aria-controls="collapseExample ">Competition </button>
                 </p>
                 <div id="collapseExample " [ngbCollapse]="isCompetitionCollapsed ">
                     <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
-                            <div class="row">
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png"></button>
+                            <div class="row ">
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png "></button>
                                 </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-cutting-button-enabled.png"></button>
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/competition-cutting-button-enabled.png "></button>
                                 </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-trail-class-button-enabled.png"></button>
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/competition-trail-class-button-enabled.png "></button>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-reining-button-enabled.png"></button>
+                            <div class="row ">
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/competition-reining-button-enabled.png "></button>
                                 </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="../../assets/images/horse-page-icons/empty-button.png"></button> </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png"></button>
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width disabled "><img class="img-btn-width " src="../../assets/images/horse-page-icons/empty-button.png "></button> </div>
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png "></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="no-bottom-margin">
+                <p class="no-bottom-margin ">
                     <!--right  panel 4 - Breeding -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin  card-title-border" (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed " aria-controls="collapseExample ">Breeding </button>
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed
+                                    " aria-controls="collapseExample ">Breeding </button>
                 </p>
                 <div id="collapseExample " [ngbCollapse]="isBreedingCollapsed ">
-                    <div class="card card-green  bottom-margin no-padding">
+                    <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
-                            <div class="row">
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/breeding-information-button-enabled.png"></button>
+                            <div class="row ">
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/breeding-information-button-enabled.png "></button>
                                 </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="../../assets/images/horse-page-icons/empty-button.png"></button>
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width disabled "><img class="img-btn-width " src="../../assets/images/horse-page-icons/empty-button.png "></button>
                                 </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width" src="../../assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png"></button>
+                                <div class="col-3 btn-padding ">
+                                    <button class="btn max-btn-width "><img class="img-btn-width " src="../../assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png "></button>
                                 </div>
                             </div>
                         </div>

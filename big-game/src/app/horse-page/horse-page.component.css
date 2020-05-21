@@ -1,114 +1,129 @@
-.gold-color {
-    color: gold;
-}
-
-.gradient {
-    background: rgb(242, 6, 6);
-    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
-}
-
-.center-text {
-    text-align: center;
-}
-
-.card-title {
-    font-weight: bold;
-}
-
-.card-title-border {
-    border: 2px solid #BEBD58;
-}
-
-.card-green {
-    background-color: #DCDB81;
-    color: #663300;
-}
-
-.card-light-green {
-    background-color: #F0F0B2;
-    color: #663300;
-}
-
-.max-btn-width {
-    width: 76px;
-    padding: 0px;
-    margin: 0px;
-}
-
-.img-btn-width {
-    width: 76px;
-    margin: 0px;
-    padding: 0px;
-}
-
-.max-width-column {
-    min-width: 285px;
-}
-
-.max-width-top-middle-column {
-    width: 400px;
-}
-
-.max-width-middle-column {
-    width: 540px;
-}
-
-.panel-padding {
-    padding: 10px;
-}
-
-.no-padding {
-    padding: 0px;
-}
-
-.no-margin {
-    margin: 0px;
-}
-
-.no-top-margin {
-    margin-top: 0px;
-}
-
-.no-bottom-margin {
-    margin-bottom: 0px;
-}
-
-.top-margin {
-    margin-top: 1px;
-}
-
-.bottom-margin {
-    margin-bottom: 20px;
-}
-
-.progress-bar {
-    background-image: linear-gradient(to right, green, red);
-}
-
-#progressbar {
-    background-color: white;
-    border-radius: 13px;
-    padding: 3px;
-}
-
-.time-left-padding {
-    padding-left: 35px;
-}
-
-.time-top-padding {
-    padding-top: 50px;
-}
-
-.btn-padding {
-    padding-left: 10px;
-    margin-left: 10px;
-}
-
-#progressbar>div {
-    background-color: orange;
-    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
-    width: 70%;
-    /* Adjust with JavaScript */
-    height: 15px;
-    border-radius: 10px;
-}
+    .gold-color {
+        color: gold;
+    }
+    
+    .bold-header {
+        font-weight: bold;
+    }
+    
+    .gradient {
+        background: rgb(242, 6, 6);
+        background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+    
+    .card-title {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    
+    .card-header-title {
+        font-weight: bolder;
+        font-size: 1em;
+    }
+    
+    .card-middle-title {
+        font-weight: bolder;
+        font-size: 1em;
+    }
+    
+    .card-title-border {
+        border: 2px solid #BEBD58;
+    }
+    
+    .card-green {
+        background-color: #DCDB81;
+        color: #663300;
+    }
+    
+    .card-light-green {
+        background-color: #F0F0B2;
+        color: #663300;
+    }
+    
+    .max-btn-width {
+        width: 76px;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    .img-btn-width {
+        width: 76px;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .max-width-column {
+        min-width: 285px;
+    }
+    
+    .max-width-top-middle-column {
+        width: 400px;
+    }
+    
+    .max-width-middle-column {
+        width: 540px;
+    }
+    
+    .panel-padding {
+        padding: 10px;
+    }
+    
+    .no-padding {
+        padding: 0px;
+    }
+    
+    .no-margin {
+        margin: 0px;
+    }
+    
+    .no-top-margin {
+        margin-top: 0px;
+    }
+    
+    .no-bottom-margin {
+        margin-bottom: 0px;
+    }
+    
+    .top-margin {
+        margin-top: 1px;
+    }
+    
+    .bottom-margin {
+        margin-bottom: 20px;
+    }
+    
+    .progress-bar {
+        background-image: linear-gradient(to right, green, red);
+    }
+    
+    #progressbar {
+        background-color: white;
+        border-radius: 13px;
+        padding: 3px;
+    }
+    
+    .time-left-padding {
+        padding-left: 35px;
+    }
+    
+    .time-top-padding {
+        padding-top: 50px;
+    }
+    
+    .btn-padding {
+        padding-left: 10px;
+        margin-left: 10px;
+    }
+    
+    #progressbar>div {
+        background-color: orange;
+        background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+        width: 70%;
+        /* Adjust with JavaScript */
+        height: 15px;
+        border-radius: 10px;
+    }
