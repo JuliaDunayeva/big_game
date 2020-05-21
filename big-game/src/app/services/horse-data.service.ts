@@ -9,7 +9,7 @@ import { IfStmt } from '@angular/compiler';
   providedIn: 'root'
 })
 export class HorseDataService {
-  name: string = 'Horsy'
+  name: string = ''
 
   constructor(public db: AngularFirestore) { }
 
@@ -39,6 +39,7 @@ export class HorseDataService {
     let today = new Date();
     return from(this.db.collection('/horse_data').add({
       breed: value.breed,
+      skill: value.skill,
       color: value.color,
       name: 'Watermelon II',
       gender: gender,
