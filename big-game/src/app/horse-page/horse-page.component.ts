@@ -4,9 +4,7 @@ import { Router } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-//import { SignUpComponent } from '../sign-up/sign-up.component'
 
-//import { HorseCollection } from './horse-collection';
 import { HttpClient } from '@angular/common/http';
 import { getLocaleDateFormat } from '@angular/common';
 import { Color } from '../color';
@@ -15,11 +13,14 @@ import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
+import { HorseData } from '../horse-data';
+import { HorseDataService} from '../services/horse-data.service';
 
 @Component({
   selector: 'app-horse-page',
   templateUrl: './horse-page.component.html',
-  styleUrls: ['./horse-page.component.css']
+  styleUrls: ['./horse-page.component.css'],
+  
 })
 
 export class HorsePageComponent implements OnInit {
@@ -29,42 +30,25 @@ export class HorsePageComponent implements OnInit {
   allBreeds: Breed[];
   allSkills: string[];
   skill: string;
-
+  allHorseData: HorseData[];
   userData: UserData[];
-  //UserDataService: any;
   
-  constructor(private router: Router, 
-    private http: HttpClient,
-    public colorService: ColorService, 
-    public breedService: BreedService,
-    public userDataService: UserDataService) { }
 
-  ngOnInit(): void {
-    //SignUpComponent.getColors();
-this.getBreeds();
-this.getColors();   
-this.getUserData(); 
-    //SignUpComponent.getBreeds();
-  }
-  public isLCollapsed = false;
-  public isRCollapsed = false;
+   public isRidesCollapsed = false;
 
-  public isLCollapsed1 = false;
-  public isRCollapsed1 = false;
+  public isCareCollapsed = false;
+ 
+  public isNightCollapsed = false;
+  public isTrainingCollapsed = false;
 
-  public isLCollapsed2 = false;
-  public isRCollapsed2 = false;
+  public isECCollapsed = false;
+  public isCompetitionCollapsed = false;
 
-  public isLCollapsed3 = false;
-  public isRCollapsed3 = false;
+  public isHistoryCollapsed = false;
+  public isBreedingCollapsed = false;
 
-  public isLCollapsed4 = false;
-  public isRCollapsed4 = false;
-
-  public isMCollapsed =false;
-
-  public rate=10;
-  
+  public isMiddleCollapsed =false;
+   
   active = 1;
 
   ctrl = new FormControl(null, Validators.required);
@@ -75,15 +59,30 @@ this.getUserData();
 
   public value = 0;
   
-  //this.ctrl.disable();
+  //UserDataService: any;
+  
+  constructor(private router: Router, 
+    private http: HttpClient,
+    public colorService: ColorService, 
+    public breedService: BreedService,
+    public userDataService: UserDataService,
+    public horseDataService: HorseDataService) { }
 
-  toggle() {
-    if (this.ctrl.disabled) {
-      this.ctrl.enable();
-    } else {
-      this.ctrl.disable();
-    }
-  }
+ngOnInit(): void {
+	this.getBreeds();
+	this.getColors();   
+	this.getUserData(); 
+	this.getHorseData();
+}
+ 
+
+toggle() {
+	if (this.ctrl.disabled) {
+		this.ctrl.enable();
+	} else {
+		this.ctrl.disable();
+	}
+}
 
   getBreeds(): Breed[]{
     this.breedService.getBreeds().subscribe(
@@ -121,7 +120,17 @@ this.getUserData();
     )
     return this.userData;
   }
- 
+  getHorseData(): HorseData[] {
+    this.horseDataService.getHorseData().subscribe(
+            result =>{
+              console.log(result);
+              this.allHorseData = result as Array<HorseData>;
+              console.log(this.allHorseData[0].stamina)
+            }
+        )
+      return this.allHorseData;
+  }
+
  public beforeChange($event: NgbPanelChangeEvent) {
 
     if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
