@@ -20,7 +20,7 @@ export class SignUpComponent implements OnInit {
 	allColors: Color[];
 	allBreeds: Breed[];
 	allSkills: string[];
-	skill: string;
+	skillSelected: string;
 	imagePath: string = '../../assets/images/horses/akhal_teke/alz-b.png';
 	breedIndex: number = 0;
 	colorIndex: number = 0;
@@ -46,7 +46,7 @@ export class SignUpComponent implements OnInit {
 		confirmpassword: [ null, [ Validators.required ] ],
 		breed: 'Akhal-Teke',
 		color: 'Chestnut',
-		skill: this.skill
+		skill: this.skillSelected
 	});
 
 	ngOnInit() {
@@ -66,7 +66,7 @@ export class SignUpComponent implements OnInit {
 		this.breedService.getBreeds().subscribe((result) => {
 			console.log(result);
 			this.allBreeds = result as Array<Breed>;
-			this.skill = this.allBreeds[0].skill;
+			this.skillSelected = this.allBreeds[0].skill;
 			console.log(this.allBreeds[0].skill);
 		});
 		return;
@@ -74,7 +74,7 @@ export class SignUpComponent implements OnInit {
 
 	getSkill(event: Event) {
 		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).id);
-		this.skill = this.allBreeds[this.breedIndex].skill;
+		this.skillSelected = this.allBreeds[this.breedIndex].skill;
 		this.imagePath = '../../assets/images/horses/';
 		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 	}
