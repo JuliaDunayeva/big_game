@@ -20,7 +20,7 @@ export class SignUpComponent implements OnInit {
 	allColors: Color[];
 	allBreeds: Breed[];
 	allSkills: string[];
-	skill: string;
+	skillSelected: string;
 	imagePath: string = '../../assets/images/horses/akhal_teke/alz-b.png';
 	breedIndex: number = 0;
 	colorIndex: number = 0;
@@ -42,11 +42,10 @@ export class SignUpComponent implements OnInit {
 			null,
 			[ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]
 		],
-		checkbox: [null, [Validators.requiredTrue]],
-		confirmpassword: [null, [Validators.required,]],
-		breed: [ null ],
-		color: [ null ],
-		skill: [ null ]
+		checkbox: [ null, [ Validators.requiredTrue ] ],
+		confirmpassword: [ null, [ Validators.required ] ],
+		breed: 'Akhal-Teke',
+		color: 'Chestnut'
 	});
 
 	ngOnInit() {
@@ -66,37 +65,34 @@ export class SignUpComponent implements OnInit {
 		this.breedService.getBreeds().subscribe((result) => {
 			console.log(result);
 			this.allBreeds = result as Array<Breed>;
-			this.skill = this.allBreeds[0].skill;
+			this.skillSelected = this.allBreeds[0].skill;
 			console.log(this.allBreeds[0].skill);
 		});
 		return;
 	}
 
 	getSkill(event: Event) {
-		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).value);
-		this.skill = this.allBreeds[this.breedIndex].skill;
+		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).id);
+		this.skillSelected = this.allBreeds[this.breedIndex].skill;
 		this.imagePath = '../../assets/images/horses/';
 		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 	}
 
 	getImage(event: Event) {
-		this.colorIndex = this.allColors.map((o) => o.color).indexOf((<HTMLInputElement>event.target).value);
-		console.log((<HTMLInputElement>event.target).value);
-		console.log(this.colorIndex);
+		this.colorIndex = this.allColors.map((o) => o.color).indexOf((<HTMLInputElement>event.target).id);
 		this.imagePath = '../../assets/images/horses/';
 		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
-		console.log(this.imagePath);
 	}
 
 	onSubmit() {
 		this.userService
 			.createUser(this.signupForm.value)
 			.then((res) => {
-				this.horseService.createRandomHorse(this.signupForm.value, res.id).subscribe((e) => {
-
-				this.router.navigate(['horse-page/'+ e.id])
-
-				});
+				this.horseService
+					.createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
+					.subscribe((e) => {
+						this.router.navigate([ 'horse-page/' + e.id ]);
+					});
 			})
 			.catch((error) => {
 				console.log(error);

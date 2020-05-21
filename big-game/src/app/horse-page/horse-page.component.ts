@@ -62,9 +62,9 @@ export class HorsePageComponent implements OnInit {
   public value = 0;
 
 
-  private horse: HorseData;
+ public horse: HorseData;
 
-  private id: string;
+ public id: string;
   
   //UserDataService: any;
   
@@ -75,7 +75,7 @@ export class HorsePageComponent implements OnInit {
     public userDataService: UserDataService,
 
     public horseDataService: HorseDataService) {
-      this.id = 'this.router.snapshot.params.id'
+      this.id = this.router.snapshot.params.id
     }
 
 ngOnInit(): void {
