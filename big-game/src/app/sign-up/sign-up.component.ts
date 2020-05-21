@@ -36,12 +36,14 @@ export class SignUpComponent implements OnInit {
 	) {}
 
 	signupForm = this.fb.group({
-		username: [ null, [ Validators.required, Validators.maxLength(4) ] ],
+		username: [ null, [ Validators.required, Validators.minLength(8) ] ],
 		email: [ '', [ Validators.required, Validators.email ] ],
 		password: [
 			null,
 			[ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]
 		],
+		checkbox: [null, [Validators.requiredTrue]],
+		confirmpassword: [null, [Validators.required,]],
 		breed: [ null ],
 		color: [ null ],
 		skill: [ null ]
