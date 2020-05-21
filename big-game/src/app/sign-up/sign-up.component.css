@@ -53,6 +53,7 @@ input[name="horseSkill"] {
 
 .radio-border {
   margin-left: 10px;
+  margin-right: 10px;
   display: inline-block;
   height: 30px;
   width: 30px;
@@ -74,7 +75,8 @@ input[name="horseSkill"] {
   margin: 12px auto;
 }
 
-.breed-label input:checked~.breed-checkmark {
+.breed-label input:checked~.checkmark,
+.coat-label input:checked~.checkmark {
   padding: 5px;
   margin-top: -2px;
   height: 35px;

@@ -42,10 +42,10 @@ export class SignUpComponent implements OnInit {
 			null,
 			[ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]
 		],
-		checkbox: [null, [Validators.requiredTrue]],
-		confirmpassword: [null, [Validators.required,]],
-		breed: [ null ],
-		color: [ null ],
+		checkbox: [ null, [ Validators.requiredTrue ] ],
+		confirmpassword: [ null, [ Validators.required ] ],
+		breed: 'Akhal-Teke',
+		color: 'Chestnut',
 		skill: this.skill
 	});
 
@@ -90,7 +90,7 @@ export class SignUpComponent implements OnInit {
 			.createUser(this.signupForm.value)
 			.then((res) => {
 				this.horseService.createRandomHorse(this.signupForm.value, res.id).subscribe((e) => {
-				this.router.navigate(['horse-page/'+ e.id])
+					this.router.navigate([ 'horse-page/' + e.id ]);
 				});
 			})
 			.catch((error) => {
