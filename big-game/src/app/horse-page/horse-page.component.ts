@@ -62,9 +62,9 @@ export class HorsePageComponent implements OnInit {
   public value = 0;
 
 
-  public horse: HorseData;
+ public horse: HorseData;
 
-  public id: string;
+ public id: string;
   
   //UserDataService: any;
   
