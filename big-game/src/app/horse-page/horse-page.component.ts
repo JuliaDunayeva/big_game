@@ -41,8 +41,6 @@ export class HorsePageComponent implements OnInit {
 
   public isHistoryCollapsed = false;
   public isBreedingCollapsed = false;
-
-  public isMiddleCollapsed =false;
    
   active = 1;
 
@@ -54,11 +52,11 @@ export class HorsePageComponent implements OnInit {
 
   public value = 0;
 
-
  public horse: HorseData;
 
  public id: string;
 
+// Paths for horse images
  public imagePath:string;
  public imageFile:string;
 
