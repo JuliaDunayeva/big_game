@@ -79,8 +79,6 @@ ngOnInit(): void {
   //this.router.snapshot.params.id
   this.horseDataService.getHorseById(this.id).subscribe(res => {
     this.horse = res;
-	
-	
   })
 /*  foreach(HorseData search in this.horse){
 		console.log(search);
@@ -106,10 +104,7 @@ toggle() {
       result => {
        // console.log(result);
         this.allBreeds = result as Array<Breed>;
-        // for (let i = 0 ; i < this.allBreeds.length ; i++) {
-        //   this.allSkills.push(this.allBreeds[i].skill)
-        // }
-       // console.log(this.allBreeds[0].skill);
+     
         // console.log(this.allSkills);
       }
     )
