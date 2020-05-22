@@ -15,6 +15,7 @@ import { Command } from 'protractor';
 	templateUrl: './sign-up.component.html',
 	styleUrls: [ './sign-up.component.css' ]
 })
+
 export class SignUpComponent implements OnInit {
 	colors: Color[] = [];
 	allColors: Color[];
@@ -30,10 +31,16 @@ export class SignUpComponent implements OnInit {
 		private router: Router,
 		private http: HttpClient,
 		public colorService: ColorService,
+<<<<<<< HEAD
 		public breedService: BreedService,
 		public userService: UserDataService,
 		public horseService: HorseDataService
 	) {}
+=======
+		public breedService: BreedService
+	  ) {
+  }
+>>>>>>> develop
 
 	signupForm = this.fb.group({
 		username: [ null, [ Validators.required, Validators.minLength(8) ] ],
