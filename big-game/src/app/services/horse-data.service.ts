@@ -76,7 +76,7 @@ export class HorseDataService {
 			})
 		);
 	}
-	
+
 	getHorseById(id: string): Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
 			map((res) => {
