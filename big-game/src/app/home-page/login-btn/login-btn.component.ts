@@ -15,7 +15,7 @@ export class LoginBtnComponent implements OnInit {
   }
   
   logIn(form: NgForm) {
-    this.router.navigate(['/horse-page'])
+    this.router.navigate(['horse-page/:id'])
   }
 
 }
