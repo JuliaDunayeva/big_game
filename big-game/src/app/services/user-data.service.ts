@@ -14,6 +14,7 @@ export class UserDataService {
   getUserData() {
     return this.db.collection('/user_data').valueChanges()
   }
+
   createUser(value) {
     return this.db.collection('user_data').add({
       userName: value.username,
@@ -22,6 +23,11 @@ export class UserDataService {
       
     })
 
+  }
+
+  logInUser(form) {
+    return this.db.collection('/user_data', ref => ref.where('email', '==', form.value.email)
+    .where('password', '==', form.value.password)).snapshotChanges();
   }
   
 }
