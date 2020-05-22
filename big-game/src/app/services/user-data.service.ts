@@ -24,5 +24,10 @@ export class UserDataService {
     })
 
   }
+
+  logInUser(form) {
+    return this.db.collection('/user_data', ref => ref.where('email', '==', form.email)
+    .where('password', '==', form.password)).snapshotChanges();
+  }
   
 }
