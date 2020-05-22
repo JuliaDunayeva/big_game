@@ -57,7 +57,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
       innerStrokeColor: "#C7E596",
       animationDuration: 300
     })
-
   ],
   
   providers: [],
