@@ -24,7 +24,8 @@ export class SignUpComponent implements OnInit {
 		private http: HttpClient,
 		public colorService: ColorService,
 		public breedService: BreedService
-	) {}
+	  ) {
+  }
 
 	ngOnInit() {
 		this.getColors();
