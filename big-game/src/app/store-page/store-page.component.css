@@ -23,3 +23,10 @@ img
 {   
   margin-top:80px;
 }
+
+.background {
+  grid-column-start: 11;
+}
+.background {
+  grid-column-end: 12;
+}
