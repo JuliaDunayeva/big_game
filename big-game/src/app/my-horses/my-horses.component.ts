@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from '@angular/common/http';
 import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-my-horses',
