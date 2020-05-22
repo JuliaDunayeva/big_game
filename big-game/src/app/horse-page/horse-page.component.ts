@@ -90,28 +90,24 @@ export class HorsePageComponent implements OnInit {
 
 ngOnInit(): void {
   //this.router.snapshot.params.id
-  this.horseDataService.getHorseById(this.id).subscribe(res => {
-    this.horse = res;
-  })
-  this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
-  this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
-  this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
+  	this.horseDataService.getHorseById(this.id).subscribe(res => {
+    		this.horse = res;
+  	});
+	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
+  	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
+	this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
 
-  this.groomButton='assets/images/horse-page-icons/groom-button-disabled.png';
-  this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
-  this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
-  
-  this.imageFile='assets/images/horses/mustang/alz-b.png';
-/*  foreach(HorseData search in this.horse){
-		console.log(search);
-	}*/
+  	this.groomButton='assets/images/horse-page-icons/groom-button-disabled.png';
+  	this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
+  	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
 
+	this.imageFile='assets/images/horses/mustang/alz-b.png';
+	  
 	this.getBreeds();
 	this.getColors();   
 	this.getUserData(); 
 	this.getHorseData();
 }
- 
 
 toggle() {
 	if (this.ctrl.disabled) {
@@ -121,7 +117,7 @@ toggle() {
 	}
 }
 
-  getBreeds(): Breed[]{
+getBreeds(): Breed[]{
     this.breedService.getBreeds().subscribe(
       result => {
        // console.log(result);
@@ -131,9 +127,9 @@ toggle() {
       }
     )
     return this.allBreeds;
-  }
+}
 
-  getColors(): Color[] {
+getColors(): Color[] {
     this.colorService.getColors().subscribe(
       result =>{
         //console.log(result);
@@ -142,9 +138,9 @@ toggle() {
       }
     )
     return this.colors;
-  }
+}
 
-  getUserData(): UserData[] {
+getUserData(): UserData[] {
     this.userDataService.getUserData().subscribe(
       result =>{
         //console.log(result);
@@ -153,9 +149,9 @@ toggle() {
       }
     )
     return this.userData;
-  }
+}
 
-  getHorseData(): HorseData[] {
+getHorseData(): HorseData[] {
     this.horseDataService.getHorseData().subscribe(
             result =>{
               console.log(result);
@@ -165,9 +161,9 @@ toggle() {
         );
      // console.log(this.allHorseData);
 	return this.allHorseData;
-  }
+}
 
- public beforeChange($event: NgbPanelChangeEvent) {
+public beforeChange($event: NgbPanelChangeEvent) {
 
     if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
       $event.preventDefault();
