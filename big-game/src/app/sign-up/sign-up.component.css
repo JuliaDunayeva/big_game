@@ -1,5 +1,4 @@
 .img-size {
-<<<<<<< HEAD
   height: 78px;
   width: 261px;
   padding-top: 20px;
@@ -26,33 +25,6 @@ h1 {
 
 .inline-flex {
   display: inline-flex;
-=======
-    height: 78px;
-    width: 261px;
-    padding-top: 20px;
-}
-
-.img-size-sm {
-    margin-top: -40%;
-    margin-left: 110%;
-    height: 19px;
-}
-
-h1 {
-    text-align: center;;
-}
-
-.font-md {
-    font-size: 17px;
-}
-
-.inline-block {
-    display: block;
-}
-
-.inline-flex {
-    display: inline-flex;
->>>>>>> develop
 }
 
 h5:first-child {
@@ -65,17 +37,11 @@ h5,
   font-size: 1.25rem;
 }
 
-<<<<<<< HEAD
 /*****Moj*******/
 .breed-div *,
 .coat-div * {
   box-sizing: border-box;
 }
-=======
-.breed-div *, .coat-div * {
-    box-sizing: border-box;
-} 
->>>>>>> develop
 
 input[name="color"],
 input[name="breed"],
@@ -97,19 +63,14 @@ input[name="horseSkill"] {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 .breed-label:hover .radio-border,
 .coat-label:hover .radio-border {
   border: 2px solid white;
   background-color: #d8d5d3;
-=======
-.breed-label:hover .radio-border, .coat-label:hover .radio-border {
-    border:2px solid white;
-    background-color:  #d8d5d3;
->>>>>>> develop
 }
 
-/***** Breed Part *****/
+/***** Breed Part *****
+***********************/
 .breed-item {
   margin: 12px auto;
 }
@@ -124,7 +85,8 @@ input[name="horseSkill"] {
   border-color: white;
 }
 
-/***** Coat Part *****/
+/***** Coat Part *****
+***********************/
 .coat-item {
   margin: 12px auto;
 }
@@ -135,7 +97,6 @@ input[name="horseSkill"] {
   height: 30px;
 }
 
-<<<<<<< HEAD
 .coat-label input:checked~.radio-border {
   margin-top: -3px;
   padding: 1px;
@@ -162,37 +123,10 @@ input[name="horseSkill"] {
   color: #fff;
   box-sizing: border-box;
   display: inline-block;
-=======
-.coat-label input:checked ~ .radio-border {
-    margin-top: -3px;
-    padding: 1px;
-    height: 35px;
-    width: 35px;
-    border-color: white;
 }
 
-#horseSkill input:checked ~ .horseSkill {
-    padding: 1px;
-    border: 2px solid #3d251b;
-    width: 125px;
-    border-radius: 40px;
-    padding-top: 5%;
-    margin-left: 47%;
-}
-
-.skill {
-    padding: 5px 2px;
-    width: 50%;
-    margin: auto;
-    background: rgba(74,84,58,.4);
-    border-radius: 40px;
-    color: #fff;
-    box-sizing: border-box;
-    display: inline-block;
->>>>>>> develop
-}
-
-/**** shape-outside part ****/
+/***** shape-outside part ******
+*******************************/
 .circle-right {
   margin: auto auto;
   float: left;

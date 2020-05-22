@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-<<<<<<< HEAD
 
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -8,13 +7,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
-=======
-import { Router } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-//import { SignUpComponent } from '../sign-up/sign-up.component'
-//import { HorseCollection } from './horse-collection';
->>>>>>> develop
 import { HttpClient } from '@angular/common/http';
 import { getLocaleDateFormat } from '@angular/common';
 import { Color } from '../color';
@@ -40,13 +32,9 @@ export class HorsePageComponent implements OnInit {
   allBreeds: Breed[];
   allSkills: string[];
   skill: string;
-<<<<<<< HEAD
   allHorseData: HorseData[];
-=======
->>>>>>> develop
   userData: UserData[];
   
-<<<<<<< HEAD
 
    public isRidesCollapsed = false;
 
@@ -63,39 +51,11 @@ export class HorsePageComponent implements OnInit {
 
   public isMiddleCollapsed =false;
    
-=======
-  constructor(private router: Router, 
-    private http: HttpClient,
-    public colorService: ColorService, 
-    public breedService: BreedService,
-    public userDataService: UserDataService) { }
-
-  ngOnInit(): void {
-    //SignUpComponent.getColors();
-    this.getBreeds();
-    this.getColors();   
-    this.getUserData(); 
-    //SignUpComponent.getBreeds();
-  }
-  public isLCollapsed = false;
-  public isRCollapsed = false;
-  public isLCollapsed1 = false;
-  public isRCollapsed1 = false;
-  public isLCollapsed2 = false;
-  public isRCollapsed2 = false;
-  public isLCollapsed3 = false;
-  public isRCollapsed3 = false;
-  public isLCollapsed4 = false;
-  public isRCollapsed4 = false;
-  public isMCollapsed =false;
-  public rate=10;
->>>>>>> develop
   active = 1;
   ctrl = new FormControl(null, Validators.required);
   public preventchange_1:true;
   public readonly = true;
   public value = 0;
-<<<<<<< HEAD
 
 
  public horse: HorseData;
@@ -109,9 +69,6 @@ export class HorsePageComponent implements OnInit {
     public colorService: ColorService, 
     public breedService: BreedService,
     public userDataService: UserDataService,
-=======
-  //this.ctrl.disable();
->>>>>>> develop
 
     public horseDataService: HorseDataService) {
       this.id = this.router.snapshot.params.id
