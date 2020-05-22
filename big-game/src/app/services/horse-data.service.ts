@@ -46,6 +46,7 @@ export class HorseDataService {
 		let dressage = this.getRandStats();
 		let gender = this.getRandGender();
 		let today = new Date();
+		
 		return from(
 			this.db.collection('/horse_data').add({
 				breed: value.breed,

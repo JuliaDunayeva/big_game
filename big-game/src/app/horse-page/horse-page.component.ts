@@ -58,6 +58,9 @@ export class HorsePageComponent implements OnInit {
  public horse: HorseData;
 
  public id: string;
+
+ public imagePath:string;
+ public imageFile:string;
   
   //UserDataService: any;
   
@@ -68,14 +71,20 @@ export class HorsePageComponent implements OnInit {
     public userDataService: UserDataService,
 
     public horseDataService: HorseDataService) {
-      this.id = this.router.snapshot.params.id;
+      //this.id = this.router.snapshot.params.id;
+      this.id='F1IyDKdpxiOS5EkkPLwT'
     }
 
 ngOnInit(): void {
   //this.router.snapshot.params.id
   this.horseDataService.getHorseById(this.id).subscribe(res => {
     this.horse = res;
+	
+	
   })
+/*  foreach(HorseData search in this.horse){
+		console.log(search);
+	}*/
 
 	this.getBreeds();
 	this.getColors();   

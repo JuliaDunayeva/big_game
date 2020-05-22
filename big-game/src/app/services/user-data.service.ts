@@ -14,6 +14,7 @@ export class UserDataService {
   getUserData() {
     return this.db.collection('/user_data').valueChanges()
   }
+  
   createUser(value) {
     return this.db.collection('user_data').add({
       userName: value.username,
