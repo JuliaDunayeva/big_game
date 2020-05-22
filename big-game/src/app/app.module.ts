@@ -21,6 +21,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { MyHorsesComponent } from './my-horses/my-horses.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     FooterComponent,
     PlayBarComponent,
     LoginBtnComponent,
-    FlagsComponent
+    FlagsComponent,
+    MyHorsesComponent
   ],
   
   imports: [
