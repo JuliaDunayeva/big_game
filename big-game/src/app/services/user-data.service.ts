@@ -23,21 +23,10 @@ export class UserDataService {
       
     })
   }
-<<<<<<< HEAD
-  getUsereByID(uid : string) : Observable<UserData> {
-		return this.db.collection('/horse_data').doc(uid).snapshotChanges().pipe(
-			map(res => { 
-				const user = res.payload.data() as UserData;
-				return user;
-			})			
-		);
-	}
-=======
 
   logInUser(form) {
     return this.db.collection('/user_data', ref => ref.where('email', '==', form.value.email)
     .where('password', '==', form.value.password)).snapshotChanges();
   }
->>>>>>> d150f4eafeae825261399df7dbc3a09837ab46b4
   
 }
