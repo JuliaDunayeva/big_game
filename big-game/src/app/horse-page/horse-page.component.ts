@@ -71,6 +71,9 @@ export class HorsePageComponent implements OnInit {
  public carrotButton:string;
  public mashButton:string;
 
+ swap:boolean;
+
+
  //Buttons for night tab
  public putToBedButton:string
  public ageButton:string;
@@ -103,10 +106,26 @@ ngOnInit(): void {
 
 	this.imageFile='assets/images/horses/mustang/alz-b.png';
 	  
+
+	this.swap=true;
+	this.changeButtons();
+
 	this.getBreeds();
 	this.getColors();   
 	this.getUserData(); 
 	this.getHorseData();
+}
+
+public changeButtons(){
+	this.swap=!this.swap;
+	if (this.swap){
+	this.feedButton='assets/images/horse-page-icons/drink-button-disabled.png';
+	this.drinkButton='assets/images/horse-page-icons/feed-button-enabled.png';
+	} else {
+		this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
+		this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
+		
+	}
 }
 
 toggle() {
