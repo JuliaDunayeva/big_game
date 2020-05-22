@@ -95,7 +95,8 @@ ngOnInit(): void {
   //this.router.snapshot.params.id
   	this.horseDataService.getHorseById(this.id).subscribe(res => {
     		this.horse = res;
-  	});
+	  });
+	  
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
   	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
 	this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
@@ -105,7 +106,6 @@ ngOnInit(): void {
   	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
 
 	this.imageFile='assets/images/horses/mustang/alz-b.png';
-	  
 
 	this.swap=true;
 	this.changeButtons();
