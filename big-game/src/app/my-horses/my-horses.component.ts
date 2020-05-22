@@ -1,17 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient } from '@angular/common/http';
-import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
-import { HorseData } from '../horse-data';
-import { HorseDataService} from '../services/horse-data.service';
-=======
-import { UserDataService } from '../services/user-data.service';
->>>>>>> d150f4eafeae825261399df7dbc3a09837ab46b4
 
 @Component({
   selector: 'app-my-horses',
