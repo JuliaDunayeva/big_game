@@ -18,7 +18,7 @@ const routes: Routes = [
     component: HorsePageComponent 
   },
   {
-    path: 'my-horses/:id',
+    path: 'my-horses/:uid',
     component: MyHorsesComponent 
   },
   {
