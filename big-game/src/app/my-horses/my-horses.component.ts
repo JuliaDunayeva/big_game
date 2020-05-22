@@ -11,5 +11,7 @@ export class MyHorsesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addHorse(){
+    
+  }
 }
