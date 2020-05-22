@@ -32,24 +32,18 @@ export class HorsePageComponent implements OnInit {
   
   public isRidesCollapsed = false;
   public isCareCollapsed = false;
- 
   public isNightCollapsed = false;
   public isTrainingCollapsed = false;
-
   public isECCollapsed = false;
   public isCompetitionCollapsed = false;
-
   public isHistoryCollapsed = false;
   public isBreedingCollapsed = false;
    
   active = 1;
-
   ctrl = new FormControl(null, Validators.required);
 
   public preventchange_1:true;
-
   public readonly = true;
-
   public value = 0;
 
  public horse: HorseData;
@@ -81,7 +75,6 @@ export class HorsePageComponent implements OnInit {
     public colorService: ColorService, 
     public breedService: BreedService,
     public userDataService: UserDataService,
-
     public horseDataService: HorseDataService) {
       //this.id = this.router.snapshot.params.id;
       this.id='rkxQAx7i3FGRY3wOY3pQ'
