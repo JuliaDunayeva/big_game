@@ -61,8 +61,19 @@ export class HorsePageComponent implements OnInit {
 
  public imagePath:string;
  public imageFile:string;
-  
-  //UserDataService: any;
+
+ // Buttons for care tab
+ public feedButton : string;
+ public drinkButton: string;
+ public strokeButton:string;
+
+ public groomButton:string;
+ public carrotButton:string;
+ public mashButton:string;
+
+ //Buttons for night tab
+ public putToBedButton:string
+ public ageButton:string;
   
   constructor(private router: ActivatedRoute, 
     private http: HttpClient,
@@ -73,6 +84,8 @@ export class HorsePageComponent implements OnInit {
     public horseDataService: HorseDataService) {
       //this.id = this.router.snapshot.params.id;
       this.id='F1IyDKdpxiOS5EkkPLwT'
+      
+
     }
 
 ngOnInit(): void {
@@ -80,6 +93,15 @@ ngOnInit(): void {
   this.horseDataService.getHorseById(this.id).subscribe(res => {
     this.horse = res;
   })
+  this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
+  this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
+  this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
+
+  this.groomButton='assets/images/horse-page-icons/groom-button-disabled.png';
+  this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
+  this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
+  
+  this.imageFile='assets/images/horses/mustang/alz-b.png';
 /*  foreach(HorseData search in this.horse){
 		console.log(search);
 	}*/
