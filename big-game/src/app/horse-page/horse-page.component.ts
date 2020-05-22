@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 //import { SignUpComponent } from '../sign-up/sign-up.component'
-
 //import { HorseCollection } from './horse-collection';
 import { HttpClient } from '@angular/common/http';
 import { getLocaleDateFormat } from '@angular/common';
@@ -29,7 +27,6 @@ export class HorsePageComponent implements OnInit {
   allBreeds: Breed[];
   allSkills: string[];
   skill: string;
-
   userData: UserData[];
   //UserDataService: any;
   
@@ -41,40 +38,28 @@ export class HorsePageComponent implements OnInit {
 
   ngOnInit(): void {
     //SignUpComponent.getColors();
-this.getBreeds();
-this.getColors();   
-this.getUserData(); 
+    this.getBreeds();
+    this.getColors();   
+    this.getUserData(); 
     //SignUpComponent.getBreeds();
   }
   public isLCollapsed = false;
   public isRCollapsed = false;
-
   public isLCollapsed1 = false;
   public isRCollapsed1 = false;
-
   public isLCollapsed2 = false;
   public isRCollapsed2 = false;
-
   public isLCollapsed3 = false;
   public isRCollapsed3 = false;
-
   public isLCollapsed4 = false;
   public isRCollapsed4 = false;
-
   public isMCollapsed =false;
-
   public rate=10;
-  
   active = 1;
-
   ctrl = new FormControl(null, Validators.required);
-
   public preventchange_1:true;
-
   public readonly = true;
-
   public value = 0;
-  
   //this.ctrl.disable();
 
   toggle() {
@@ -123,10 +108,8 @@ this.getUserData();
   }
  
  public beforeChange($event: NgbPanelChangeEvent) {
-
     if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
       $event.preventDefault();
     }
   }
-
 }
