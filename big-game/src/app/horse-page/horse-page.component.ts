@@ -86,9 +86,7 @@ export class HorsePageComponent implements OnInit {
 
     public horseDataService: HorseDataService) {
       //this.id = this.router.snapshot.params.id;
-      this.id='F1IyDKdpxiOS5EkkPLwT'
-      
-
+      this.id='rkxQAx7i3FGRY3wOY3pQ'
     }
 
 ngOnInit(): void {
