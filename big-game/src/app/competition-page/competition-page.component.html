@@ -1,8 +1,12 @@
 <div class="container">
-    <app-nav-bar></app-nav-bar>
-    <br><br>
-    <app-play-bar></app-play-bar>
-    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <app-nav-bar></app-nav-bar>
+            <br><br>
+            <app-play-bar></app-play-bar>
+            <br>
+        </div>
+    </div>
     <div class=" folder">  <!-- <img src="../../assets/folder.svg"> -->        
         <div class="row "> <!-- Path Information -->
             <div class="col-md-6 display pad-left color-tx-maroon small card-title">
@@ -15,51 +19,61 @@
                 <i class="angle double right icon"> </i>
                 <a class=""> Register for a trot competition</a>
             </div>
-            <hr class="">
+            <img class="col-sm-4" src="./assets/images/black-store/marche-noir.png">
         </div>
-        <div class="row">
+        <div class="row">   
             <div class="col-md-6 pad-left color-tx-maroon">
-                <h3 class="">Register for a trot competition</h3>
+                <hr class="hrtop">
+                <h3 class="no-top-margin display">Register for a trot competition</h3>
+                <div class="color-tx-green no-top-margin">
+                    <p>For races, horses need to be good in speed and dressage, and excel in trotting. </p>
+                </div>
             </div>
         </div>
         <div class="row">
-        <div class="col-md-6 pad-left color-tx-green">
-            <p>For races, horses need to be good in speed and dressage, and excel in trotting. </p>
-            <img src="" alt="">
-        </div>
-    </div>
-    <p class="no-bottom-margin pad-left"> <!-- Middle panels - Skills -->
-        <button type="button " class="btn btn-primary mycard-light-green card-title no-bottom-margin card-title-border" [attr.aria-expanded]="!isMCollapsed " aria-controls="collapseExample ">Skills</button>
-    </p>
-    <div class="no-top-margin " id="collapseExample " [ngbCollapse]="isMCollapsed ">
-        <div class="mycard-light-green pad-left">
-            <div class="card-body color-tx-green card-title">
-                <div class="col-5 ">
-                    Trot:
-                   
-                </div>
-                <div class="col-5 ">
-                    Speed:
-                    
-                </div>
-                <div class="col-5 ">
-                    Dressage:
-                    
-                <div class="col-5 ">
-                    <hr class="">
-                    Energy:
-                </div>
+            <div class="col-md-4 pad-left color-tx-maroon">
+                <div class="mycard-light-green">
+                    <div>
+                        <H6 class="pad-left">name</H6>
+                    </div>
+                    <div class=" color-tx-green card-title">
+                        <div>
+                            <table>
+
+                                <tr>
+                                    <td>Trot:</td>
+                                    <td>S T A R S</td>
+                                    <td>1000.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Speed:</td>
+                                    <td>S T A R S</td>
+                                    <td>1001.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Dressage:</td>
+                                    <td>S T A R S</td>
+                                    <td>1002.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Energy:</td>
+                                    <td>100.0 %</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
             </div>
         </div>
-    </div>
-      
-</div>     
-      
-    <br><br>
+        <br><br>
     <app-footer></app-footer>
     <br><br>
     <p>Sample button to use</p>
     <button class="btn-shops btn-shops-lrg">Participate</button>
     <button class="btn-shops btn-shops-sml"><i class="shopping cart icon "></i></button>
     <br><br>
+      
+</div>     
+      
+
 

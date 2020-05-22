@@ -1,25 +1,24 @@
 .pad-left { /* common spacing to set left margin in folder */
     margin-left: 1rem;
-    margin-top: 1 rem;
+    margin-top: 2 rem;
 }
 
 .display {
     display: flex;
+    margin-top: 5px;
 }
 
-.hr {
-    border-style: solid;
-    width: 2px;
-    border-top-color: burlywood;
-    z-index: 10;
-    padding: 0;
-    margin: 0;
+.hrtop {
+    margin-top: -100px;
+    margin-bottom: 2px;
+    width: 450px;
+    margin-left: -3px;
 }
 
-/* a {
-    font-weight: 700;
-} */
-
+table, td {
+    border: 2px solid rgb(231, 230, 163);
+  }
+  
 /* from Dave's */
 .gold-color {
     color: gold;
@@ -38,13 +37,6 @@
     border: 2px solid #BEBD58;
 }
 
-.max-width-top-middle-column {
-    width: 400px;
-}
-
-.max-width-column {
-    min-width: 285px;
-}
 
 .no-top-margin {
     margin-top: 0px;
