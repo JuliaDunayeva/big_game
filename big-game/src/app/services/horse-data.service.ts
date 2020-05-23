@@ -83,4 +83,6 @@ export class HorseDataService {
 			})
 		);
 	}
+
+	getHorses
 }

@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-
 import { Router, ActivatedRoute } from '@angular/router';
-
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-
 import { HttpClient } from '@angular/common/http';
 import { getLocaleDateFormat } from '@angular/common';
 import { Color } from '../color';
@@ -22,7 +18,6 @@ import { HorseDataService} from '../services/horse-data.service';
   selector: 'app-horse-page',
   templateUrl: './horse-page.component.html',
   styleUrls: ['./horse-page.component.css'],
-  
 })
 
 export class HorsePageComponent implements OnInit {
@@ -35,20 +30,14 @@ export class HorsePageComponent implements OnInit {
   allHorseData: HorseData[];
   userData: UserData[];
   
-
-   public isRidesCollapsed = false;
-
+  public isRidesCollapsed = false;
   public isCareCollapsed = false;
- 
   public isNightCollapsed = false;
   public isTrainingCollapsed = false;
-
   public isECCollapsed = false;
   public isCompetitionCollapsed = false;
-
   public isHistoryCollapsed = false;
   public isBreedingCollapsed = false;
-
   public isMiddleCollapsed =false;
    
   active = 1;
@@ -56,11 +45,8 @@ export class HorsePageComponent implements OnInit {
   public preventchange_1:true;
   public readonly = true;
   public value = 0;
-
-
- public horse: HorseData;
-
- public id: string;
+  public horse: HorseData;
+  public id: string;
   
   //UserDataService: any;
   
@@ -69,7 +55,6 @@ export class HorsePageComponent implements OnInit {
     public colorService: ColorService, 
     public breedService: BreedService,
     public userDataService: UserDataService,
-
     public horseDataService: HorseDataService) {
       this.id = this.router.snapshot.params.id
     }
