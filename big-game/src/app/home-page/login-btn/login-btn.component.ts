@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm, FormBuilder, Validators } from '@angular/forms';
 import { UserDataService } from 'src/app/services/user-data.service';
+import { UserData } from 'src/app/user-data';
+
 
 @Component({
   selector: 'app-login-btn',
@@ -24,8 +26,14 @@ export class LoginBtnComponent implements OnInit {
   
   logIn() {
     //this.router.navigate(['horse-page/:id'])
+    //let horse1_id:string;
+    //horse1_id="horse1_id";
+
     this.userService.logInUser(this.logInForm).subscribe(res => {
-     // this.router.navigate( res[0].payload.doc.id
+     let result=res[0].payload.doc.get("horse1_id");
+     //console.log(result);
+     this.router.navigate(['horse-page/'+result])
+      // this.router.navigate( res[0].payload.doc.id
     })
   }
 
