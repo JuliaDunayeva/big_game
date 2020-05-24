@@ -25,6 +25,8 @@ export class SignUpComponent implements OnInit {
 	breedIndex: number = 0;
 	colorIndex: number = 0;
 
+	public horseid: any;
+
 	constructor(
 		private fb: FormBuilder,
 		private router: Router,
@@ -85,17 +87,28 @@ export class SignUpComponent implements OnInit {
 	}
 
 	onSubmit() {
-		this.userService
-			.createUser(this.signupForm.value)
-			.then((res) => {
-				this.horseService
-					.createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
+		
+		
+		this.horseService
+					.createRandomHorse(this.signupForm.value, this.skillSelected, "")//res.id)
 					.subscribe((e) => {
-						this.router.navigate([ 'horse-page/' + e.id ]);
-					});
-			})
+						this.userService
+						.createUser(this.signupForm.value,e.id);
+
+						this.horseid=this.userService.horse1_id;
+						//console.log(e.p);
+						this.router.navigate([ 'horse-page/'+e.id ]);
+					})
+					
+					//console.log(this.userService.horse1_id);
+					//this.router.navigate([ 'horse-page/' + this.userService.horse1_id]);
+					
+					//.then((res) => {
+				
+				
+			/*})
 			.catch((error) => {
 				console.log(error);
-			});
+			});*/
 	}
 }

@@ -17,33 +17,31 @@
                     <div class="card card-green bottom-margin ">
                         <div class="card-body ">
                             <div class="row">
+                                <!-- row 1 -->
                                 <div class="col-3  btn-padding">
-                                    <button class="btn max-btn-width"><img class="img-btn-width"
-                                            src="../../assets/images/horse-page-icons/feed-button-enabled.png"></button>
+                                    <button (click)="changeButtons()" class="btn max-btn-width"><img class="img-btn-width" src="{{ feedButton }}"></button>
                                 </div>
                                 <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width"
-                                            src="../../assets/images/horse-page-icons/drink-button-disabled.png"></button>
+                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="{{ drinkButton }}"></button>
                                 </div>
                                 <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width"
-                                            src="../../assets/images/horse-page-icons/stroke-button-disabled.png"></button>
+                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="{{ strokeButton }}"></button>
                                 </div>
                             </div>
+                            <!-- end of row 1 -->
                             <div class="row">
+                                <!-- row 2 -->
                                 <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width"
-                                            src="../../assets/images/horse-page-icons/groom-button-disabled.png"></button>
+                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="{{ groomButton }}"></button>
                                 </div>
                                 <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width"
-                                            src="../../assets/images/horse-page-icons/carrot-button-disabled.png"></button>
+                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="{{ carrotButton }}"></button>
                                 </div>
                                 <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width"
-                                            src="../../assets/images/horse-page-icons/mash-button-disabled.png"></button>
+                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="{{ mashButton }}"></button>
                                 </div>
                             </div>
+                            <!-- end of row 2 -->
                         </div>
                     </div>
                 </div>
@@ -111,7 +109,7 @@
             </div>
         </div>
         <div class="col-6 center-text ">
-            <img class="col-6 " src="assets/images/horses/mustang/alz-b.png" />
+            <img class="col-6 " src="{{ imageFile }}" />
             <!-- Temp fixed picture -->
 
             <div class="max-width-middle-column  card-light-green card-title no-bottom-margin card-title-border">
@@ -153,7 +151,8 @@
             <div class="max-width-middle-column card-light-green card-title no-bottom-margin card-title-border">
                 Skills
             </div>
-            <div class="no-top-margin " id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
+
+            <div class="no-top-margin ">
                 <div class="card card-light-green ">
                     <div class="card-body row ">
                         <div class="col-4 form-group left-align card-title ">
@@ -168,7 +167,7 @@
                             Stamina
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.stamina) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.stamina/4) " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-3 center-text ">{{ horse?.stamina }}</div>
                     </div>
@@ -178,7 +177,7 @@
                             Speed
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.speed) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.speed/4) " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-3 center-text ">{{ horse?.speed }}</div>
                     </div>
@@ -188,7 +187,7 @@
                             Dressage
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.dressage) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.dressage/4) " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-3 center-text ">{{ horse?.dressage }}</div>
                     </div>
@@ -198,7 +197,7 @@
                             Gallop
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.gallop) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.gallop/4) " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-3 center-text ">{{ horse?.gallop }}</div>
                     </div>
@@ -208,7 +207,7 @@
                             Trot
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.trot) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.trot/4) " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-3 center-text ">{{ horse?.trot }}</div>
                     </div>
@@ -219,7 +218,7 @@
                             Jumping
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.jumping) " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.jumping/4) " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-3 center-text ">{{ horse?.jumping }}</div>
                     </div>
@@ -230,7 +229,7 @@
             <div class="row ">
                 <!-- middle panel - after skills -->
                 <div class="col-6 ">
-                    <div id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
+                    <div>
                         <div class="card card-light-green card-middle-title ">
                             <div class="card-body card-title inline-block">
                                 <div>
@@ -261,7 +260,7 @@
                                                                 <div class="four wide column ">
                                                                     <div class="ui vertical fluid tabular menu">
                                                                         <a class="item title-box color-dark-beige">
-                                                                            <p class="color-tx-maroon">cpmpetitions</p>
+                                                                            <p class="color-tx-maroon">Competitions</p>
                                                                         </a>
                                                                         <a class="item active color-light-beige ">
                                                                             Saddle Blanket
@@ -273,7 +272,7 @@
                                                                             Bridle
                                                                         </a>
                                                                         <a class="item title-box color-dark-beige">
-                                                                            <p class="color-tx-maroon">Bonases</p>
+                                                                            <p class="color-tx-maroon">Bonuses</p>
                                                                         </a>
                                                                         <a class="item active">
                                                                             Polo wraps
@@ -334,34 +333,34 @@
 </div>
 </div>
 <div class="col-6 ">
-    <div class="" id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
-        <div class="card card-light-green card-middle-title ">
-            <div class="card-body card-title hight">
-                <div class="inline-block">
-                    <div>
-                        <p class="margin3">Items</p>
-                    </div>
-                    <div class="margin2">
-                        <img class="padding" src="./assets/images/horse-page-icons/gold-peramid.png" />
-                        <img class="padding" src="./assets/images/horse-page-icons/gold-apple.png" />
-                    </div>
+
+    <div class="card card-light-green card-middle-title ">
+        <div class="card-body card-title hight">
+            <div class="inline-block">
+                <div>
+                    <p class="margin3">Items</p>
+                </div>
+                <div class="margin2">
+                    <img class="padding" src="./assets/images/horse-page-icons/gold-peramid.png" />
+                    <img class="padding" src="./assets/images/horse-page-icons/gold-apple.png" />
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 </div>
 <div class="row ">
     <!-- middle bottom panel - Victories -->
     <div class="col-12 ">
-        <div id="collapseExample " [ngbCollapse]="isMiddleCollapsed ">
-            <div class="card card-light-green card-middle-title ">
-                <div class="card-body card-title ">
-                    Victories
-                </div>
 
+        <div class="card card-light-green card-middle-title ">
+            <div class="card-body card-title ">
+                Victories
             </div>
+
         </div>
+
     </div>
 </div>
 
@@ -378,7 +377,7 @@
                     <div>
                         <p>Color -> {{ horse?.color }}</p>
                     </div>
-                    <p>User Name -> {{ horse }} </p>
+                    <!-- <p>User Name -> {{ userData.userName}} </p> -->
 
                 </ng-template>
             </ng-container>
@@ -488,26 +487,26 @@
             <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed
                                     " aria-controls="collapseExample ">Breeding </button>
         </p>
-        <div id="collapseExample " [ngbCollapse]="isBreedingCollapsed ">
-            <div class="card card-green bottom-margin no-padding ">
-                <div class="card-body ">
-                    <div class="row ">
-                        <div class="col-3 btn-padding ">
-                            <button class="btn max-btn-width "><img class="img-btn-width "
+
+        <div class="card card-green bottom-margin no-padding ">
+            <div class="card-body ">
+                <div class="row ">
+                    <div class="col-3 btn-padding ">
+                        <button class="btn max-btn-width "><img class="img-btn-width "
                                             src="../../assets/images/horse-page-icons/breeding-information-button-enabled.png "></button>
-                        </div>
-                        <div class="col-3 btn-padding ">
-                            <button class="btn max-btn-width disabled "><img class="img-btn-width "
+                    </div>
+                    <div class="col-3 btn-padding ">
+                        <button class="btn max-btn-width disabled "><img class="img-btn-width "
                                             src="../../assets/images/horse-page-icons/empty-button.png "></button>
-                        </div>
-                        <div class="col-3 btn-padding ">
-                            <button class="btn max-btn-width "><img class="img-btn-width "
+                    </div>
+                    <div class="col-3 btn-padding ">
+                        <button class="btn max-btn-width "><img class="img-btn-width "
                                             src="../../assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png "></button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 </div>
