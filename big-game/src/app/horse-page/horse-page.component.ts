@@ -76,8 +76,8 @@ export class HorsePageComponent implements OnInit {
     public breedService: BreedService,
     public userDataService: UserDataService,
     public horseDataService: HorseDataService) {
-      //this.id = this.router.snapshot.params.id;
-      this.id='rkxQAx7i3FGRY3wOY3pQ'
+      this.id = this.router.snapshot.params.id;
+     // this.id='rkxQAx7i3FGRY3wOY3pQ'
     }
 
 ngOnInit(): void {
@@ -153,7 +153,7 @@ getUserData(): UserData[] {
       result =>{
         //console.log(result);
         this.userData = result as Array<UserData>;
-        console.log(this.userData);
+        //console.log(this.userData);
       }
     )
     return this.userData;
@@ -162,7 +162,7 @@ getUserData(): UserData[] {
 getHorseData(): HorseData[] {
     this.horseDataService.getHorseData().subscribe(
             result =>{
-              console.log(result);
+              //console.log(result);
               this.allHorseData = result as Array<HorseData>;
               //console.log(this.allHorseData[0].stamina)
             }

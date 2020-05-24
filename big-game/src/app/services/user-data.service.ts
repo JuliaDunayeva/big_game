@@ -9,20 +9,33 @@ import { UserData } from '../user-data';
 })
 export class UserDataService {
 
+  horse1_id:any;
+
   constructor(public db: AngularFirestore) { }
 
   getUserData() {
     return this.db.collection('/user_data').valueChanges()
   }
   
-  createUser(value) {
+  public getHorseID(value):string{
+    return value;
+  }
+
+  createUser(value,horse_id:string) {
+  //  console.log(horse_id);
+
+    this.horse1_id=horse_id;
+
     return this.db.collection('user_data').add({
       userName: value.username,
       password: value.password,
-      email: value.email
-      
+      email: value.email,
+      horse1_id:horse_id
     })
+
+    
   }
+
   getUsereByID(uid : string) : Observable<UserData> {
 		return this.db.collection('/horse_data').doc(uid).snapshotChanges().pipe(
 			map(res => { 
