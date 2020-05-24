@@ -23,12 +23,15 @@ import { HorseDataService} from '../services/horse-data.service';
 export class HorsePageComponent implements OnInit {
   colors: Color[] = [];
   allColors: Color[];
-  allBreeds: Breed[];
+  allBreeds:Breed[];
   allSkills: string[];
   skill: string;
   allHorseData: HorseData[];
   userData: UserData[];
-  
+
+  breedIndex:number=-1;
+  colorIndex:number=-1;
+    
   public isRidesCollapsed = false;
   public isCareCollapsed = false;
   public isNightCollapsed = false;
@@ -75,10 +78,13 @@ constructor(private router: ActivatedRoute,
 	public userDataService: UserDataService,
 	public horseDataService: HorseDataService) {
 	this.id = this.router.snapshot.params.id;
-     // this.id='rkxQAx7i3FGRY3wOY3pQ'
+	     // this.id='rkxQAx7i3FGRY3wOY3pQ'
+	  //   this.imageFile   = '../../assets/images/horses/akhal_teke/alz-b.png';
+	   //  this.imagePath = '../../assets/images/horses/akhal_teke/alz-b.png';
     }
 
 ngOnInit(): void {
+	
     	this.horseDataService.getHorseById(this.id).subscribe(res => {
     		this.horse = res;
 	  });
@@ -91,16 +97,67 @@ ngOnInit(): void {
   	this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
   	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
 
-	this.imageFile='assets/images/horses/mustang/alz-b.png';
+	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
 
-	this.swap=true;
+	this.imagePath = 'assets/images/horses/';
+
+	this.swap=false;
 	this.changeButtons();
 
+	//if (this.allBreeds!=null) 
 	this.getBreeds();
+	//if (this.allColors!=null)  
 	this.getColors();   
+
 	this.getUserData(); 
 	this.getHorseData();
+	this.LoadHorseImage();
 } // end of ngOnInit() function
+
+getBreeds(): Breed[]{
+	this.breedService.getBreeds().subscribe(
+	  result => {
+	   // console.log(result);
+	    this.allBreeds = result as Array<Breed>;
+	 
+	    // console.log(this.allSkills);
+	  }
+	)
+	return this.allBreeds;
+} // end of getBreeds() function
+    
+    getColors(): Color[] {
+	this.colorService.getColors().subscribe(
+	  result =>{
+	    //console.log(result);
+	    this.allColors = result as Array<Color>;
+	    //console.log(this.allColors[0].color)
+	  }
+	)
+	return this.colors;
+} // end of getColors() function
+
+LoadHorseImage(){
+	this.imagePath = 'assets/images/horses/';
+
+	if (this.allBreeds!=null) {
+		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf(this.horse.breed);
+	}
+	if (this.allColors!=null){
+		this.colorIndex = this.allColors.map((o) => o.color).indexOf(this.horse.color);
+	}
+
+	if (this.breedIndex>-1 && this.colorIndex>-1) {
+		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+		console.log(this.imagePath);
+	} else {
+		this.imagePath=this.imageFile;
+	}
+} // end of LoadHorseImage() function
+
+findBreed(breedName: Breed ):any { 
+	return breedName.breed === this.horse?.breed;
+    }
 
 public changeButtons(){
 	this.swap=!this.swap;
@@ -111,6 +168,8 @@ public changeButtons(){
 		this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
 		this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';	
 	}
+	this.LoadHorseImage();
+
 } // end of changeButtons() function
 
 toggle() {
@@ -121,28 +180,7 @@ toggle() {
 	}
 } // end of toggle() function
 
-getBreeds(): Breed[]{
-    this.breedService.getBreeds().subscribe(
-      result => {
-       // console.log(result);
-        this.allBreeds = result as Array<Breed>;
-     
-        // console.log(this.allSkills);
-      }
-    )
-    return this.allBreeds;
-} // end of getBreeds() function
 
-getColors(): Color[] {
-    this.colorService.getColors().subscribe(
-      result =>{
-        //console.log(result);
-        this.allColors = result as Array<Color>;
-        //console.log(this.allColors[0].color)
-      }
-    )
-    return this.colors;
-} // end of getColors() function
 
 getUserData(): UserData[] {
     this.userDataService.getUserData().subscribe(
