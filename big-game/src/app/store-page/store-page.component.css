@@ -25,8 +25,6 @@ img
 }
 
 .background {
-  grid-column-start: 11;
-}
-.background {
-  grid-column-end: 12;
+  margin-left: 500px;
+  grid-column-start: 10;
 }
