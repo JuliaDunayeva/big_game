@@ -90,14 +90,15 @@ constructor(private router: ActivatedRoute,
 	public breedService: BreedService,
 	public userDataService: UserDataService,
 	public horseDataService: HorseDataService) {
-	this.id = this.router.snapshot.params.id;
+	//this.id=sessionStorage.getItem('horseid');
+		this.id = this.router.snapshot.params.id;
 	     // this.id='rkxQAx7i3FGRY3wOY3pQ'
 	  //   this.imageFile   = '../../assets/images/horses/akhal_teke/alz-b.png';
 	   //  this.imagePath = '../../assets/images/horses/akhal_teke/alz-b.png';
-    }
+	}
 
 ngOnInit(): void {
-	
+	//this.id=sessionStorage.getItem('horseid');
     	this.horseDataService.getHorseById(this.id).subscribe(res => {
     		this.horse = res;
 	  });
@@ -141,7 +142,8 @@ let index=0;
 	{
 		this.LoadHorseImage();
 	}, 750);
-
+//sessionStorage.setItem("horseid",this.id);
+//console.log(this.id);
 } // end of ngOnInit() function
 
 getBreeds(): Breed[]{

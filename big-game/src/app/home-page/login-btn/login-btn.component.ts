@@ -31,6 +31,7 @@ export class LoginBtnComponent implements OnInit {
     this.horseids=["horse1","horse2"];  
     this.userService.logInUser(this.logInForm).subscribe(res => {
      let result=res[0].payload.doc.get("horse1_id");
+     sessionStorage.setItem('horseid',result);
      sessionStorage.setItem('userid',res[0].payload.doc.get("userName"));
      sessionStorage.setItem('horseids',this.horseids[0]);
      //sessionStorage.setItem('horseids',this.horseids[0]);

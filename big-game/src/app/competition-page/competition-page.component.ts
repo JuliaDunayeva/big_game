@@ -25,9 +25,12 @@ export class CompetitionPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => 
+	{
     this.horseDataService.getHorseById(this.id).subscribe(res => {
       this.horse = res;
   });
+}, 750);
 }
 
   getHorseData(): HorseData[] {
