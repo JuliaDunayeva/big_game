@@ -46,6 +46,7 @@ export class UserDataService {
 	}
 
   logInUser(form) {
+    //sessionStorage.setItem('setting','nothing');
     return this.db.collection('/user_data', ref => ref.where('email', '==', form.value.email)
     .where('password', '==', form.value.password)).snapshotChanges();
   }

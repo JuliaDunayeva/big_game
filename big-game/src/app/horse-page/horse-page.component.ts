@@ -77,6 +77,8 @@ export class HorsePageComponent implements OnInit {
  public putToBedButton:string
  public ageButton:string;
 
+ public setting:string;
+
  public myHorses:HorseData[];
 
   
@@ -97,6 +99,8 @@ ngOnInit(): void {
     	this.horseDataService.getHorseById(this.id).subscribe(res => {
     		this.horse = res;
 	  });
+
+	  this.setting=sessionStorage.getItem('userid');
 	  
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
   	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';

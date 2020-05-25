@@ -28,9 +28,11 @@ export class LoginBtnComponent implements OnInit {
     //this.router.navigate(['horse-page/:id'])
     //let horse1_id:string;
     //horse1_id="horse1_id";
-
+    
     this.userService.logInUser(this.logInForm).subscribe(res => {
      let result=res[0].payload.doc.get("horse1_id");
+     
+     sessionStorage.setItem('userid',res[0].payload.doc.get("userName"));
      //console.log(result);
      this.router.navigate(['horse-page/'+result])
       // this.router.navigate( res[0].payload.doc.id
