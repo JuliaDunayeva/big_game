@@ -76,6 +76,9 @@ export class HorsePageComponent implements OnInit {
  //Buttons for night tab
  public putToBedButton:string
  public ageButton:string;
+
+ public myHorses:HorseData[];
+
   
 constructor(private router: ActivatedRoute, 
 	private http: HttpClient,
@@ -119,6 +122,14 @@ ngOnInit(): void {
 
 	this.getUserData(); 
 	this.getHorseData();
+let index=0;
+
+//	for (index<this.userData[0].myHorses.length;index++){
+		//console.log(this.userData[0].myHorses[index]);
+	//}
+	//this.horseDataService.getHorseById(this.id).subscribe(res => {
+		//this.horse = res;
+	//}
 
 	setTimeout(() => 
 	{
