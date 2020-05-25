@@ -111,13 +111,7 @@ ngOnInit(): void {
 
 	this.getUserData(); 
 	this.getHorseData();
-	
-	setTimeout(() => 
-	{
-		//this.router.navigate(['/']);
-		this.LoadHorseImage();
-	}, 750);
-	
+	this.LoadHorseImage();
 } // end of ngOnInit() function
 
 getBreeds(): Breed[]{
@@ -174,7 +168,7 @@ public changeButtons(){
 		this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
 		this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';	
 	}
-	//this.LoadHorseImage();
+	this.LoadHorseImage();
 
 } // end of changeButtons() function
 
