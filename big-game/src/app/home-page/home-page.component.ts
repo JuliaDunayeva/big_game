@@ -2,20 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+	selector: 'app-home-page',
+	templateUrl: './home-page.component.html',
+	styleUrls: [ './home-page.component.css' ]
 })
 export class HomePageComponent implements OnInit {
+	constructor(private router: Router) {}
 
-  constructor(private router: Router) { }
-  
-  ngOnInit(): void {
-  }
-  
-  signUp():boolean {
-    this.router.navigate(['/sign-up']);
-    return false;
-  }
-  
+	ngOnInit(): void {}
+
+	signUp(): boolean {
+		console.log('sign up');
+		this.router.navigate([ '/sign-up' ]);
+		return false;
+	}
 }
