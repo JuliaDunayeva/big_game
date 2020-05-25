@@ -46,6 +46,7 @@ export class HorseDataService {
 		let dressage = this.getRandStats();
 		let gender = this.getRandGender();
 		let today = new Date();
+		
 		return from(
 			this.db.collection('/horse_data').add({
 				breed: value.breed,
@@ -75,6 +76,7 @@ export class HorseDataService {
 			})
 		);
 	}
+
 	getHorseById(id: string): Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
 			map((res) => {

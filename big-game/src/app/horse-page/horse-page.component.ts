@@ -21,7 +21,6 @@ import { HorseDataService} from '../services/horse-data.service';
 })
 
 export class HorsePageComponent implements OnInit {
-
   colors: Color[] = [];
   allColors: Color[];
   allBreeds: Breed[];
@@ -38,7 +37,6 @@ export class HorsePageComponent implements OnInit {
   public isCompetitionCollapsed = false;
   public isHistoryCollapsed = false;
   public isBreedingCollapsed = false;
-  public isMiddleCollapsed =false;
    
   active = 1;
   ctrl = new FormControl(null, Validators.required);
@@ -46,32 +44,74 @@ export class HorsePageComponent implements OnInit {
   public preventchange_1:true;
   public readonly = true;
   public value = 0;
-  public horse: HorseData;
-  public id: string;
+
+ public horse: HorseData;
+
+ public id: string;
+
+// Paths for horse images
+ public imagePath:string;
+ public imageFile:string;
+
+ // Buttons for care tab
+ public feedButton : string;
+ public drinkButton: string;
+ public strokeButton:string;
+
+ public groomButton:string;
+ public carrotButton:string;
+ public mashButton:string;
+
+ swap:boolean;
+
+ //Buttons for night tab
+ public putToBedButton:string
+ public ageButton:string;
   
-  //UserDataService: any;
-  
-  constructor(private router: ActivatedRoute, 
-    private http: HttpClient,
-    public colorService: ColorService, 
-    public breedService: BreedService,
-    public userDataService: UserDataService,
-    public horseDataService: HorseDataService) {
-      this.id = this.router.snapshot.params.id
+constructor(private router: ActivatedRoute, 
+	private http: HttpClient,
+	public colorService: ColorService, 
+	public breedService: BreedService,
+	public userDataService: UserDataService,
+	public horseDataService: HorseDataService) {
+	this.id = this.router.snapshot.params.id;
+     // this.id='rkxQAx7i3FGRY3wOY3pQ'
     }
 
 ngOnInit(): void {
-  //this.router.snapshot.params.id
-  this.horseDataService.getHorseById(this.id).subscribe(res => {
-    this.horse = res;
-  })
+    	this.horseDataService.getHorseById(this.id).subscribe(res => {
+    		this.horse = res;
+	  });
+	  
+	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
+  	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
+	this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
+
+  	this.groomButton='assets/images/horse-page-icons/groom-button-disabled.png';
+  	this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
+  	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
+
+	this.imageFile='assets/images/horses/mustang/alz-b.png';
+
+	this.swap=true;
+	this.changeButtons();
 
 	this.getBreeds();
 	this.getColors();   
 	this.getUserData(); 
 	this.getHorseData();
-}
- 
+} // end of ngOnInit() function
+
+public changeButtons(){
+	this.swap=!this.swap;
+	if (this.swap){
+		this.feedButton='assets/images/horse-page-icons/drink-button-disabled.png';
+		this.drinkButton='assets/images/horse-page-icons/feed-button-enabled.png';
+	} else {
+		this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
+		this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';	
+	}
+} // end of changeButtons() function
 
 toggle() {
 	if (this.ctrl.disabled) {
@@ -79,24 +119,21 @@ toggle() {
 	} else {
 		this.ctrl.disable();
 	}
-}
+} // end of toggle() function
 
-  getBreeds(): Breed[]{
+getBreeds(): Breed[]{
     this.breedService.getBreeds().subscribe(
       result => {
        // console.log(result);
         this.allBreeds = result as Array<Breed>;
-        // for (let i = 0 ; i < this.allBreeds.length ; i++) {
-        //   this.allSkills.push(this.allBreeds[i].skill)
-        // }
-       // console.log(this.allBreeds[0].skill);
+     
         // console.log(this.allSkills);
       }
     )
     return this.allBreeds;
-  }
+} // end of getBreeds() function
 
-  getColors(): Color[] {
+getColors(): Color[] {
     this.colorService.getColors().subscribe(
       result =>{
         //console.log(result);
@@ -105,36 +142,29 @@ toggle() {
       }
     )
     return this.colors;
-  }
+} // end of getColors() function
 
-  getUserData(): UserData[] {
+getUserData(): UserData[] {
     this.userDataService.getUserData().subscribe(
       result =>{
-        //console.log(result);
         this.userData = result as Array<UserData>;
-        //console.log(this.userData[0].password);
       }
     )
     return this.userData;
-  }
+} // enbd of getUserData() function
 
-  getHorseData(): HorseData[] {
+getHorseData(): HorseData[] {
     this.horseDataService.getHorseData().subscribe(
             result =>{
-              console.log(result);
               this.allHorseData = result as Array<HorseData>;
-              //console.log(this.allHorseData[0].stamina)
             }
         );
-     // console.log(this.allHorseData);
 	return this.allHorseData;
-  }
+} // end of getHorseData() function
 
- public beforeChange($event: NgbPanelChangeEvent) {
-
+public beforeChange($event: NgbPanelChangeEvent) {
     if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
       $event.preventDefault();
     }
-  }
-
-}
+  } // end of beforeChange() function
+} // end horse-page component class

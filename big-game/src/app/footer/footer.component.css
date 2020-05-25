@@ -12,9 +12,11 @@
 
 div a {
     padding: 0;
+    text-decoration: none;
 }
 
-ul a {      /* Space between link icons */
+ul a {
+    /* Space between link icons */
     margin: 0 25px 0 0;
 }
 
