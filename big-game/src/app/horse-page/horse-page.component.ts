@@ -77,7 +77,7 @@ export class HorsePageComponent implements OnInit {
  public putToBedButton:string
  public ageButton:string;
 
- public setting:string;
+ public ownerName:string;
 
  public horseIDs:string[];
 
@@ -103,8 +103,8 @@ ngOnInit(): void {
     		this.horse = res;
 	  });
 
-	  this.setting=sessionStorage.getItem('userid');
-	  console.log(sessionStorage.getItem("horseids"));
+	  this.ownerName=sessionStorage.getItem('userid');
+	  //console.log(sessionStorage.getItem("horseids"));
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
   	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
 	this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
