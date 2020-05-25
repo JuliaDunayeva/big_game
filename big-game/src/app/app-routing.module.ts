@@ -7,6 +7,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HorsePageComponent } from './horse-page/horse-page.component';
 import { MyHorsesComponent } from './my-horses/my-horses.component';
+import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,10 @@ const routes: Routes = [
   {
     path: 'competition-page',
     component: CompetitionPageComponent
-    
+  },
+  {
+    path: 'competitions',
+    component: CompetitionsComponent
   },
   {
     path: '',
