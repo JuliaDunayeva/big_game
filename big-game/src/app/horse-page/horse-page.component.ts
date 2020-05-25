@@ -65,6 +65,11 @@ export class HorsePageComponent implements OnInit {
  public carrotButton:string;
  public mashButton:string;
 
+ public forestButton:string;
+ public mountainButton:string;
+
+ public emptyButton:string;
+
  swap:boolean;
 
  //Buttons for night tab
@@ -95,7 +100,12 @@ ngOnInit(): void {
 
   	this.groomButton='assets/images/horse-page-icons/groom-button-disabled.png';
   	this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
-  	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
+	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
+	  
+	this.forestButton='assets/images/horse-page-icons/forest-button-enabled.png';
+	this.mountainButton='assets/images/horse-page-icons/mountain-button-enabled.png';
+
+	this.emptyButton='assets/images/horse-page-icons/empty-button.png';
 
 	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
 

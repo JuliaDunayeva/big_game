@@ -374,8 +374,16 @@
                     <div>
                         <p>Breed -> {{ horse?.breed }}</p>
                     </div>
+
                     <div>
-                        <p>Color -> {{ horse?.color }}</p>
+                        <p>Gender -></p>
+                    </div>
+
+                    <div>
+                        <p>Species -></p>
+                    </div>
+                    <div>
+                        <p>Coat -> {{ horse?.color }}</p>
                     </div>
                     <!-- <p>User Name -> {{ userData.userName}} </p> -->
 
@@ -417,15 +425,15 @@
                     <div class="row ">
                         <div class="col-3 btn-padding ">
                             <button class="btn max-btn-width "><img class="img-btn-width "
-                                            src="../../assets/images/horse-page-icons/forest-button-enabled.png "></button>
+                                            src="{{ forestButton }}"></button>
                         </div>
                         <div class="col-3 btn-padding ">
                             <button class="btn max-btn-width disabled "><img class="img-btn-width "
-                                            src="../../assets/images/horse-page-icons/empty-button.png "></button>
+                                            src="{{ emptyButton }} "></button>
                         </div>
                         <div class="col-3 btn-padding ">
                             <button class="btn max-btn-width "><img class="img-btn-width "
-                                            src="../../assets/images/horse-page-icons/mountain-button-enabled.png "></button>
+                                            src="{{ mountainButton }}"></button>
                         </div>
                     </div>
                 </div>
