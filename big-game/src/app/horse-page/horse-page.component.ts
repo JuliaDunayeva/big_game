@@ -159,16 +159,6 @@ getHorseData(): HorseData[] {
             }
         );
 	return this.allHorseData;
-<<<<<<< HEAD
-  }
-
- public beforeChange($event: NgbPanelChangeEvent) {
-    if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
-      $event.preventDefault();
-    }
-  }
-}
-=======
 } // end of getHorseData() function
 
 public beforeChange($event: NgbPanelChangeEvent) {
@@ -177,4 +167,3 @@ public beforeChange($event: NgbPanelChangeEvent) {
     }
   } // end of beforeChange() function
 } // end horse-page component class
->>>>>>> sandbox_pre-develop
