@@ -27,6 +27,6 @@ img
 .background {
   margin-left: 500px;
   grid-column-start: 10;
-  height: 50px;
+  height: 25px;
   width: 50%;
 }
