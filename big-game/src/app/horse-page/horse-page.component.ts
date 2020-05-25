@@ -111,16 +111,18 @@ ngOnInit(): void {
 
 	this.getUserData(); 
 	this.getHorseData();
-	this.LoadHorseImage();
+
+	setTimeout(() => 
+	{
+		this.LoadHorseImage();
+	}, 750);
+
 } // end of ngOnInit() function
 
 getBreeds(): Breed[]{
 	this.breedService.getBreeds().subscribe(
 	  result => {
-	   // console.log(result);
-	    this.allBreeds = result as Array<Breed>;
-	 
-	    // console.log(this.allSkills);
+	   	    this.allBreeds = result as Array<Breed>;
 	  }
 	)
 	return this.allBreeds;
@@ -129,9 +131,7 @@ getBreeds(): Breed[]{
     getColors(): Color[] {
 	this.colorService.getColors().subscribe(
 	  result =>{
-	    //console.log(result);
 	    this.allColors = result as Array<Color>;
-	    //console.log(this.allColors[0].color)
 	  }
 	)
 	return this.colors;
@@ -155,10 +155,6 @@ LoadHorseImage(){
 	}
 } // end of LoadHorseImage() function
 
-findBreed(breedName: Breed ):any { 
-	return breedName.breed === this.horse?.breed;
-    }
-
 public changeButtons(){
 	this.swap=!this.swap;
 	if (this.swap){
@@ -168,8 +164,6 @@ public changeButtons(){
 		this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
 		this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';	
 	}
-	this.LoadHorseImage();
-
 } // end of changeButtons() function
 
 toggle() {
