@@ -9,7 +9,7 @@ import { Breed } from '../breed';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 import { Command } from 'protractor';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
 	selector: 'app-sign-up',
@@ -93,7 +93,7 @@ export class SignUpComponent implements OnInit {
 			.createRandomHorse(this.signupForm.value, this.skillSelected, '') //res.id)
 			.subscribe((e) => {
 				this.userService.createUser(this.signupForm.value, e.id);
-				new AuthService(e.id);
+				new AuthService();
 				this.horseid = this.userService.horse1_id;
 				//console.log(e.p);
 				this.router.navigate([ 'horse-page/' + e.id ]);
