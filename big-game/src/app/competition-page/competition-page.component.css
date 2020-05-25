@@ -41,6 +41,10 @@ p {
     margin-left: -3px;
 }
 
+.btn-right {
+    margin-left: 600px;
+}
+
 /* Upper Table */
 td .td-top {
     border: 2px solid rgb(228, 226, 153);
