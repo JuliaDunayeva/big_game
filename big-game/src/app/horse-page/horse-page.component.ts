@@ -65,12 +65,13 @@ export class HorsePageComponent implements OnInit {
  public carrotButton:string;
  public mashButton:string;
 
+// Buttons for Ride tab
  public forestButton:string;
  public mountainButton:string;
 
  public emptyButton:string;
 
- swap:boolean;
+ swap:boolean=false;
 
  //Buttons for night tab
  public putToBedButton:string
@@ -111,12 +112,9 @@ ngOnInit(): void {
 
 	this.imagePath = 'assets/images/horses/';
 
-	this.swap=false;
-	this.changeButtons();
-
-	//if (this.allBreeds!=null) 
+	//this.swap=false;
+//	this.changeButtons();
 	this.getBreeds();
-	//if (this.allColors!=null)  
 	this.getColors();   
 
 	this.getUserData(); 
