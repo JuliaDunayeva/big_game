@@ -4,6 +4,7 @@ export class Compete {
 	energy: number;
     kitty: number;
     ranks: number;
+    over: boolean;
 
 constructor(comp_name: string, difficulty: number, energy: number, kitty: number, ranks: number) {
     this.comp_name = comp_name;
@@ -11,6 +12,7 @@ constructor(comp_name: string, difficulty: number, energy: number, kitty: number
     this.energy = energy;
     this.kitty = kitty;
     this.ranks = ranks;
+    this.over = false;
     }
 
 }
