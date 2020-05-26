@@ -116,7 +116,7 @@ export class SignUpComponent implements OnInit {
             console.log(a);
            
               if (a.length == 0) {
-                this.userService.createUser(this.signupForm.value, e.id);
+                this.userService.createUser(this.signupForm.value);
                 this.validEmail = true;
                 this.router.navigate(['horse-page/' + e.id]);
                
