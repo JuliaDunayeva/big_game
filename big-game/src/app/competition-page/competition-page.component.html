@@ -15,7 +15,7 @@
                 </div>
                 <a class=""> My Horses &nbsp;</a>
                 <i class="angle double right icon "> </i>
-                <a class=""> Gaia &nbsp;</a>
+                <a class=""> {{ horse?.name }} &nbsp;</a>
                 <i class="angle double right icon "> </i>
                 <a class=""> Register for a trot competition</a>
             </div>
@@ -34,7 +34,7 @@
             <div class="col-sm-5 pad-left color-tx-maroon ">
                 <div class="mycard-light-green ">
                     <div class="h6 sm-card no-bottom-margin">
-                        <H5 class="pad-left card-title">Gaia</H5>
+                        <H5 class="pad-left card-title">{{ horse?.name }}</H5>
                     </div>
                     <div>
                         
@@ -44,23 +44,23 @@
                             <tr>
                                 <td class="tu-col1">Trot:</td>
                                 <td class="tu-col2 sm-card">
-                                    ⭐⭐⭐⭐⭐⭐⭐
+                                    <ngb-rating [formControl]="ctrl "  [rate]="(horse?.trot/4) " class="gold-color "></ngb-rating>
                                 </td>
-                                <td class="tu-col3">1000.00</td>
+                                <td class="tu-col3">{{ horse?.trot }}</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Speed:</td>
                                 <td class="tu-col2 sm-card">
-                                    ⭐⭐⭐⭐⭐⭐
+                                    <ngb-rating [formControl]="ctrl "  [rate]="(horse?.speed/4) " class="gold-color "></ngb-rating>
                                 </td>
-                                <td class="tu-col3">1001.00</td>
+                                <td class="tu-col3">{{ horse?.speed }}</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Dressage:</td>
                                 <td class="tu-col2 sm-card">
-                                    ⭐⭐⭐⭐⭐
+                                    <ngb-rating [formControl]="ctrl "  [rate]="(horse?.dressage/4) " class="gold-color "></ngb-rating>
                                 </td>
-                                <td class="tu-col3">1002.00</td>
+                                <td class="tu-col3">{{ horse?.dressage }}</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Energy:</td>
@@ -115,6 +115,6 @@
             </div>
         </div>
     </div> <!-- folder end-->
+    <br><br>
+    <app-footer></app-footer>
 </div>    
-<br><br>
-<app-footer></app-footer>
