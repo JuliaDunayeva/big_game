@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
 	providedIn: 'root'
 })
 export class AuthService {
-	constructor(public uid: string) {
-		sessionStorage.setItem('uid', uid);
+	constructor() {}
+
+	setUId(uid: string) {
+		sessionStorage.setItem('UId', uid);
 	}
 }
