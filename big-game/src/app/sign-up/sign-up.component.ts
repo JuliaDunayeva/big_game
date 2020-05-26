@@ -16,6 +16,7 @@ import { AuthService } from '../services/auth.service';
 	templateUrl: './sign-up.component.html',
 	styleUrls: [ './sign-up.component.css' ]
 })
+
 export class SignUpComponent implements OnInit {
 	colors: Color[] = [];
 	allColors: Color[];
@@ -89,6 +90,22 @@ export class SignUpComponent implements OnInit {
 	}
 
 	onSubmit() {
+
+		this.userService	
+			.createUser(this.signupForm.value)	
+			.then((res) => {			
+				this.horseService						
+					//.createRandomHorse(this.signupForm.value, this.skillSelected, "")//res.id)
+					.createRandomHorse(this.signupForm.value, this.skillSelected, res.id)	
+						.subscribe((e) => {
+						this.router.navigate([ 'horse-page/' + e.id ]);							
+						//this.userService
+						
+					});
+					//.createUser(this.signupForm.value,e.id);
+			})	
+
+		/*
 		this.horseService
 			.createRandomHorse(this.signupForm.value, this.skillSelected, '') //res.id)
 			.subscribe((e) => {
