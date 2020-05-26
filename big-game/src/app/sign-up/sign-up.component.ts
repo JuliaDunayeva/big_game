@@ -93,7 +93,7 @@ export class SignUpComponent implements OnInit {
 			.createRandomHorse(this.signupForm.value, this.skillSelected, '') //res.id)
 			.subscribe((e) => {
 				this.userService.createUser(this.signupForm.value, e.id);
-				new AuthService();
+				new AuthService(e.id);
 				this.horseid = this.userService.horse1_id;
 				//console.log(e.p);
 				this.router.navigate([ 'horse-page/' + e.id ]);
