@@ -10,6 +10,8 @@ export class UserData {
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.horse1_id=horse1_id;
+        //TODO rename or redesign
+        this.horse1_id = horse1_id;
     }
+   
 }
