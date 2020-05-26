@@ -61,7 +61,6 @@ import { CompetitionsComponent } from './competition-page/competitions/competiti
       innerStrokeColor: "#C7E596",
       animationDuration: 300
     })
-
   ],
   
   providers: [],

@@ -1,3 +1,4 @@
+import { UserData } from 'src/app/user-data';
 import { UserDataService } from './../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -25,7 +26,8 @@ export class SignUpComponent implements OnInit {
 	imagePath: string = '../../assets/images/horses/akhal_teke/alz-b.png';
 	breedIndex: number = 0;
 	colorIndex: number = 0;
-
+	public validEmail: boolean = true;
+	public warning: string = ' Email already exists';
 	public horseid: any;
 
 	constructor(
@@ -92,21 +94,19 @@ export class SignUpComponent implements OnInit {
 		this.horseService
 			.createRandomHorse(this.signupForm.value, this.skillSelected, '') //res.id)
 			.subscribe((e) => {
-				this.userService.createUser(this.signupForm.value, e.id);
-				new AuthService();
-				this.horseid = this.userService.horse1_id;
-				//console.log(e.p);
-				this.router.navigate([ 'horse-page/' + e.id ]);
+				let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
+					console.log(a);
+
+					if (a.length == 0) {
+						this.userService.createUser(this.signupForm.value);
+						this.validEmail = true;
+						this.authService.setUId(e.id);
+						this.router.navigate([ 'horse-page/' + e.id ]);
+					} else {
+						this.validEmail = false;
+					}
+					return a;
+				});
 			});
-
-		//console.log(this.userService.horse1_id);
-		//this.router.navigate([ 'horse-page/' + this.userService.horse1_id]);
-
-		//.then((res) => {
-
-		/*})
-			.catch((error) => {
-				console.log(error);
-			});*/
 	}
 }

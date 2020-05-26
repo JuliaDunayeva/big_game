@@ -17,6 +17,7 @@ export class CompetitionPageComponent implements OnInit {
   public horse: HorseData;
   public id: string;
   public readonly = true;
+  public rate:number;
 
   ctrl = new FormControl(null, Validators.required);
 
@@ -26,9 +27,12 @@ export class CompetitionPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  //   this.horseDataService.getHorseById(this.id).subscribe(res => {
-  //     this.horse = res;
-  // });
+    setTimeout(() => 
+	{
+    this.horseDataService.getHorseById(this.id).subscribe(res => {
+      this.horse = res;
+  });
+}, 750);
 }
 
   getHorseData(): HorseData[] {

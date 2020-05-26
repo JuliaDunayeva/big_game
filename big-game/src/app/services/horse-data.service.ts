@@ -22,6 +22,12 @@ export class HorseDataService {
 		);
 	}
 
+	getHorsesByUid() {
+		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
+		.snapshotChanges();
+
+	}
+
 	getHorseData() {
 		return this.db.collection('/horse_data').valueChanges();
 	}
