@@ -49,7 +49,6 @@ export class HorsePageComponent implements OnInit {
    
   active = 1;
   ctrl = new FormControl(null, Validators.required);
-
   public preventchange_1:true;
   public readonly = true;
   public value = 0;

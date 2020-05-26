@@ -1,32 +1,49 @@
+<app-nav-bar></app-nav-bar>
+<app-play-bar></app-play-bar>
+
 <div class="container">
-  <app-nav-bar></app-nav-bar>
-  <br><br>
-  <app-play-bar></app-play-bar>
-  <br>
-  <div class="ui two column folder">
-      <div class="column"> <!-- <img src="../../assets/folder.svg"> -->
-        <div class="ui three column grid">
-          <div class=""></div>
-            <div class="row">
-                <img src="assets/images/game_pieces/equus.png">
-                <p>Classic "Alamo" style saddle - 498 coins - in stock</p>
-            </div>
-          <div class="column"></div>
-        </div>
+  <div class=" folder">
+            <!-- <img src="../../assets/folder.svg"> -->
+    <div class="row">
+      <div class="col-md-6">
+        <p>Trade >> Store</p>
+        <div class="ui divider"></div>
       </div>
-      <div class="column"></div>
-      <div class="column"></div>
-      <div class="column">
-        <div class="ui grid">
-          <div class="ten wide column"></div>
-          <div class="six wide column"></div>
-        </div>
+     
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <img class="background" src="\assets\images\store-page\store_barn2.png">
       </div>
     </div>
-    <br>
-  <app-footer></app-footer>
-  <br><br>
-  <p>Sample button to use</p>
-  <button class="btn-shops btn-shops-sml"><i class="shopping cart icon "></i></button>
-  <br><br>
+    <!--<div class="ui divider"></div> -->
+    <div class="row second-row">
+      <div class="sto-hed col-md-4">
+        <h2 class="">The Store</h2>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="sto-desc col-md-6">
+        <p>In this store, you will find everything you need to take care of your horses and manage your Equestrian Center. </p>
+        <h3>Sell Items</h3>
+        <img src="assets\images\game_pieces\equus.png" alt="">
+        <img src="\assets\images\store-page\store left side.png" alt="">    
+      </div>
+      <div class="black_market col-md-5">
+        <p class="top-margin"></p>
+        <h5>My Items</h5>
+        <a routerLink="/bmarket-page"> <img src="\assets\images\store-page\store right side black market tab.png" alt=""> </a>
+          <p class="no-bottom-margin"></p>
+          <div class="card mycard-green  bottom-margin no-padding">
+            <br><br>
+            <button class="btn-shops btn-shops-sml"><i class="shopping cart icon "></i></button>
+            <br><br>
+            <div class="card-body ">
+              You can collapse this card by clicking Toggle
+            </div>
+          </div>
+      </div>
+    </div>
 </div>
+
+<app-footer></app-footer>
