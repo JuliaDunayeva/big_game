@@ -72,7 +72,7 @@ export class SignUpComponent implements OnInit {
 			this.skillSelected = this.allBreeds[0].skill;
 			console.log(this.allBreeds[0].skill);
 		});
-		return;
+		return this.allBreeds;
 	}
 
 	getSkill(event: Event) {

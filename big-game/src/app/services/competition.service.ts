@@ -3,6 +3,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Compete } from '../compete';
+import { Breed } from '../breed';
+import { BreedService } from './breed.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +19,10 @@ export class CompetitionService {
   ranks: number;
   breed: string;
   over: boolean;
+  
 
-  constructor(public db: AngularFirestore) { }
+  constructor(public db: AngularFirestore,
+              private breedService: BreedService) { }
 
   getCompetitions() {
     return this.db.collection('/compete').valueChanges()
@@ -57,5 +62,7 @@ export class CompetitionService {
   getRandRank(): number {
     return Math.floor(Math.random() * 10);
   }
+
+  
 
 }

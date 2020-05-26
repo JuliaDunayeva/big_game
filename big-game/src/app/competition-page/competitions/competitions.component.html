@@ -30,14 +30,16 @@
             </div>
         </div> <!-- Title End -->
         <div class="">
-            <form action="">
+            <form ngForm>
                 <div class="display pad-left">
                     <label class="h6" for="comp_name">Competition Name</label>
                     <input class="form-control"  type="text"  />
                 </div>
                 <div class="display pad-left">
                     <label class="h6" for="breed">Select a Breed</label>
-                    <input class="form-control move-left"  type="text" />
+                    <select>
+                        <option *ngFor="let item of allBreeds" [value]="item">{{item.breed}}</option>
+                    </select>               
                 </div>
                 <div>
                     <button class="btn-shops btn-shops-lrg pad-left">Create</button>

@@ -3,7 +3,7 @@ import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HorseData } from '../horse-data';
-import { IfStmt } from '@angular/compiler';
+import { Breed } from '../breed';
 
 @Injectable({
 	providedIn: 'root'
@@ -85,6 +85,4 @@ export class HorseDataService {
 			})
 		);
 	}
-
-	getHorses
 }
