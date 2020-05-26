@@ -25,9 +25,9 @@ export class CompetitionPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.horseDataService.getHorseById(this.id).subscribe(res => {
-      this.horse = res;
-  });
+  //   this.horseDataService.getHorseById(this.id).subscribe(res => {
+  //     this.horse = res;
+  // });
 }
 
   getHorseData(): HorseData[] {
