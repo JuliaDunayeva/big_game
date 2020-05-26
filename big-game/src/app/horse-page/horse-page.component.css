@@ -299,3 +299,17 @@ li {
 .hight {
     height: 81px;
 }
+
+.positionRelative {
+    position: relative;
+}
+
+.percentageValue {
+    left: 10px;
+    top: 20%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
