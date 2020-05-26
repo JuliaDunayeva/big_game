@@ -14,7 +14,6 @@ export class UserData {
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        //this.horse1_id=horse1_id;
         this.passes=passes;
         this.equus=equus;
     }
