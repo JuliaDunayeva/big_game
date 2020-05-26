@@ -16,6 +16,7 @@ export class CompetitionPageComponent implements OnInit {
   allHorseData: HorseData[];
   public horse: HorseData;
   public id: string;
+  public readonly = true;
 
   ctrl = new FormControl(null, Validators.required);
   readonly=true;
@@ -42,4 +43,12 @@ export class CompetitionPageComponent implements OnInit {
         );
 	return this.allHorseData;
   }
+
+  toggle() {
+    if (this.ctrl.disabled) {
+      this.ctrl.enable();
+    } else {
+      this.ctrl.disable();
+    }
+  } 
 }

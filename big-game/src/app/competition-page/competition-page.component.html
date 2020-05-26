@@ -8,7 +8,7 @@
     <div class="folder">
         <div class="row ">
             <!-- Path Information & Picture -->
-            <div class="col-md-6 display pad-left small card-title color-tx-maroon">
+            <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green">
                     <i class="home icon"></i>
                     <a class=""> Breeding Farm &nbsp;</a>
@@ -16,7 +16,7 @@
                 </div>
                 <a class=""> My Horses &nbsp;</a>
                 <i class="angle double right icon "> </i>
-                <a class=""> {{ horse?.name }} &nbsp;</a>
+                <a class="">Gaia {{ horse?.name }} &nbsp;</a>
                 <i class="angle double right icon "> </i>
                 <a class=""> Register for a trot competition</a>
             </div>
@@ -36,39 +36,39 @@
         <div class="">
             <!-- competition stats for horse entering-->
             <div class="col-sm-5 pad-left color-tx-maroon ">
-                <div class="mycard-light-green ">
-                    <div class="h6 sm-card no-bottom-margin">
-                        <H5 class="pad-left card-title">{{ horse?.name }}</H5>
+                <div class="mycard-light-green td-top">
+                    <div class="h6 sm-card no-bottom-margin td-line">
+                        <H5 class="pad-left card-title">Gaia {{ horse?.name }}</H5>
                     </div>
                     <div>
 
                     </div>
-                    <div class="color-tx-green card-title td-top">
+                    <div class="color-tx-green card-title ">
                         <table class="">
                             <tr>
                                 <td class="tu-col1">Trot:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating [formControl]="ctrl " [readonly]="readonly" [rate]="(horse?.trot/4) " class="gold-color "></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.trot)" [readonly]="readonly"></ngb-rating>
                                 </td>
                                 <td class="tu-col3">{{ horse?.trot }}</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Speed:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating [formControl]="ctrl " [rate]="(horse?.speed/4) " class="gold-color "></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.speed)" [readonly]="readonly"></ngb-rating>
                                 </td>
                                 <td class="tu-col3">{{ horse?.speed }}</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Dressage:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating [formControl]="ctrl " [rate]="(horse?.dressage/4) " class="gold-color "></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.dressage)" [readonly]="readonly"></ngb-rating>
                                 </td>
                                 <td class="tu-col3">{{ horse?.dressage }}</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Energy:</td>
-                                <td class="sm-card">100.0 %</td>
+                                <td class="sm-card">&nbsp; {{ horse?.energy }}</td>
                                 <td></td>
                             </tr>
                         </table>
@@ -85,9 +85,9 @@
                     <p class="color-tx-green"> Show competitions for low-level horses</p>
                 </div>
                 <h5 class="color-tx-maroon card-title">Competitions open to all horses</h5>
-                <div class="mytable-light-green">
-                    <table class="">
-                        <tr class="sm-card">
+                <div class="mytable-light-green ">
+                    <table class="td-top">
+                        <tr class="sm-card td-line">
                             <th class="card-title tl-col1">Name</th>
                             <th class="card-title tl-col3">Kitty</th>
                             <th class="card-title tl-col3">Difficulty</th>
