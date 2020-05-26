@@ -19,7 +19,6 @@ export class CompetitionPageComponent implements OnInit {
   public readonly = true;
 
   ctrl = new FormControl(null, Validators.required);
-  readonly=true;
 
   constructor(private router: ActivatedRoute, 
     public horseDataService: HorseDataService) {
