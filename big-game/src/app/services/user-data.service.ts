@@ -21,16 +21,17 @@ export class UserDataService {
     return value;
   }
 
-  createUser(value,horse_id:string) {
+  createUser(value) {
+    //,horse_id:string
   //  console.log(horse_id);
 
-    this.horse1_id=horse_id;
+    //this.horse1_id=horse_id;
 
     return this.db.collection('user_data').add({
       userName: value.username,
       password: value.password,
       email: value.email,
-      horse1_id:horse_id
+      //horse1_id:horse_id
     })
 
     
@@ -46,6 +47,7 @@ export class UserDataService {
 	}
 
   logInUser(form) {
+    //sessionStorage.setItem('setting','nothing');
     return this.db.collection('/user_data', ref => ref.where('email', '==', form.value.email)
     .where('password', '==', form.value.password)).snapshotChanges();
   }

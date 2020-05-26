@@ -13,6 +13,7 @@ import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
+import { HorsePageButtons } from '../horse-page-buttons';
 
 @Component({
   selector: 'app-horse-page',
@@ -21,14 +22,22 @@ import { HorseDataService} from '../services/horse-data.service';
 })
 
 export class HorsePageComponent implements OnInit {
-  colors: Color[] = [];
-  allColors: Color[];
-  allBreeds: Breed[];
-  allSkills: string[];
-  skill: string;
-  allHorseData: HorseData[];
-  userData: UserData[];
-  
+
+	//constFeed=0;
+		
+	//pageButtons:HorsePageButtons[]=new HorsePageButtons[];
+
+	colors: Color[] = [];
+	allColors: Color[];
+	allBreeds:Breed[];
+	allSkills: string[];
+	skill: string;
+	allHorseData: HorseData[];
+	userData: UserData[];
+
+	breedIndex:number=-1;
+	colorIndex:number=-1;
+    
   public isRidesCollapsed = false;
   public isCareCollapsed = false;
   public isNightCollapsed = false;
@@ -40,7 +49,6 @@ export class HorsePageComponent implements OnInit {
    
   active = 1;
   ctrl = new FormControl(null, Validators.required);
-
   public preventchange_1:true;
   public readonly = true;
   public value = 0;
@@ -62,11 +70,35 @@ export class HorsePageComponent implements OnInit {
  public carrotButton:string;
  public mashButton:string;
 
- swap:boolean;
+// Buttons for Ride tab
+ public forestButton:string;
+ public mountainButton:string;
+
+ public emptyButton:string;
+
+ swap:boolean=false;
 
  //Buttons for night tab
  public putToBedButton:string
  public ageButton:string;
+
+ public ownerName:string;
+
+ public horseIDs:string[];
+
+ public myHorses:HorseData[];
+
+ public percent:number=100;
+ public hours:number=24;
+
+ public seconds:number;
+ public taskSeconds:number;
+
+ public hour:number=23;
+ public minute:number=60;;
+
+ public percentStr:string;
+
   
 constructor(private router: ActivatedRoute, 
 	private http: HttpClient,
@@ -74,33 +106,191 @@ constructor(private router: ActivatedRoute,
 	public breedService: BreedService,
 	public userDataService: UserDataService,
 	public horseDataService: HorseDataService) {
-	this.id = this.router.snapshot.params.id;
-     // this.id='rkxQAx7i3FGRY3wOY3pQ'
-    }
+	//this.id=sessionStorage.getItem('horseid');
+		this.id = this.router.snapshot.params.id;
+	     // this.id='rkxQAx7i3FGRY3wOY3pQ'
+	  //   this.imageFile   = '../../assets/images/horses/akhal_teke/alz-b.png';
+	   //  this.imagePath = '../../assets/images/horses/akhal_teke/alz-b.png';
+	}
 
 ngOnInit(): void {
+	//this.id=sessionStorage.getItem('horseid');
     	this.horseDataService.getHorseById(this.id).subscribe(res => {
     		this.horse = res;
 	  });
-	  
+
+	//  this.pageButtons[0].enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
+//	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
+	//  this.pageButtons[0].enabled=true;
+
+	  this.ownerName=sessionStorage.getItem('userid');
+	  //console.log(sessionStorage.getItem("horseids"));
+	
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
   	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
 	this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
 
   	this.groomButton='assets/images/horse-page-icons/groom-button-disabled.png';
   	this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
-  	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
+	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
+	  
+	this.forestButton='assets/images/horse-page-icons/forest-button-enabled.png';
+	this.mountainButton='assets/images/horse-page-icons/mountain-button-enabled.png';
 
-	this.imageFile='assets/images/horses/mustang/alz-b.png';
+	this.emptyButton='assets/images/horse-page-icons/empty-button.png';
 
-	this.swap=true;
-	this.changeButtons();
+	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
 
+	this.imagePath = 'assets/images/horses/';
+
+	this.hour=24;
+	this.minute=0;
+	// 24 / 3 = 8  -- answer, use below
+	//100 / 8 = 12.5
+	
+	//this.swap=false;
+//	this.changeButtons();
 	this.getBreeds();
 	this.getColors();   
+
 	this.getUserData(); 
 	this.getHorseData();
+//let index=0;
+
+//	for (index<this.userData[0].myHorses.length;index++){
+		//console.log(this.userData[0].myHorses[index]);
+	//}
+	//this.horseDataService.getHorseById(this.id).subscribe(res => {
+		//this.horse = res;
+	//}
+
+	setTimeout(() => 
+	{
+		this.LoadHorseImage();
+	}, 750);
+
+//sessionStorage.setItem("horseid",this.id);
+//console.log(this.id);
 } // end of ngOnInit() function
+
+getBreeds(): Breed[]{
+	this.breedService.getBreeds().subscribe(
+	  result => {
+	   	    this.allBreeds = result as Array<Breed>;
+	  }
+	)
+	return this.allBreeds;
+} // end of getBreeds() function
+    
+    getColors(): Color[] {
+	this.colorService.getColors().subscribe(
+	  result =>{
+	    this.allColors = result as Array<Color>;
+	  }
+	)
+	return this.colors;
+} // end of getColors() function
+
+LoadHorseImage(){
+	this.imagePath = 'assets/images/horses/';
+
+	if (this.allBreeds!=null) {
+		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf(this.horse.breed);
+	}
+	if (this.allColors!=null){
+		this.colorIndex = this.allColors.map((o) => o.color).indexOf(this.horse.color);
+	}
+
+	if (this.breedIndex>-1 && this.colorIndex>-1) {
+		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+		console.log(this.imagePath);
+	} else {
+		this.imagePath=this.imageFile;
+	}
+} // end of LoadHorseImage() function
+
+public FeedButton(){
+	
+
+	//8,274 seconds = 8,274 seconds ÷ 3,600
+	//8,274 seconds = 2.29833 hours
+	//minutes = .29833 hours × 60 minutes
+	//minutes = 17.9 minutes
+	//seconds = .9 minutes × 60 seconds
+	//seconds = 54 seconds
+	// time = 2:17:54
+
+// var myNum = 10 / 4;       // 2.5
+ //var fraction = myNum % 1; // 0.5
+ //myNum = -20 / 7;          // -2.857142857142857
+ //fraction = myNum % 1;     // -0.857142857142857
+
+	// convert time to seconds then back again to display in circlur progress  bar
+	this.seconds= (this.hour * 3600) + (this.minute * 60) ;
+	this.taskSeconds= (0 * 3600)+(30 * 60);
+	if (this.horse.energy==0) {
+		alert("no energy left");
+		return;
+	}
+	if (this.horse.energy>0) this.horse.energy-=5;
+
+	let totalseconds=(this.seconds-this.taskSeconds);
+
+	this.hour=totalseconds/3600;
+	
+	//this.minute= this.hour-(this.minute/60) % 1;
+	this.minute=(this.hour % 1);// * 60;
+	
+	//let minuteStr=this.minute.toString();
+	this.minute=parseFloat(this.minute.toFixed(2));
+	//this.percentStr=this.percent.toString();
+	this.percent=parseFloat(this.percent.toFixed(0));
+	//let secondStr=this.seconds.toString();
+	this.seconds=parseFloat(this.seconds.toFixed(0));
+		
+	//if (this.minute==0.25) this.minute=15;
+	//if (this.minute==0.5) this.minute=30;
+	//if (this.minute==0.75) this.minute=45;
+	this.hour=this.hour-this.minute;
+	//this.hour=parseFloat(this.hour.toFixed(3));
+	this.hour=parseFloat(this.hour.toFixed(0));
+
+	this.percent=(this.seconds-this.taskSeconds)/1000;
+
+	
+
+	
+
+	let totalStr=totalseconds.toString();
+	totalseconds=parseFloat(totalStr);
+	totalseconds.toFixed(1);
+
+	//let hourStr=this.hour.toString();
+	
+	
+
+	
+
+	//if (totalseconds<0) totalseconds=0;
+	//if (this.seconds<0) this.seconds=0;
+	if (this.percent<0) this.percent=0;
+	if (this.hour<0 ) this.hour=0;
+	if (this.minute<0) this.minute=0;
+	//.toFixed(0);
+	//this.percent= parseFloat(this.percent.toString()).toFixed(0);
+
+//	console.log('seconds in 24hrs '+this.seconds);
+//	console.log('seconds in 30min '+this.taskSeconds);
+
+	/*this.minute-=15;
+	if(this.minute<0){
+		this.minute=60;
+		this.hour-=1;
+	}
+	this.hours=this.hours/0.25;
+	this.percent=(24/this.hours)/8;
+	this.percent= parseFloat(this.percent.toString()).toFixed(2);*/
+}
 
 public changeButtons(){
 	this.swap=!this.swap;
@@ -121,28 +311,7 @@ toggle() {
 	}
 } // end of toggle() function
 
-getBreeds(): Breed[]{
-    this.breedService.getBreeds().subscribe(
-      result => {
-       // console.log(result);
-        this.allBreeds = result as Array<Breed>;
-     
-        // console.log(this.allSkills);
-      }
-    )
-    return this.allBreeds;
-} // end of getBreeds() function
 
-getColors(): Color[] {
-    this.colorService.getColors().subscribe(
-      result =>{
-        //console.log(result);
-        this.allColors = result as Array<Color>;
-        //console.log(this.allColors[0].color)
-      }
-    )
-    return this.colors;
-} // end of getColors() function
 
 getUserData(): UserData[] {
     this.userDataService.getUserData().subscribe(

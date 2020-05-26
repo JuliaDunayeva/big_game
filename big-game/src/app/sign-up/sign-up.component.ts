@@ -10,12 +10,14 @@ import { Breed } from '../breed';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 import { Command } from 'protractor';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
 })
+
 export class SignUpComponent implements OnInit {
   colors: Color[] = [];
   allColors: Color[];
@@ -29,17 +31,16 @@ export class SignUpComponent implements OnInit {
   public warning: string = ' Email already exists'
   public horseid: any;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private http: HttpClient,
-    public colorService: ColorService,
-    public breedService: BreedService,
-    public userService: UserDataService,
-    public horseService: HorseDataService
-  ) {
-
-  }
+	constructor(
+		private fb: FormBuilder,
+		private router: Router,
+		private http: HttpClient,
+		public colorService: ColorService,
+		public breedService: BreedService,
+		public userService: UserDataService,
+		public horseService: HorseDataService,
+		public authService: AuthService
+	) {}
 
   signupForm = this.fb.group({
     username: [null, [Validators.required, Validators.minLength(8)]],
@@ -127,15 +128,6 @@ export class SignUpComponent implements OnInit {
           });
 
       });
-
-    //console.log(this.userService.horse1_id);
-    //this.router.navigate([ 'horse-page/' + this.userService.horse1_id]);
-
-    //.then((res) => {
-
-    /*})
-		.catch((error) => {
-			console.log(error);
-		});*/
   }
+
 }

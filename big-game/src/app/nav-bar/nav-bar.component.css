@@ -36,7 +36,7 @@ ul {
     color: white !important;
     background: rgb(73, 131, 186);
     border: none;
-    width: 105px;
+    width: 115px;
     height: 45px;
 }
 
@@ -219,6 +219,14 @@ h6 {
 
 .flag-bg:hover {
     background-color: turquoise;
+}
+
+.equus {
+    height: 65%; 
+    margin-left: -30px;
+    margin-right: -20px;
+    margin-top: -2px;
+  
 }
 
 

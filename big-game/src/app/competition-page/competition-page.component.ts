@@ -16,6 +16,8 @@ export class CompetitionPageComponent implements OnInit {
   allHorseData: HorseData[];
   public horse: HorseData;
   public id: string;
+  public readonly = true;
+  public rate:number;
 
   ctrl = new FormControl(null, Validators.required);
 
@@ -25,9 +27,12 @@ export class CompetitionPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => 
+	{
     this.horseDataService.getHorseById(this.id).subscribe(res => {
       this.horse = res;
   });
+}, 750);
 }
 
   getHorseData(): HorseData[] {
@@ -38,4 +43,12 @@ export class CompetitionPageComponent implements OnInit {
         );
 	return this.allHorseData;
   }
+
+  toggle() {
+    if (this.ctrl.disabled) {
+      this.ctrl.enable();
+    } else {
+      this.ctrl.disable();
+    }
+  } 
 }
