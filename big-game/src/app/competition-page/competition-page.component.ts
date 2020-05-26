@@ -17,6 +17,7 @@ export class CompetitionPageComponent implements OnInit {
   public horse: HorseData;
   public id: string;
   public readonly = true;
+  public rate:number;
 
   ctrl = new FormControl(null, Validators.required);
 
