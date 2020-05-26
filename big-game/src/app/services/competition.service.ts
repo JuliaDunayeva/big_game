@@ -14,6 +14,7 @@ export class CompetitionService {
   energy: number;
   kitty: number;
   ranks: number;
+  breed: string;
   over: boolean;
 
   constructor(public db: AngularFirestore) { }
@@ -29,6 +30,7 @@ export class CompetitionService {
       let energy = this.getRandStats();
       let kitty = this.getRandValue();
       let ranks = this.getRandRank();
+      this.breed=this.breed;
       let over = false;
       
       return from(
@@ -38,6 +40,7 @@ export class CompetitionService {
         energy: energy,
         kitty: kitty,
         ranks: ranks,
+        breed: this.breed,
         over: over,
       })
       );
