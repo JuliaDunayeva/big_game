@@ -31,16 +31,16 @@ export class SignUpComponent implements OnInit {
   public warning: string = ' Email already exists'
   public horseid: any;
 
-	constructor(
-		private fb: FormBuilder,
-		private router: Router,
-		private http: HttpClient,
-		public colorService: ColorService,
-		public breedService: BreedService,
-		public userService: UserDataService,
-		public horseService: HorseDataService,
-		public authService: AuthService
-	) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private http: HttpClient,
+    public colorService: ColorService,
+    public breedService: BreedService,
+    public userService: UserDataService,
+    public horseService: HorseDataService,
+    public authService: AuthService
+  ) { }
 
   signupForm = this.fb.group({
     username: [null, [Validators.required, Validators.minLength(8)]],
@@ -114,12 +114,12 @@ export class SignUpComponent implements OnInit {
           .signUpUser(this.signupForm)
           .subscribe((a) => {
             console.log(a);
-           
-              if (a.length == 0) {
-                this.userService.createUser(this.signupForm.value);
-                this.validEmail = true;
-                this.router.navigate(['horse-page/' + e.id]);
-               
+
+            if (a.length == 0) {
+              this.userService.createUser(this.signupForm.value);
+              this.validEmail = true;
+              this.router.navigate(['horse-page/' + e.id]);
+
             } else {
               this.validEmail = false;
             }
