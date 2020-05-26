@@ -25,6 +25,9 @@ img
 }
 
 .background {
-  margin-left: 800px;
-  grid-column-start: 10;
+width:125%;
+margin-top: -20px;
+}
+.second-row  {
+  margin-top: -100px;
 }
