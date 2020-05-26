@@ -16,6 +16,7 @@ import { AuthService } from '../services/auth.service';
 	templateUrl: './sign-up.component.html',
 	styleUrls: [ './sign-up.component.css' ]
 })
+
 export class SignUpComponent implements OnInit {
 	colors: Color[] = [];
 	allColors: Color[];
