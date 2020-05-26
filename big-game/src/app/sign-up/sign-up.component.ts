@@ -105,7 +105,6 @@ export class SignUpComponent implements OnInit {
 					} else {
 						this.validEmail = false;
 					}
-
 					return a;
 				});
 			});
