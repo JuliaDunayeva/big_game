@@ -93,6 +93,7 @@ export class HorsePageComponent implements OnInit {
  public hours:number=24;
 
  public seconds:number;
+ public taskSeconds:number;
 
  public hour:number=23;
  public minute:number=60;;
@@ -210,9 +211,26 @@ LoadHorseImage(){
 public FeedButton(){
 	this.hour=24;
 	this.minute=0;
+
+	//8,274 seconds = 8,274 seconds ÷ 3,600
+	//8,274 seconds = 2.29833 hours
+	//minutes = .29833 hours × 60 minutes
+	//minutes = 17.9 minutes
+	//seconds = .9 minutes × 60 seconds
+	//seconds = 54 seconds
+	// time = 2:17:54
+
+// var myNum = 10 / 4;       // 2.5
+ //var fraction = myNum % 1; // 0.5
+ //myNum = -20 / 7;          // -2.857142857142857
+ //fraction = myNum % 1;     // -0.857142857142857
+
 	// convert time to seconds then back again to display in circlur progress  bar
 	this.seconds= (this.hour * 3600) + (this.minute * 60) ;
-	console.log(this.seconds);
+	this.taskSeconds= (0 * 3600)+(30 * 60);
+	console.log('seconds in 24hrs '+this.seconds);
+	console.log('seconds in 30min '+this.taskSeconds);
+
 	/*this.minute-=15;
 	if(this.minute<0){
 		this.minute=60;
