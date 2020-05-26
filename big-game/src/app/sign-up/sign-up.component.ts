@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
   imagePath: string = '../../assets/images/horses/akhal_teke/alz-b.png';
   breedIndex: number = 0;
   colorIndex: number = 0;
-  public validEmail: boolean ;
+  public validEmail: boolean = true;
   public warning: string = ' Email already exists'
   public horseid: any;
 
@@ -38,7 +38,7 @@ export class SignUpComponent implements OnInit {
     public userService: UserDataService,
     public horseService: HorseDataService
   ) {
-	  
+
   }
 
   signupForm = this.fb.group({
@@ -113,28 +113,19 @@ export class SignUpComponent implements OnInit {
           .signUpUser(this.signupForm)
           .subscribe((a) => {
             console.log(a);
-           if(this.validEmail = true){
-			if (a.length == 0) {
-				this.userService.createUser(this.signupForm.value, e.id);
-				this.horseid = this.userService.horse1_id;
-				// //console.log(e.p);
-				this.router.navigate(['horse-page/' + e.id]);
-			  }
-		   } else{
-			   return null
-		   }
            
-            // TODO if the legth of array is 0
-            // 	this.userService
-            // .createUser(this.signupForm.value,e.id);
-            // this.horseid=this.userService.horse1_id;
-            // //console.log(e.p);
-            // this.router.navigate([ 'horse-page/'+e.id ]);
-            //TODO else alert a user that account with the same email already exists
-			// warning = 'this email already exists'
-			return a;
-		  });
-		  
+              if (a.length == 0) {
+                this.userService.createUser(this.signupForm.value, e.id);
+                this.validEmail = true;
+                this.router.navigate(['horse-page/' + e.id]);
+               
+            } else {
+              this.validEmail = false;
+            }
+
+            return a;
+          });
+
       });
 
     //console.log(this.userService.horse1_id);

@@ -72,7 +72,7 @@
                 <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
                     class="text-danger">Please enter a valid email!
                 </span>
-                <span *ngIf="!validEmail.valid" class="text-danger">
+                <span *ngIf="!validEmail" class="text-danger">
                     {{warning}}
                 </span>
             </div>
