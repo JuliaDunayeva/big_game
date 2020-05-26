@@ -90,6 +90,22 @@ export class SignUpComponent implements OnInit {
 	}
 
 	onSubmit() {
+
+		this.userService	
+			.createUser(this.signupForm.value)	
+			.then((res) => {			
+				this.horseService						
+					//.createRandomHorse(this.signupForm.value, this.skillSelected, "")//res.id)
+					.createRandomHorse(this.signupForm.value, this.skillSelected, res.id)	
+						.subscribe((e) => {
+						this.router.navigate([ 'horse-page/' + e.id ]);							
+						this.userService
+						
+					});
+					//.createUser(this.signupForm.value,e.id);
+			})	
+
+		/*
 		this.horseService
 			.createRandomHorse(this.signupForm.value, this.skillSelected, '') //res.id)
 			.subscribe((e) => {
