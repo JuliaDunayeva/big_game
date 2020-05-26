@@ -15,7 +15,7 @@
                 </div>
                 <a class=""> My Horses &nbsp;</a>
                 <i class="angle double right icon "> </i>
-                <a class=""> Gaia &nbsp;</a>
+                <a class=""> {{ horse?.name }} &nbsp;</a>
                 <i class="angle double right icon "> </i>
                 <a class=""> Register for a trot competition</a>
             </div>
@@ -34,7 +34,7 @@
             <div class="col-sm-5 pad-left color-tx-maroon ">
                 <div class="mycard-light-green ">
                     <div class="h6 sm-card no-bottom-margin">
-                        <H5 class="pad-left card-title">Gaia</H5>
+                        <H5 class="pad-left card-title">{{ horse?.name }}</H5>
                     </div>
                     <div>
                         
@@ -115,6 +115,6 @@
             </div>
         </div>
     </div> <!-- folder end-->
+    <br><br>
+    <app-footer></app-footer>
 </div>    
-<br><br>
-<app-footer></app-footer>

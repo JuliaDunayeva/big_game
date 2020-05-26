@@ -12,14 +12,12 @@
                 <i class="chess knight icon"></i> Horses
               </button></a>
             <div class="dropdown-divider"></div>
-            <a routerLink="/competitions"><button ngbDropdownItem>
-              <i class="money bill alternate icon"></i> Competitions
-             </button></a>
+            <button ngbDropdownItem class="disabled">Competition Results</button>
           </div>
         </li>
         <li ngbDropdown class="nav-item">
           <a href (click)="(false)" class="nav-link" ngbDropdownToggle><i class="building outline icon"></i> Equestrian
-            center</a>
+            Center</a>
           <div ngbDropdownMenu>
             <button ngbDropdownItem class="disabled">Mangement</button>
             <div class="dropdown-divider"></div>
@@ -30,7 +28,7 @@
             <button ngbDropdownItem class="disabled">Workshops</button>
             <div class="dropdown-divider"></div>
             <a routerLink="/competition-page"><button ngbDropdownItem>
-                <i class="trophy icon"></i> Competition
+                <i class="trophy icon"></i> Competitions
               </button></a>
             <div class="dropdown-divider"></div>
             <button ngbDropdownItem class="disabled">Employees</button>
@@ -39,16 +37,16 @@
         <li ngbDropdown class="nav-item">
           <a href (click)="(false)" class="nav-link" ngbDropdownToggle><i class="handshake outline icon"></i> Trade</a>
           <div ngbDropdownMenu>
-            <button ngbDropdownItem class="disabled">Horse sales</button>
+            <button ngbDropdownItem class="disabled">Horse Sales</button>
             <div class="dropdown-divider"></div>
             <a routerLink="/store-page"><button ngbDropdownItem>
                 <i class="shopping bag icon"></i> Store
               </button></a>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">Item exchange</button>
+            <button ngbDropdownItem class="disabled">Item Exchange</button>
             <div class="dropdown-divider"></div>
             <a routerLink="/bmarket-page"><button ngbDropdownItem>
-                <i class="user secret icon"></i> Black market
+                <i class="user secret icon"></i> Black Market
               </button></a>
             <div class="dropdown-divider"></div>
             <button ngbDropdownItem class="disabled">Piggy Bank</button>
@@ -67,16 +65,18 @@
             <div class="dropdown-divider"></div>
             <button ngbDropdownItem class="disabled">Events</button>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">Game play</button>
+            <button ngbDropdownItem class="disabled">Game Play</button>
             <div class="dropdown-divider"></div>
             <button ngbDropdownItem class="disabled">
               Equsetrian Center Classifieds
             </button>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">Invite players</button>
+            <button ngbDropdownItem class="disabled">Invite Players</button>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">Creation space</button>
-            <div class="dropdown-divider"></div>
+            <a routerLink="/competitions"><button ngbDropdownItem>
+              <i class="money bill alternate icon"></i> Creation Space
+             </button></a>
+            
           </div>
         </li>
         <li ngbDropdown class="nav-item">
@@ -85,19 +85,19 @@
           <div ngbDropdownMenu>
             <button ngbDropdownItem class="disabled">Objectives</button>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">General ranking</button>
+            <button ngbDropdownItem class="disabled">General Ranking</button>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">Best breeders</button>
+            <button ngbDropdownItem class="disabled">Best Breeders</button>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">Best horses</button>
+            <button ngbDropdownItem class="disabled">Best Horses</button>
             <div class="dropdown-divider"></div>
             <button ngbDropdownItem class="disabled">
-              Best Equestrian centers
+              Best Equestrian Centers
             </button>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">Best teams</button>
+            <button ngbDropdownItem class="disabled">Best Teams</button>
             <div class="dropdown-divider"></div>
-            <button ngbDropdownItem class="disabled">Creation ranking</button>
+            <button ngbDropdownItem class="disabled">Creation Ranking</button>
             <div class="dropdown-divider"></div>
             <button ngbDropdownItem class="disabled">Trophies</button>
             <div class="dropdown-divider"></div>
