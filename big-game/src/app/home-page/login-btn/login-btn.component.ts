@@ -33,7 +33,7 @@ export class LoginBtnComponent implements OnInit {
      let result=res[0].payload.doc.get("horse1_id");
      sessionStorage.setItem('horseid',result);
      sessionStorage.setItem('userid',res[0].payload.doc.get("userName"));
-     sessionStorage.setItem('horseids',this.horseids[0]);
+    // sessionStorage.setItem('horseids',this.horseids[0]);
      //sessionStorage.setItem('horseids',this.horseids[0]);
      //console.log(result);
      this.router.navigate(['horse-page/'+result])

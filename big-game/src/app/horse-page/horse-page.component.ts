@@ -13,6 +13,7 @@ import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
+import { HorsePageButtons } from '../horse-page-buttons';
 
 @Component({
   selector: 'app-horse-page',
@@ -21,16 +22,21 @@ import { HorseDataService} from '../services/horse-data.service';
 })
 
 export class HorsePageComponent implements OnInit {
-  colors: Color[] = [];
-  allColors: Color[];
-  allBreeds:Breed[];
-  allSkills: string[];
-  skill: string;
-  allHorseData: HorseData[];
-  userData: UserData[];
 
-  breedIndex:number=-1;
-  colorIndex:number=-1;
+	//constFeed=0;
+		
+	//pageButtons:HorsePageButtons[]=new HorsePageButtons[];
+
+	colors: Color[] = [];
+	allColors: Color[];
+	allBreeds:Breed[];
+	allSkills: string[];
+	skill: string;
+	allHorseData: HorseData[];
+	userData: UserData[];
+
+	breedIndex:number=-1;
+	colorIndex:number=-1;
     
   public isRidesCollapsed = false;
   public isCareCollapsed = false;
@@ -83,6 +89,10 @@ export class HorsePageComponent implements OnInit {
 
  public myHorses:HorseData[];
 
+ public percent:number=100;
+ public hours:number=24;
+ public percentStr:string;
+
   
 constructor(private router: ActivatedRoute, 
 	private http: HttpClient,
@@ -103,8 +113,13 @@ ngOnInit(): void {
     		this.horse = res;
 	  });
 
+	//  this.pageButtons[0].enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
+//	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
+	//  this.pageButtons[0].enabled=true;
+
 	  this.ownerName=sessionStorage.getItem('userid');
 	  //console.log(sessionStorage.getItem("horseids"));
+	
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
   	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
 	this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
@@ -122,6 +137,9 @@ ngOnInit(): void {
 
 	this.imagePath = 'assets/images/horses/';
 
+	// 24 / 3 = 8  -- answer, use below
+	//100 / 8 = 12.5
+	
 	//this.swap=false;
 //	this.changeButtons();
 	this.getBreeds();
@@ -129,7 +147,7 @@ ngOnInit(): void {
 
 	this.getUserData(); 
 	this.getHorseData();
-let index=0;
+//let index=0;
 
 //	for (index<this.userData[0].myHorses.length;index++){
 		//console.log(this.userData[0].myHorses[index]);
@@ -141,7 +159,8 @@ let index=0;
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
-	}, 750);
+	}, 1250);
+
 //sessionStorage.setItem("horseid",this.id);
 //console.log(this.id);
 } // end of ngOnInit() function
@@ -181,6 +200,12 @@ LoadHorseImage(){
 		this.imagePath=this.imageFile;
 	}
 } // end of LoadHorseImage() function
+
+public FeedButton(){
+	this.hours=this.hours*0.25;
+	this.percent=(24/this.hours)/8;
+	this.percent= parseFloat(this.percent.toString()).toFixed(2);
+}
 
 public changeButtons(){
 	this.swap=!this.swap;

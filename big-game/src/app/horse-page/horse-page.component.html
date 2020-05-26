@@ -19,7 +19,7 @@
                             <div class="row">
                                 <!-- row 1 -->
                                 <div class="col-3  btn-padding">
-                                    <button (click)="changeButtons()" class="btn max-btn-width"><img class="img-btn-width" src="{{ feedButton }}"></button>
+                                    <button (click)="FeedButton()" class="btn max-btn-width"><img class="img-btn-width" src="{{ feedButton }}"></button>
                                 </div>
                                 <div class="col-3 btn-padding">
                                     <button class="btn max-btn-width disabled"><img class="img-btn-width" src="{{ drinkButton }}"></button>
@@ -118,8 +118,14 @@
             <div>
                 <div class="card card-light-green">
                     <div class="row ">
-                        <circle-progress class="time-left-padding time-top-padding " [clockwise]="false " [percent]="85 " [radius]="35 " [outerStrokeWidth]="10 " [innerStrokeWidth]="4 " [outerStrokeColor]=" '#78C000' " [innerStrokeColor]=" '#C7E596'
-                    " [animation]="false " [animationDuration]="300 " [showBackground]="true "></circle-progress>
+                        <div class="positionRelative">
+
+                            <circle-progress class="time-left-padding time-top-padding " [clockwise]="true " [percent]="(percent) " [radius]="35 " [outerStrokeWidth]="10 " [innerStrokeWidth]="4 " [outerStrokeColor]=" '#78C000' " [innerStrokeColor]=" '#C7E596'
+                    " [animation]="false " [animationDuration]="300 " [showBackground]="true " [showTitle]="false" [showSubtitle]="false" [showUnits]="false"></circle-progress>
+                            <div class="percentageValue">
+                                {{ hours }} hrs / {{ percent }}%
+                            </div>
+                        </div>
                         <div class="card-body ">
                             <div class="col-10 form-group center-text  card-middle-title ">
                                 Energy
