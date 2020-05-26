@@ -1,0 +1,27 @@
+.footer-bkgrd {
+    display: flex;
+    justify-content: center;
+    border-style: none;
+    margin: 5px 25px 5px 25px;
+    border-radius: 5px;
+}
+
+.list .footer-font {
+    color: white;
+}
+
+div a {
+    padding: 0;
+}
+
+ul a {      /* Space between link icons */
+    margin: 0 25px 0 0;
+}
+
+.icon-size {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    color: white;
+    background-color: transparent;
+}

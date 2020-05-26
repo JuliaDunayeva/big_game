@@ -1,0 +1,115 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+//import { SignUpComponent } from '../sign-up/sign-up.component'
+//import { HorseCollection } from './horse-collection';
+import { HttpClient } from '@angular/common/http';
+import { getLocaleDateFormat } from '@angular/common';
+import { Color } from '../color';
+import { ColorService } from '../services/color.service';
+import { BreedService } from '../services/breed.service';
+import { Breed } from '../breed';
+import { UserData } from '../user-data';
+import { UserDataService } from '../services/user-data.service';
+
+@Component({
+  selector: 'app-horse-page',
+  templateUrl: './horse-page.component.html',
+  styleUrls: ['./horse-page.component.css']
+})
+
+export class HorsePageComponent implements OnInit {
+
+  colors: Color[] = [];
+  allColors: Color[];
+  allBreeds: Breed[];
+  allSkills: string[];
+  skill: string;
+  userData: UserData[];
+  //UserDataService: any;
+  
+  constructor(private router: Router, 
+    private http: HttpClient,
+    public colorService: ColorService, 
+    public breedService: BreedService,
+    public userDataService: UserDataService) { }
+
+  ngOnInit(): void {
+    //SignUpComponent.getColors();
+    this.getBreeds();
+    this.getColors();   
+    this.getUserData(); 
+    //SignUpComponent.getBreeds();
+  }
+  public isLCollapsed = false;
+  public isRCollapsed = false;
+  public isLCollapsed1 = false;
+  public isRCollapsed1 = false;
+  public isLCollapsed2 = false;
+  public isRCollapsed2 = false;
+  public isLCollapsed3 = false;
+  public isRCollapsed3 = false;
+  public isLCollapsed4 = false;
+  public isRCollapsed4 = false;
+  public isMCollapsed =false;
+  public rate=10;
+  active = 1;
+  ctrl = new FormControl(null, Validators.required);
+  public preventchange_1:true;
+  public readonly = true;
+  public value = 0;
+  //this.ctrl.disable();
+
+  toggle() {
+    if (this.ctrl.disabled) {
+      this.ctrl.enable();
+    } else {
+      this.ctrl.disable();
+    }
+  }
+
+  getBreeds(): Breed[]{
+    this.breedService.getBreeds().subscribe(
+      result => {
+        console.log(result);
+        this.allBreeds = result as Array<Breed>;
+        // for (let i = 0 ; i < this.allBreeds.length ; i++) {
+        //   this.allSkills.push(this.allBreeds[i].skill)
+        // }
+        console.log(this.allBreeds[0].skill);
+        // console.log(this.allSkills);
+      }
+    )
+    return this.allBreeds;
+  }
+
+  getColors(): Color[] {
+    this.colorService.getColors().subscribe(
+      result =>{
+        console.log(result);
+        this.allColors = result as Array<Color>;
+        console.log(this.allColors[0].color)
+      }
+    )
+    return this.colors;
+  }
+
+  getUserData(): UserData[] {
+    this.userDataService.getUserData().subscribe(
+      result =>{
+        console.log(result);
+        this.userData = result as Array<UserData>;
+        console.log(this.userData[0].password);
+      }
+    )
+    return this.userData;
+  }
+ 
+ public beforeChange($event: NgbPanelChangeEvent) {
+    if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
+      $event.preventDefault();
+    }
+  }
+}
