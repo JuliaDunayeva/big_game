@@ -144,6 +144,8 @@ ngOnInit(): void {
 
 	this.imagePath = 'assets/images/horses/';
 
+	this.hour=24;
+	this.minute=0;
 	// 24 / 3 = 8  -- answer, use below
 	//100 / 8 = 12.5
 	
@@ -166,7 +168,7 @@ ngOnInit(): void {
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
-	}, 1250);
+	}, 750);
 
 //sessionStorage.setItem("horseid",this.id);
 //console.log(this.id);
@@ -209,8 +211,7 @@ LoadHorseImage(){
 } // end of LoadHorseImage() function
 
 public FeedButton(){
-	this.hour=24;
-	this.minute=0;
+	
 
 	//8,274 seconds = 8,274 seconds ÷ 3,600
 	//8,274 seconds = 2.29833 hours
@@ -228,8 +229,59 @@ public FeedButton(){
 	// convert time to seconds then back again to display in circlur progress  bar
 	this.seconds= (this.hour * 3600) + (this.minute * 60) ;
 	this.taskSeconds= (0 * 3600)+(30 * 60);
-	console.log('seconds in 24hrs '+this.seconds);
-	console.log('seconds in 30min '+this.taskSeconds);
+	if (this.horse.energy==0) {
+		alert("no energy left");
+		return;
+	}
+	if (this.horse.energy>0) this.horse.energy-=5;
+
+	let totalseconds=(this.seconds-this.taskSeconds);
+
+	this.hour=totalseconds/3600;
+	
+	//this.minute= this.hour-(this.minute/60) % 1;
+	this.minute=(this.hour % 1);// * 60;
+	
+	//let minuteStr=this.minute.toString();
+	this.minute=parseFloat(this.minute.toFixed(2));
+	//this.percentStr=this.percent.toString();
+	this.percent=parseFloat(this.percent.toFixed(0));
+	//let secondStr=this.seconds.toString();
+	this.seconds=parseFloat(this.seconds.toFixed(0));
+		
+	//if (this.minute==0.25) this.minute=15;
+	//if (this.minute==0.5) this.minute=30;
+	//if (this.minute==0.75) this.minute=45;
+	this.hour=this.hour-this.minute;
+	//this.hour=parseFloat(this.hour.toFixed(3));
+	this.hour=parseFloat(this.hour.toFixed(0));
+
+	this.percent=(this.seconds-this.taskSeconds)/1000;
+
+	
+
+	
+
+	let totalStr=totalseconds.toString();
+	totalseconds=parseFloat(totalStr);
+	totalseconds.toFixed(1);
+
+	//let hourStr=this.hour.toString();
+	
+	
+
+	
+
+	//if (totalseconds<0) totalseconds=0;
+	//if (this.seconds<0) this.seconds=0;
+	if (this.percent<0) this.percent=0;
+	if (this.hour<0 ) this.hour=0;
+	if (this.minute<0) this.minute=0;
+	//.toFixed(0);
+	//this.percent= parseFloat(this.percent.toString()).toFixed(0);
+
+//	console.log('seconds in 24hrs '+this.seconds);
+//	console.log('seconds in 30min '+this.taskSeconds);
 
 	/*this.minute-=15;
 	if(this.minute<0){
