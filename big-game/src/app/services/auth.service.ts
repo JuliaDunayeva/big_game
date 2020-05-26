@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class AuthService {
-
-  constructor() { }
+	constructor(public uid: string) {
+		sessionStorage.setItem('uid', uid);
+	}
 }
