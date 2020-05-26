@@ -69,9 +69,11 @@
             <div>
                 <label for="email">Email</label>
                 <input type="email" formControlName="email" class="form-control" />
-                <span *ngIf="
-                            !signupForm.get('email').valid && signupForm.get('email').touched"
+                <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
                     class="text-danger">Please enter a valid email!
+                </span>
+                <span *ngIf="!validEmail" class="text-danger">
+                    {{warning}}
                 </span>
             </div>
             <div>
@@ -96,6 +98,7 @@
                 != signupForm.get('password').value" class="text-danger">
                     The passwords entered do not match
                 </span>
+               
             </div>
             <div class="center">
                 <div>
