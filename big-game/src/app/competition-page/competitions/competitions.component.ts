@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Breed } from 'src/app/breed';
 import { BreedService } from 'src/app/services/breed.service';
 import { CompetitionService } from 'src/app/services/competition.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-competitions',
@@ -12,6 +13,7 @@ export class CompetitionsComponent implements OnInit {
 	allBreeds: Breed[];
 	breedSelected: string;
 	compTypes = ['Trotting','Barrel Racing', 'Reining', 'Cutting', 'Trail Class', 'Western Pleasure'];
+	success = 'New Competition Created';
 
 	constructor(private breedService: BreedService, private competitionService: CompetitionService) {}
 
@@ -32,5 +34,8 @@ export class CompetitionsComponent implements OnInit {
 		breed: string, 
 		compType: string) {
 		this.competitionService.createCompetition(compName, breed, compType);
+		return alert(this.success);
 	}
+
+	getCompetitions() {}
 }
