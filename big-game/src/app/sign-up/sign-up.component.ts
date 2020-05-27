@@ -90,15 +90,21 @@ export class SignUpComponent implements OnInit {
 		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 	}
 
-	onSubmit() {
-		this.horseService
-			.createRandomHorse(this.signupForm.value, this.skillSelected, '') //res.id)
-			.subscribe((e) => {
+	/*onSubmit() {
+		//let userid:string;
+
+		
 				let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
-					console.log(a);
+					console.log( a[0].payload.doc.id);
+					this.horseService
+			.createRandomHorse(this.signupForm.value, this.skillSelected, a[1].payload.doc.id) //res.id)
+			.subscribe((e) => {
 
 					if (a.length == 0) {
 						this.userService.createUser(this.signupForm.value);
+						//userid=user;
+						//console.log(user);
+						//this.horseService.SetUserIDForHorse(e.id,userid);
 						this.validEmail = true;
 						this.authService.setUId(e.id);
 						this.router.navigate([ 'horse-page/' + e.id ]);
@@ -107,6 +113,22 @@ export class SignUpComponent implements OnInit {
 					}
 					return a;
 				});
-			});
-	}
+			});//
+			
+	}*/
+	
+onSubmit() {
+	this.userService
+		.createUser(this.signupForm.value)
+		.then((res) => {
+			this.horseService
+				.createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
+				.subscribe((e) => {
+					this.router.navigate([ 'horse-page/' + e.id ]);
+				});
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+}
 }

@@ -43,6 +43,10 @@ export class HorseDataService {
 		return 'mare';
 	}
 
+	SetUserIDForHorse(horseid:string,userId:string){
+		this.db.collection("/horse_data").doc(horseid).set(userId);
+	}
+
 	createRandomHorse(value, skill, userId): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
 		let speed = this.getRandStats();
