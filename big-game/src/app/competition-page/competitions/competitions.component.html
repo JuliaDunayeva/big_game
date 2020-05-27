@@ -1,11 +1,9 @@
 <div class="container">
-    <div class="row">
-        <div>
-            <app-nav-bar></app-nav-bar>
-            <br><br>
-            <app-play-bar></app-play-bar>
-            <br>
-        </div>
+    <div>
+        <app-nav-bar></app-nav-bar>
+        <br><br>
+        <app-play-bar></app-play-bar>
+        <br>
     </div>
     <div class="folder">
         <div class="row "> <!-- Path Information & Picture -->
@@ -30,23 +28,42 @@
             </div>
         </div> <!-- Title End -->
         <div class="">
-            <form action="">
+            <form>
                 <div class="display pad-left">
-                    <label class="h6" for="comp_name">Competition Name</label>
-                    <input class="form-control"  type="text"  />
+                    <label class="h6" for="compName"  required>Competition Name</label>
+                    <input class="form-control"  type="text" #compName />
                 </div>
                 <div class="display pad-left">
                     <label class="h6" for="breed">Select a Breed</label>
-                    <input class="form-control move-left"  type="text" />
+                    <select class="h6 move-left1 sm-card" #breed>
+                        <option  *ngFor="let item of allBreeds" [ngValue]="item">{{item.breed}}</option>
+                    </select>               
+                </div>
+                <div class="display pad-left">
+                    <label class="h6 label" for="compType">Competition Type</label>
+                    <select class="h6 move-left2 sm-card" #compType>
+                        <option  *ngFor="let compType of compTypes" [ngValue]="compType">{{compType}}</option>
+                    </select>               
                 </div>
                 <div>
-                    <button class="btn-shops btn-shops-lrg pad-left">Create</button>
+                    <button class="btn-shops btn-shops-lrg pad-left" 
+                    (click)="createCompetition(compName.value, breed.value, compType.value)">Create</button>
                 </div>
             </form>
         </div>
-        
-        
+        <hr>
+        <div>
+            
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
     </div> <!-- folder end-->
+    <br><br>
+    <app-footer></app-footer>
 </div>    
-<br><br>
-<app-footer></app-footer>
+

@@ -15,9 +15,8 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css'],
+  styleUrls: ['./sign-up.component.css']
 })
-
 export class SignUpComponent implements OnInit {
   colors: Color[] = [];
   allColors: Color[];
@@ -28,36 +27,31 @@ export class SignUpComponent implements OnInit {
   breedIndex: number = 0;
   colorIndex: number = 0;
   public validEmail: boolean = true;
-  public warning: string = ' Email already exists'
+  public warning: string = ' Email already exists';
   public horseid: any;
 
-	constructor(
-		private fb: FormBuilder,
-		private router: Router,
-		private http: HttpClient,
-		public colorService: ColorService,
-		public breedService: BreedService,
-		public userService: UserDataService,
-		public horseService: HorseDataService,
-		public authService: AuthService
-	) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private http: HttpClient,
+    public colorService: ColorService,
+    public breedService: BreedService,
+    public userService: UserDataService,
+    public horseService: HorseDataService,
+    public authService: AuthService
+  ) { }
 
   signupForm = this.fb.group({
     username: [null, [Validators.required, Validators.minLength(8)]],
     email: ['', [Validators.required, Validators.email]],
     password: [
       null,
-      [
-        Validators.required,
-        Validators.pattern(
-          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}'
-        ),
-      ],
+      [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}')]
     ],
     checkbox: [null, [Validators.requiredTrue]],
     confirmpassword: [null, [Validators.required]],
     breed: 'Akhal-Teke',
-    color: 'Chestnut',
+    color: 'Chestnut'
   });
 
   ngOnInit() {
@@ -80,54 +74,40 @@ export class SignUpComponent implements OnInit {
       this.skillSelected = this.allBreeds[0].skill;
       console.log(this.allBreeds[0].skill);
     });
-    return;
+    return this.allBreeds;
   }
 
   getSkill(event: Event) {
-    this.breedIndex = this.allBreeds
-      .map((o) => o.breed)
-      .indexOf((<HTMLInputElement>event.target).id);
+    this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).id);
     this.skillSelected = this.allBreeds[this.breedIndex].skill;
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath +=
-      this.allBreeds[this.breedIndex].img_path +
-      '/' +
-      this.allColors[this.colorIndex].img_file;
+    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
   }
 
   getImage(event: Event) {
-    this.colorIndex = this.allColors
-      .map((o) => o.color)
-      .indexOf((<HTMLInputElement>event.target).id);
+    this.colorIndex = this.allColors.map((o) => o.color).indexOf((<HTMLInputElement>event.target).id);
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath +=
-      this.allBreeds[this.breedIndex].img_path +
-      '/' +
-      this.allColors[this.colorIndex].img_file;
+    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
   }
 
   onSubmit() {
-    this.horseService
-      .createRandomHorse(this.signupForm.value, this.skillSelected, '') //res.id)
-      .subscribe((e) => {
-        let user = this.userService
-          .signUpUser(this.signupForm)
-          .subscribe((a) => {
-            console.log(a);
-           
-              if (a.length == 0) {
-                this.userService.createUser(this.signupForm.value);
-                this.validEmail = true;
-                this.router.navigate(['horse-page/' + e.id]);
-               
-            } else {
-              this.validEmail = false;
-            }
+    let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
 
-            return a;
-          });
+      if (a.length == 0) {
+        this.userService.createUser(this.signupForm.value).then((res) => {
+          this.horseService
+            .createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
+            .subscribe((e) => {
+              this.validEmail = true;
+              this.authService.setUId(e.id);
+              this.router.navigate(['horse-page/' + e.id]);
+            });
+        })
 
-      });
+      } else {
+        this.validEmail = false;
+      }
+      return a;
+    });
   }
-
 }
