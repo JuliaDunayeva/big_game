@@ -5,6 +5,7 @@ import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
+import { HorseListComponent } from 'src/app/horse-list/horse-list.component';
 
 @Component({
   selector: 'app-my-horses',

@@ -7,7 +7,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HorsePageComponent } from './horse-page/horse-page.component';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
-import { HorseListComponent } from '../app/horse-list/horse-list.component';
+import { HorseListComponent } from './horse-list/horse-list.component';
 
 const routes: Routes = [
   {
