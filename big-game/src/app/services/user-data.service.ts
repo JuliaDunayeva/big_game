@@ -48,6 +48,12 @@ export class UserDataService {
 
   logInUser(form) {
     //sessionStorage.setItem('setting','nothing');
+    //this.db.collection('/horse_data') 
+    //let ref:any=
+
+    //let ref2:any=this.db.collection('/horse_data', ref3 =>  ref3.where('userId', '==', ref.id)).snapshotChanges();
+    //console.log(ref);
+  
     return this.db.collection('/user_data', ref => ref.where('email', '==', form.value.email)
     .where('password', '==', form.value.password)).snapshotChanges();
   }

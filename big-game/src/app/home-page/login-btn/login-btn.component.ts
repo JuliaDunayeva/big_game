@@ -11,7 +11,7 @@ import { UserData } from 'src/app/user-data';
   styleUrls: ['./login-btn.component.css']
 })
 export class LoginBtnComponent implements OnInit {
-  horseids:string[];
+  //horseids:string[];
   constructor(private router: Router,
     private form: FormBuilder,
     private userService: UserDataService) {}
@@ -30,10 +30,14 @@ export class LoginBtnComponent implements OnInit {
     //horse1_id="horse1_id";
     //this.horseids=["horse1","horse2"];  
     this.userService.logInUser(this.logInForm).subscribe(res => {
-     let result=res[0].payload.doc.get("horse1_id");
-     sessionStorage.setItem('userid',res[0].payload.doc.get("userName"));
-     if (!result)  result="L8oPf32haDv3lcAzepVA";
-     this.router.navigate(['horse-page/'+result])
+     //let result=res[0].payload.doc.get("horse1_id");
+     sessionStorage.setItem('OwnerName',res[0].payload.doc.get("userName"));
+     sessionStorage.setItem('UserID',res[0].payload.doc.id);
+     //console.log(res[0].payload.doc.id);
+     
+     //if (!result)  result="8fENDN3vsgVdahBx6SsY";
+     //this.router.navigate(['horse-page/'+sessionStorage.getItem("UId")]);
+     this.router.navigate(['my-horses']);
      
      //sessionStorage.setItem('horseid',result);
     

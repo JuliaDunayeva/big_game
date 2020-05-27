@@ -84,7 +84,7 @@ export class HorsePageComponent implements OnInit {
 
  public ownerName:string;
 
- public horseIDs:string[];
+ //public horseIDs:string[];
 
  public myHorses:HorseData[];
 
@@ -115,7 +115,7 @@ constructor(private router: ActivatedRoute,
 			sessionStorage.setItem("horseid",this.router.snapshot.params.id);
 			this.id = this.router.snapshot.params.id;
 		} else {
-			this.id = sessionStorage.getItem("horseid");
+			this.id = sessionStorage.getItem("UId");
 			//this.router.snapshot.params.id;
 		}
 	     // this.id='rkxQAx7i3FGRY3wOY3pQ'
@@ -134,7 +134,7 @@ ngOnInit(): void {
 //	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
 	//  this.pageButtons[0].enabled=true;
 
-	  this.ownerName=sessionStorage.getItem('userid');
+	  
 	  //console.log(sessionStorage.getItem("horseids"));
 	
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
@@ -174,10 +174,11 @@ ngOnInit(): void {
 	//this.horseDataService.getHorseById(this.id).subscribe(res => {
 		//this.horse = res;
 	//}
-
+	
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
+		this.ownerName=sessionStorage.getItem('OwnerName');	
 	}, 750);
 
 //sessionStorage.setItem("horseid",this.id);
@@ -193,7 +194,19 @@ ms2Time(ms:number):string {
     minutes = Math.floor(minutes % 60);
 	hours = Math.floor(hours % 24);
 	console.log(hours + ":" + minutes + ":" + secs);
-    return hours + ":" + minutes + ":" + secs + "." + ms;
+    return hours + "hrs " + minutes+"min "+secs+" seconds";
+}
+
+returnMinutes(ms:number):string {
+    let secs = ms / 1000;
+    ms = Math.floor(ms % 1000);
+    let minutes = secs / 60;
+    secs = Math.floor(secs % 60);
+    let hours = minutes / 60;
+    minutes = Math.floor(minutes % 60);
+	hours = Math.floor(hours % 24);
+	console.log(hours + ":" + minutes + ":" + secs);
+    return minutes.toString();
 }
 
 RefreshEnergy(ms:number) {
@@ -247,8 +260,7 @@ LoadHorseImage(){
 } // end of LoadHorseImage() function
 
 public FeedButton(){
-	
-
+//TODO remove commented out code
 	//8,274 seconds = 8,274 seconds ÷ 3,600
 	//8,274 seconds = 2.29833 hours
 	//minutes = .29833 hours × 60 minutes
@@ -280,6 +292,7 @@ public FeedButton(){
 	
 	//let minuteStr=this.minute.toString();
 	this.minute=parseFloat(this.minute.toFixed(2));
+	//this.minute=parseFloat(this.returnMinutes(this.totalseconds));
 	//this.percentStr=this.percent.toString();
 	this.percent=parseFloat(this.percent.toFixed(0));
 	//let secondStr=this.seconds.toString();
@@ -294,20 +307,11 @@ public FeedButton(){
 
 	this.percent=(this.seconds-this.taskSeconds)/1000;
 
-	
-
-	
-
 	let totalStr=this.totalseconds.toString();
 	this.totalseconds=parseFloat(totalStr);
 	this.totalseconds.toFixed(1);
 
 	//let hourStr=this.hour.toString();
-	
-	
-
-	
-
 	//if (totalseconds<0) totalseconds=0;
 	//if (this.seconds<0) this.seconds=0;
 	if (this.percent<0) this.percent=0;
@@ -319,6 +323,7 @@ public FeedButton(){
 	//.toFixed(0);
 	//this.percent= parseFloat(this.percent.toString()).toFixed(0);
 
+	//console.log(this.ms2Time(this.totalseconds));
 //	console.log('seconds in 24hrs '+this.seconds);
 //	console.log('seconds in 30min '+this.taskSeconds);
 
@@ -330,8 +335,7 @@ public FeedButton(){
 	this.hours=this.hours/0.25;
 	this.percent=(24/this.hours)/8;
 	this.percent= parseFloat(this.percent.toString()).toFixed(2);*/
-
-}
+} // end of FeedButton() function
 
 public changeButtons(){
 	this.swap=!this.swap;

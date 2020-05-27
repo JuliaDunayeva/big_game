@@ -27,17 +27,26 @@ public userData: UserData[];
     private http: HttpClient,
     public userDataService: UserDataService,
     public horseDataService: HorseDataService) {
-      this.uid = this.router.snapshot.params.id
+      //this.uid = this.router.snapshot.params.id
+      this.uid=sessionStorage.getItem("UserID");
     }
 
     ngOnInit(): void {
+
+      setTimeout(() => 
+	{
+		
+
       //this.router.snapshot.params.id
-      this.horseDataService.getHorseById(this.id).subscribe(res => {
+     /* this.horseDataService.getHorseById(this.id).subscribe(res => {
         this.horse = res;
-      })
+        console.log(this.horse.id);
+        sessionStorage.setItem("horseid", this.horse.id)
+      })*/
      
-      this.getUserData(); 
-      this.getHorseData();
+      //this.getUserData(); 
+      //this.getHorseData();
+    }, 500);
     }
   
   addHorse(){
