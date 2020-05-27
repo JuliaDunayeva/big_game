@@ -45,7 +45,9 @@ public userData: UserData[];
       })*/
      
       //this.getUserData(); 
-      //this.getHorseData();
+      this.horseDataService.getHorseData();
+      
+      //console.log(this.horse.name);
     }, 500);
     }
   
@@ -64,16 +66,16 @@ public userData: UserData[];
     return this.userData;
   }
 
-  getHorseData(): HorseData[] {
+  getHorseData(): HorseData {
     this.horseDataService.getHorseById(this.uid).subscribe(
             result =>{
-              console.log(result);
-             // this.allHorseData = result as Array<HorseData>;
+              //console.log(result);
+              //this.allHorseData = result as Array<HorseData>;
               //console.log(this.allHorseData[0].stamina)
             }
         );
      // console.log(this.allHorseData);
-	return this.allHorseData;
+	return this.horse;
   }
 
   // onSubmit() {

@@ -112,7 +112,7 @@ constructor(private router: ActivatedRoute,
 		//this.id = this.router.snapshot.params.id;
 		
 		if (this.router.snapshot.params.id!="") {
-			sessionStorage.setItem("horseid",this.router.snapshot.params.id);
+			sessionStorage.setItem("UId",this.router.snapshot.params.id);
 			this.id = this.router.snapshot.params.id;
 		} else {
 			this.id = sessionStorage.getItem("UId");
