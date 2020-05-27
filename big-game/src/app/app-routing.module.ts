@@ -8,11 +8,16 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HorsePageComponent } from './horse-page/horse-page.component';
 import { MyHorsesComponent } from './my-horses/my-horses.component';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
+import { HorseListComponent } from './horse-list/horse-list.component';
 
 const routes: Routes = [
   {
     path:'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: 'horse-list',
+    component: HorseListComponent 
   },
   {
     path: 'horse-page/:id',
