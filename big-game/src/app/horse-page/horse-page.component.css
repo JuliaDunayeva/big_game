@@ -204,12 +204,16 @@ h5:first-child {
 }
 
 .ui.vertical.tabular.menu .active.item {
-    background: none#EAE99F;
+    background: none#e2e18b;
     color: #133300;
     border-right: 1px solid #B0AE48;
     border-bottom: 1px solid #B0AE48;
     border-top: none;
     border-left: none;
+}
+
+.selected-saddel {
+    background: none #EAE99F !important;
 }
 
 .img-size {
@@ -312,4 +316,13 @@ li {
     text-align: center;
     font-size: 13px;
     font-weight: 600;
+}
+
+.btn-postion {
+    margin-left: 60px;
+}
+
+.btn-postion2 {
+    margin-right: 30px;
+    padding: 10px;
 }
