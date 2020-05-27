@@ -1,7 +1,10 @@
 .h6 {
-    padding: 5px 0 5px 0;
+    padding: 4px 0 4px 0;
     color: maroon;
     text-align: center;
+}
+.label {
+    margin-top: -6px;
 }
 p {
     margin-bottom: 5px;
@@ -11,8 +14,15 @@ p {
     align-self: center;
 }
 
-.move-left {
+.move-left1 {
     margin-left: 39px;
+    width: 140px;
+}
+
+.move-left2 {
+    margin-left: 15px;
+    margin-top: -7px;
+    width: 140px;
 }
 
 .sm-card {

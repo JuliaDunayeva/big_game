@@ -11,6 +11,7 @@ import { CompetitionService } from 'src/app/services/competition.service';
 export class CompetitionsComponent implements OnInit {
 	allBreeds: Breed[];
 	breedSelected: string;
+	compTypes = ['Trotting','Barrel Racing', 'Reining', 'Cutting', 'Trail Class', 'Western Pleasure'];
 
 	constructor(private breedService: BreedService, private competitionService: CompetitionService) {}
 
@@ -26,7 +27,10 @@ export class CompetitionsComponent implements OnInit {
 		return this.allBreeds;
 	}
 
-	createCompetition(comp_name: string, breed: string) {
-		this.competitionService.createCompetition(comp_name, breed);
+	createCompetition(
+		compName: string,
+		breed: string, 
+		compType: string) {
+		this.competitionService.createCompetition(compName, breed, compType);
 	}
 }
