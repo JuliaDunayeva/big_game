@@ -31,6 +31,7 @@ export class CompetitionService {
 		this.kitty = this.getRandValue();
 		this.ranks = this.getRandRank();
 		this.over = false;
+		let today = new Date();
 
 		this.db.collection('competitions').add({
 			comp_name: comp_name,
@@ -39,8 +40,10 @@ export class CompetitionService {
 			kitty: this.kitty,
 			ranks: this.ranks,
 			breed: breed,
-			over: this.over
+			over: this.over,
+			raceDate: today,
 		});
+	
 	}
 
 	getRandStats(): number {
@@ -52,6 +55,6 @@ export class CompetitionService {
 	}
 
 	getRandRank(): number {
-		return Math.floor(Math.random() * 10);
+		return Math.floor(Math.random() * 10 + 1);
 	}
 }
