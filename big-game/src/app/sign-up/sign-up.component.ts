@@ -90,23 +90,43 @@ export class SignUpComponent implements OnInit {
 		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 	}
 
-	onSubmit() {
-		this.horseService
-			.createRandomHorse(this.signupForm.value, this.skillSelected, '') //res.id)
-			.subscribe((e) => {
-				let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
-					console.log(a);
+// 	onSubmit() {
+// 		this.horseService.createRandomHorse(this.signupForm.value, this.skillSelected, '').subscribe((e) => {
+// 				let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
+// 					console.log(a);
 
-					if (a.length == 0) {
-						this.userService.createUser(this.signupForm.value);
-						this.validEmail = true;
-						this.authService.setUId(e.id);
-						this.router.navigate([ 'horse-page/' + e.id ]);
-					} else {
-						this.validEmail = false;
-					}
-					return a;
-				});
-			});
-	}
+// 					if (a.length == 0) {
+// 						this.userService.createUser(this.signupForm.value);
+// 						this.validEmail = true;
+// 						this.authService.setUId(e.id);
+// 						this.router.navigate([ 'horse-page/' + e.id ]);
+// 					} else {
+// 						this.validEmail = false;
+// 					}
+// 					return a;
+// 				});
+// 			});
+// 	}
+// }
+
+onSubmit() {
+  let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
+
+    if (a.length == 0) {
+      this.userService.createUser(this.signupForm.value).then((res) => {
+        this.horseService
+          .createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
+          .subscribe((e) => {
+            this.validEmail = true;
+            this.authService.setUId(e.id);
+            this.router.navigate([ 'horse-page/' + e.id ]);
+          });
+      })
+      
+    } else {
+      this.validEmail = false;
+    }
+    return a;
+  });
+}
 }
