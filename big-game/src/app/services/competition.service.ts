@@ -3,6 +3,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Compete } from '../compete';
+import { Breed } from '../breed';
+import { BreedService } from './breed.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,32 +18,33 @@ export class CompetitionService {
   kitty: number;
   ranks: number;
   over: boolean;
+  
 
-  constructor(public db: AngularFirestore) { }
+  constructor(public db: AngularFirestore,
+              private breedService: BreedService) { }
 
   getCompetitions() {
-    return this.db.collection('/compete').valueChanges()
+    return this.db.collection('/competitions').valueChanges()
   }
 
-  createCompetition (value, comp_name:string ): Observable<any> {
+  createCompetition (comp_name:string, breed:string) {
     //  console.log(comp_name);
-      this.comp_name=comp_name;
-      let difficulty = this.getRandStats();
-      let energy = this.getRandStats();
-      let kitty = this.getRandValue();
-      let ranks = this.getRandRank();
-      let over = false;
-      
-      return from(
-        this.db.collection('compete').add({
+      this.comp_name = comp_name;
+      this.difficulty = this.getRandStats();
+      this.energy = this.getRandStats();
+      this.kitty = this.getRandValue();
+      this.ranks = this.getRandRank();
+      this.over = false;
+        
+        return this.db.collection('competitions').add({
         comp_name: comp_name,
-        difficulty: difficulty,
-        energy: energy,
-        kitty: kitty,
-        ranks: ranks,
-        over: over,
+        difficulty: this.difficulty,
+        energy: this.energy,
+        kitty: this.kitty,
+        ranks: this.ranks,
+        breed: breed,
+        over: this.over,
       })
-      );
     }
 
   getRandStats(): number {
@@ -54,5 +58,7 @@ export class CompetitionService {
   getRandRank(): number {
     return Math.floor(Math.random() * 10);
   }
+
+  
 
 }

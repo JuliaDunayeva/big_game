@@ -56,10 +56,10 @@ public userData: UserData[];
   }
 
   getHorseData(): HorseData[] {
-    this.horseDataService.getHorses(this.uid).subscribe(
+    this.horseDataService.getHorseById(this.uid).subscribe(
             result =>{
               console.log(result);
-              this.allHorseData = result as Array<HorseData>;
+             // this.allHorseData = result as Array<HorseData>;
               //console.log(this.allHorseData[0].stamina)
             }
         );
