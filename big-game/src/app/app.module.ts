@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
+import { HorseListComponent } from './horse-list/horse-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CompetitionsComponent } from './competition-page/competitions/competiti
     PlayBarComponent,
     LoginBtnComponent,
     FlagsComponent,
-    CompetitionsComponent
+    CompetitionsComponent,
+    HorseListComponent
   ],
   
   imports: [
