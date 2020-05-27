@@ -99,6 +99,8 @@ export class HorsePageComponent implements OnInit {
 
  public percentStr:string;
 
+ public totalseconds:number;
+
   
 constructor(private router: ActivatedRoute, 
 	private http: HttpClient,
@@ -107,11 +109,20 @@ constructor(private router: ActivatedRoute,
 	public userDataService: UserDataService,
 	public horseDataService: HorseDataService) {
 	//this.id=sessionStorage.getItem('horseid');
-		this.id = this.router.snapshot.params.id;
+		//this.id = this.router.snapshot.params.id;
+		
+		if (this.router.snapshot.params.id!="") {
+			sessionStorage.setItem("horseid",this.router.snapshot.params.id);
+			this.id = this.router.snapshot.params.id;
+		} else {
+			this.id = sessionStorage.getItem("horseid");
+			//this.router.snapshot.params.id;
+		}
 	     // this.id='rkxQAx7i3FGRY3wOY3pQ'
 	  //   this.imageFile   = '../../assets/images/horses/akhal_teke/alz-b.png';
 	   //  this.imagePath = '../../assets/images/horses/akhal_teke/alz-b.png';
 	}
+
 
 ngOnInit(): void {
 	//this.id=sessionStorage.getItem('horseid');
@@ -172,6 +183,32 @@ ngOnInit(): void {
 //sessionStorage.setItem("horseid",this.id);
 //console.log(this.id);
 } // end of ngOnInit() function
+
+ms2Time(ms:number):string {
+    let secs = ms / 1000;
+    ms = Math.floor(ms % 1000);
+    let minutes = secs / 60;
+    secs = Math.floor(secs % 60);
+    let hours = minutes / 60;
+    minutes = Math.floor(minutes % 60);
+	hours = Math.floor(hours % 24);
+	console.log(hours + ":" + minutes + ":" + secs);
+    return hours + ":" + minutes + ":" + secs + "." + ms;
+}
+
+RefreshEnergy(ms:number) {
+    let secs = ms / 1000;
+    ms = Math.floor(ms % 1000);
+    let minutes = secs / 60;
+    secs = Math.floor(secs % 60);
+    let hours = minutes / 60;
+    minutes = Math.floor(minutes % 60);
+	hours = Math.floor(hours % 24);
+	if (secs>10) this.horse.energy+=5;
+
+	console.log(hours + ":" + minutes + ":" + secs);
+    return hours + ":" + minutes + ":" + secs + "." + ms;
+}
 
 getBreeds(): Breed[]{
 	this.breedService.getBreeds().subscribe(
@@ -234,9 +271,9 @@ public FeedButton(){
 	}
 	if (this.horse.energy>0) this.horse.energy-=5;
 
-	let totalseconds=(this.seconds-this.taskSeconds);
+	this.totalseconds=(this.seconds-this.taskSeconds);
 
-	this.hour=totalseconds/3600;
+	this.hour=this.totalseconds/3600;
 	
 	//this.minute= this.hour-(this.minute/60) % 1;
 	this.minute=(this.hour % 1);// * 60;
@@ -261,9 +298,9 @@ public FeedButton(){
 
 	
 
-	let totalStr=totalseconds.toString();
-	totalseconds=parseFloat(totalStr);
-	totalseconds.toFixed(1);
+	let totalStr=this.totalseconds.toString();
+	this.totalseconds=parseFloat(totalStr);
+	this.totalseconds.toFixed(1);
 
 	//let hourStr=this.hour.toString();
 	
@@ -276,6 +313,9 @@ public FeedButton(){
 	if (this.percent<0) this.percent=0;
 	if (this.hour<0 ) this.hour=0;
 	if (this.minute<0) this.minute=0;
+
+	this.percentStr=this.ms2Time(this.totalseconds);
+	//this.RefreshEnergy(this.totalseconds);
 	//.toFixed(0);
 	//this.percent= parseFloat(this.percent.toString()).toFixed(0);
 
@@ -290,6 +330,7 @@ public FeedButton(){
 	this.hours=this.hours/0.25;
 	this.percent=(24/this.hours)/8;
 	this.percent= parseFloat(this.percent.toString()).toFixed(2);*/
+
 }
 
 public changeButtons(){
