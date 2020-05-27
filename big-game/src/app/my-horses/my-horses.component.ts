@@ -27,6 +27,7 @@ public userData: UserData[];
     private http: HttpClient,
     public userDataService: UserDataService,
     public horseDataService: HorseDataService) {
+<<<<<<< HEAD
       this.uid = this.router.snapshot.params.id
     }
 
@@ -38,6 +39,30 @@ public userData: UserData[];
      
       this.getUserData(); 
       this.getHorseData();
+=======
+      //this.uid = this.router.snapshot.params.id
+      this.uid=sessionStorage.getItem("UserID");
+    }
+
+    ngOnInit(): void {
+
+      setTimeout(() => 
+	{
+		
+
+      //this.router.snapshot.params.id
+     /* this.horseDataService.getHorseById(this.id).subscribe(res => {
+        this.horse = res;
+        console.log(this.horse.id);
+        sessionStorage.setItem("horseid", this.horse.id)
+      })*/
+     
+      //this.getUserData(); 
+      this.horseDataService.getHorseData();
+      
+      //console.log(this.horse.name);
+    }, 500);
+>>>>>>> parent of 902d2dea... Merge branch 'sandbox_pre-develop' into BK-9-Hourse
     }
   
   addHorse(){
@@ -55,16 +80,28 @@ public userData: UserData[];
     return this.userData;
   }
 
+<<<<<<< HEAD
   getHorseData(): HorseData[] {
     this.horseDataService.getHorseById(this.uid).subscribe(
             result =>{
               console.log(result);
              // this.allHorseData = result as Array<HorseData>;
+=======
+  getHorseData(): HorseData {
+    this.horseDataService.getHorseById(this.uid).subscribe(
+            result =>{
+              //console.log(result);
+              //this.allHorseData = result as Array<HorseData>;
+>>>>>>> parent of 902d2dea... Merge branch 'sandbox_pre-develop' into BK-9-Hourse
               //console.log(this.allHorseData[0].stamina)
             }
         );
      // console.log(this.allHorseData);
+<<<<<<< HEAD
 	return this.allHorseData;
+=======
+	return this.horse;
+>>>>>>> parent of 902d2dea... Merge branch 'sandbox_pre-develop' into BK-9-Hourse
   }
 
   // onSubmit() {

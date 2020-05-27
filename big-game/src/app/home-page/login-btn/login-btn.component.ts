@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { NgForm, FormBuilder, Validators } from '@angular/forms';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { UserData } from 'src/app/user-data';
-import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -15,8 +14,7 @@ export class LoginBtnComponent implements OnInit {
   horseids:string[];
   constructor(private router: Router,
     private form: FormBuilder,
-    private userService: UserDataService,
-    private authService: AuthService) {}
+    private userService: UserDataService) {}
   
     logInForm= this.form.group({
       email: [ null, [ Validators.required, Validators.minLength(8) ] ],
@@ -26,18 +24,21 @@ export class LoginBtnComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  logIn() { 
+  logIn() {
+    //this.router.navigate(['horse-page/:id'])
+    //let horse1_id:string;
+    //horse1_id="horse1_id";
+    //this.horseids=["horse1","horse2"];  
     this.userService.logInUser(this.logInForm).subscribe(res => {
 <<<<<<< HEAD
      //let result=res[0].payload.doc.get("horse1_id");
-
-    //  sessionStorage.setItem('OwnerName',res[0].payload.doc.get("userName"));
-   //  sessionStorage.setItem('UserID',res[0].payload.doc.id);
-
+     sessionStorage.setItem('OwnerName',res[0].payload.doc.get("userName"));
+     sessionStorage.setItem('UserID',res[0].payload.doc.id);
      //console.log(res[0].payload.doc.id);
      
      //if (!result)  result="8fENDN3vsgVdahBx6SsY";
      //this.router.navigate(['horse-page/'+sessionStorage.getItem("UId")]);
+<<<<<<< HEAD
    //  this.router.navigate(['my-horses']);
 =======
      let result=res[0].payload.doc.get("horse1_id");
@@ -45,6 +46,9 @@ export class LoginBtnComponent implements OnInit {
      if (!result)  result="L8oPf32haDv3lcAzepVA";
      this.router.navigate(['horse-page/'+result])
 >>>>>>> parent of 19c6cafb... working
+=======
+     this.router.navigate(['my-horses']);
+>>>>>>> parent of 902d2dea... Merge branch 'sandbox_pre-develop' into BK-9-Hourse
      
      //sessionStorage.setItem('horseid',result);
     
@@ -53,9 +57,6 @@ export class LoginBtnComponent implements OnInit {
      //console.log(result);
      
       // this.router.navigate( res[0].payload.doc.id
-      console.log(res)
-     this.authService.setUId(res[0].payload.doc.id)
-     this.router.navigate(['my-horses/:id'])
     })
   }
 
