@@ -13,7 +13,7 @@ export class PlayBarComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.id=sessionStorage.getItem('UId');
+    this.id=sessionStorage.getItem('horseid');
   }
   
 }

@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login-btn.component.css']
 })
 export class LoginBtnComponent implements OnInit {
-  //horseids:string[];
+  horseids:string[];
   constructor(private router: Router,
     private form: FormBuilder,
     private userService: UserDataService,
@@ -28,6 +28,7 @@ export class LoginBtnComponent implements OnInit {
   
   logIn() { 
     this.userService.logInUser(this.logInForm).subscribe(res => {
+<<<<<<< HEAD
      //let result=res[0].payload.doc.get("horse1_id");
 
     //  sessionStorage.setItem('OwnerName',res[0].payload.doc.get("userName"));
@@ -38,6 +39,12 @@ export class LoginBtnComponent implements OnInit {
      //if (!result)  result="8fENDN3vsgVdahBx6SsY";
      //this.router.navigate(['horse-page/'+sessionStorage.getItem("UId")]);
    //  this.router.navigate(['my-horses']);
+=======
+     let result=res[0].payload.doc.get("horse1_id");
+     sessionStorage.setItem('userid',res[0].payload.doc.get("userName"));
+     if (!result)  result="L8oPf32haDv3lcAzepVA";
+     this.router.navigate(['horse-page/'+result])
+>>>>>>> parent of 19c6cafb... working
      
      //sessionStorage.setItem('horseid',result);
     
