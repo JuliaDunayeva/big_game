@@ -182,7 +182,7 @@ h5:first-child {
 .ui.segment {
     position: relative;
     background: #EAE99F;
-    margin: 1rem 0;
+    margin: 1rem .9rem;
     padding: 1em 1em;
     border-radius: .28571429rem;
     border-top: 1px solid #B0AE48;
@@ -214,6 +214,7 @@ h5:first-child {
 
 .selected-saddel {
     background: none #EAE99F !important;
+    border-right: none !important;
 }
 
 .img-size {
@@ -319,10 +320,5 @@ li {
 }
 
 .btn-postion {
-    margin-left: 60px;
-}
-
-.btn-postion2 {
-    margin-right: 30px;
-    padding: 10px;
+    margin-left: 35px;
 }
