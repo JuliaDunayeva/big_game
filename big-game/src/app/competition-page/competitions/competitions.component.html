@@ -37,13 +37,13 @@
                 </div>
                 <div class="display pad-left">
                     <label class="h6" for="breed">Select a Breed</label>
-                    <select class="h6 move-left sm-card" #breedSelect >
-                        <option  *ngFor="let item of allBreeds" [value]="item">{{item.breed}}</option>
+                    <select class="h6 move-left sm-card" #breed>
+                        <option  *ngFor="let item of allBreeds" [ngValue]="item">{{item.breed}}</option>
                     </select>               
                 </div>
                 <div>
                     <button class="btn-shops btn-shops-lrg pad-left" 
-                    (click)="createCompetition(comp_name.value, breedSelect.value)">Create</button>
+                    (click)="createCompetition(comp_name.value, breed.value)">Create</button>
                 </div>
             </form>
         </div>
