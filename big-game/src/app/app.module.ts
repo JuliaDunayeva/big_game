@@ -21,7 +21,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { MyHorsesComponent } from './my-horses/my-horses.component';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
 
 @NgModule({
@@ -38,7 +37,6 @@ import { CompetitionsComponent } from './competition-page/competitions/competiti
     PlayBarComponent,
     LoginBtnComponent,
     FlagsComponent,
-    MyHorsesComponent,
     CompetitionsComponent
   ],
   
