@@ -29,7 +29,7 @@ export class LoginBtnComponent implements OnInit {
   logIn() { 
     this.userService.logInUser(this.logInForm).subscribe(res => {
       console.log(res)
-     this.authService.setUId(res[0].payload.doc.id)
+     this.authService.setUid(res[0].payload.doc.id)
      this.router.navigate(['horse-list'])
     })
   }

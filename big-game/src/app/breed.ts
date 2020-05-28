@@ -1,5 +1,5 @@
 export class Breed {
-	private doc_id: string;
+	private doc_id?: string;
 	private key: string;
 	private breed: string;
 	private breed_id: number;
