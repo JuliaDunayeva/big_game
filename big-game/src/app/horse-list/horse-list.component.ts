@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, Validators } from '@angular/forms';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
+import { ColorService } from '../services/color.service';
+import { Color } from '../color';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-horse-list',
@@ -19,38 +18,38 @@ import { Breed } from '../breed';
 
 export class HorseListComponent implements OnInit {
 
-    public allBreeds: Breed[];
-	  public breedSelected: string;
-    public id: string;
-    public uid: string;
-    public horse: HorseData;
-    public allHorseData: HorseData[];
-    public userData: UserData[];
-    db: any;
+  private allBreeds: Breed[];
+    private breedSelected: string;
+    private allColors: Color[];
+    private colorSelected: string;
+    private userName: string;
 
-    constructor(private router: ActivatedRoute, private breedService: BreedService,
-        private http: HttpClient,
+    constructor(private breedService: BreedService, private colorService: ColorService, private authService: AuthService,
         public userDataService: UserDataService,
         public horseDataService: HorseDataService) {
-        this.uid = this.router.snapshot.params.id
     }
-    ngOnInit(): void {
-      
-    }
-  
-  addHorse(){
-    
-  }
-  getHorsesByUid() {
-    return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
-    .valueChanges();
-  }
 
-  getBreeds(): Breed[] {
-		this.breedService.getBreeds().subscribe((result) => {
-			console.log(result);
-			this.allBreeds = result as Array<Breed>;
-		});
-		return this.allBreeds;
-	}
+    ngOnInit(): void {
+        this.getBreeds();
+        this.getColors();
+        this.authService.getUid()
+    }
+
+    getBreeds(): Breed[] {
+      this.breedService.getBreeds().subscribe((result) => {
+        console.log(result);
+        this.allBreeds = result as Array<Breed>;
+      });
+      return this.allBreeds;
+    }
+
+    getColors(): Color[] {
+      this.colorService.getColors().subscribe((result) => {
+        console.log(result);
+        this.allColors = result as Array<Color>;
+      });
+      return this.allColors;
+    }
+
+    createRandomHorse()
 }

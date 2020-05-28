@@ -21,7 +21,7 @@
         <div class="row"> <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon">
                 <hr class="no-top-margin">
-                <h3 class="no-top-margin display card-title">List of horses</h3>
+                <h3 class="no-top-margin display card-title">List of horses for {{ UId }}</h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Select one of your horses from the farm. </p>
                     <br><br>
@@ -44,14 +44,24 @@
                 <h5 class="card-title color-tx-green">Create a new horse</h5>
                 <form class="">
                     <div class="display pad-left">
-                        <label class="h6" for="name"  required>New Horse Name</label>
-                        <input class="form-control"  type="text" #name />
+                        <label class="h6" for="name"  required>Horse Name</label>
+                        <input class="form-control pad-left"  type="text" #name />
                     </div>
                     <div class="display pad-left">
-                        <label class="h6" for="breed">Select a Breed</label>
+                        <label class="h6" for="breed">Breed</label>
                         <select class="h6 move-left1 sm-card" #breed>
-                            <option  *ngFor="let item of allBreeds" [ngValue]="item">{{item.breed}}</option>
+                            <option  *ngFor="let breed of allBreeds" [ngValue]="breed">{{breed.breed}}</option>
                         </select>               
+                    </div>
+                    <div class="display pad-left">
+                        <label class="h6" for="breed">Color</label>
+                        <select class="h6 move-left1 sm-card" #color>
+                            <option  *ngFor="let color of allColors" [ngValue]="color">{{color.color}}</option>
+                        </select>               
+                    </div>
+                    <div>
+                        <button class="btn-shops btn-shops-lrg pad-left" 
+                        (click)="createRandomHorse(name.value, breed.value, color.value)">Create</button>
                     </div>
                 </form>
                 <br>
