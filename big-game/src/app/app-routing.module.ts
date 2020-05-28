@@ -6,7 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HorsePageComponent } from './horse-page/horse-page.component';
-import { MyHorsesComponent } from './my-horses/my-horses.component';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
 import { HorseListComponent } from './horse-list/horse-list.component';
 
@@ -23,11 +22,7 @@ const routes: Routes = [
     path: 'horse-page/:id',
     component: HorsePageComponent 
   },
-  {
-    path: 'my-horses',
-    component: MyHorsesComponent 
-  },
-  {
+   {
     path:'home-page',
     component: HomePageComponent
 

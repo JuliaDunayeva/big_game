@@ -134,7 +134,7 @@ ngOnInit(): void {
 //	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
 	//  this.pageButtons[0].enabled=true;
 
-	  this.ownerName=sessionStorage.getItem('userid');
+	//  this.ownerName=sessionStorage.getItem('userid');
 	  //console.log(sessionStorage.getItem("horseids"));
 	
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
