@@ -169,25 +169,11 @@ ngOnInit(): void {
 	this.getBreeds();
 	this.getColors();   
 
-//	this.getUserData(); 
-//	this.getHorseData();
-//let index=0;
-
-//	for (index<this.userData[0].myHorses.length;index++){
-		//console.log(this.userData[0].myHorses[index]);
-	//}
-	//this.horseDataService.getHorseById(this.id).subscribe(res => {
-		//this.horse = res;
-	//}
-	
-
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
 	}, 750);
 
-//sessionStorage.setItem("horseid",this.id);
-//console.log(this.id);
 } // end of ngOnInit() function
 
 getHorse(){
@@ -195,11 +181,8 @@ getHorse(){
 	{
 		this.horseDataService.getHorsesByUid().subscribe(res => {
 	//	console.log(res)
-		//this.horse=
 		this.id=res[0].payload.doc.id;
 
-		
-		//this.horse=res[0].payload.doc.ref;
 	  });
 	  this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res;
