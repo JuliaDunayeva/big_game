@@ -6,11 +6,11 @@
                     <a href (click)="(false)" class="nav-link" ngbDropdownToggle>
                         <i class="chess knight icon"></i>Breeding Farm</a>
                     <div ngbDropdownMenu>
-                        <a routerLink="/horse-list"><button ngbDropdownItem>
+                        <a routerLink="/horse-list/:uid"><button ngbDropdownItem>
                             <i class="chess knight icon"></i>Horse List</button>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/horse-page/{{id}}"><button ngbDropdownItem>
+                        <a routerLink="/horse-page/:id"><button ngbDropdownItem>
                             <i class="chess knight icon"></i> Horses</button>
                         </a>
                         <div class="dropdown-divider"></div>
