@@ -3,13 +3,12 @@ import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HorseData } from '../horse-data';
-import { Breed } from '../breed';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class HorseDataService {
-	name: string = '';
+	name: string = 'Watermelon I';
 
 	constructor(public db: AngularFirestore) {}
 
@@ -48,7 +47,7 @@ export class HorseDataService {
 				breed: value.breed,
 				skill: skill,
 				color: value.color,
-				name: 'Watermelon II',
+				name: value.name,
 				gender: gender,
 				userId: userId,
 				stamina: stamina,
@@ -61,8 +60,8 @@ export class HorseDataService {
 				height: 14.5,
 				weight: 400,
 				energy: 100,
-				health: 50,
-				morale: 10,
+				health: 80,
+				morale: 50,
 				dayTime: 24,
 				tr_stamina: 0,
 				tr_speed: 0,

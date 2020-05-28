@@ -21,7 +21,7 @@
         <div class="row"> <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon">
                 <hr class="no-top-margin">
-                <h3 class="no-top-margin display card-title">List of horses for {{ user.userName }}</h3>
+                <h3 class="no-top-margin display card-title">List of horses for &nbsp;<span class="color-tx-green"> {{ user.userName }}</span></h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Select one of your horses from the farm. </p>
                     <br><br>
@@ -59,9 +59,15 @@
                             <option  *ngFor="let color of allColors" [ngValue]="color">{{color.color}}</option>
                         </select>               
                     </div>
+                    <div class="display pad-left">
+                        <label class="h6" for="breed">Skills</label>
+                        <select class="h6 move-left1 sm-card" #color>
+                            <option  *ngFor="let skill of skills" [ngValue]="skill">{{skill}}</option>
+                        </select>               
+                    </div>
                     <div>
                         <button class="btn-shops btn-shops-lrg pad-left" 
-                        (click)="createRandomHorse(name.value, breed.value, color.value)">Create</button>
+                        (click)="createRandomHorse(name.value, breed.value, color.value, skill.value)">Create</button>
                     </div>
                 </form>
                 <br>

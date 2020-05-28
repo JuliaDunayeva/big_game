@@ -18,7 +18,13 @@ import { AuthService } from '../services/auth.service';
 
 export class HorseListComponent implements OnInit {
 
-  private allBreeds: Breed[];
+    skills = ['Stamina','Gallop', 'Speed', 'Jumping'];
+    skill: string;
+    breed: string;
+    color: string;
+    name: string;
+    userId:string = this.Uid;
+    private allBreeds: Breed[];
     private breedSelected: string;
     private allColors: Color[];
     private colorSelected: string;
@@ -40,8 +46,6 @@ export class HorseListComponent implements OnInit {
       return this.user;
     }
 
-    
-
     getBreeds(): Breed[] {
       this.breedService.getBreeds().subscribe((result) => {
         console.log(result);
@@ -58,5 +62,9 @@ export class HorseListComponent implements OnInit {
       return this.allColors;
     }
 
+    createRandomHorse(){
+      console.log(this.name, this.breed, this.color, this.skill);
+    } 
+  
     
 }
