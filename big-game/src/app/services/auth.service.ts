@@ -14,11 +14,11 @@ export class AuthService {
 		sessionStorage.setItem('horseid', horseId)
 	}
 
-	getUid() {
-		sessionStorage.getItem('uid');
+	getUid(): string {
+		return sessionStorage.getItem('uid');
 	}
 
-	getHorseId() {
-		sessionStorage.getItem('hosreid')
+	getHorseId(): string {
+		return sessionStorage.getItem('hosreid')
 	}
 }
