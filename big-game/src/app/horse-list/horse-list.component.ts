@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { BreedService } from '../services/breed.service';
+import { Breed } from '../breed';
 
 @Component({
   selector: 'app-horse-list',
@@ -17,13 +19,17 @@ import { AuthService } from '../services/auth.service';
 })
  
 export class HorseListComponent implements OnInit {
+
+    public allBreeds: Breed[];
+	  public breedSelected: string;
     public id: string;
     public uid: string;
     public horse: HorseData;
     public allHorseData: HorseData[];
     public userData: UserData[];
+    db: any;
 
-    constructor(private router: ActivatedRoute, 
+    constructor(private router: ActivatedRoute, private breedService: BreedService,
         private http: HttpClient,
         public userDataService: UserDataService,
         public horseDataService: HorseDataService,

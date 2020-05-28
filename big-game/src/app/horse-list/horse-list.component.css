@@ -11,6 +11,16 @@
     margin-top: 0px;
 }
 
+.move-left1 {
+    margin-left: 39px;
+    width: 140px;
+}
+
+.h6 {
+    padding: 4px 0 4px 5px;
+    color: maroon;
+}
+
 .card-title {
     font-weight: bold;
 }
@@ -20,4 +30,13 @@
     margin-bottom: 2px;
     width: 450px;
     margin-left: -3px;
+}
+
+.mycard-light-green {
+    background-color: #F0F0B2;
+    border: 2px solid rgb(192, 189, 113);
+    color: #663300;
+    border-style: solid 2px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
