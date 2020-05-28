@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-competition-page',
@@ -22,9 +23,10 @@ export class CompetitionPageComponent implements OnInit {
   ctrl = new FormControl(null, Validators.required);
 
   constructor(private router: ActivatedRoute, 
-    public horseDataService: HorseDataService) {
+    public horseDataService: HorseDataService,private authService:AuthService) {
    // this.id = this.router.snapshot.params.id;
-   this.id=sessionStorage.getItem('horseid');
+   this.id=this.authService.getHorseId();
+   
   }
 
   ngOnInit(): void {
