@@ -16,16 +16,17 @@ import { FormControl, Validators } from '@angular/forms';
 })
 
 export class HorseListComponent implements OnInit {
-public id: string;
-public uid: string;
-public horse: HorseData;
-public allHorseData: HorseData[];
-public userData: UserData[];
-  constructor(private router: ActivatedRoute, 
-    private http: HttpClient,
-    public userDataService: UserDataService,
-    public horseDataService: HorseDataService) {
-      this.uid = this.router.snapshot.params.id
+    public id: string;
+    public uid: string;
+    public horse: HorseData;
+    public allHorseData: HorseData[];
+    public userData: UserData[];
+
+    constructor(private router: ActivatedRoute, 
+        private http: HttpClient,
+        public userDataService: UserDataService,
+        public horseDataService: HorseDataService) {
+        this.uid = this.router.snapshot.params.id
     }
     ngOnInit(): void {
       
