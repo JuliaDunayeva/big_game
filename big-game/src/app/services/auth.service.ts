@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 	constructor() {}
 
-	setUId(uId: string) {
-		sessionStorage.setItem('uid', uId);
+	setUid(Uid: string) {
+		sessionStorage.setItem('uid', Uid);
 	}
 
 	sethorseId(horseId: string) {

@@ -32,11 +32,9 @@ export class LoginBtnComponent implements OnInit {
     //horse1_id="horse1_id";
     //this.horseids=["horse1","horse2"];  
     this.userService.logInUser(this.logInForm).subscribe(res => {
-     // console.log('got user id ->> '+res[0].payload.doc.id);
-     this.authService.setUId(res[0].payload.doc.id);
-       //sessionStorage.setItem('OwnerName',res[0].payload.doc.ref.onSnapshot.('userName'));
-      //sessionStorage.setItem("uid", res[0].payload.doc.id);
-     this.router.navigate(['horse-list']);//'+sessionStorage.getItem("UId");
+      console.log(res)
+     this.authService.setUid(res[0].payload.doc.id)
+     this.router.navigate(['horse-list'])
     })
   }
 
