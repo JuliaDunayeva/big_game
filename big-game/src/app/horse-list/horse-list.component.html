@@ -24,9 +24,39 @@
                 <h3 class="no-top-margin display card-title">List of horses</h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Select one of your horses from the farm. </p>
+                    <br><br>
                 </div>
             </div>
         </div> <!-- Title End -->
+        <div class="row pad-left display">
+            <Div class="col-sm-5 mycard-light-green">
+                <br>
+                <form class="">
+                    <input type="radio" name="" id="">
+                    <label class="pad-left">Horse Name</label>
+                </form>
+                <br>
+                
+            </Div>
+            <div class="col-sm-1"></div>
+            <Div class="col-sm-5 mycard-light-green">
+                <br>
+                <h5 class="card-title color-tx-green">Create a new horse</h5>
+                <form class="">
+                    <div class="display pad-left">
+                        <label class="h6" for="name"  required>New Horse Name</label>
+                        <input class="form-control"  type="text" #name />
+                    </div>
+                    <div class="display pad-left">
+                        <label class="h6" for="breed">Select a Breed</label>
+                        <select class="h6 move-left1 sm-card" #breed>
+                            <option  *ngFor="let item of allBreeds" [ngValue]="item">{{item.breed}}</option>
+                        </select>               
+                    </div>
+                </form>
+                <br>
+            </Div>
+        </div>
     </div> <!-- folder end-->
     <br><br>
     <app-footer></app-footer>

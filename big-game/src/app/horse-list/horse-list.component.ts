@@ -8,6 +8,8 @@ import { HorseDataService} from '../services/horse-data.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, Validators } from '@angular/forms';
+import { BreedService } from '../services/breed.service';
+import { Breed } from '../breed';
 
 @Component({
   selector: 'app-horse-list',
@@ -16,13 +18,17 @@ import { FormControl, Validators } from '@angular/forms';
 })
 
 export class HorseListComponent implements OnInit {
+
+    public allBreeds: Breed[];
+	  public breedSelected: string;
     public id: string;
     public uid: string;
     public horse: HorseData;
     public allHorseData: HorseData[];
     public userData: UserData[];
+    db: any;
 
-    constructor(private router: ActivatedRoute, 
+    constructor(private router: ActivatedRoute, private breedService: BreedService,
         private http: HttpClient,
         public userDataService: UserDataService,
         public horseDataService: HorseDataService) {
@@ -32,5 +38,19 @@ export class HorseListComponent implements OnInit {
       
     }
   
-  addHorse(){}
+  addHorse(){
+    
+  }
+  getHorsesByUid() {
+    return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
+    .valueChanges();
+  }
+
+  getBreeds(): Breed[] {
+		this.breedService.getBreeds().subscribe((result) => {
+			console.log(result);
+			this.allBreeds = result as Array<Breed>;
+		});
+		return this.allBreeds;
+	}
 }
