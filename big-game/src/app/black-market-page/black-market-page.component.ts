@@ -20,4 +20,11 @@ export class BlackMarketPageComponent implements OnInit {
     });
   }
 
+  getNames(){
+    this.horseService.getHorsesByUid().subscribe(res => {
+  }
+  onClick(){
+
+  }
+
 }
