@@ -27,10 +27,6 @@ export class LoginBtnComponent implements OnInit {
   }
   
   logIn() {
-    //this.router.navigate(['horse-page/:id'])
-    //let horse1_id:string;
-    //horse1_id="horse1_id";
-    //this.horseids=["horse1","horse2"];  
     this.userService.logInUser(this.logInForm).subscribe(res => {
       console.log(res)
      this.authService.setUid(res[0].payload.doc.id)
