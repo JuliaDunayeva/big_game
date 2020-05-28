@@ -1,9 +1,9 @@
 export class Breed {
-	private key: string;
-	private breed: string;
-	private breed_id: number;
-	private skill: string;
-	private img_path: string;
+	public key: string;
+	public breed: string;
+	public breed_id: number;
+	public skill: string;
+	public img_path: string;
 
 	constructor(key: string, breed: string, breed_id: number, skill: string, img_path: string) {
 		this.key = key;

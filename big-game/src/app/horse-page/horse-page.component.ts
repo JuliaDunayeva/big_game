@@ -22,9 +22,6 @@ import { HorsePageButtons } from '../horse-page-buttons';
 })
 
 export class HorsePageComponent implements OnInit {
-
-	//constFeed=0;
-		
 	//pageButtons:HorsePageButtons[]=new HorsePageButtons[];
 
 	colors: Color[] = [];
@@ -166,8 +163,8 @@ ngOnInit(): void {
 	
 	//this.swap=false;
 //	this.changeButtons();
-	this.getBreeds();
-	this.getColors();   
+//	this.getBreeds();
+//	this.getColors();   
 
 	setTimeout(() => 
 	{
@@ -179,11 +176,11 @@ ngOnInit(): void {
 getHorse(){
 	setTimeout(() => 
 	{
-		this.horseDataService.getHorsesByUid().subscribe(res => {
+		//this.horseDataService.getHorsesByUid().subscribe(res => {
 	//	console.log(res)
-		this.id=res[0].payload.doc.id;
+		//this.id=res[0].payload.doc.id;
 
-	  });
+	  //});
 	  this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res;
   });
@@ -215,7 +212,7 @@ RefreshEnergy(ms:number) {
 	console.log(hours + ":" + minutes + ":" + secs);
     return hours + ":" + minutes + ":" + secs + "." + ms;
 }
-
+/*
 getBreeds(): Breed[]{
 	this.breedService.getBreeds().subscribe(
 	  result => {
@@ -230,9 +227,9 @@ getBreeds(): Breed[]{
 	  result =>{
 	    this.allColors = result as Array<Color>;
 	  }
-	)
+	);
 	return this.colors;
-} // end of getColors() function
+} // end of getColors() function*/
 
 LoadHorseImage(){
 	this.imagePath = 'assets/images/horses/';
@@ -300,22 +297,9 @@ public FeedButton(){
 
 	this.percent=(this.seconds-this.taskSeconds)/1000;
 
-	
-
-	
-
 	let totalStr=this.totalseconds.toString();
 	this.totalseconds=parseFloat(totalStr);
 	this.totalseconds.toFixed(1);
-
-	//let hourStr=this.hour.toString();
-	
-	
-
-	
-
-	//if (totalseconds<0) totalseconds=0;
-	//if (this.seconds<0) this.seconds=0;
 	if (this.percent<0) this.percent=0;
 	if (this.hour<0 ) this.hour=0;
 	if (this.minute<0) this.minute=0;
