@@ -22,7 +22,8 @@ export class HorseListComponent implements OnInit {
     private breedSelected: string;
     private allColors: Color[];
     private colorSelected: string;
-    private userName: string;
+    private Uid: string = this.authService.getUid();
+    private user: any
 
     constructor(private breedService: BreedService, private colorService: ColorService, private authService: AuthService,
         public userDataService: UserDataService,
@@ -32,8 +33,14 @@ export class HorseListComponent implements OnInit {
     ngOnInit(): void {
         this.getBreeds();
         this.getColors();
-        this.authService.getUid()
+        this.userDataService.getUserByID(this.Uid).subscribe((result) => {
+          this.user = result as UserData;
+          console.log(this.user);
+      });
+      return this.user;
     }
+
+    
 
     getBreeds(): Breed[] {
       this.breedService.getBreeds().subscribe((result) => {
@@ -51,5 +58,5 @@ export class HorseListComponent implements OnInit {
       return this.allColors;
     }
 
-    createRandomHorse()
+    
 }

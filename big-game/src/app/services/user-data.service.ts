@@ -37,8 +37,8 @@ export class UserDataService {
     
   }
 
-  getUsereByID(uid : string) : Observable<UserData> {
-		return this.db.collection('/horse_data').doc(uid).snapshotChanges().pipe(
+  getUserByID(uid : string) : Observable<UserData> {
+		return this.db.collection('/user_data').doc(uid).snapshotChanges().pipe(
 			map(res => { 
 				const user = res.payload.data() as UserData;
 				return user;
