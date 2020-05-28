@@ -71,23 +71,23 @@ export class SignUpComponent implements OnInit {
     this.breedService.getBreeds().subscribe((result) => {
       console.log(result);
       this.allBreeds = result as Array<Breed>;
-      this.skillSelected = this.allBreeds[0].skill;
-      console.log(this.allBreeds[0].skill);
+      this.skillSelected = this.allBreeds[0].getBreed();
+      console.log(this.allBreeds[0].getSkill());
     });
     return this.allBreeds;
   }
 
   getSkill(event: Event) {
-    this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf((<HTMLInputElement>event.target).id);
-    this.skillSelected = this.allBreeds[this.breedIndex].skill;
+    this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf((<HTMLInputElement>event.target).id);
+    this.skillSelected = this.allBreeds[this.breedIndex].getSkill();
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+    this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
   }
 
   getImage(event: Event) {
-    this.colorIndex = this.allColors.map((o) => o.color).indexOf((<HTMLInputElement>event.target).id);
+    this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf((<HTMLInputElement>event.target).id);
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+    this.imagePath += this.allBreeds[this.breedIndex].getImagePath + '/' + this.allColors[this.colorIndex].getImageFile();
   }
 
   onSubmit() {

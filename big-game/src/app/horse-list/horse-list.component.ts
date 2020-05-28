@@ -32,11 +32,5 @@ export class HorseListComponent implements OnInit {
       
     }
   
-  addHorse(){
-    
-  }
-  getHorsesByUid() {
-    return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
-    .valueChanges();
-}
+  addHorse(){}
 }
