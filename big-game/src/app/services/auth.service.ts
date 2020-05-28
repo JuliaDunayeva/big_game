@@ -14,7 +14,7 @@ export class AuthService {
 		sessionStorage.setItem('horseid', horseId)
 	}
 
-	getUid(): string {
+	getUId():string {
 		return sessionStorage.getItem('uid');
 	}
 

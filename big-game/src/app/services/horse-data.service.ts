@@ -13,9 +13,28 @@ export class HorseDataService {
 
 	constructor(public db: AngularFirestore) {}
 
+	getHorseByID(id : string) : Observable<HorseData> {
+		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
+			map(res => { 
+				const horse = res.payload.data() as HorseData;
+				return horse;
+			})			
+		);
+	}
+
 	getHorsesByUid() {
-		return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
-		.valueChanges();
+		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
+		//.valueChanges();
+		.snapshotChanges();
+
+	}
+
+	setHorseEnergy(id:string, num:number){
+		let cityRef = this.db.collection('/horse_data').doc(id);
+
+		let setWithOptions = cityRef.set({
+		  "energy":num
+		}, {merge: true});
 	}
 
 	getHorseData() {
@@ -31,6 +50,10 @@ export class HorseDataService {
 			return 'stallion';
 		}
 		return 'mare';
+	}
+
+	SetUserIDForHorse(horseid:string,userId:string){
+		this.db.collection("/horse_data").doc(horseid).set(userId);
 	}
 
 	createRandomHorse(value, skill, userId): Observable<DocumentReference> {

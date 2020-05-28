@@ -16,4 +16,5 @@ export class PlayBarComponent implements OnInit {
     this.id=sessionStorage.getItem('horseid');
   }
   
+
 }

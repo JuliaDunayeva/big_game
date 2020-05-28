@@ -22,9 +22,10 @@ const routes: Routes = [
     path: 'horse-page',
     component: HorsePageComponent 
   },
-  {
+   {
     path:'home-page',
     component: HomePageComponent
+
   },
   {
     path: 'store-page',

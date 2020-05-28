@@ -8,6 +8,7 @@ import { HorseDataService} from '../services/horse-data.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 
@@ -16,7 +17,7 @@ import { Breed } from '../breed';
   templateUrl: './horse-list.component.html',
   styleUrls: ['./horse-list.component.css']
 })
-
+ 
 export class HorseListComponent implements OnInit {
 
     public allBreeds: Breed[];
@@ -31,26 +32,39 @@ export class HorseListComponent implements OnInit {
     constructor(private router: ActivatedRoute, private breedService: BreedService,
         private http: HttpClient,
         public userDataService: UserDataService,
-        public horseDataService: HorseDataService) {
-        this.uid = this.router.snapshot.params.id
+        public horseDataService: HorseDataService,
+    public authService: AuthService) {
+    //    this.uid = this.router.snapshot.params.id
+    
     }
     ngOnInit(): void {
-      
+        //this.uid=this.authService.getUId();
+        this.getHorse();
     }
   
   addHorse(){
     
   }
-  getHorsesByUid() {
-    return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
-    .valueChanges();
-  }
 
-  getBreeds(): Breed[] {
-		this.breedService.getBreeds().subscribe((result) => {
-			console.log(result);
-			this.allBreeds = result as Array<Breed>;
-		});
-		return this.allBreeds;
-	}
+/*getHorseByUid() {
+   return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
+   .valueChanges();
+}*/
+
+getHorse(){
+  setTimeout(() => 
+  {
+
+    this.horseDataService.getHorsesByUid().subscribe(res => {
+   // console.log(res)
+    //this.horse=
+    this.authService.sethorseId(res[0].payload.doc.id);
+    this.id=res[0].payload.doc.id;
+    //sessionStorage.setItem('horseid',this.id);
+    console.log('got horse id ->> '+this.id);
+    //this.horse=res[0].payload.doc;
+    });
+ }, 750);
+}
+
 }
