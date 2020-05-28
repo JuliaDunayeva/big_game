@@ -33,7 +33,7 @@ export class LoginBtnComponent implements OnInit {
     //this.horseids=["horse1","horse2"];  
     this.userService.logInUser(this.logInForm).subscribe(res => {
       //console.log(res)
-     //this.authService.setUId(
+     //this.authService.setUId(res[0].payload.doc.id);
        //sessionStorage.setItem('OwnerName',res[0].payload.doc.ref.onSnapshot.('userName'));
        sessionStorage.setItem("uid", res[0].payload.doc.id);
      this.router.navigate(['horse-list']);//'+sessionStorage.getItem("UId");
