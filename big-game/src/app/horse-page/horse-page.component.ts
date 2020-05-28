@@ -14,6 +14,7 @@ import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
 import { HorsePageButtons } from '../horse-page-buttons';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-horse-page',
@@ -104,34 +105,19 @@ constructor(private router: ActivatedRoute,
 	public colorService: ColorService, 
 	public breedService: BreedService,
 	public userDataService: UserDataService,
-	public horseDataService: HorseDataService) {
-	//this.id=sessionStorage.getItem('horseid');
-		//this.id = this.router.snapshot.params.id;
-		
-	/*	if (this.router.snapshot.params.id!="") {
-			sessionStorage.setItem("UId",this.router.snapshot.params.id);
-			this.id = this.router.snapshot.params.id;
-		} else {*/
-			setTimeout(() => 
+	public horseDataService: HorseDataService, private authService:AuthService) {
+	
+		setTimeout(() => 
     {
-			this.id = sessionStorage.getItem("horseid");
+			this.id = this.authService.getHorseId();
 			console.log('got horse data');
 		}, 750);
-			//this.router.snapshot.params.id;
-		//}
-	     // this.id='rkxQAx7i3FGRY3wOY3pQ'
-	  //   this.imageFile   = '../../assets/images/horses/akhal_teke/alz-b.png';
-	   //  this.imagePath = '../../assets/images/horses/akhal_teke/alz-b.png';
 	}
 
 
 ngOnInit(): void {
 	this.getHorse();
-	//this.horseDataService.getHorseByID(this.id);
-	
-	//this.id=sessionStorage.getItem('horseid');
-   
-
+	// streamline buttons code, not working on it right now, fixing other more important code
 	//  this.pageButtons[0].enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
 //	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
 	//  this.pageButtons[0].enabled=true;
@@ -158,14 +144,9 @@ ngOnInit(): void {
 
 	this.hour=24;
 	this.minute=0;
+	// reference
 	// 24 / 3 = 8  -- answer, use below
 	//100 / 8 = 12.5
-	
-	//this.swap=false;
-//	this.changeButtons();
-//	this.getBreeds();
-//	this.getColors();   
-
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
@@ -176,11 +157,6 @@ ngOnInit(): void {
 getHorse(){
 	setTimeout(() => 
 	{
-		//this.horseDataService.getHorsesByUid().subscribe(res => {
-	//	console.log(res)
-		//this.id=res[0].payload.doc.id;
-
-	  //});
 	  this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res;
   });
