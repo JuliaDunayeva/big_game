@@ -114,7 +114,7 @@ constructor(private router: ActivatedRoute,
 		} else {*/
 			setTimeout(() => 
     {
-			this.id = sessionStorage.getItem("horseID");
+			this.id = sessionStorage.getItem("horseid");
 			console.log('got horse data');
 		}, 750);
 			//this.router.snapshot.params.id;

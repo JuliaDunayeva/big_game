@@ -128,7 +128,7 @@
 
                             </div>
                         </div>
-                        <div class="card-body ">
+                        <div class="card-body  skillRating">
                             <div class="col-10 form-group center-text  card-middle-title ">
                                 Energy
                                 <ngb-progressbar type=" " [value]="(horse?.energy) ">%{{ horse?.energy }}
@@ -170,17 +170,17 @@
                         </div>
                         <div class="col-3 center-text card-title">Total: 1,000</div>
                     </div>
-                    <div class="card-body row ">
+                    <div class="card-body row  skillRating">
                         <div class="col-4 form-group center-text bold-title ">
                             Stamina
                         </div>
                         <div class="col-4 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.stamina/4)" class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="(horse?.stamina/4)" class="gold-color"></ngb-rating>
                         </div>
                         <div class="col-3 center-text ">{{ horse?.stamina }}</div>
                     </div>
 
-                    <div class="card-body row ">
+                    <div class="card-body row  skillRating">
                         <div class="col-4 form-group center-text bold-title ">
                             Speed
                         </div>
@@ -190,7 +190,7 @@
                         <div class="col-3 center-text ">{{ horse?.speed }}</div>
                     </div>
 
-                    <div class="card-body row ">
+                    <div class="card-body row  skillRating">
                         <div class="col-4 form-group center-text bold-title ">
                             Dressage
                         </div>
@@ -200,7 +200,7 @@
                         <div class="col-3 center-text ">{{ horse?.dressage }}</div>
                     </div>
 
-                    <div class="card-body row ">
+                    <div class="card-body row  skillRating">
                         <div class="col-4 form-group center-text bold-title ">
                             Gallop
                         </div>
@@ -210,7 +210,7 @@
                         <div class="col-3 center-text ">{{ horse?.gallop }}</div>
                     </div>
 
-                    <div class="card-body row ">
+                    <div class="card-body row  skillRating">
                         <div class="col-4 form-group center-text bold-title ">
                             Trot
                         </div>
@@ -221,7 +221,7 @@
                     </div>
 
 
-                    <div class="card-body row ">
+                    <div class="card-body row  skillRating">
                         <div class="col-4 form-group center-text bold-title ">
                             Jumping
                         </div>
