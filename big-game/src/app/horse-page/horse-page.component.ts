@@ -113,19 +113,22 @@ constructor(private router: ActivatedRoute,
 
 
 ngOnInit(): void {
-	this.getBreeds();
-	this.getColors();
 	
 	setTimeout(() => 
     {
-			this.id = this.authService.getHorseId();
+		
+		this.id = this.authService.getHorseId();
 
-			this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
-				this.user=ref
-				console.log(this.user);
-			 });	
+		this.getBreeds();
+		this.getColors();
 
-			this.getHorse();
+		this.getHorse();
+
+		this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
+			this.user=ref
+		//	console.log(this.user);
+		 });	
+
 			console.log('got horse data');
 		}, 750);
 
@@ -154,9 +157,9 @@ ngOnInit(): void {
 
 	this.emptyButton='assets/images/horse-page-icons/empty-button.png';
 
-	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
+	//this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
 
-	this.imagePath = 'assets/images/horses/';
+	//this.imagePath = 'assets/images/horses/';
 
 	this.hour=24;
 	this.minute=0;
@@ -166,7 +169,7 @@ ngOnInit(): void {
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
-		console.log(this.imageFile);
+		console.log(this.imagePath);
 	}, 750);
 
 } // end of ngOnInit() function
@@ -222,25 +225,27 @@ getBreeds(): Breed[]{
 	    this.allColors = result as Array<Color>;
 	  }
 	);
-	return this.colors;
+	return this.allColors;
 } // end of getColors() function
 
 LoadHorseImage(){
-	this.imagePath = 'assets/images/horses/';
+	this.imagePath = 'assets/images/horses';
 
-	if (this.allBreeds!=null) {
+	//if (this.allBreeds!=null) {
 		this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf(this.horse.breed);
-	}
-	if (this.allColors!=null){
+		console.log(this.breedIndex);
+	//}
+	//if (this.allColors!=null){
 		this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf(this.horse.color);
-	}
+	console.log(this.colorIndex);
+		//}
 
-	if (this.breedIndex>-1 && this.colorIndex>-1) {
+	//if (this.breedIndex>-1 && this.colorIndex>-1) {
 		this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
 		console.log(this.imagePath);
-	} else {
-		this.imagePath=this.imageFile;
-	}
+	//} else {
+	//	this.imagePath=this.imageFile;
+	//}
 } // end of LoadHorseImage() function
 
 public FeedButton(){
