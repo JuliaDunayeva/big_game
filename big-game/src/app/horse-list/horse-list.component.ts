@@ -21,16 +21,16 @@ export class HorseListComponent implements OnInit {
     breed: string;
     color: string;
     name: string;
-    private allBreeds: Breed[];
-    private breedSelected: string;
-    private allColors: Color[];
-    private colorSelected: string;
-    private Uid: string = this.authService.getUid();
-    private user: any
+    allBreeds: Breed[];
+    breedSelected: string;
+    allColors: Color[];
+    colorSelected: string;
+    Uid: string = this.authService.getUid();
+    user: any
 
     constructor(private breedService: BreedService, private colorService: ColorService, private authService: AuthService,
-        public userDataService: UserDataService,
-        public horseDataService: HorseDataService) {
+        private userDataService: UserDataService,
+        private horseDataService: HorseDataService) {
     }
 
     ngOnInit(): void {
