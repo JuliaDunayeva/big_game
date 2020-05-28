@@ -49,7 +49,7 @@ getHorse(){
     //this.horse=
     this.id=res[0].payload.doc.id;
     sessionStorage.setItem('horseID',this.id);
-    console.log('got horse id');
+    console.log('got horse id ->> '+this.id);
     //this.horse=res[0].payload.doc;
     });
  }, 750);
