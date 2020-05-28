@@ -40,14 +40,15 @@ export class HorseListComponent implements OnInit {
     
   }
 
-  //getHorsesByUid() {
-    //return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
-    //.valueChanges();
-//}
+/*getHorseByUid() {
+   return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
+   .valueChanges();
+}*/
 
 getHorse(){
   setTimeout(() => 
   {
+
     this.horseDataService.getHorsesByUid().subscribe(res => {
    // console.log(res)
     //this.horse=
