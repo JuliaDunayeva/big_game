@@ -12,11 +12,11 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginBtnComponent implements OnInit {
   horseids:string[];
-  authService:AuthService;
+  
 
   constructor(private router: Router,
     private form: FormBuilder,
-    private userService: UserDataService) {}
+    private userService: UserDataService,private authService:AuthService) {}
   
     logInForm= this.form.group({
       email: [ null, [ Validators.required, Validators.minLength(8) ] ],
@@ -32,10 +32,10 @@ export class LoginBtnComponent implements OnInit {
     //horse1_id="horse1_id";
     //this.horseids=["horse1","horse2"];  
     this.userService.logInUser(this.logInForm).subscribe(res => {
-      //console.log(res)
-     //this.authService.setUId(res[0].payload.doc.id);
+      console.log(res[0].payload.doc.id);
+     this.authService.setUId(res[0].payload.doc.id);
        //sessionStorage.setItem('OwnerName',res[0].payload.doc.ref.onSnapshot.('userName'));
-       sessionStorage.setItem("uid", res[0].payload.doc.id);
+      //sessionStorage.setItem("uid", res[0].payload.doc.id);
      this.router.navigate(['horse-list']);//'+sessionStorage.getItem("UId");
     })
   }
