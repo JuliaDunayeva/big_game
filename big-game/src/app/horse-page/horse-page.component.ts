@@ -98,25 +98,41 @@ export class HorsePageComponent implements OnInit {
  public percentStr:string;
 
  public totalseconds:number;
-
+public user:UserData;
   
 constructor(private router: ActivatedRoute, 
 	private http: HttpClient,
 	public colorService: ColorService, 
 	public breedService: BreedService,
-	public userDataService: UserDataService,
+	private userDataService: UserDataService,
 	public horseDataService: HorseDataService, private authService:AuthService) {
 	
-		setTimeout(() => 
-    {
-			this.id = this.authService.getHorseId();
-			console.log('got horse data');
-		}, 750);
+	
+		
 	}
 
 
 ngOnInit(): void {
-	this.getHorse();
+	this.getBreeds();
+	this.getColors();
+	
+	setTimeout(() => 
+    {
+			this.id = this.authService.getHorseId();
+
+			this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
+				this.user=ref
+				console.log(this.user);
+			 });	
+
+			this.getHorse();
+			console.log('got horse data');
+		}, 750);
+
+
+
+	
+
 	// streamline buttons code, not working on it right now, fixing other more important code
 	//  this.pageButtons[0].enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
 //	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
@@ -150,6 +166,7 @@ ngOnInit(): void {
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
+		console.log(this.imageFile);
 	}, 750);
 
 } // end of ngOnInit() function
@@ -159,6 +176,7 @@ getHorse(){
 	{
 	  this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res;
+		console.log(this.horse);
   });
 	}, 750);
 }
@@ -188,7 +206,7 @@ RefreshEnergy(ms:number) {
 	console.log(hours + ":" + minutes + ":" + secs);
     return hours + ":" + minutes + ":" + secs + "." + ms;
 }
-/*
+
 getBreeds(): Breed[]{
 	this.breedService.getBreeds().subscribe(
 	  result => {
@@ -205,7 +223,7 @@ getBreeds(): Breed[]{
 	  }
 	);
 	return this.colors;
-} // end of getColors() function*/
+} // end of getColors() function
 
 LoadHorseImage(){
 	this.imagePath = 'assets/images/horses/';
@@ -226,8 +244,6 @@ LoadHorseImage(){
 } // end of LoadHorseImage() function
 
 public FeedButton(){
-	
-
 	//8,274 seconds = 8,274 seconds ÷ 3,600
 	//8,274 seconds = 2.29833 hours
 	//minutes = .29833 hours × 60 minutes
