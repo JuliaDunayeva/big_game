@@ -29,6 +29,14 @@ export class HorseDataService {
 
 	}
 
+	setHorseEnergy(id:string, num:number){
+		let cityRef = this.db.collection('/horse_data').doc(id);
+
+		let setWithOptions = cityRef.set({
+		  "energy":num
+		}, {merge: true});
+	}
+
 	getHorseData() {
 		return this.db.collection('/horse_data').valueChanges();
 	}

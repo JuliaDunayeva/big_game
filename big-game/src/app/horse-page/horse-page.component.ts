@@ -302,6 +302,7 @@ public FeedButton(){
 	if (this.minute<0) this.minute=0;
 
 	this.percentStr=this.ms2Time(this.totalseconds);
+this.horseDataService.setHorseEnergy(this.authService.getHorseId(),this.horse.energy);
 	//this.RefreshEnergy(this.totalseconds);
 	//.toFixed(0);
 	//this.percent= parseFloat(this.percent.toString()).toFixed(0);
