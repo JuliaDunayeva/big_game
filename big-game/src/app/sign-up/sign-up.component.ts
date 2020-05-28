@@ -27,7 +27,6 @@ export class SignUpComponent implements OnInit {
   breedIndex: number = 0;
   colorIndex: number = 0;
   public validEmail: boolean = true;
-  public warning: string = ' Email already exists';
   public horseid: any;
 
   constructor(
@@ -109,5 +108,9 @@ export class SignUpComponent implements OnInit {
       }
       return a;
     });
+  }
+
+  onHandleError(){
+    this.validEmail = null;
   }
 }
