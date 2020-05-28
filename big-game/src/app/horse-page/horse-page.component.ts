@@ -53,7 +53,7 @@ export class HorsePageComponent implements OnInit {
   public readonly = true;
   public value = 0;
 
- public horse: HorseData;
+ public horse: HorseData = new HorseData;
 
  public id: string;
 
@@ -111,13 +111,13 @@ constructor(private router: ActivatedRoute,
 	//this.id=sessionStorage.getItem('horseid');
 		//this.id = this.router.snapshot.params.id;
 		
-		if (this.router.snapshot.params.id!="") {
+	/*	if (this.router.snapshot.params.id!="") {
 			sessionStorage.setItem("UId",this.router.snapshot.params.id);
 			this.id = this.router.snapshot.params.id;
-		} else {
-			this.id = sessionStorage.getItem("horseid");
+		} else {*/
+			this.id = sessionStorage.getItem("horseID");
 			//this.router.snapshot.params.id;
-		}
+		//}
 	     // this.id='rkxQAx7i3FGRY3wOY3pQ'
 	  //   this.imageFile   = '../../assets/images/horses/akhal_teke/alz-b.png';
 	   //  this.imagePath = '../../assets/images/horses/akhal_teke/alz-b.png';
@@ -125,10 +125,11 @@ constructor(private router: ActivatedRoute,
 
 
 ngOnInit(): void {
+	this.getHorse();
+	//this.horseDataService.getHorseByID(this.id);
+	
 	//this.id=sessionStorage.getItem('horseid');
-    	this.horseDataService.getHorseById(this.id).subscribe(res => {
-    		this.horse = res;
-	  });
+   
 
 	//  this.pageButtons[0].enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
 //	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
@@ -164,8 +165,8 @@ ngOnInit(): void {
 	this.getBreeds();
 	this.getColors();   
 
-	this.getUserData(); 
-	this.getHorseData();
+//	this.getUserData(); 
+//	this.getHorseData();
 //let index=0;
 
 //	for (index<this.userData[0].myHorses.length;index++){
@@ -174,6 +175,7 @@ ngOnInit(): void {
 	//this.horseDataService.getHorseById(this.id).subscribe(res => {
 		//this.horse = res;
 	//}
+	
 
 	setTimeout(() => 
 	{
@@ -183,6 +185,23 @@ ngOnInit(): void {
 //sessionStorage.setItem("horseid",this.id);
 //console.log(this.id);
 } // end of ngOnInit() function
+
+getHorse(){
+	setTimeout(() => 
+	{
+		this.horseDataService.getHorsesByUid().subscribe(res => {
+	//	console.log(res)
+		//this.horse=
+		this.id=res[0].payload.doc.id;
+
+		
+		//this.horse=res[0].payload.doc.ref;
+	  });
+	  this.horseDataService.getHorseById(this.id).subscribe(res => {
+		this.horse = res;
+  });
+	}, 750);
+}
 
 ms2Time(ms:number):string {
     let secs = ms / 1000;
