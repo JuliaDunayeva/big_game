@@ -5,12 +5,12 @@ import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+//import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-horse-list',
@@ -21,50 +21,37 @@ import { Breed } from '../breed';
 export class HorseListComponent implements OnInit {
 
     public allBreeds: Breed[];
-	  public breedSelected: string;
-    public id: string;
-    public uid: string;
-    public horse: HorseData;
-    public allHorseData: HorseData[];
+	public breedSelected: string;
+    public id: string; // horse id
+    public uid: string; // user id
+    public horse: HorseData; // current horse data
+    public allHorseData: HorseData[]; 
     public userData: UserData[];
     db: any;
 
-    constructor(private router: ActivatedRoute, private breedService: BreedService,
+constructor(private router: ActivatedRoute, private breedService: BreedService,
         private http: HttpClient,
         public userDataService: UserDataService,
         public horseDataService: HorseDataService,
-    public authService: AuthService) {
-    //    this.uid = this.router.snapshot.params.id
-    
-    }
-    ngOnInit(): void {
-        //this.uid=this.authService.getUId();
-        this.getHorse();
-    }
-  
-  addHorse(){
-    
-  }
+        public authService: AuthService) {
+}
 
-/*getHorseByUid() {
-   return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
-   .valueChanges();
-}*/
+ngOnInit(): void {
+    this.getHorse();
+} // end of ngOnInit()
+  
+addHorse(){
+} //end of addHorse()
 
 getHorse(){
   setTimeout(() => 
   {
-
     this.horseDataService.getHorsesByUid().subscribe(res => {
-   // console.log(res)
-    //this.horse=
-    this.authService.sethorseId(res[0].payload.doc.id);
-    this.id=res[0].payload.doc.id;
-    //sessionStorage.setItem('horseid',this.id);
-    console.log('got horse id ->> '+this.id);
-    //this.horse=res[0].payload.doc;
-    });
- }, 750);
-}
+        this.authService.sethorseId(res[0].payload.doc.id);
+        this.id=res[0].payload.doc.id;
+        console.log('got horse id ->> '+this.id);
+    }); //end of getHorsesByUid() callback
+ }, 750); //end of setTimeout() callback
+}//end of getHorse()
 
-}
+} //end of component

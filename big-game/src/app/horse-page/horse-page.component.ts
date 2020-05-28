@@ -23,7 +23,7 @@ import { AuthService } from '../services/auth.service';
 })
 
 export class HorsePageComponent implements OnInit {
-	//pageButtons:HorsePageButtons[]=new HorsePageButtons[];
+	FeedButtons:HorsePageButtons=new HorsePageButtons;
 
 	colors: Color[] = [];
 	allColors: Color[];
@@ -105,10 +105,7 @@ constructor(private router: ActivatedRoute,
 	public colorService: ColorService, 
 	public breedService: BreedService,
 	private userDataService: UserDataService,
-	public horseDataService: HorseDataService, private authService:AuthService) {
-	
-	
-		
+	public horseDataService: HorseDataService, private authService:AuthService) {	
 	}
 
 
@@ -131,15 +128,11 @@ ngOnInit(): void {
 
 			console.log('got horse data');
 		}, 750);
-
-
-
-	
-
 	// streamline buttons code, not working on it right now, fixing other more important code
-	//  this.pageButtons[0].enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
-//	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
-	//  this.pageButtons[0].enabled=true;
+
+	  this.FeedButtons.enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
+	  this.FeedButtons.disabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
+	  this.FeedButtons.enabled=true;
 
 	//  this.ownerName=sessionStorage.getItem('userid');
 	  //console.log(sessionStorage.getItem("horseids"));
@@ -159,7 +152,7 @@ ngOnInit(): void {
 
 	//this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
 
-	//this.imagePath = 'assets/images/horses/';
+	this.imagePath = 'assets/images/horses/';
 
 	this.hour=24;
 	this.minute=0;
@@ -169,7 +162,7 @@ ngOnInit(): void {
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
-		console.log(this.imagePath);
+		//console.log(this.imagePath);
 	}, 750);
 
 } // end of ngOnInit() function
@@ -179,7 +172,7 @@ getHorse(){
 	{
 	  this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res;
-		console.log(this.horse);
+		//console.log(this.horse);
   });
 	}, 750);
 }
@@ -192,7 +185,7 @@ ms2Time(ms:number):string {
     let hours = minutes / 60;
     minutes = Math.floor(minutes % 60);
 	hours = Math.floor(hours % 24);
-	console.log(hours + ":" + minutes + ":" + secs);
+	//console.log(hours + ":" + minutes + ":" + secs);
     return hours + ":" + minutes + ":" + secs + "." + ms;
 }
 
@@ -249,6 +242,8 @@ LoadHorseImage(){
 } // end of LoadHorseImage() function
 
 public FeedButton(){
+	this.changeButtons(this.FeedButtons,);
+	// TOTO reference data
 	//8,274 seconds = 8,274 seconds ÷ 3,600
 	//8,274 seconds = 2.29833 hours
 	//minutes = .29833 hours × 60 minutes
@@ -269,6 +264,7 @@ public FeedButton(){
 		alert("no energy left");
 		return;
 	}
+
 	if (this.horse.energy>0) this.horse.energy-=5;
 
 	this.totalseconds=(this.seconds-this.taskSeconds);
@@ -284,7 +280,7 @@ public FeedButton(){
 	this.percent=parseFloat(this.percent.toFixed(0));
 	//let secondStr=this.seconds.toString();
 	this.seconds=parseFloat(this.seconds.toFixed(0));
-		
+		// TOTO remove later if not needed
 	//if (this.minute==0.25) this.minute=15;
 	//if (this.minute==0.5) this.minute=30;
 	//if (this.minute==0.75) this.minute=45;
@@ -302,11 +298,12 @@ public FeedButton(){
 	if (this.minute<0) this.minute=0;
 
 	this.percentStr=this.ms2Time(this.totalseconds);
-this.horseDataService.setHorseEnergy(this.authService.getHorseId(),this.horse.energy);
-	//this.RefreshEnergy(this.totalseconds);
-	//.toFixed(0);
-	//this.percent= parseFloat(this.percent.toString()).toFixed(0);
 
+	// write data back to database
+	this.horseDataService.setHorseEnergy(this.authService.getHorseId(),this.horse.energy);
+	// TOTO remove later if not needed
+	//this.RefreshEnergy(this.totalseconds);
+	//this.percent= parseFloat(this.percent.toString()).toFixed(0);
 //	console.log('seconds in 24hrs '+this.seconds);
 //	console.log('seconds in 30min '+this.taskSeconds);
 
@@ -318,18 +315,23 @@ this.horseDataService.setHorseEnergy(this.authService.getHorseId(),this.horse.en
 	this.hours=this.hours/0.25;
 	this.percent=(24/this.hours)/8;
 	this.percent= parseFloat(this.percent.toString()).toFixed(2);*/
-
 }
 
-public changeButtons(){
-	this.swap=!this.swap;
-	if (this.swap){
-		this.feedButton='assets/images/horse-page-icons/drink-button-disabled.png';
+public changeButtons(button:HorsePageButtons){
+button.enabled=!button.enabled;
+	//this.swap=!this.swap;
+	//console.log('pressed button -->'+button);
+	if (button.enabled){
+			this.feedButton=button.enabledImage;
+	}else {
+			this.feedButton=button.disabledImage;
+	}	
+		/*this.feedButton='assets/images/horse-page-icons/drink-button-disabled.png';
 		this.drinkButton='assets/images/horse-page-icons/feed-button-enabled.png';
 	} else {
 		this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
 		this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';	
-	}
+	}*/
 } // end of changeButtons() function
 
 toggle() {

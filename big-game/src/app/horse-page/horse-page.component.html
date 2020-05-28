@@ -197,6 +197,7 @@
                         <div class="col-4 center-text"></div>
                         <div class="col-3 center-text card-title">Total: 1,000</div>
                     </div>
+                    <!-- horse stamina-->
                     <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Stamina
@@ -206,6 +207,7 @@
                         </div>
                         <div class="col-3 center-text">{{ horse?.stamina }}</div>
                     </div>
+                    <!-- horse speed-->
                     <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Speed
@@ -215,15 +217,18 @@
                         </div>
                         <div class="col-3 center-text">{{ horse?.speed }}</div>
                     </div>
+                    <!-- horse dressage-->
                     <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Dressage
                         </div>
                         <div class="col-4 center-text">
+
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.dressage / 4" class="gold-color"></ngb-rating>
                         </div>
                         <div class="col-3 center-text">{{ horse?.dressage }}</div>
                     </div>
+                    <!-- horse gallop-->
                     <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Gallop
@@ -233,7 +238,7 @@
                         </div>
                         <div class="col-3 center-text">{{ horse?.gallop }}</div>
                     </div>
-
+                    <!-- horse trot-->
                     <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Trot
@@ -248,6 +253,7 @@
                             Jumping
                         </div>
                         <div class="col-4 center-text">
+                            <!-- horse jumping-->
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.jumping / 4" class="gold-color"></ngb-rating>
                         </div>
                         <div class="col-3 center-text">{{ horse?.jumping }}</div>
