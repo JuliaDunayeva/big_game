@@ -16,4 +16,12 @@ export class Breed {
 	getBreed(): string {
 		return this.breed
 	}
+
+	getSkill(): string {
+		return this.skill
+	}
+
+	getImagePath() {
+		return this.img_path;
+	}
 }
