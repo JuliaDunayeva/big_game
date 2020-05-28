@@ -52,7 +52,7 @@ import { HorseListComponent } from './horse-list/horse-list.component';
     AngularFirestoreModule,
     HttpClientModule,
     AngularFireDatabaseModule,
-     NgCircleProgressModule.forRoot({
+    NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,
       outerStrokeWidth: 16,
