@@ -235,14 +235,14 @@ LoadHorseImage(){
 	this.imagePath = 'assets/images/horses/';
 
 	if (this.allBreeds!=null) {
-		this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf(this.horse.breed);
+		this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf(this.horse.breed);
 	}
 	if (this.allColors!=null){
-		this.colorIndex = this.allColors.map((o) => o.color).indexOf(this.horse.color);
+		this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf(this.horse.color);
 	}
 
 	if (this.breedIndex>-1 && this.colorIndex>-1) {
-		this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+		this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
 		console.log(this.imagePath);
 	} else {
 		this.imagePath=this.imageFile;

@@ -14,4 +14,8 @@ export class Color {
 	getColor(): string {
 		return this.color;
 	}
+
+	getImageFile(): string {
+		return this.img_file;
+	}
 }
