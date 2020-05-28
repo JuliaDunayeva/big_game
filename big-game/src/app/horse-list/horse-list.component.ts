@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
-import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 import { ColorService } from '../services/color.service';
 import { Color } from '../color';
 import { AuthService } from '../services/auth.service';
-
 
 @Component({
   selector: 'app-horse-list',
@@ -23,7 +21,6 @@ export class HorseListComponent implements OnInit {
     breed: string;
     color: string;
     name: string;
-    userId:string = this.Uid;
     private allBreeds: Breed[];
     private breedSelected: string;
     private allColors: Color[];
