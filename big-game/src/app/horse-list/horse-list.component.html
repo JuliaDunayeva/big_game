@@ -32,9 +32,8 @@
         <div class="row pad-left display">
             <Div class="col-sm-5 mycard-light-green">
                 <br>
-                <form class=" display">
-                    <input type="radio" name="horseName" id="">
-                    <label class="pad-left" *ngFor="let horse of allHorseData">{{ horse.name }}</label>
+                <form class="display-vert">
+                    <label class="pad-left display-vert" *ngFor="let horse of allHorseData">{{ horse.name }}</label>
                 </form>
                 <br>
             </Div>
@@ -69,7 +68,9 @@
                     </div>
                     <div>
                         <button class="btn-shops btn-shops-lrg pad-left" 
-                        (click)="createRandomHorse(name.value, breed.value, color.value, skill.value)">Create</button>
+                        (click)="createRandomHorse(name.value, breed.value, color.value, skill.value)"
+                        [routerLink]="['/horse-page']" routerLinkActive="router-link-active">
+                        Create</button>
                     </div>
                 </form>
                 <br>
