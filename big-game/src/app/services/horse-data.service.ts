@@ -111,4 +111,10 @@ export class HorseDataService {
 			})
 		);
 	}
+	 
+	updateHorseGender(id: string, gender: String) {
+		return this.db.collection('/horse_data').doc(id).update({
+			'gender': gender
+		})
+	}
 }

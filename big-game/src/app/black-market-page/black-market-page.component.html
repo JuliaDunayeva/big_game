@@ -78,19 +78,19 @@
                                                     <div>
                                                         <h3>List of the all the horses</h3>
                                                     </div>
-                                                    <form>
-                                                        <label  *ngFor="let horse of allHorses">
-                                                            <input type="radio"> &nbsp; 
-                                                            {{ horse.name }}-{{horse.gender}}
-                                                        </label>
-                                                        <div>
-                                                            <select #selectedHorse>
-                                                                <option *ngFor='let horse of allHorses' [ngValue]='horse.gender'>{{horse.gender}}</option>
-                                                            </select>
+                                                    <form #genderform="ngForm" (ngSubmit)="swapGender(genderForm)">
+                                                        <div  *ngFor="let horse of allHorses">
+                                                            <label >
+                                                                {{ horse.name}}-{{horse.gender}}
+                                                                <input type="radio"  [id]="horse.id" name="horse"
+                                                                    [value]="horse.id"/>
+                                                                <span class="checkmark radio-border"></span>
+                                                            </label>
                                                         </div>
-                                                        <button class="btn-shops btn-shops-lrg" (click)='swapGender(horse)'>Change Gender</button>
+                                                        <div>
+                                                             <button class="btn-shops btn-shops-lrg" (click)='swapGender(genderForm)'>Change Gender</button>
+                                                        </div>
                                                     </form> 
-                                                   
                                                 </div>
                                             </div>
                                         </li>
