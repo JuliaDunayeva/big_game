@@ -197,7 +197,7 @@
                         <div class="col-4 center-text"></div>
                         <div class="col-3 center-text card-title">Total: 1,000</div>
                     </div>
-                    <div class="card-body row">
+                    <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Stamina
                         </div>
@@ -206,7 +206,7 @@
                         </div>
                         <div class="col-3 center-text">{{ horse?.stamina }}</div>
                     </div>
-                    <div class="card-body row">
+                    <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Speed
                         </div>
@@ -215,7 +215,7 @@
                         </div>
                         <div class="col-3 center-text">{{ horse?.speed }}</div>
                     </div>
-                    <div class="card-body row">
+                    <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Dressage
                         </div>
@@ -224,7 +224,7 @@
                         </div>
                         <div class="col-3 center-text">{{ horse?.dressage }}</div>
                     </div>
-                    <div class="card-body row">
+                    <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Gallop
                         </div>
@@ -234,7 +234,7 @@
                         <div class="col-3 center-text">{{ horse?.gallop }}</div>
                     </div>
 
-                    <div class="card-body row">
+                    <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Trot
                         </div>
@@ -243,7 +243,7 @@
                         </div>
                         <div class="col-3 center-text">{{ horse?.trot }}</div>
                     </div>
-                    <div class="card-body row">
+                    <div class="card-body row skillRating">
                         <div class="col-4 form-group center-text bold-title">
                             Jumping
                         </div>
@@ -284,7 +284,7 @@
                                 />
 
                                 <h6 class="color-tx-green">
-                                  Gaia needs a Western saddle blanket, saddle
+                                  {{ horse?.name}} needs a Western saddle blanket, saddle
                                   and bridle in order to enter competitions.
                                 </h6>
                               </div>
@@ -324,7 +324,7 @@
                                   <div class="ui segment">
                                     <h6 class="color-tx-maroon">Template:</h6>
                                     <p class="color-tx-green">
-                                      Gaia is already wearing: Saddle
+                                      {{ horse?.name }} is already wearing: Saddle
                                     </p>
                                     <div class="ui four cards">
                                       <div class="inline-block">
@@ -413,7 +413,7 @@
                 <a ngbNavLink class="card-light-green">Characteristics</a>
                 <ng-template ngbNavContent>
                     <div>
-                        <p>Owner [ {{ ownerName }} ]</p>
+                        <p>Owner [ {{ user?.userName }} ]</p>
                     </div>
                     <div>
                         <p>Breed [ {{ horse?.breed }} ]</p>
