@@ -15,7 +15,7 @@ export class HorseDataService {
 
 	getHorsesByUid() {
 		return this.db.collection('/horse_data', ref =>  ref.where('userId', '==', sessionStorage.getItem('uid')))
-		.valueChanges();
+		.snapshotChanges();
 	}
 
 	getHorseData() {
@@ -81,4 +81,13 @@ export class HorseDataService {
 			})
 		);
 	}
+
+	updateHorseGender(id: string, value:string){
+		let horseRef = this.db.collection('/horse_data').doc(id);
+		let setWithOptions = horseRef.set({
+        gender: value
+        }, {merge: true});
+	}
+
+	
 }
