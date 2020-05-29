@@ -28,7 +28,7 @@ export class HorseData {
 	tr_stamina: number;
 	tr_trot: number;
 	trot: number;
-	c: Color;
-	b: Breed;
+	c?: Color;
+	b?: Breed;
 	isInBed: boolean;
 }
