@@ -79,12 +79,18 @@
                                                         <h3>List of the all the horses</h3>
                                                     </div>
                                                     <form>
-                                                    <select #selectedHorse>
-                                                        <option *ngFor='let horse of allHorses' [ngValue]='horse.name'>{{horse.name}}</option>
-                                                    </select>
-
+                                                        <label  *ngFor="let horse of allHorses">
+                                                            <input type="radio"> &nbsp; 
+                                                            {{ horse.name }}-{{horse.gender}}
+                                                        </label>
+                                                        <div>
+                                                            <select #selectedHorse>
+                                                                <option *ngFor='let horse of allHorses' [ngValue]='horse.gender'>{{horse.gender}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <button class="btn-shops btn-shops-lrg" (click)='swapGender(horse)'>Change Gender</button>
                                                     </form> 
-                                                    <button class="btn-shops btn-shops-lrg" (click)='swapGender(selectedHorse.value)'>Change Gender</button>
+                                                   
                                                 </div>
                                             </div>
                                         </li>

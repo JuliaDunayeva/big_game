@@ -23,8 +23,8 @@ export class HorseDataService {
 
 	getHorsesByUid() {
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
-		//.valueChanges();
-		.snapshotChanges();
+		.valueChanges();
+		//.snapshotChanges();
 	}
 
 	setHorseEnergy(id:string, num:number){
@@ -43,6 +43,11 @@ export class HorseDataService {
 		return Math.floor(Math.random() * 100 + 1);
 	}
 
+	updateHorse(id: string, gender: String){
+		return this.db.collection('/horse_data').doc(id).update({
+			'gender': gender
+		});
+	}
 	getRandGender(): string {
 		if (Math.random() < 0.5) {
 			return 'stallion';

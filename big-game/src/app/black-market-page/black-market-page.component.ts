@@ -26,22 +26,27 @@ export class BlackMarketPageComponent implements OnInit {
   changeGender() {
     this.horseService.getHorsesByUid().subscribe(res =>{
       console.log(res)
-    }
+    });
   }
 
   getHorses() {
     this.horseService.getHorsesByUid().subscribe(res => {
-      this.allHorses= res as Array<HorseData>
+      this.allHorses= res as unknown as Array<HorseData>
       console.log(this.allHorses)
     });
   }
     
 
-  swapGender(horse:string){
-   let  genderIndex = this.allHorses.map((o) => o.name).indexOf(horse);
-   this.gender=this.allHorses[genderIndex].gender
-   console.log("before " + this.allHorses[genderIndex].gender)
-  this.allHorses[genderIndex].gender="this.gender=='mare'"?'stallion':'mare';
-		console.log("after " +this.allHorses[genderIndex].gender)
-	}
+  swapGender(horse: HorseData){
+    const gender = this.defineGender(horse.gender)
+    const id = horse.id
+    this.horseService.updateHorse(id, gender)
+
+  }
+  defineGender(gender: string): String {
+    if(gender === "mare") {
+      return "stallion"
+    }
+    return "mare"  
+  }
 }
