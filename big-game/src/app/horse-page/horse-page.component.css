@@ -147,7 +147,7 @@
 }
 
 .popup {
-    min-width: 1050px;
+    min-width: 1010px;
     font-size: 12px;
     display: block;
     border-radius: 4px;
@@ -156,7 +156,7 @@
     box-shadow: 0 0 0 1500px rgba(0, 0, 0, .8);
     padding: 10px;
     height: 500px;
-    right: 250px;
+    right: 290px;
     bottom: 200px;
 }
 
@@ -203,18 +203,25 @@ h5:first-child {
 
 .ui.grid>[class*="twelve wide"].column {
     width: 75%!important;
-    height: 412px;
-    top: -12px;
-    right: 42px;
+    height: 415px;
+    top: -16px;
+    right: -4px;
+}
+
+.ui.four.cards {
+    margin-top: 1.5em;
+    margin-left: 0.5em;
+    margin-right: -.75em;
 }
 
 .ui.vertical.tabular.menu .active.item {
-    background: none#EAE99F;
+    background: none rgb(229, 228, 153);
     color: #133300;
     border-right: 1px solid #B0AE48;
     border-bottom: 1px solid #B0AE48;
     border-top: none;
     border-left: none;
+    margin-left: 2rem;
 }
 
 .selected-saddel {
@@ -227,7 +234,7 @@ h5:first-child {
     width: 280px;
     height: 240px;
     margin-top: 115px;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .img-size2 {
@@ -274,6 +281,11 @@ h5:first-child {
     background: #faf8d7;
     width: 35px;
     height: 35px;
+}
+
+.btn-postion {
+    margin-left: 30px;
+    margin-top: 3px;
 }
 
 .dropdown-toggle::after {

@@ -9,6 +9,7 @@ import { HorsePageComponent } from './horse-page/horse-page.component';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
 import { HorseListComponent } from './horse-list/horse-list.component';
 
+
 const routes: Routes = [
   {
     path:'sign-up',
@@ -27,6 +28,7 @@ const routes: Routes = [
     component: HomePageComponent
 
   },
+  
   {
     path: 'store-page',
     component: StorePageComponent
