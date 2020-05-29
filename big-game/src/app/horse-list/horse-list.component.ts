@@ -26,7 +26,8 @@ export class HorseListComponent implements OnInit {
     allColors: Color[];
     colorSelected: string;
     Uid: string = this.authService.getUid();
-    user: any
+    user: any;
+    horseValues: {name, breed, color};
 
     constructor(private breedService: BreedService, private colorService: ColorService, private authService: AuthService,
         private userDataService: UserDataService,
@@ -59,8 +60,10 @@ export class HorseListComponent implements OnInit {
       return this.allColors;
     }
 
-    createRandomHorse(){
+    createRandomHorse(name:string, breed: string, color:string, skill:string){
+      this.horseValues={name:name, breed:breed, color:color}
       console.log(this.name, this.breed, this.color, this.skill);
+      this.horseDataService.createRandomHorse(this.horseValues, skill, this.Uid)
     } 
   
     
