@@ -14,7 +14,7 @@ export class CompetitionPageComponent implements OnInit {
   allSkills: string[];
   allHorseData: HorseData[];
   public horse: HorseData;
-  public id: string;
+  public id?: string;
   public readonly = true;
   public rate:number;
 

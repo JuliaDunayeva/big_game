@@ -9,7 +9,9 @@ import { UserData } from '../user-data';
 })
 export class UserDataService {
 
-  horse1_id:any;
+  private passes: number = 100;
+  private equus: number = 2500;
+  private created: Date;
 
   constructor(public db: AngularFirestore) { }
 
@@ -22,19 +24,15 @@ export class UserDataService {
   }
 
   createUser(value) {
-    //,horse_id:string
-  //  console.log(horse_id);
-
-    //this.horse1_id=horse_id;
-
+    let today = new Date();
     return this.db.collection('user_data').add({
       userName: value.username,
       password: value.password,
       email: value.email,
-      //horse1_id:horse_id
+      equus: value.equus,
+      passes: value.passes,
+      created: today,
     })
-
-    
   }
 
   getUserByID(uid : string) : Observable<UserData> {
