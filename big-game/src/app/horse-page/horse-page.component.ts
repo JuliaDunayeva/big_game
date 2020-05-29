@@ -120,6 +120,8 @@ ngOnInit(): void {
 
 		this.getHorse();
 
+	//	console.log(this.id);
+
 		this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
 			this.user=ref
 		//	console.log(this.user);
@@ -157,6 +159,10 @@ ngOnInit(): void {
 	//100 / 8 = 12.5
 	setTimeout(() => 
 	{
+		
+		//console.log(this.authService.getHorseId());
+		//console.log(this.authService.getUId());
+
 		this.LoadHorseImage();
 		//console.log(this.imagePath);
 	}, 750);
@@ -167,7 +173,7 @@ getHorse(){
 	setTimeout(() => 
 	{
 	  this.horseDataService.getHorseById(this.id).subscribe(res => {
-		this.horse = res;
+		this.horse = res as HorseData;
 		//console.log(this.horse);
   });
 	}, 750);
@@ -208,17 +214,17 @@ getBreeds(){
 	  }
 	)
 	console.log(this.allBreeds);
-	//return this.allBreeds;
+	return this.allBreeds;
 } // end of getBreeds() function
     
     getColors(): Color[] {
 	this.colorService.getColors().subscribe(
 	  result =>{
-		console.log(result);
+		//console.log(result);
 	    this.allColors = result as Array<Color>;
 	  }
 	);
-	console.log(this.allColors);
+	//console.log(this.allColors);
 	return this.allColors;
 } // end of getColors() function
 

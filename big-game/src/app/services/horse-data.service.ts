@@ -16,6 +16,7 @@ export class HorseDataService {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
 			map(res => { 
 				const horse = res.payload.data() as HorseData;
+				console.log(horse);
 				return horse;
 			})			
 		);
