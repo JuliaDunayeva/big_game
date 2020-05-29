@@ -41,26 +41,12 @@ export class HorseListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-  /*//      this.getBreeds();
-        //this.getColors();
-        //this.getHorseData();
-        this.horseDataService.getHorsesByUid().subscribe(res => {
-             //console.log(res[0].payload.doc.id);
-             //this.authService.sethorseId(res.toString);
-             console.log(res.toString);
-            });/*
-        this.userDataService.getUserByID(this.Uid).subscribe((result) => {
-          this.user = result as UserData;
-           //console.log(this.user);
-      });
-      return this.user;*/
-
+  
       this.getBreeds();
       this.getColors();
       this.getHorseData();
       this.userDataService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
-        // console.log(this.user);
     });
     return this.user;
     }
