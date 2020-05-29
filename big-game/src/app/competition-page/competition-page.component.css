@@ -2,6 +2,7 @@
     padding: 5px 0 5px 0;
     color: maroon;
 }
+
 p {
     margin-bottom: 5px;
 }
@@ -55,7 +56,6 @@ p {
     border-bottom: 2px solid rgb(192, 189, 113);
     border-radius: 5px;
   }
-  
 
 .tu-col1 {
     width: 95px;
@@ -99,10 +99,8 @@ p {
     padding-right: 5px;
   }
 
-
-/* from Dave's */
 .gold-color {
-    color: rgb(36, 141, 5);
+    color: rgb(224, 157, 11);
     font-size: 22px;
     padding-left: 5px;
     line-height: 90%;
@@ -133,7 +131,6 @@ p {
     border: 2px solid #BEBD58;
 }
 
-
 .no-top-margin {
     margin-top: 0px;
 }
@@ -141,4 +138,3 @@ p {
 .no-bottom-margin {
     margin-bottom: 0px;
 }
-
