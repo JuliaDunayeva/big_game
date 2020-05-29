@@ -1,8 +1,8 @@
 export class Color {
-	private key: string;
-	private color: string;
-	private color_id: number;
-	private img_file: string;
+	public key: string;
+	public color: string;
+	public color_id: number;
+	public img_file: string;
 
 	constructor(key: string, color: string, color_id: number, img_file: string) {
 		this.key = key;

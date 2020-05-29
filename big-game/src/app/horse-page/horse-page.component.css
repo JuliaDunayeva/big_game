@@ -85,6 +85,11 @@
     margin: 0px;
 }
 
+.skillRating {
+    margin: 0px;
+    padding: 0px;
+}
+
 .no-top-margin {
     margin-top: 0px;
 }
@@ -182,7 +187,7 @@ h5:first-child {
 .ui.segment {
     position: relative;
     background: #EAE99F;
-    margin: 1rem .9rem;
+    margin: 1rem 0;
     padding: 1em 1em;
     border-radius: .28571429rem;
     border-top: 1px solid #B0AE48;
@@ -204,7 +209,7 @@ h5:first-child {
 }
 
 .ui.vertical.tabular.menu .active.item {
-    background: none#e2e18b;
+    background: none#EAE99F;
     color: #133300;
     border-right: 1px solid #B0AE48;
     border-bottom: 1px solid #B0AE48;
@@ -215,6 +220,7 @@ h5:first-child {
 .selected-saddel {
     background: none #EAE99F !important;
     border-right: none !important;
+    z-index: 999;
 }
 
 .img-size {
@@ -227,6 +233,7 @@ h5:first-child {
 .img-size2 {
     width: 100px;
     height: 90px;
+    z-index: 999;
 }
 
 .img-size3 {
@@ -317,8 +324,4 @@ li {
     text-align: center;
     font-size: 13px;
     font-weight: 600;
-}
-
-.btn-postion {
-    margin-left: 35px;
 }

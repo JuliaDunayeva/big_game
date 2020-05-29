@@ -11,6 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 import { Command } from 'protractor';
 import { AuthService } from '../services/auth.service';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-sign-up',
@@ -29,6 +30,8 @@ export class SignUpComponent implements OnInit {
   public validEmail: boolean = true;
   public warning: string = ' Email already exists';
   public horseid: any;
+  breedSelected: Breed;
+  colorSelected: Color;
 
   constructor(
     private fb: FormBuilder,
@@ -90,6 +93,13 @@ export class SignUpComponent implements OnInit {
     this.imagePath += this.allBreeds[this.breedIndex].getImagePath + '/' + this.allColors[this.colorIndex].getImageFile();
   }
 
+  onSelectBreed() {
+    //getBreedByName()
+    this.signupForm.value.breed
+  }
+
+  onSelectColor() {}
+
   onSubmit() {
     let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
 
@@ -99,7 +109,7 @@ export class SignUpComponent implements OnInit {
             .createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
             .subscribe((e) => {
               this.validEmail = true;
-              this.authService.setUId(e.id);
+              this.authService.setUid(e.id);
               this.router.navigate(['horse-page/' + e.id]);
             });
         })

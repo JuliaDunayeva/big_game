@@ -6,8 +6,7 @@
         <br>
     </div>
     <div class="folder">
-        <div class="row ">
-            <!-- Path Information & Picture -->
+        <div class="row "> <!-- Path Information & Picture -->
             <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green">
                     <i class="home icon"></i>
@@ -16,14 +15,13 @@
                 </div>
                 <a class=""> My Horses &nbsp;</a>
                 <i class="angle double right icon "> </i>
-                <a class="">Gaia {{ horse?.name }} &nbsp;</a>
+                <a class=""> {{ horse?.name }} &nbsp;</a>
                 <i class="angle double right icon "> </i>
                 <a class=""> Register for a trot competition</a>
             </div>
             <img class="col-sm-5 image" src="./assets/images/game_pieces/Competition.png">
         </div>
-        <div class="">
-            <!-- Title & Description -->
+        <div class=""> <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon ">
                 <hr class="hrtop">
                 <h3 class="no-top-margin display card-title">Register for a trot competition</h3>
@@ -31,60 +29,55 @@
                     <p>For races, horses need to be good in speed and dressage, and excel in trotting. </p>
                 </div>
             </div>
-        </div>
-        <!-- Title End -->
-        <div class="">
-            <!-- competition stats for horse entering-->
+        </div> <!-- Title End -->
+        <div class=""> <!-- competition stats for horse entering-->
             <div class="col-sm-5 pad-left color-tx-maroon ">
                 <div class="mycard-light-green td-top">
                     <div class="h6 sm-card no-bottom-margin td-line">
-                        <H5 class="pad-left card-title">Gaia {{ horse?.name }}</H5>
+                        <H5 class="pad-left card-title"> {{ horse?.name }}</H5>
                     </div>
                     <div>
-
                     </div>
                     <div class="color-tx-green card-title ">
                         <table class="">
                             <tr>
                                 <td class="tu-col1">Trot:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.trot)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.trot/10)" [readonly]="readonly"></ngb-rating>
                                 </td>
-                                <td class="tu-col3">{{ horse?.trot }}</td>
+                                <td class="tu-col3">{{ horse?.trot }}.00</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Speed:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.speed)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.speed/10)" [readonly]="readonly"></ngb-rating>
                                 </td>
-                                <td class="tu-col3">{{ horse?.speed }}</td>
+                                <td class="tu-col3">{{ horse?.speed }}.00</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Dressage:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.dressage)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.dressage/10)" [readonly]="readonly"></ngb-rating>
                                 </td>
-                                <td class="tu-col3">{{ horse?.dressage }}</td>
+                                <td class="tu-col3">{{ horse?.dressage }}.00</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Energy:</td>
-                                <td class="sm-card">&nbsp; {{ horse?.energy }}</td>
+                                <td class="sm-card">&nbsp; {{ horse?.energy }} %</td>
                                 <td></td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Stats End -->
-        <div class="">
-            <!-- Lower Competion table-->
+        </div> <!-- Stats End -->
+        <div class=""> <!-- Lower Competion table-->     
             <div class="col-md-12 pad-left ">
                 <div class="display">
                     <input type="checkbox">
-                    <p class="color-tx-green"> Show competitions for low-level horses</p>
+                    <p class="color-tx-green">&nbsp; Show competitions for low-level horses</p>
                 </div>
-                <h5 class="color-tx-maroon card-title">Competitions open to all horses</h5>
+                <h5 class="color-tx-maroon card-title"> Competitions open to all horses</h5>
                 <div class="mytable-light-green ">
                     <table class="td-top">
                         <tr class="sm-card td-line">
@@ -120,8 +113,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- folder end-->
+    </div> <!-- folder end-->
     <br><br>
     <app-footer></app-footer>
 </div>

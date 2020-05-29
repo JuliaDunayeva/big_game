@@ -14,6 +14,7 @@ import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
 import { HorsePageButtons } from '../horse-page-buttons';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-horse-page',
@@ -22,9 +23,6 @@ import { HorsePageButtons } from '../horse-page-buttons';
 })
 
 export class HorsePageComponent implements OnInit {
-
-	//constFeed=0;
-		
 	//pageButtons:HorsePageButtons[]=new HorsePageButtons[];
 
 	colors: Color[] = [];
@@ -53,7 +51,7 @@ export class HorsePageComponent implements OnInit {
   public readonly = true;
   public value = 0;
 
- public horse: HorseData;
+ public horse: HorseData = new HorseData;
 
  public id: string;
 
@@ -100,41 +98,50 @@ export class HorsePageComponent implements OnInit {
  public percentStr:string;
 
  public totalseconds:number;
-
+public user:UserData;
   
 constructor(private router: ActivatedRoute, 
 	private http: HttpClient,
 	public colorService: ColorService, 
 	public breedService: BreedService,
-	public userDataService: UserDataService,
-	public horseDataService: HorseDataService) {
-	//this.id=sessionStorage.getItem('horseid');
-		//this.id = this.router.snapshot.params.id;
+	private userDataService: UserDataService,
+	public horseDataService: HorseDataService, private authService:AuthService) {
+	
+	
 		
-		if (this.router.snapshot.params.id!="") {
-			sessionStorage.setItem("horseid",this.router.snapshot.params.id);
-			this.id = this.router.snapshot.params.id;
-		} else {
-			this.id = sessionStorage.getItem("horseid");
-			//this.router.snapshot.params.id;
-		}
-	     // this.id='rkxQAx7i3FGRY3wOY3pQ'
-	  //   this.imageFile   = '../../assets/images/horses/akhal_teke/alz-b.png';
-	   //  this.imagePath = '../../assets/images/horses/akhal_teke/alz-b.png';
 	}
 
 
 ngOnInit(): void {
-	//this.id=sessionStorage.getItem('horseid');
-    	this.horseDataService.getHorseById(this.id).subscribe(res => {
-    		this.horse = res;
-	  });
+	
+	setTimeout(() => 
+    {
+		
+		this.id = this.authService.getHorseId();
 
+		this.getBreeds();
+		this.getColors();
+
+		this.getHorse();
+
+		this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
+			this.user=ref
+		//	console.log(this.user);
+		 });	
+
+			console.log('got horse data');
+		}, 750);
+
+
+
+	
+
+	// streamline buttons code, not working on it right now, fixing other more important code
 	//  this.pageButtons[0].enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
 //	  this.pageButtons[0].disabledImage='assets/images/horse-page-icons/feed-button-disabled.png';
 	//  this.pageButtons[0].enabled=true;
 
-	  this.ownerName=sessionStorage.getItem('userid');
+	//  this.ownerName=sessionStorage.getItem('userid');
 	  //console.log(sessionStorage.getItem("horseids"));
 	
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
@@ -150,39 +157,32 @@ ngOnInit(): void {
 
 	this.emptyButton='assets/images/horse-page-icons/empty-button.png';
 
-	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
+	//this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
 
-	this.imagePath = 'assets/images/horses/';
+	//this.imagePath = 'assets/images/horses/';
 
 	this.hour=24;
 	this.minute=0;
+	// reference
 	// 24 / 3 = 8  -- answer, use below
 	//100 / 8 = 12.5
-	
-	//this.swap=false;
-//	this.changeButtons();
-	this.getBreeds();
-	this.getColors();   
-
-	this.getUserData(); 
-	this.getHorseData();
-//let index=0;
-
-//	for (index<this.userData[0].myHorses.length;index++){
-		//console.log(this.userData[0].myHorses[index]);
-	//}
-	//this.horseDataService.getHorseById(this.id).subscribe(res => {
-		//this.horse = res;
-	//}
-
 	setTimeout(() => 
 	{
 		this.LoadHorseImage();
+		console.log(this.imagePath);
 	}, 750);
 
-//sessionStorage.setItem("horseid",this.id);
-//console.log(this.id);
 } // end of ngOnInit() function
+
+getHorse(){
+	setTimeout(() => 
+	{
+	  this.horseDataService.getHorseById(this.id).subscribe(res => {
+		this.horse = res;
+		console.log(this.horse);
+  });
+	}, 750);
+}
 
 ms2Time(ms:number):string {
     let secs = ms / 1000;
@@ -224,31 +224,31 @@ getBreeds(): Breed[]{
 	  result =>{
 	    this.allColors = result as Array<Color>;
 	  }
-	)
-	return this.colors;
+	);
+	return this.allColors;
 } // end of getColors() function
 
 LoadHorseImage(){
-	this.imagePath = 'assets/images/horses/';
+	this.imagePath = 'assets/images/horses';
 
-	if (this.allBreeds!=null) {
+	//if (this.allBreeds!=null) {
 		this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf(this.horse.breed);
-	}
-	if (this.allColors!=null){
+		console.log(this.breedIndex);
+	//}
+	//if (this.allColors!=null){
 		this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf(this.horse.color);
-	}
+	console.log(this.colorIndex);
+		//}
 
-	if (this.breedIndex>-1 && this.colorIndex>-1) {
+	//if (this.breedIndex>-1 && this.colorIndex>-1) {
 		this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
 		console.log(this.imagePath);
-	} else {
-		this.imagePath=this.imageFile;
-	}
+	//} else {
+	//	this.imagePath=this.imageFile;
+	//}
 } // end of LoadHorseImage() function
 
 public FeedButton(){
-	
-
 	//8,274 seconds = 8,274 seconds ÷ 3,600
 	//8,274 seconds = 2.29833 hours
 	//minutes = .29833 hours × 60 minutes
@@ -294,27 +294,15 @@ public FeedButton(){
 
 	this.percent=(this.seconds-this.taskSeconds)/1000;
 
-	
-
-	
-
 	let totalStr=this.totalseconds.toString();
 	this.totalseconds=parseFloat(totalStr);
 	this.totalseconds.toFixed(1);
-
-	//let hourStr=this.hour.toString();
-	
-	
-
-	
-
-	//if (totalseconds<0) totalseconds=0;
-	//if (this.seconds<0) this.seconds=0;
 	if (this.percent<0) this.percent=0;
 	if (this.hour<0 ) this.hour=0;
 	if (this.minute<0) this.minute=0;
 
 	this.percentStr=this.ms2Time(this.totalseconds);
+this.horseDataService.setHorseEnergy(this.authService.getHorseId(),this.horse.energy);
 	//this.RefreshEnergy(this.totalseconds);
 	//.toFixed(0);
 	//this.percent= parseFloat(this.percent.toString()).toFixed(0);

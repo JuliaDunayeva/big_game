@@ -15,16 +15,17 @@ const routes: Routes = [
     component: SignUpComponent
   },
   {
-    path: 'horse-list/:uid',
+    path: 'horse-list',
     component: HorseListComponent 
   },
   {
-    path: 'horse-page/:id',
+    path: 'horse-page',
     component: HorsePageComponent 
   },
-  {
+   {
     path:'home-page',
     component: HomePageComponent
+
   },
   {
     path: 'store-page',
