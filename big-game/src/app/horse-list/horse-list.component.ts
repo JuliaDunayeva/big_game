@@ -78,4 +78,9 @@ export class HorseListComponent implements OnInit {
         res => this.allHorseData = res);
       return this.allHorseData;
     }
+
+    selectHorse(event:any) {
+      (<HTMLInputElement>event.target).id
+
+    }
 }

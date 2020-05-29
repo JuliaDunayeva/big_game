@@ -34,9 +34,10 @@
                 <br>
                 <form>
                     <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
-                        <input type="radio"> &nbsp; &nbsp;
+                        <input type="radio" [id]="horse.name" (click)="selectHorse($event)"> &nbsp; &nbsp;
                         {{ horse.name }} - {{ horse.breed }}
                     </label>
+                    <button class="" (click)="">Use</button>
                 </form>
                 <br>
             </Div>
