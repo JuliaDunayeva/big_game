@@ -114,6 +114,12 @@ ngOnInit(): void {
 	setTimeout(() => 
     {
 		
+		/*this.horseDataService.getHorsesByUid().subscribe(res => {
+			let horse = res as HorseData[];
+			console.log(res);
+			//res.
+		});*/
+
 		this.id = this.authService.getHorseId();
 
 	
@@ -178,9 +184,10 @@ ngOnInit(): void {
 getHorse(){
 	setTimeout(() => 
 	{
+	
 	  this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res as HorseData;
-		//console.log(this.horse);
+		console.log(this.horse);
   });
 	}, 750);
 }
@@ -215,22 +222,26 @@ getBreeds(){
 	//console.log(this.breedService.test());
 	this.breedService.getBreeds().subscribe(
 	  result => {
-		//	console.log(result);
-	   	    this.allBreeds = result as Array<Breed>;
+		console.log('breed results -> ')
+			console.log(result);
+	   	    this.allBreeds = result as unknown as Array<Breed>;
 	  }
 	)
-	//console.log(this.allBreeds);
+	console.log('breed from array -> ')
+	console.log(this.allBreeds);
 	return this.allBreeds;
 } // end of getBreeds() function
     
     getColors(): Color[] {
 	this.colorService.getColors().subscribe(
 	  result =>{
-	//	console.log(result);
-	    this.allColors = result as Array<Color>;
+		  console.log('color results -> ')
+		console.log(result);
+	    this.allColors = result as unknown as Array<Color>;
 	  }
 	);
-//	console.log(this.allColors);
+	console.log('colors from array -> ')
+	console.log(this.allColors);
 	return this.allColors;
 } // end of getColors() function
 

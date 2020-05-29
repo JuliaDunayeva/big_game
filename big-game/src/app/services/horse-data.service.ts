@@ -3,6 +3,7 @@ import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HorseData } from '../horse-data';
+import { AuthService } from './auth.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,7 @@ import { HorseData } from '../horse-data';
 export class HorseDataService {
 	name: string = 'Watermelon I';
 
-	constructor(public db: AngularFirestore) {}
+	constructor(public db: AngularFirestore,private authService:AuthService) {}
 
 	getHorseByID(id : string) : Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
@@ -22,14 +23,24 @@ export class HorseDataService {
 		);
 	}//end of getHorsesByID()
 
-	getHorsesByUid() {
+	getHorsesByUid() : Observable<HorseData[]>{
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
-		.snapshotChanges();
+		.snapshotChanges().pipe(
+			map(action => {
+			return action.map(res =>{
+				const horse=res.payload.doc.data() as HorseData;
+				const id=res.payload.doc.id;
+				//horse.id=id;
+				this.authService.sethorseId(id);
+				//console.log(horse.id);
+				return { id, ...horse };
+				})
+			})
+		);
 	}// end of GetHorsesByUid()
 
 	setHorseMorale(id:string,num:number){
 		let cityRef = this.db.collection('/horse_data').doc(id);
-
 		let setWithOptions = cityRef.set({
 			"morale":num
 		}, {merge: true});
@@ -37,7 +48,6 @@ export class HorseDataService {
 
 	setHorseHealth(id:string,num:number){
 		let cityRef = this.db.collection('/horse_data').doc(id);
-
 		let setWithOptions = cityRef.set({
 			"health":num
 		}, {merge: true});
@@ -45,7 +55,6 @@ export class HorseDataService {
 
 	setHorseEnergy(id:string, num:number){
 		let cityRef = this.db.collection('/horse_data').doc(id);
-
 		let setWithOptions = cityRef.set({
 		  "energy":num
 		}, {merge: true});
@@ -120,6 +129,8 @@ export class HorseDataService {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
 			map((res) => {
 				const horse = res.payload.data() as HorseData;
+				horse.id=res.payload.id;
+				
 				return horse;
 			})
 		);

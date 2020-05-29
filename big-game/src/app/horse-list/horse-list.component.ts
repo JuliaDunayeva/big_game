@@ -43,11 +43,12 @@ export class HorseListComponent implements OnInit {
     ngOnInit(): void {
   /*//      this.getBreeds();
         //this.getColors();
-        //this.getHorseData();
+        //this.getHorseData();*/
         this.horseDataService.getHorsesByUid().subscribe(res => {
              //console.log(res[0].payload.doc.id);
-             this.authService.sethorseId(res[0].payload.doc.id);
-            });
+             //this.authService.sethorseId(res.toString);
+             console.log(res.toString);
+            });/*
         this.userDataService.getUserByID(this.Uid).subscribe((result) => {
           this.user = result as UserData;
            //console.log(this.user);
@@ -69,7 +70,7 @@ export class HorseListComponent implements OnInit {
         // console.log(result);
         this.allBreeds = result as Array<Breed>;
       });
-      console.log(this.allBreeds);
+      //console.log(this.allBreeds);
       return this.allBreeds;
     }
 
@@ -78,7 +79,7 @@ export class HorseListComponent implements OnInit {
         // console.log(result);
         this.allColors = result as Array<Color>;
       });
-      console.log(this.allColors);
+      //console.log(this.allColors);
       return this.allColors;
     }
 
