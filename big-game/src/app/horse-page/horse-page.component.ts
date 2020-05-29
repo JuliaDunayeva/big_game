@@ -128,12 +128,12 @@ ngOnInit(): void {
 		 });	
 
 			console.log('got horse data');
-		}, 1200);
+		}, 750);
 
 		/*setTimeout(() => 
 		{
 		}, 750);*/
-		
+
 	// streamline buttons code, not working on it right now, fixing other more important code
 
 	  this.FeedButtons.enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
