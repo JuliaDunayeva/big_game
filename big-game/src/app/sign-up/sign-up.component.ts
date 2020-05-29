@@ -1,6 +1,6 @@
 import { UserData } from 'src/app/user-data';
 import { UserDataService } from './../services/user-data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Color } from '../color';
@@ -11,12 +11,31 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 import { Command } from 'protractor';
 import { AuthService } from '../services/auth.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { UniqeEmailValidator } from '../shared/uniqe-email-validator.directive';
+// @Component({
+//   selector: 'ngbd-modal-content',
+//   template: `
+//     <div class="modal-body">
+//     <p class="text-danger"> Email already exists</p>
+//     </div>
+//     <div class="modal-footer">
+//       <button type="button" class="btn btn-outline-dark" 
+//       (click)="activeModal.close('Close click')">Close</button>
+//     </div>
+//   `
+// })
+// export class NgbdModalContent {
+//   @Input() name;
 
+//   constructor(public activeModal: NgbActiveModal) { }
+// }
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent implements OnInit {
   colors: Color[] = [];
   allColors: Color[];
@@ -37,12 +56,13 @@ export class SignUpComponent implements OnInit {
     public breedService: BreedService,
     public userService: UserDataService,
     public horseService: HorseDataService,
-    public authService: AuthService
+    public authService: AuthService,
+    private modalService: NgbModal
   ) { }
 
   signupForm = this.fb.group({
     username: [null, [Validators.required, Validators.minLength(8)]],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email, UniqeEmailValidator(this.userService)]],
     password: [
       null,
       [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}')]
@@ -105,12 +125,14 @@ export class SignUpComponent implements OnInit {
 
       } else {
         this.validEmail = false;
+        // this.open();
       }
       return a;
     });
   }
 
-  onHandleError(){
-    this.validEmail = null;
-  }
+  // open() {
+  //   const modalRef = this.modalService.open(NgbdModalContent);
+  //   modalRef.componentInstance.name = 'World';
+  // }
 }
