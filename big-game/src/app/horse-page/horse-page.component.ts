@@ -113,32 +113,13 @@ ngOnInit(): void {
 
 	setTimeout(() => 
     {
-		
-		/*this.horseDataService.getHorsesByUid().subscribe(res => {
-			let horse = res as HorseData[];
-			console.log(res);
-			//res.
-		});*/
-
 		this.id = this.authService.getHorseId();
-
-	
-
 		this.getHorse();
-
-	//	console.log(this.id);
-
 		this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
 			this.user=ref
-		//	console.log(this.user);
 		 });	
-
 			console.log('got horse data');
 		}, 750);
-
-		/*setTimeout(() => 
-		{
-		}, 750);*/
 
 	// streamline buttons code, not working on it right now, fixing other more important code
 
@@ -161,31 +142,17 @@ ngOnInit(): void {
 
 	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
 
-	this.imagePath = 'assets/images/horses/';
+	//this.imagePath = 'assets/images/horses/';
+	this.imagePath=this.imageFile;
 
 	this.hour=24;
 	this.minute=0;
-	// reference
-	// 24 / 3 = 8  -- answer, use below
-	//100 / 8 = 12.5
-	setTimeout(() => 
-	{
-		
-		//console.log(this.authService.getHorseId());
-		//console.log(this.authService.getUId());
-		this.getBreeds();
-		this.getColors();
-		this.LoadHorseImage();
-		//console.log(this.imagePath);
-	}, 750);
-
 } // end of ngOnInit() function
 
 getHorse(){
 	setTimeout(() => 
 	{
-	
-	  this.horseDataService.getHorseById(this.id).subscribe(res => {
+		this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res as HorseData;
 		console.log(this.horse);
   });
@@ -200,7 +167,6 @@ ms2Time(ms:number):string {
     let hours = minutes / 60;
     minutes = Math.floor(minutes % 60);
 	hours = Math.floor(hours % 24);
-	//console.log(hours + ":" + minutes + ":" + secs);
     return hours + ":" + minutes + ":" + secs + "." + ms;
 }
 
@@ -218,69 +184,8 @@ RefreshEnergy(ms:number) {
     return hours + ":" + minutes + ":" + secs + "." + ms;
 }
 
-getBreeds(){
-	//console.log(this.breedService.test());
-	this.breedService.getBreeds().subscribe(
-	  result => {
-		console.log('breed results -> ')
-			console.log(result);
-	   	    this.allBreeds = result as unknown as Array<Breed>;
-	  }
-	)
-	console.log('breed from array -> ')
-	console.log(this.allBreeds);
-	return this.allBreeds;
-} // end of getBreeds() function
-    
-    getColors(): Color[] {
-	this.colorService.getColors().subscribe(
-	  result =>{
-		  console.log('color results -> ')
-		console.log(result);
-	    this.allColors = result as unknown as Array<Color>;
-	  }
-	);
-	console.log('colors from array -> ')
-	console.log(this.allColors);
-	return this.allColors;
-} // end of getColors() function
-
-LoadHorseImage(){
-	this.imagePath = 'assets/images/horses';
-
-	if (this.allBreeds!=null) {
-		this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf(this.horse.breed);
-		console.log(this.breedIndex);
-	}
-	if (this.allColors!=null){
-		this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf(this.horse.color);
-		console.log(this.colorIndex);
-	}
-
-	if (this.breedIndex>-1 && this.colorIndex>-1) {
-		this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
-		console.log(this.imagePath);
-	} else {
-		this.imagePath=this.imageFile;
-	}
-} // end of LoadHorseImage() function
-
 public FeedButton(){
 	this.changeFeedButtons(this.FeedButtons,);
-	// TOTO reference data
-	//8,274 seconds = 8,274 seconds ÷ 3,600
-	//8,274 seconds = 2.29833 hours
-	//minutes = .29833 hours × 60 minutes
-	//minutes = 17.9 minutes
-	//seconds = .9 minutes × 60 seconds
-	//seconds = 54 seconds
-	// time = 2:17:54
-
-// var myNum = 10 / 4;       // 2.5
- //var fraction = myNum % 1; // 0.5
- //myNum = -20 / 7;          // -2.857142857142857
- //fraction = myNum % 1;     // -0.857142857142857
-
 	// convert time to seconds then back again to display in circlur progress  bar
 	this.seconds= (this.hour * 3600) + (this.minute * 60) ;
 	this.taskSeconds= (0 * 3600)+(30 * 60);
@@ -290,26 +195,14 @@ public FeedButton(){
 	}
 
 	if (this.horse.energy>0) this.horse.energy-=5;
-
 	this.totalseconds=(this.seconds-this.taskSeconds);
-
 	this.hour=this.totalseconds/3600;
 	
-	//this.minute= this.hour-(this.minute/60) % 1;
 	this.minute=(this.hour % 1);// * 60;
-	
-	//let minuteStr=this.minute.toString();
 	this.minute=parseFloat(this.minute.toFixed(2));
-	//this.percentStr=this.percent.toString();
 	this.percent=parseFloat(this.percent.toFixed(0));
-	//let secondStr=this.seconds.toString();
 	this.seconds=parseFloat(this.seconds.toFixed(0));
-		// TOTO remove later if not needed
-	//if (this.minute==0.25) this.minute=15;
-	//if (this.minute==0.5) this.minute=30;
-	//if (this.minute==0.75) this.minute=45;
 	this.hour=this.hour-this.minute;
-	//this.hour=parseFloat(this.hour.toFixed(3));
 	this.hour=parseFloat(this.hour.toFixed(0));
 
 	this.percent=(this.seconds-this.taskSeconds)/1000;
@@ -324,40 +217,16 @@ public FeedButton(){
 	this.percentStr=this.ms2Time(this.totalseconds);
 
 	// write data back to database
-	//this.horse.morale=0;
-	//this.horseDataService.setHorseMorale(this.authService.getHorseId(),this.horse.morale);
 	this.horseDataService.setHorseEnergy(this.authService.getHorseId(),this.horse.energy);
-	// TOTO remove later if not needed
-	//this.RefreshEnergy(this.totalseconds);
-	//this.percent= parseFloat(this.percent.toString()).toFixed(0);
-//	console.log('seconds in 24hrs '+this.seconds);
-//	console.log('seconds in 30min '+this.taskSeconds);
-
-	/*this.minute-=15;
-	if(this.minute<0){
-		this.minute=60;
-		this.hour-=1;
-	}
-	this.hours=this.hours/0.25;
-	this.percent=(24/this.hours)/8;
-	this.percent= parseFloat(this.percent.toString()).toFixed(2);*/
 }
 
 public changeFeedButtons(button:HorsePageButtons){
 button.enabled=!button.enabled;
-	//this.swap=!this.swap;
-	//console.log('pressed button -->'+button);
 	if (button.enabled){
 			this.feedButton=button.enabledImage;
 	}else {
 			this.feedButton=button.disabledImage;
 	}	
-		/*this.feedButton='assets/images/horse-page-icons/drink-button-disabled.png';
-		this.drinkButton='assets/images/horse-page-icons/feed-button-enabled.png';
-	} else {
-		this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
-		this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';	
-	}*/
 } // end of changeButtons() function
 
 toggle() {
@@ -367,26 +236,6 @@ toggle() {
 		this.ctrl.disable();
 	}
 } // end of toggle() function
-
-
-
-getUserData(): UserData[] {
-    this.userDataService.getUserData().subscribe(
-      result =>{
-        this.userData = result as Array<UserData>;
-      }
-    )
-    return this.userData;
-} // enbd of getUserData() function
-
-getHorseData(): HorseData[] {
-    this.horseDataService.getHorseData().subscribe(
-            result =>{
-              this.allHorseData = result as Array<HorseData>;
-            }
-        );
-	return this.allHorseData;
-} // end of getHorseData() function
 
 public beforeChange($event: NgbPanelChangeEvent) {
     if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
