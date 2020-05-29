@@ -109,14 +109,14 @@ constructor(private router: ActivatedRoute,
 	}
 
 ngOnInit(): void {
-	
+
+
 	setTimeout(() => 
     {
 		
 		this.id = this.authService.getHorseId();
 
-		this.getBreeds();
-		this.getColors();
+	
 
 		this.getHorse();
 
@@ -128,7 +128,12 @@ ngOnInit(): void {
 		 });	
 
 			console.log('got horse data');
-		}, 750);
+		}, 1200);
+
+		/*setTimeout(() => 
+		{
+		}, 750);*/
+		
 	// streamline buttons code, not working on it right now, fixing other more important code
 
 	  this.FeedButtons.enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
@@ -162,7 +167,8 @@ ngOnInit(): void {
 		
 		//console.log(this.authService.getHorseId());
 		//console.log(this.authService.getUId());
-
+		this.getBreeds();
+		this.getColors();
 		this.LoadHorseImage();
 		//console.log(this.imagePath);
 	}, 750);
@@ -220,11 +226,11 @@ getBreeds(){
     getColors(): Color[] {
 	this.colorService.getColors().subscribe(
 	  result =>{
-		//console.log(result);
+		console.log(result);
 	    this.allColors = result as Array<Color>;
 	  }
 	);
-	//console.log(this.allColors);
+	console.log(this.allColors);
 	return this.allColors;
 } // end of getColors() function
 
