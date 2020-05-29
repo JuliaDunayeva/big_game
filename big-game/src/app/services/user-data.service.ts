@@ -14,8 +14,8 @@ export class UserDataService {
   getUserData() {
     return this.db.collection('/user_data').valueChanges()
   }
-  
-  public getHorseID(value):string{
+
+  public getHorseID(value): string {
     return value;
   }
 
@@ -31,24 +31,24 @@ export class UserDataService {
     })
   }
 
-  getUserByID(uid : string) : Observable<UserData> {
-		return this.db.collection('/user_data').doc(uid).snapshotChanges().pipe(
-			map(res => { 
-				const user = res.payload.data() as UserData;
-				return user;
-			})			
-		);
-	}
+  getUserByID(uid: string): Observable<UserData> {
+    return this.db.collection('/user_data').doc(uid).snapshotChanges().pipe(
+      map(res => {
+        const user = res.payload.data() as UserData;
+        return user;
+      })
+    );
+  }
 
   logInUser(form) {
     //sessionStorage.setItem('setting','nothing');
     return this.db.collection('/user_data', ref => ref.where('email', '==', form.value.email)
-    .where('password', '==', form.value.password)).snapshotChanges();
+      .where('password', '==', form.value.password)).snapshotChanges();
   }
 
   signUpUser(form) {
     return this.db.collection('/user_data', ref =>
-     ref.where('email', '==', form.value.email)).snapshotChanges();
+      ref.where('email', '==', form.value.email)).snapshotChanges();
   }
-  
+
 }

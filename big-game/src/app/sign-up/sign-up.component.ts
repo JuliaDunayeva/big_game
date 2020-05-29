@@ -115,7 +115,7 @@ export class SignUpComponent implements OnInit {
     this.signupForm.value.breed
   }
 
-  onSelectColor() {}
+  onSelectColor() { }
 
   onSubmit() {
     let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
