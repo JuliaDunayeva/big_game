@@ -2,7 +2,7 @@ import { Color } from './color';
 import { Breed } from './breed';
 
 export class HorseData {
-	id: string;
+	id?: string;
 	breed: string;
 	color: string;
 	skill: string;
