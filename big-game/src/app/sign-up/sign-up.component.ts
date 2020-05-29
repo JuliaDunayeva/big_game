@@ -1,6 +1,6 @@
 import { UserData } from 'src/app/user-data';
 import { UserDataService } from './../services/user-data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Color } from '../color';
@@ -11,13 +11,30 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 import { Command } from 'protractor';
 import { AuthService } from '../services/auth.service';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
+// @Component({
+//   selector: 'ngbd-modal-content',
+//   template: `
+//     <div class="modal-body">
+//     <p class="text-danger"> Email already exists</p>
+//     </div>
+//     <div class="modal-footer">
+//       <button type="button" class="btn btn-outline-dark" 
+//       (click)="activeModal.close('Close click')">Close</button>
+//     </div>
+//   `
+// })
+// export class NgbdModalContent {
+//   @Input() name;
 
+//   constructor(public activeModal: NgbActiveModal) { }
+// }
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent implements OnInit {
   colors: Color[] = [];
   allColors: Color[];
@@ -28,7 +45,6 @@ export class SignUpComponent implements OnInit {
   breedIndex: number = 0;
   colorIndex: number = 0;
   public validEmail: boolean = true;
-  public warning: string = ' Email already exists';
   public horseid: any;
   breedSelected: Breed;
   colorSelected: Color;
@@ -41,12 +57,13 @@ export class SignUpComponent implements OnInit {
     public breedService: BreedService,
     public userService: UserDataService,
     public horseService: HorseDataService,
-    public authService: AuthService
+    public authService: AuthService,
+    private modalService: NgbModal
   ) { }
 
   signupForm = this.fb.group({
     username: [null, [Validators.required, Validators.minLength(8)]],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email,]],
     password: [
       null,
       [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}')]
@@ -98,7 +115,7 @@ export class SignUpComponent implements OnInit {
     this.signupForm.value.breed
   }
 
-  onSelectColor() {}
+  onSelectColor() { }
 
   onSubmit() {
     let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
@@ -117,8 +134,14 @@ export class SignUpComponent implements OnInit {
         
       } else {
         this.validEmail = false;
+        // this.open();
       }
       return a;
     });
   }
+
+  // open() {
+  //   const modalRef = this.modalService.open(NgbdModalContent);
+  //   modalRef.componentInstance.name = 'World';
+  // }
 }
