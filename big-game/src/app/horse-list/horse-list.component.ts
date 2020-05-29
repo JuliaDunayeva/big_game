@@ -29,7 +29,7 @@ export class HorseListComponent implements OnInit {
     Uid: string = this.authService.getUId();
     user: any;
     horseValues: {name, breed, color};
-    allHorseData: HorseData[];
+    allHorseData: Array<any>;
     public horse: HorseData;
 
     constructor(private breedService: BreedService, 
@@ -68,15 +68,13 @@ export class HorseListComponent implements OnInit {
 
     createRandomHorse(name:string, breed: string, color:string, skill:string){
       this.horseValues={name:name, breed:breed, color:color}
-      console.log(this.name, this.breed, this.color, this.skill);
       this.horseDataService.createRandomHorse(this.horseValues, skill, this.Uid)
     } 
 
     getHorseData(): HorseData[] {
-      this.horseDataService.getHorseData().subscribe(
-              result =>{
-                this.allHorseData = result as Array<HorseData>;
-              }
+        this.horseDataService.getHorseData().subscribe((result) => {
+        this.allHorseData = result;
+      }
           );
     return this.allHorseData;
     }
