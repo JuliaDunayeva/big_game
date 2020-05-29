@@ -41,14 +41,14 @@ export class HorseListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getBreeds();
-        this.getColors();
-        this.getHorseData();
-        this.userDataService.getUserByID(this.Uid).subscribe((result) => {
-          this.user = result as UserData;
-          // console.log(this.user);
-      });
-      return this.user;
+  
+      this.getBreeds();
+      this.getColors();
+      this.getHorseData();
+      this.userDataService.getUserByID(this.Uid).subscribe((result) => {
+        this.user = result as UserData;
+    });
+    return this.user;
     }
 
     getBreeds(): Breed[] {
@@ -56,6 +56,7 @@ export class HorseListComponent implements OnInit {
         // console.log(result);
         this.allBreeds = result as Array<Breed>;
       });
+      //console.log(this.allBreeds);
       return this.allBreeds;
     }
 
@@ -64,6 +65,7 @@ export class HorseListComponent implements OnInit {
         // console.log(result);
         this.allColors = result as Array<Color>;
       });
+      //console.log(this.allColors);
       return this.allColors;
     }
 
