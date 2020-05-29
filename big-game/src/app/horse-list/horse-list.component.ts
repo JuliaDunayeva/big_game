@@ -68,14 +68,16 @@ export class HorseListComponent implements OnInit {
 
     createRandomHorse(name:string, breed: string, color:string, skill:string){
       this.horseValues={name:name, breed:breed, color:color}
-      console.log(this.name, this.breed, this.color, this.skill);
+      console.log(name, breed, color, skill);
       this.horseDataService.createRandomHorse(this.horseValues, skill, this.Uid)
     } 
 
     getHorseData(): HorseData[] {
       this.horseDataService.getHorseData().subscribe(
-              result =>{
+              (result) =>{
+                console.log('result ' + result);
                 this.allHorseData = result as Array<HorseData>;
+                console.log('this.allhorsedatat ' + this.allHorseData)
               }
           );
     return this.allHorseData;

@@ -63,13 +63,13 @@
                     </div>
                     <div class="display pad-left">
                         <label class="h6" for="breed">Skills</label>
-                        <select class="h6 move-left1 sm-card" #color>
+                        <select class="h6 move-left1 sm-card" #skill>
                             <option  *ngFor="let skill of skills" [ngValue]="skill">{{skill}}</option>
                         </select>               
                     </div>
                     <div>
                         <button class="btn-shops btn-shops-lrg pad-left" 
-                        (click)="createRandomHorse(name, breed.value, color.value, skill)">Create</button>
+                        (click)="createRandomHorse(name.value, breed.value, color.value, skill.value)">Create</button>
                     </div>
                 </form>
                 <br>
