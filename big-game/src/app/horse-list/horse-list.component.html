@@ -32,10 +32,15 @@
         <div class="row pad-left display">
             <Div class="col-sm-5 mycard-light-green">
                 <br>
-                <form class="display-vert">
-                    <label *ngFor="let horse of allHorseData">{{ horse.name }}
-                        <input type="radio" class="pad-left display-vert">
+                <form>
+                    <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                        <input type="radio" value="horse.name" [id]="horse.id" (click)="selectedHorse($event)"> &nbsp; &nbsp;
+                        {{ horse.name }} - {{ horse.breed }}
                     </label>
+                    <br>
+                    <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
+                    [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
+                    Use</button>
                 </form>
                 <br>
             </Div>
