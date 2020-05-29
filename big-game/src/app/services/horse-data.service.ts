@@ -81,8 +81,6 @@ export class HorseDataService {
 		let setWithOptions = cityRef.set({
 			"userId":userId
 		}, {merge: true});
-		//TODO - remove this later
-		//this.db.collection("/horse_data").doc(horseid).set(userId);
 	} //end of SetUserIDForHorse()
 
 	createRandomHorse(value, skill, userId): Observable<DocumentReference> {

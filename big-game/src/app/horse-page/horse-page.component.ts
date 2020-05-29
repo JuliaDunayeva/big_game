@@ -100,15 +100,15 @@ constructor(private router: ActivatedRoute,
 	}
 
 ngOnInit(): void {
-	setTimeout(() => 
-    {
+	//setTimeout(() => 
+    //{
 		this.id = this.authService.getHorseId();
 		this.getHorse();
 		this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
 			this.user=ref
 		 });	
 			console.log('got horse data');
-	}, 750);
+	//}, 0);
 
 	// streamline buttons code, not working on it right now, fixing other more important code
 
@@ -144,7 +144,7 @@ getHorse(){
 		this.horse = res as HorseData;
 		console.log(this.horse);
   });
-	}, 750);
+	}, 0);
 }
 
 ms2Time(ms:number):string {
