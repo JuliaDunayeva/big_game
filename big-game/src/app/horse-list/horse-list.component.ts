@@ -53,19 +53,15 @@ export class HorseListComponent implements OnInit {
 
     getBreeds(): Breed[] {
       this.breedService.getBreeds().subscribe((result) => {
-        // console.log(result);
         this.allBreeds = result as Array<Breed>;
       });
-      //console.log(this.allBreeds);
       return this.allBreeds;
     }
 
     getColors(): Color[] {
       this.colorService.getColors().subscribe((result) => {
-        // console.log(result);
         this.allColors = result as Array<Color>;
       });
-      //console.log(this.allColors);
       return this.allColors;
     }
 
@@ -81,6 +77,7 @@ export class HorseListComponent implements OnInit {
         console.log(this.allHorseData);
       return this.allHorseData;
     }
+
     horseSelecteId: string;
     selectedHorse(event:any) {
       this.horseSelecteId = (<HTMLInputElement>event.target).id;
