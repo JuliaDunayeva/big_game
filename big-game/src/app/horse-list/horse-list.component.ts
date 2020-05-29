@@ -13,7 +13,7 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './horse-list.component.html',
   styleUrls: ['./horse-list.component.css']
 })
- 
+
 export class HorseListComponent implements OnInit {
 
     skills = ['Stamina','Gallop', 'Speed', 'Jumping'];
@@ -25,7 +25,7 @@ export class HorseListComponent implements OnInit {
     breedSelected: string;
     allColors: Color[];
     colorSelected: string;
-    Uid: string = this.authService.getUid();
+    Uid: string = this.authService.getUId();
     user: any;
     horseValues: {name, breed, color};
 
@@ -64,5 +64,5 @@ export class HorseListComponent implements OnInit {
       this.horseValues={name:name, breed:breed, color:color}
       console.log(this.name, this.breed, this.color, this.skill);
       this.horseDataService.createRandomHorse(this.horseValues, skill, this.Uid)
-    }
+    } 
 }
