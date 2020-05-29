@@ -1,6 +1,6 @@
 import { UserData } from 'src/app/user-data';
 import { UserDataService } from './../services/user-data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Color } from '../color';
@@ -11,15 +11,32 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 import { Command } from 'protractor';
 import { AuthService } from '../services/auth.service';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
+// @Component({
+//   selector: 'ngbd-modal-content',
+//   template: `
+//     <div class="modal-body">
+//     <p class="text-danger"> Email already exists</p>
+//     </div>
+//     <div class="modal-footer">
+//       <button type="button" class="btn btn-outline-dark" 
+//       (click)="activeModal.close('Close click')">Close</button>
+//     </div>
+//   `
+// })
+// export class NgbdModalContent {
+//   @Input() name;
 
+//   constructor(public activeModal: NgbActiveModal) { }
+// }
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent implements OnInit {
-  colors: Color[] = [];
+  // colors: Color[] = [];
   allColors: Color[];
   allBreeds: Breed[];
   allSkills: string[];
@@ -28,7 +45,6 @@ export class SignUpComponent implements OnInit {
   breedIndex: number = 0;
   colorIndex: number = 0;
   public validEmail: boolean = true;
-  public warning: string = ' Email already exists';
   public horseid: any;
   breedSelected: Breed;
   colorSelected: Color;
@@ -41,12 +57,13 @@ export class SignUpComponent implements OnInit {
     public breedService: BreedService,
     public userService: UserDataService,
     public horseService: HorseDataService,
-    public authService: AuthService
+    public authService: AuthService,
+    private modalService: NgbModal
   ) { }
 
   signupForm = this.fb.group({
     username: [null, [Validators.required, Validators.minLength(8)]],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email,]],
     password: [
       null,
       [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}')]
@@ -65,32 +82,36 @@ export class SignUpComponent implements OnInit {
   getColors(): Color[] {
     this.colorService.getColors().subscribe((result) => {
       console.log(result);
-      this.allColors = result as Array<Color>;
+      this.allColors = result as Color[];
+      console.log('All Colors ' + this.allColors[0].color)
+      console.log('All Colors ' + result)
     });
-    return this.colors;
+    return this.allColors;
   }
 
   getBreeds(): Breed[] {
-    this.breedService.getBreeds().subscribe((result) => {
-      console.log(result);
+      this.breedService.getBreeds().subscribe((result) => {
+      console.log(result)
       this.allBreeds = result as Array<Breed>;
-      this.skillSelected = this.allBreeds[0].getBreed();
-      console.log(this.allBreeds[0].getSkill());
+      console.log(this.allBreeds)
+      this.skillSelected = this.allBreeds[0].breed;
+      console.log(this.skillSelected);
     });
     return this.allBreeds;
   }
 
   getSkill(event: Event) {
-    this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf((<HTMLInputElement>event.target).id);
-    this.skillSelected = this.allBreeds[this.breedIndex].getSkill();
+    this.breedIndex = this.allBreeds.map(o => o.breed).indexOf((<HTMLInputElement>event.target).id);
+    this.skillSelected = this.allBreeds[0].skill;
+    console.log(this.skillSelected)
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
+    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
   }
 
   getImage(event: Event) {
-    this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf((<HTMLInputElement>event.target).id);
+    this.colorIndex = this.allColors.map(o => o.color).indexOf((<HTMLInputElement>event.target).id);
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath += this.allBreeds[this.breedIndex].getImagePath + '/' + this.allColors[this.colorIndex].getImageFile();
+    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
   }
 
   onSelectBreed() {
@@ -98,26 +119,33 @@ export class SignUpComponent implements OnInit {
     this.signupForm.value.breed
   }
 
-  onSelectColor() {}
+  onSelectColor() { }
 
   onSubmit() {
     let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
 
       if (a.length == 0) {
+        this.validEmail = true;
         this.userService.createUser(this.signupForm.value).then((res) => {
+         sessionStorage.setItem('uid', res.id)
+          
           this.horseService
             .createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
             .subscribe((e) => {
-              this.validEmail = true;
-              this.authService.setUid(res.id);
               this.router.navigate(['horse-list']);
             });
         })
-
+        
       } else {
         this.validEmail = false;
+        // this.open();
       }
       return a;
     });
   }
+
+  // open() {
+  //   const modalRef = this.modalService.open(NgbdModalContent);
+  //   modalRef.componentInstance.name = 'World';
+  // }
 }
