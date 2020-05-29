@@ -43,27 +43,27 @@
                             <tr>
                                 <td class="tu-col1">Trot:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.trot)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.trot/10)" [readonly]="readonly"></ngb-rating>
                                 </td>
-                                <td class="tu-col3">{{ horse?.trot }}</td>
+                                <td class="tu-col3">{{ horse?.trot }}.00</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Speed:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.speed)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.speed/10)" [readonly]="readonly"></ngb-rating>
                                 </td>
-                                <td class="tu-col3">{{ horse?.speed }}</td>
+                                <td class="tu-col3">{{ horse?.speed }}.00</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Dressage:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.dressage)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.dressage/10)" [readonly]="readonly"></ngb-rating>
                                 </td>
-                                <td class="tu-col3">{{ horse?.dressage }}</td>
+                                <td class="tu-col3">{{ horse?.dressage }}.00</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Energy:</td>
-                                <td class="sm-card">&nbsp; {{ horse?.energy }}</td>
+                                <td class="sm-card">&nbsp; {{ horse?.energy }} %</td>
                                 <td></td>
                             </tr>
                         </table>
@@ -75,9 +75,9 @@
             <div class="col-md-12 pad-left ">
                 <div class="display">
                     <input type="checkbox">
-                    <p class="color-tx-green"> Show competitions for low-level horses</p>
+                    <p class="color-tx-green">&nbsp; Show competitions for low-level horses</p>
                 </div>
-                <h5 class="color-tx-maroon card-title">Competitions open to all horses</h5>
+                <h5 class="color-tx-maroon card-title"> Competitions open to all horses</h5>
                 <div class="mytable-light-green ">
                     <table class="td-top">
                         <tr class="sm-card td-line">

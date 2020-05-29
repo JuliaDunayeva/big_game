@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
+import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
@@ -18,18 +19,22 @@ export class HorseListComponent implements OnInit {
 
     skills = ['Stamina','Gallop', 'Speed', 'Jumping'];
     skill: string;
-    breed: string;
-    color: string;
-    name: string;
     allBreeds: Breed[];
     breedSelected: string;
+    breed: string;
     allColors: Color[];
     colorSelected: string;
+    color: string;
+    name: string;
     Uid: string = this.authService.getUId();
     user: any;
     horseValues: {name, breed, color};
+    allHorseData: HorseData[];
+    public horse: HorseData;
 
-    constructor(private breedService: BreedService, private colorService: ColorService, private authService: AuthService,
+    constructor(private breedService: BreedService, 
+        private colorService: ColorService, 
+        private authService: AuthService,
         private userDataService: UserDataService,
         private horseDataService: HorseDataService) {
     }
@@ -37,9 +42,10 @@ export class HorseListComponent implements OnInit {
     ngOnInit(): void {
         this.getBreeds();
         this.getColors();
+        this.getHorseData();
         this.userDataService.getUserByID(this.Uid).subscribe((result) => {
           this.user = result as UserData;
-          console.log(this.user);
+          // console.log(this.user);
       });
       return this.user;
     }
@@ -65,4 +71,13 @@ export class HorseListComponent implements OnInit {
       console.log(this.name, this.breed, this.color, this.skill);
       this.horseDataService.createRandomHorse(this.horseValues, skill, this.Uid)
     } 
+
+    getHorseData(): HorseData[] {
+      this.horseDataService.getHorseData().subscribe(
+              result =>{
+                this.allHorseData = result as Array<HorseData>;
+              }
+          );
+    return this.allHorseData;
+    }
 }
