@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
-import { getLocaleDateFormat } from '@angular/common';
-import { Color } from '../color';
 import { ColorService } from '../services/color.service';
 import { BreedService } from '../services/breed.service';
-import { Breed } from '../breed';
 import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
@@ -25,80 +21,75 @@ import { AuthService } from '../services/auth.service';
 export class HorsePageComponent implements OnInit {
 	FeedButtons:HorsePageButtons=new HorsePageButtons;
 
-	colors: Color[] = [];
-	allColors: Color[]=[];
-	allBreeds:Breed[]=[];
 	allSkills: string[];
 	skill: string;
-	allHorseData: HorseData[];
-	userData: UserData[];
-
+	
 	breedIndex:number=-1;
 	colorIndex:number=-1;
     
-  public isRidesCollapsed = false;
-  public isCareCollapsed = false;
-  public isNightCollapsed = false;
-  public isTrainingCollapsed = false;
-  public isECCollapsed = false;
-  public isCompetitionCollapsed = false;
-  public isHistoryCollapsed = false;
-  public isBreedingCollapsed = false;
+  	public isRidesCollapsed = false;
+  	public isCareCollapsed = false;
+  	public isNightCollapsed = false;
+  	public isTrainingCollapsed = false;
+  	public isECCollapsed = false;
+  	public isCompetitionCollapsed = false;
+  	public isHistoryCollapsed = false;
+  	public isBreedingCollapsed = false;
    
-  active = 1;
-  ctrl = new FormControl(null, Validators.required);
-  public preventchange_1:true;
-  public readonly = true;
-  public value = 0;
+  	active = 1;
+  	ctrl = new FormControl(null, Validators.required);
+  	public preventchange_1:true;
+  	public readonly = true;
+  	public value = 0;
 
- public horse: HorseData = new HorseData;
+ 	public horse: HorseData = new HorseData;
 
- public id: string;
+ 	public id: string;
 
 // Paths for horse images
- public imagePath:string;
- public imageFile:string;
+ 	public imagePath:string;
+ 	public imageFile:string;
 
  // Buttons for care tab
- public feedButton : string;
- public drinkButton: string;
- public strokeButton:string;
+ 	public feedButton : string;
+ 	public drinkButton: string;
+ 	public strokeButton:string;
 
- public groomButton:string;
- public carrotButton:string;
- public mashButton:string;
+ 	public groomButton:string;
+ 	public carrotButton:string;
+ 	public mashButton:string;
 
 // Buttons for Ride tab
- public forestButton:string;
- public mountainButton:string;
+ 	public forestButton:string;
+ 	public mountainButton:string;
 
- public emptyButton:string;
+ 	public emptyButton:string;
 
- swap:boolean=false;
+ 	swap:boolean=false;
 
  //Buttons for night tab
- public putToBedButton:string
- public ageButton:string;
+ 	public putToBedButton:string
+ 	public ageButton:string;
 
- public ownerName:string;
+ 	public ownerName:string;
 
- public horseIDs:string[];
+ 	public horseIDs:string[];
 
- public myHorses:HorseData[];
+ 	public myHorses:HorseData[];
 
- public percent:number=100;
- public hours:number=24;
+ 	public percent:number=100;
+ 	public hours:number=24;
 
- public seconds:number;
- public taskSeconds:number;
+ 	public seconds:number;
+ 	public taskSeconds:number;
 
- public hour:number=23;
- public minute:number=60;;
+ 	public hour:number;
+ 	public minute:number;;
 
- public percentStr:string;
+ 	public percentStr:string;
 
- public totalseconds:number;
-public user:UserData;
+ 	public totalseconds:number;
+	public user:UserData;
   
 constructor(private router: ActivatedRoute, 
 	private http: HttpClient,
@@ -109,8 +100,6 @@ constructor(private router: ActivatedRoute,
 	}
 
 ngOnInit(): void {
-
-
 	setTimeout(() => 
     {
 		this.id = this.authService.getHorseId();
@@ -119,13 +108,13 @@ ngOnInit(): void {
 			this.user=ref
 		 });	
 			console.log('got horse data');
-		}, 750);
+	}, 750);
 
 	// streamline buttons code, not working on it right now, fixing other more important code
 
-	  this.FeedButtons.enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
-	  this.FeedButtons.disabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
-	  this.FeedButtons.enabled=true;
+	this.FeedButtons.enabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
+	this.FeedButtons.disabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
+	this.FeedButtons.enabled=true;
 
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
   	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
@@ -141,7 +130,6 @@ ngOnInit(): void {
 	this.emptyButton='assets/images/horse-page-icons/empty-button.png';
 
 	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
-
 	//this.imagePath = 'assets/images/horses/';
 	this.imagePath=this.imageFile;
 
@@ -179,8 +167,6 @@ RefreshEnergy(ms:number) {
     minutes = Math.floor(minutes % 60);
 	hours = Math.floor(hours % 24);
 	if (secs>10) this.horse.energy+=5;
-
-	console.log(hours + ":" + minutes + ":" + secs);
     return hours + ":" + minutes + ":" + secs + "." + ms;
 }
 
@@ -195,6 +181,7 @@ public FeedButton(){
 	}
 
 	if (this.horse.energy>0) this.horse.energy-=5;
+	// subtract seconds for 24hour period from how many seconds for task
 	this.totalseconds=(this.seconds-this.taskSeconds);
 	this.hour=this.totalseconds/3600;
 	
