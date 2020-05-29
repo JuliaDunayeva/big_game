@@ -47,20 +47,13 @@
                 </div>
                 <div>
                     <button class="btn-shops btn-shops-lrg pad-left" 
-                    (click)="createCompetition(compName.value, breed.value, compType.value)">Create</button>
+                    (click)="createCompetition(compName.value, breed.value, compType.value)" 
+                    [routerLink]="['/competition-page']" routerLinkActive="router-link-active">
+                    Create</button>
                 </div>
             </form>
         </div>
         <hr>
-        <!-- <div> 
-            <ol>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ol>
-        </div> -->
     </div> <!-- folder end-->
     <br><br>
     <app-footer></app-footer>

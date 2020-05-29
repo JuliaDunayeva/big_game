@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
 import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
 import { AuthService } from '../services/auth.service';
@@ -39,8 +37,7 @@ export class CompetitionPageComponent implements OnInit {
 }
 
   getHorseData(): HorseData[] {
-    this.horseDataService.getHorseData().subscribe(
-            result =>{
+    this.horseDataService.getHorseData().subscribe(result =>{
               this.allHorseData = result as Array<HorseData>;
             }
         );
