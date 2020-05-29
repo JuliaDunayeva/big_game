@@ -215,22 +215,22 @@ getBreeds(){
 	//console.log(this.breedService.test());
 	this.breedService.getBreeds().subscribe(
 	  result => {
-			console.log(result);
+		//	console.log(result);
 	   	    this.allBreeds = result as Array<Breed>;
 	  }
 	)
-	console.log(this.allBreeds);
+	//console.log(this.allBreeds);
 	return this.allBreeds;
 } // end of getBreeds() function
     
     getColors(): Color[] {
 	this.colorService.getColors().subscribe(
 	  result =>{
-		console.log(result);
+	//	console.log(result);
 	    this.allColors = result as Array<Color>;
 	  }
 	);
-	console.log(this.allColors);
+//	console.log(this.allColors);
 	return this.allColors;
 } // end of getColors() function
 
