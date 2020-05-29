@@ -104,16 +104,17 @@ export class SignUpComponent implements OnInit {
     let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
 
       if (a.length == 0) {
+        this.validEmail = true;
         this.userService.createUser(this.signupForm.value).then((res) => {
+         sessionStorage.setItem('uid', res.id)
+          
           this.horseService
             .createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
             .subscribe((e) => {
-              this.validEmail = true;
-              this.authService.setUid(e.id);
-              this.router.navigate(['horse-page/' + e.id]);
+              this.router.navigate(['horse-list']);
             });
         })
-
+        
       } else {
         this.validEmail = false;
       }
