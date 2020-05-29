@@ -29,12 +29,22 @@ export class BlackMarketPageComponent implements OnInit {
       console.log(this.allHorses)
     });
   }
-    
+
+  idOfHorse: string;
+  genderOfHorse: string;
+  onHorseSelect(gender: string, id) {
+    console.log(gender);
+    this.genderOfHorse = gender
+    this.idOfHorse = id;
+  }
+
+  
   horse:HorseData
-  swapGender(genderform: NgForm){
-    const gender = this.defineGender(this.horse.gender)
-    const id = this.horse.id
-    this.horseService.updateHorseGender(id, gender)
+  swapGender(){
+    console.log(this.genderOfHorse);
+    const gender = this.defineGender(this.genderOfHorse)
+    console.log(gender);
+    this.horseService.updateHorseGender(this.idOfHorse, gender)
   }
 
   defineGender(gender: string): string {

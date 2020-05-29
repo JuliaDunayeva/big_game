@@ -134,7 +134,6 @@ export class HorseDataService {
 				return horse;
 			})
 		);
-<<<<<<< HEAD
 	}
 	 
 	updateHorseGender(id: string, gender: String) {
@@ -142,7 +141,4 @@ export class HorseDataService {
 			'gender': gender
 		})
 	}
-=======
-	} //end of getHorseById()
->>>>>>> sandbox_pre-develop
 }
