@@ -15,8 +15,7 @@
                     <label class="d-inline-flex align-middle breed-label">
                         {{ breed.breed }}
                         <input class="breed-input" type="radio" formControlName="breed" [id]="breed.breed" name="breed"
-                            [value]="breed.breed"
-                            (click)="getSkill($event)" />
+                            [value]="breed.breed" (click)="getSkill($event)" />
                         <span class="checkmark radio-border"></span>
                     </label>
                 </div>
@@ -39,8 +38,9 @@
                 <div class="circle-right"></div>
                 <div class="text-left coat-item" *ngFor="let color of allColors">
                     <label class="d-inline-flex align-middle coat-label">
-                        <input class="coat-input" (click)="getImage($event)" type="radio" formControlName="color" [id]="color.color" name="color" [value]="color.color">
-                            <span class="checkmark radio-border"></span>
+                        <input class="coat-input" (click)="getImage($event)" type="radio" formControlName="color"
+                            [id]="color.color" name="color" [value]="color.color">
+                        <span class="checkmark radio-border"></span>
                         {{color.color}}
                     </label>
                 </div>
@@ -72,9 +72,10 @@
                 <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
                     class="text-danger">Please enter a valid email!
                 </span>
-                <span *ngIf="!validEmail" class="text-danger">
+                <!-- <app-alert *ngIf="!validEmail"></app-alert>  -->
+                <!-- <span *ngIf="!validEmail" class="text-danger">
                     {{warning}}
-                </span>
+                </span> -->
             </div>
             <div>
                 <label for="password">Password</label>
@@ -98,7 +99,7 @@
                 != signupForm.get('password').value" class="text-danger">
                     The passwords entered do not match
                 </span>
-               
+
             </div>
             <div class="center">
                 <div>
@@ -116,8 +117,7 @@
                 </div>
                 <br />
                 <div>
-                    <button class="btn-signup btn-lg" type="submit" value="Play" 
-                    [disabled]="!signupForm.valid">
+                    <button class="btn-signup btn-lg" type="submit" value="Play" [disabled]="!signupForm.valid">
                         Play
                     </button>
                 </div>
