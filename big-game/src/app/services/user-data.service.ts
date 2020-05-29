@@ -9,10 +9,6 @@ import { UserData } from '../user-data';
 })
 export class UserDataService {
 
-  private passes: number = 100;
-  private equus: number = 2500;
-  private created: Date;
-
   constructor(public db: AngularFirestore) { }
 
   getUserData() {
@@ -29,8 +25,8 @@ export class UserDataService {
       userName: value.username,
       password: value.password,
       email: value.email,
-      equus: value.equus,
-      passes: value.passes,
+      equus: 2500,
+      passes: 100,
       created: today,
     })
   }
