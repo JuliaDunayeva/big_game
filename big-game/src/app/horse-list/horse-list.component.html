@@ -32,8 +32,11 @@
         <div class="row pad-left display">
             <Div class="col-sm-5 mycard-light-green">
                 <br>
-                <form class="display-vert">
-                    <label class="pad-left display-vert" *ngFor="let horse of allHorseData">{{ horse.name }}</label>
+                <form>
+                    <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                        <input type="radio"> &nbsp; &nbsp;
+                        {{ horse.name }} - {{ horse.breed }}
+                    </label>
                 </form>
                 <br>
             </Div>
