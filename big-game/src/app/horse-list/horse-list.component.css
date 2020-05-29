@@ -11,7 +11,8 @@ p {
 }
 
 .centered {
-    align-self: center;
+    justify-content: center;
+    padding-top: 25px;
 }
 
 .move-left1 {
@@ -49,6 +50,7 @@ input {
 .display-vert {
     display: block;
     margin: -2px 0;
+    max-height: 250px;
 }
 
 .hrtop {

@@ -29,8 +29,9 @@ export class HorseListComponent implements OnInit {
     Uid: string = this.authService.getUId();
     user: any;
     horseValues: {name, breed, color};
-    allHorseData: HorseData[];
+    allHorseData: Array<any>;
     public horse: HorseData;
+    success = 'A new horse has been added';
 
     constructor(private breedService: BreedService, 
         private colorService: ColorService, 
@@ -73,15 +74,14 @@ export class HorseListComponent implements OnInit {
 
     createRandomHorse(name:string, breed: string, color:string, skill:string){
       this.horseValues={name:name, breed:breed, color:color}
-      console.log(this.name, this.breed, this.color, this.skill);
       this.horseDataService.createRandomHorse(this.horseValues, skill, this.Uid)
+      return alert(this.success);
     } 
 
     getHorseData(): HorseData[] {
-      this.horseDataService.getHorseData().subscribe(
-              result =>{
-                this.allHorseData = result as Array<HorseData>;
-              }
+        this.horseDataService.getHorseData().subscribe((result) => {
+        this.allHorseData = result;
+      }
           );
           //console.log(this.allHorseData);
     return this.allHorseData;
