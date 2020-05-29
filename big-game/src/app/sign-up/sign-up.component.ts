@@ -109,8 +109,8 @@ export class SignUpComponent implements OnInit {
             .createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
             .subscribe((e) => {
               this.validEmail = true;
-              this.authService.setUid(e.id);
-              this.router.navigate(['horse-page/' + e.id]);
+              this.authService.setUid(res.id);
+              this.router.navigate(['horse-list']);
             });
         })
 
