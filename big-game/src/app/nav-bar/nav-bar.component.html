@@ -24,7 +24,7 @@
                                 <img class="equus" src="./assets/images/game_pieces/equus.png">
                             </div>
                             <div class="inline-block">
-                                <h6>1197</h6>
+                                <h6>{{ user.equus }}</h6>
                                 <!-- DB Value of tokens to be placed here-->
                                 <p class="font-sm">Equus</p>
                             </div>
@@ -40,7 +40,7 @@
                                 <img class="equus" src="./assets/images/game_pieces/pass.png">
                             </div>
                             <div class="inline-block">
-                                <h6>10</h6>
+                                <h6>{{ user.passes }}</h6>
                                 <!-- DB Value of passes to be placed here-->
                                 <p class="font-sm">Passes</p>
                             </div>
@@ -66,7 +66,7 @@
                         <button ngbDropdownItem class="hover-box disabled">
               <div class="inline-block">
                 <i class="font-xl user circle icon"></i>
-                <p class="font-xmd">User Name</p>
+                <p class="font-xmd">{{ user.userName }}</p>
               </div>
             </button>
                         <div class="dropdown-divider hover-box"></div>

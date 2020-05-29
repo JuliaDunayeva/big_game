@@ -25,7 +25,6 @@ export class HorseDataService {
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
 		//.valueChanges();
 		.snapshotChanges();
-
 	}
 
 	setHorseEnergy(id:string, num:number){
@@ -37,7 +36,7 @@ export class HorseDataService {
 	}
 
 	getHorseData() {
-		return this.db.collection('/horse_data').valueChanges();
+		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid'))).valueChanges()
 	}
 
 	getRandStats(): number {
