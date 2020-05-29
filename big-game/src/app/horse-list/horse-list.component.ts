@@ -1,57 +1,68 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { UserData } from '../user-data';
 import { UserDataService } from '../services/user-data.service';
-import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
-import { AuthService } from '../services/auth.service';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-//import { FormControl, Validators } from '@angular/forms';
+import { ColorService } from '../services/color.service';
+import { Color } from '../color';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-horse-list',
   templateUrl: './horse-list.component.html',
   styleUrls: ['./horse-list.component.css']
 })
- 
+
 export class HorseListComponent implements OnInit {
 
-    public allBreeds: Breed[];
-	public breedSelected: string;
-    public id: string; // horse id
-    public uid: string; // user id
-    public horse: HorseData; // current horse data
-    public allHorseData: HorseData[]; 
-    public userData: UserData[];
-    db: any;
+    skills = ['Stamina','Gallop', 'Speed', 'Jumping'];
+    skill: string;
+    breed: string;
+    color: string;
+    name: string;
+    allBreeds: Breed[];
+    breedSelected: string;
+    allColors: Color[];
+    colorSelected: string;
+    Uid: string = this.authService.getUId();
+    user: any;
+    horseValues: {name, breed, color};
 
-constructor(private router: ActivatedRoute, private breedService: BreedService,
-        private http: HttpClient,
-        public userDataService: UserDataService,
-        public horseDataService: HorseDataService,
-        public authService: AuthService) {
+    constructor(private breedService: BreedService, private colorService: ColorService, private authService: AuthService,
+        private userDataService: UserDataService,
+        private horseDataService: HorseDataService) {
+    }
+
+    ngOnInit(): void {
+        this.getBreeds();
+        this.getColors();
+        this.userDataService.getUserByID(this.Uid).subscribe((result) => {
+          this.user = result as UserData;
+          console.log(this.user);
+      });
+      return this.user;
+    }
+
+    getBreeds(): Breed[] {
+      this.breedService.getBreeds().subscribe((result) => {
+        console.log(result);
+        this.allBreeds = result as Array<Breed>;
+      });
+      return this.allBreeds;
+    }
+
+    getColors(): Color[] {
+      this.colorService.getColors().subscribe((result) => {
+        console.log(result);
+        this.allColors = result as Array<Color>;
+      });
+      return this.allColors;
+    }
+
+    createRandomHorse(name:string, breed: string, color:string, skill:string){
+      this.horseValues={name:name, breed:breed, color:color}
+      console.log(this.name, this.breed, this.color, this.skill);
+      this.horseDataService.createRandomHorse(this.horseValues, skill, this.Uid)
+    } 
 }
-
-ngOnInit(): void {
-    this.getHorse();
-} // end of ngOnInit()
-  
-addHorse(){
-} //end of addHorse()
-
-getHorse(){
-  setTimeout(() => 
-  {
-    this.horseDataService.getHorsesByUid().subscribe(res => {
-        this.authService.sethorseId(res[0].payload.doc.id);
-        this.id=res[0].payload.doc.id;
-        console.log('got horse id ->> '+this.id);
-    }); //end of getHorsesByUid() callback
- }, 750); //end of setTimeout() callback
-}//end of getHorse()
-
-} //end of component

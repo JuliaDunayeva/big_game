@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Breed } from 'src/app/breed';
 import { BreedService } from 'src/app/services/breed.service';
 import { CompetitionService } from 'src/app/services/competition.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-competitions',
@@ -37,5 +36,4 @@ export class CompetitionsComponent implements OnInit {
 		return alert(this.success);
 	}
 
-	getCompetitions() {}
 }
