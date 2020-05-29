@@ -34,7 +34,7 @@
                 <br>
                 <form class=" display">
                     <input type="radio" name="horseName" id="">
-                    <label class="pad-left">{{ allHorseData }}</label>
+                    <label class="pad-left" *ngFor="let horse of allHorseData">{{ horse.name }}</label>
                 </form>
                 <br>
             </Div>
