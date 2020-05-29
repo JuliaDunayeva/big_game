@@ -16,15 +16,24 @@ export class HorseDataService {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
 			map(res => { 
 				const horse = res.payload.data() as HorseData;
+				horse.id = res.payload.id;
 				return horse;
 			})			
 		);
 	}
 
-	getHorsesByUid() {
-		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
-		//.valueChanges();
-		.snapshotChanges();
+	getHorsesByUid(): Observable<HorseData[]>{
+		return this.db.collection('/horse_data', ref => ref.where(
+			'userId', '==', sessionStorage.getItem('uid'))).snapshotChanges().pipe(
+				map(actions => {
+					return actions.map(res => {
+						const horse = res.payload.doc.data() as HorseData;
+						const id = res.payload.doc.id;
+						return {id, ...horse}
+					})
+				
+			})
+		);
 	}
 
 	setHorseEnergy(id:string, num:number){
