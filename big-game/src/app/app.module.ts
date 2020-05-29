@@ -21,9 +21,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { MyHorsesComponent } from './my-horses/my-horses.component';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
-import { AlertComponent } from './alert/alert.component';
+import { HorseListComponent } from './horse-list/horse-list.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +38,8 @@ import { AlertComponent } from './alert/alert.component';
     PlayBarComponent,
     LoginBtnComponent,
     FlagsComponent,
-    MyHorsesComponent,
     CompetitionsComponent,
-    AlertComponent
+    HorseListComponent
   ],
   
   imports: [
@@ -54,7 +52,7 @@ import { AlertComponent } from './alert/alert.component';
     AngularFirestoreModule,
     HttpClientModule,
     AngularFireDatabaseModule,
-     NgCircleProgressModule.forRoot({
+    NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,
       outerStrokeWidth: 16,

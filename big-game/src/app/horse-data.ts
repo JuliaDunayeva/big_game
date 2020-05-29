@@ -2,7 +2,7 @@ import { Color } from './color';
 import { Breed } from './breed';
 
 export class HorseData {
-	id: string;
+	id?: string;
 	breed: string;
 	color: string;
 	skill: string;
@@ -28,7 +28,7 @@ export class HorseData {
 	tr_stamina: number;
 	tr_trot: number;
 	trot: number;
-	c: Color;
-	b: Breed;
+	c?: Color;
+	b?: Breed;
 	isInBed: boolean;
 }

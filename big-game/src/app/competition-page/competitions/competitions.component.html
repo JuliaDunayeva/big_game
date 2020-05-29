@@ -20,7 +20,7 @@
         </div>
         <div class="row"> <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon card-title">
-                <hr class="">
+                <hr>
                 <h3 class="no-top-margin display">Create a Competition</h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Create a competition for horses to compete in. </p>
@@ -47,21 +47,14 @@
                 </div>
                 <div>
                     <button class="btn-shops btn-shops-lrg pad-left" 
-                    (click)="createCompetition(compName.value, breed.value, compType.value)">Create</button>
+                    (click)="createCompetition(compName.value, breed.value, compType.value)" 
+                    [routerLink]="['/competition-page']" routerLinkActive="router-link-active" >
+                    <i class="shopping cart icon "></i>
+                    100e</button>
                 </div>
             </form>
         </div>
         <hr>
-        <div>
-            
-            <ol>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ol>
-        </div>
     </div> <!-- folder end-->
     <br><br>
     <app-footer></app-footer>

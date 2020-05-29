@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm, FormBuilder, Validators } from '@angular/forms';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { UserData } from 'src/app/user-data';
-
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-btn',
@@ -12,37 +12,24 @@ import { UserData } from 'src/app/user-data';
 })
 export class LoginBtnComponent implements OnInit {
   horseids:string[];
+  
   constructor(private router: Router,
     private form: FormBuilder,
-    private userService: UserDataService) {}
+    private userService: UserDataService,private authService:AuthService) {}
   
     logInForm= this.form.group({
       email: [ null, [ Validators.required, Validators.minLength(8) ] ],
-      password: [ null, [ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]
-      ],
+      password: [ null, [ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]],
     });
-  ngOnInit(): void {
-  }
+
+   ngOnInit(): void {
+    }
   
-  logIn() {
-    //this.router.navigate(['horse-page/:id'])
-    //let horse1_id:string;
-    //horse1_id="horse1_id";
-    //this.horseids=["horse1","horse2"];  
+   logIn() {
     this.userService.logInUser(this.logInForm).subscribe(res => {
-     let result=res[0].payload.doc.get("horse1_id");
-     sessionStorage.setItem('userid',res[0].payload.doc.get("userName"));
-     if (!result)  result="L8oPf32haDv3lcAzepVA";
-     this.router.navigate(['horse-page/'+result])
-     
-     //sessionStorage.setItem('horseid',result);
-    
-    // sessionStorage.setItem('horseids',this.horseids[0]);
-     //sessionStorage.setItem('horseids',this.horseids[0]);
-     //console.log(result);
-     
-      // this.router.navigate( res[0].payload.doc.id
+      console.log(res)
+     this.authService.setUid(res[0].payload.doc.id)
+     this.router.navigate(['horse-list'])
     })
   }
-
 }
