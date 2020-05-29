@@ -23,7 +23,7 @@ export class Breed {
 		return this.skill
 	}
 
-	getImagePath() {
+	getImagePath(): string {
 		return this.img_path;
 	}
 }
