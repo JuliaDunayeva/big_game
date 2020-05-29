@@ -26,8 +26,8 @@ export class HorsePageComponent implements OnInit {
 	FeedButtons:HorsePageButtons=new HorsePageButtons;
 
 	colors: Color[] = [];
-	allColors: Color[];
-	allBreeds:Breed[];
+	allColors: Color[]=[];
+	allBreeds:Breed[]=[];
 	allSkills: string[];
 	skill: string;
 	allHorseData: HorseData[];
@@ -102,12 +102,11 @@ public user:UserData;
   
 constructor(private router: ActivatedRoute, 
 	private http: HttpClient,
-	public colorService: ColorService, 
-	public breedService: BreedService,
+	private colorService: ColorService, 
+	private breedService: BreedService,
 	private userDataService: UserDataService,
-	public horseDataService: HorseDataService, private authService:AuthService) {	
+	private horseDataService: HorseDataService, private authService:AuthService) {	
 	}
-
 
 ngOnInit(): void {
 	
@@ -134,9 +133,6 @@ ngOnInit(): void {
 	  this.FeedButtons.disabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
 	  this.FeedButtons.enabled=true;
 
-	//  this.ownerName=sessionStorage.getItem('userid');
-	  //console.log(sessionStorage.getItem("horseids"));
-	
 	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
   	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
 	this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
@@ -150,7 +146,7 @@ ngOnInit(): void {
 
 	this.emptyButton='assets/images/horse-page-icons/empty-button.png';
 
-	//this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
+	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
 
 	this.imagePath = 'assets/images/horses/';
 
@@ -203,46 +199,51 @@ RefreshEnergy(ms:number) {
     return hours + ":" + minutes + ":" + secs + "." + ms;
 }
 
-getBreeds(): Breed[]{
+getBreeds(){
+	//console.log(this.breedService.test());
 	this.breedService.getBreeds().subscribe(
 	  result => {
+			console.log(result);
 	   	    this.allBreeds = result as Array<Breed>;
 	  }
 	)
-	return this.allBreeds;
+	console.log(this.allBreeds);
+	//return this.allBreeds;
 } // end of getBreeds() function
     
     getColors(): Color[] {
 	this.colorService.getColors().subscribe(
 	  result =>{
+		console.log(result);
 	    this.allColors = result as Array<Color>;
 	  }
 	);
+	console.log(this.allColors);
 	return this.allColors;
 } // end of getColors() function
 
 LoadHorseImage(){
 	this.imagePath = 'assets/images/horses';
 
-	//if (this.allBreeds!=null) {
+	if (this.allBreeds!=null) {
 		this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf(this.horse.breed);
 		console.log(this.breedIndex);
-	//}
-	//if (this.allColors!=null){
+	}
+	if (this.allColors!=null){
 		this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf(this.horse.color);
-	console.log(this.colorIndex);
-		//}
+		console.log(this.colorIndex);
+	}
 
-	//if (this.breedIndex>-1 && this.colorIndex>-1) {
+	if (this.breedIndex>-1 && this.colorIndex>-1) {
 		this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
 		console.log(this.imagePath);
-	//} else {
-	//	this.imagePath=this.imageFile;
-	//}
+	} else {
+		this.imagePath=this.imageFile;
+	}
 } // end of LoadHorseImage() function
 
 public FeedButton(){
-	this.changeButtons(this.FeedButtons,);
+	this.changeFeedButtons(this.FeedButtons,);
 	// TOTO reference data
 	//8,274 seconds = 8,274 seconds ÷ 3,600
 	//8,274 seconds = 2.29833 hours
@@ -300,6 +301,8 @@ public FeedButton(){
 	this.percentStr=this.ms2Time(this.totalseconds);
 
 	// write data back to database
+	//this.horse.morale=0;
+	//this.horseDataService.setHorseMorale(this.authService.getHorseId(),this.horse.morale);
 	this.horseDataService.setHorseEnergy(this.authService.getHorseId(),this.horse.energy);
 	// TOTO remove later if not needed
 	//this.RefreshEnergy(this.totalseconds);
@@ -317,7 +320,7 @@ public FeedButton(){
 	this.percent= parseFloat(this.percent.toString()).toFixed(2);*/
 }
 
-public changeButtons(button:HorsePageButtons){
+public changeFeedButtons(button:HorsePageButtons){
 button.enabled=!button.enabled;
 	//this.swap=!this.swap;
 	//console.log('pressed button -->'+button);

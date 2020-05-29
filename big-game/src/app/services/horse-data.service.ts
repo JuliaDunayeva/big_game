@@ -19,14 +19,28 @@ export class HorseDataService {
 				return horse;
 			})			
 		);
-	}
+	}//end of getHorsesByID()
 
 	getHorsesByUid() {
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
-		//.valueChanges();
 		.snapshotChanges();
+	}// end of GetHorsesByUid()
 
-	}
+	setHorseMorale(id:string,num:number){
+		let cityRef = this.db.collection('/horse_data').doc(id);
+
+		let setWithOptions = cityRef.set({
+			"morale":num
+		}, {merge: true});
+	} // end of setHorseMorale()
+
+	setHorseHealth(id:string,num:number){
+		let cityRef = this.db.collection('/horse_data').doc(id);
+
+		let setWithOptions = cityRef.set({
+			"health":num
+		}, {merge: true});
+	}//end of setHorseHealth()
 
 	setHorseEnergy(id:string, num:number){
 		let cityRef = this.db.collection('/horse_data').doc(id);
@@ -34,7 +48,7 @@ export class HorseDataService {
 		let setWithOptions = cityRef.set({
 		  "energy":num
 		}, {merge: true});
-	}
+	}//end of setHorseEnergy()
 
 	getHorseData() {
 		return this.db.collection('/horse_data').valueChanges();
@@ -42,18 +56,24 @@ export class HorseDataService {
 
 	getRandStats(): number {
 		return Math.floor(Math.random() * 100 + 1);
-	}
+	}//end of getRandStats()
 
 	getRandGender(): string {
 		if (Math.random() < 0.5) {
 			return 'stallion';
 		}
 		return 'mare';
-	}
+	} //end of getRandGender()
 
 	SetUserIDForHorse(horseid:string,userId:string){
-		this.db.collection("/horse_data").doc(horseid).set(userId);
-	}
+		let cityRef = this.db.collection('/horse_data').doc(horseid);
+
+		let setWithOptions = cityRef.set({
+			"userId":userId
+		}, {merge: true});
+		//TODO - remove this later
+		//this.db.collection("/horse_data").doc(horseid).set(userId);
+	} //end of SetUserIDForHorse()
 
 	createRandomHorse(value, skill, userId): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
@@ -93,7 +113,7 @@ export class HorseDataService {
 				tr_jumping: 0
 			})
 		);
-	}
+	}//end of createRandomHorse()
 
 	getHorseById(id: string): Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
@@ -102,5 +122,5 @@ export class HorseDataService {
 				return horse;
 			})
 		);
-	}
+	} //end of getHorseById()
 }
