@@ -3,9 +3,11 @@
     color: maroon;
     width: 120px;
 }
+
 .label {
     margin-top: -6px;
 }
+
 p {
     margin-bottom: 5px;
 }
@@ -35,7 +37,7 @@ input {
     font-size: 1rem;
     margin-left: 0.5em;
     background-color: #F0F0B2;
-  }
+}
 
 .pad-left { /* common spacing to set left margin in folder */
     margin-left: 1rem;
@@ -67,14 +69,13 @@ input {
 .td-top {
     border: 2px solid rgb(192, 189, 113);
     border-radius: 5px;
-  }
+}
 
-  .td-line {
+.td-line {
     border-bottom: 2px solid rgb(192, 189, 113);
     border-radius: 5px;
-  }
+}
   
-
 .mycard-light-green {
     background-color: #F0F0B2;
     color: #663300;

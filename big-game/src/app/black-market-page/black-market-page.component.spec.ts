@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BlackMarketPageComponent } from './black-market-page.component';
 
 describe('BlackMarketPageComponent', () => {

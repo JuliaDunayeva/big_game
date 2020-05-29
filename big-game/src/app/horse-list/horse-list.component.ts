@@ -57,7 +57,7 @@ export class HorseListComponent implements OnInit {
 
     getBreeds(): Breed[] {
       this.breedService.getBreeds().subscribe((result) => {
-        //console.log(result);
+        // console.log(result);
         this.allBreeds = result as Array<Breed>;
       });
       //console.log(this.allBreeds);
@@ -66,7 +66,7 @@ export class HorseListComponent implements OnInit {
 
     getColors(): Color[] {
       this.colorService.getColors().subscribe((result) => {
-        //console.log(result);
+        // console.log(result);
         this.allColors = result as Array<Color>;
       });
       return this.allColors;
@@ -79,11 +79,8 @@ export class HorseListComponent implements OnInit {
     } 
 
     getHorseData(): HorseData[] {
-        this.horseDataService.getHorseData().subscribe((result) => {
-        this.allHorseData = result;
-      }
-          );
-          //console.log(this.allHorseData);
-    return this.allHorseData;
+      let test =  this.horseDataService.getHorseData().subscribe(
+        res => this.allHorseData = res);
+      return this.allHorseData;
     }
 }

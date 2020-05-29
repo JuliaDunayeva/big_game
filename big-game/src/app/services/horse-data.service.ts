@@ -52,7 +52,7 @@ export class HorseDataService {
 	}//end of setHorseEnergy()
 
 	getHorseData() {
-		return this.db.collection('/horse_data').valueChanges();
+		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid'))).valueChanges()
 	}
 
 	getRandStats(): number {
