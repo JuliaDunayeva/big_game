@@ -74,13 +74,17 @@ export class HorseListComponent implements OnInit {
     } 
 
     getHorseData(): HorseData[] {
-      let test =  this.horseDataService.getHorseData().subscribe(
+      let test =  this.horseDataService.getHorsesByUid().subscribe(
         res => this.allHorseData = res);
+        console.log(this.allHorseData);
       return this.allHorseData;
     }
+    horseSelecteId: string;
+    selectedHorse(event:any) {
+      this.horseSelecteId = (<HTMLInputElement>event.target).id;
+    }
 
-    selectHorse(event:any) {
-      (<HTMLInputElement>event.target).id
-
+    onSelectHorse() {
+      this.authService.sethorseId(this.horseSelecteId)
     }
 }
