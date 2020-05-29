@@ -19,7 +19,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  colors: Color[] = [];
+  // colors: Color[] = [];
   allColors: Color[];
   allBreeds: Breed[];
   allSkills: string[];
@@ -65,32 +65,36 @@ export class SignUpComponent implements OnInit {
   getColors(): Color[] {
     this.colorService.getColors().subscribe((result) => {
       console.log(result);
-      this.allColors = result as Array<Color>;
+      this.allColors = result as Color[];
+      console.log('All Colors ' + this.allColors[0].color)
+      console.log('All Colors ' + result)
     });
-    return this.colors;
+    return this.allColors;
   }
 
   getBreeds(): Breed[] {
-    this.breedService.getBreeds().subscribe((result) => {
-      console.log(result);
+      this.breedService.getBreeds().subscribe((result) => {
+      console.log(result)
       this.allBreeds = result as Array<Breed>;
-      this.skillSelected = this.allBreeds[0].getBreed();
-      console.log(this.allBreeds[0].getSkill());
+      console.log(this.allBreeds)
+      this.skillSelected = this.allBreeds[0].breed;
+      console.log(this.skillSelected);
     });
     return this.allBreeds;
   }
 
   getSkill(event: Event) {
-    this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf((<HTMLInputElement>event.target).id);
-    this.skillSelected = this.allBreeds[this.breedIndex].getSkill();
+    this.breedIndex = this.allBreeds.map(o => o.breed).indexOf((<HTMLInputElement>event.target).id);
+    this.skillSelected = this.allBreeds[0].skill;
+    console.log(this.skillSelected)
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
+    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
   }
 
   getImage(event: Event) {
-    this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf((<HTMLInputElement>event.target).id);
+    this.colorIndex = this.allColors.map(o => o.color).indexOf((<HTMLInputElement>event.target).id);
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath += this.allBreeds[this.breedIndex].getImagePath + '/' + this.allColors[this.colorIndex].getImageFile();
+    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
   }
 
   onSelectBreed() {
