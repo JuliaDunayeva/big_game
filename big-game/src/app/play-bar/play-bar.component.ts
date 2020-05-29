@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayBarComponent implements OnInit {
   
+  id:any;
+
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.id=sessionStorage.getItem('horseid');
+  }
   
+
 }
