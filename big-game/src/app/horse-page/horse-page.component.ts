@@ -224,6 +224,27 @@ toggle() {
 	}
 } // end of toggle() function
 
+/*LoadHorseImage(){
+	this.imagePath = 'assets/images/horses';
+
+	//if (this.allBreeds!=null) {
+		this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf(this.horse.breed);
+		console.log(this.breedIndex);
+	//}
+	//if (this.allColors!=null){
+		this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf(this.horse.color);
+	console.log(this.colorIndex);
+		//}
+
+	//if (this.breedIndex>-1 && this.colorIndex>-1) {
+		this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
+		console.log(this.imagePath);
+	//} else {
+	//	this.imagePath=this.imageFile;
+	//}
+} // end of LoadHorseImage() function
+*/
+
 public beforeChange($event: NgbPanelChangeEvent) {
     if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
       $event.preventDefault();
