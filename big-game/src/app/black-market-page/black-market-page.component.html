@@ -75,7 +75,22 @@
                                                         <h3 class="box-head">Zeus' Lightning Bolt</h3>
                                                         <p class="b-st ">Zeus' Lightning Bolt enables you to change the gender of your horses. Mares in gestation and geldings cannot benefit from this item.</p>
                                                     </div>
-                                                    <button class="btn-shops btn-shops-lrg">Change Gender</button>
+                                                    <div>
+                                                        <h3>List of the all the horses</h3>
+                                                    </div>
+                                                    <form>
+                                                        <div *ngFor="let horse of allHorses">
+                                                            <label >
+                                                                <input type="radio"  [id]="horse.id" name="horse"
+                                                                    [value]="horse.id" (click)="onHorseSelect(horse.gender, horse.id)"/>
+                                                                <span class="checkmark radio-border"></span>
+                                                                {{ horse.name}} - {{horse.gender}}
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                             <button class="btn-shops btn-shops-lrg" (click)='swapGender()'>Change Gender</button>
+                                                        </div>
+                                                    </form> 
                                                 </div>
                                             </div>
                                         </li>
