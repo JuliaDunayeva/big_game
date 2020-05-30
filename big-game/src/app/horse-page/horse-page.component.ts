@@ -11,6 +11,8 @@ import { HorseData } from '../horse-data';
 import { HorseDataService} from '../services/horse-data.service';
 import { HorsePageButtons } from '../horse-page-buttons';
 import { AuthService } from '../services/auth.service';
+import { Breed } from '../breed';
+import { Color } from '../color';
 
 @Component({
   selector: 'app-horse-page',
@@ -23,6 +25,8 @@ export class HorsePageComponent implements OnInit {
 
 	allSkills: string[];
 	skill: string;
+	allBreeds: Breed[];
+	allColors: Color[];
 	
 	breedIndex:number=-1;
 	colorIndex:number=-1;
@@ -102,6 +106,9 @@ constructor(private router: ActivatedRoute,
 ngOnInit(): void {
 	//setTimeout(() => 
     //{
+		this.getBreeds();
+		this.getColors();
+		
 		this.id = this.authService.getHorseId();
 		this.getHorse();
 		this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
@@ -244,6 +251,22 @@ toggle() {
 	//}
 } // end of LoadHorseImage() function
 */
+
+getBreeds(): Breed[] {
+	this.breedService.getBreeds().subscribe((result) => {
+	  this.allBreeds = result as Array<Breed>;
+	});
+	console.log(this.allBreeds);
+	return this.allBreeds;
+  }
+
+  getColors(): Color[] {
+	this.colorService.getColors().subscribe((result) => {
+	  this.allColors = result as Array<Color>;
+	});
+	console.log(this.allColors);
+	return this.allColors;
+  }
 
 public beforeChange($event: NgbPanelChangeEvent) {
     if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
