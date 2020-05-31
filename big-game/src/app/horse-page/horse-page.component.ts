@@ -247,7 +247,7 @@ LoadHorseImage(){
 getBreeds(): Breed[] {
 	this.breedService.getBreeds().subscribe((result) => {
 	  this.allBreeds = result as Array<Breed>;
-	  this.authService.breeds = result as Array<Breed>;
+	  //this.authService.breeds = result as Array<Breed>;
 	});
 	return this.allBreeds;
   }
@@ -255,7 +255,7 @@ getBreeds(): Breed[] {
   getColors(): Color[] {
 	this.colorService.getColors().subscribe((result) => {
 	  this.allColors = result as Array<Color>;
-	  this.authService.colors = result as Array<Color>;
+	  //this.authService.colors = result as Array<Color>;
 	});
 	return this.allColors;
   }
