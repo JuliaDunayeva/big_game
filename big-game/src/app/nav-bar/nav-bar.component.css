@@ -1,5 +1,9 @@
 /* Main Nav Bar styling components */
 
+a {
+    text-decoration: none;
+}
+
 .navbar {
     align-content: center;
     height: 100px;
@@ -8,6 +12,7 @@
 
 ul {
     margin: 0;
+    text-decoration: none;
 }
 
 .navbar-expand-lg .navbar-collapse {
@@ -190,6 +195,7 @@ h6 {
 
 .hover-box {
     background-color: #ffff;
+    text-decoration: none;
 }
 
 .hover-box:hover {
@@ -204,6 +210,7 @@ h6 {
 .dropdown-item {
     margin-left: 10px;
     width: 87%;
+    text-decoration: none;
 }
 
 .seperate {
@@ -222,11 +229,10 @@ h6 {
 }
 
 .equus {
-    height: 65%; 
+    height: 65%;
     margin-left: -30px;
     margin-right: -20px;
     margin-top: -2px;
-  
 }
 
 
