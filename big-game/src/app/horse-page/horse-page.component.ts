@@ -114,7 +114,7 @@ ngOnInit(): void {
 		this.userDataService.getUserByID(this.authService.getUId()).subscribe(ref=> { 
 			this.user=ref
 		 });	
-			console.log('got horse data');
+			//console.log('got horse data');
 	//}, 0);
 
 	// streamline buttons code, not working on it right now, fixing other more important code
@@ -136,7 +136,8 @@ ngOnInit(): void {
 
 	this.emptyButton='assets/images/horse-page-icons/empty-button.png';
 
-	this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
+	//this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
+	this.imageFile= 'assets/images/horse-page-icons/test-horse-image.png';
 	//this.imagePath = 'assets/images/horses/';
 	this.imagePath=this.imageFile;
 
@@ -149,7 +150,10 @@ getHorse(){
 	{
 		this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res as HorseData;
-		console.log(this.horse);
+		//console.log(this.horse);
+		//console.log(this.allColors);
+		//console.log(this.allBreeds);
+		this.LoadHorseImage();
   });
 	}, 0);
 }
@@ -231,40 +235,28 @@ toggle() {
 	}
 } // end of toggle() function
 
-/*LoadHorseImage(){
-	this.imagePath = 'assets/images/horses';
+LoadHorseImage(){
+	this.imagePath = 'assets/images/horses/';
 
-	//if (this.allBreeds!=null) {
-		this.breedIndex = this.allBreeds.map((o) => o.getBreed()).indexOf(this.horse.breed);
-		console.log(this.breedIndex);
-	//}
-	//if (this.allColors!=null){
-		this.colorIndex = this.allColors.map((o) => o.getColor()).indexOf(this.horse.color);
-	console.log(this.colorIndex);
-		//}
-
-	//if (this.breedIndex>-1 && this.colorIndex>-1) {
-		this.imagePath += this.allBreeds[this.breedIndex].getImagePath() + '/' + this.allColors[this.colorIndex].getImageFile();
-		console.log(this.imagePath);
-	//} else {
-	//	this.imagePath=this.imageFile;
-	//}
+	this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf(this.horse.breed);
+	this.colorIndex = this.allColors.map((o) => o.color).indexOf(this.horse.color);
+		
+	this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 } // end of LoadHorseImage() function
-*/
 
 getBreeds(): Breed[] {
 	this.breedService.getBreeds().subscribe((result) => {
 	  this.allBreeds = result as Array<Breed>;
+	  this.authService.breeds = result as Array<Breed>;
 	});
-	console.log(this.allBreeds);
 	return this.allBreeds;
   }
 
   getColors(): Color[] {
 	this.colorService.getColors().subscribe((result) => {
 	  this.allColors = result as Array<Color>;
+	  this.authService.colors = result as Array<Color>;
 	});
-	console.log(this.allColors);
 	return this.allColors;
   }
 
