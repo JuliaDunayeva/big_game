@@ -41,13 +41,12 @@ export class HorseListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-  
       this.getBreeds();
       this.getColors();
       this.getHorseData();
       this.userDataService.getUserByID(this.Uid).subscribe((result) => {
-        this.user = result as UserData;
-    });
+         this.user = result as UserData;
+      });
     return this.user;
     }
 
@@ -62,6 +61,7 @@ export class HorseListComponent implements OnInit {
       this.colorService.getColors().subscribe((result) => {
         this.allColors = result as Array<Color>;
       });
+ 
       return this.allColors;
     }
 
@@ -74,7 +74,7 @@ export class HorseListComponent implements OnInit {
     getHorseData(): HorseData[] {
       let test =  this.horseDataService.getHorsesByUid().subscribe(
         res => this.allHorseData = res);
-        console.log(this.allHorseData);
+        //console.log(this.allHorseData);
       return this.allHorseData;
     }
 
