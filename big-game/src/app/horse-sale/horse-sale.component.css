@@ -1,0 +1,98 @@
+.h6 {
+    padding: 4px 0 4px 5px;
+    color: maroon;
+    width: 120px;
+}
+
+.label {
+    margin-top: -6px;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+.centered {
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.move-left1 {
+    margin-left: -18px;
+    width: 140px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.sm-card {
+    background-color: #DCDB81;
+    border-style: solid 2px olive;
+}
+
+.image {
+    margin-left: 67px;
+}
+
+input {
+    font-size: 1rem;
+    margin-left: 0.5em;
+    background-color: #F0F0B2;
+}
+
+.pad-left { /* common spacing to set left margin in folder */
+    margin-left: 1rem;
+    margin-top: 2 rem;
+}
+
+.display {
+    display: flex;
+    margin-top: 5px;
+}
+
+.display-vert {
+    display: block;
+    margin: -2px 0;
+    max-height: 250px;
+}
+
+.hrtop {
+    margin-top: -100px;
+    margin-bottom: 2px;
+    width: 450px;
+    margin-left: -3px;
+}
+
+.btn-right {
+    margin-left: 600px;
+}
+
+.td-top {
+    border: 2px solid rgb(192, 189, 113);
+    border-radius: 5px;
+}
+
+.td-line {
+    border-bottom: 2px solid rgb(192, 189, 113);
+    border-radius: 5px;
+}
+  
+.mycard-light-green {
+    background-color: #F0F0B2;
+    color: #663300;
+    border-style: solid 2px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.no-top-margin {
+    margin-top: 0px;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0px;
+}
+

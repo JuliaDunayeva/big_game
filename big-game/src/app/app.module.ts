@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
 import { HorseListComponent } from './horse-list/horse-list.component';
+import { HorseSaleComponent } from './horse-sale/horse-sale.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HorseListComponent } from './horse-list/horse-list.component';
     LoginBtnComponent,
     FlagsComponent,
     CompetitionsComponent,
-    HorseListComponent
+    HorseListComponent,
+    HorseSaleComponent
   ],
   
   imports: [
