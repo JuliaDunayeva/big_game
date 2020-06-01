@@ -22,6 +22,11 @@ import { Color } from '../color';
 
 export class HorsePageComponent implements OnInit {
 	FeedButtons:HorsePageButtons=new HorsePageButtons;
+	DrinkButtons:HorsePageButtons=new HorsePageButtons;
+	StrokeButtons:HorsePageButtons=new HorsePageButtons;
+	GroomButtons:HorsePageButtons=new HorsePageButtons;
+	CarrotButtons:HorsePageButtons=new HorsePageButtons;
+	MashButtons:HorsePageButtons=new HorsePageButtons;
 
 	allSkills: string[];
 	skill: string;
@@ -123,13 +128,39 @@ ngOnInit(): void {
 	this.FeedButtons.disabledImage='assets/images/horse-page-icons/feed-button-enabled.png';
 	this.FeedButtons.enabled=true;
 
-	this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
-  	this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
-	this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
+	this.DrinkButtons.enabledImage='assets/images/horse-page-icons/drink-button-enabled.png';
+	this.DrinkButtons.disabledImage='assets/images/horse-page-icons/drink-button-disabled.png';
+	this.DrinkButtons.enabled=true;
 
-  	this.groomButton='assets/images/horse-page-icons/groom-button-disabled.png';
-  	this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
-	this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
+	this.StrokeButtons.enabledImage='assets/images/horse-page-icons/stroke-button-enabled.png';
+	this.StrokeButtons.disabledImage='assets/images/horse-page-icons/stroke-button-disabled.png';
+	this.StrokeButtons.enabled=true;
+
+	this.GroomButtons.enabledImage='assets/images/horse-page-icons/groom-button-enabled.png';
+	this.GroomButtons.disabledImage='assets/images/horse-page-icons/groom-button-disabled.png';
+	this.GroomButtons.enabled=true;
+
+	this.CarrotButtons.enabledImage='assets/images/horse-page-icons/carrot-button-enabled.png';
+	this.CarrotButtons.disabledImage='assets/images/horse-page-icons/carrot-button-disabled.png';
+	this.CarrotButtons.enabled=true;
+
+	this.MashButtons.enabledImage='assets/images/horse-page-icons/mash-button-enabled.png';
+	this.MashButtons.disabledImage='assets/images/horse-page-icons/mash-button-disabled.png';
+	this.MashButtons.enabled=true;
+
+		 this.changeButtons(this.FeedButtons,'feed');
+		 this.changeButtons(this.DrinkButtons,'drink');
+		 this.changeButtons(this.StrokeButtons,'stroke');
+		 this.changeButtons(this.GroomButtons,'groom');
+		 this.changeButtons(this.CarrotButtons,'carrot');
+		 this.changeButtons(this.MashButtons,'mash');
+	//this.feedButton='assets/images/horse-page-icons/feed-button-enabled.png';
+  	//this.drinkButton='assets/images/horse-page-icons/drink-button-disabled.png';
+	//this.strokeButton='assets/images/horse-page-icons/stroke-button-disabled.png';
+
+  	//this.groomButton='assets/images/horse-page-icons/groom-button-disabled.png';
+  	//this.carrotButton='assets/images/horse-page-icons/carrot-button-disabled.png';
+	//this.mashButton='assets/images/horse-page-icons/mash-button-disabled.png';
 	  
 	this.forestButton='assets/images/horse-page-icons/forest-button-enabled.png';
 	this.mountainButton='assets/images/horse-page-icons/mountain-button-enabled.png';
@@ -181,8 +212,35 @@ RefreshEnergy(ms:number) {
     return hours + ":" + minutes + ":" + secs + "." + ms;
 }
 
-public FeedButton(){
-	this.changeFeedButtons(this.FeedButtons,);
+	public DrinkButton(){
+		this.changeButtons(this.DrinkButtons,'drink');
+		// convert time to seconds then back again to display in circlur progress  bar
+		this.seconds= (this.hour * 3600) + (this.minute * 60) ;
+		this.taskSeconds= (0 * 3600)+(30 * 60);
+		if (this.horse.energy==0) {
+			alert("no energy left");
+			return;
+		}
+	}
+
+	public StrokeButton(){
+		this.changeButtons(this.StrokeButtons,'stroke');
+	}
+
+	public GroomButton(){
+		this.changeButtons(this.GroomButtons,'groom');
+	}
+
+	public CarrotButton(){
+		this.changeButtons(this.CarrotButtons,'carrot');
+	}
+
+	public MashButton(){
+		this.changeButtons(this.MashButtons,'mash');
+	}
+
+	public FeedButton(){
+	this.changeButtons(this.FeedButtons,'feed');
 	// convert time to seconds then back again to display in circlur progress  bar
 	this.seconds= (this.hour * 3600) + (this.minute * 60) ;
 	this.taskSeconds= (0 * 3600)+(30 * 60);
@@ -216,9 +274,57 @@ public FeedButton(){
 
 	// write data back to database
 	this.horseDataService.setHorseEnergy(this.authService.getHorseId(),this.horse.energy);
+} //end feebutton
+
+public changeButtons(button:HorsePageButtons,buttonChange:string){
+	button.enabled=!button.enabled;
+	switch (buttonChange){
+		case 'feed':
+			if (button.enabled){
+				this.feedButton=button.enabledImage;
+		}else {
+				this.feedButton=button.disabledImage;
+		}	
+			break;
+			case 'drink':
+				if (button.enabled){
+					this.drinkButton=button.enabledImage;
+			}else {
+					this.drinkButton=button.disabledImage;
+			}	
+				break;
+				case 'stroke':
+					if (button.enabled){
+						this.strokeButton=button.enabledImage;
+				}else {
+						this.strokeButton=button.disabledImage;
+				}	
+					break;
+					case 'groom':
+						if (button.enabled){
+							this.groomButton=button.enabledImage;
+					}else {
+							this.groomButton=button.disabledImage;
+					}	
+						break;
+						case 'carrot':
+							if (button.enabled){
+								this.carrotButton=button.enabledImage;
+						}else {
+								this.carrotButton=button.disabledImage;
+						}	
+							break;
+							case 'mash':
+								if (button.enabled){
+									this.mashButton=button.enabledImage;
+							}else {
+									this.mashButton=button.disabledImage;
+							}	
+								break;
+	}
 }
 
-public changeFeedButtons(button:HorsePageButtons){
+/*public changeFeedButtons(button:HorsePageButtons){
 button.enabled=!button.enabled;
 	if (button.enabled){
 			this.feedButton=button.enabledImage;
@@ -226,6 +332,16 @@ button.enabled=!button.enabled;
 			this.feedButton=button.disabledImage;
 	}	
 } // end of changeButtons() function
+
+public changeDrinkButtons(button:HorsePageButtons){
+	button.enabled=!button.enabled;
+		if (button.enabled){
+				this.drinkButton=button.enabledImage;
+		}else {
+				this.drinkButton=button.disabledImage;
+		}	
+	} // end of changeButtons() function
+*/
 
 toggle() {
 	if (this.ctrl.disabled) {
