@@ -15,7 +15,7 @@
                     <label class="d-inline-flex align-middle breed-label">
                         {{ breed.breed }}
                         <input class="breed-input" type="radio" formControlName="breed" [id]="breed.breed" name="breed"
-                            [value]="breed.breed" (click)="getSkill($event)" />
+                            [value]="breed.breed" (click)="getSkill(breed)" />
                         <span class="checkmark radio-border"></span>
                     </label>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="circle-right"></div>
                 <div class="text-left coat-item" *ngFor="let color of allColors">
                     <label class="d-inline-flex align-middle coat-label">
-                        <input class="coat-input" (click)="getImage($event)" type="radio" formControlName="color"
+                        <input class="coat-input" (click)="getImage(color)" type="radio" formControlName="color"
                             [id]="color.color" name="color" [value]="color.color">
                         <span class="checkmark radio-border"></span>
                         {{color.color}}
