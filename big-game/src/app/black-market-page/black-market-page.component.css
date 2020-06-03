@@ -19,13 +19,14 @@
 }
 
 .second-row {
-margin-top: -60px;
+margin-top: -120px;
 }
 
 .st-img {
-margin-top:-50px;
-height:140px ;
-margin-left: 10px;
+    width: 130%;
+    margin-top:-50px;
+    height:200px ;
+    margin-left: 10px;
 }
 
 hr {
@@ -35,7 +36,7 @@ hr {
 
 .st-repo-card {
    width:640px;
-   height:300px;
+   height:auto;
    margin-top: 40px;
    margin-left: 15px;
    background-color: #DCDB81;
@@ -66,6 +67,7 @@ i {
 .box-img {
     margin-top:8px;
     margin-left: 4px;
+    width:150%
 }
 
 .box-head {
@@ -127,3 +129,65 @@ a {
     width:100px;
 }
   
+@media (max-width: 575.98px) { 
+    .sm-card{
+        height:55px;
+        width: 135px;
+        font-size: .75rem;
+    }
+    
+    .st-repo-card {
+        width:320px;
+        height:150px;
+    }
+    .st-img {
+        width:50%;
+        height:100px ;
+    }
+    .box-img{
+        width:25%;
+        margin-left: 1px;
+    }
+    .bl-st-head {
+        font-size: .75rem;
+    }
+    .text-pos{
+        margin-left: 0px;
+    }
+    .box-head{
+        font-size: .50rem;
+        margin-top: 1px;
+    }
+ }
+ 
+/** Small devices (landscape phones,576px and up)*/
+
+@media (min-width: 600px) and (max-width: 767.98px) { 
+    .sm-card{
+        height:55px;
+        width: 55px;
+    }
+    .st-repo-card {
+        width:320px;
+        height:150px;
+        margin-top:2px;
+    }
+    .box-img{
+        width:25%;
+    }
+    .bl-st-head {
+        font-size: .75rem;
+    }
+    
+}
+
+/** Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+
+}
+
+/** Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+ }
