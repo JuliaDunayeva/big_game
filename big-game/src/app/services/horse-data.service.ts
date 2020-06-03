@@ -96,8 +96,8 @@ export class HorseDataService {
 		return from(
 			this.db.collection('/horse_data').add({
 				breed: value.breed,
-				skill: skill,
-				color: value.color,
+				skill: value.skill.id,
+				color: value.color.id,
 				name: value.name,
 				gender: gender,
 				userId: userId,
