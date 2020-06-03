@@ -95,4 +95,31 @@ input {
 .no-bottom-margin {
     margin-bottom: 0px;
 }
+.col-sm-5{
+    width: 600px;
+}
+@media (max-width: 575.98px) {
 
+    .col-sm-5{
+        width:420px;
+        margin-left: 20px;
+        display: block;
+    }
+}
+@media (min-width: 578px) and (max-width: 767.98px) { 
+    .col-sm-5{
+        width:480px;
+        display: block;
+    }
+   
+}
+
+/** Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+}
+
+/** Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+ }

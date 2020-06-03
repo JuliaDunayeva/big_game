@@ -2,8 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.background-all {
-    background-color: #61c5c9;
+.background-all {    background-color: #61c5c9;
 }
 
 .background-img {
@@ -151,10 +150,46 @@ body {
     /*width: 990px;*/
     margin-left: auto;
     margin-right: auto;
-    /*height: 480px;*/
     height: auto;
     background: url("./assets/folder.svg") no-repeat;
     background-clip: content-box;
     background-size: 100%;
     z-index: -99;
 }
+
+@media (max-width: 575.98px) { 
+    .folder {
+        width: 495px;
+        height: auto;
+        background-clip:none;
+        background-size: cover;
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .folder {
+        width: 100%;
+        height: auto;
+        background-clip:none;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .folder {
+        width: 100%;
+        height: auto;
+        background-clip:none;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 992px) {
+    .folder {
+        width: 100%;
+        height: auto;
+        background-clip:none;
+        background-size: cover;
+    }
+} 
+    
+ 
