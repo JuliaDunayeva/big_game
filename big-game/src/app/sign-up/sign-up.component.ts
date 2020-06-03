@@ -1,6 +1,6 @@
-import { UserData } from 'src/app/user-data';
+
 import { UserDataService } from './../services/user-data.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Color } from '../color';
@@ -9,26 +9,9 @@ import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
-import { Command } from 'protractor';
 import { AuthService } from '../services/auth.service';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
-// @Component({
-//   selector: 'ngbd-modal-content',
-//   template: `
-//     <div class="modal-body">
-//     <p class="text-danger"> Email already exists</p>
-//     </div>
-//     <div class="modal-footer">
-//       <button type="button" class="btn btn-outline-dark" 
-//       (click)="activeModal.close('Close click')">Close</button>
-//     </div>
-//   `
-// })
-// export class NgbdModalContent {
-//   @Input() name;
+import {  NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
-//   constructor(public activeModal: NgbActiveModal) { }
-// }
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -36,7 +19,6 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
 })
 
 export class SignUpComponent implements OnInit {
-  // colors: Color[] = [];
   allColors: Color[];
   allBreeds: Breed[];
   allSkills: string[];
@@ -79,43 +61,41 @@ export class SignUpComponent implements OnInit {
     this.getBreeds();
   }
 
-  getColors(): Color[] {
-    this.colorService.getColors().subscribe((result) => {
-      console.log(result);
-      this.allColors = result as Color[];
-      console.log('All Colors ' + this.allColors[0].color)
-      console.log('All Colors ' + result)
-    });
-    return this.allColors;
-  }
-
-  getBreeds(): Breed[] {
+  getBreeds() {
       this.breedService.getBreeds().subscribe((result) => {
-      console.log(result)
       this.allBreeds = result as Array<Breed>;
       console.log(this.allBreeds)
-      this.skillSelected = this.allBreeds[0].breed;
-      console.log(this.skillSelected);
+      this.breedSelected = this.allBreeds[0];
+      this.skillSelected = this.breedSelected.skill
     });
-    return this.allBreeds;
   }
 
-  getSkill(event: Event) {
-    this.breedIndex = this.allBreeds.map(o => o.breed).indexOf((<HTMLInputElement>event.target).id);
-    this.skillSelected = this.allBreeds[0].skill;
-    console.log(this.skillSelected)
-    this.imagePath = '../../assets/images/horses/';
-    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+  getColors(){
+    this.colorService.getColors().subscribe((result) => {
+      this.allColors = result as Color[];
+      this.colorSelected = this.allColors[0];
+    });
   }
 
-  getImage(event: Event) {
-    this.colorIndex = this.allColors.map(o => o.color).indexOf((<HTMLInputElement>event.target).id);
+  getSkill(breed: Breed) {
+    // this.breedIndex = this.allBreeds.map(o => o.breed).indexOf((<HTMLInputElement>event.target).id);
+    this.breedSelected = breed;
+    this.skillSelected = this.breedSelected.skill;
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+    // this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+    this.imagePath +=  `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
+    
+  }
+
+  getImage(color: Color) {
+    // this.colorIndex = this.allColors.map(o => o.color).indexOf((<HTMLInputElement>event.target).id);
+    this.colorSelected = color;
+    this.imagePath = '../../assets/images/horses/';
+    // this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+    this.imagePath +=  `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
   }
 
   onSelectBreed() {
-    //getBreedByName()
     this.signupForm.value.breed
   }
 
