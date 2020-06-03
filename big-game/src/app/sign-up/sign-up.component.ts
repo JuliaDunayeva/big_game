@@ -64,7 +64,6 @@ export class SignUpComponent implements OnInit {
   getBreeds() {
       this.breedService.getBreeds().subscribe((result) => {
       this.allBreeds = result as Array<Breed>;
-      console.log(this.allBreeds)
       this.breedSelected = this.allBreeds[0];
       this.skillSelected = this.breedSelected.skill
     });
@@ -94,12 +93,6 @@ export class SignUpComponent implements OnInit {
     // this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
     this.imagePath +=  `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
   }
-
-  onSelectBreed() {
-    this.signupForm.value.breed
-  }
-
-  onSelectColor() { }
 
   onSubmit() {
     let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
