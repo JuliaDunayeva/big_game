@@ -2,17 +2,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.background-all {
-    background-color: #61C5C9;
+.background-all {    background-color: #61c5c9;
 }
 
 .background-img {
     display: block;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    width: auto;
+    height: auto;
     /*background: url('./assets/images/home-page/clouds.gif') no-repeat;*/
-    background: url('./assets/images/home-page/bg-image.jpg') no-repeat;
+    background: url("./assets/images/home-page/bg-image.jpg") no-repeat;
     background-color: #32641b;
+    background-size: auto;
 }
 
 
@@ -84,7 +86,7 @@ body {
 }
 
 .btn-signup {
-    background-color: #E5FF70;
+    background-color: #e5ff70;
     color: black;
     border: 2px solid green;
     font-weight: 600;
@@ -108,7 +110,7 @@ body {
 }
 
 .btn-white:hover {
-    background-color: #007BFF;
+    background-color: #007bff;
 }
 
 .btn-shops {
@@ -116,8 +118,8 @@ body {
     color: white;
     box-shadow: inset 0px 2px 2px 0px #a4e271;
     background: rgb(206, 226, 92);
-    background: linear-gradient(180deg, rgba(206, 226, 92, 1) 0%, rgba(151, 183, 0, 1) 50%, rgba(132, 153, 0, 1) 100%);
-    border: .5px solid rgb(134, 155, 1);
+    background: linear-gradient( 180deg, rgba(206, 226, 92, 1) 0%, rgba(151, 183, 0, 1) 50%, rgba(132, 153, 0, 1) 100%);
+    border: 0.5px solid rgb(134, 155, 1);
     border-width: 1px;
     border-radius: 6px;
 }
@@ -126,7 +128,7 @@ body {
     /* Basic green button hover settings */
     cursor: pointer;
     background: rgb(132, 153, 0);
-    background: linear-gradient(0deg, rgba(206, 226, 92, 1) 0%, rgba(151, 183, 0, 1) 50%, rgba(132, 153, 0, 1) 100%);
+    background: linear-gradient( 0deg, rgba(206, 226, 92, 1) 0%, rgba(151, 183, 0, 1) 50%, rgba(132, 153, 0, 1) 100%);
 }
 
 .btn-shops-sml {
@@ -144,7 +146,8 @@ body {
 
 .folder {
     /* Basic folder background for use on any page */
-    width: 990px;
+    width: auto;
+    /*width: 990px;*/
     margin-left: auto;
     margin-right: auto;
     height: auto;
