@@ -32,6 +32,8 @@ export class HorseListComponent implements OnInit {
     allHorseData: Array<any>;
     public horse: HorseData;
     success = 'A new horse has been added';
+    newHorseCost: number = 1000;
+    newEquus: number;
 
     constructor(private breedService: BreedService, 
         private colorService: ColorService, 
@@ -63,6 +65,10 @@ export class HorseListComponent implements OnInit {
       });
  
       return this.allColors;
+    }
+
+    buyNewHorse(newHorseCost: number, newEquus: number) {
+
     }
 
     createRandomHorse(name:string, breed: string, color:string, skill:string){
