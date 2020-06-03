@@ -68,7 +68,7 @@ export class HorseListComponent implements OnInit {
     }
 
     buyNewHorse(newHorseCost: number, newEquus: number) {
-
+      
     }
 
     createRandomHorse(name:string, breed: string, color:string, skill:string){
