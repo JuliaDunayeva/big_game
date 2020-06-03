@@ -153,3 +153,20 @@ body {
     background-size: 100%;
     z-index: -99;
 }
+
+@media (max-width: 575.98px) { 
+    .folder {
+        width: 495px;
+        height: auto;
+        background-clip:none;
+        background-size: cover;
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .folder {
+        width: 510px;
+        height: auto;
+        background-clip:none;
+        background-size: cover;
+    }
+}
