@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-lg">
     <app-nav-bar></app-nav-bar>
     <!-- account nav bar here-->
     <br />
@@ -15,10 +15,10 @@
             Care
           </button>
                 </p>
-                <div class="no-top-margin" id="collapseExample" [ngbCollapse]="isCareCollapsed">
+                <div class="no-top-margin max-width-column" id="collapseExample" [ngbCollapse]="isCareCollapsed">
                     <div class="card card-green bottom-margin">
-                        <div class="card-body">
-                            <div class="row">
+                        <div class="card-body no-padding">
+                            <div class="row no-margin">
                                 <!-- row 1 -->
                                 <div class="col-3 btn-padding">
                                     <button (click)="FeedButton()" class="btn max-btn-width">
@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                             <!-- end of row 1 -->
-                            <div class="row">
+                            <div class="row no-margin no-padding">
                                 <!-- row 2 -->
                                 <div class="col-3 btn-padding">
                                     <button (click)="GroomButton()" class="btn max-btn-width">
@@ -65,7 +65,7 @@
             Night
           </button>
                 </p>
-                <div id="collapseExample " [ngbCollapse]="isNightCollapsed">
+                <div class="max-width-column" id="collapseExample " [ngbCollapse]="isNightCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body">
                             <div class="row">
@@ -114,14 +114,14 @@
             Equestrian Centre
           </button>
                 </p>
-                <div id="collapseExample " [ngbCollapse]="isECCollapsed">
+                <div class="max-width-column" id="collapseExample " [ngbCollapse]="isECCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body">
                             Your horse is not registered in an Equestrian Centre yet.
                         </div>
                         <div class="card-body">
                             <p class="max-btn-width">
-                                <img class="img-btn-width" src="../../assets/images/horse-page-icons/eq-reg-button-enabled.png" />Register my horse
+                                <img class="img-btn-width" src="../../assets/images/horse-page-icons/eq-reg-button-enabled.png " />Register my horse
                             </p>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
             History
           </button>
                 </p>
-                <div id="collapseExample " [ngbCollapse]="isHistoryCollapsed">
+                <div class="max-width-column" id="collapseExample " [ngbCollapse]="isHistoryCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body">
                             You can collapse this card by clicking Toggle
@@ -141,11 +141,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-6 center-text">
-            <img class="col-6" src="{{ imagePath }}" />
+
+        <div class="col- center-text max-width-middle-column">
+            <img class="col-" src="{{ imagePath }} " />
             <!-- Temp fixed picture -->
 
-            <div class="max-width-middle-column card-light-green card-title no-bottom-margin card-title-border">
+            <div class="card-light-green card-title no-bottom-margin card-title-border">
                 {{ horse?.name }}
             </div>
             <div>
@@ -167,7 +168,7 @@
                             </div>
                             <div class="col-10 form-group center-text card-middle-title">
                                 Health
-                                <!-- <div class="progress-bar" [style.width]="(allHorseData[0].health)">_</div>-->
+                                <!-- <div class="progress-bar " [style.width]="(allHorseData[0].health) ">_</div>-->
                                 <!--<ngb-progressbar type="warning " [value]="50 "></ngb-progressbar>-->
                                 <ngb-progressbar type=" " [value]="horse?.health">%{{ horse?.health }}
                                 </ngb-progressbar>
@@ -191,71 +192,71 @@
             <div class="no-top-margin">
                 <div class="card card-light-green">
                     <div class="card-body row">
-                        <div class="col-4 form-group left-align card-title">
+                        <div class="col-sm-3 form-group left-align card-title">
                             Skills
                         </div>
-                        <div class="col-4 center-text"></div>
-                        <div class="col-3 center-text card-title">Total: 1,000</div>
+                        <div class="col-sm-2 center-text"></div>
+                        <div class="col-sm-6 center-text card-title">Total: 1,000</div>
                     </div>
                     <!-- horse stamina-->
                     <div class="card-body row skillRating">
-                        <div class="col-4 form-group center-text bold-title">
+                        <div class="col-sm-3 form-group bold-title">
                             Stamina
                         </div>
-                        <div class="col-4 center-text">
+                        <div class="col-">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.stamina / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">{{ horse?.stamina }}</div>
+                        <div class="col-">{{ horse?.stamina }}</div>
                     </div>
                     <!-- horse speed-->
                     <div class="card-body row skillRating">
-                        <div class="col-4 form-group center-text bold-title">
+                        <div class="col-sm-3 form-group center-text bold-title">
                             Speed
                         </div>
-                        <div class="col-4 center-text">
+                        <div class="col- center-text">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.speed / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">{{ horse?.speed }}</div>
+                        <div class="col- center-text">{{ horse?.speed }}</div>
                     </div>
                     <!-- horse dressage-->
                     <div class="card-body row skillRating">
-                        <div class="col-4 form-group center-text bold-title">
+                        <div class="col-sm-3 form-group center-text bold-title">
                             Dressage
                         </div>
-                        <div class="col-4 center-text">
+                        <div class="col- center-text">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.dressage / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">{{ horse?.dressage }}</div>
+                        <div class="col- center-text">{{ horse?.dressage }}</div>
                     </div>
                     <!-- horse gallop-->
                     <div class="card-body row skillRating">
-                        <div class="col-4 form-group center-text bold-title">
+                        <div class="col-sm-3 form-group center-text bold-title">
                             Gallop
                         </div>
-                        <div class="col-4 center-text">
+                        <div class="col- center-text">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.gallop / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">{{ horse?.gallop }}</div>
+                        <div class="col- center-text">{{ horse?.gallop }}</div>
                     </div>
                     <!-- horse trot-->
                     <div class="card-body row skillRating">
-                        <div class="col-4 form-group center-text bold-title">
+                        <div class="col-sm-3 form-group center-text bold-title">
                             Trot
                         </div>
-                        <div class="col-4 center-text">
+                        <div class="col- center-text">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.trot / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">{{ horse?.trot }}</div>
+                        <div class="col- center-text">{{ horse?.trot }}</div>
                     </div>
                     <div class="card-body row skillRating">
-                        <div class="col-4 form-group center-text bold-title">
+                        <div class="col-sm-3 form-group center-text bold-title">
                             Jumping
                         </div>
-                        <div class="col-4 center-text">
+                        <div class="col- center-text">
                             <!-- horse jumping-->
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.jumping / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col-3 center-text">{{ horse?.jumping }}</div>
+                        <div class="col- center-text">{{ horse?.jumping }}</div>
                     </div>
                 </div>
             </div>
@@ -271,11 +272,11 @@
                                 </div>
                                 <!---tack popup, Equip my horse, roaa-->
                                 <div>
-                                    <li ngbDropdown class="">
+                                    <li ngbDropdown class=" ">
                                         <a href (click)="(false)" class="nav-link nav-btn" ngbDropdownToggle>
-                                            <img class="padding" class="img-size3" src="./assets/images/tack-page/saddle-btn.PNG" />
+                                            <img class="padding" class="img-size3" src="./assets/images/tack-page/saddle-btn.PNG " />
                                         </a>
-                                        <div ngbDropdownMenu class="drop-box" id="background">
+                                        <div ngbDropdownMenu class="drop-box" id="background ">
                                             <div class="popup color-beige">
                                                 <button ngbDropdownItem class="hover-box disabled">
                           <div class="inline-flex">
@@ -284,7 +285,7 @@
                                 <h5 class="color-tx-maroon">Equip my horse</h5>
                               </div>
                               <div class="inline-flex">
-                                <img src="./assets/images/tack-page/hat.PNG" />
+                                <img src="./assets/images/tack-page/hat.PNG " />
 
                                 <h6 class="color-tx-green">
                                   {{ horse?.name }} needs a Western saddle
@@ -334,10 +335,10 @@
                                     <div class="ui four cards">
                                       <div class="inline-block">
                                         <a class="olive card">
-                                          <div class="">
+                                          <div class=" ">
                                             <img
                                               class="img-size2"
-                                              src="./assets/images/tack-page/dark-brown-saddle.PNG"
+                                              src="./assets/images/tack-page/dark-brown-saddle.PNG "
                                             />
                                           </div>
                                         </a>
@@ -349,8 +350,8 @@
                                             </div>
                                             <div class="inline-block">
                                                 <a class="olive card">
-                                                    <div class="">
-                                                        <img class="img-size2" src="./assets/images/tack-page/brown-saddle.PNG" />
+                                                    <div class=" ">
+                                                        <img class="img-size2" src="./assets/images/tack-page/brown-saddle.PNG " />
                                                     </div>
                                                 </a>
                                                 <button class="btn-shops btn-shops-sml btn-postion">
@@ -359,8 +360,8 @@
                                             </div>
                                             <div class="inline-block">
                                                 <a class="olive card">
-                                                    <div class="">
-                                                        <img class="img-size2" src="./assets/images/tack-page/black-saddle.PNG" />
+                                                    <div class=" ">
+                                                        <img class="img-size2" src="./assets/images/tack-page/black-saddle.PNG " />
                                                     </div>
                                                 </a>
                                                 <button class="btn-shops btn-shops-sml btn-postion">
@@ -372,8 +373,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="">
-                        <img class="img-size" src="./assets/images/tack-page/horse-tack.PNG" />
+                    <div class=" ">
+                        <img class="img-size" src="./assets/images/tack-page/horse-tack.PNG " />
                     </div>
                 </div>
                 </button>
@@ -385,6 +386,7 @@
 </div>
 </div>
 </div>
+<!-- div class='col-6'> closer line 266 -->
 <div class="col-6">
     <div class="card card-light-green card-middle-title">
         <div class="card-body card-title hight">
@@ -393,20 +395,20 @@
                     <p class="margin3">Items</p>
                 </div>
                 <div class="margin2">
-                    <img class="padding" src="./assets/images/tack-page/gold-peramid.png" />
-                    <img class="padding" src="./assets/images/tack-page/gold-apple.png" />
+                    <img class="padding" src="./assets/images/tack-page/gold-peramid.png " />
+                    <img class="padding" src="./assets/images/tack-page/gold-apple.png " />
                 </div>
             </div>
         </div>
     </div>
 </div>
 </div>
-<div class="row">
-    <!-- middle bottom panel - Victories -->
-    <div class="col-12">
-        <div class="card card-light-green card-middle-title"></div>
-    </div>
+<!-- <div class="row">
+    <-- middle bottom panel - Victories --
+<div class="col-12">
+    <div class="card card-light-green card-middle-title"></div>
 </div>
+</div> -->
 <div class="card card-light-green">
     <div class="card-body">
         <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green">
@@ -438,21 +440,36 @@
             <ng-container ngbNavItem>
                 <a ngbNavLink class="card-light-green">Genetic</a>
                 <ng-template ngbNavContent>
-                    <p>
-                        Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud
-                        organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical
-                        culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-                    </p>
+                    <p> Exercitation +1 labore velit, blog sartorial PBR</p>
+                    <p> leggings next level wes anderson artisan four</p>
+                    <p> loko farm-to-table craft beer twee. Qui photo </p>
+                    <p> booth letterpress, commodo enim craft beer </p>
+                    <p> mlkshk aliquip jean shorts ullamco ad vinyl cillum </p>
+                    <p> PBR. Homo nostrud organic, assumenda labore </p>
+                    <p> aesthetic magna delectus mollit. Keytar helvetica </p>
+                    <p>VHS salvia yr, vero magna velit sapiente labore</p>
+                    <p> stumptown. Vegan fanny pack odio cillum wes </p>
+                    <p> anderson 8-bit, sustainable jean shorts beard ut </p>
+                    <p>DIY ethical culpa terry richardson biodiesel.</p>
+                    <p> Art party scenester stumptown, tumblr butcher</p>
+                    <p> vero sint qui sapiente accusamus tattooed echo park.</p>
                 </ng-template>
             </ng-container>
             <ng-container ngbNavItem>
                 <a ngbNavLink class="card-light-green">Bonus</a>
                 <ng-template ngbNavContent>
-                    <p>
-                        Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus.
-                        Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi
-                        ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.
-                    </p>
+                    <p>Sed commodo, leo at suscipit dictum, quam est porttitor </p>
+                    <p> sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec</p>
+                    <p> egestas ligula vitae odio interdum aliquet. Duis lectus turpis, </p>
+                    <p>luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at </p>
+                    <p> faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices </p>
+                    <p> et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque.</p>
+                    <p> Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique</p>
+                    <p> ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci </p>
+                    <p>varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus</p>
+                    <p> mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec</p>
+                    <p> tortor vel tellus pulvinar feugiat.</p>
+
                 </ng-template>
             </ng-container>
         </nav>
@@ -460,7 +477,7 @@
     </div>
 </div>
 </div>
-<div class="col-3 max-width-column">
+<div class="col-sm-3 max-width-column">
     <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
     <div class="row center-text">
         <p class="no-bottom-margin">
@@ -469,13 +486,13 @@
             Rides
           </button>
         </p>
-        <div id="collapseExample " [ngbCollapse]="isRidesCollapsed">
+        <div class="max-width-column" id="collapseExample " [ngbCollapse]="isRidesCollapsed">
             <div class="card card-green bottom-margin no-padding">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-3 btn-padding">
                             <button class="btn max-btn-width">
-                    <img class="img-btn-width" src="{{ forestButton }}" />
+                    <img class="img-btn-width" src="{{ forestButton }} " />
                   </button>
                         </div>
                         <div class="col-3 btn-padding">
@@ -485,7 +502,7 @@
                         </div>
                         <div class="col-3 btn-padding">
                             <button class="btn max-btn-width">
-                    <img class="img-btn-width" src="{{ mountainButton }}" />
+                    <img class="img-btn-width" src="{{ mountainButton }} " />
                   </button>
                         </div>
                     </div>
@@ -498,7 +515,7 @@
             Training
           </button>
         </p>
-        <div id="collapseExample " [ngbCollapse]="isTrainingCollapsed">
+        <div class="max-width-column" id="collapseExample " [ngbCollapse]="isTrainingCollapsed">
             <div class="card card-green bottom-margin no-padding">
                 <div class="card-body">
                     You can collapse this card by clicking Toggle
@@ -511,7 +528,7 @@
             Competition
           </button>
         </p>
-        <div id="collapseExample " [ngbCollapse]="isCompetitionCollapsed">
+        <div class="max-width-column" id="collapseExample " [ngbCollapse]="isCompetitionCollapsed">
             <div class="card card-green bottom-margin no-padding">
                 <div class="card-body">
                     <div class="row">
@@ -576,7 +593,7 @@
           </button>
         </p>
 
-        <div class="card card-green bottom-margin no-padding">
+        <div class="card card-green bottom-margin no-padding max-width-column">
             <div class="card-body">
                 <div class="row">
                     <div class="col-3 btn-padding">
