@@ -83,7 +83,7 @@ export class HorseDataService {
 		}, {merge: true});
 	} //end of SetUserIDForHorse()
 
-	createRandomHorse(value, skill, userId): Observable<DocumentReference> {
+	createRandomHorse(value, userId): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
 		let speed = this.getRandStats();
 		let gallop = this.getRandStats();
