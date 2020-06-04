@@ -1,0 +1,160 @@
+li {
+    list-style: none;
+}
+
+i {
+    text-decoration: none;
+}
+
+ul {
+    margin:0px;
+}
+
+.head-text {
+    color: white;
+    font-size: 20px;
+}
+
+.main-btn {
+    margin-top:15px;
+}
+
+.btn {
+    color:white;
+    background: rgb(73, 131, 186); 
+}
+
+.btn:hover {
+    background-color: turquoise;
+}
+
+.hamburger {
+    font-size: 25px;
+    color: white;
+}
+
+.leaf-size {
+    font-size: 25px;
+    color: white;
+}
+
+.dropdown-menu.show {
+    background: rgb(73, 131, 186);
+    width:260px;
+    height:450px;
+}
+
+.dropdown-item {
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.dropdown-menu:hover {
+    background: rgb(73, 131, 186);
+}
+
+.dropdown-item:hover {
+    background-color: turquoise;
+    border-radius: 5%;
+    text-align: center;
+}
+
+.font-xl {
+    font-size: 60px!important;
+    color: rgb(73, 131, 186);
+    margin-left: 23px;
+    margin-bottom: 24px;
+}
+
+.dropbtn2 {
+    background-color: turquoise;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+  }
+
+.dropdown2-content {
+    display: none;
+    position: absolute;
+    background-color: #ffff;
+    left:-160px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown2-content a {
+    color: rgb(73, 131, 186);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown2-content :disabled:hover { 
+    background-color:#ffff;
+}
+ 
+.dropdown2:hover .dropdown2-content {
+    display: block;
+}
+
+.dropdown2:hover .dropbtn2 {
+    background: rgb(73, 131, 186);
+}
+
+.mini-bar {
+    display: none;
+}
+  
+.btn-primary {
+    border: none;
+    background-color: #ffff;
+    color: rgb(73, 131, 186);
+    width:170px;
+    height:40px;
+}
+
+.btn-primary:hover {
+    background-color:  turquoise;
+}
+
+@media (max-width: 575.98px) {
+    .mini-bar {
+        display: block;
+    }
+    .dropdown2-content {
+        left:0px;
+    }
+         
+}
+
+@media (min-width: 578px) and (max-width: 767.98px) { 
+    .mini-bar {
+        display: block;
+    }
+    .dropdown2-content {
+        left:0px;
+    }
+       
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .mini-bar {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) { 
+    .mini-bar {
+        display: block;
+    }
+        
+}
+    
