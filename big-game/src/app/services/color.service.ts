@@ -12,7 +12,7 @@ export class ColorService {
   constructor(public db: AngularFirestore) { }
 
   getColors() {
-    return this.db.collection('/color').valueChanges()
+    return this.db.collection('/color').snapshotChanges()
   }
   
 }

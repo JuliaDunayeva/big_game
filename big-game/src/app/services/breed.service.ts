@@ -12,7 +12,7 @@ export class BreedService {
   constructor(public db: AngularFirestore) { }
 
   getBreeds() {
-    return this.db.collection('/breed').valueChanges()
+    return this.db.collection('/breed').snapshotChanges()
   }
   
 }
