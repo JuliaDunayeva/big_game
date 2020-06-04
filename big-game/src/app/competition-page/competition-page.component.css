@@ -17,7 +17,9 @@ p {
 }
 
 .image {
-    margin-left: 70px;
+    margin-left: 75px;
+    opacity: 70%;
+    margin-top: -1%;
 }
 
 .pad-left { /* common spacing to set left margin in folder */
@@ -138,3 +140,97 @@ p {
 .no-bottom-margin {
     margin-bottom: 0px;
 }
+
+
+@media (max-width: 575.98px) { 
+    .mytable-light-green {
+        margin-right: 2%;
+        width: auto;
+       
+    }
+    .mycard-light-green {
+        width: fit-content;
+    }.image {
+        display: none;
+        
+    }
+    .hrtop {
+        margin-top:auto;
+        width: auto;
+        
+    }
+    .display {
+        display: inline-block;
+        
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .mytable-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
+    .mycard-light-green {
+        width: fit-content;
+    }
+    .image {
+        display: none;
+    }
+    .hrtop {
+        margin-top:auto;
+        width: 90%;
+        
+    }
+    .display {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .mytable-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
+    .mycard-light-green {
+        width: fit-content;
+    }
+    .image {
+        display: none;
+    }
+
+    .hrtop {
+        margin-top:auto;
+        width: auto;
+        
+    }
+    .display {
+        display: initial;
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .mytable-light-green {
+        width: auto;
+    }
+    .mycard-light-green {
+        width: fit-content;
+    }
+    .hrtop {
+        margin-top:auto;
+        width: auto;
+        
+    }
+    .display {
+        display: initial;
+        margin-top: 5px;
+    }
+    .image {
+        display: none;
+    }
+    .mytable-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
+
+ }
+
