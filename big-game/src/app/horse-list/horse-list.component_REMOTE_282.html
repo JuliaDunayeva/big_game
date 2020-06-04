@@ -33,29 +33,19 @@
             <Div class="col-5 mycard-light-green">
                 <br>
                 <form>
-                    <div *ngFor="let horse of allHorseData">
-                        <label class="display-vert pad-left" >
-                            <input type="radio" value="horse.id" [id]="horse.id" (click)="selectedHorse($event)"> &nbsp; &nbsp;
-                            <span class="checkmark radio-border"></span>
-                            {{ horse.name }} - {{ horse.breed }}
-                        </label>
-                    </div>
-                    <div>
-                        <br>
-                        <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
-                        [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
-                        Use</button>
-                    </div>
+                    <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                        <input type="radio" value="horse.name" [id]="horse.id" (click)="selectedHorse($event)"> &nbsp; &nbsp;
+                        {{ horse.name }} - {{ horse.breed }}
+                    </label>
+                    <br>
+                    <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
+                    [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
+                    Use</button>
                 </form>
                 <br>
             </Div>
-<<<<<<< HEAD
-            <div class="col-md-1"></div>
-            <Div class="col-sm-5 mycard-light-green">
-=======
             <div class="col-1"></div>
             <Div class="col-5 mycard-light-green">
->>>>>>> sandbox_pre-develop
                 <br>
                 <h5 class="card-title color-tx-green">Create a new horse for &nbsp;
                     <span class="color-tx-maroon"> {{ user.userName }}</span>
