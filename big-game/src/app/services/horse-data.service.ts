@@ -83,7 +83,7 @@ export class HorseDataService {
 		}, {merge: true});
 	} //end of SetUserIDForHorse()
 
-	createRandomHorse(value, userId: string, breedId:string, colorId:string, skill:string): Observable<DocumentReference> {
+	createRandomHorse(value, userId: string, breedId:string, colorId:string, skill:string, name?: string): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
 		let speed = this.getRandStats();
 		let gallop = this.getRandStats();
@@ -97,7 +97,7 @@ export class HorseDataService {
 				breed: breedId,
 				skill: skill,
 				color: colorId,
-				name: "New Horse",
+				name: name,
 				gender: gender,
 				userId: userId,
 				stamina: stamina,
