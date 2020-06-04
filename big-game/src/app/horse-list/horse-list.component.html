@@ -8,7 +8,7 @@
     </div>
     <div class="folder">
         <div class="row "> <!-- Path Information & Picture -->
-            <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
+            <div class="col-md-6 display pad-left card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green ">
                     <i class="home icon"></i>
                     <a class=""> Breeding Farm &nbsp;</a>
@@ -21,11 +21,12 @@
         </div>
         <div class="row"> <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon">
-                <hr>
+                <hr class="hrtop">
+                <br>
                 <h3 class="no-top-margin display card-title">List of horses for &nbsp;
                     <span class="color-tx-green"> {{ user.userName }}</span></h3>
                 <div class="color-tx-green no-top-margin">
-                    <p>Select one of your horses from the farm. </p>
+                    <p>Select one of your horses from the farm to play with or to put for sale. </p>
                     <br><br>
                 </div>
             </div>
@@ -34,29 +35,24 @@
             <Div class="col-5 mycard-light-green">
                 <br>
                 <form>
-                    <div *ngFor="let horse of allHorseData">
-                        <label class="display-vert pad-left" >
-                            <input type="radio" value="horse.id" [id]="horse.id" (click)="selectedHorse($event)"> &nbsp; &nbsp;
-                            <span class="checkmark radio-border"></span>
-                            {{ horse.name }} - {{ horse.breed }}
-                        </label>
-                    </div>
-                    <div>
-                        <br>
+                    <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                        <input type="radio" value="horse.name" [id]="horse.id" (click)="selectedHorse($event)"> &nbsp; &nbsp;
+                        <strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
+                    </label>
+                    <div class="display centered">
                         <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
                         [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
-                        Use</button>
+                        Play</button>
+                        <div class="col-1"></div>
+                        <button class="btn-shops btn-shops-lrg" 
+                        [routerLink]="['/horse-sale']" routerLinkActive="router-link-active" >
+                        Sell</button>
                     </div>
                 </form>
                 <br>
             </Div>
-<<<<<<< HEAD
-            <div class="col-md-1"></div>
-            <Div class="col-sm-5 mycard-light-green">
-=======
             <div class="col-1"></div>
             <Div class="col-5 mycard-light-green">
->>>>>>> sandbox_pre-develop
                 <br>
                 <h5 class="card-title color-tx-green">Create a new horse for &nbsp;
                     <span class="color-tx-maroon"> {{ user.userName }}</span>

@@ -17,9 +17,9 @@ p {
 }
 
 .image {
-    margin-left: 75px;
-    opacity: 70%;
-    margin-top: -1%;
+    margin-left: 80px;
+    opacity: 65%;
+    margin-top: -5px;
 }
 
 .pad-left { /* common spacing to set left margin in folder */
@@ -38,9 +38,9 @@ p {
 }
 
 .hrtop {
-    margin-top: -100px;
+    margin-top: -125px;
     margin-bottom: 2px;
-    width: 450px;
+    width: 490px;
     margin-left: -3px;
 }
 
@@ -176,8 +176,8 @@ p {
         display: none;
     }
     .hrtop {
-        margin-top:auto;
-        width: 90%;
+        margin-top: 5px;
+        width: 175%;
         
     }
     .display {
@@ -198,8 +198,8 @@ p {
     }
 
     .hrtop {
-        margin-top:auto;
-        width: auto;
+        margin-top: 5px;
+        width: 135%;
         
     }
     .display {
@@ -216,8 +216,8 @@ p {
         width: fit-content;
     }
     .hrtop {
-        margin-top:auto;
-        width: auto;
+        margin-top:5px;
+        width: 97%;
         
     }
     .display {

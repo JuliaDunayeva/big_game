@@ -85,11 +85,15 @@ export class HorseListComponent implements OnInit {
     }
 
     horseSelecteId: string;
-    selectedHorse(event:any) {
+    selectedHorse(event: any) {
       this.horseSelecteId = (<HTMLInputElement>event.target).id;
     }
 
     onSelectHorse() {
       this.authService.sethorseId(this.horseSelecteId)
+    }
+
+    onSellHorse(event: any) {
+
     }
 }
