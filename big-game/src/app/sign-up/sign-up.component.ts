@@ -123,7 +123,7 @@ export class SignUpComponent implements OnInit {
             .createRandomHorse(this.signupForm.value, res.id, this.breedIdSelected, this.colorIdSelected, this.skillSelected)
             .subscribe((e) => {
               this.router.navigate(['horse-list']);
-            });
+            }).unsubscribe();
         })
         
       } else {
