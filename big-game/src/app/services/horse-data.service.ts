@@ -83,7 +83,7 @@ export class HorseDataService {
 		}, {merge: true});
 	} //end of SetUserIDForHorse()
 
-	createRandomHorse(value, userId): Observable<DocumentReference> {
+	createRandomHorse(value, userId: string, breedId:string, colorId:string, skill:string): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
 		let speed = this.getRandStats();
 		let gallop = this.getRandStats();
@@ -92,12 +92,14 @@ export class HorseDataService {
 		let dressage = this.getRandStats();
 		let gender = this.getRandGender();
 		let today = new Date();
+		console.log(value, userId, breedId, colorId, skill)
 		
 		return from(
 			this.db.collection('/horse_data').add({
-				breed: value.breed,
-				skill: value.skill.id,
-				color: value.color.id,
+				
+				breed: breedId,
+				skill: skill,
+				color: colorId,
 				name: value.name,
 				gender: gender,
 				userId: userId,
@@ -122,6 +124,7 @@ export class HorseDataService {
 			})
 		);
 	}//end of createRandomHorse()
+	
 
 	getHorseById(id: string): Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
