@@ -11,6 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 import { AuthService } from '../services/auth.service';
 import {  NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,17 +20,17 @@ import {  NgbModal } from '@ng-bootstrap/ng-bootstrap'
 })
 
 export class SignUpComponent implements OnInit {
-  allColors: Color[];
   allBreeds: Breed[];
+  allColors: Color[];
   allSkills: string[];
-  skillSelected: string;
-  imagePath: string = '../../assets/images/horses/akhal_teke/alz-b.png';
-  breedIndex: number = 0;
-  colorIndex: number = 0;
-  public validEmail: boolean = true;
-  public horseid: any;
   breedSelected: Breed;
   colorSelected: Color;
+  skillSelected: string;
+  breedIdSelected: string;
+  colorIdSelected: string;
+  imagePath: string = '../../assets/images/horses/akhal_teke/alz-b.png';
+  public validEmail: boolean = true;
+  public horseid: any;
 
   constructor(
     private fb: FormBuilder,
@@ -62,33 +63,49 @@ export class SignUpComponent implements OnInit {
   }
 
   getBreeds() {
-      this.breedService.getBreeds().subscribe((result) => {
-      this.allBreeds = result as Array<Breed>;
+      this.breedService.getBreeds().subscribe((brd) => {
+        this.allBreeds = brd.map( res => {
+          return {
+            id: res.payload.doc.id,
+            breed: res.payload.doc.data()['breed'],
+            skill: res.payload.doc.data()['skill'],
+            img_path: res.payload.doc.data()['img_path']
+          }
+        });
       this.breedSelected = this.allBreeds[0];
+      this.breedIdSelected = this.allBreeds[0].id
       this.skillSelected = this.breedSelected.skill
+      });
+  }
+
+  getColors() {
+      this.colorService.getColors().subscribe(clr => {
+        this.allColors = clr.map(res => {
+        return {
+          id: res.payload.doc.id,
+          color: res.payload.doc.data()['color'],
+          img_file: res.payload.doc.data()['img_file']
+        }
+      });
+      this.colorSelected = this.allColors[0];
+      this.colorIdSelected = this.allColors[0].id
     });
   }
 
-  getColors(){
-    this.colorService.getColors().subscribe((result) => {
-      this.allColors = result as Color[];
-      this.colorSelected = this.allColors[0];
-    });
-  }
 
   getSkill(breed: Breed) {
-    // this.breedIndex = this.allBreeds.map(o => o.breed).indexOf((<HTMLInputElement>event.target).id);
     this.breedSelected = breed;
     this.skillSelected = this.breedSelected.skill;
+    this.breedIdSelected = breed.id;
     this.imagePath = '../../assets/images/horses/';
-    // this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
     this.imagePath +=  `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
-    
   }
 
   getImage(color: Color) {
     // this.colorIndex = this.allColors.map(o => o.color).indexOf((<HTMLInputElement>event.target).id);
     this.colorSelected = color;
+    console.log(this.colorSelected);
+    this.colorIdSelected = color.id
     this.imagePath = '../../assets/images/horses/';
     // this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
     this.imagePath +=  `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
@@ -101,9 +118,9 @@ export class SignUpComponent implements OnInit {
         this.validEmail = true;
         this.userService.createUser(this.signupForm.value).then((res) => {
          sessionStorage.setItem('uid', res.id)
-          
+         console.log(this.breedIdSelected, this.colorIdSelected, this.skillSelected)
           this.horseService
-            .createRandomHorse(this.signupForm.value, this.skillSelected, res.id)
+            .createRandomHorse(this.signupForm.value, res.id, this.breedIdSelected, this.colorIdSelected, this.skillSelected)
             .subscribe((e) => {
               this.router.navigate(['horse-list']);
             });

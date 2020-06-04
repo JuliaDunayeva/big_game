@@ -92,15 +92,12 @@ export class HorseDataService {
 		let dressage = this.getRandStats();
 		let gender = this.getRandGender();
 		let today = new Date();
-		console.log(value, userId, breedId, colorId, skill)
-		
 		return from(
 			this.db.collection('/horse_data').add({
-				
 				breed: breedId,
 				skill: skill,
 				color: colorId,
-				name: value.name,
+				name: "New Horse",
 				gender: gender,
 				userId: userId,
 				stamina: stamina,
