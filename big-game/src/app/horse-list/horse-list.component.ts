@@ -32,7 +32,7 @@ export class HorseListComponent implements OnInit {
   newHorseCost: number = 1000;
   newEquus: number;
   allHorseData: Array<any>;
-  public horse: HorseData;
+  horse: HorseData;
   horseValues: { name, breed, color };
 
   skills = ['Stamina', 'Gallop', 'Speed', 'Jumping'];
@@ -96,9 +96,8 @@ export class HorseListComponent implements OnInit {
   }
 
   getHorseData(): HorseData[] {
-    let test = this.horseDataService.getHorsesByUid().subscribe(
+    this.horseDataService.getHorsesByUid().subscribe(
       res => this.allHorseData = res);
-    //console.log(this.allHorseData);
     return this.allHorseData;
   }
 
