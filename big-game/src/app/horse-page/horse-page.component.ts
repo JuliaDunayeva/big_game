@@ -235,15 +235,18 @@ export class HorsePageComponent implements OnInit {
   }
 
   public StrokeButton() {
+    this.history.push("Stroking "+this.horse.name);
     this.changeButtons(this.StrokeButtons, 'stroke');
   }
 
   public GroomButton() {
+    this.history.push("Grooming "+this.horse.name);
     if (this.horse.energy > 0) this.horse.energy -= 5;
     this.changeButtons(this.GroomButtons, 'groom');
   }
 
   public CarrotButton() {
+    this.history.push(this.horse.name+" ate a carrot");
     this.changeButtons(this.CarrotButtons, 'carrot');
   }
 
