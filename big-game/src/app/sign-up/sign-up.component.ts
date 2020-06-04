@@ -120,10 +120,10 @@ export class SignUpComponent implements OnInit {
          sessionStorage.setItem('uid', res.id)
          console.log(this.breedIdSelected, this.colorIdSelected, this.skillSelected)
           this.horseService
-            .createRandomHorse(this.signupForm.value, res.id, this.breedIdSelected, this.colorIdSelected, this.skillSelected)
+            .createRandomHorse(this.signupForm.value, res.id, this.breedIdSelected, this.colorIdSelected, this.skillSelected, "New Horse")
             .subscribe((e) => {
               this.router.navigate(['horse-list']);
-            }).unsubscribe();
+            });
         })
         
       } else {
