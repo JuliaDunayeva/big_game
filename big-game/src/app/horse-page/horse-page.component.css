@@ -347,3 +347,53 @@ li {
     font-size: 13px;
     font-weight: 600;
 }
+
+@media (max-width: 575.98px) {
+    .max-width-column {
+        margin-left: 15%;
+    }
+    .max-width-middle-column {
+        margin-left: 41px;
+        margin-bottom: 5%;
+    }
+}
+
+@media (min-width: 578px) and (max-width: 767.98px) {
+    .max-width-column {
+        margin-left: 15%;
+    }
+    .max-width-middle-column {
+        margin-left: 41px;
+        margin-bottom: 5%;
+    }
+}
+
+
+/** Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .max-width-column {
+        margin-left: 40px;
+        /* margin-top: auto; */
+    }
+    .max-width-middle-column {
+        margin-left: 96px;
+        margin-bottom: 5%;
+    }
+    .max-width-right {
+        margin-top: -500px;
+    }
+}
+
+
+/** Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .max-width-column {
+        margin-left: 15%;
+    }
+    .max-width-middle-column {
+        margin-left: 41px;
+        margin-bottom: 5%;
+    }
+}
