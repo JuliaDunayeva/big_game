@@ -1,13 +1,13 @@
-<div class="container-lg">
+<div class="ui container-xl">
     <app-nav-bar></app-nav-bar>
     <!-- account nav bar here-->
-    <br />
+    <!-- <br />-->
     <app-play-bar></app-play-bar>
     <!-- game nav bar placement-->
-    <br /><br />
+    <!-- <br /><br />-->
     <div class="row">
         <!-- horse information placement-->
-        <div class="col-3 max-width-column">
+        <div class="col-sm-3 max-width-column">
             <div class="row center-text">
                 <p class="no-bottom-margin top-margin">
                     <!-- left panel 1 - Care -->
@@ -135,6 +135,10 @@
                 <div class="max-width-column" id="collapseExample " [ngbCollapse]="isHistoryCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body">
+                            <div *ngFor="let hist of history">
+                                <p>{{ hist }}</p>
+
+                            </div>
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
@@ -142,7 +146,7 @@
             </div>
         </div>
 
-        <div class="col- center-text max-width-middle-column">
+        <div class="col-md-1 center-text max-width-middle-column">
             <img class="col-" src="{{ imagePath }} " />
             <!-- Temp fixed picture -->
 
@@ -185,78 +189,78 @@
                     </div>
                 </div>
             </div>
-            <!-- Middle panels - Skills -->
-            <div class="max-width-middle-column card-light-green card-title no-bottom-margin card-title-border">
+            <!-- Middle panels - Skills   max-width-middle-column center-text card-light-green card-title no-bottom-margin card-title-border-->
+            <div class="card-light-green card-title no-bottom-margin card-title-border">
                 Skills
             </div>
             <div class="no-top-margin">
                 <div class="card card-light-green">
                     <div class="card-body row">
-                        <div class="col-sm-3 form-group left-align card-title">
+                        <div class="col-sm-3 form-group card-title">
                             Skills
                         </div>
-                        <div class="col-sm-2 center-text"></div>
-                        <div class="col-sm-6 center-text card-title">Total: 1,000</div>
+                        <div class="col-sm-6 center-text">nothing here</div>
+                        <div class="col-sm-3 center-text card-title">Total: 1,000</div>
                     </div>
                     <!-- horse stamina-->
                     <div class="card-body row skillRating">
                         <div class="col-sm-3 form-group bold-title">
                             Stamina
                         </div>
-                        <div class="col-">
+                        <div class="col-sm-6">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.stamina / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col-">{{ horse?.stamina }}</div>
+                        <div class="col-sm-3 center-text">{{ horse?.stamina }}</div>
                     </div>
                     <!-- horse speed-->
                     <div class="card-body row skillRating">
                         <div class="col-sm-3 form-group center-text bold-title">
                             Speed
                         </div>
-                        <div class="col- center-text">
+                        <div class="col-sm-6 center-text">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.speed / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col- center-text">{{ horse?.speed }}</div>
+                        <div class="col-sm-3 center-text">{{ horse?.speed }}</div>
                     </div>
                     <!-- horse dressage-->
                     <div class="card-body row skillRating">
                         <div class="col-sm-3 form-group center-text bold-title">
                             Dressage
                         </div>
-                        <div class="col- center-text">
+                        <div class="col-sm-6 center-text">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.dressage / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col- center-text">{{ horse?.dressage }}</div>
+                        <div class="col-sm-3 center-text">{{ horse?.dressage }}</div>
                     </div>
                     <!-- horse gallop-->
                     <div class="card-body row skillRating">
                         <div class="col-sm-3 form-group center-text bold-title">
                             Gallop
                         </div>
-                        <div class="col- center-text">
+                        <div class="col-sm-6 center-text">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.gallop / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col- center-text">{{ horse?.gallop }}</div>
+                        <div class="col-sm-3 center-text">{{ horse?.gallop }}</div>
                     </div>
                     <!-- horse trot-->
                     <div class="card-body row skillRating">
                         <div class="col-sm-3 form-group center-text bold-title">
                             Trot
                         </div>
-                        <div class="col- center-text">
+                        <div class="col-sm-6 center-text">
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.trot / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col- center-text">{{ horse?.trot }}</div>
+                        <div class="col-sm-3 center-text">{{ horse?.trot }}</div>
                     </div>
                     <div class="card-body row skillRating">
                         <div class="col-sm-3 form-group center-text bold-title">
                             Jumping
                         </div>
-                        <div class="col- center-text">
+                        <div class="col-sm-6 center-text">
                             <!-- horse jumping-->
                             <ngb-rating [formControl]="ctrl" [readonly]="readonly" [rate]="horse?.jumping / 10" class="gold-color"></ngb-rating>
                         </div>
-                        <div class="col- center-text">{{ horse?.jumping }}</div>
+                        <div class="col-sm-3 center-text">{{ horse?.jumping }}</div>
                     </div>
                 </div>
             </div>
@@ -413,21 +417,23 @@
     <div class="card-body">
         <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green">
             <ng-container ngbNavItem>
-                <a ngbNavLink class="card-light-green">Characteristics</a>
+                <a ngbNavLink class="card-light-green ">Characteristics</a>
                 <ng-template ngbNavContent>
-                    <div>
-                        <p>Owner [ {{ user?.userName }} ]</p>
-                    </div>
-                    <div>
-                        <p>Breed [ {{ horse?.breed }} ]</p>
-                    </div>
-                    <div>
-                        <p>Gender [ {{ horse?.gender }}]</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p>Owner [ {{ user?.userName }} ]</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Breed [ {{ horse?.breed }} ]</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Gender [ {{ horse?.gender }}]</p>
+                        </div>
                     </div>
                     <!-- <div>
                                     <p>Species [ {{ horse?.species }} </p>
                                 </div> -->
-                    <div>
+                    <div class="col-sm-3">
                         <p>Coat [ {{ horse?.color }} ]</p>
                     </div>
 
