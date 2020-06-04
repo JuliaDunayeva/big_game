@@ -75,15 +75,16 @@
 }
 
 .max-width-top-middle-column {
-    min-width: 385px;
-    max-width: 400px;
+    min-width: 400px;
+    max-width: 450px;
     /*max-width: 385px;*/
 }
 
 .max-width-middle-column {
     /*width: 540px;*/
-    min-width: 385px;
-    max-width: 385px;
+    min-width: 400px;
+    width: 100vw;
+    max-width: 475px;
     margin-left: 10px;
     margin-right: 10px;
 }

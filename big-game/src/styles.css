@@ -2,7 +2,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.background-all {    background-color: #61c5c9;
+.background-all {
+    background-color: #61c5c9;
 }
 
 .background-img {
@@ -14,7 +15,7 @@ body {
     /*background: url('./assets/images/home-page/clouds.gif') no-repeat;*/
     background: url("./assets/images/home-page/bg-image.jpg") no-repeat;
     background-color: #32641b;
-    background-size: auto;
+    background-size: auto auto;
 }
 
 
@@ -157,28 +158,29 @@ body {
     z-index: -99;
 }
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
     .folder {
         width: 495px;
         height: auto;
-        background-clip:none;
-        background-size: cover;
-    }
-}
-@media (min-width: 576px) and (max-width: 767.98px) { 
-    .folder {
-        width: 100%;
-        height: auto;
-        background-clip:none;
+        background-clip: none;
         background-size: cover;
     }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) { 
+@media (min-width: 576px) and (max-width: 767.98px) {
     .folder {
         width: 100%;
         height: auto;
-        background-clip:none;
+        background-clip: none;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .folder {
+        width: 100%;
+        height: auto;
+        background-clip: none;
         background-size: cover;
     }
 }
@@ -187,9 +189,7 @@ body {
     .folder {
         width: 100%;
         height: auto;
-        background-clip:none;
+        background-clip: none;
         background-size: cover;
     }
-} 
-    
- 
+}
