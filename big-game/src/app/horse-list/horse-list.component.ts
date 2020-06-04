@@ -52,7 +52,6 @@ export class HorseListComponent implements OnInit {
     this.userDataService.getUserByID(this.Uid).subscribe((result) => {
       this.user = result as UserData;
     });
-    // return this.user;
   }
 
   getBreeds() {
@@ -92,7 +91,7 @@ export class HorseListComponent implements OnInit {
 
   createRandomHorse(name: string, breed: string, color: string, skill: string) {
     this.horseValues = { name: name, breed: breed, color: color }
-    this.horseDataService.createRandomHorse(this.horseValues, this.Uid, "", "", "")
+    this.horseDataService.createRandomHorse(this.horseValues, this.Uid, this.breedIdSelected, this.colorIdSelected, this.skillSelected, name)
     return alert(this.success);
   }
 
