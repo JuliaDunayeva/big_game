@@ -24,7 +24,11 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
 import { HorseListComponent } from './horse-list/horse-list.component';
 import { HorseSaleComponent } from './horse-sale/horse-sale.component';
+<<<<<<< HEAD
 import { TackPageComponent } from './store-page/tack-page/tack-page.component';
+=======
+import { MiniBarComponent } from './nav-bar/mini-bar/mini-bar.component';
+>>>>>>> sandbox_pre-develop
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { TackPageComponent } from './store-page/tack-page/tack-page.component';
     CompetitionsComponent,
     HorseListComponent,
     HorseSaleComponent,
+<<<<<<< HEAD
     TackPageComponent
+=======
+    MiniBarComponent
+>>>>>>> sandbox_pre-develop
   ],
   
   imports: [
