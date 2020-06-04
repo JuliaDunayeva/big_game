@@ -97,7 +97,9 @@ input {
     margin-bottom: 0px;
 }
 
-
+.folder{
+    height: 480px;
+}
 @media (max-width: 575.98px) { 
     .mytable-light-green {
        
