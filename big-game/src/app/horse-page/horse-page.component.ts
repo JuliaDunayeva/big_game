@@ -27,6 +27,7 @@ export class HorsePageComponent implements OnInit {
   CarrotButtons: HorsePageButtons = new HorsePageButtons();
   MashButtons: HorsePageButtons = new HorsePageButtons();
 
+  public history:string[]=[];
   allSkills: string[];
   skill: string;
   allBreeds: Breed[];
@@ -222,6 +223,7 @@ export class HorsePageComponent implements OnInit {
   }
 
   public DrinkButton() {
+    this.history.push(this.horse.name+" is taking a drink");
     this.changeButtons(this.DrinkButtons, 'drink');
     // convert time to seconds then back again to display in circlur progress  bar
     this.seconds = this.hour * 3600 + this.minute * 60;
@@ -237,6 +239,7 @@ export class HorsePageComponent implements OnInit {
   }
 
   public GroomButton() {
+    if (this.horse.energy > 0) this.horse.energy -= 5;
     this.changeButtons(this.GroomButtons, 'groom');
   }
 
@@ -249,6 +252,8 @@ export class HorsePageComponent implements OnInit {
   }
 
   public FeedButton() {
+    
+    this.history.push("Feeding "+this.horse.name);
     this.changeButtons(this.FeedButtons, 'feed');
     // convert time to seconds then back again to display in circlur progress  bar
     this.seconds = this.hour * 3600 + this.minute * 60;
@@ -258,7 +263,7 @@ export class HorsePageComponent implements OnInit {
       return;
     }
 
-    if (this.horse.energy > 0) this.horse.energy -= 5;
+    if (this.horse.energy > 0) this.horse.energy += 5;
     // subtract seconds for 24hour period from how many seconds for task
     this.totalseconds = this.seconds - this.taskSeconds;
     this.hour = this.totalseconds / 3600;
@@ -376,9 +381,9 @@ export class HorsePageComponent implements OnInit {
     return this.allColors;
   }
 
-  public beforeChange($event: NgbPanelChangeEvent) {
+  /*public beforeChange($event: NgbPanelChangeEvent) {
     if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
       $event.preventDefault();
     }
-  } // end of beforeChange() function
+  } // end of beforeChange() function*/
 } // end horse-page component class

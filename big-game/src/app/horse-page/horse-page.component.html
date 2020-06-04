@@ -135,6 +135,10 @@
                 <div class="max-width-column" id="collapseExample " [ngbCollapse]="isHistoryCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body">
+                            <div *ngFor="let hist of history">
+                                <p>{{ hist }}</p>
+
+                            </div>
                             You can collapse this card by clicking Toggle
                         </div>
                     </div>
@@ -413,21 +417,23 @@
     <div class="card-body">
         <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green">
             <ng-container ngbNavItem>
-                <a ngbNavLink class="card-light-green">Characteristics</a>
+                <a ngbNavLink class="card-light-green ">Characteristics</a>
                 <ng-template ngbNavContent>
-                    <div>
-                        <p>Owner [ {{ user?.userName }} ]</p>
-                    </div>
-                    <div>
-                        <p>Breed [ {{ horse?.breed }} ]</p>
-                    </div>
-                    <div>
-                        <p>Gender [ {{ horse?.gender }}]</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p>Owner [ {{ user?.userName }} ]</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Breed [ {{ horse?.breed }} ]</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Gender [ {{ horse?.gender }}]</p>
+                        </div>
                     </div>
                     <!-- <div>
                                     <p>Species [ {{ horse?.species }} </p>
                                 </div> -->
-                    <div>
+                    <div class="col-sm-3">
                         <p>Coat [ {{ horse?.color }} ]</p>
                     </div>
 
