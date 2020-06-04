@@ -34,16 +34,6 @@ hr {
   height: 4px;
 }
 
-.st-repo-card {
-   width:640px;
-   height:auto;
-   margin-top: 40px;
-   margin-left: 15px;
-   background-color: #DCDB81;
-   color: #133300;
-   font-weight: bold;
-}
-
 .bl-st-head {
     font-size: 1.25rem;
     font-weight: bold;
@@ -54,14 +44,8 @@ i {
     font-style: normal;
 }
 
-.sm-card {
-    height:110px;
-    width: 270px;
-    margin: 10px 10px 10px 10px; 
-    background-color: #F0F0B2;
-    color: #133300;
-    font-size: 1rem;
-    font-weight: bold;
+.media-store{
+    display:none;
 }
 
 .box-img {
@@ -128,63 +112,86 @@ a {
 .btn-shops-lrg {
     width:100px;
 }
-  
-@media (max-width: 575.98px) { 
-    .sm-card{
-        height:55px;
-        width: 135px;
-        font-size: .75rem;
-    }
     
-    .st-repo-card {
-        width:320px;
-        height:150px;
+.mycard-light-green {
+    background-color: #F0F0B2;
+    color: #663300;
+    border-style: solid 2px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.background-card{
+    background-color: #DCDB81;
+    color: #133300;
+    font-weight: bold;
+    border-style: solid 2px;
+    border-radius: 5px;
+    margin: 20px;
+    margin-top:30px;
+}
+
+@media (max-width: 575.98px) { 
+    .st-img{
+        display: none;
     }
-    .st-img {
-        width:50%;
-        height:100px ;
+    .col-md-5 {
+        width:250px;
+    }
+    .col-md-10{
+        width:440px;
     }
     .box-img{
-        width:25%;
-        margin-left: 1px;
+        width:80%;
     }
-    .bl-st-head {
-        font-size: .75rem;
+    .second-row {
+        margin-top: 0px;
     }
-    .text-pos{
-        margin-left: 0px;
-    }
-    .box-head{
-        font-size: .50rem;
-        margin-top: 1px;
+    .media-store{
+        display:block;
     }
  }
  
 /** Small devices (landscape phones,576px and up)*/
 
 @media (min-width: 600px) and (max-width: 767.98px) { 
-    .sm-card{
-        height:55px;
-        width: 55px;
+    .col-md-10{
+        width:480px;
     }
-    .st-repo-card {
-        width:320px;
-        height:150px;
-        margin-top:2px;
+    .st-img {
+        display: none;
     }
-    .box-img{
-        width:25%;
+    .col-md-5 {
+        width:380px;
     }
-    .bl-st-head {
-        font-size: .75rem;
+    .second-row {
+        margin-top: 0px;
+    }
+    .popup {
+        min-width: 400px;
+        right: 50px;
+    }
+    .text-pos {
+        margin-left:0px;
+        margin-top: 5px;
+    }
+    .media-store{
+        display:block;
+        width: 110%;
     }
     
 }
 
 /** Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) { 
-    
-
+    .popup {
+        min-width: 400px;
+        right: 50px;
+    }
+    .text-pos {
+        margin-left:5px;
+        margin-top: 5px;
+    }
 }
 
 /** Large devices (desktops, 992px and up)*/
