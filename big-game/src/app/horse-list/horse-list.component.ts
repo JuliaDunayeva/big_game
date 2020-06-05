@@ -8,6 +8,7 @@ import { Breed } from '../breed';
 import { ColorService } from '../services/color.service';
 import { Color } from '../color';
 import { AuthService } from '../services/auth.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-horse-list',
@@ -29,28 +30,43 @@ export class HorseListComponent implements OnInit {
     Uid: string = this.authService.getUId();
     user: any;
     horseValues: {name, breed, color};
-    allHorseData: Array<any>;
+    allHorseData: Array<HorseData>;
     public horse: HorseData;
     success = 'A new horse has been added';
     newHorseCost: number = 1000;
     newEquus: number;
+    selectHorse: FormGroup
+    horseSelecteId: string;
+    defaultHorse: any;
 
     constructor(private breedService: BreedService, 
         private colorService: ColorService, 
         private authService: AuthService,
         private userDataService: UserDataService,
-        private horseDataService: HorseDataService) {
+        private horseDataService: HorseDataService,
+        private fb: FormBuilder) {
     }
 
     ngOnInit(): void {
+    this.getHorseData();
       this.getBreeds();
       this.getColors();
-      this.getHorseData();
       this.userDataService.getUserByID(this.Uid).subscribe((result) => {
          this.user = result as UserData;
       });
     return this.user;
     }
+
+    getHorseData(): HorseData[] {
+      let test =  this.horseDataService.getHorsesByUid().subscribe(
+        res => {
+          this.allHorseData = res;
+          this.defaultHorse = this.allHorseData[0].name
+          console.log("default horse " , this.defaultHorse)
+          this.createForm();
+        });
+      return this.allHorseData;
+    }
 
     getBreeds(): Breed[] {
       this.breedService.getBreeds().subscribe((result) => {
@@ -63,12 +79,22 @@ export class HorseListComponent implements OnInit {
       this.colorService.getColors().subscribe((result) => {
         this.allColors = result as Array<Color>;
       });
- 
       return this.allColors;
     }
 
-    buyNewHorse(newHorseCost: number, newEquus: number) {
+    createForm() {
+      console.log(this.defaultHorse)
+      this.selectHorse = this.fb.group({
+        myHorse: [this.defaultHorse, Validators.required]
+      })
+    }
 
+    selectedHorse(event: any) {
+      this.horseSelecteId = (<HTMLInputElement>event.target).id;
+    }
+
+    onSelectHorse() {
+      this.authService.sethorseId(this.horseSelecteId)
     }
 
     createRandomHorse(name:string, breed: string, color:string, skill:string){
@@ -77,19 +103,10 @@ export class HorseListComponent implements OnInit {
       return alert(this.success);
     } 
 
-    getHorseData(): HorseData[] {
-      let test =  this.horseDataService.getHorsesByUid().subscribe(
-        res => this.allHorseData = res);
-        //console.log(this.allHorseData);
-      return this.allHorseData;
+    buyNewHorse(newHorseCost: number, newEquus: number) {
     }
 
-    horseSelecteId: string;
-    selectedHorse(event:any) {
-      this.horseSelecteId = (<HTMLInputElement>event.target).id;
+    onSellHorse(event: any) {
     }
 
-    onSelectHorse() {
-      this.authService.sethorseId(this.horseSelecteId)
-    }
 }

@@ -77,7 +77,6 @@ export class HorseDataService {
 
 	SetUserIDForHorse(horseid:string,userId:string){
 		let cityRef = this.db.collection('/horse_data').doc(horseid);
-
 		let setWithOptions = cityRef.set({
 			"userId":userId
 		}, {merge: true});

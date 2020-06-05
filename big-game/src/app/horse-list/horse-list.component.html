@@ -8,7 +8,7 @@
     </div>
     <div class="folder">
         <div class="row "> <!-- Path Information & Picture -->
-            <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
+            <div class="col-md-7 display pad-left card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green ">
                     <i class="home icon"></i>
                     <a class=""> Breeding Farm &nbsp;</a>
@@ -21,11 +21,12 @@
         </div>
         <div class="row"> <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon">
-                <hr>
+                <hr class="hrtop">
+                <br>
                 <h3 class="no-top-margin display card-title">List of horses for &nbsp;
                     <span class="color-tx-green"> {{ user.userName }}</span></h3>
                 <div class="color-tx-green no-top-margin">
-                    <p>Select one of your horses from the farm. </p>
+                    <p>Select one of your horses from the farm to play with or to put for sale. </p>
                     <br><br>
                 </div>
             </div>
@@ -33,15 +34,21 @@
         <div class="row pad-left display">
             <Div class="col-5 mycard-light-green">
                 <br>
-                <form>
-                    <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
-                        <input type="radio" value="horse.name" [id]="horse.id" (click)="selectedHorse($event)"> &nbsp; &nbsp;
-                        {{ horse.name }} - {{ horse.breed }}
-                    </label>
-                    <br>
-                    <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
-                    [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
-                    Use</button>
+                <form [formGroup]="selectHorse">
+                        <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                            <input type="radio" formControlName="myHorse" name="myHorse" [value]="horse.name" [id]="horse.id" 
+                            (click)="selectedHorse($event)">
+                            &nbsp; &nbsp;<strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
+                        </label>
+                    <div class="display centered">
+                        <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
+                        [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
+                        Play</button>
+                        <div class="col-1"></div>
+                        <button class="btn-shops btn-shops-lrg" 
+                        [routerLink]="['/horse-sale']" routerLinkActive="router-link-active" >
+                        Sell</button>
+                    </div>
                 </form>
                 <br>
             </Div>
