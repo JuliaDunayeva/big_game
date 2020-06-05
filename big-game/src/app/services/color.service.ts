@@ -11,10 +11,12 @@ export class ColorService {
 
   constructor(public db: AngularFirestore) { }
 
+  //get all colors listed in firebase
   getColors() {
     return this.db.collection('/color').snapshotChanges()
   }
 
+  // get the color info from firebase (@param: id is 'color' in horse_data ref in firebase)
   getColorById(id: string) {
     return this.db.collection('color').doc(id).ref.get()
   }
