@@ -1,6 +1,4 @@
 .footer-bkgrd {
-    display: flex;
-    justify-content: center;
     border-style: none;
     margin: 5px 25px 5px 25px;
     border-radius: 5px;
@@ -15,7 +13,7 @@ div a {
     text-decoration: none;
 }
 
-ul a {
+.spc-right {
     /* Space between link icons */
     margin: 0 25px 0 0;
 }
@@ -27,3 +25,18 @@ ul a {
     color: white;
     background-color: transparent;
 }
+
+.display {
+    display: flex;
+    justify-content: center;
+}
+
+.display-vert {
+    display: inline-block;
+    justify-content: center;
+}
+
+.centered {
+    align-content: center;
+}
+

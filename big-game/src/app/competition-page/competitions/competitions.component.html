@@ -8,7 +8,7 @@
     </div>
     <div class="folder">
         <div class="row "> <!-- Path Information & Picture -->
-            <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
+            <div class="col-md-7 display pad-left small card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green ">
                     <i class="home icon"></i>
                     <a class=""> Breeding Farm &nbsp;</a>
@@ -21,10 +21,12 @@
         </div>
         <div class="row"> <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon card-title">
-                <hr>
+                <hr class="hrtop">
+                <br>
                 <h3 class="no-top-margin display">Create a Competition</h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Create a competition for horses to compete in. </p>
+                    <br>
                 </div>
             </div>
         </div> <!-- Title End -->
@@ -46,6 +48,7 @@
                         <option  *ngFor="let compType of compTypes" [ngValue]="compType">{{compType}}</option>
                     </select>               
                 </div>
+                <br>
                 <div>
                     <button class="btn-shops btn-shops-lrg pad-left" 
                     (click)="createCompetition(compName.value, breed.value, compType.value)" 
