@@ -4,6 +4,7 @@ import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HorseData } from '../horse-data';
 import { AuthService } from './auth.service';
+import { BreedService } from './breed.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -11,7 +12,10 @@ import { AuthService } from './auth.service';
 export class HorseDataService {
 	name: string = 'Watermelon I';
 
-	constructor(public db: AngularFirestore,private authService:AuthService) {}
+	constructor(
+		public db: AngularFirestore,
+		private authService:AuthService,
+		private breedService: BreedService) {}
 
 	getHorseByID(id : string) : Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
@@ -28,11 +32,9 @@ export class HorseDataService {
 		.snapshotChanges().pipe(
 			map(action => {
 			return action.map(res =>{
-				const horse=res.payload.doc.data() as HorseData;
-				const id=res.payload.doc.id;
-				//horse.id=id;
+				const horse = res.payload.doc.data() as HorseData;
+				const id = res.payload.doc.id;
 				this.authService.sethorseId(id);
-				//console.log(horse.id);
 				return { id, ...horse };
 				})
 			})
