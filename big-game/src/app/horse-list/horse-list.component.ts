@@ -103,14 +103,10 @@ export class HorseListComponent implements OnInit {
       return alert(this.success);
     } 
 
-    
-
     buyNewHorse(newHorseCost: number, newEquus: number) {
-      
     }
 
     onSellHorse(event: any) {
     }
 
-    
 }
