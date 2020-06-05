@@ -368,12 +368,16 @@ getBreeds(): Breed[] {
 	return this.allBreeds;
   }
 
-  getColors(): Color[] {
-	this.colorService.getColors().subscribe((result) => {
-	  this.allColors = result as Array<Color>;
-	  //this.authService.colors = result as Array<Color>;
-	});
-	return this.allColors;
+  getColors() {
+    this.colorService.getColors().subscribe(clr => {
+      this.allColors = clr.map(res => {
+        return {
+          id: res.payload.doc.id,
+          color: res.payload.doc.data()['color'],
+          img_file: res.payload.doc.data()['img_file']
+        }
+      });
+    });
   }
 
 public beforeChange($event: NgbPanelChangeEvent) {
