@@ -378,19 +378,14 @@ li {
 }
 @media (min-width: 578px) and (max-width: 767.98px) {
   .max-width-column {
-    margin-left: 1%;
+    margin-left: 15%;
     min-width: 273px;
   }
   .max-width-middle-column {
     margin-left: 41px;
     margin-bottom: 5%;
   }
-  .max-width-right{
-    margin-top: -1962px;
-    margin-left: 304px;
-  }
 }
-
 /** Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
     .max-width-column {
@@ -398,25 +393,32 @@ li {
         /* margin-top: auto; */
       }
       .max-width-middle-column {
-        margin-left: 186px;
+        margin-left:20%;
         margin-bottom: 5%;
+        margin-top: -2050px;
       }
     .max-width-right{
-        margin-top: -1930px;
-        padding-left: 352px;
+        margin-top: -760px;
+        padding-left: 400px;
+    }
+    .max-width-left{
+      margin-top: 1350px;
     }
 }
 
 /** Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .max-width-column {
-        margin-left: 15%;
+        margin-left: 5%;
       }
       .max-width-middle-column {
-        margin-left: 41px;
+        margin-left: 120px;
         margin-bottom: 5%;
       }
       .max-width-right{
         margin-top:-500px;
+    }
+    .max-width-left{
+      margin-top: 300px;
     }
 }
