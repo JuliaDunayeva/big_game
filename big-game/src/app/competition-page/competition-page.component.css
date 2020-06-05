@@ -155,8 +155,8 @@ p {
         
     }
     .hrtop {
-        margin-top:auto;
-        width: auto;
+        margin-top:5px;
+        width: 250%;
         
     }
     .display {
@@ -177,7 +177,7 @@ p {
     }
     .hrtop {
         margin-top: 5px;
-        width: 175%;
+        width: 250%;
         
     }
     .display {
@@ -199,7 +199,7 @@ p {
 
     .hrtop {
         margin-top: 5px;
-        width: 135%;
+        width: 200%;
         
     }
     .display {
@@ -217,7 +217,7 @@ p {
     }
     .hrtop {
         margin-top:5px;
-        width: 97%;
+        width: 140%;
         
     }
     .display {
