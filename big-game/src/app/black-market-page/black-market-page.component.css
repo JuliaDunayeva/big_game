@@ -19,28 +19,19 @@
 }
 
 .second-row {
-margin-top: -60px;
+margin-top: -120px;
 }
 
 .st-img {
-margin-top:-50px;
-height:140px ;
-margin-left: 10px;
+    width: 130%;
+    margin-top:-50px;
+    height:200px ;
+    margin-left: 10px;
 }
 
 hr {
   color:beige;
   height: 4px;
-}
-
-.st-repo-card {
-   width:640px;
-   height:300px;
-   margin-top: 40px;
-   margin-left: 15px;
-   background-color: #DCDB81;
-   color: #133300;
-   font-weight: bold;
 }
 
 .bl-st-head {
@@ -53,19 +44,14 @@ i {
     font-style: normal;
 }
 
-.sm-card {
-    height:110px;
-    width: 270px;
-    margin: 10px 10px 10px 10px; 
-    background-color: #F0F0B2;
-    color: #133300;
-    font-size: 1rem;
-    font-weight: bold;
+.media-store{
+    display:none;
 }
 
 .box-img {
     margin-top:8px;
     margin-left: 4px;
+    width:150%
 }
 
 .box-head {
@@ -126,4 +112,89 @@ a {
 .btn-shops-lrg {
     width:100px;
 }
-  
+    
+.mycard-light-green {
+    background-color: #F0F0B2;
+    color: #663300;
+    border-style: solid 2px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.background-card{
+    background-color: #DCDB81;
+    color: #133300;
+    font-weight: bold;
+    border-style: solid 2px;
+    border-radius: 5px;
+    margin: 20px;
+    margin-top:30px;
+}
+
+@media (max-width: 575.98px) { 
+    .st-img{
+        display: none;
+    }
+    .col-md-5 {
+        width:250px;
+    }
+    .col-md-10{
+        width:440px;
+    }
+    .box-img{
+        width:80%;
+    }
+    .second-row {
+        margin-top: 0px;
+    }
+    .media-store{
+        display:block;
+    }
+ }
+ 
+/** Small devices (landscape phones,576px and up)*/
+
+@media (min-width: 600px) and (max-width: 767.98px) { 
+    .col-md-10{
+        width:480px;
+    }
+    .st-img {
+        display: none;
+    }
+    .col-md-5 {
+        width:380px;
+    }
+    .second-row {
+        margin-top: 0px;
+    }
+    .popup {
+        min-width: 400px;
+        right: 50px;
+    }
+    .text-pos {
+        margin-left:0px;
+        margin-top: 5px;
+    }
+    .media-store{
+        display:block;
+        width: 110%;
+    }
+    
+}
+
+/** Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .popup {
+        min-width: 400px;
+        right: 50px;
+    }
+    .text-pos {
+        margin-left:5px;
+        margin-top: 5px;
+    }
+}
+
+/** Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+ }

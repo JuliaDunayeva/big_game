@@ -97,3 +97,30 @@ input {
     margin-bottom: 0px;
 }
 
+.folder{
+    height: 480px;
+}
+@media (max-width: 575.98px) { 
+    .mytable-light-green {
+       
+        width: auto;
+       
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .mytable-light-green {
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .mytable-light-green {
+        width: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .mytable-light-green {
+        width: auto;
+    }
+} 

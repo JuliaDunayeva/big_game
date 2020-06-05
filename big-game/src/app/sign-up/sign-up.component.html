@@ -53,10 +53,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 ml-md-auto">
+        <div class="col-md-8 ml-md-auto center-media">
             <div>
                 <label for="username">User Name</label>
-                <input formControlName="username" type="text" class="form-control" />
+                <input formControlName="username" type="text" class="form-control" placeholder="User Name"/>
                 <span *ngIf="
                             !signupForm.get('username').valid &&
                             signupForm.get('username').touched" class="text-danger">
@@ -68,7 +68,7 @@
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="email" formControlName="email" class="form-control" />
+                <input type="email" formControlName="email" class="form-control" placeholder="Email"/>
                 <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
                     class="text-danger">Please enter a valid email!
                 </span>
@@ -79,7 +79,7 @@
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" formControlName="password" class="form-control" />
+                <input type="password" formControlName="password" class="form-control" placeholder="Password"/>
                 <span *ngIf="
                             !signupForm.get('password').valid &&
                             signupForm.get('password').touched" class="text-danger">
@@ -94,7 +94,7 @@
             </div>
             <div>
                 <label for="password">Confirm Password</label>
-                <input type="password" formControlName="confirmpassword" class="form-control">
+                <input type="password" formControlName="confirmpassword" class="form-control" placeholder="confirm Password">
                 <span *ngIf="signupForm.get('confirmpassword').valid && signupForm.get('confirmpassword').value
                 != signupForm.get('password').value" class="text-danger">
                     The passwords entered do not match
