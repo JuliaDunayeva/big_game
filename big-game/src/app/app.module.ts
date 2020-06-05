@@ -25,6 +25,7 @@ import { CompetitionsComponent } from './competition-page/competitions/competiti
 import { HorseListComponent } from './horse-list/horse-list.component';
 import { HorseSaleComponent } from './horse-sale/horse-sale.component';
 import { MiniBarComponent } from './nav-bar/mini-bar/mini-bar.component';
+import { PlayBarMiniComponent } from './play-bar/play-bar-mini/play-bar-mini.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MiniBarComponent } from './nav-bar/mini-bar/mini-bar.component';
     CompetitionsComponent,
     HorseListComponent,
     HorseSaleComponent,
-    MiniBarComponent
+    MiniBarComponent,
+    PlayBarMiniComponent
   ],
   
   imports: [
