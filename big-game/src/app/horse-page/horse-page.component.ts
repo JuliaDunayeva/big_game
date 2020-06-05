@@ -52,7 +52,8 @@ export class HorsePageComponent implements OnInit {
   	public value = 0;
 
  	public horse: HorseData = new HorseData;
-
+	img_file: string;
+	img_path: string;
  	public id: string;
 
 // Paths for horse images
@@ -93,8 +94,7 @@ export class HorsePageComponent implements OnInit {
  	public taskSeconds:number;
 
  	public hour:number;
- 	public minute:number;img_path: any;
-	img_file: any;
+ 	public minute:number;
 ;
 
  	public percentStr:string;
@@ -196,7 +196,6 @@ getHorse(){
 					this.LoadHorseImage()
 				}
 		)
-
   });
 	}, 0);
 }
