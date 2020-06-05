@@ -360,12 +360,17 @@ LoadHorseImage(){
 	this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
 } // end of LoadHorseImage() function
 
-getBreeds(): Breed[] {
-	this.breedService.getBreeds().subscribe((result) => {
-	  this.allBreeds = result as Array<Breed>;
-	  //this.authService.breeds = result as Array<Breed>;
-	});
-	return this.allBreeds;
+getBreeds() {
+    this.breedService.getBreeds().subscribe((brd) => {
+      this.allBreeds = brd.map(res => {
+        return {
+          id: res.payload.doc.id,
+          breed: res.payload.doc.data()['breed'],
+          skill: res.payload.doc.data()['skill'],
+          img_path: res.payload.doc.data()['img_path']
+        }
+      });
+    });
   }
 
   getColors() {
