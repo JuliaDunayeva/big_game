@@ -372,6 +372,9 @@ li {
         margin-left: 41px;
         margin-bottom: 5%;
     }
+    .padding {
+        padding: 0rem;
+    }
 }
 
 
@@ -393,6 +396,9 @@ li {
     }
     .max-width-left {
         margin-top: 1350px;
+    }
+    .padding {
+        padding: 0rem;
     }
 }
 
