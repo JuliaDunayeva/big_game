@@ -56,7 +56,7 @@ input {
 }
 
 .hrtop {
-    margin-top: -100px;
+    margin-top: 5px;
     margin-bottom: 2px;
     width: 450px;
     margin-left: -3px;
@@ -102,14 +102,22 @@ input {
 }
 @media (max-width: 575.98px) { 
     .mytable-light-green {
-       
         width: auto;
-       
     }
+
+    .hrtop {
+        width: 90%;
+    }
+
+    
 }
 @media (min-width: 576px) and (max-width: 767.98px) { 
     .mytable-light-green {
         width: auto;
+    }
+
+    .hrtop {
+        width: 90%;
     }
 }
 
@@ -117,10 +125,18 @@ input {
     .mytable-light-green {
         width: auto;
     }
+
+    .hrtop {
+        width: 135%;
+    }
 }
 
 @media (min-width: 992px) {
     .mytable-light-green {
         width: auto;
+    }
+
+    .hrtop {
+        width: 95%;
     }
 } 

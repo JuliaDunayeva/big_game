@@ -35,6 +35,10 @@ export class HorsePageComponent implements OnInit {
 
   breedIndex: number = -1;
   colorIndex: number = -1;
+ 	public horse: HorseData = new HorseData;
+	img_file: string;
+	img_path: string;
+ 	public id: string;
 
   public isRidesCollapsed = false;
   public isCareCollapsed = false;
@@ -50,10 +54,6 @@ export class HorsePageComponent implements OnInit {
   public preventchange_1: true;
   public readonly = true;
   public value = 0;
-
-  public horse: HorseData = new HorseData();
-
-  public id: string;
 
   // Paths for horse images
   public imagePath: string;
@@ -181,7 +181,7 @@ export class HorsePageComponent implements OnInit {
     //this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
     this.imageFile = 'assets/images/horse-page-icons/test-horse-image.png';
     //this.imagePath = 'assets/images/horses/';
-    this.imagePath = this.imageFile;
+    // this.imagePath = this.imageFile;
 
     this.hour = 24;
     this.minute = 0;
@@ -191,10 +191,18 @@ export class HorsePageComponent implements OnInit {
     setTimeout(() => {
       this.horseDataService.getHorseById(this.id).subscribe((res) => {
         this.horse = res as HorseData;
-        //console.log(this.horse);
-        //console.log(this.allColors);
-        //console.log(this.allBreeds);
-        this.LoadHorseImage();
+        this.breedService.getBreedById(this.horse.breed).then( brd =>
+            {this.horse.breed = brd.data()['breed'];
+            this.img_path = brd.data()['img_path']
+            }
+        )
+        this.colorService.getColorById(this.horse.color).then( clr =>
+            {
+              this.horse.color = clr.data()['color'];
+              this.img_file = clr.data()['img_file'];
+              this.LoadHorseImage()
+            }
+        )
       });
     }, 0);
   }
@@ -217,6 +225,7 @@ export class HorsePageComponent implements OnInit {
     secs = Math.floor(secs % 60);
     let hours = minutes / 60;
     minutes = Math.floor(minutes % 60);
+
     hours = Math.floor(hours % 24);
     if (secs > 10) this.horse.energy += 5;
     return hours + ':' + minutes + ':' + secs + '.' + ms;
@@ -353,35 +362,33 @@ export class HorsePageComponent implements OnInit {
   } // end of toggle() function
 
   LoadHorseImage() {
-    this.imagePath = 'assets/images/horses/';
-
-    this.breedIndex = this.allBreeds
-      .map((o) => o.breed)
-      .indexOf(this.horse.breed);
-    this.colorIndex = this.allColors
-      .map((o) => o.color)
-      .indexOf(this.horse.color);
-
-    this.imagePath +=
-      this.allBreeds[this.breedIndex].img_path +
-      '/' +
-      this.allColors[this.colorIndex].img_file;
-  } // end of LoadHorseImage() function
-
-  getBreeds(): Breed[] {
-    this.breedService.getBreeds().subscribe((result) => {
-      this.allBreeds = result as Array<Breed>;
-      //this.authService.breeds = result as Array<Breed>;
+      this.imagePath = 'assets/images/horses/';
+      this.imagePath += `${this.img_path}/${this.img_file}`
+    } // end of LoadHorseImage() function
+    
+  getBreeds() {
+      this.breedService.getBreeds().subscribe((brd) => {
+        this.allBreeds = brd.map(res => {
+          return {
+            id: res.payload.doc.id,
+            breed: res.payload.doc.data()['breed'],
+            skill: res.payload.doc.data()['skill'],
+            img_path: res.payload.doc.data()['img_path']
+          }
+        });
+      });
+    }
+  
+  getColors() {
+    this.colorService.getColors().subscribe(clr => {
+      this.allColors = clr.map(res => {
+        return {
+          id: res.payload.doc.id,
+          color: res.payload.doc.data()['color'],
+          img_file: res.payload.doc.data()['img_file']
+        }
+      });
     });
-    return this.allBreeds;
-  }
-
-  getColors(): Color[] {
-    this.colorService.getColors().subscribe((result) => {
-      this.allColors = result as Array<Color>;
-      //this.authService.colors = result as Array<Color>;
-    });
-    return this.allColors;
   }
 
   /*public beforeChange($event: NgbPanelChangeEvent) {
