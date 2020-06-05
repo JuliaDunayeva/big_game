@@ -18,10 +18,8 @@ import { AuthService } from '../services/auth.service';
 export class HorseListComponent implements OnInit {
   allBreeds: Breed[];
   allColors: Color[];
-  breedSelected: Breed;
   breedIdSelected: string;
   skillSelected: string;
-  colorSelected: Color;
   colorIdSelected: string;
   breed: string;
   skill: string;
@@ -31,12 +29,15 @@ export class HorseListComponent implements OnInit {
   user: any;
   newHorseCost: number = 1000;
   newEquus: number;
-  allHorseData: Array<any>;
+  allHorseData: Array<HorseData>;
+  allHorses: Breed[];
   horse: HorseData;
   horseValues: { name, breed, color };
 
   skills = ['Stamina', 'Gallop', 'Speed', 'Jumping'];
   success = 'A new horse has been added';
+
+ 
 
   constructor(private breedService: BreedService,
     private colorService: ColorService,
@@ -64,9 +65,6 @@ export class HorseListComponent implements OnInit {
           img_path: res.payload.doc.data()['img_path']
         }
       });
-      this.breedSelected = this.allBreeds[0];
-      this.breedIdSelected = this.allBreeds[0].id
-      this.skillSelected = this.breedSelected.skill
     });
   }
 
@@ -79,26 +77,36 @@ export class HorseListComponent implements OnInit {
           img_file: res.payload.doc.data()['img_file']
         }
       });
-      this.colorSelected = this.allColors[0];
-      this.colorIdSelected = this.allColors[0].id
     });
   }
 
+  getHorseData(){
+    this.horseDataService.getHorsesByUid().subscribe(
+      res => {
+        this.allHorseData = res as Array<HorseData>;
+        this.allHorseData.map(horse =>{
+          this.breedService.getBreedById(horse.breed).then( res =>
+            horse.breed = res.data()['breed']
+            )
+          }
+        )
+        this.allHorseData.map(horse =>{
+          this.colorService.getColorById(horse.color).then( res =>
+            horse.color = res.data()['color']
+            )
+          }
+        )
+      }
+    )
+  }
 
   buyNewHorse(newHorseCost: number, newEquus: number) {
 
   }
 
   createRandomHorse(name: string, breed: string, color: string, skill: string) {
-    this.horseValues = { name: name, breed: breed, color: color }
-    this.horseDataService.createRandomHorse(this.horseValues, this.Uid, this.breedIdSelected, this.colorIdSelected, this.skillSelected, name)
+    this.horseDataService.createRandomHorse(this.horseValues, this.Uid, breed, color, skill, name)
     return alert(this.success);
-  }
-
-  getHorseData(): HorseData[] {
-    this.horseDataService.getHorsesByUid().subscribe(
-      res => this.allHorseData = res);
-    return this.allHorseData;
   }
 
   horseSelecteId: string;
