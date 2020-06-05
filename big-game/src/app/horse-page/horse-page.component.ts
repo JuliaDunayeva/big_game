@@ -93,7 +93,9 @@ export class HorsePageComponent implements OnInit {
  	public taskSeconds:number;
 
  	public hour:number;
- 	public minute:number;;
+ 	public minute:number;img_path: any;
+	img_file: any;
+;
 
  	public percentStr:string;
 
@@ -181,10 +183,20 @@ getHorse(){
 	{
 		this.horseDataService.getHorseById(this.id).subscribe(res => {
 		this.horse = res as HorseData;
-		//console.log(this.horse);
-		//console.log(this.allColors);
-		//console.log(this.allBreeds);
-		this.LoadHorseImage();
+		this.breedService.getBreedById(this.horse.breed).then( res =>
+			{	
+				this.horse.breed = res.data()['breed']
+				this.img_path = res.data()['img_path']
+			}
+		)
+		this.colorService.getColorById(this.horse.color).then( res =>
+				{
+					this.horse.color = res.data()['color'];
+					this.img_file = res.data()['img_file'];
+					this.LoadHorseImage()
+				}
+		)
+
   });
 	}, 0);
 }
@@ -353,11 +365,7 @@ toggle() {
 
 LoadHorseImage(){
 	this.imagePath = 'assets/images/horses/';
-
-	this.breedIndex = this.allBreeds.map((o) => o.breed).indexOf(this.horse.breed);
-	this.colorIndex = this.allColors.map((o) => o.color).indexOf(this.horse.color);
-		
-	this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
+	this.imagePath += `${this.img_path}/${this.img_file}`
 } // end of LoadHorseImage() function
 
 getBreeds() {
