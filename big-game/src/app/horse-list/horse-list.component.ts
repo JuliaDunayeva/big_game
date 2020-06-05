@@ -124,7 +124,7 @@ export class HorseListComponent implements OnInit {
   }
 
   onSelectHorse() {
-    this.authService.sethorseId(this.horseSelectedId)
+    this.authService.setHorseId(this.horseSelectedId)
   }
 
   buyNewHorse(newHorseCost: number, newEquus: number) {

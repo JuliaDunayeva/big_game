@@ -34,7 +34,7 @@ export class HorseDataService {
 			return action.map(res =>{
 				const horse = res.payload.doc.data() as HorseData;
 				const id = res.payload.doc.id;
-				this.authService.sethorseId(id);
+				this.authService.setHorseId(id);
 				return { id, ...horse };
 				})
 			})
