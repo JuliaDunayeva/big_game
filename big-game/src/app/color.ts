@@ -1,21 +1,11 @@
 export class Color {
-	public key: string;
+	public id: string;
 	public color: string;
-	public color_id: number;
 	public img_file: string;
 
-	constructor(key: string, color: string, color_id: number, img_file: string) {
-		this.key = key;
+	constructor(id: string, color: string, img_file: string) {
 		this.color = color;
-		this.color_id = color_id;
+		this.id = id;
 		this.img_file = img_file;
-	}
-
-	getColor(): string {
-		return this.color;
-	}
-
-	getImageFile(): string {
-		return this.img_file;
 	}
 }
