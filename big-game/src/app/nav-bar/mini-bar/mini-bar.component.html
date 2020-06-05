@@ -14,17 +14,21 @@
                         <i class="head-text">Start Pack</i>
                         <i class="font-lg icon-qualty angle right icon"></i>
                     </div>
-                    <div ngbDropdownItem>
-                        <i> <img class="equus" src="./assets/images/game_pieces/equus.png"></i>
-                        <i>{{ user.equus }}</i>
-                        <i class="font-sm">Equus</i>
-                        <i class="font-md plus icon"></i>
+                    <div ngbDropdownItem class="">
+                        <div class="equus">
+                            <i> <img class="equus" src="./assets/images/game_pieces/equus.png"></i>
+                            <i class="font-sm">{{ user.equus }} </i>
+                            <i class="font-sm">Equus</i>
+                            <i class="font-md plus icon plus"></i>
+                        </div>
                     </div>
-                    <div ngbDropdownItem>
-                        <i ><img class="equus" src="./assets/images/game_pieces/pass.png"></i>
-                        <i>{{ user.passes }}</i>
-                        <i class="font-sm">Passes</i>
-                        <i class="font-md plus icon"></i>
+                    <div ngbDropdownItem >
+                        <div class="equus">
+                            <i ><img class="equus" src="./assets/images/game_pieces/pass.png"></i>
+                            <i class="font-sm">{{ user.passes }} </i>
+                            <i class="font-sm">Passes</i>
+                            <i class="font-md plus icon"></i>
+                        </div>
                     </div>
                     <div ngbDropdownItem>
                         <i class="leaf-size leaf icon"></i>
@@ -39,21 +43,26 @@
                                 <a class="disabled">
                                     <i class="font-xl user circle icon"></i>
                                     <p class="font-xmd">{{ user.userName }}</p>
+                                    <hr>
                                 </a>
                                 <a class="disabled">
                                     <i class="key icon"></i>Supscription
+                                    <hr>
                                 </a>
                                 <a class="disabled"> 
                                     <i class="cog icon"></i>Account
+                                    <hr>
                                 </a>
                                 <a class="disabled">
                                     <i class="seperate flag-bg canada flag"></i>
                                     <i class="seperate united states flag"></i>
                                     <i class="seperate japan flag"></i>
                                     <i class="seperate palestine flag"></i>
+                                    <hr>
                                 </a>
                                 <a class="disabled">
                                     <i class="angle right icon"></i>Versions
+                                    <hr>
                                 </a>
                                 <a routerLink="/home-page">
                                     <button class="btn-primary " (click)="Logout()"> 
