@@ -34,11 +34,12 @@
         <div class="row pad-left display">
             <Div class="col-5 mycard-light-green">
                 <br>
-                <form>
-                    <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
-                        <input type="radio" value="horse.name" [id]="horse.id" (click)="selectedHorse($event)"> &nbsp; &nbsp;
-                        <strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
-                    </label>
+                <form [formGroup]="selectHorse">
+                        <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                            <input type="radio" formControlName="myHorse" name="myHorse" [value]="horse.name" [id]="horse.id" 
+                            (click)="selectedHorse($event)">
+                            &nbsp; &nbsp;<strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
+                        </label>
                     <div class="display centered">
                         <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
                         [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
