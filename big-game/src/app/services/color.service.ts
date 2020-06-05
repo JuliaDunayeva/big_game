@@ -14,5 +14,9 @@ export class ColorService {
   getColors() {
     return this.db.collection('/color').snapshotChanges()
   }
+
+  getColorById(id: string) {
+    return this.db.collection('color').doc(id).ref.get()
+  }
   
 }

@@ -11,8 +11,12 @@ export class BreedService {
 
   constructor(public db: AngularFirestore) { }
 
-  getBreeds() {
+  getBreeds(): Observable<any> {
     return this.db.collection('/breed').snapshotChanges()
+  }
+
+  getBreedById(id: string){
+    return this.db.collection('breed').doc(id).ref.get()
   }
   
 }
