@@ -32,7 +32,7 @@ export class HorseListComponent implements OnInit {
   color: string;
   breedSelected: string;
   colorSelected: string;
-  horseSelecteId: string;
+  horseSelectedId: string;
   Uid: string = this.authService.getUId();
   user: any;
   newHorseCost: number = 1000;
@@ -89,10 +89,10 @@ export class HorseListComponent implements OnInit {
         this.allHorseData = res as Array<HorseData>;
         this.allHorseData.map(horse =>{
           this.defaultHorse = this.allHorseData[0].name
-          console.log("default horse " , this.defaultHorse)
+          this.horseSelectedId = this.allHorseData[0].id
           this.createForm();
-          this.breedService.getBreedById(horse.breed).then( res =>
-            horse.breed = res.data()['breed']
+          this.breedService.getBreedById(horse.breed).then( res =>{
+            horse.breed = res.data()['breed']}
             )
           }
         )
@@ -119,11 +119,12 @@ export class HorseListComponent implements OnInit {
   }
 
   selectedHorse(event: any) {
-    this.horseSelecteId = (<HTMLInputElement>event.target).id;
+    console.log("test   ",(<HTMLInputElement>event.target).id)
+    this.horseSelectedId = (<HTMLInputElement>event.target).id;
   }
 
   onSelectHorse() {
-    this.authService.sethorseId(this.horseSelecteId)
+    this.authService.sethorseId(this.horseSelectedId)
   }
 
   buyNewHorse(newHorseCost: number, newEquus: number) {

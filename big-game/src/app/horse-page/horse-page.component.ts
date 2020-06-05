@@ -181,7 +181,7 @@ export class HorsePageComponent implements OnInit {
     //this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
     this.imageFile = 'assets/images/horse-page-icons/test-horse-image.png';
     //this.imagePath = 'assets/images/horses/';
-    this.imagePath = this.imageFile;
+    // this.imagePath = this.imageFile;
 
     this.hour = 24;
     this.minute = 0;
@@ -191,16 +191,15 @@ export class HorsePageComponent implements OnInit {
     setTimeout(() => {
       this.horseDataService.getHorseById(this.id).subscribe((res) => {
         this.horse = res as HorseData;
-        this.breedService.getBreedById(this.horse.breed).then( res =>
-          {	
-            this.horse.breed = res.data()['breed']
-            this.img_path = res.data()['img_path']
-          }
+        this.breedService.getBreedById(this.horse.breed).then( brd =>
+            {this.horse.breed = brd.data()['breed'];
+            this.img_path = brd.data()['img_path']
+            }
         )
-        this.colorService.getColorById(this.horse.color).then( res =>
+        this.colorService.getColorById(this.horse.color).then( clr =>
             {
-              this.horse.color = res.data()['color'];
-              this.img_file = res.data()['img_file'];
+              this.horse.color = clr.data()['color'];
+              this.img_file = clr.data()['img_file'];
               this.LoadHorseImage()
             }
         )
