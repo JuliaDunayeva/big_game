@@ -8,6 +8,7 @@ import { Breed } from '../breed';
 import { ColorService } from '../services/color.service';
 import { Color } from '../color';
 import { AuthService } from '../services/auth.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-horse-list',
@@ -16,8 +17,12 @@ import { AuthService } from '../services/auth.service';
 })
 
 export class HorseListComponent implements OnInit {
+  skills = ['Stamina','Gallop', 'Speed', 'Jumping'];
+  success = 'A new horse has been added';
   allBreeds: Breed[];
   allColors: Color[];
+  allHorses: Breed[];
+  allHorseData: Array<HorseData>;
   breedIdSelected: string;
   skillSelected: string;
   colorIdSelected: string;
@@ -25,49 +30,47 @@ export class HorseListComponent implements OnInit {
   skill: string;
   name: string;
   color: string;
+  breedSelected: string;
+  colorSelected: string;
+  horseSelecteId: string;
   Uid: string = this.authService.getUId();
   user: any;
   newHorseCost: number = 1000;
   newEquus: number;
-  allHorseData: Array<HorseData>;
-  allHorses: Breed[];
   horse: HorseData;
   horseValues: { name, breed, color };
+  selectHorse: FormGroup
+  defaultHorse: any;
 
-  skills = ['Stamina', 'Gallop', 'Speed', 'Jumping'];
-  success = 'A new horse has been added';
+    constructor(private breedService: BreedService, 
+        private colorService: ColorService, 
+        private authService: AuthService,
+        private userDataService: UserDataService,
+        private horseDataService: HorseDataService,
+        private fb: FormBuilder) {
+    }
 
- 
-
-  constructor(private breedService: BreedService,
-    private colorService: ColorService,
-    private authService: AuthService,
-    private userDataService: UserDataService,
-    private horseDataService: HorseDataService) {
-  }
-
-  ngOnInit(): void {
-    this.getBreeds();
-    this.getColors();
-    this.getHorseData();
-    this.userDataService.getUserByID(this.Uid).subscribe((result) => {
-      this.user = result as UserData;
-    });
-  }
-
-  getBreeds() {
-    this.breedService.getBreeds().subscribe((brd) => {
-      this.allBreeds = brd.map(res => {
-        return {
-          id: res.payload.doc.id,
-          breed: res.payload.doc.data()['breed'],
-          skill: res.payload.doc.data()['skill'],
-          img_path: res.payload.doc.data()['img_path']
-        }
+    ngOnInit(): void {
+      this.getBreeds();
+      this.getColors();
+      this.getHorseData();
+      this.userDataService.getUserByID(this.Uid).subscribe((result) => {
+        this.user = result as UserData;
       });
-    });
-  }
+    }
 
+    getBreeds() {
+      this.breedService.getBreeds().subscribe((brd) => {
+        this.allBreeds = brd.map(res => {
+          return {
+            id: res.payload.doc.id,
+            breed: res.payload.doc.data()['breed'],
+            skill: res.payload.doc.data()['skill'],
+            img_path: res.payload.doc.data()['img_path']
+          }
+        });
+      })
+    }
   getColors() {
     this.colorService.getColors().subscribe(clr => {
       this.allColors = clr.map(res => {
@@ -85,6 +88,9 @@ export class HorseListComponent implements OnInit {
       res => {
         this.allHorseData = res as Array<HorseData>;
         this.allHorseData.map(horse =>{
+          this.defaultHorse = this.allHorseData[0].name
+          console.log("default horse " , this.defaultHorse)
+          this.createForm();
           this.breedService.getBreedById(horse.breed).then( res =>
             horse.breed = res.data()['breed']
             )
@@ -100,8 +106,11 @@ export class HorseListComponent implements OnInit {
     )
   }
 
-  buyNewHorse(newHorseCost: number, newEquus: number) {
-
+  createForm() {
+    console.log(this.defaultHorse)
+    this.selectHorse = this.fb.group({
+      myHorse: [this.defaultHorse, Validators.required]
+    })
   }
 
   createRandomHorse(name: string, breedId: string, colorId: string, skill: string) {
@@ -109,12 +118,17 @@ export class HorseListComponent implements OnInit {
     return alert(this.success);
   }
 
-  horseSelecteId: string;
   selectedHorse(event: any) {
     this.horseSelecteId = (<HTMLInputElement>event.target).id;
   }
 
   onSelectHorse() {
     this.authService.sethorseId(this.horseSelecteId)
+  }
+
+  buyNewHorse(newHorseCost: number, newEquus: number) {
+  }
+
+  onSellHorse(event: any) {
   }
 }
