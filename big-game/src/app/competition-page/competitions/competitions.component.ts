@@ -20,14 +20,19 @@ export class CompetitionsComponent implements OnInit {
 		this.getBreeds();
 	}
 
-	getBreeds(): Breed[] {
-		this.breedService.getBreeds().subscribe((result) => {
-			console.log(result);
-			this.allBreeds = result as Array<Breed>;
-		});
-		return this.allBreeds;
-	}
-
+	getBreeds() {
+		this.breedService.getBreeds().subscribe((brd) => {
+		  this.allBreeds = brd.map(res => {
+			return {
+			  id: res.payload.doc.id,
+			  breed: res.payload.doc.data()['breed'],
+			  skill: res.payload.doc.data()['skill'],
+			  img_path: res.payload.doc.data()['img_path']
+			}
+		  });
+		})
+	  }
+	  
 	createCompetition(
 		compName: string,
 		breed: string, 
