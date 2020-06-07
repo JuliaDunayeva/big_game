@@ -148,9 +148,6 @@
     border-radius: 10px;
 }
 
-<<<<<<< HEAD
-
-=======
 
 /*equip my horse*/
 
@@ -350,7 +347,6 @@ li {
     font-size: 13px;
     font-weight: 600;
 }
->>>>>>> sandbox_pre-develop
 
 @media (max-width: 575.98px) {
     .max-width-column {
@@ -386,7 +382,7 @@ li {
 
 @media (min-width: 768px) and (max-width: 991.98px) {
     .max-width-column {
-        margin-left: 29px
+        margin-left: 29px;
         /* margin-top: auto; */
     }
     .max-width-middle-column {
