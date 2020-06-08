@@ -27,6 +27,8 @@ import { HorseSaleComponent } from './horse-sale/horse-sale.component';
 import { MiniBarComponent } from './nav-bar/mini-bar/mini-bar.component';
 import { PlayBarMiniComponent } from './play-bar/play-bar-mini/play-bar-mini.component';
 import { ModalOptionsComponent } from './modal-options/modal-options.component';
+import {TackPageComponent} from './../app/store-page/tack-page/tack-page.component';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { ModalOptionsComponent } from './modal-options/modal-options.component';
     HorseListComponent,
     HorseSaleComponent,
     MiniBarComponent,
-    PlayBarMiniComponent
+    PlayBarMiniComponent,
+    TackPageComponent
   ],
   
   imports: [
