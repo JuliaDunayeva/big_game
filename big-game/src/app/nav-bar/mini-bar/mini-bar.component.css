@@ -35,7 +35,7 @@ hr {
 }
 
 .hamburger {
-    font-size: 25px;
+    font-size: 18px;
     color: white;
 }
 
@@ -128,6 +128,7 @@ hr {
 
 .mini-bar {
     display: none;
+    background-color:rgb(73, 131, 186); 
 }
   
 .btn-primary {
