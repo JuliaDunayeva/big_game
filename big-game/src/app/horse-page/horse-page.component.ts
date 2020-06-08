@@ -13,6 +13,7 @@ import { HorsePageButtons } from '../horse-page-buttons';
 import { AuthService } from '../services/auth.service';
 import { Breed } from '../breed';
 import { Color } from '../color';
+import { ClockService } from '../services/clock.service';
 
 @Component({
   selector: 'app-horse-page',
@@ -107,7 +108,8 @@ export class HorsePageComponent implements OnInit {
     private breedService: BreedService,
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private clockService: ClockService
   ) {}
 
   ngOnInit(): void {
