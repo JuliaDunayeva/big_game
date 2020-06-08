@@ -44,7 +44,7 @@ export class HorsePageComponent implements OnInit {
   CoverMareButtons:HorsePageButtons=new HorsePageButtons();
 
   public history:string[]=[];
-  allSkills: string[];
+  //allSkills: string[];
   skill: string;
   allBreeds: Breed[];
   allColors: Color[];
@@ -75,7 +75,7 @@ export class HorsePageComponent implements OnInit {
   public imagePath: string;
   public imageFile: string;
 
-  // Buttons for care tab
+  // string for care tab button images
   public feedButton: string;
   public drinkButton: string;
   public strokeButton: string;
@@ -84,7 +84,7 @@ export class HorsePageComponent implements OnInit {
   public carrotButton: string;
   public mashButton: string;
 
-  // Buttons for Ride tab
+  // string for ride tab button images
   public forestButton: string;
   public mountainButton: string;
 
@@ -99,11 +99,7 @@ export class HorsePageComponent implements OnInit {
   public putToBedButton: string;
   public ageButton: string;
 
-  public ownerName: string;
-
   public horseIDs: string[];
-
-  public myHorses: HorseData[];
 
   public percent: number = 100;
   public hours: number = 24;
@@ -130,8 +126,7 @@ export class HorsePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //setTimeout(() =>
-    //{
+  
     this.getBreeds();
     this.getColors();
 
@@ -142,55 +137,36 @@ export class HorsePageComponent implements OnInit {
       .subscribe((ref) => {
         this.user = ref;
       });
-    //console.log('got horse data');
-    //}, 0);
-
+   
     // streamline buttons code, not working on it right now, fixing other more important code
-
-    this.FeedButtons.enabledImage =
-      'assets/images/horse-page-icons/feed-button-enabled.png';
-    this.FeedButtons.disabledImage =
-      'assets/images/horse-page-icons/feed-button-enabled.png';
+    this.FeedButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
+    this.FeedButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.FeedButtons.enabled = true;
 
-    this.DrinkButtons.enabledImage =
-      'assets/images/horse-page-icons/drink-button-enabled.png';
-    this.DrinkButtons.disabledImage =
-      'assets/images/horse-page-icons/drink-button-disabled.png';
+    this.DrinkButtons.enabledImage =      'assets/images/horse-page-icons/drink-button-enabled.png';
+    this.DrinkButtons.disabledImage =      'assets/images/horse-page-icons/drink-button-disabled.png';
     this.DrinkButtons.enabled = true;
 
-    this.StrokeButtons.enabledImage =
-      'assets/images/horse-page-icons/stroke-button-enabled.png';
-    this.StrokeButtons.disabledImage =
-      'assets/images/horse-page-icons/stroke-button-disabled.png';
+    this.StrokeButtons.enabledImage =      'assets/images/horse-page-icons/stroke-button-enabled.png';
+    this.StrokeButtons.disabledImage =      'assets/images/horse-page-icons/stroke-button-disabled.png';
     this.StrokeButtons.enabled = true;
 
-    this.GroomButtons.enabledImage =
-      'assets/images/horse-page-icons/groom-button-enabled.png';
-    this.GroomButtons.disabledImage =
-      'assets/images/horse-page-icons/groom-button-disabled.png';
+    this.GroomButtons.enabledImage =      'assets/images/horse-page-icons/groom-button-enabled.png';
+    this.GroomButtons.disabledImage =      'assets/images/horse-page-icons/groom-button-disabled.png';
     this.GroomButtons.enabled = true;
 
-    this.CarrotButtons.enabledImage =
-      'assets/images/horse-page-icons/carrot-button-enabled.png';
-    this.CarrotButtons.disabledImage =
-      'assets/images/horse-page-icons/carrot-button-disabled.png';
+    this.CarrotButtons.enabledImage =      'assets/images/horse-page-icons/carrot-button-enabled.png';
+    this.CarrotButtons.disabledImage =      'assets/images/horse-page-icons/carrot-button-disabled.png';
     this.CarrotButtons.enabled = true;
 
-    this.MashButtons.enabledImage =
-      'assets/images/horse-page-icons/mash-button-enabled.png';
-    this.MashButtons.disabledImage =
-      'assets/images/horse-page-icons/mash-button-disabled.png';
+    this.MashButtons.enabledImage =      'assets/images/horse-page-icons/mash-button-enabled.png';
+    this.MashButtons.disabledImage =      'assets/images/horse-page-icons/mash-button-disabled.png';
     this.MashButtons.enabled = true;
 
-    this.ForestButtons.enabledImage =
-      'assets/images/horse-page-icons/forest-button-enabled.png';
-      this.ForestButtons.disabledImage =
-      'assets/images/horse-page-icons/forest-button-enabled.png';
-    this.MountainButtons.enabledImage =
-      'assets/images/horse-page-icons/mountain-button-enabled.png';
-      this.MountainButtons.disabledImage =
-      'assets/images/horse-page-icons/mountain-button-enabled.png';
+    this.ForestButtons.enabledImage =      'assets/images/horse-page-icons/forest-button-enabled.png';
+      this.ForestButtons.disabledImage =      'assets/images/horse-page-icons/forest-button-enabled.png';
+    this.MountainButtons.enabledImage =      'assets/images/horse-page-icons/mountain-button-enabled.png';
+      this.MountainButtons.disabledImage =      'assets/images/horse-page-icons/mountain-button-enabled.png';
 
     this.EmptyButtons.enabledImage = 'assets/images/horse-page-icons/empty-button.png';
     this.EmptyButtons.disabledImage = 'assets/images/horse-page-icons/empty-button.png';
