@@ -20,12 +20,28 @@ import { Color } from '../color';
   styleUrls: ['./horse-page.component.css'],
 })
 export class HorsePageComponent implements OnInit {
+  /* Care Tab Buttons */
   FeedButtons: HorsePageButtons = new HorsePageButtons();
   DrinkButtons: HorsePageButtons = new HorsePageButtons();
   StrokeButtons: HorsePageButtons = new HorsePageButtons();
   GroomButtons: HorsePageButtons = new HorsePageButtons();
   CarrotButtons: HorsePageButtons = new HorsePageButtons();
   MashButtons: HorsePageButtons = new HorsePageButtons();
+/* Empty Button*/
+  EmptyButtons:HorsePageButtons = new HorsePageButtons();
+/* Ride Tab Buttons*/
+  ForestButtons:HorsePageButtons =new HorsePageButtons();
+  MountainButtons:HorsePageButtons=new HorsePageButtons();
+  /* Competition Buttons */
+  BarrelCompButtons:HorsePageButtons=new HorsePageButtons();
+  CuttingCompButtons:HorsePageButtons=new HorsePageButtons();
+  TrailClassCompButtons:HorsePageButtons=new HorsePageButtons();
+  ReignCompButtons:HorsePageButtons=new HorsePageButtons();
+  WesternPleasureCompButtons:HorsePageButtons=new HorsePageButtons();
+  TrottingCompButtons:HorsePageButtons=new HorsePageButtons();
+  /* Breeding Tab Buttons*/
+  BreedingInfoButtons:HorsePageButtons=new HorsePageButtons();
+  CoverMareButtons:HorsePageButtons=new HorsePageButtons();
 
   public history:string[]=[];
   allSkills: string[];
@@ -73,6 +89,9 @@ export class HorsePageComponent implements OnInit {
   public mountainButton: string;
 
   public emptyButton: string;
+
+  public BreedingInfoButton:string;
+  public CoverMareButton:string;
 
   swap: boolean = false;
 
@@ -164,19 +183,35 @@ export class HorsePageComponent implements OnInit {
       'assets/images/horse-page-icons/mash-button-disabled.png';
     this.MashButtons.enabled = true;
 
+    this.ForestButtons.enabledImage =
+      'assets/images/horse-page-icons/forest-button-enabled.png';
+      this.ForestButtons.disabledImage =
+      'assets/images/horse-page-icons/forest-button-enabled.png';
+    this.MountainButtons.enabledImage =
+      'assets/images/horse-page-icons/mountain-button-enabled.png';
+      this.MountainButtons.disabledImage =
+      'assets/images/horse-page-icons/mountain-button-enabled.png';
+
+    this.EmptyButtons.enabledImage = 'assets/images/horse-page-icons/empty-button.png';
+    this.EmptyButtons.disabledImage = 'assets/images/horse-page-icons/empty-button.png';
+
+    this.BreedingInfoButtons.enabledImage = 'assets/images/horse-page-icons/breeding-information-button-enabled.png';
+    this.BreedingInfoButtons.disabledImage = 'assets/images/horse-page-icons/breeding-information-button-enabled.png';
+
     this.changeButtons(this.FeedButtons, 'feed');
     this.changeButtons(this.DrinkButtons, 'drink');
     this.changeButtons(this.StrokeButtons, 'stroke');
     this.changeButtons(this.GroomButtons, 'groom');
     this.changeButtons(this.CarrotButtons, 'carrot');
     this.changeButtons(this.MashButtons, 'mash');
+    this.changeButtons(this.EmptyButtons, 'empty');
+    this.changeButtons(this.ForestButtons, 'forest');
+    this.changeButtons(this.MountainButtons, 'mountain');
+    this.changeButtons(this.BreedingInfoButtons, 'breedinginfo');
+    this.changeButtons(this.CoverMareButtons, 'covermare');
 
-    this.forestButton =
-      'assets/images/horse-page-icons/forest-button-enabled.png';
-    this.mountainButton =
-      'assets/images/horse-page-icons/mountain-button-enabled.png';
 
-    this.emptyButton = 'assets/images/horse-page-icons/empty-button.png';
+    
 
     //this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
     this.imageFile = 'assets/images/horse-page-icons/test-horse-image.png';
@@ -350,6 +385,41 @@ export class HorsePageComponent implements OnInit {
           this.mashButton = button.disabledImage;
         }
         break;
+        case 'forest':
+        if (button.enabled) {
+          this.forestButton = button.enabledImage;
+        } else {
+          this.forestButton = button.disabledImage;
+        }
+        break;
+        case 'mountain':
+        if (button.enabled) {
+          this.mountainButton = button.enabledImage;
+        } else {
+          this.mountainButton = button.disabledImage;
+        }
+        break;
+        case 'empty':
+        if (button.enabled) {
+          this.emptyButton = button.enabledImage;
+        } else {
+          this.emptyButton = button.disabledImage;
+        }
+        break;
+        case 'breedinginfo':
+          if (button.enabled) {
+            this.BreedingInfoButton = button.enabledImage;
+          } else {
+            this.BreedingInfoButton = button.disabledImage;
+          }
+          break;
+          case 'covermare':
+          if (button.enabled) {
+            this.CoverMareButton = button.enabledImage;
+          } else {
+            this.CoverMareButton = button.disabledImage;
+          }
+          break;
     }
   }
 
