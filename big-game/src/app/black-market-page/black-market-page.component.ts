@@ -3,6 +3,8 @@ import { HorseDataService } from '../services/horse-data.service';
 import { HorseData } from '../horse-data';
 import { AuthService } from '../services/auth.service';
 import { NgForm } from '@angular/forms';
+import { BreedService } from '../services/breed.service';
+import { ColorService } from '../services/color.service';
 
 @Component({
   selector: 'app-black-market-page',
@@ -17,17 +19,20 @@ export class BlackMarketPageComponent implements OnInit {
   gender: string;
 
   constructor(private horseService: HorseDataService,
-    private authservice: AuthService) {}
+    private authservice: AuthService,
+    private breedService: BreedService,
+    private colorService: ColorService) {}
 
   ngOnInit(): void {
     this.getHorses() 
   }
 
   getHorses() {
-    this.horseService.getHorsesByUid().subscribe(res => {
-      this.allHorses= res as unknown as Array<HorseData>
-      console.log(this.allHorses)
-    });
+    this.horseService.getHorsesByUid().subscribe(
+      res => {
+        this.allHorses = res as Array<HorseData>;
+      }
+    )
   }
 
   idOfHorse: string;

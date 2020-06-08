@@ -4,6 +4,7 @@ import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HorseData } from '../horse-data';
 import { AuthService } from './auth.service';
+import { BreedService } from './breed.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -11,7 +12,10 @@ import { AuthService } from './auth.service';
 export class HorseDataService {
 	name: string = 'Watermelon I';
 
-	constructor(public db: AngularFirestore,private authService:AuthService) {}
+	constructor(
+		public db: AngularFirestore,
+		private authService:AuthService,
+		private breedService: BreedService) {}
 
 	getHorseByID(id : string) : Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
@@ -28,11 +32,9 @@ export class HorseDataService {
 		.snapshotChanges().pipe(
 			map(action => {
 			return action.map(res =>{
-				const horse=res.payload.doc.data() as HorseData;
-				const id=res.payload.doc.id;
-				//horse.id=id;
-				this.authService.sethorseId(id);
-				//console.log(horse.id);
+				const horse = res.payload.doc.data() as HorseData;
+				const id = res.payload.doc.id;
+				this.authService.setHorseId(id);
 				return { id, ...horse };
 				})
 			})
@@ -77,13 +79,12 @@ export class HorseDataService {
 
 	SetUserIDForHorse(horseid:string,userId:string){
 		let cityRef = this.db.collection('/horse_data').doc(horseid);
-
 		let setWithOptions = cityRef.set({
 			"userId":userId
 		}, {merge: true});
 	} //end of SetUserIDForHorse()
 
-	createRandomHorse(value, skill, userId): Observable<DocumentReference> {
+	createRandomHorse(value, userId: string, breedId:string, colorId:string, skill:string, name?: string): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
 		let speed = this.getRandStats();
 		let gallop = this.getRandStats();
@@ -92,13 +93,12 @@ export class HorseDataService {
 		let dressage = this.getRandStats();
 		let gender = this.getRandGender();
 		let today = new Date();
-		
 		return from(
 			this.db.collection('/horse_data').add({
-				breed: value.breed,
+				breed: breedId,
 				skill: skill,
-				color: value.color,
-				name: value.name,
+				color: colorId,
+				name: name,
 				gender: gender,
 				userId: userId,
 				stamina: stamina,
@@ -122,6 +122,7 @@ export class HorseDataService {
 			})
 		);
 	}//end of createRandomHorse()
+	
 
 	getHorseById(id: string): Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(

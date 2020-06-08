@@ -6,11 +6,6 @@ import { Injectable } from '@angular/core';
 	providedIn: 'root'
 })
 export class AuthService {
-	private horseid:string;
-	private uid:string;
-
-	//public colors:Color[];
-	//public breeds:Breed[];
 
 	constructor() {}
 
@@ -19,9 +14,8 @@ export class AuthService {
 		//this.uid=Uid;
 	}
 
-	sethorseId(horseId: string) {
-		sessionStorage.setItem('horseid', horseId)
-		//this.horseid=horseId;
+	setHorseId(horseId: string) {
+		sessionStorage.setItem('horseId', horseId)
 	}
 
 	getUId():string {
@@ -30,7 +24,6 @@ export class AuthService {
 	}
 
 	getHorseId(): string {
-		//return this.horseid;
-		return sessionStorage.getItem('horseid')
+		return sessionStorage.getItem('horseId')
 	}
 }
