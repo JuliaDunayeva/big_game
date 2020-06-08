@@ -9,7 +9,7 @@ a {
     font: 18px Arial, Helvetica, sans-serif;
   }
   
-  .btn-primary {
+.btn-primary {
     background-color: #2685ba;
   }
 
@@ -28,22 +28,8 @@ hr {
     margin-left: -15%;
 }
 
-
 .main-btn {
     margin-top:15px;
-}
-
-.btn {
-    color:white;
-    background: rgb(73, 131, 186); 
-    padding: 7% 7%;
-}
-
-
-
-.hamburger {
-    font-size: 25px;
-    color: white;
 }
 
 
@@ -82,10 +68,6 @@ hr {
     .dropdown2-content {
         left:0px;
     }
-    .main-btn {
-        margin-top:15px;
-    }
-         
 }
 
 @media (min-width: 578px) and (max-width: 767.98px) { 
@@ -95,10 +77,7 @@ hr {
     .dropdown2-content {
         left:0px;
     }
-    .main-btn {
-        margin-top: -46px;
-        margin-left: 60%;
-    }
+   
        
 }
 
@@ -106,9 +85,8 @@ hr {
     .play-bar-mini {
         display: block;
     }
-    .main-btn {
-        margin-top:15px;
-        margin-left: -70%;
+    .play-bar-pos{
+        margin-left: 30px;
     }
 }
 
