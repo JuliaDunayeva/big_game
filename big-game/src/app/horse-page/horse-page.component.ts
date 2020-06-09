@@ -132,14 +132,13 @@ export class HorsePageComponent implements OnInit {
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
     private authService: AuthService,
-        //public feeding:FeedingComponent
   ) {}
 
   ngOnInit(): void {
-  
+  // Get Breed and Coat Color information
     this.getBreeds();
     this.getColors();
-
+// Get Currently selected Horse and User Information
     this.id = this.authService.getHorseId();
     this.getHorse();
     this.userDataService
@@ -148,55 +147,46 @@ export class HorsePageComponent implements OnInit {
         this.user = ref;
       });
    
-    // streamline buttons code, not working on it right now, fixing other more important code
+    // streamline buttons code
     /* Define images for Competition Tab Buttons */
     this.BarrelCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png';
     this.BarrelCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png';
-    this.BarrelCompButtons.enabled = true;
 
     this.CuttingCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-cutting-button-enabled.png';
     this.CuttingCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-cutting-button-enabled.png';
-    this.CuttingCompButtons.enabled = true;
 
     this.TrailClassCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-trail-class-button-enabled.png';
     this.TrailClassCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-trail-class-button-enabled.png';
-    this.TrailClassCompButtons.enabled = true;
 
     this.ReignCompButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.ReignCompButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
-    this.ReignCompButtons.enabled = true;
 
     this.WesternPleasureCompButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.WesternPleasureCompButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
-    this.WesternPleasureCompButtons.enabled = true;
 
     this.TrottingCompButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.TrottingCompButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
-    this.TrottingCompButtons.enabled = true;
 /* Define images for Care Tab buttons */
     this.FeedButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.FeedButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
-    this.FeedButtons.enabled = true;
+    this.FeedButtons.energy=15;
 
     this.DrinkButtons.enabledImage =      'assets/images/horse-page-icons/drink-button-enabled.png';
     this.DrinkButtons.disabledImage =      'assets/images/horse-page-icons/drink-button-disabled.png';
-    this.DrinkButtons.enabled = true;
 
     this.StrokeButtons.enabledImage =      'assets/images/horse-page-icons/stroke-button-enabled.png';
     this.StrokeButtons.disabledImage =      'assets/images/horse-page-icons/stroke-button-disabled.png';
-    this.StrokeButtons.enabled = true;
 
     this.GroomButtons.enabledImage =      'assets/images/horse-page-icons/groom-button-enabled.png';
     this.GroomButtons.disabledImage =      'assets/images/horse-page-icons/groom-button-disabled.png';
-    this.GroomButtons.enabled = true;
+    this.GroomButtons.energy=-15;
 
     this.CarrotButtons.enabledImage =      'assets/images/horse-page-icons/carrot-button-enabled.png';
     this.CarrotButtons.disabledImage =      'assets/images/horse-page-icons/carrot-button-disabled.png';
-    this.CarrotButtons.enabled = true;
 
     this.MashButtons.enabledImage =      'assets/images/horse-page-icons/mash-button-enabled.png';
     this.MashButtons.disabledImage =      'assets/images/horse-page-icons/mash-button-disabled.png';
-    this.MashButtons.enabled = true;
+
 /* Define images for Ride Tab buttons*/
     this.ForestButtons.enabledImage =      'assets/images/horse-page-icons/forest-button-enabled.png';
       this.ForestButtons.disabledImage =      'assets/images/horse-page-icons/forest-button-enabled.png';
@@ -233,15 +223,13 @@ export class HorsePageComponent implements OnInit {
     this.toggleButtons(this.ReignCompButtons, 'reign',false);
     this.toggleButtons(this.TrailClassCompButtons, 'trail',false);
 
-    //this.imageFile= 'assets/images/horses/akhal_teke/alz-b.png';
     this.imageFile = 'assets/images/horse-page-icons/test-horse-image.png';
-    //this.imagePath = 'assets/images/horses/';
-    // this.imagePath = this.imageFile;
-
+    
     this.hour = 24;
     this.minute = 0;
   } // end of ngOnInit() function
 
+  // GetHorse function, used to get currently selected horse's data
   getHorse() {
     setTimeout(() => {
       this.horseDataService.getHorseById(this.id).subscribe((res) => {
@@ -266,7 +254,7 @@ export class HorsePageComponent implements OnInit {
     let secs = ms / 1000;
     ms = Math.floor(ms % 1000);
     let minutes = secs / 60;
-    secs = Math.floor(secs % 60);
+    secs = Math.floor(secs % 60) * 100;
     let hours = minutes / 60;
     minutes = Math.floor(minutes % 60);
     hours = Math.floor(hours % 24);
@@ -286,8 +274,9 @@ export class HorsePageComponent implements OnInit {
     return hours + ':' + minutes + ':' + secs + '.' + ms;
   }
 
+// Drink Button fucntion
   public DrinkButton() {
-    this.history.push(this.horse.name+" is taking a drink");
+    this.history.unshift(this.horse.name+" is taking a drink");
     this.toggleButtons(this.DrinkButtons, 'drink',true);
     // convert time to seconds then back again to display in circlur progress  bar
     this.seconds = this.hour * 3600 + this.minute * 60;
@@ -296,49 +285,53 @@ export class HorsePageComponent implements OnInit {
       alert('no energy left');
       return;
     }
-  }
+  }// end of Drink Button function
 
+  // Stroke Button function
   public StrokeButton() {
-    this.history.push("Stroking "+this.horse.name);
+    this.history.unshift("Stroking "+this.horse.name);
     this.toggleButtons(this.StrokeButtons, 'stroke',true);
-  }
+  } // end of Stroke Button function
 
+  // Groom Button function
   public GroomButton() {
     if (this.horse.energy == 0) {
       alert('no energy left');
       this.toggleButtons(this.GroomButtons,'groom',false);
       return;
     }
-    this.history.push("Grooming "+this.horse.name);
-    if (this.horse.energy > 0) this.horse.energy -= 5;
+    this.history.unshift("Grooming "+this.horse.name);
+    if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.GroomButtons.energy;
     this.toggleButtons(this.GroomButtons, 'groom',true);
-  }
+  } // end of Groom Button function
 
+  // Carrot Button function
   public CarrotButton() {
-    this.history.push(this.horse.name+" ate a carrot");
+    this.history.unshift(this.horse.name+" ate a carrot");
     this.toggleButtons(this.CarrotButtons, 'carrot',true);
-  }
+  }// end of Carrot Button function
 
+  // Mash button function
   public MashButton() {
     this.toggleButtons(this.MashButtons, 'mash',true);
-  }
+  }// end of Mash Button function
 
+  // Feed Button function
   public FeedButton() {
-    //this.feeding.open();
-
     if (!this.FeedButtons.enabled){
       alert('No energy to feed.');
       return;
     }
-    this.history.push("Feeding "+this.horse.name);
+    this.history.unshift("Feeding "+this.horse.name);
     this.toggleButtons(this.FeedButtons, 'feed',true);
     // convert time to seconds then back again to display in circlur progress  bar
     this.seconds = this.hour * 3600 + this.minute * 60;
     this.taskSeconds = 0 * 3600 + 30 * 60;
     
 
-    if (this.horse.energy <= 95) this.horse.energy += 5;
+    if (this.horse.energy <= 95) this.horse.energy= this.horse.energy+this.FeedButtons.energy;
     // subtract seconds for 24hour period from how many seconds for task
+    // used to calculate percentage
     this.totalseconds = this.seconds - this.taskSeconds;
     this.hour = this.totalseconds / 3600;
 
@@ -365,11 +358,16 @@ export class HorsePageComponent implements OnInit {
       this.authService.getHorseId(),
       this.horse.energy
     );
-  } //end feebutton
+  } //end of Feed Button function
 
+  /* Toggle buttons function
+      Parameters: 
+      button -> HorsePageButtons Class
+      buttonChange -> string name of which button to change
+      toggle -> boolean, true or false to enable or disable button
+  */
   public toggleButtons(button: HorsePageButtons, buttonChange: string, toggle:boolean) {
-  //public changeButtons(button: HorsePageButtons, buttonChange: string) {
-    //button.enabled = !button.enabled;
+      //button.enabled = !button.enabled;
     button.enabled=toggle;
     switch (buttonChange) {
       case 'feed':
@@ -484,8 +482,7 @@ export class HorsePageComponent implements OnInit {
             this.WesternPleasureCompButton = button.disabledImage;
           }
           break;
-          
-    }
+     }
   }
 
   toggle() {
@@ -496,12 +493,14 @@ export class HorsePageComponent implements OnInit {
     }
   } // end of toggle() function
 
+  // Load Horse Image function
   LoadHorseImage() {
       this.imagePath = 'assets/images/horses/';
       this.imagePath += `${this.img_path}/${this.img_file}`
     } // end of LoadHorseImage() function
     
-  getBreeds() {
+  // GetBreeds function, used to get the breed image file for horse
+    getBreeds() {
       this.breedService.getBreeds().subscribe((brd) => {
         this.allBreeds = brd.map(res => {
           return {
@@ -512,8 +511,9 @@ export class HorsePageComponent implements OnInit {
           }
         });
       });
-    }
+    }// end of GetBreeds function
   
+    // GetColors function, used to get coat color image file for horse
   getColors() {
     this.colorService.getColors().subscribe(clr => {
       this.allColors = clr.map(res => {
@@ -525,10 +525,4 @@ export class HorsePageComponent implements OnInit {
       });
     });
   }
-
-  /*public beforeChange($event: NgbPanelChangeEvent) {
-    if ($event.panelId === 'preventchange_1' && $event.nextState === false) {
-      $event.preventDefault();
-    }
-  } // end of beforeChange() function*/
 } // end horse-page component class

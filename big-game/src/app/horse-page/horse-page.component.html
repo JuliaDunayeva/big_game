@@ -130,7 +130,6 @@
                             <div *ngFor="let hist of history">
                                 <p>{{ hist }}</p>
                             </div>
-                            You can collapse this card by clicking Toggle
                         </div>
                     </div>
                 </div>
@@ -139,46 +138,40 @@
 
         <div class="col-md-1 center-text max-width-middle-column">
             <img class="col-xl-12" src="{{ imagePath }} " />
-            <!-- Temp fixed picture -->
-
             <div class="card-light-green card-title no-bottom-margin card-title-border">
                 {{ horse?.name }}
             </div>
             <div>
                 <div class="card card-light-green">
+                    <!-- Percent of time remaining-->
                     <div class="row">
                         <div class="positionRelative">
                             <circle-progress class="time-left-padding time-top-padding" [clockwise]="false" [percent]="percent" [radius]="35" [maxPercent]="100" [outerStrokeWidth]="10" [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"
                                 [animationDuration]="300" [showBackground]="true" [showTitle]="false" [showSubtitle]="false" [showUnits]="false" [responsive]="false">
                             </circle-progress>
-                            <div class="percentageValue">{{ hour }}:{{ minute }}</div>
+                            <div class="percentageValue">{{ hour }} : {{ minute }}</div>
                         </div>
                         <div class="card-body">
                             <div class="col-10 form-group center-text card-middle-title">
                                 Energy
-                                <ngb-progressbar type=" " [value]="horse?.energy">%{{ horse?.energy }}
+                                <ngb-progressbar type="success" [value]="horse?.energy">%{{ horse?.energy }}
                                 </ngb-progressbar>
-                                <!--<ngb-progressbar type=" " [value]="25 "></ngb-progressbar>-->
-                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
                             <div class="col-10 form-group center-text card-middle-title">
                                 Health
-                                <!-- <div class="progress-bar " [style.width]="(allHorseData[0].health) ">_</div>-->
-                                <!--<ngb-progressbar type="warning " [value]="50 "></ngb-progressbar>-->
-                                <ngb-progressbar type=" " [value]="horse?.health">%{{ horse?.health }}
+                                <!-- <div class="progress-bar " [style.width]="(horse?.health) "></div> -->
+                                <ngb-progressbar type="danger" [value]="horse?.health">%{{ horse?.health }}
                                 </ngb-progressbar>
-                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
                             <div class="col-10 form-group center-text card-middle-title">
                                 Morale
                                 <ngb-progressbar type=" " [value]="horse?.morale">%{{ horse?.morale }}
                                 </ngb-progressbar>
-                                <!--<ngb-progressbar type="success " [value]="100 "></ngb-progressbar>-->
-                                <!--<ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="10 " class="gold-color "></ngb-rating>-->
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- end of percent of time remaining-->
             </div>
             <!-- Middle panels - Skills   max-width-middle-column center-text card-light-green card-title no-bottom-margin card-title-border-->
             <div class="card-light-green card-title no-bottom-margin card-title-border">
@@ -256,9 +249,7 @@
                 </div>
             </div>
 
-            <!-- <div class="row"> -->
             <!-- middle panel - after skills -->
-            <!-- <div class="col-6">-->
             <div>
                 <div class="card card-light-green card-middle-title">
                     <div class="card-body card-title inline-block">
@@ -270,9 +261,7 @@
                     </div>
                 </div>
             </div>
-            <!-- </div><!-- div starts @ 272 -->
-            <!-- div class='col-6'> closer line 266 -->
-            <!-- <div class="col-6">-->
+
             <div class="card card-light-green card-middle-title">
                 <div class="card-body card-title hight">
                     <div class="inline-block">
@@ -286,15 +275,7 @@
                     </div>
                 </div>
             </div>
-            <!-- div starts @ 287 -->
-            <!-- </div> <!-- div starts @ 286 -->
-            <!--</div> <!-- div starts @ 270 -->
-            <!-- <div class="row">
-    <-- middle bottom panel - Victories --
-<div class="col-12">
-    <div class="card card-light-green card-middle-title"></div>
-</div>
-</div> -->
+
             <div class="card card-light-green">
                 <div class="card-body">
                     <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green">
@@ -322,7 +303,6 @@
                                 <div class="card-body card-title">
                                     Victories
                                 </div>
-                                <!-- <p>User Name -> {{ userData.userName}} </p> -->
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
@@ -348,7 +328,6 @@
             </div>
         </div>
         <div class="col-sm-3 max-width-column max-width-right">
-            <!-- <ngb-progressbar type="warning " [value]="25 "></ngb-progressbar>-->
             <div class="row center-text">
                 <p class="no-bottom-margin">
                     <!--right  panel 1 - Rides-->
