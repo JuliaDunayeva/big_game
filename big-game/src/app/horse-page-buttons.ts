@@ -5,4 +5,6 @@ export class HorsePageButtons {
     public energy:number;
     public morale:number;
     public health:number;
+    public hour:number;
+    public minute:number;
 }

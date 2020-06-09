@@ -170,6 +170,8 @@ export class HorsePageComponent implements OnInit {
     this.FeedButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.FeedButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.FeedButtons.energy=15;
+    this.FeedButtons.hour=0;
+    this.FeedButtons.minute=30;
 
     this.DrinkButtons.enabledImage =      'assets/images/horse-page-icons/drink-button-enabled.png';
     this.DrinkButtons.disabledImage =      'assets/images/horse-page-icons/drink-button-disabled.png';
@@ -191,9 +193,17 @@ export class HorsePageComponent implements OnInit {
 /* Define images for Ride Tab buttons*/
     this.ForestButtons.enabledImage =      'assets/images/horse-page-icons/forest-button-enabled.png';
       this.ForestButtons.disabledImage =      'assets/images/horse-page-icons/forest-button-enabled.png';
+      this.ForestButtons.energy=-5;
+      this.ForestButtons.morale=10;
+      this.ForestButtons.hour=1;
+    this.ForestButtons.minute=0;
 
     this.MountainButtons.enabledImage =      'assets/images/horse-page-icons/mountain-button-enabled.png';
       this.MountainButtons.disabledImage =      'assets/images/horse-page-icons/mountain-button-enabled.png';
+      this.MountainButtons.energy=-10;
+      this.MountainButtons.morale=15;
+      this.MountainButtons.hour=2;
+    this.MountainButtons.minute=0;
 
     this.BreedingInfoButtons.enabledImage = 'assets/images/horse-page-icons/breeding-information-button-enabled.png';
     this.BreedingInfoButtons.disabledImage = 'assets/images/horse-page-icons/breeding-information-button-enabled.png';
@@ -205,18 +215,18 @@ export class HorsePageComponent implements OnInit {
     this.EmptyButtons.disabledImage = 'assets/images/horse-page-icons/empty-button.png';
     /* Care Tab buttons */
     this.toggleButtons(this.FeedButtons, 'feed',true);
-    this.toggleButtons(this.DrinkButtons, 'drink',false);
-    this.toggleButtons(this.StrokeButtons, 'stroke',false);
+    this.toggleButtons(this.DrinkButtons, 'drink',true);
+    this.toggleButtons(this.StrokeButtons, 'stroke',true);
     this.toggleButtons(this.GroomButtons, 'groom',true);
-    this.toggleButtons(this.CarrotButtons, 'carrot',false);
-    this.toggleButtons(this.MashButtons, 'mash',false);
+    this.toggleButtons(this.CarrotButtons, 'carrot',true);
+    this.toggleButtons(this.MashButtons, 'mash',true);
     this.toggleButtons(this.EmptyButtons, 'empty',false);
     /* Ride tab buttons */
-    this.toggleButtons(this.ForestButtons, 'forest',false);
-    this.toggleButtons(this.MountainButtons, 'mountain',false);
+    this.toggleButtons(this.ForestButtons, 'forest',true);
+    this.toggleButtons(this.MountainButtons, 'mountain',true);
     /* Breeding tab buttons */
-    this.toggleButtons(this.BreedingInfoButtons, 'breedinginfo',false);
-    this.toggleButtons(this.CoverMareButtons, 'covermare',false);
+    this.toggleButtons(this.BreedingInfoButtons, 'breedinginfo',true);
+    this.toggleButtons(this.CoverMareButtons, 'covermare',true);
 /* Competition tab buttons */
     this.toggleButtons(this.BarrelCompButtons, 'barrel',false);
     this.toggleButtons(this.CuttingCompButtons, 'cutting',false);
@@ -278,7 +288,7 @@ export class HorsePageComponent implements OnInit {
 // Drink Button fucntion
   public DrinkButton() {
     this.history.unshift(this.horse.name+" is taking a drink");
-    this.toggleButtons(this.DrinkButtons, 'drink',true);
+    //this.toggleButtons(this.DrinkButtons, 'drink',true);
     this.horse.energy=this.horse.energy+this.DrinkButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
     // convert time to seconds then back again to display in circlur progress  bar
@@ -293,7 +303,7 @@ export class HorsePageComponent implements OnInit {
   // Stroke Button function
   public StrokeButton() {
     this.history.unshift("Stroking "+this.horse.name);
-    this.toggleButtons(this.StrokeButtons, 'stroke',true);
+    //this.toggleButtons(this.StrokeButtons, 'stroke',true);
   } // end of Stroke Button function
 
   // Groom Button function
@@ -306,13 +316,13 @@ export class HorsePageComponent implements OnInit {
     this.history.unshift("Grooming "+this.horse.name);
     if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.GroomButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
-    this.toggleButtons(this.GroomButtons, 'groom',true);
+    //this.toggleButtons(this.GroomButtons, 'groom',true);
   } // end of Groom Button function
 
   // Carrot Button function
   public CarrotButton() {
     this.history.unshift(this.horse.name+" ate a carrot");
-    this.toggleButtons(this.CarrotButtons, 'carrot',true);
+    //this.toggleButtons(this.CarrotButtons, 'carrot',true);
   }// end of Carrot Button function
 
   // Mash button function
@@ -331,24 +341,24 @@ export class HorsePageComponent implements OnInit {
     // convert time to seconds then back again to display in circlur progress  bar
     this.seconds = this.hour * 3600 + this.minute * 60;
     this.taskSeconds = 0 * 3600 + 30 * 60;
-    
-
+   
     if (this.horse.energy <= 95) this.horse.energy= this.horse.energy+this.FeedButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
     // subtract seconds for 24hour period from how many seconds for task
     // used to calculate percentage
+    //this.horse.time.currentHourString=
     this.totalseconds = this.seconds - this.taskSeconds;
-    this.hour = this.totalseconds / 3600;
+ /*   this.hour = this.totalseconds / 3600;
 
     this.minute = this.hour % 1; // * 60;
     this.minute = parseFloat(this.minute.toFixed(2));
-    this.percent = parseFloat(this.percent.toFixed(0));
+    this.percent = parseFloat(this.percent.toFixed(0));*/
     this.seconds = parseFloat(this.seconds.toFixed(0));
-    this.hour = this.hour - this.minute;
+  /* this.hour = this.hour - this.minute;
     this.hour = parseFloat(this.hour.toFixed(0));
-
+*/
     this.percent = (this.seconds - this.taskSeconds) / 1000;
-
+/*
     let totalStr = this.totalseconds.toString();
     this.totalseconds = parseFloat(totalStr);
     this.totalseconds.toFixed(1);
@@ -357,7 +367,7 @@ export class HorsePageComponent implements OnInit {
     if (this.minute < 0) this.minute = 0;
 
     this.percentStr = this.ms2Time(this.totalseconds);
-
+*/
     // write data back to database
     this.horseDataService.setHorseEnergy(
       this.authService.getHorseId(),
@@ -365,6 +375,58 @@ export class HorsePageComponent implements OnInit {
     );
   } //end of Feed Button function
 
+  public ForestButton(){
+    if (this.horse.energy == 0) {
+    alert('no energy left');
+    this.toggleButtons(this.ForestButtons,'forest',false);
+    return;
+  }
+  this.history.unshift(this.horse.name + " is taking a ride in the forest");
+  if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.ForestButtons.energy;
+  if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.ForestButtons.morale;
+  if (this.horse.energy>100) this.horse.energy=100;
+  if (this.horse.morale>100) this.horse.morale=100;
+
+  this.horseDataService.setHorseEnergy(
+    this.authService.getHorseId(),
+    this.horse.energy
+  );
+
+  this.horseDataService.setHorseMorale(
+    this.authService.getHorseId(),
+    this.horse.morale
+  );
+  //this.toggleButtons(this.ForestButtons, 'forest',true);   
+  }
+
+  public MountainButton(){
+    if (this.horse.energy == 0) {
+    alert('no energy left');
+    this.toggleButtons(this.MountainButtons,'moutain',false);
+    return;
+  }
+  this.history.unshift(this.horse.name + " is taking a ride in the mountains");
+  if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.MountainButtons.energy;
+  if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.MountainButtons.morale;
+  if (this.horse.energy>100) this.horse.energy=100;
+  if (this.horse.morale>100) this.horse.morale=100;
+
+  this.horseDataService.setHorseEnergy(
+    this.authService.getHorseId(),
+    this.horse.energy
+  );
+
+  this.horseDataService.setHorseMorale(
+    this.authService.getHorseId(),
+    this.horse.morale
+  );
+  
+  this.horseDataService.setHorseTime(
+    this.authService.getHorseId(),
+    "05","30"
+  );
+  //this.toggleButtons(this.ForestButtons, 'forest',true);   
+  }
   /* Toggle buttons function
       Parameters: 
       button -> HorsePageButtons Class
