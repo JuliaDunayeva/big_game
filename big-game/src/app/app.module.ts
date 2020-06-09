@@ -50,10 +50,7 @@ import {TackPageComponent} from './../app/store-page/tack-page/tack-page.compone
     HorseSaleComponent,
     MiniBarComponent,
     PlayBarMiniComponent,
-<<<<<<< HEAD
     TackPageComponent
-=======
->>>>>>> sandbox_pre-develop
   ],
   
   imports: [
