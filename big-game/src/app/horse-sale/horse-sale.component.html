@@ -37,12 +37,12 @@
                     <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
                         <input type="radio" formControlName="myHorse" name="myHorse" [value]="horse.name" [id]="horse.id" 
                         (click)="selectedHorse($event)">
-                        &nbsp; &nbsp;<strong>{{ horse.name }}, {{horse.breed}} </strong><span class="color-tx-green"> ({{ user.userName }})</span>
+                        &nbsp; &nbsp;<strong>{{ horse.name }}, </strong><span class="color-tx-green">({{ horse.breed }} - {{ horse.skill }})</span>
                     </label>
                     <br>
                     <button class="btn-shops btn-shops-lrg" 
                         [routerLink]="['/horse-sale']" routerLinkActive="router-link-active" >
-                        Buy</button>
+                        Buy 500e</button>
                 </form>
                 <br>
             </Div>

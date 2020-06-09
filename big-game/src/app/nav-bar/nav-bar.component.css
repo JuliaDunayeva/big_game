@@ -34,6 +34,10 @@ ul {
     background-color: turquoise;
 }
 
+.nav-item {
+    left: 30px;
+}
+
 .nav-btn {
     margin-left: 20px;
     padding: 0px;
