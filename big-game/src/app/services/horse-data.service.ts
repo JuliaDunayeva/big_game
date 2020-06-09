@@ -118,7 +118,8 @@ export class HorseDataService {
 				tr_speed: 0,
 				tr_gallop: 0,
 				tr_trot: 0,
-				tr_jumping: 0
+				tr_jumping: 0,
+				time: {currentTimeString: "24", currentMinuteString: "00"}
 			})
 		);
 	}//end of createRandomHorse()
@@ -138,6 +139,12 @@ export class HorseDataService {
 	updateHorseGender(id: string, gender: String) {
 		return this.db.collection('/horse_data').doc(id).update({
 			'gender': gender
+		})
+	}
+
+	updateHorseTime(id: string, time) {
+		return this.db.collection('horse_data').doc(id).update( {
+			'time': time
 		})
 	}
 }
