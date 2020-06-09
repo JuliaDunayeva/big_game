@@ -9,6 +9,11 @@ a {
   font: 18px Arial, Helvetica, sans-serif;
 }
 
+.dropdown-menu[x-placement^="top"], .dropdown-menu[x-placement^="right"], .dropdown-menu[x-placement^="bottom"], .dropdown-menu[x-placement^="left"] {
+  right: auto;
+  bottom: auto;
+}
+
 .btn-primary {
   background-color: #2685ba;
 }

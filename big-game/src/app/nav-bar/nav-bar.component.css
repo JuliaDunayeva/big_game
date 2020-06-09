@@ -57,7 +57,7 @@ ul {
     background-color: turquoise;
 }
 
-.img-size {
+.img-logo {
     margin-top: 10px;
 }
 
@@ -69,7 +69,7 @@ ul {
     margin-top: 0px;
 }
 
-h4 {
+.texth4 {
     margin-right: -8px;
     margin-top: 4px;
 }
@@ -89,7 +89,7 @@ h4 {
 
 /* Equus & Passes Styling Components */
 
-h6 {
+.texth6 {
     margin-bottom: 0;
     font-weight: 700;
 }
