@@ -13,7 +13,7 @@ import { HorsePageButtons } from '../horse-page-buttons';
 import { AuthService } from '../services/auth.service';
 import { Breed } from '../breed';
 import { Color } from '../color';
-//import { FeedingComponent } from './feeding/feeding.component';
+import { sharedStylesheetJitUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-horse-page',
@@ -65,6 +65,8 @@ export class HorsePageComponent implements OnInit {
   public isCompetitionCollapsed = false;
   public isHistoryCollapsed = false;
   public isBreedingCollapsed = false;
+
+  
 
   active = 1;
   ctrl = new FormControl(null, Validators.required);
@@ -129,8 +131,8 @@ export class HorsePageComponent implements OnInit {
     private breedService: BreedService,
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
-    private authService: AuthService
-    //public feeding:FeedingComponent
+    private authService: AuthService,
+        //public feeding:FeedingComponent
   ) {}
 
   ngOnInit(): void {
