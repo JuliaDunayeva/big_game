@@ -8,6 +8,7 @@ import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Sale } from '../sale';
 
 
@@ -27,9 +28,11 @@ export class HorseSaleComponent implements OnInit {
   Uid: string = this.authService.getUId();
   user: any;
   saleList: Sale[];
+  
 
 
   constructor(private authService: AuthService,
+        public db: AngularFirestore,
         private userDataService: UserDataService,
         private horseDataService: HorseDataService,
         private fb: FormBuilder,
@@ -45,14 +48,14 @@ export class HorseSaleComponent implements OnInit {
     }
 
     getHorseData(){
-      this.horseDataService.getHorsesByUid().subscribe(
+      this.horseDataService.getHorsesForSale().subscribe(
         res => {
           this.allHorseData = res as Array<HorseData>;
           this.allHorseData.map(horse =>{
             this.defaultHorse = this.allHorseData[0].name
             this.horseSelectedId = this.allHorseData[0].id
             this.createForm();
-            console.log(this.allHorseData)
+            // console.log(this.allHorseData)
             this.breedService.getBreedById(horse.breed).then( res =>{
               horse.breed = res.data()['breed']}
               )
@@ -79,15 +82,15 @@ export class HorseSaleComponent implements OnInit {
             }
           }
         )
-        console.log("saleList ", this.saleList)
+        // console.log("saleList ", this.saleList)
         }
       ) 
     }
 
-    horsesForSale() {
-      this.salesService.horsesForSale()
-      return this.db.collection('sales').valueChanges()
-    }
+    // horsesForSale() {
+    //   this.salesService.horsesForSale()
+    //   return this.db.collection('sales').valueChanges()
+    // }
 
     createForm() {
       console.log(this.defaultHorse)
@@ -97,7 +100,7 @@ export class HorseSaleComponent implements OnInit {
     }
   
     selectedHorse(event: any) {
-      console.log("test ",(<HTMLInputElement>event.target).id)
+      // console.log("selectd ",(<HTMLInputElement>event.target).id)
       this.horseSelectedId = (<HTMLInputElement>event.target).id;
     }
   
