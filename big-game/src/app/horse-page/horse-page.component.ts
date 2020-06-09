@@ -172,7 +172,7 @@ export class HorsePageComponent implements OnInit {
     this.FeedButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.FeedButtons.energy=15;
     this.FeedButtons.hour=0;
-    this.FeedButtons.minute=30;
+    this.FeedButtons.minute=-30;
 
     this.DrinkButtons.enabledImage =      'assets/images/horse-page-icons/drink-button-enabled.png';
     this.DrinkButtons.disabledImage =      'assets/images/horse-page-icons/drink-button-disabled.png';
@@ -299,6 +299,11 @@ export class HorsePageComponent implements OnInit {
       alert('no energy left');
       return;
     }
+
+    this.horseDataService.setHorseEnergy(
+      this.authService.getHorseId(),
+      this.horse.energy
+    );
   }// end of Drink Button function
 
   // Stroke Button function
@@ -317,6 +322,11 @@ export class HorsePageComponent implements OnInit {
     this.history.unshift("Grooming "+this.horse.name);
     if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.GroomButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
+
+    this.horseDataService.setHorseEnergy(
+      this.authService.getHorseId(),
+      this.horse.energy
+    );
     //this.toggleButtons(this.GroomButtons, 'groom',true);
   } // end of Groom Button function
 
@@ -341,25 +351,29 @@ export class HorsePageComponent implements OnInit {
     this.history.unshift("Feeding "+this.horse.name);
     //this.toggleButtons(this.FeedButtons, 'feed',true);
     // convert time to seconds then back again to display in circlur progress  bar
-    let hr=parseFloat(this.horse.time.currentHourString);
-    let min=parseFloat(this.horse.time.currentMinuteString);
-
-    this.seconds = (hr* 3600) + (min * 60);
+    let hr;
+    let min
+    /*if (this.horse.time!=null) {
+    hr=parseFloat(this.horse.time.currentHourString);
+    min=parseFloat(this.horse.time.currentMinuteString);
+    }*/
+    this.seconds = (this.hour* 3600) + (this.minute * 60);
     this.taskSeconds = this.FeedButtons.hour * 3600 + this.FeedButtons.minute * 60;
-      
+    /*if (this.horse.time!=null) {
     this.horse.time.currentHourString=hr.toString();
     this.horse.time.currentMinuteString=min.toString();
-
-    if (this.horse.energy <= 95) this.horse.energy= this.horse.energy+this.FeedButtons.energy;
+    }*/
+    //if (this.horse.energy < 95) 
+    this.horse.energy= this.horse.energy+this.FeedButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
     // subtract seconds for 24hour period from how many seconds for task
     // used to calculate percentage
     //this.horse.time.currentHourString=
     totalseconds = (this.seconds - this.taskSeconds);
-    console.log(this.seconds);
-    console.log(this.taskSeconds);
-    console.log(this.seconds - this.taskSeconds);
- /*   this.hour = this.totalseconds / 3600;
+ //   console.log(this.seconds);
+  //  console.log(this.taskSeconds);
+  //  console.log(this.seconds - this.taskSeconds);
+  /*   this.hour = this.totalseconds / 3600;
 
     this.minute = this.hour % 1; // * 60;
     this.minute = parseFloat(this.minute.toFixed(2));
