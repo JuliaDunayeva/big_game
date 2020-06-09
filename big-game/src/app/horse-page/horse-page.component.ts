@@ -14,6 +14,7 @@ import { AuthService } from '../services/auth.service';
 import { Breed } from '../breed';
 import { Color } from '../color';
 import { sharedStylesheetJitUrl } from '@angular/compiler';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-horse-page',
@@ -121,7 +122,7 @@ export class HorsePageComponent implements OnInit {
 
   public percentStr: string;
 
-  public totalseconds: number;
+  //public totalseconds: number;
   public user: UserData;
 
   constructor(
@@ -332,28 +333,38 @@ export class HorsePageComponent implements OnInit {
 
   // Feed Button function
   public FeedButton() {
+    let totalseconds=0;
     if (!this.FeedButtons.enabled){
       alert('No energy to feed.');
       return;
     }
     this.history.unshift("Feeding "+this.horse.name);
-    this.toggleButtons(this.FeedButtons, 'feed',true);
+    //this.toggleButtons(this.FeedButtons, 'feed',true);
     // convert time to seconds then back again to display in circlur progress  bar
-    this.seconds = this.hour * 3600 + this.minute * 60;
-    this.taskSeconds = 0 * 3600 + 30 * 60;
-   
+    let hr=parseFloat(this.horse.time.currentHourString);
+    let min=parseFloat(this.horse.time.currentMinuteString);
+
+    this.seconds = (hr* 3600) + (min * 60);
+    this.taskSeconds = this.FeedButtons.hour * 3600 + this.FeedButtons.minute * 60;
+      
+    this.horse.time.currentHourString=hr.toString();
+    this.horse.time.currentMinuteString=min.toString();
+
     if (this.horse.energy <= 95) this.horse.energy= this.horse.energy+this.FeedButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
     // subtract seconds for 24hour period from how many seconds for task
     // used to calculate percentage
     //this.horse.time.currentHourString=
-    this.totalseconds = this.seconds - this.taskSeconds;
+    totalseconds = (this.seconds - this.taskSeconds);
+    console.log(this.seconds);
+    console.log(this.taskSeconds);
+    console.log(this.seconds - this.taskSeconds);
  /*   this.hour = this.totalseconds / 3600;
 
     this.minute = this.hour % 1; // * 60;
     this.minute = parseFloat(this.minute.toFixed(2));
     this.percent = parseFloat(this.percent.toFixed(0));*/
-    this.seconds = parseFloat(this.seconds.toFixed(0));
+   // this.seconds = parseFloat(this.seconds.toFixed(0));
   /* this.hour = this.hour - this.minute;
     this.hour = parseFloat(this.hour.toFixed(0));
 */
