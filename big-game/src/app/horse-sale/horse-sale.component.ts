@@ -10,6 +10,8 @@ import { ColorService } from '../services/color.service';
 import { Color } from '../color';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Sale } from '../sale';
+
 
 @Component({
   selector: 'app-horse-sale',
@@ -26,15 +28,18 @@ export class HorseSaleComponent implements OnInit {
   horseSelectedId: string;
   Uid: string = this.authService.getUId();
   user: any;
-  breedService: any;
-  colorService: any;
+  saleList: Sale[];
+
 
   constructor(private authService: AuthService,
         private userDataService: UserDataService,
         private horseDataService: HorseDataService,
-        private fb: FormBuilder) { }
+        private fb: FormBuilder,
+        private breedService: BreedService,
+        private salesService: SalesService ) { }
 
     ngOnInit(): void {
+      this.getHorseListForSale();
       this.getHorseData();
       this.userDataService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
@@ -49,19 +54,36 @@ export class HorseSaleComponent implements OnInit {
             this.defaultHorse = this.allHorseData[0].name
             this.horseSelectedId = this.allHorseData[0].id
             this.createForm();
+            console.log(this.allHorseData)
             this.breedService.getBreedById(horse.breed).then( res =>{
               horse.breed = res.data()['breed']}
               )
             }
           )
-          this.allHorseData.map(horse =>{
-            this.colorService.getColorById(horse.color).then( res =>
-              horse.color = res.data()['color']
-              )
-            }
-          )
         }
       )
+    }
+
+    getHorseListForSale() {
+      this.salesService.horseSaleList().subscribe(res => 
+        {this.saleList = res.map( res => 
+          {   
+          if (!res.payload.doc.data()['sold']) {
+                return {
+                  horseId: res.payload.doc.data()['horseId'],
+                  sellerId:res.payload.doc.data()['sellerId'],
+                  sellDate: res.payload.doc.data()['sellDate'],
+                  buyerId: res.payload.doc.data()['buyerId'],
+                  buyDate: res.payload.doc.data()['buyDate'],
+                  sold: res.payload.doc.data()['sold'],
+                  price: res.payload.doc.data()['price']
+                }
+            }
+          }
+        )
+        console.log("slaeList ", this.saleList)
+        }
+      ) 
     }
 
     createForm() {
