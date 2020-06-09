@@ -158,14 +158,14 @@ export class HorsePageComponent implements OnInit {
     this.TrailClassCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-trail-class-button-enabled.png';
     this.TrailClassCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-trail-class-button-enabled.png';
 
-    this.ReignCompButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
-    this.ReignCompButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
+    this.ReignCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-reining-button-enabled.png';
+    this.ReignCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-reining-button-enabled.png';
 
-    this.WesternPleasureCompButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
-    this.WesternPleasureCompButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
+    this.WesternPleasureCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png';
+    this.WesternPleasureCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png';
 
-    this.TrottingCompButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
-    this.TrottingCompButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
+    this.TrottingCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-trotting-button-enabled.png';
+    this.TrottingCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-trotting-button-enabled.png';
 /* Define images for Care Tab buttons */
     this.FeedButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.FeedButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
