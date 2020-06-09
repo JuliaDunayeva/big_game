@@ -14,8 +14,7 @@ export class ClockService{
   private minutes: number;
   private seconds: number;
   private currentSeconds: number = 86400
-  private time = {currentHourString: "24", currentMinuteString: "00"}
-  
+  private time: {currentHourString: string, currentMinuteString: string} = {currentHourString:"24", currentMinuteString: "00"}
 
   constructor(private horseService: HorseDataService) {}
 
@@ -27,7 +26,7 @@ export class ClockService{
      return this.time
    }
 
-   updateTime(horseId, hours: number, minutes: number) {
+   updateTime(hours: number, minutes: number) {
     this.hours = hours;
     this.minutes = minutes;
     this.seconds = (hours*3600) + (minutes * 60)
@@ -37,7 +36,7 @@ export class ClockService{
 
     this.currentSeconds -= this.seconds
     currentHour = Math.floor((this.currentSeconds / 3600));
-    currentMinute = Math.floor(((this.currentSeconds % 3600) + (this.minutes)) / 60);
+    currentMinute = Math.floor((this.currentSeconds % 3600) /60);
     
     if (currentHour > 0) {
       this.time.currentHourString = currentHour.toString()
