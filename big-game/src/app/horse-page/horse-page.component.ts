@@ -173,6 +173,7 @@ export class HorsePageComponent implements OnInit {
 
     this.DrinkButtons.enabledImage =      'assets/images/horse-page-icons/drink-button-enabled.png';
     this.DrinkButtons.disabledImage =      'assets/images/horse-page-icons/drink-button-disabled.png';
+    this.DrinkButtons.energy=5;
 
     this.StrokeButtons.enabledImage =      'assets/images/horse-page-icons/stroke-button-enabled.png';
     this.StrokeButtons.disabledImage =      'assets/images/horse-page-icons/stroke-button-disabled.png';
@@ -278,6 +279,8 @@ export class HorsePageComponent implements OnInit {
   public DrinkButton() {
     this.history.unshift(this.horse.name+" is taking a drink");
     this.toggleButtons(this.DrinkButtons, 'drink',true);
+    this.horse.energy=this.horse.energy+this.DrinkButtons.energy;
+    if (this.horse.energy>100) this.horse.energy=100;
     // convert time to seconds then back again to display in circlur progress  bar
     this.seconds = this.hour * 3600 + this.minute * 60;
     this.taskSeconds = 0 * 3600 + 30 * 60;
