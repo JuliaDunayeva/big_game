@@ -328,35 +328,18 @@
                         <ng-container ngbNavItem>
                             <a ngbNavLink class="card-light-green">Genetic</a>
                             <ng-template ngbNavContent>
-                                <p> Exercitation +1 labore velit, blog sartorial PBR</p>
-                                <p> leggings next level wes anderson artisan four</p>
-                                <p> loko farm-to-table craft beer twee. Qui photo </p>
-                                <p> booth letterpress, commodo enim craft beer </p>
-                                <p> mlkshk aliquip jean shorts ullamco ad vinyl cillum </p>
-                                <p> PBR. Homo nostrud organic, assumenda labore </p>
-                                <p> aesthetic magna delectus mollit. Keytar helvetica </p>
-                                <p>VHS salvia yr, vero magna velit sapiente labore</p>
-                                <p> stumptown. Vegan fanny pack odio cillum wes </p>
-                                <p> anderson 8-bit, sustainable jean shorts beard ut </p>
-                                <p>DIY ethical culpa terry richardson biodiesel.</p>
-                                <p> Art party scenester stumptown, tumblr butcher</p>
-                                <p> vero sint qui sapiente accusamus tattooed echo park.</p>
+                                <p> Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                                    ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
+                                    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
                             <a ngbNavLink class="card-light-green">Bonus</a>
                             <ng-template ngbNavContent>
-                                <p>Sed commodo, leo at suscipit dictum, quam est porttitor </p>
-                                <p> sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec</p>
-                                <p> egestas ligula vitae odio interdum aliquet. Duis lectus turpis, </p>
-                                <p>luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at </p>
-                                <p> faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices </p>
-                                <p> et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque.</p>
-                                <p> Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique</p>
-                                <p> ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci </p>
-                                <p>varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus</p>
-                                <p> mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec</p>
-                                <p> tortor vel tellus pulvinar feugiat.</p>
+                                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent fringilla tortor arcu. Vivamus faucibus nisl enim,
+                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
+                                    in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
                             </ng-template>
                         </ng-container>
                     </nav>
@@ -405,7 +388,7 @@
                 <div class="max-width-column" id="collapseExample " [ngbCollapse]="isTrainingCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body">
-                            You can collapse this card by clicking Toggle
+                            Training information goes here.
                         </div>
                     </div>
                 </div>
@@ -421,24 +404,24 @@
                             <div class="row">
                                 <div class="col-3 btn-padding">
                                     <button class="btn max-btn-width">
-                                        <img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png "/>
+                                        <img class="img-btn-width" src="{{ BarrelCompButton }}"/>
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding">
                                     <button class="btn max-btn-width">
-                                        <img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-cutting-button-enabled.png "/>
+                                        <img class="img-btn-width" src="{{ CuttingCompButton }}"/>
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding">
                                     <button class="btn max-btn-width">
-                                        <img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-trail-class-button-enabled.png "/>
+                                        <img class="img-btn-width" src="{{ TrailClassCompButton }} "/>
                                     </button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-3 btn-padding">
                                     <button class="btn max-btn-width">
-                                        <img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-reining-button-enabled.png "/>
+                                        <img class="img-btn-width" src="{{ ReignCompButton }}"/>
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding">
@@ -448,7 +431,7 @@
                                 </div>
                                 <div class="col-3 btn-padding">
                                     <button class="btn max-btn-width">
-                                        <img class="img-btn-width" src="../../assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png "/>
+                                        <img class="img-btn-width" src="{{ WesternPleasureCompButton }}"/>
                                     </button>
                                 </div>
                             </div>
