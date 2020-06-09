@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HorseDataService } from './horse-data.service';
 
 interface time {
   currentHourString: string,
@@ -16,7 +17,7 @@ export class ClockService{
   private time = {currentHourString: "24", currentMinuteString: "00"}
   
 
-  constructor() {}
+  constructor(private horseService: HorseDataService) {}
 
    getSeconds(){
      return this.seconds
@@ -26,7 +27,7 @@ export class ClockService{
      return this.time
    }
 
-   updateTime(hours: number, minutes: number) {
+   updateTime(horseId, hours: number, minutes: number) {
     this.hours = hours;
     this.minutes = minutes;
     this.seconds = (hours*3600) + (minutes * 60)
@@ -54,6 +55,10 @@ export class ClockService{
       this.time.currentHourString = "0" + this.time.currentHourString;
     }
 
-    console.log(this.time)
+    this.updateFirebase();
+  }
+
+  updateFirebase() {
+    this.horseService.updateHorseTime(this.time)
   }
 }
