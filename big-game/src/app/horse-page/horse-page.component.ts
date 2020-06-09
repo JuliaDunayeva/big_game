@@ -172,7 +172,7 @@ export class HorsePageComponent implements OnInit {
     this.FeedButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.FeedButtons.energy=15;
     this.FeedButtons.hour=0;
-    this.FeedButtons.minute=30;
+    this.FeedButtons.minute=-30;
 
     this.DrinkButtons.enabledImage =      'assets/images/horse-page-icons/drink-button-enabled.png';
     this.DrinkButtons.disabledImage =      'assets/images/horse-page-icons/drink-button-disabled.png';
