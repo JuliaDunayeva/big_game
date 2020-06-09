@@ -353,16 +353,16 @@ export class HorsePageComponent implements OnInit {
     // convert time to seconds then back again to display in circlur progress  bar
     let hr;
     let min
-    if (this.horse.time!=null) {
+    /*if (this.horse.time!=null) {
     hr=parseFloat(this.horse.time.currentHourString);
     min=parseFloat(this.horse.time.currentMinuteString);
-    }
-    this.seconds = (hr* 3600) + (min * 60);
+    }*/
+    this.seconds = (this.hour* 3600) + (this.minute * 60);
     this.taskSeconds = this.FeedButtons.hour * 3600 + this.FeedButtons.minute * 60;
-    if (this.horse.time!=null) {
+    /*if (this.horse.time!=null) {
     this.horse.time.currentHourString=hr.toString();
     this.horse.time.currentMinuteString=min.toString();
-    }
+    }*/
     //if (this.horse.energy < 95) 
     this.horse.energy= this.horse.energy+this.FeedButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
@@ -373,7 +373,7 @@ export class HorsePageComponent implements OnInit {
  //   console.log(this.seconds);
   //  console.log(this.taskSeconds);
   //  console.log(this.seconds - this.taskSeconds);
- /*   this.hour = this.totalseconds / 3600;
+  /*   this.hour = this.totalseconds / 3600;
 
     this.minute = this.hour % 1; // * 60;
     this.minute = parseFloat(this.minute.toFixed(2));
