@@ -6,8 +6,6 @@ import { HorseDataService} from '../services/horse-data.service';
 import { SalesService } from '../services/sales.service';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
-import { ColorService } from '../services/color.service';
-import { Color } from '../color';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Sale } from '../sale';
@@ -81,9 +79,14 @@ export class HorseSaleComponent implements OnInit {
             }
           }
         )
-        console.log("slaeList ", this.saleList)
+        console.log("saleList ", this.saleList)
         }
       ) 
+    }
+
+    horsesForSale() {
+      this.salesService.horsesForSale()
+      return this.db.collection('sales').valueChanges()
     }
 
     createForm() {
@@ -94,7 +97,7 @@ export class HorseSaleComponent implements OnInit {
     }
   
     selectedHorse(event: any) {
-      console.log("test   ",(<HTMLInputElement>event.target).id)
+      console.log("test ",(<HTMLInputElement>event.target).id)
       this.horseSelectedId = (<HTMLInputElement>event.target).id;
     }
   
