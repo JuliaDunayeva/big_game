@@ -142,7 +142,8 @@ export class HorseDataService {
 		})
 	}
 
-	updateHorseTime(id: string, time) {
+	updateHorseTime(time) {
+		let id = this.authService.getHorseId();
 		return this.db.collection('horse_data').doc(id).update( {
 			'time': time
 		})
