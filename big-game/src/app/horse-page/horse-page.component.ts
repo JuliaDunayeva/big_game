@@ -302,6 +302,7 @@ export class HorsePageComponent implements OnInit {
     }
     this.history.unshift("Grooming "+this.horse.name);
     if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.GroomButtons.energy;
+    if (this.horse.energy>100) this.horse.energy=100;
     this.toggleButtons(this.GroomButtons, 'groom',true);
   } // end of Groom Button function
 
@@ -330,6 +331,7 @@ export class HorsePageComponent implements OnInit {
     
 
     if (this.horse.energy <= 95) this.horse.energy= this.horse.energy+this.FeedButtons.energy;
+    if (this.horse.energy>100) this.horse.energy=100;
     // subtract seconds for 24hour period from how many seconds for task
     // used to calculate percentage
     this.totalseconds = this.seconds - this.taskSeconds;
