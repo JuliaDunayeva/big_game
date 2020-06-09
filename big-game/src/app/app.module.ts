@@ -47,7 +47,7 @@ import { ModalOptionsComponent } from './modal-options/modal-options.component';
     HorseListComponent,
     HorseSaleComponent,
     MiniBarComponent,
-    PlayBarMiniComponent
+    PlayBarMiniComponent,
   ],
   
   imports: [
