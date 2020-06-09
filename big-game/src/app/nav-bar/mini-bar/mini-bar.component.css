@@ -25,17 +25,8 @@ hr {
     margin-top:15px;
 }
 
-.btn {
-    color:white;
-    background: rgb(73, 131, 186); 
-}
-
-.btn:hover {
-    background-color: turquoise;
-}
-
 .hamburger {
-    font-size: 25px;
+    font-size: 18px;
     color: white;
 }
 
@@ -164,7 +155,9 @@ hr {
     .dropdown2-content {
         left:0px;
     }
-         
+    .col-md-4{
+        width:25px;
+    }  
 }
 
 @media (min-width: 578px) and (max-width: 767.98px) { 
@@ -174,12 +167,26 @@ hr {
     .dropdown2-content {
         left:0px;
     }
-       
+    .col-md-7 {
+        width:70px;
+    }  
+    .col-md-1 {
+        width:100px;
+    }  
+    .img-size{
+        margin-left: 60px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) { 
     .mini-bar {
         display: block;
+    }
+    .col-md-1 {
+        width: 150px; 
+    }
+    .play-bar-pos{
+        margin-left: 30px;
     }
 }
 
