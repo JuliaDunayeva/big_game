@@ -71,6 +71,7 @@ export class HorseListComponent implements OnInit {
         });
       })
     }
+    
   getColors() {
     this.colorService.getColors().subscribe(clr => {
       this.allColors = clr.map(res => {
