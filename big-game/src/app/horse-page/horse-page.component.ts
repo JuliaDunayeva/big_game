@@ -96,6 +96,8 @@ export class HorsePageComponent implements OnInit {
   public hour: number;
   public minute: number;
 
+  updatedTime: {currentHourString: string, currentMinuteString: string};
+
   public percentStr: string;
 
   public totalseconds: number;
@@ -113,6 +115,8 @@ export class HorsePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.updatedTime = this.clockService.getCurrentTime();
+    console.log(this.updatedTime)
     //setTimeout(() =>
     //{
     this.getBreeds();
@@ -237,8 +241,10 @@ export class HorsePageComponent implements OnInit {
     this.history.push(this.horse.name+" is taking a drink");
     this.changeButtons(this.DrinkButtons, 'drink');
     // convert time to seconds then back again to display in circlur progress  bar
-    this.seconds = this.hour * 3600 + this.minute * 60;
-    this.taskSeconds = 0 * 3600 + 30 * 60;
+    // this.seconds = this.hour * 3600 + this.minute * 60;
+    // this.taskSeconds = 0 * 3600 + 30 * 60;
+    this.clockService.updateTime(0,30)
+
     if (this.horse.energy == 0) {
       alert('no energy left');
       return;
@@ -270,8 +276,10 @@ export class HorsePageComponent implements OnInit {
     this.history.push("Feeding "+this.horse.name);
     this.changeButtons(this.FeedButtons, 'feed');
     // convert time to seconds then back again to display in circlur progress  bar
-    this.seconds = this.hour * 3600 + this.minute * 60;
-    this.taskSeconds = 0 * 3600 + 30 * 60;
+    // this.seconds = this.hour * 3600 + this.minute * 60;
+    // this.taskSeconds = 0 * 3600 + 30 * 60;
+    this.clockService.updateTime(0,30)
+
     if (this.horse.energy == 0) {
       alert('no energy left');
       return;
