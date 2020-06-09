@@ -62,6 +62,14 @@ export class HorseDataService {
 		}, {merge: true});
 	}//end of setHorseEnergy()
 
+	setHorseTime(id:string,currentHourString:string,currentMinuteString:string){
+		let cityRef = this.db.collection('/horse_data').doc(id);
+		let setWithOptions = cityRef.set({
+		  "time": {currentHourString, currentMinuteString}
+		}, {merge: true});
+	}//end of setHorseTime()
+	
+
 	getHorseData() {
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid'))).valueChanges()
 	}
