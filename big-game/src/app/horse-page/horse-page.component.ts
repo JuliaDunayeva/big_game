@@ -152,21 +152,27 @@ export class HorsePageComponent implements OnInit {
     /* Define images for Competition Tab Buttons */
     this.BarrelCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png';
     this.BarrelCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png';
+    this.BarrelCompButtons.name='barrel';
 
     this.CuttingCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-cutting-button-enabled.png';
     this.CuttingCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-cutting-button-enabled.png';
+    this.CuttingCompButtons.name='cutting';
 
     this.TrailClassCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-trail-class-button-enabled.png';
     this.TrailClassCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-trail-class-button-enabled.png';
+    this.TrailClassCompButtons.name='trail';
 
     this.ReignCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-reining-button-enabled.png';
     this.ReignCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-reining-button-enabled.png';
+    this.ReignCompButtons.name='reign';
 
     this.WesternPleasureCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png';
     this.WesternPleasureCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png';
+    this.WesternPleasureCompButtons.name='western';
 
     this.TrottingCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-trotting-button-enabled.png';
     this.TrottingCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-trotting-button-enabled.png';
+    this.TrottingCompButtons.name='trotting';
 /* Define images for Care Tab buttons */
     this.FeedButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     this.FeedButtons.disabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
