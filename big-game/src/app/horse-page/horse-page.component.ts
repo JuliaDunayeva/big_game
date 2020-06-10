@@ -228,14 +228,14 @@ export class HorsePageComponent implements OnInit {
     /* Care Tab buttons */
     this.toggleButtons(this.FeedButtons,true);
     this.toggleButtons(this.DrinkButtons,true);
-    this.toggleButtons(this.StrokeButtons,true);
-    this.toggleButtons(this.GroomButtons,true);
-    this.toggleButtons(this.CarrotButtons,true);
-    this.toggleButtons(this.MashButtons, true);
+    this.toggleButtons(this.StrokeButtons,false);
+    this.toggleButtons(this.GroomButtons,false);
+    this.toggleButtons(this.CarrotButtons,false);
+    this.toggleButtons(this.MashButtons, false);
     this.toggleButtons(this.EmptyButtons,false);
     /* Ride tab buttons */
-    this.toggleButtons(this.ForestButtons,true);
-    this.toggleButtons(this.MountainButtons,true);
+    this.toggleButtons(this.ForestButtons,false);
+    this.toggleButtons(this.MountainButtons,false);
     /* Breeding tab buttons */
     this.toggleButtons(this.BreedingInfoButtons, true);
     this.toggleButtons(this.CoverMareButtons, true);
