@@ -108,9 +108,8 @@ export class HorseListComponent implements OnInit {
   }
 
   createForm() {
-  //  console.log(this.defaultHorse)
     this.selectHorse = this.fb.group({
-      myHorse: [this.defaultHorse, Validators.required]
+      userHorse: [this.defaultHorse, Validators.required]
     })
   }
 
@@ -120,7 +119,6 @@ export class HorseListComponent implements OnInit {
   }
 
   selectedHorse(event: any) {
-  //  console.log("1st select ",(<HTMLInputElement>event.target).id)
     this.horseSelectedId = (<HTMLInputElement>event.target).id;
   }
 
@@ -131,20 +129,16 @@ export class HorseListComponent implements OnInit {
   idOfHorse: string;
   saleOfHorse: boolean;
   onHorseSelect(id, toSell: boolean) {
-  //  console.log('2nd select ', toSell);
     this.idOfHorse = id;
     this.saleOfHorse = toSell
   }
 
   swapSale(){
-  //  console.log('swap 1 ', this.saleOfHorse);
     const toSell = this.setSale(this.saleOfHorse)
-    // console.log('swap 2 changed ', toSell);
     this.horseService.updateTheSale(this.idOfHorse, toSell)
   }
 
   setSale(toSell: boolean): boolean {
-    //console.log ('setSale ', toSell)
     if(toSell == false) {
       return true
     } 
