@@ -173,23 +173,29 @@ export class HorsePageComponent implements OnInit {
     this.FeedButtons.energy=15;
     this.FeedButtons.hour=0;
     this.FeedButtons.minute=-30;
+    this.FeedButtons.name='feed';
 
     this.DrinkButtons.enabledImage =      'assets/images/horse-page-icons/drink-button-enabled.png';
     this.DrinkButtons.disabledImage =      'assets/images/horse-page-icons/drink-button-disabled.png';
     this.DrinkButtons.energy=5;
+    this.DrinkButtons.name='drink';
 
     this.StrokeButtons.enabledImage =      'assets/images/horse-page-icons/stroke-button-enabled.png';
     this.StrokeButtons.disabledImage =      'assets/images/horse-page-icons/stroke-button-disabled.png';
+    this.StrokeButtons.name='stroke';
 
     this.GroomButtons.enabledImage =      'assets/images/horse-page-icons/groom-button-enabled.png';
     this.GroomButtons.disabledImage =      'assets/images/horse-page-icons/groom-button-disabled.png';
     this.GroomButtons.energy=-15;
+    this.GroomButtons.name='groom';
 
     this.CarrotButtons.enabledImage =      'assets/images/horse-page-icons/carrot-button-enabled.png';
     this.CarrotButtons.disabledImage =      'assets/images/horse-page-icons/carrot-button-disabled.png';
+    this.CarrotButtons.name='carrot';
 
     this.MashButtons.enabledImage =      'assets/images/horse-page-icons/mash-button-enabled.png';
     this.MashButtons.disabledImage =      'assets/images/horse-page-icons/mash-button-disabled.png';
+    this.MashButtons.name='mash';
 
 /* Define images for Ride Tab buttons*/
     this.ForestButtons.enabledImage =      'assets/images/horse-page-icons/forest-button-enabled.png';
@@ -198,6 +204,7 @@ export class HorsePageComponent implements OnInit {
       this.ForestButtons.morale=10;
       this.ForestButtons.hour=1;
     this.ForestButtons.minute=0;
+    this.ForestButtons.name='forest';
 
     this.MountainButtons.enabledImage =      'assets/images/horse-page-icons/mountain-button-enabled.png';
       this.MountainButtons.disabledImage =      'assets/images/horse-page-icons/mountain-button-enabled.png';
@@ -205,35 +212,39 @@ export class HorsePageComponent implements OnInit {
       this.MountainButtons.morale=15;
       this.MountainButtons.hour=2;
     this.MountainButtons.minute=0;
+    this.MountainButtons.name='mountain';
 
     this.BreedingInfoButtons.enabledImage = 'assets/images/horse-page-icons/breeding-information-button-enabled.png';
     this.BreedingInfoButtons.disabledImage = 'assets/images/horse-page-icons/breeding-information-button-enabled.png';
+    this.BreedingInfoButtons.name='breedinginfo';
     
     this.CoverMareButtons.enabledImage = 'assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png';
     this.CoverMareButtons.disabledImage = 'assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png';
+    this.CoverMareButtons.name='covermare';
     /* Define image for empty placeholder button*/
     this.EmptyButtons.enabledImage = 'assets/images/horse-page-icons/empty-button.png';
     this.EmptyButtons.disabledImage = 'assets/images/horse-page-icons/empty-button.png';
+    this.EmptyButtons.name='empty';
     /* Care Tab buttons */
-    this.toggleButtons(this.FeedButtons, 'feed',true);
-    this.toggleButtons(this.DrinkButtons, 'drink',true);
-    this.toggleButtons(this.StrokeButtons, 'stroke',true);
-    this.toggleButtons(this.GroomButtons, 'groom',true);
-    this.toggleButtons(this.CarrotButtons, 'carrot',true);
-    this.toggleButtons(this.MashButtons, 'mash',true);
-    this.toggleButtons(this.EmptyButtons, 'empty',false);
+    this.toggleButtons(this.FeedButtons,true);
+    this.toggleButtons(this.DrinkButtons,true);
+    this.toggleButtons(this.StrokeButtons,true);
+    this.toggleButtons(this.GroomButtons,true);
+    this.toggleButtons(this.CarrotButtons,true);
+    this.toggleButtons(this.MashButtons, true);
+    this.toggleButtons(this.EmptyButtons,false);
     /* Ride tab buttons */
-    this.toggleButtons(this.ForestButtons, 'forest',true);
-    this.toggleButtons(this.MountainButtons, 'mountain',true);
+    this.toggleButtons(this.ForestButtons,true);
+    this.toggleButtons(this.MountainButtons,true);
     /* Breeding tab buttons */
-    this.toggleButtons(this.BreedingInfoButtons, 'breedinginfo',true);
-    this.toggleButtons(this.CoverMareButtons, 'covermare',true);
+    this.toggleButtons(this.BreedingInfoButtons, true);
+    this.toggleButtons(this.CoverMareButtons, true);
 /* Competition tab buttons */
-    this.toggleButtons(this.BarrelCompButtons, 'barrel',false);
-    this.toggleButtons(this.CuttingCompButtons, 'cutting',false);
-    this.toggleButtons(this.WesternPleasureCompButtons, 'western',false);
-    this.toggleButtons(this.ReignCompButtons, 'reign',false);
-    this.toggleButtons(this.TrailClassCompButtons, 'trail',false);
+    this.toggleButtons(this.BarrelCompButtons,false);
+    this.toggleButtons(this.CuttingCompButtons,false);
+    this.toggleButtons(this.WesternPleasureCompButtons,false);
+    this.toggleButtons(this.ReignCompButtons,false);
+    this.toggleButtons(this.TrailClassCompButtons,false);
 
     this.imageFile = 'assets/images/horse-page-icons/test-horse-image.png';
     
@@ -295,15 +306,19 @@ export class HorsePageComponent implements OnInit {
     // convert time to seconds then back again to display in circlur progress  bar
     this.seconds = this.hour * 3600 + this.minute * 60;
     this.taskSeconds = 0 * 3600 + 30 * 60;
-    if (this.horse.energy == 0) {
-      alert('no energy left');
-      return;
-    }
-
+    
     this.horseDataService.setHorseEnergy(
       this.authService.getHorseId(),
       this.horse.energy
     );
+    if (this.horse.energy==100){
+        this.toggleButtons(this.DrinkButtons,false);
+        
+    }
+    if(this.horse.energy>0){
+              //this.toggleButtons(this.DrinkButtons,'drink',true);
+              this.toggleButtons(this.GroomButtons,true);      
+    }
   }// end of Drink Button function
 
   // Stroke Button function
@@ -314,19 +329,27 @@ export class HorsePageComponent implements OnInit {
 
   // Groom Button function
   public GroomButton() {
-    if (this.horse.energy == 0) {
+    if (this.horse.energy <= 0) {
       alert('no energy left');
-      this.toggleButtons(this.GroomButtons,'groom',false);
+      this.toggleButtons(this.GroomButtons,false);
       return;
     }
     this.history.unshift("Grooming "+this.horse.name);
     if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.GroomButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
 
+    if(this.horse.energy<100){
+      this.toggleButtons(this.DrinkButtons,true);
+  }
+
     this.horseDataService.setHorseEnergy(
       this.authService.getHorseId(),
       this.horse.energy
     );
+    if (this.horse.energy<0){
+      this.horse.energy=0;
+      this.toggleButtons(this.GroomButtons,false);
+    }
     //this.toggleButtons(this.GroomButtons, 'groom',true);
   } // end of Groom Button function
 
@@ -338,7 +361,7 @@ export class HorsePageComponent implements OnInit {
 
   // Mash button function
   public MashButton() {
-    this.toggleButtons(this.MashButtons, 'mash',true);
+    this.toggleButtons(this.MashButtons, true);
   }// end of Mash Button function
 
   // Feed Button function
@@ -393,6 +416,15 @@ export class HorsePageComponent implements OnInit {
 
     this.percentStr = this.ms2Time(this.totalseconds);
 */
+
+if (this.horse.energy>0){
+  this.toggleButtons(this.DrinkButtons,true);
+  this.toggleButtons(this.GroomButtons,true);
+}
+if (this.horse.energy==100){
+  this.toggleButtons(this.DrinkButtons,false);
+  //this.toggleButtons(this.GroomButtons,'groom',true);
+}
     // write data back to database
     this.horseDataService.setHorseEnergy(
       this.authService.getHorseId(),
@@ -403,7 +435,7 @@ export class HorsePageComponent implements OnInit {
   public ForestButton(){
     if (this.horse.energy == 0) {
     alert('no energy left');
-    this.toggleButtons(this.ForestButtons,'forest',false);
+    this.toggleButtons(this.ForestButtons,false);
     return;
   }
   this.history.unshift(this.horse.name + " is taking a ride in the forest");
@@ -411,6 +443,11 @@ export class HorsePageComponent implements OnInit {
   if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.ForestButtons.morale;
   if (this.horse.energy>100) this.horse.energy=100;
   if (this.horse.morale>100) this.horse.morale=100;
+
+if(this.horse.energy==0){
+  this.toggleButtons(this.DrinkButtons,false);
+  this.toggleButtons(this.GroomButtons,false);
+}
 
   this.horseDataService.setHorseEnergy(
     this.authService.getHorseId(),
@@ -427,7 +464,7 @@ export class HorsePageComponent implements OnInit {
   public MountainButton(){
     if (this.horse.energy == 0) {
     alert('no energy left');
-    this.toggleButtons(this.MountainButtons,'moutain',false);
+    this.toggleButtons(this.MountainButtons,false);
     return;
   }
   this.history.unshift(this.horse.name + " is taking a ride in the mountains");
@@ -435,6 +472,16 @@ export class HorsePageComponent implements OnInit {
   if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.MountainButtons.morale;
   if (this.horse.energy>100) this.horse.energy=100;
   if (this.horse.morale>100) this.horse.morale=100;
+
+  if (this.horse.energy<0){
+    this.horse.energy=0;
+    
+  }
+
+  if(this.horse.energy==0){
+    this.toggleButtons(this.DrinkButtons,false);
+    this.toggleButtons(this.GroomButtons,false);
+  }
 
   this.horseDataService.setHorseEnergy(
     this.authService.getHorseId(),
@@ -452,15 +499,40 @@ export class HorsePageComponent implements OnInit {
   );
   //this.toggleButtons(this.ForestButtons, 'forest',true);   
   }
+
+  public checkEnergy(){
+    if (this.horse.energy==100){
+      this.toggleButtons(this.DrinkButtons,false);
+      this.toggleButtons(this.GroomButtons,true);
+      this.toggleButtons(this.ForestButtons,true);
+      this.toggleButtons(this.ForestButtons,true);
+      this.toggleButtons(this.MountainButtons,true);
+    }
+    if(this.horse.energy>0 && this.horse.energy<100){
+      this.toggleButtons(this.DrinkButtons,true)
+      this.toggleButtons(this.GroomButtons,true);
+      this.toggleButtons(this.ForestButtons,true);
+      this.toggleButtons(this.ForestButtons,true);
+      this.toggleButtons(this.MountainButtons,true);
+    }
+    if(this.horse.energy==0){
+      this.toggleButtons(this.DrinkButtons,true)
+      this.toggleButtons(this.GroomButtons,false);
+      this.toggleButtons(this.ForestButtons,false);
+      this.toggleButtons(this.ForestButtons,false);
+      this.toggleButtons(this.MountainButtons,false);
+    }
+  }
   /* Toggle buttons function
       Parameters: 
       button -> HorsePageButtons Class
       buttonChange -> string name of which button to change
       toggle -> boolean, true or false to enable or disable button
   */
-  public toggleButtons(button: HorsePageButtons, buttonChange: string, toggle:boolean) {
+  public toggleButtons(button: HorsePageButtons, toggle:boolean) {
       //button.enabled = !button.enabled;
     button.enabled=toggle;
+    let buttonChange=button.name;
     switch (buttonChange) {
       case 'feed':
         if (button.enabled) {

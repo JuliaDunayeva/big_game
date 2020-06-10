@@ -1,4 +1,5 @@
 export class HorsePageButtons {
+    public name:string;
     public enabledImage:string;
     public disabledImage:string;
     public enabled:boolean;
