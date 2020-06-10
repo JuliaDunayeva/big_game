@@ -117,12 +117,12 @@ export class HorsePageComponent implements OnInit {
   public seconds: number;
   public taskSeconds: number;
 
-  public hour: number;
-  public minute: number;
+  //public hour: number;
+  //public minute: number;
 
   updatedTime: {currentHourString: string, currentMinuteString: string};
 
-  public percentStr: string;
+  //public percentStr: string;
 
   //public totalseconds: number;
   public user: UserData;
@@ -262,8 +262,8 @@ export class HorsePageComponent implements OnInit {
 
     this.imageFile = 'assets/images/horse-page-icons/test-horse-image.png';
     
-    this.hour = 0;
-    this.minute = 0;
+    //this.hour = 0;
+    //this.minute = 0;
     setTimeout(() => {
       this.checkEnergy();
   }, 750);
@@ -278,7 +278,7 @@ export class HorsePageComponent implements OnInit {
         this.breedService.getBreedById(this.horse.breed).then( brd =>
             {this.horse.breed = brd.data()['breed'];
             this.img_path = brd.data()['img_path'];
-            this.percent = (Number(this.horse.time.currentHourString)*3600 + (Number(this.horse.time.currentHourString)*60)) / 240 
+            this.percent = (Number(this.horse.time.currentHourString)*3600 + (Number(this.horse.time.currentMinuteString)*60)) /  240 ;
             }
         )
         this.colorService.getColorById(this.horse.color).then( clr =>
@@ -289,21 +289,23 @@ export class HorsePageComponent implements OnInit {
             }
         )
       });
-    }, 0);
-    if (this.horse.time!=null) {
-      this.hour=parseFloat(this.horse.time.currentHourString);
-      this.minute=parseFloat(this.horse.time.currentMinuteString);
-      } else {
-        this.hour=24;
-        this.minute=0;
-      }
+     /* if (this.horse.time!=null) {
+        this.hour=parseFloat(this.horse.time.currentHourString);
+        this.minute=parseFloat(this.horse.time.currentMinuteString);
+        } else {
+          this.hour=24;
+          this.minute=0;
+        }*/
+    };
+    
+  
     //if (!this.horse.time){
       
     //} else{
 //      this.hour=24;
       //this.minute=0;
     //}
-  }
+  
 
   ms2Time(ms: number): string {
     let secs = ms / 1000;
@@ -420,13 +422,13 @@ export class HorsePageComponent implements OnInit {
     // convert time to seconds then back again to display in circlur progress  bar
     //let hr;
     //let min
-    if (this.horse.time!=null) {
-    this.hour=parseFloat(this.horse.time.currentHourString);
-    this.minute=parseFloat(this.horse.time.currentMinuteString);
-    }
-    this.seconds = this.returnSeconds(this.hour,this.minute);
+    //if (this.horse.time!=null) {
+    //this.hour=parseFloat(this.horse.time.currentHourString);
+    //this.minute=parseFloat(this.horse.time.currentMinuteString);
+    //}
+    //this.seconds = this.returnSeconds(this.hour,this.minute);
     //(this.hour* 3600) + (this.minute * 60);
-    this.taskSeconds =this.returnSeconds(this.FeedButtons.hour,  this.FeedButtons.minute);
+    //this.taskSeconds =this.returnSeconds(this.FeedButtons.hour,  this.FeedButtons.minute);
     // this.FeedButtons.hour * 3600 + this.FeedButtons.minute * 60;
     /*if (this.horse.time!=null) {
     this.horse.time.currentHourString=hr.toString();
@@ -438,10 +440,10 @@ export class HorsePageComponent implements OnInit {
     // subtract seconds for 24hour period from how many seconds for task
     // used to calculate percentage
     //this.horse.time.currentHourString=
-    totalseconds = (this.seconds + this.taskSeconds);
+    //totalseconds = (this.seconds + this.taskSeconds);
     //alert(this.seconds);
     //alert(this.taskSeconds);
-    alert(totalseconds);
+    //alert(totalseconds / 1000);
  //   console.log(this.seconds);
   //  console.log(this.taskSeconds);
   //  console.log(this.seconds - this.taskSeconds);
@@ -463,7 +465,7 @@ export class HorsePageComponent implements OnInit {
 */
     // this.percent = (this.seconds - this.taskSeconds) / 1000;
     // this.percent = (Number(this.horse.time.currentHourString)*3600 + (Number(this.horse.time.currentHourString)*60)) / 240
-    console.log("percent  ", this.percent);
+    //console.log("percent  ", this.percent);
 /*
     let totalStr = this.totalseconds.toString();
     this.totalseconds = parseFloat(totalStr);
