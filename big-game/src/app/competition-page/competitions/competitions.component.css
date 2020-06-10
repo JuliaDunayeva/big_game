@@ -78,14 +78,6 @@ input {
     border-radius: 5px;
 }
   
-.mycard-light-green {
-    background-color: #F0F0B2;
-    color: #663300;
-    border-style: solid 2px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
 .card-title {
     font-weight: bold;
 }
@@ -104,30 +96,18 @@ input {
 
 
 @media (min-width: 576px) and (max-width: 767.98px) { 
-    .mytable-light-green {
-        width: auto;
-    }
-
     .hrtop {
         width: 90%;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) { 
-    .mytable-light-green {
-        width: auto;
-    }
-
     .hrtop {
         width: 135%;
     }
 }
 
 @media (min-width: 992px) {
-    .mytable-light-green {
-        width: auto;
-    }
-
     .hrtop {
         width: 95%;
     }
