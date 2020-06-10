@@ -8,4 +8,8 @@ export class HorsePageButtons {
     public health:number;
     public hour:number;
     public minute:number;
+
+    constructor(name:string){
+        this.name=name;
+    }
 }
