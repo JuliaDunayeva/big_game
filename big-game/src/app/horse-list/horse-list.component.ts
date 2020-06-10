@@ -45,8 +45,8 @@ export class HorseListComponent implements OnInit {
     constructor(private breedService: BreedService, 
         private colorService: ColorService, 
         private authService: AuthService,
-        private userDataService: UserDataService,
-        private horseDataService: HorseDataService,
+        private userService: UserDataService,
+        private horseService: HorseDataService,
         private fb: FormBuilder) {
     }
 
@@ -54,7 +54,7 @@ export class HorseListComponent implements OnInit {
       this.getBreeds();
       this.getColors();
       this.getHorseData();
-      this.userDataService.getUserByID(this.Uid).subscribe((result) => {
+      this.userService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
       });
     }
@@ -85,7 +85,7 @@ export class HorseListComponent implements OnInit {
   }
 
   getHorseData(){
-    this.horseDataService.getHorsesByUid().subscribe(
+    this.horseService.getHorsesByUid().subscribe(
       res => {
         this.allHorseData = res as Array<HorseData>;
         this.allHorseData.map(horse =>{
@@ -108,19 +108,17 @@ export class HorseListComponent implements OnInit {
   }
 
   createForm() {
-    console.log(this.defaultHorse)
     this.selectHorse = this.fb.group({
-      myHorse: [this.defaultHorse, Validators.required]
+      userHorse: [this.defaultHorse, Validators.required]
     })
   }
 
   createRandomHorse(name: string, breedId: string, colorId: string, skill: string) {
-    this.horseDataService.createRandomHorse(this.horseValues, this.Uid, breedId, colorId, skill, name)
+    this.horseService.createRandomHorse(this.horseValues, this.Uid, breedId, colorId, skill, name)
     return alert(this.success);
   }
 
   selectedHorse(event: any) {
-    console.log("test   ",(<HTMLInputElement>event.target).id)
     this.horseSelectedId = (<HTMLInputElement>event.target).id;
   }
 
@@ -128,9 +126,22 @@ export class HorseListComponent implements OnInit {
     this.authService.setHorseId(this.horseSelectedId)
   }
 
-  buyNewHorse(newHorseCost: number, newEquus: number) {
+  idOfHorse: string;
+  saleOfHorse: boolean;
+  onHorseSelect(id, toSell: boolean) {
+    this.idOfHorse = id;
+    this.saleOfHorse = toSell
   }
 
-  onSellHorse(event: any) {
+  swapSale(){
+    const toSell = this.setSale(this.saleOfHorse)
+    this.horseService.updateTheSale(this.idOfHorse, toSell)
+  }
+
+  setSale(toSell: boolean): boolean {
+    if(toSell == false) {
+      return true
+    } 
+    return false 
   }
 }

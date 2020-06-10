@@ -1,5 +1,4 @@
 /* Main Nav Bar styling components */
-
 a {
     text-decoration: none;
 }
@@ -34,6 +33,10 @@ ul {
     background-color: turquoise;
 }
 
+.nav-item {
+    left: 30px;
+}
+
 .nav-btn {
     margin-left: 20px;
     padding: 0px;
@@ -57,9 +60,7 @@ ul {
     margin-top: 10px;
 }
 
-
 /* Start Pack Styling Components */
-
 .nav-btn-big {
     width: 208px;
     margin-top: 0px;
@@ -82,9 +83,7 @@ ul {
     width: 50px;
 }
 
-
 /* Equus & Passes Styling Components */
-
 .texth6 {
     margin-bottom: 0;
     font-weight: 700;
@@ -182,9 +181,7 @@ ul {
     padding-bottom: 2px;
 }
 
-
 /* Profile menu styling */
-
 .dropdown-divider {
     height: 0;
     width: 155px;
@@ -243,20 +240,7 @@ ul {
     font-weight: 400;
     border: none;
     box-shadow: none;
-    /* border-radius: .28571429rem; */
     min-height: 2.85714286em;
-}
-
-
-/* keep if needed ...
-    background: rgba(55,101,154,.5);
-    border:rgba(55,101,154,.5);
-    */
-
-@media (max-width: 575.98px) {
-    .main-bar {
-        display: none;
-    }   
 }
 
 @media (min-width: 578px) and (max-width: 767.98px) { 
@@ -265,18 +249,17 @@ ul {
     } 
 }
     
-    /** Medium devices (tablets, 768px and up)*/
+/** Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) { 
     .main-bar {
         display: none;
     }
 }
            
-       /*  Large devices (desktops, 992px and up) */
+/*  Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1200px) { 
     .main-bar {
         display: none;
-    }
-       
+    } 
 }
     

@@ -31,4 +31,6 @@ export class HorseData {
 	c?: Color;
 	b?: Breed;
 	isInBed: boolean;
+	time: {currentHourString: string, currentMinuteString: string};
+	toSell: boolean;
 }
