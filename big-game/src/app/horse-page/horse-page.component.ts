@@ -251,7 +251,14 @@ export class HorsePageComponent implements OnInit {
         this.breedService.getBreedById(this.horse.breed).then( brd =>
             {this.horse.breed = brd.data()['breed'];
             this.img_path = brd.data()['img_path'];
-            this.percent = (Number(this.horse.time.currentHourString)*3600 + (Number(this.horse.time.currentHourString)*60)) / 240 
+            this.percent = Math.floor(
+              (
+                (Number(this.horse.time.currentHourString)*3600 
+                 + Number(this.horse.time.currentMinuteString)*60)
+              )
+              / 240
+              *(100/360)
+            )
             }
         )
         this.colorService.getColorById(this.horse.color).then( clr =>
