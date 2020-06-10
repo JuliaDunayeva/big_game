@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BlackSaddleService } from './black-saddle.service';
+import { SaddlesService } from './saddles.service';
 
-describe('BlackSaddleService', () => {
-  let service: BlackSaddleService;
+describe('SaddlesService', () => {
+  let service: SaddlesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BlackSaddleService);
+    service = TestBed.inject(SaddlesService);
   });
 
   it('should be created', () => {

@@ -72,13 +72,13 @@
                 </a>
                 <button class="btn-shops btn-shops-sml btn-postion">
                               <i class="shopping cart icon"></i>
-                              <div *ngIf="blackSaddles?.length >0;else noBlackSaddles">
-                              <ul *ngFor="let blackSaddle of blackSaddles">
-                                <li class="">{{blackSaddle.name}} - {{blackSaddle.dressage}} - {{blackSaddle.gallop}} - {{blackSaddle.speed}} - 
-                                {{blackSaddle.stamina}} - {{blackSaddle.trot}} - {{blackSaddle.jumping}}</li>
+                              <div *ngIf="saddles?.length >0;else noSaddles">
+                              <ul *ngFor="let saddle of saddles">
+                                <li class="">{{saddles.name}} - {{saddle.dressage_}} - {{saddle.gallop_}} - {{saddle.speed_}} - 
+                                {{saddle.stamina_}} - {{saddle.trot_}} - {{saddle.jumping_}}</li>
                               </ul>
                             </div>
-                            <ng-template #noBlackSaddles>
+                            <ng-template #noSaddles>
                               <hr>
                               <h5>There is no list to display</h5>
                             </ng-template> 
