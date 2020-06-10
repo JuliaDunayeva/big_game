@@ -6,6 +6,11 @@ import { HorseData } from '../horse-data';
 import { AuthService } from './auth.service';
 import { BreedService } from './breed.service';
 
+interface Time {
+	currentHourString: string,
+	currentMinuteString: string
+  }
+
 @Injectable({
 	providedIn: 'root'
 })
@@ -119,7 +124,7 @@ export class HorseDataService {
 				tr_gallop: 0,
 				tr_trot: 0,
 				tr_jumping: 0,
-				time: {currentTimeString: "24", currentMinuteString: "00"}
+				time: {currentHourString: "24", currentMinuteString: "00"}
 			})
 		);
 	}//end of createRandomHorse()
@@ -142,10 +147,61 @@ export class HorseDataService {
 		})
 	}
 
-	updateHorseTime(time) {
+	updateHorseTime(time: Time, hour: number, minute: number) {
 		let id = this.authService.getHorseId();
-		return this.db.collection('horse_data').doc(id).update( {
-			'time': time
+		let updatedTime: Time 
+		
+		//get the new time
+		updatedTime = this.calculateNewTime(time, hour, minute)
+		console.log(updatedTime);
+		//update the database with new time
+		this.db.collection('horse_data').doc(id).update({ 
+			'time': updatedTime
 		})
+	}
+
+	calculateNewTime(time: Time, hour: number, minute: number): Time{
+		let updatedTime: Time = {currentHourString: '', currentMinuteString: ''}
+		let newHour: number;
+		let newMinute: number;
+
+		/*retrieving the current time hour and minute from 'time' property
+		and using Number() to convert them to number*/
+		let currentHour = Number(time.currentHourString)
+		let currentMinute = Number(time.currentMinuteString)
+		
+		//calculate the new left hour and minute
+		newHour = Number(currentHour) - Number(hour)
+		newMinute = Number(currentMinute) - Number(minute)
+
+		//updating updatedTime currentMinuteString property
+		if ( newMinute == 0 && newHour == 0) {
+			newHour = 24;
+		} else if (newMinute < 0 ){
+			newHour--;
+			newMinute = Math.abs(newMinute);
+		} 
+
+		//updating updatedTime currentHourString property
+		while (newHour < 0) {
+			newHour = 24 + newHour;
+		}
+		
+		/* new time Object to update database */
+		//update hour and minute property with the new strings
+		updatedTime.currentHourString = newHour.toString()
+		updatedTime.currentMinuteString = newMinute.toString()
+
+		
+		//check if the hour and minute strings are 1 digit, add 0 before them.
+		if (updatedTime.currentMinuteString.length == 1) {
+			updatedTime.currentMinuteString = "0" + updatedTime.currentMinuteString;
+		}
+		if (updatedTime.currentHourString.length == 1) {
+			updatedTime.currentHourString = "0" + updatedTime.currentHourString;
+		}
+		
+		console.log("updated Time " , updatedTime);
+		return updatedTime
 	}
 }
