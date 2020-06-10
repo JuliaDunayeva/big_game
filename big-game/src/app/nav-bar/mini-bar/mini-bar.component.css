@@ -140,6 +140,7 @@ hr {
     display: flex;
 
 }
+
 .plus {
     margin-left: 10px;
 }
@@ -148,15 +149,19 @@ hr {
     .mini-bar {
         display: block;
     }
+
     .dropdown2-content {
         left:0px;
     }
+
     .col-md-7 {
         width:70px;
     }  
+
     .col-md-1 {
         width:100px;
     }  
+
     .img-size{
         margin-left: 60px;
     }
@@ -166,9 +171,11 @@ hr {
     .mini-bar {
         display: block;
     }
+
     .col-md-1 {
         width: 150px; 
     }
+    
     .play-bar-pos {
         margin-left: 30px;
     }

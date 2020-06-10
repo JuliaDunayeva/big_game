@@ -22,7 +22,6 @@ export class CompetitionPageComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, 
     public horseDataService: HorseDataService,private authService:AuthService) {
-   // this.id = this.router.snapshot.params.id;
    this.id=this.authService.getHorseId();
    
   }
