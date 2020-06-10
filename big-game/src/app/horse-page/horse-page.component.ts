@@ -250,6 +250,10 @@ export class HorsePageComponent implements OnInit {
     
     this.hour = 24;
     this.minute = 0;
+    setTimeout(() => {
+      this.checkEnergy();
+  }, 750);
+
   } // end of ngOnInit() function
 
   // GetHorse function, used to get currently selected horse's data
@@ -338,9 +342,10 @@ export class HorsePageComponent implements OnInit {
     if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.GroomButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
 
-    if(this.horse.energy<100){
+    /*if(this.horse.energy<100){
       this.toggleButtons(this.DrinkButtons,true);
-  }
+  }*/
+  this.checkEnergy();
 
     this.horseDataService.setHorseEnergy(
       this.authService.getHorseId(),
@@ -417,14 +422,15 @@ export class HorsePageComponent implements OnInit {
     this.percentStr = this.ms2Time(this.totalseconds);
 */
 
-if (this.horse.energy>0){
+/*if (this.horse.energy>0){
   this.toggleButtons(this.DrinkButtons,true);
   this.toggleButtons(this.GroomButtons,true);
 }
 if (this.horse.energy==100){
   this.toggleButtons(this.DrinkButtons,false);
   //this.toggleButtons(this.GroomButtons,'groom',true);
-}
+}*/
+this.checkEnergy()
     // write data back to database
     this.horseDataService.setHorseEnergy(
       this.authService.getHorseId(),
@@ -444,10 +450,11 @@ if (this.horse.energy==100){
   if (this.horse.energy>100) this.horse.energy=100;
   if (this.horse.morale>100) this.horse.morale=100;
 
-if(this.horse.energy==0){
+/*if(this.horse.energy==0){
   this.toggleButtons(this.DrinkButtons,false);
   this.toggleButtons(this.GroomButtons,false);
-}
+}*/
+this.checkEnergy();
 
   this.horseDataService.setHorseEnergy(
     this.authService.getHorseId(),
@@ -477,12 +484,13 @@ if(this.horse.energy==0){
     this.horse.energy=0;
     
   }
-
+/*
   if(this.horse.energy==0){
     this.toggleButtons(this.DrinkButtons,false);
     this.toggleButtons(this.GroomButtons,false);
   }
-
+*/
+this.checkEnergy();
   this.horseDataService.setHorseEnergy(
     this.authService.getHorseId(),
     this.horse.energy
