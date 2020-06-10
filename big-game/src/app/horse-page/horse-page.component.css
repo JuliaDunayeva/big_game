@@ -161,12 +161,10 @@
         margin-left: 15%;
         min-width: 273px;
     }
-
     .max-width-middle-column {
         margin-left: 41px;
         margin-bottom: 5%;
     }
-
     .padding {
         padding: 0rem;
     }
@@ -179,21 +177,17 @@
     .max-width-column {
         margin-left: 50px;
     }
-
     .max-width-middle-column {
         margin-top: 200px;
         margin-left: -120px;
     }
-
     .max-width-right {
         margin-top: -740px;
         margin-left: 50%;
     }
-
     .max-width-left {
         margin-top: 1600px;
     }
-
     .padding {
         padding: 0rem;
     }
@@ -206,17 +200,14 @@
     .max-width-column {
         margin-left: 5%;
     }
-
     .max-width-middle-column {
         margin-left: 120px;
         margin-bottom: 5%;
         margin-top: 300px;
     }
-
     .max-width-left {
         margin-top: 650px;
     }
-    
     .max-width-right {
         margin-top: -240px;
     }
