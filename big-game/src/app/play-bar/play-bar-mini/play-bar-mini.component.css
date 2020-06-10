@@ -75,6 +75,23 @@ hr {
       margin-left: -32px;
       margin-top: 19px;
     }
+    a {
+      color:black;
+      background-color:white;
+    }
+    .dropdown-item {
+      color: black;
+  }
+  .dropdown-menu.show {
+    background: white;
+}
+i.icon, i.icons {
+  color: black;
+}
+.btn-primary {
+  background-color: white;
+}
+
   }
   
   @media (min-width: 578px) and (max-width: 767.98px) {
@@ -92,8 +109,23 @@ hr {
       margin-left: -32px;
       margin-top: 19px;
     }
+    a {
+      color:black;
+      background-color:white;
+    }
+    .dropdown-item {
+      color: black;
   }
-  
+  .dropdown-menu.show {
+    background: white;
+  }
+  i.icon, i.icons {
+    color: black;
+  }
+  .btn-primary {
+    background-color: white;
+  }
+}
   @media (min-width: 768px) and (max-width: 991.98px) {
     .play-bar-mini {
       display: block;
@@ -109,8 +141,24 @@ hr {
       margin-left: -32px;
       margin-top: 19px;
     }
+    a {
+      color:black;
+      background-color:white;
+    }
+    .dropdown-item {
+      color: black;
+  }
+  .dropdown-menu.show {
+    background: white;
+  }
+  i.icon, i.icons {
+    color: black;
+  }
+  .btn-primary {
+    background-color: white;
   }
   
+}
   @media (min-width: 992px) and (max-width: 1200px) {
     .play-bar-mini {
       display: block;
@@ -123,6 +171,22 @@ hr {
       margin-left: -32px;
       margin-top: 19px;
     }
+    a {
+      color:black;
+      background-color:white;
+    }
+    .dropdown-item {
+      color: black;
   }
+  .dropdown-menu.show {
+    background: white;
   
+}
+i.icon, i.icons {
+  color: black;
+}
+.btn-primary {
+  background-color: white;
+}
+}
     

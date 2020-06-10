@@ -240,25 +240,6 @@ h5:first-child {
     z-index: 999;
 }
 
-.img-size {
-    width: 280px;
-    height: 240px;
-    margin-top: 115px;
-    margin-left: 50px;
-}
-
-.img-size2 {
-    width: 100px;
-    height: 90px;
-    z-index: 999;
-}
-
-.img-size3 {
-    width: 23px;
-    height: 23px;
-    margin-top: 0px;
-}
-
 .inline-flex {
     display: inline-flex;
 }
@@ -275,22 +256,6 @@ h5:first-child {
     width: 90px;
     height: 60px;
     border: black;
-}
-
-.nav-btn {
-    margin-top: 29px;
-    margin-left: 50px;
-    padding: 0px;
-    border-radius: 30px;
-    background: #f8f6bf;
-    width: 30px;
-    height: 30px;
-}
-
-.nav-btn:hover {
-    background: #faf8d7;
-    width: 35px;
-    height: 35px;
 }
 
 .btn-postion {
