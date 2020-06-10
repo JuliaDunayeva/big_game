@@ -7,7 +7,7 @@
         <br>
     </div>
     <div class="folder">
-        <div class="row "> <!-- Path Information & Picture -->
+        <div class=" "> <!-- Path Information & Picture -->
             <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green ">
                     <i class="home icon"></i>
@@ -22,31 +22,37 @@
         <div class="row"> <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon">
                 <hr>
+               
                 <h3 class="no-top-margin display card-title">List of horses for Sale
                     <span class="color-tx-green"> </span></h3>
                 <div class="color-tx-green no-top-margin">
-                    <p>Select a horse for sale from the available horses. </p>
-                    <br><br>
+                    <p>Select from one of the horses below to make a purchase. </p>
                 </div>
             </div>
         </div> <!-- Title End -->
         <div class="row pad-left display">
             <Div class="col-sm-5 mycard-light-green">
                 <br>
-                <form>
-                    <label for="">For Sale</label>
+                <form [formGroup]="selectHorse">
+                    <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                        <input type="radio" formControlName="myHorse" name="myHorse" [value]="horse.name" [id]="horse.id" 
+                         (click)="onHorseSelect(horse.id, horse.userId, horse.toSell)">
+                        &nbsp; &nbsp;<strong>{{ horse.name }}, </strong><span class="color-tx-green">({{ horse.breed }} - {{ horse.skill }})</span>
+                    </label>
+                    <br>
+                    
                 </form>
                 <br>
             </Div>
             <div class="col-sm-1"></div>
             <Div class="col-sm-5 mycard-light-green">
                 <br>
-                <h5 class="card-title color-tx-green">What to put here
+                <h5 class="card-title color-tx-green">Buy a horse ...
                     <!-- <span class="color-tx-maroon"> {{ user.userName }}</span> -->
                 </h5>
-                <form class="">
-                    
-                </form>
+                <button class="btn-shops btn-shops-lrg" (click)="swapUser()"
+                         >
+                        Buy 750e</button>
                 <br>
             </Div>
         </div>
