@@ -95,32 +95,19 @@ input {
 .no-bottom-margin {
     margin-bottom: 0px;
 }
-.col-sm-5{
+
+.col-sm-5 {
     width: 600px;
 }
-@media (max-width: 575.98px) {
 
-    .col-sm-5{
-        width:420px;
-        margin-left: 20px;
-        display: block;
-    }
-
-    .hrtop {
-        width: 98%;
-    }
-   
-}
 @media (min-width: 578px) and (max-width: 767.98px) { 
     .col-sm-5{
         width:480px;
         display: block;
     }
-
     .hrtop {
         width: 98%;
     }
-   
 }
 
 /** Medium devices (tablets, 768px and up)*/
@@ -135,4 +122,4 @@ input {
     .hrtop {
         width: 98%;
     }
- }
+}

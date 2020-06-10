@@ -52,17 +52,17 @@ p {
 .td-top {
     border: 2px solid rgb(192, 189, 113);
     border-radius: 5px;
-  }
+}
 
-  .td-line {
+.td-line {
     border-bottom: 2px solid rgb(192, 189, 113);
     border-radius: 5px;
-  }
+}
 
 .tu-col1 {
     width: 95px;
     padding-left: 5px;
-  }
+}
 
 .tu-col2 {
     width: 205px;
@@ -78,28 +78,28 @@ p {
 .tl-col1 {
     width: 200px;
     padding-left: 5px;
-  }
+}
 
-  .tl-col2 {
+.tl-col2 {
     width: 200px;
     text-align: center;
-  }
+}
 
-  .equus {
-      width: 25%;   
-  }
+.equus {
+    width: 25%;   
+}
 
-  .tl-col3 {
+.tl-col3 {
     width: 100px;
     padding-left: 5px;
     padding-right: 5px;
-  }
+}
 
-  .tl-col4 {
+.tl-col4 {
     width: 130px;
     padding-left: 5px;
     padding-right: 5px;
-  }
+}
 
 .gold-color {
     color: rgb(224, 157, 11);
@@ -142,28 +142,6 @@ p {
 }
 
 
-@media (max-width: 575.98px) { 
-    .mytable-light-green {
-        margin-right: 2%;
-        width: auto;
-       
-    }
-    .mycard-light-green {
-        width: fit-content;
-    }.image {
-        display: none;
-        
-    }
-    .hrtop {
-        margin-top:5px;
-        width: 250%;
-        
-    }
-    .display {
-        display: inline-block;
-        
-    }
-}
 @media (min-width: 576px) and (max-width: 767.98px) { 
     .mytable-light-green {
         width: auto;
@@ -196,11 +174,9 @@ p {
     .image {
         display: none;
     }
-
     .hrtop {
         margin-top: 5px;
         width: 200%;
-        
     }
     .display {
         display: initial;
@@ -218,7 +194,6 @@ p {
     .hrtop {
         margin-top:5px;
         width: 140%;
-        
     }
     .display {
         display: initial;
@@ -231,6 +206,5 @@ p {
         width: auto;
         margin-right: 2%;
     }
-
- }
+}
 
