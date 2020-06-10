@@ -1,7 +1,7 @@
-import { BlackSaddles } from './../black-saddles';
-import { BlackSaddleService } from './../services/black-saddle.service';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Equipment } from './../equipment';
+import { SaddlesService } from './../services/saddles.service';
 
 @Component({
   selector: 'app-modal-options',
@@ -10,27 +10,32 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./modal-options.component.css']
 })
 export class ModalOptionsComponent  {
-  blackSaddles: BlackSaddles[];
+  allEquipment: Equipment[];
+  path: string = 'assets/images/tack-page/'
 
-  constructor(private modalService: NgbModal, private blackSaddleService: BlackSaddleService  ) {}
+  constructor(public modalService: NgbModal, public saddlesService: SaddlesService  ) {}
    
   ngOnInit(): void {
     this.showlist()
    }
 
    showlist(){
-    this.blackSaddleService.getBlackSaddles().subscribe(data =>{
-   
-      this.blackSaddles = data.map(res =>{
+    this.saddlesService.getSaddlesList().subscribe(data =>{
+      this.allEquipment = data.map(res =>{
+        console.log('saddles', res)
         return{
-          id: res.payload.doc.id,
+          saddleId: res.payload.doc.id,
           name: res.payload.doc.data()['name'],
-          dressage: res.payload.doc.data()['dressage'],
-          gallop: res.payload.doc.data()['gallop'],
-          jumping: res.payload.doc.data()['jumping'],
-          speed: res.payload.doc.data()['speed'],
-          stamina: res.payload.doc.data()['stamina'],
-          trot: res.payload.doc.data()['trot'],
+          color: res.payload.doc.data()['color'],
+          equipment: res.payload.doc.data()['equipment'],
+          img_file: res.payload.doc.data()['img_file'],
+          id: res.payload.doc.data()['id'],
+          dressage_: res.payload.doc.data()['dressage_'],
+          gallop_: res.payload.doc.data()['gallop_'],
+          jumping_: res.payload.doc.data()['jumping_'],
+          speed_: res.payload.doc.data()['speed_'],
+          stamina_: res.payload.doc.data()['stamina_'],
+          trot_: res.payload.doc.data()['trot_'],
        }
       })
     })
