@@ -140,7 +140,7 @@ export class HorsePageComponent implements OnInit {
   ngOnInit(): void {
 
     /* This line sets an interval to refresh stuff*/
-  //this.timerId = setInterval(() => alert('tick'), 5000);
+  //this.timerId = setInterval(() => alert('tick'), this.returnSeconds());
 
   // Get Breed and Coat Color information
     this.getBreeds();
@@ -313,6 +313,11 @@ export class HorsePageComponent implements OnInit {
     return hours + ':' + minutes + ':' + secs + '.' + ms;
   }
 
+  public returnSeconds():number{
+    let hr=1;
+    let min=0;
+    return (hr * 3600) + (min * 60);
+  }
 // Drink Button fucntion
   public DrinkButton() {
     this.history.unshift(this.horse.name+" is taking a drink");
