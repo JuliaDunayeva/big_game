@@ -41,6 +41,20 @@ export class HorseDataService {
 		);
 	}// end of GetHorsesByUid()
 
+	getHorsesForSale() : Observable<HorseData[]>{
+		return this.db.collection('/horse_data', ref => ref.where('toSell', '==', true))
+		.snapshotChanges().pipe(
+			map(action => {
+			return action.map(res =>{
+				const horse = res.payload.doc.data() as HorseData;
+				const id = res.payload.doc.id;
+				this.authService.setHorseId(id);
+				return { id, ...horse };
+				})
+			})
+		);
+	}// end of getHorsesForSale()
+
 	setHorseMorale(id:string,num:number){
 		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
@@ -126,7 +140,8 @@ export class HorseDataService {
 				tr_speed: 0,
 				tr_gallop: 0,
 				tr_trot: 0,
-				tr_jumping: 0
+				tr_jumping: 0,
+				toSell: false,
 			})
 		);
 	}//end of createRandomHorse()
@@ -146,6 +161,18 @@ export class HorseDataService {
 	updateHorseGender(id: string, gender: String) {
 		return this.db.collection('/horse_data').doc(id).update({
 			'gender': gender
+		})
+	}
+
+	updateTheSale(id: string, toSell: boolean) {
+		return this.db.collection('/horse_data').doc(id).update({
+			'toSell': toSell
+		})
+	}
+
+	updateTheUser(id: string, userId: string) {
+		return this.db.collection('/horse_data').doc(id).update({
+			'userId': userId
 		})
 	}
 }

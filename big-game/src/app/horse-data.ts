@@ -31,5 +31,6 @@ export class HorseData {
 	c?: Color;
 	b?: Breed;
 	isInBed: boolean;
+	toSell: boolean;
 	time:any;
 }

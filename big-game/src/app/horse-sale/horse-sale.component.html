@@ -36,23 +36,23 @@
                 <form [formGroup]="selectHorse">
                     <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
                         <input type="radio" formControlName="myHorse" name="myHorse" [value]="horse.name" [id]="horse.id" 
-                        (click)="selectedHorse($event)">
-                        &nbsp; &nbsp;<strong>{{ horse.name }}, {{horse.breed}} </strong><span class="color-tx-green"> ({{ user.userName }})</span>
+                         (click)="onHorseSelect(horse.id, horse.userId, horse.toSell)">
+                        &nbsp; &nbsp;<strong>{{ horse.name }}, </strong><span class="color-tx-green">({{ horse.breed }} - {{ horse.skill }})</span>
                     </label>
                     <br>
-                    <button class="btn-shops btn-shops-lrg" 
-                        [routerLink]="['/horse-sale']" routerLinkActive="router-link-active" >
-                        Buy</button>
+                    
                 </form>
                 <br>
             </Div>
             <div class="col-sm-1"></div>
             <Div class="col-sm-5 mycard-light-green">
                 <br>
-                <h5 class="card-title color-tx-green">What to put here
+                <h5 class="card-title color-tx-green">Buy a horse ...
                     <!-- <span class="color-tx-maroon"> {{ user.userName }}</span> -->
                 </h5>
-                
+                <button class="btn-shops btn-shops-lrg" (click)="swapUser()"
+                         >
+                        Buy 750e</button>
                 <br>
             </Div>
         </div>
