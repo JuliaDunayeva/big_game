@@ -9,7 +9,6 @@ import { Breed } from '../breed';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
-import { Sale } from '../sale';
 
 
 @Component({
@@ -44,6 +43,7 @@ export class HorseSaleComponent implements OnInit {
       this.userService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
       });
+        console.log('uid', this.authService.getUId())
     }
 
     getHorseData(){
@@ -101,29 +101,40 @@ export class HorseSaleComponent implements OnInit {
     onSelectHorse() {
       this.authService.setHorseId(this.horseSelectedId)
     }
-      
+
+    newId: string;  
     userId: string;
     idOfHorse: string;
     saleOfHorse: boolean;
     onHorseSelect(id, userId, toSell: boolean) {
-      console.log('2nd user ID ', userId, toSell, id);
+      // console.log('2nd user ID ', userId, toSell, id);
       this.idOfHorse = id;
-      this.userId = this.authService.getUId();
+      this.newId = this.userId;
+      // console.log('change? ', userId)
       this.saleOfHorse = toSell;
     }
-  
+    
     swapUser(){
-      console.log('swap from ', this.saleOfHorse);
+      // console.log('swap from ', this.saleOfHorse);
       const toSell = this.setSale(this.saleOfHorse)
-      console.log('swap to ', toSell);
       this.horseService.updateTheSale(this.idOfHorse, toSell)
-      this.horseService.updateTheUser(this.idOfHorse, this.userId)
+      const userId = this.setUser(this.newId)
+      this.horseService.updateTheUser(this.idOfHorse, userId)
+      // console.log('swap to ', toSell, userId);
     }
-  
+   
     setSale(toSell: boolean): boolean {
       if(toSell == false) {
         return true
       } 
       return false 
     }
+
+    setUser(userId: string): string {
+      // console.log ('old user', userId)
+      userId = this.authService.getUId()
+      // console.log ('new user', userId)
+      return userId
+    }
+
 }
