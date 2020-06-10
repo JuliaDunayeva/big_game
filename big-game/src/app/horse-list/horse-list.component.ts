@@ -136,11 +136,11 @@ export class HorseListComponent implements OnInit {
     this.saleOfHorse = toSell
   }
 
-    swapSale(){
-    //  console.log('swap 1 ', this.saleOfHorse);
-      const toSell = this.setSale(this.saleOfHorse)
-     // console.log('swap 2 changed ', toSell);
-      this.horseService.updateTheSale(this.idOfHorse, toSell)
+  swapSale(){
+  //  console.log('swap 1 ', this.saleOfHorse);
+    const toSell = this.setSale(this.saleOfHorse)
+    // console.log('swap 2 changed ', toSell);
+    this.horseService.updateTheSale(this.idOfHorse, toSell)
   }
 
   setSale(toSell: boolean): boolean {

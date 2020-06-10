@@ -169,4 +169,10 @@ export class HorseDataService {
 			'toSell': toSell
 		})
 	}
+
+	updateTheUser(id: string, userId: string) {
+		return this.db.collection('/horse_data').doc(id).update({
+			'userId': userId
+		})
+	}
 }
