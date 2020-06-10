@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HorseDataService } from '../services/horse-data.service';
 import { HorseData } from '../horse-data';
 import { AuthService } from '../services/auth.service';
-import { NgForm } from '@angular/forms';
 import { BreedService } from '../services/breed.service';
 import { ColorService } from '../services/color.service';
 
@@ -43,7 +42,6 @@ export class BlackMarketPageComponent implements OnInit {
     this.idOfHorse = id;
   }
 
-  
   horse:HorseData
   swapGender(){
     console.log(this.genderOfHorse);
