@@ -37,7 +37,7 @@
                 <form [formGroup]="selectHorse">
                         <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
                             <input type="radio" formControlName="myHorse" name="myHorse" [value]="horse.name" [id]="horse.id" 
-                            (click)="selectedHorse($event)">
+                            (click)="selectedHorse($event)" (click)="onHorseSelect(horse.id, horse.toSell)">
                             &nbsp; &nbsp;<strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
                         </label>
                     <div class="display centered">
@@ -45,8 +45,9 @@
                         [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
                         Play</button>
                         <div class="col-1"></div>
-                        <button class="btn-shops btn-shops-lrg" 
-                        [routerLink]="['/horse-sale']" routerLinkActive="router-link-active" >
+                        <button class="btn-shops btn-shops-lrg" (click)="swapSale()"
+                        [routerLink]="['/horse-sale']" routerLinkActive="router-link-active"
+                         >
                         Sell</button>
                     </div>
                 </form>

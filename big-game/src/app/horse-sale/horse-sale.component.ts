@@ -27,9 +27,8 @@ export class HorseSaleComponent implements OnInit {
   horseSelectedId: string;
   Uid: string = this.authService.getUId();
   user: any;
-  saleList: Sale[];
-  
-
+  horseService: any;
+  // saleList: Sale[];
 
   constructor(private authService: AuthService,
         public db: AngularFirestore,
@@ -40,7 +39,7 @@ export class HorseSaleComponent implements OnInit {
         private salesService: SalesService ) { }
 
     ngOnInit(): void {
-      this.getHorseListForSale();
+      // this.getHorseListForSale();
       this.getHorseData();
       this.userDataService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
@@ -65,31 +64,26 @@ export class HorseSaleComponent implements OnInit {
       )
     }
 
-    getHorseListForSale() {
-      this.salesService.horseSaleList().subscribe(res => 
-        {this.saleList = res.map( res => 
-          {   
-          if (!res.payload.doc.data()['sold']) {
-                return {
-                  horseId: res.payload.doc.data()['horseId'],
-                  sellerId:res.payload.doc.data()['sellerId'],
-                  sellDate: res.payload.doc.data()['sellDate'],
-                  buyerId: res.payload.doc.data()['buyerId'],
-                  buyDate: res.payload.doc.data()['buyDate'],
-                  sold: res.payload.doc.data()['sold'],
-                  price: res.payload.doc.data()['price']
-                }
-            }
-          }
-        )
-        // console.log("saleList ", this.saleList)
-        }
-      ) 
-    }
-
-    // horsesForSale() {
-    //   this.salesService.horsesForSale()
-    //   return this.db.collection('sales').valueChanges()
+    // getHorseListForSale() {
+    //   this.salesService.horseSaleList().subscribe(res => 
+    //     {this.saleList = res.map( res => 
+    //       {   
+    //       if (!res.payload.doc.data()['sold']) {
+    //             return {
+    //               horseId: res.payload.doc.data()['horseId'],
+    //               sellerId:res.payload.doc.data()['sellerId'],
+    //               sellDate: res.payload.doc.data()['sellDate'],
+    //               buyerId: res.payload.doc.data()['buyerId'],
+    //               buyDate: res.payload.doc.data()['buyDate'],
+    //               sold: res.payload.doc.data()['sold'],
+    //               price: res.payload.doc.data()['price']
+    //             }
+    //         }
+    //       }
+    //     )
+    //     // console.log("saleList ", this.saleList)
+    //     }
+    //   ) 
     // }
 
     createForm() {
@@ -107,5 +101,7 @@ export class HorseSaleComponent implements OnInit {
     onSelectHorse() {
       this.authService.setHorseId(this.horseSelectedId)
     }
+
+    
 
 }
