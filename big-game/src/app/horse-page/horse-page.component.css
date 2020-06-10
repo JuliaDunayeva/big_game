@@ -21,6 +21,17 @@
     line-height: 90%;
 }
 
+.scrolling-wrapper {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.scroll-height {
+    max-height: 200px;
+}
+
 
 /* Leave in horse page css */
 
