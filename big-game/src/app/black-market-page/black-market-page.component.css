@@ -1,32 +1,28 @@
 .home-icon-place {
     font-weight: 600;
-    margin-top: 5px;
-    margin-left: 15px;
+    margin: 5px 0px 0px 15px;
 }
 
 .pad-left { 
-    margin-left: 1rem;
-    margin-top: 2 rem;
+    margin: 2rem 0px 0px 1rem;
 }
 
 .text-pos {
-    margin-left:-40px;
-    margin-top: 5px;
+    margin: 5px 0px 0px -40px;
 }
 
-.b-st {
+.bold-text {
     font-weight: bold;
 }
 
 .second-row {
-margin-top: -120px;
+    margin-top: -100px;
 }
 
 .st-img {
-    width: 130%;
-    margin-top:-50px;
-    height:200px ;
-    margin-left: 10px;
+    width: 150%;
+    height: 240px;
+    margin: -50px 0px 0px 10px;
 }
 
 hr {
@@ -49,9 +45,8 @@ i {
 }
 
 .box-img {
-    margin-top:8px;
-    margin-left: 4px;
-    width:150%
+    width:150%;
+    margin: 8px 0px 0px 4px;
 }
 
 .box-head {
@@ -113,7 +108,7 @@ a {
     width:100px;
 }
     
-.mycard-light-green {
+.card-light-green {
     background-color: #F0F0B2;
     color: #663300;
     border-style: solid 2px;
@@ -121,7 +116,7 @@ a {
     margin: 10px;
 }
 
-.background-card{
+.background-card {
     background-color: #DCDB81;
     color: #133300;
     font-weight: bold;
@@ -129,57 +124,63 @@ a {
     border-radius: 5px;
     margin: 20px;
     margin-top:30px;
+    padding-bottom: 20px;
 }
 
 @media (max-width: 575.98px) { 
-    .st-img{
+    .st-img {
         display: none;
     }
     .col-md-5 {
         width:250px;
     }
-    .col-md-10{
+    .col-md-10 {
         width:440px;
     }
-    .box-img{
+    .box-img {
         width:80%;
     }
     .second-row {
         margin-top: 0px;
     }
-    .media-store{
+    .media-store {
         display:block;
+        width:80%;
     }
- }
+}
  
 /** Small devices (landscape phones,576px and up)*/
-
 @media (min-width: 600px) and (max-width: 767.98px) { 
-    .col-md-10{
+    .col-md-10 {
         width:480px;
     }
+
     .st-img {
         display: none;
     }
+
     .col-md-5 {
         width:380px;
     }
+
     .second-row {
         margin-top: 0px;
     }
+
     .popup {
         min-width: 400px;
         right: 50px;
     }
+
     .text-pos {
         margin-left:0px;
         margin-top: 5px;
     }
-    .media-store{
+
+    .media-store {
         display:block;
         width: 110%;
     }
-    
 }
 
 /** Medium devices (tablets, 768px and up)*/
@@ -188,6 +189,7 @@ a {
         min-width: 400px;
         right: 50px;
     }
+
     .text-pos {
         margin-left:5px;
         margin-top: 5px;
