@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { HorseData } from '../horse-data';
 import { AuthService } from './auth.service';
 import { BreedService } from './breed.service';
+import { ColorService } from './color.service';
 
 interface Time {
 	currentHourString: string,
@@ -170,17 +171,29 @@ export class HorseDataService {
 		})
 	}
 
-	updateHorseTime(time: Time, hour: number, minute: number) {
+	updateHorseTime(time: Time, hour: number, minute: number): number {
 		let id = this.authService.getHorseId();
 		let updatedTime: Time 
 		
 		//get the new time
 		updatedTime = this.calculateNewTime(time, hour, minute)
-		console.log(updatedTime);
 		//update the database with new time
 		this.db.collection('horse_data').doc(id).update({ 
 			'time': updatedTime
 		})
+
+		//return the number of seconds divided by 240 to return a circle degree
+		let percent = Math.floor(
+									(
+										(Number(updatedTime.currentHourString)*3600 
+										 + Number(updatedTime.currentMinuteString)*60)
+									)
+									/ 240
+									*(100/360)
+								)
+		console.log("time: ", updatedTime, "percent: ", percent);
+		
+		return percent;
 	}
 
 	calculateNewTime(time: Time, hour: number, minute: number): Time{
@@ -224,7 +237,6 @@ export class HorseDataService {
 			updatedTime.currentHourString = "0" + updatedTime.currentHourString;
 		}
 		
-		console.log("updated Time " , updatedTime);
 		return updatedTime
 	}
 
