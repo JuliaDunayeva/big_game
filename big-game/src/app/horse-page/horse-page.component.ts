@@ -125,6 +125,8 @@ export class HorsePageComponent implements OnInit {
   //public totalseconds: number;
   public user: UserData;
 
+  public timerId;
+
   constructor(
     private router: ActivatedRoute,
     private http: HttpClient,
@@ -136,6 +138,10 @@ export class HorsePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    /* This line sets an interval to refresh stuff*/
+  //this.timerId = setInterval(() => alert('tick'), 5000);
+
   // Get Breed and Coat Color information
     this.getBreeds();
     this.getColors();
