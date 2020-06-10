@@ -111,7 +111,7 @@ export class HorsePageComponent implements OnInit {
 
   public horseIDs: string[];
 
-  public percent: number = 100;
+  public percent: number ;
   public hours: number = 24;
 
   public seconds: number;
@@ -119,6 +119,8 @@ export class HorsePageComponent implements OnInit {
 
   public hour: number;
   public minute: number;
+
+  updatedTime: {currentHourString: string, currentMinuteString: string};
 
   public percentStr: string;
 
@@ -270,12 +272,13 @@ export class HorsePageComponent implements OnInit {
 
   // GetHorse function, used to get currently selected horse's data
   getHorse() {
-    setTimeout(() => {
       this.horseDataService.getHorseById(this.id).subscribe((res) => {
         this.horse = res as HorseData;
+        // this.percent = (Number(this.horse.time.currentHourString)*3600) / 1000;
         this.breedService.getBreedById(this.horse.breed).then( brd =>
             {this.horse.breed = brd.data()['breed'];
-            this.img_path = brd.data()['img_path']
+            this.img_path = brd.data()['img_path'];
+            this.percent = (Number(this.horse.time.currentHourString)*3600 + (Number(this.horse.time.currentHourString)*60)) / 240 
             }
         )
         this.colorService.getColorById(this.horse.color).then( clr =>
@@ -338,9 +341,14 @@ export class HorsePageComponent implements OnInit {
     this.horse.energy=this.horse.energy+this.DrinkButtons.energy;
     if (this.horse.energy>100) this.horse.energy=100;
     // convert time to seconds then back again to display in circlur progress  bar
-    this.seconds = this.hour * 3600 + this.minute * 60;
-    this.taskSeconds = 0 * 3600 + 30 * 60;
-    
+    // this.seconds = this.hour * 3600 + this.minute * 60;
+    // this.taskSeconds = 0 * 3600 + 30 * 60;
+
+    if (this.horse.energy == 0) {
+      alert('no energy left');
+      return;
+    }
+
     this.horseDataService.setHorseEnergy(
       this.authService.getHorseId(),
       this.horse.energy
@@ -402,6 +410,7 @@ export class HorsePageComponent implements OnInit {
   // Feed Button function
   public FeedButton() {
     let totalseconds=0;
+    this.percent = this.horseDataService.updateHorseTime(this.horse.time, 0, 30)
     if (!this.FeedButtons.enabled){
       alert('No energy to feed.');
       return;
@@ -452,7 +461,9 @@ export class HorsePageComponent implements OnInit {
   /* this.hour = this.hour - this.minute;
     this.hour = parseFloat(this.hour.toFixed(0));
 */
-    this.percent = (totalseconds) / 1000;
+    // this.percent = (this.seconds - this.taskSeconds) / 1000;
+    // this.percent = (Number(this.horse.time.currentHourString)*3600 + (Number(this.horse.time.currentHourString)*60)) / 240
+    console.log("percent  ", this.percent);
 /*
     let totalStr = this.totalseconds.toString();
     this.totalseconds = parseFloat(totalStr);
@@ -543,10 +554,10 @@ this.checkEnergy();
     this.horse.morale
   );
   
-  this.horseDataService.setHorseTime(
+  /*this.horseDataService.setHorseTime(
     this.authService.getHorseId(),
     "05","30"
-  );
+  );*/
   //this.toggleButtons(this.ForestButtons, 'forest',true);   
   }
 
@@ -714,7 +725,7 @@ this.checkEnergy();
     } // end of LoadHorseImage() function
     
   // GetBreeds function, used to get the breed image file for horse
-    getBreeds() {
+    public getBreeds() {
       this.breedService.getBreeds().subscribe((brd) => {
         this.allBreeds = brd.map(res => {
           return {
