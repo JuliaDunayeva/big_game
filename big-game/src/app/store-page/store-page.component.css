@@ -34,6 +34,7 @@
     padding-bottom: 22%;
     margin-left: 1%;
   }
+
  .center {
     margin-left: 3%;
   }
@@ -46,6 +47,7 @@
     padding-bottom: 22%;
     margin-left: 1%;
   }
+
   .center {
     margin-left: 3%;
   }
@@ -55,12 +57,15 @@
   .sto-hed {
     margin: 90px 0 0 10px
   }
+
   .center {
     margin-left: 3%;;
   }
+
   .background {
     display: none;
   }
+
   .size {
     margin-left: -22%
   }
@@ -70,9 +75,11 @@
   .sto-hed {
     margin: 90px 0 0 10px 
   }
+
   .center {
     margin-left: 3%;;
   }
+  
   .background {
     display: none;
   }

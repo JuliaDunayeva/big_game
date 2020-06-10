@@ -33,7 +33,6 @@ hr {
   margin-top:15px;
 }
 
-
 .dropdown-menu.show {
   background: rgb(73, 131, 186);
   width: 231px;
@@ -64,30 +63,38 @@ hr {
   .play-bar-mini {
     display: block;
   }
+
   .dropdown2-content {
     left: 0px;
   }
+
   .nav-link {
     margin: 10%;
     margin-left: -15%;
   }
+
   .btn-pos {
     margin-left: -32px;
     margin-top: 19px;
   }
+
   a {
     color:black;
     background-color:white;
   }
+
   .dropdown-item {
     color: black;
   }
+
   .dropdown-menu.show {
     background: white;
   }
+
   i.icon, i.icons {
     color: black;
   }
+
   .btn-primary {
     background-color: white;
   }
@@ -97,30 +104,38 @@ hr {
   .play-bar-mini {
     display: block;
   }
+
   .play-bar-pos {
     margin-left: 30px;
   }
+
   .nav-link {
     margin-left: -32px;
     margin-top: 19px;
   }
+
   .btn-pos {
     margin-left: -32px;
     margin-top: 19px;
   }
+
   a {
     color:black;
     background-color:white;
   }
+
   .dropdown-item {
     color: black;
   }
+
   .dropdown-menu.show {
     background: white;
   }
+
   i.icon, i.icons {
     color: black;
   }
+
   .btn-primary {
     background-color: white;
   }
@@ -130,27 +145,34 @@ hr {
   .play-bar-mini {
     display: block;
   }
+
   .nav-link {
     margin: 10%;
     margin-left: -15%;
   }
+
   .btn-pos {
     margin-left: -32px;
     margin-top: 19px;
   }
+
   a {
     color:black;
     background-color:white;
   }
+
   .dropdown-item {
     color: black;
   }
+
   .dropdown-menu.show {
     background: white;
   }
+
   i.icon, i.icons {
     color: black;
   }
+  
   .btn-primary {
     background-color: white;
   }

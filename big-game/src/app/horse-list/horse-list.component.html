@@ -32,14 +32,16 @@
             </div>
         </div> <!-- Title End -->
         <div class="row pad-left display">
-            <Div class="col-5 mycard-light-green">
+            <Div class="col-5 card-light-green" >
                 <br>
                 <form [formGroup]="selectHorse">
-                        <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
-                            <input type="radio" formControlName="myHorse" name="myHorse" [value]="horse.name" [id]="horse.id" 
+                    <div *ngIf="allHorseData?.length > 0; else noItems">
+                        <label class="display-vert pad-left" *ngFor="let horse of allHorseData" >
+                            <input type="radio" formControlName="userHorse" name="userHorse" [value]="horse.name" [id]="horse.id" 
                             (click)="selectedHorse($event)" (click)="onHorseSelect(horse.id, horse.toSell)">
                             &nbsp; &nbsp;<strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
                         </label>
+                    </div>
                     <div class="display centered">
                         <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
                         [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
@@ -52,9 +54,10 @@
                     </div>
                 </form>
                 <br>
+                
             </Div>
             <div class="col-1"></div>
-            <Div class="col-5 mycard-light-green">
+            <Div class="col-5 card-light-green">
                 <br>
                 <h5 class="card-title color-tx-green">Create a new horse for &nbsp;
                     <span class="color-tx-maroon"> {{ user.userName }}</span>
@@ -99,3 +102,7 @@
     <br><br>
     <app-footer></app-footer>
 </div>
+
+<ng-template #noItems>
+    <h5>You have no horses</h5>
+</ng-template>

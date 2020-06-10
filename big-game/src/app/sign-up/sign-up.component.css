@@ -12,7 +12,6 @@
 
 h1 {
   text-align: center;
-  ;
 }
 
 .font-md {
@@ -37,7 +36,7 @@ h5,
   font-size: 1.25rem;
 }
 
-/*****Moj*******/
+/*****Top of Sign-up page*******/
 .breed-div *,
 .coat-div * {
   box-sizing: border-box;
@@ -69,8 +68,7 @@ input[name="horseSkill"] {
   background-color: #d8d5d3;
 }
 
-/***** Breed Part *****
-***********************/
+/***** Breed Part ******/
 .breed-item {
   margin: 12px auto;
 }
@@ -85,8 +83,7 @@ input[name="horseSkill"] {
   border-color: white;
 }
 
-/***** Coat Part *****
-***********************/
+/***** Coat Part *****/
 .coat-item {
   margin: 12px auto;
 }
@@ -125,14 +122,12 @@ input[name="horseSkill"] {
   display: inline-block;
 }
 
-/***** shape-outside part ******
-*******************************/
+/***** shape-outside part ******/
 .circle-right {
   margin: auto auto;
   float: left;
   width: 180px;
   height: 390px;
-  /* shape-outside: polygon(0% 0%, 50% 16.25%, 80% 33.5%, 100% 50%, 80% 67.5%, 60% 84%, 0% 100%); */
   shape-outside: circle(175px at -30% 48.5%);
 }
 
@@ -203,29 +198,31 @@ a {
   .font-md {
     font-size: 10px;
   }
+
   .breed-label input:checked~.checkmark,
   .coat-label input:checked~.checkmark {
     width: 15px;
     height: 15px;
   }
+
   .radio-border {
     border: none;
     height: 15px;
     width: 15px;
   }
+
   .circle-left {
     display: none;
   }
+
   .circle-right {
     display: none;
   }
-/* img {
-  width: 76%;
-  margin-left: 10%;
-} */
+
   .center-media{
     margin-left: 19%;
   }
+
   .center {
     text-align: center;
     padding-right: 36%;
@@ -238,24 +235,30 @@ a {
     width: 20px;
     height: 20px;
   }
+
   .font-md {
     font-size: 15px;
   }
+
   .radio-border {
     border: none;
     height: 20px;
     width: 20px;
   }
+
   .circle-left {
     display: none;
   }
+
   .circle-right {
     display: none;
   }
+
   .center-media {
     margin-left: 19%;
     margin-right: 8%
   }
+
   .center {
     text-align: center;
     padding-right: 28%
