@@ -163,4 +163,16 @@ export class HorseDataService {
 			'gender': gender
 		})
 	}
+
+	updateTheSale(id: string, toSell: boolean) {
+		return this.db.collection('/horse_data').doc(id).update({
+			'toSell': toSell
+		})
+	}
+
+	updateTheUser(id: string, userId: string) {
+		return this.db.collection('/horse_data').doc(id).update({
+			'userId': userId
+		})
+	}
 }
