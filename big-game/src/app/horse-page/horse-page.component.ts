@@ -13,7 +13,6 @@ import { HorsePageButtons } from '../horse-page-buttons';
 import { AuthService } from '../services/auth.service';
 import { Breed } from '../breed';
 import { Color } from '../color';
-import { ClockService } from '../services/clock.service';
 
 @Component({
   selector: 'app-horse-page',
@@ -111,12 +110,9 @@ export class HorsePageComponent implements OnInit {
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
     private authService: AuthService,
-    private clockService: ClockService
   ) {}
 
   ngOnInit(): void {
-    this.updatedTime = this.clockService.getCurrentTime();
-    console.log(this.updatedTime)
     //setTimeout(() =>
     //{
     this.getBreeds();
@@ -243,7 +239,6 @@ export class HorsePageComponent implements OnInit {
     // convert time to seconds then back again to display in circlur progress  bar
     // this.seconds = this.hour * 3600 + this.minute * 60;
     // this.taskSeconds = 0 * 3600 + 30 * 60;
-    this.clockService.updateTime(0,30)
 
     if (this.horse.energy == 0) {
       alert('no energy left');
@@ -278,7 +273,7 @@ export class HorsePageComponent implements OnInit {
     // convert time to seconds then back again to display in circlur progress  bar
     // this.seconds = this.hour * 3600 + this.minute * 60;
     // this.taskSeconds = 0 * 3600 + 30 * 60;
-    this.clockService.updateTime(0,30)
+    this.horseDataService.updateHorseTime(this.horse.time, 8, 30)
 
     if (this.horse.energy == 0) {
       alert('no energy left');
