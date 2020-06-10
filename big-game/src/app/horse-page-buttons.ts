@@ -1,4 +1,5 @@
 export class HorsePageButtons {
+    public name:string;
     public enabledImage:string;
     public disabledImage:string;
     public enabled:boolean;
@@ -7,4 +8,8 @@ export class HorsePageButtons {
     public health:number;
     public hour:number;
     public minute:number;
+
+    constructor(name:string){
+        this.name=name;
+    }
 }
