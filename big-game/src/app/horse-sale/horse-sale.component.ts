@@ -27,28 +27,27 @@ export class HorseSaleComponent implements OnInit {
   horseSelectedId: string;
   Uid: string = this.authService.getUId();
   user: any;
-  saleList: Sale[];
-  
 
+  // saleList: Sale[];
 
   constructor(private authService: AuthService,
         public db: AngularFirestore,
-        private userDataService: UserDataService,
-        private horseDataService: HorseDataService,
+        private userService: UserDataService,
+        private horseService: HorseDataService,
         private fb: FormBuilder,
         private breedService: BreedService,
         private salesService: SalesService ) { }
 
     ngOnInit(): void {
-      this.getHorseListForSale();
+      // this.getHorseListForSale();
       this.getHorseData();
-      this.userDataService.getUserByID(this.Uid).subscribe((result) => {
+      this.userService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
       });
     }
 
     getHorseData(){
-      this.horseDataService.getHorsesForSale().subscribe(
+      this.horseService.getHorsesForSale().subscribe(
         res => {
           this.allHorseData = res as Array<HorseData>;
           this.allHorseData.map(horse =>{
@@ -65,31 +64,26 @@ export class HorseSaleComponent implements OnInit {
       )
     }
 
-    getHorseListForSale() {
-      this.salesService.horseSaleList().subscribe(res => 
-        {this.saleList = res.map( res => 
-          {   
-          if (!res.payload.doc.data()['sold']) {
-                return {
-                  horseId: res.payload.doc.data()['horseId'],
-                  sellerId:res.payload.doc.data()['sellerId'],
-                  sellDate: res.payload.doc.data()['sellDate'],
-                  buyerId: res.payload.doc.data()['buyerId'],
-                  buyDate: res.payload.doc.data()['buyDate'],
-                  sold: res.payload.doc.data()['sold'],
-                  price: res.payload.doc.data()['price']
-                }
-            }
-          }
-        )
-        // console.log("saleList ", this.saleList)
-        }
-      ) 
-    }
-
-    // horsesForSale() {
-    //   this.salesService.horsesForSale()
-    //   return this.db.collection('sales').valueChanges()
+    // getHorseListForSale() {
+    //   this.salesService.horseSaleList().subscribe(res => 
+    //     {this.saleList = res.map( res => 
+    //       {   
+    //       if (!res.payload.doc.data()['sold']) {
+    //             return {
+    //               horseId: res.payload.doc.data()['horseId'],
+    //               sellerId:res.payload.doc.data()['sellerId'],
+    //               sellDate: res.payload.doc.data()['sellDate'],
+    //               buyerId: res.payload.doc.data()['buyerId'],
+    //               buyDate: res.payload.doc.data()['buyDate'],
+    //               sold: res.payload.doc.data()['sold'],
+    //               price: res.payload.doc.data()['price']
+    //             }
+    //         }
+    //       }
+    //     )
+    //     // console.log("saleList ", this.saleList)
+    //     }
+    //   ) 
     // }
 
     createForm() {
@@ -99,13 +93,37 @@ export class HorseSaleComponent implements OnInit {
       })
     }
   
-    selectedHorse(event: any) {
-      // console.log("selectd ",(<HTMLInputElement>event.target).id)
-      this.horseSelectedId = (<HTMLInputElement>event.target).id;
-    }
+    // selectedHorse(event: any) {
+    //   console.log("1st horse ID ",(<HTMLInputElement>event.target).id)
+    //   this.horseSelectedId = (<HTMLInputElement>event.target).id;
+    // }
   
     onSelectHorse() {
       this.authService.setHorseId(this.horseSelectedId)
     }
-
+      
+    userId: string;
+    idOfHorse: string;
+    saleOfHorse: boolean;
+    onHorseSelect(id, userId, toSell: boolean) {
+      console.log('2nd user ID ', userId, toSell, id);
+      this.idOfHorse = id;
+      this.userId = this.authService.getUId();
+      this.saleOfHorse = toSell;
+    }
+  
+    swapUser(){
+      console.log('swap from ', this.saleOfHorse);
+      const toSell = this.setSale(this.saleOfHorse)
+      console.log('swap to ', toSell);
+      this.horseService.updateTheSale(this.idOfHorse, toSell)
+      this.horseService.updateTheUser(this.idOfHorse, this.userId)
+    }
+  
+    setSale(toSell: boolean): boolean {
+      if(toSell == false) {
+        return true
+      } 
+      return false 
+    }
 }
