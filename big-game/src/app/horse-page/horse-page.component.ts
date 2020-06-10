@@ -251,6 +251,7 @@ export class HorsePageComponent implements OnInit {
         this.breedService.getBreedById(this.horse.breed).then( brd =>
             {this.horse.breed = brd.data()['breed'];
             this.img_path = brd.data()['img_path'];
+            //calculating percent for circle progress from database info
             this.percent = Math.floor(
               (
                 (Number(this.horse.time.currentHourString)*3600 
