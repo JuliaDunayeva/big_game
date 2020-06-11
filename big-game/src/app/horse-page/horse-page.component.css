@@ -1,4 +1,5 @@
 /* Move to master styles.css */
+
 .card-title-border {
     border: 2px solid #bebd58;
 }
@@ -31,7 +32,9 @@
     max-height: 200px;
 }
 
+
 /* Leave in horse page css */
+
 .bold-header {
     font-weight: bold;
 }
@@ -150,7 +153,9 @@
     border-radius: 10px;
 }
 
+
 /*equip my horse*/
+
 .round {
     border-radius: 5px;
     border: black;
@@ -185,78 +190,10 @@
     width: 122px;
 }
 
-.item {
-    height: 51px;
-    width: 122px;
-}
-
-h5:first-child {
-    margin-top: -11px;
-}
-
-.ui.segment {
-    position: relative;
-    background: #EAE99F;
-    margin: 1rem 0;
-    padding: 1em 1em;
-    border-radius: .28571429rem;
-    border-top: 1px solid #B0AE48;
-    border-right: 1px solid #B0AE48;
-    border-bottom: 1px solid #B0AE48;
-}
-
-.ui.grid>.column:not(.row),
-.ui.grid>.row>.column {
-    padding-left: 0rem;
-    padding-right: 0rem;
-}
-
-.ui.grid>[class*="twelve wide"].column {
-    width: 75%!important;
-    height: 415px;
-    top: -16px;
-    right: -4px;
-}
-
-.ui.four.cards {
-    margin-top: 1.5em;
-    margin-left: 0.5em;
-    margin-right: -.75em;
-}
-
-.ui.vertical.tabular.menu .active.item {
-    background: none rgb(229, 228, 153);
-    color: #133300;
-    border-right: 1px solid #B0AE48;
-    border-bottom: 1px solid #B0AE48;
-    border-top: none;
-    border-left: none;
-    margin-left: 2rem;
-}
-
 .selected-saddel {
     background: none #EAE99F !important;
     border-right: none !important;
     z-index: 999;
-}
-
-.img-size {
-    width: 280px;
-    height: 240px;
-    margin-top: 115px;
-    margin-left: 50px;
-}
-
-.img-size2 {
-    width: 100px;
-    height: 90px;
-    z-index: 999;
-}
-
-.img-size3 {
-    width: 23px;
-    height: 23px;
-    margin-top: 0px;
 }
 
 .inline-flex {
@@ -275,22 +212,6 @@ h5:first-child {
     width: 90px;
     height: 60px;
     border: black;
-}
-
-.nav-btn {
-    margin-top: 29px;
-    margin-left: 50px;
-    padding: 0px;
-    border-radius: 30px;
-    background: #f8f6bf;
-    width: 30px;
-    height: 30px;
-}
-
-.nav-btn:hover {
-    background: #faf8d7;
-    width: 35px;
-    height: 35px;
 }
 
 .btn-postion {
@@ -362,7 +283,9 @@ li {
     }
 }
 
+
 /** Medium devices (tablets, 768px and up)*/
+
 @media (min-width: 768px) and (max-width: 991.98px) {
     .max-width-column {
         margin-left: 50px;
@@ -383,7 +306,9 @@ li {
     }
 }
 
+
 /** Large devices (desktops, 992px and up)*/
+
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .max-width-column {
         margin-left: 5%;
