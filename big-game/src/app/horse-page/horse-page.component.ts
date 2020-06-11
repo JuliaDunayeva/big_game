@@ -347,10 +347,6 @@ public alertFunc(){
     //if (this.horse.energy>100) this.horse.energy=100;
     if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.GroomButtons.morale;
     if (this.horse.morale>100) this.horse.morale=100;
-
-    /*if(this.horse.energy<100){
-      this.toggleButtons(this.DrinkButtons,true);
-  }*/
   //this.checkEnergy();
 
     this.horseDataService.setHorseMorale(
