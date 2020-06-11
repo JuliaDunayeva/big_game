@@ -23,16 +23,6 @@ export class HorseDataService {
 		private authService:AuthService,
 		private breedService: BreedService) {}
 
-	getHorseByID(id : string) : Observable<HorseData> {
-		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
-			map(res => { 
-				const horse = res.payload.data() as HorseData;
-				horse.id = res.payload.id;
-				return horse;
-			})			
-		);
-	}//end of getHorsesByID()
-
 	getHorsesByUid() : Observable<HorseData[]>{
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
 		.snapshotChanges().pipe(
@@ -40,12 +30,16 @@ export class HorseDataService {
 			return action.map(res =>{
 				const horse = res.payload.doc.data() as HorseData;
 				const id = res.payload.doc.id;
-				this.authService.setHorseId(id);
 				return { id, ...horse };
 				})
 			})
 		);
-	}// end of GetHorsesByUid()
+	} // returns all horses by user
+
+	getHorseData() {
+		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid'))).valueChanges()
+	} // returns a single horse by user
+
 
 	getHorsesForSale() : Observable<HorseData[]>{
 		return this.db.collection('/horse_data', ref => ref.where('toSell', '==', true))
@@ -54,12 +48,11 @@ export class HorseDataService {
 			return action.map(res =>{
 				const horse = res.payload.doc.data() as HorseData;
 				const id = res.payload.doc.id;
-				this.authService.setHorseId(id);
 				return { id, ...horse };
 				})
 			})
 		);
-	}// end of getHorsesForSale()
+	}
 
 	setHorseMorale(id:string,num:number){
 		let cityRef = this.db.collection('/horse_data').doc(id);
@@ -89,11 +82,6 @@ export class HorseDataService {
 		}, {merge: true});
 	}//end of setHorseTime()
 	
-
-	getHorseData() {
-		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid'))).valueChanges()
-	}
-
 	getRandStats(): number {
 		return Math.floor(Math.random() * 100 + 1);
 	}//end of getRandStats()
@@ -104,13 +92,6 @@ export class HorseDataService {
 		}
 		return 'mare';
 	} //end of getRandGender()
-
-	SetUserIDForHorse(horseid:string,userId:string){
-		let cityRef = this.db.collection('/horse_data').doc(horseid);
-		let setWithOptions = cityRef.set({
-			"userId":userId
-		}, {merge: true});
-	} //end of SetUserIDForHorse()
 
 	createRandomHorse(value, userId: string, breedId:string, colorId:string, skill:string, name?: string): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
