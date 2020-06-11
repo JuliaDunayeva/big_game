@@ -113,7 +113,7 @@
                         </div>
                         <div class="card-body">
                             <p class="max-btn-width">
-                                <img class="img-btn-width" src="../../assets/images/horse-page-icons/eq-reg-button-enabled.png " />Register my horse
+                                <img class="img-btn-width" src="{{ eq_reg_button}}" />Register my horse
                             </p>
                         </div>
                     </div>
@@ -269,8 +269,8 @@
                             <p class="margin3 ">Items</p>
                         </div>
                         <div class="margin2 ">
-                            <img class="padding " src="./assets/images/tack-page/gold-peramid.png " />
-                            <img class="padding " src="./assets/images/tack-page/gold-apple.png " />
+                            <img *ngFor="let item of items" src="{{ item }}" />
+
                         </div>
                     </div>
                 </div>
