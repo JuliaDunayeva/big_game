@@ -25,12 +25,12 @@ export class AuthService {
 	getUId():string {
 		//return this.uid;
 		return sessionStorage.getItem('uid');
-		localStorage.getItem('uid');
+		//localStorage.getItem('uid');
 	}
 
 	getHorseId(): string {
 		//return this.horseid;
 		return sessionStorage.getItem('horseId')
-		localStorage.getItem('horseId');
+		//localStorage.getItem('horseId');
 	}
 }
