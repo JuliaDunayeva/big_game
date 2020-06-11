@@ -53,7 +53,7 @@ export class HorsePageComponent implements OnInit {
  	public horse: HorseData = new HorseData;
 	img_file: string;
 	img_path: string;
- 	public id: string;
+ 	public id: string=this.authService.getHorseId();
 
   	public isRidesCollapsed = false;
   	public isCareCollapsed = false;
@@ -130,13 +130,17 @@ ngOnInit(): void {
     this.items.push('assets/images/tack-page/gold-apple.png');
     
     /* This line sets an interval to refresh stuff, not working at the moment but will look into it*/
-  //this.timerId = setInterval(this.checkEnergy,1000);//this.alertFunc,
+  //this.timerId = setInterval(this.alertFunc,1000);
   // Get Breed and Coat Color information
     this.getBreeds();
     this.getColors();
 // Get Currently selected Horse and User Information
-    this.id = this.authService.getHorseId();
+    //this.id = this.authService.getHorseId();
+    //console.log(this.id);
+    
     this.getHorse();
+    //console.log(this.horse.id);
+    
     this.userDataService
       .getUserByID(this.authService.getUId())
       .subscribe((ref) => {
@@ -274,7 +278,8 @@ ngOnInit(): void {
 
 public alertFunc(){
 	//if (this.horse?.morale<100) 
-	console.log(this.horse);
+	//console.log(this.horse.id);
+	//this.id=this.horse.id;
 	//alert('not enough morale!');
 }
  
@@ -314,10 +319,7 @@ public alertFunc(){
     
     this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.DrinkButtons.hour, this.DrinkButtons.minute);
 
-    this.horseDataService.setHorseEnergy(
-      this.authService.getHorseId(),
-      this.horse.energy
-    );
+    this.horseDataService.setHorseEnergy(this.horse);
     if (this.horse.energy==100){
         this.toggleButtons(this.DrinkButtons,false);
         
@@ -348,10 +350,7 @@ public alertFunc(){
     if (this.horse.morale>100) this.horse.morale=100;
   //this.checkEnergy();
 
-    this.horseDataService.setHorseMorale(
-      this.authService.getHorseId(),
-      this.horse.morale
-    );
+    this.horseDataService.setHorseMorale(this.horse);
   
     //this.toggleButtons(this.GroomButtons, 'groom',true);
   } // end of Groom Button function
@@ -369,6 +368,13 @@ public alertFunc(){
 
   // Feed Button function
   public FeedButton() {
+		//this.id=this.horse.id;
+		//this.authService.setHorseId(this.horse.id);
+	  console.log(this.horse.id);
+	  console.log(this.id);
+	  console.log(this.authService.getHorseId());
+	  
+	  //console.log(sessionStorage.getItem("horseId"));
     let totalseconds=0;
     this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.FeedButtons.hour, this.FeedButtons.minute);
     if (!this.FeedButtons.enabled){
@@ -383,10 +389,7 @@ public alertFunc(){
 
   this.checkEnergy()
     // write data back to database
-    this.horseDataService.setHorseEnergy(
-      this.authService.getHorseId(),
-      this.horse.energy
-    );
+    this.horseDataService.setHorseEnergy(this.horse);
   } //end of Feed Button function
 
   public ForestButton(){
@@ -395,93 +398,72 @@ public alertFunc(){
     this.toggleButtons(this.ForestButtons,false);
     return;
   }
-  this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.ForestButtons.hour, this.ForestButtons.minute);
-  this.history.unshift(this.horse.name + " is taking a ride in the forest");
-  if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.ForestButtons.energy;
-  if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.ForestButtons.morale;
-  if (this.horse.energy>100) this.horse.energy=100;
-  if (this.horse.morale>100) this.horse.morale=100;
-
-/*if(this.horse.energy==0){
-  this.toggleButtons(this.DrinkButtons,false);
-  this.toggleButtons(this.GroomButtons,false);
-}*/
-this.checkEnergy();
-
-  this.horseDataService.setHorseEnergy(
-    this.authService.getHorseId(),
-    this.horse.energy
-  );
-
-  this.horseDataService.setHorseMorale(
-    this.authService.getHorseId(),
-    this.horse.morale
-  );
+  	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.ForestButtons.hour, this.ForestButtons.minute);
+  	this.history.unshift(this.horse.name + " is taking a ride in the forest");
+	  
+	if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.ForestButtons.energy;
+  	if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.ForestButtons.morale;
+  	if (this.horse.energy>100) this.horse.energy=100;
+  	if (this.horse.morale>100) this.horse.morale=100;
+	this.checkEnergy();
+  	this.horseDataService.setHorseEnergy(this.horse);
+  	this.horseDataService.setHorseMorale(this.horse);
   //this.toggleButtons(this.ForestButtons, 'forest',true);   
   }
 
   public MountainButton(){
-    if (this.horse.energy == 0) {
-    alert('no energy left');
-    this.toggleButtons(this.MountainButtons,false);
-    return;
+    	if (this.horse.energy == 0) {
+    	alert('no energy left');
+    	this.toggleButtons(this.MountainButtons,false);
+    	return;
   }
-  this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.MountainButtons.hour, this.MountainButtons.minute);
-  this.history.unshift(this.horse.name + " is taking a ride in the mountains");
-  if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.MountainButtons.energy;
-  if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.MountainButtons.morale;
-  if (this.horse.energy>100) this.horse.energy=100;
-  if (this.horse.morale>100) this.horse.morale=100;
+  	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.MountainButtons.hour, this.MountainButtons.minute);
+  	this.history.unshift(this.horse.name + " is taking a ride in the mountains");
+  	if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.MountainButtons.energy;
+  	if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.MountainButtons.morale;
+  	if (this.horse.energy>100) this.horse.energy=100;
+  	if (this.horse.morale>100) this.horse.morale=100;
 
   	if (this.horse.energy<0){
     		this.horse.energy=0;
 	}
 
 	this.checkEnergy();
-  	this.horseDataService.setHorseEnergy(
-    		this.authService.getHorseId(),
-    		this.horse.energy
-  	);
-
-  this.horseDataService.setHorseMorale(
-    this.authService.getHorseId(),
-    this.horse.morale
-  );
-  
-  /*this.horseDataService.setHorseTime(
-    this.authService.getHorseId(),
-    "05","30"
-  );*/
-  //this.toggleButtons(this.ForestButtons, 'forest',true);   
+  	this.horseDataService.setHorseEnergy(this.horse);
+  	this.horseDataService.setHorseMorale(this.horse);
+    //this.toggleButtons(this.ForestButtons, 'forest',true);   
   }
 
-  public checkEnergy(){
-    if (this.horse.energy==100){
-      this.toggleButtons(this.DrinkButtons,false);
-      this.toggleButtons(this.GroomButtons,true);
-      this.toggleButtons(this.ForestButtons,true);
-      this.toggleButtons(this.ForestButtons,true);
-      this.toggleButtons(this.MountainButtons,true);
-    }
-    if(this.horse.energy>0 && this.horse.energy<100){
-      this.toggleButtons(this.DrinkButtons,true)
-      this.toggleButtons(this.GroomButtons,true);
-      this.toggleButtons(this.ForestButtons,true);
-      this.toggleButtons(this.ForestButtons,true);
-      this.toggleButtons(this.MountainButtons,true);
-    }
-    if(this.horse.energy==0){
-      this.toggleButtons(this.DrinkButtons,true)
-      this.toggleButtons(this.GroomButtons,false);
-      this.toggleButtons(this.ForestButtons,false);
-      this.toggleButtons(this.ForestButtons,false);
-      this.toggleButtons(this.MountainButtons,false);
-    }
+public checkEnergy(){
+	if (this.horse.energy<50) this.horse.morale-5;
+	    
+	if (this.horse.energy==100){
+      		this.toggleButtons(this.DrinkButtons,false);
+      		this.toggleButtons(this.GroomButtons,true);
+      		this.toggleButtons(this.ForestButtons,true);
+      		this.toggleButtons(this.ForestButtons,true);
+      		this.toggleButtons(this.MountainButtons,true);
+    	}
+    	if(this.horse.energy>0 && this.horse.energy<100){
+      		this.toggleButtons(this.DrinkButtons,true)
+      		this.toggleButtons(this.GroomButtons,true);
+      		this.toggleButtons(this.ForestButtons,true);
+      		this.toggleButtons(this.ForestButtons,true);
+      		this.toggleButtons(this.MountainButtons,true);
+    	}
+    	if(this.horse.energy==0){
+      		this.toggleButtons(this.DrinkButtons,true)
+      		this.toggleButtons(this.GroomButtons,false);
+      		this.toggleButtons(this.ForestButtons,false);
+      		this.toggleButtons(this.ForestButtons,false);
+      		this.toggleButtons(this.MountainButtons,false);
+    	}
   }
-  public setButtonDefaults(button : HorsePageButtons,min:number,hour:number){
-    button.minute=min;
-    button.hour=hour;
-  }
+
+public setButtonDefaults(button : HorsePageButtons,min:number,hour:number){
+    	button.minute=min;
+    	button.hour=hour;
+}
   /* Toggle buttons function
       Parameters: 
       button -> HorsePageButtons Class
@@ -490,121 +472,121 @@ this.checkEnergy();
   */
   public toggleButtons(button: HorsePageButtons, toggle:boolean) {
       //button.enabled = !button.enabled;
-    button.enabled=toggle;
-    let buttonChange=button.name;
-    switch (buttonChange) {
-      case 'feed':
-        if (button.enabled) {
-          this.feedButton = button.enabledImage;
-        } else {
-          this.feedButton = button.disabledImage;
-        }
-        break;
-      case 'drink':
-        if (button.enabled) {
-          this.drinkButton = button.enabledImage;
-        } else {
-          this.drinkButton = button.disabledImage;
-        }
-        break;
-      case 'stroke':
-        if (button.enabled) {
-          this.strokeButton = button.enabledImage;
-        } else {
-          this.strokeButton = button.disabledImage;
-        }
-        break;
-      case 'groom':
-        if (button.enabled) {
-          this.groomButton = button.enabledImage;
-        } else {
-          this.groomButton = button.disabledImage;
-        }
-        break;
-      case 'carrot':
-        if (button.enabled) {
-          this.carrotButton = button.enabledImage;
-        } else {
-          this.carrotButton = button.disabledImage;
-        }
-        break;
-      case 'mash':
-        if (button.enabled) {
-          this.mashButton = button.enabledImage;
-        } else {
-          this.mashButton = button.disabledImage;
-        }
-        break;
-        case 'forest':
-        if (button.enabled) {
-          this.forestButton = button.enabledImage;
-        } else {
-          this.forestButton = button.disabledImage;
-        }
-        break;
-        case 'mountain':
-        if (button.enabled) {
-          this.mountainButton = button.enabledImage;
-        } else {
-          this.mountainButton = button.disabledImage;
-        }
-        break;
-        case 'empty':
-        if (button.enabled) {
-          this.emptyButton = button.enabledImage;
-        } else {
-          this.emptyButton = button.disabledImage;
-        }
-        break;
-        case 'breedinginfo':
-          if (button.enabled) {
-            this.BreedingInfoButton = button.enabledImage;
-          } else {
-            this.BreedingInfoButton = button.disabledImage;
-          }
-          break;
-          case 'covermare':
-          if (button.enabled) {
-            this.CoverMareButton = button.enabledImage;
-          } else {
-            this.CoverMareButton = button.disabledImage;
-          }
-          break;
-          case 'barrel':
-          if (button.enabled) {
-            this.BarrelCompButton = button.enabledImage;
-          } else {
-            this.BarrelCompButton = button.disabledImage;
-          }
-          break;
-          case 'cutting':
-          if (button.enabled) {
-            this.CuttingCompButton = button.enabledImage;
-          } else {
-            this.CuttingCompButton = button.disabledImage;
-          }
-          break;
-          case 'trail':
-          if (button.enabled) {
-            this.TrailClassCompButton = button.enabledImage;
-          } else {
-            this.TrailClassCompButton = button.disabledImage;
-          }
-          break;
-          case 'reign':
-          if (button.enabled) {
-            this.ReignCompButton = button.enabledImage;
-          } else {
-            this.ReignCompButton = button.disabledImage;
-          }
-          break;
-          case 'western':
-          if (button.enabled) {
-            this.WesternPleasureCompButton = button.enabledImage;
-          } else {
-            this.WesternPleasureCompButton = button.disabledImage;
-          }
-          break;
+    	button.enabled=toggle;
+    	let buttonChange=button.name;
+    	switch (buttonChange) {
+      		case 'feed':
+        		if (button.enabled) {
+		        	this.feedButton = button.enabledImage;
+	        	} else {
+	          		this.feedButton = button.disabledImage;
+        		}
+        		break;
+      		case 'drink':
+        		if (button.enabled) {
+          			this.drinkButton = button.enabledImage;
+        		} else {
+          			this.drinkButton = button.disabledImage;
+        		}
+        		break;
+		case 'stroke':
+        		if (button.enabled) {
+          			this.strokeButton = button.enabledImage;
+        		} else {
+          			this.strokeButton = button.disabledImage;
+        		}
+        		break;
+      		case 'groom':
+        		if (button.enabled) {
+          			this.groomButton = button.enabledImage;
+        		} else {
+          			this.groomButton = button.disabledImage;
+        		}
+        		break;
+      		case 'carrot':
+        		if (button.enabled) {
+          			this.carrotButton = button.enabledImage;
+        		} else {
+          			this.carrotButton = button.disabledImage;
+        		}
+        		break;
+      		case 'mash':
+        		if (button.enabled) {
+          			this.mashButton = button.enabledImage;
+        		} else {
+          			this.mashButton = button.disabledImage;
+        		}
+        		break;
+        	case 'forest':
+        		if (button.enabled) {
+          			this.forestButton = button.enabledImage;
+        		} else {
+          			this.forestButton = button.disabledImage;
+        		}
+        		break;
+        	case 'mountain':
+        		if (button.enabled) {
+          			this.mountainButton = button.enabledImage;
+        		} else {
+          			this.mountainButton = button.disabledImage;
+        		}
+        		break;
+        	case 'empty':
+        		if (button.enabled) {
+          			this.emptyButton = button.enabledImage;
+        		} else {
+          			this.emptyButton = button.disabledImage;
+        		}
+        		break;
+        	case 'breedinginfo':
+          		if (button.enabled) {
+            			this.BreedingInfoButton = button.enabledImage;
+          		} else {
+            			this.BreedingInfoButton = button.disabledImage;
+          		}
+          		break;
+          	case 'covermare':
+          		if (button.enabled) {
+            			this.CoverMareButton = button.enabledImage;
+          		} else {
+            			this.CoverMareButton = button.disabledImage;
+          		}
+          		break;
+          	case 'barrel':
+          		if (button.enabled) {
+            			this.BarrelCompButton = button.enabledImage;
+          		} else {
+            			this.BarrelCompButton = button.disabledImage;
+          		}
+          		break;
+          	case 'cutting':
+          		if (button.enabled) {
+            			this.CuttingCompButton = button.enabledImage;
+          		} else {
+            			this.CuttingCompButton = button.disabledImage;
+          		}
+          		break;
+          	case 'trail':
+          		if (button.enabled) {
+            			this.TrailClassCompButton = button.enabledImage;
+          		} else {
+            			this.TrailClassCompButton = button.disabledImage;
+          		}
+          		break;
+          	case 'reign':
+          		if (button.enabled) {
+            			this.ReignCompButton = button.enabledImage;
+          		} else {
+            			this.ReignCompButton = button.disabledImage;
+          		}
+          		break;
+          	case 'western':
+          		if (button.enabled) {
+            			this.WesternPleasureCompButton = button.enabledImage;
+          		} else {
+            			this.WesternPleasureCompButton = button.disabledImage;
+          		}
+          		break;
      }
   }
 /* toggle function for enabling and disabling of rating star changing */

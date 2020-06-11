@@ -61,29 +61,29 @@ export class HorseDataService {
 		);
 	}// end of getHorsesForSale()
 
-	setHorseMorale(id:string,num:number){
-		let cityRef = this.db.collection('/horse_data').doc(id);
+	setHorseMorale(horse:HorseData){
+		let cityRef = this.db.collection('/horse_data').doc(horse.id);
 		let setWithOptions = cityRef.set({
-			"morale":num
+			"morale":horse.morale
 		}, {merge: true});
 	} // end of setHorseMorale()
 
-	setHorseHealth(id:string,num:number){
-		let cityRef = this.db.collection('/horse_data').doc(id);
+	setHorseHealth(horse:HorseData){
+		let cityRef = this.db.collection('/horse_data').doc(horse.id);
 		let setWithOptions = cityRef.set({
-			"health":num
+			"health":horse.health
 		}, {merge: true});
 	}//end of setHorseHealth()
 
-	setHorseEnergy(id:string, num:number){
-		let cityRef = this.db.collection('/horse_data').doc(id);
+	setHorseEnergy(horse:HorseData){
+		let cityRef = this.db.collection('/horse_data').doc(horse.id);
 		let setWithOptions = cityRef.set({
-		  "energy":num
+		  "energy":horse.energy
 		}, {merge: true});
 	}//end of setHorseEnergy()
 
-	setHorseTime(id:string,currentHourString:string,currentMinuteString:string){
-		let cityRef = this.db.collection('/horse_data').doc(id);
+	setHorseTime(horse:HorseData,currentHourString:string,currentMinuteString:string){
+		let cityRef = this.db.collection('/horse_data').doc(horse.id);
 		let setWithOptions = cityRef.set({
 		  "time": {currentHourString, currentMinuteString}
 		}, {merge: true});
