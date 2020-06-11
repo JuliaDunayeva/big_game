@@ -1,5 +1,4 @@
 /* Move to master styles.css */
-
 .card-title-border {
     border: 2px solid #BEBD58;
 }
@@ -18,9 +17,7 @@
     color: gold;
 }
 
-
 /* Leave in horse page css */
-
 .bold-header {
     font-weight: bold;
 }
@@ -138,9 +135,7 @@
     border-radius: 10px;
 }
 
-
 /*equip my horse*/
-
 .round {
     border-radius: 5px;
     border: black;
