@@ -5,11 +5,9 @@
             <app-nav-bar></app-nav-bar>
             <br><br>
             <app-play-bar></app-play-bar>
-            <br>
-            
+            <br>  
         </div>
     </div>
-    
     <div class="folder">
         <div class="row">
             <div class="col-sm-1">
@@ -48,11 +46,38 @@
                         <div >
                             <div class="row ">
                                 <div class="col-sm-3">
-                                    
                                 </div>
                                 <div class="col-sm-9">
                                     <h5 class="b-st box-head">Italian tack</h5>
                                     <p class="">Best quality, excellent fit.</p>
+                                </div>
+                                <div class="">
+                                    <li ngbDropdown >
+                                        <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                            <h5 class="box-head">Western tack</h5>
+                                            <p class="">For riding the trails... </p>
+                                        </a>
+                                        <div ngbDropdownMenu class="drop-box" id="background">
+                                            <div class="popup color-beige color-tx-green">
+                                                <div>
+                                                    <h3>List of the all the horses</h3>
+                                                </div>
+                                                <form>
+                                                    <div *ngFor="let horse of allHorses">
+                                                        <label >
+                                                            <input type="radio"  [id]="horse.id" name="horse"
+                                                                [value]="horse.id"/>
+                                                            <span class="checkmark radio-border"></span>
+                                                        
+                                                        </label>
+                                                    </div>
+                                                    <div>
+                                                         <button class="btn-shops btn-shops-lrg"></button>
+                                                    </div>
+                                                </form> 
+                                            </div>
+                                        </div>
+                                    </li>
                                 </div>
                             </div>
                         </div>
@@ -62,14 +87,40 @@
                         <div>
                             <div class="row ">
                                 <div class="col-sm-3">
-                                    
                                 </div>
                                 <div class="col-sm-9">
                                     <div class="">
                                         <li ngbDropdown >
                                             <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
                                                 <h5 class="box-head">Fox-hunt tack</h5>
-                                                <p class="">When riding becomes an adventure.</p>
+                                                <p class="">When riding for thrills and adventure.</p>
+                                            </a>
+                                            <div ngbDropdownMenu class="drop-box" id="background">
+                                                <div class="popup color-beige color-tx-green">
+                                                    <div>
+                                                        <h3>List of the all the horses</h3>
+                                                    </div>
+                                                    <form>
+                                                        <div *ngFor="let horse of allHorses">
+                                                            <label >
+                                                                <input type="radio"  [id]="horse.id" name="horse"
+                                                                    [value]="horse.id"/>
+                                                                <span class="checkmark radio-border"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                             <button class="btn-shops btn-shops-lrg"></button>
+                                                        </div>
+                                                    </form> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                    <div class="">
+                                        <li ngbDropdown >
+                                            <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                                <h5 class="box-head">Competition tack</h5>
+                                                <p class="">When winning is everything!</p>
                                             </a>
                                             <div ngbDropdownMenu class="drop-box" id="background">
                                                 <div class="popup color-beige color-tx-green">
@@ -118,10 +169,8 @@
                         <div>
                             <div class="row ">
                                 <div class="col-sm-3">
-                                   
                                 </div>
                                 <div class="col-sm-9">
-                                    
                                 </div>
                             </div>
                         </div>
