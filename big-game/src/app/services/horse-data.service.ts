@@ -23,7 +23,7 @@ export class HorseDataService {
 		private authService:AuthService,
 		private breedService: BreedService) {}
 
-	getHorseByID(id : string) : Observable<HorseData> {
+	/*getHorseByID(id : string) : Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
 			map(res => { 
 				const horse = res.payload.data() as HorseData;
@@ -31,7 +31,7 @@ export class HorseDataService {
 				return horse;
 			})			
 		);
-	}//end of getHorsesByID()
+	}//end of getHorsesByID()*/
 
 	getHorsesByUid() : Observable<HorseData[]>{
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', sessionStorage.getItem('uid')))
@@ -40,7 +40,6 @@ export class HorseDataService {
 			return action.map(res =>{
 				const horse = res.payload.doc.data() as HorseData;
 				const id = res.payload.doc.id;
-				this.authService.setHorseId(id);
 				return { id, ...horse };
 				})
 			})
@@ -54,7 +53,6 @@ export class HorseDataService {
 			return action.map(res =>{
 				const horse = res.payload.doc.data() as HorseData;
 				const id = res.payload.doc.id;
-				this.authService.setHorseId(id);
 				return { id, ...horse };
 				})
 			})
