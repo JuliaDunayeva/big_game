@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, Validators } from '@angular/forms';
+import { UserDataService } from 'src/app/services/user-data.service';
+import { UserData } from 'src/app/user-data';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-btn',
@@ -8,14 +11,25 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login-btn.component.css']
 })
 export class LoginBtnComponent implements OnInit {
-
-  constructor(private router: Router) {}
+  horseids:string[];
   
-  ngOnInit(): void {
-  }
+  constructor(private router: Router,
+    private form: FormBuilder,
+    private userService: UserDataService,private authService:AuthService) {}
   
-  logIn(form: NgForm) {
-    this.router.navigate(['/horse-page'])
-  }
+    logInForm= this.form.group({
+      email: [ null, [ Validators.required, Validators.minLength(8) ] ],
+      password: [ null, [ Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}') ]],
+    });
 
+   ngOnInit(): void {
+    }
+  
+   logIn() {
+    this.userService.logInUser(this.logInForm).subscribe(res => {
+      //console.log(res[0].payload.doc)
+     this.authService.setUid(res[0].payload.doc.id)
+     this.router.navigate(['horse-list'])
+    })
+  }
 }

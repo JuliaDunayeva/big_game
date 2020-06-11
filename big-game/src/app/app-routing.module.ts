@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HorsePageComponent } from './horse-page/horse-page.component';
+import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
+import { HorseListComponent } from './horse-list/horse-list.component';
 
 const routes: Routes = [
   {
@@ -13,10 +15,14 @@ const routes: Routes = [
     component: SignUpComponent
   },
   {
+    path: 'horse-list',
+    component: HorseListComponent 
+  },
+  {
     path: 'horse-page',
     component: HorsePageComponent 
   },
-  {
+   {
     path:'home-page',
     component: HomePageComponent
   },
@@ -31,7 +37,10 @@ const routes: Routes = [
   {
     path: 'competition-page',
     component: CompetitionPageComponent
-    
+  },
+  {
+    path: 'competitions',
+    component: CompetitionsComponent
   },
   {
     path: '',

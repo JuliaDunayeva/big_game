@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HorseDataService } from '../services/horse-data.service';
 
 @Component({
   selector: 'app-black-market-page',
@@ -7,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlackMarketPageComponent implements OnInit {
 
-  constructor() {}
+  constructor(private horseService: HorseDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.changeGender()
+  }
+
+  changeGender() {
+    this.horseService.getHorsesByUid().subscribe(res => {
+      console.log(res)
+    });
+  }
 
 }

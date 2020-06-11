@@ -15,13 +15,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PlayBarComponent } from './play-bar/play-bar.component';
 import { LoginBtnComponent } from './home-page/login-btn/login-btn.component';
-import { SignFormComponent } from './sign-up/sign-form/sign-form.component';
 import { FlagsComponent } from './home-page/flags/flags.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
+import { HorseListComponent } from './horse-list/horse-list.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     FooterComponent,
     PlayBarComponent,
     LoginBtnComponent,
-    SignFormComponent,
-    FlagsComponent
+    FlagsComponent,
+    CompetitionsComponent,
+    HorseListComponent
   ],
   
   imports: [
@@ -50,7 +52,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFirestoreModule,
     HttpClientModule,
     AngularFireDatabaseModule,
-     NgCircleProgressModule.forRoot({
+    NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,
       outerStrokeWidth: 16,
