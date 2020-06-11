@@ -8,7 +8,7 @@ a {
   background-color: #2685ba;
   font: 18px Arial, Helvetica, sans-serif;
 }
-  
+
 .btn-primary {
   background-color: #2685ba;
 }
@@ -55,7 +55,7 @@ hr {
   text-align: center;
 }
 
-.play-bar-mini{
+.play-bar-mini {
   display: none;
 }
 
@@ -91,7 +91,8 @@ hr {
     background: white;
   }
 
-  i.icon, i.icons {
+  i.icon,
+  i.icons {
     color: black;
   }
 
@@ -132,7 +133,8 @@ hr {
     background: white;
   }
 
-  i.icon, i.icons {
+  i.icon,
+  i.icons {
     color: black;
   }
 
@@ -169,12 +171,12 @@ hr {
     background: white;
   }
 
-  i.icon, i.icons {
+  i.icon,
+  i.icons {
     color: black;
   }
-  
+
   .btn-primary {
     background-color: white;
   }
 }
-    
