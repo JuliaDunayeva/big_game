@@ -10,8 +10,7 @@ import { Breed } from '../breed';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HorseDataService } from '../services/horse-data.service';
 import { AuthService } from '../services/auth.service';
-import {  NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { map } from 'rxjs/operators';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
   selector: 'app-sign-up',
@@ -47,8 +46,7 @@ export class SignUpComponent implements OnInit {
   signupForm = this.fb.group({
     username: [null, [Validators.required, Validators.minLength(8)]],
     email: ['', [Validators.required, Validators.email,]],
-    password: [
-      null,
+    password: [null,
       [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-zd$@$!%*?&].{8,}')]
     ],
     checkbox: [null, [Validators.requiredTrue]],
@@ -92,7 +90,6 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-
   getSkill(breed: Breed) {
     this.breedSelected = breed;
     this.skillSelected = this.breedSelected.skill;
@@ -102,12 +99,10 @@ export class SignUpComponent implements OnInit {
   }
 
   getImage(color: Color) {
-    // this.colorIndex = this.allColors.map(o => o.color).indexOf((<HTMLInputElement>event.target).id);
     this.colorSelected = color;
     console.log(this.colorSelected);
     this.colorIdSelected = color.id
     this.imagePath = '../../assets/images/horses/';
-    // this.imagePath += this.allBreeds[this.breedIndex].img_path + '/' + this.allColors[this.colorIndex].img_file;
     this.imagePath +=  `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
   }
 
@@ -128,14 +123,8 @@ export class SignUpComponent implements OnInit {
         
       } else {
         this.validEmail = false;
-        // this.open();
       }
       return a;
     });
   }
-
-  // open() {
-  //   const modalRef = this.modalService.open(NgbdModalContent);
-  //   modalRef.componentInstance.name = 'World';
-  // }
 }
