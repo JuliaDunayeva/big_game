@@ -9,20 +9,18 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./mini-bar.component.css']
 })
 export class MiniBarComponent implements OnInit {
-  
   Uid: string = this.authService.getUId();
   user: any;
+  
   constructor(private authService: AuthService,
         private userDataService: UserDataService) { }
 
   ngOnInit(): void {
     this.userDataService.getUserByID(this.Uid).subscribe((result) => {
       this.user = result as UserData;
-      // console.log(this.user);
-  });
-  return this.user;
+    });
+    return this.user;
   }
-  
   
   Logout(){
     sessionStorage.clear();

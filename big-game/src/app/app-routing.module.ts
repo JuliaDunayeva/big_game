@@ -9,7 +9,10 @@ import { HorsePageComponent } from './horse-page/horse-page.component';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
 import { HorseListComponent } from './horse-list/horse-list.component';
 import { HorseSaleComponent } from './horse-sale/horse-sale.component';
+<<<<<<< HEAD
 import { TackPageComponent } from './store-page/tack-page/tack-page.component';
+=======
+>>>>>>> sandbox_pre-develop
 
 const routes: Routes = [
   {
@@ -32,7 +35,6 @@ const routes: Routes = [
     path:'home-page',
     component: HomePageComponent
   },
-
   {
     path: 'store-page',
     component: StorePageComponent

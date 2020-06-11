@@ -1,25 +1,26 @@
 import { Breed } from './breed';
 
 export class Compete {
-    compName: string;
-	difficulty: number;
-	energy: number;
-    kitty: number;
-    ranks: number;
-    over: boolean;
-    breed: string;
-    Date: Date;
-    compType: string;
+  compName: string;
+  difficulty: number;
+  energy: number;
+  kitty: number;
+  ranks: number;
+  over: boolean;
+  breed: string;
+  Date: Date;
+  compType: string;
 
-constructor(compName: string, difficulty: number, energy: number, kitty: number, ranks: number, breed: string, compType: string, raceDate: Date) {
-    this.compName = compName;
-    this.difficulty = difficulty;
-    this.energy = energy;
-    this.kitty = kitty;
-    this.ranks = ranks;
-    this.breed = breed;
-    this.over = false;
-    this.compType = compType;
-    }
+constructor(compName: string, difficulty: number, energy: number, kitty: number, 
+             ranks: number, breed: string, compType: string, raceDate: Date) {
+  this.compName = compName;
+  this.difficulty = difficulty;
+  this.energy = energy;
+  this.kitty = kitty;
+  this.ranks = ranks;
+  this.breed = breed;
+  this.over = false;
+  this.compType = compType;
+  }
 
 }
