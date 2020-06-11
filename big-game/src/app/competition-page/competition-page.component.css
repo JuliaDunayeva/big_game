@@ -20,7 +20,7 @@ p {
     margin-left: 70px;
 }
 
-.pad-left { /* common spacing to set left margin in folder */
+.pad-left {             /* common spacing to set left margin in folder */
     margin-left: 1rem;
     margin-top: 2 rem;
 }
