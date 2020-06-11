@@ -113,7 +113,7 @@
                         </div>
                         <div class="card-body">
                             <p class="max-btn-width">
-                                <img class="img-btn-width" src="../../assets/images/horse-page-icons/eq-reg-button-enabled.png " />Register my horse
+                                <img class="img-btn-width" src="{{ eq_reg_button}}" />Register my horse
                             </p>
                         </div>
                     </div>
@@ -269,8 +269,8 @@
                             <p class="margin3 ">Items</p>
                         </div>
                         <div class="margin2 ">
-                            <img class="padding " src="./assets/images/tack-page/gold-peramid.png " />
-                            <img class="padding " src="./assets/images/tack-page/gold-apple.png " />
+                            <img *ngFor="let item of items" src="{{ item }}" />
+
                         </div>
                     </div>
                 </div>
@@ -314,12 +314,12 @@
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green scrolling-wrapper ">Bonus</a>
+                            <a ngbNavLink class="card-light-green">Bonus</a>
                             <ng-template ngbNavContent>
-                                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+                                <div class="">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
                                     Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent fringilla tortor arcu. Vivamus faucibus nisl enim,
                                     nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
-                                    in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+                                    in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</div>
                             </ng-template>
                         </ng-container>
                     </nav>
