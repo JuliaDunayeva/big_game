@@ -1,21 +1,21 @@
 .folder {   
-  margin-top:50px;
+  margin-top: 50px;
 }
 
 .sto-hed {
-  margin:5px 0 0 15px; 
+  margin: 5px 0 0 15px; 
 }
 
 .sto-desc {
-  margin-left : 15px;
+  margin-left: 15px;
 }
 
 .black_market {   
-  margin-top:80px;
+  margin-top: 80px;
 }
 
 .background {
-  width:100%;
+  width: 100%;
   margin-top: -20px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .left-side {
-  width:100%;
+  width: 100%;
 }
 
 @media (max-width: 575.98px) { 
@@ -55,11 +55,11 @@
 
 @media (min-width: 768px) and (max-width: 991.98px) { 
   .sto-hed {
-    margin: 90px 0 0 10px
+    margin: 90px 0 0 10px;
   }
 
   .center {
-    margin-left: 3%;;
+    margin-left: 3%;
   }
 
   .background {
@@ -67,17 +67,17 @@
   }
 
   .size {
-    margin-left: -22%
+    margin-left: -22%;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) { 
   .sto-hed {
-    margin: 90px 0 0 10px 
+    margin: 90px 0 0 10px;
   }
 
   .center {
-    margin-left: 3%;;
+    margin-left: 3%;
   }
   
   .background {

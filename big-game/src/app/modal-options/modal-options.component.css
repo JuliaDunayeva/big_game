@@ -197,14 +197,14 @@ li {
 }
 
 .dropdown-menu[x-placement^="top"], .dropdown-menu[x-placement^="right"], .dropdown-menu[x-placement^="bottom"], .dropdown-menu[x-placement^="left"] {
-    right:0;
+    right: 0;
     bottom: 0;
 }
 
 .up-arrow {
     color: #f0f0b2;
     font-size: 2.5em !important;
-    margin:-27px 0px 0 17px !important;
+    margin: -27px 0px 0 17px !important;
 }
 
 .equipment-text {
@@ -217,7 +217,7 @@ li {
     margin-top: -14px;
     width: 142px;
     height: 157px;
-    background-color:#f0f0b2 ;
+    background-color: #f0f0b2 ;
     color: #133300;
     border-color: #663300 !important;
 }

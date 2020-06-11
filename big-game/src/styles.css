@@ -17,13 +17,8 @@ body {
     background-color: #32641b;
     background-size: auto auto;
 }
-
-
 /* You can add global styles to this file, and also import other style files */
-
-
 /* colors*/
-
 .color-tx-brown {
     /*used text colors in log in buttons*/
     color: #4a543a;
@@ -148,7 +143,6 @@ body {
 .folder {
     /* Basic folder background for use on any page */
     width: auto;
-    /*width: 990px;*/
     margin-left: auto;
     margin-right: auto;
     height: auto;
@@ -157,13 +151,15 @@ body {
     background-size: 100%;
     z-index: -99;
 }
+
 .menu-btn{
-    width:80px;
-    height:30px;
-    color:white;
+    width: 80px;
+    height: 30px;
+    color: white;
     background: rgb(73, 131, 186); 
-    border:0px;
+    border: 0px;
 }
+
 @media (max-width: 575.98px) {
     .folder {
         width: 495px;
