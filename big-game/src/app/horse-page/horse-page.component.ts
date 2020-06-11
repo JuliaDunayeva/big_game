@@ -342,10 +342,9 @@ public alertFunc(){
       return;
     }*/
     this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.GroomButtons.hour, this.GroomButtons.minute);
-    this.history.unshift("Grooming "+this.horse.name);
-    //if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.GroomButtons.energy;
-    //if (this.horse.energy>100) this.horse.energy=100;
-    if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.GroomButtons.morale;
+    this.history.unshift("Grooming " + this.horse.name);
+    
+    if (this.horse.morale > 0) this.horse.morale = this.horse.morale + this.GroomButtons.morale;
     if (this.horse.morale>100) this.horse.morale=100;
   //this.checkEnergy();
 
@@ -353,10 +352,7 @@ public alertFunc(){
       this.authService.getHorseId(),
       this.horse.morale
     );
-    /*if (this.horse.energy<0){
-      this.horse.energy=0;
-      this.toggleButtons(this.GroomButtons,false);
-    }*/
+  
     //this.toggleButtons(this.GroomButtons, 'groom',true);
   } // end of Groom Button function
 
