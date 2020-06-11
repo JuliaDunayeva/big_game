@@ -63,7 +63,7 @@ export class HorseSaleComponent implements OnInit {
     createForm() {
       console.log(this.defaultHorse)
       this.selectHorse = this.fb.group({
-        myHorse: [this.defaultHorse, Validators.required]
+        userHorse: [this.defaultHorse, Validators.required]
       })
     }
   
