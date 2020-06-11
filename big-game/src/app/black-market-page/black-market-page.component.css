@@ -26,7 +26,7 @@
 }
 
 hr {
-  color:beige;
+  color: beige;
   height: 4px;
 }
 
@@ -41,11 +41,11 @@ i {
 }
 
 .media-store {
-    display:none;
+    display: none;
 }
 
 .box-img {
-    width:150%;
+    width: 150%;
     margin: 8px 0px 0px 4px;
 }
 
@@ -59,8 +59,8 @@ i {
 }
 
 .pass-img {
-    width:25px;
-    height:25px;
+    width: 25px;
+    height: 25px;
 }
 
 li {
@@ -105,7 +105,7 @@ a {
 }
 
 .btn-shops-lrg {
-    width:100px;
+    width: 100px;
 }
     
 .card-light-green {
@@ -123,14 +123,14 @@ a {
     border-style: solid 2px;
     border-radius: 5px;
     margin: 20px;
-    margin-top:30px;
+    margin-top: 30px;
     padding-bottom: 20px;
 }
 
 /** Small devices (landscape phones,576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) { 
     .col-md-10 {
-        width:480px;
+        width: 480px;
     }
 
     .st-img {
@@ -138,7 +138,7 @@ a {
     }
 
     .col-md-5 {
-        width:380px;
+        width: 380px;
     }
 
     .second-row {
@@ -151,12 +151,12 @@ a {
     }
 
     .text-pos {
-        margin-left:0px;
+        margin-left: 0px;
         margin-top: 5px;
     }
 
     .media-store {
-        display:block;
+        display: block;
         width: 110%;
     }
 }
@@ -169,7 +169,7 @@ a {
     }
 
     .text-pos {
-        margin-left:5px;
+        margin-left: 5px;
         margin-top: 5px;
     }
 }
