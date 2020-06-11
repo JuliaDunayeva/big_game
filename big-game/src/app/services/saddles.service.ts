@@ -5,8 +5,8 @@ import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
-export class SaddlesService {
 
+export class SaddlesService {
   Equipment: Equipment[];
 
   constructor(public db: AngularFirestore) { }
