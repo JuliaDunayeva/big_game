@@ -56,9 +56,9 @@ input {
 }
 
 .hrtop {
-    margin-top: -100px;
+    margin-top: 5px;
     margin-bottom: 2px;
-    width: 450px;
+    width: 500px;
     margin-left: -3px;
 }
 
@@ -76,7 +76,7 @@ input {
     border-radius: 5px;
 }
   
-.mycard-light-green {
+.card-light-green {
     background-color: #F0F0B2;
     color: #663300;
     border-style: solid 2px;
@@ -96,3 +96,31 @@ input {
     margin-bottom: 0px;
 }
 
+.col-sm-5 {
+    width: 600px;
+}
+
+@media (min-width: 578px) and (max-width: 767.98px) { 
+    .col-sm-5{
+        width:480px;
+        display: block;
+    }
+    
+    .hrtop {
+        width: 98%;
+    }
+}
+
+/** Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .hrtop {
+        width: 150%;
+    }
+}
+
+/** Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .hrtop {
+        width: 98%;
+    }
+}

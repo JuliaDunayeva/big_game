@@ -1,0 +1,67 @@
+<div class="container">
+    <div>
+        <app-mini-bar></app-mini-bar>
+        <app-nav-bar></app-nav-bar>
+        <br><br>
+        <app-play-bar></app-play-bar>
+        <br>
+    </div>
+    <div class="folder">
+        <div class=" "> <!-- Path Information & Picture -->
+            <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
+                <div class="color-tx-green ">
+                    <i class="home icon"></i>
+                    <a class=""> Breeding Farm &nbsp;</a>
+                    <i class="angle double right icon"> </i>
+                </div>
+                <a class=""> Horse's for sale &nbsp;</a>
+                <i class="angle double right icon "> </i>
+                <a class=""> Buy a horse</a>
+            </div>
+        </div>
+        <div class="row"> <!-- Title & Description -->
+            <div class="col-md-6 pad-left color-tx-maroon">
+                <hr>
+                <h3 class="no-top-margin display card-title">List of horses for Sale
+                    <span class="color-tx-green"> </span></h3>
+                <div class="color-tx-green no-top-margin">
+                    <p>Select from one of the horses below to make a purchase. </p>
+                </div>
+            </div>
+        </div> <!-- Title End -->
+        <div class="row pad-left display">
+            <Div class="col-sm-5 card-light-green">
+                <br>
+                <form [formGroup]="selectHorse">
+                    <div *ngIf="allHorseData?.length > 0; else noSales">
+                        <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                            <input type="radio" formControlName="userHorse" name="userHorse" [value]="horse.name" [id]="horse.id" 
+                            (click)="onHorseSelect(horse.id, horse.userId, horse.toSell)">
+                            &nbsp; &nbsp;<strong>{{ horse.name }}, </strong><span class="color-tx-green">({{ horse.breed }} - {{ horse.skill }} - {{horse.gender}})</span>
+                        </label>
+                        <br>
+                    </div>
+                </form>
+                <br>
+            </Div>
+            <div class="col-sm-1"></div>
+            <Div class="col-sm-5 card-light-green">
+                <br>
+                <h5 class="card-title color-tx-green">Buy a horse ...
+                    <!-- <span class="color-tx-maroon"> {{ user.userName }}</span> -->
+                </h5>
+                <button class="btn-shops btn-shops-lrg" (click)="swapUser()"
+                [routerLink]="['/horse-list']" routerLinkActive="router-link-active">
+                        Buy 750e
+                </button>
+                <br><br>
+            </Div>
+        </div>
+    </div> <!-- folder end-->
+    <br><br>
+    <app-footer></app-footer>
+</div>
+
+<ng-template #noSales>
+    <h5>There are no horses for sale</h5>
+</ng-template>

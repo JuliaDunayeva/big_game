@@ -1,4 +1,7 @@
 /* Main Nav Bar styling components */
+a {
+    text-decoration: none;
+}
 
 .navbar {
     align-content: center;
@@ -8,6 +11,7 @@
 
 ul {
     margin: 0;
+    text-decoration: none;
 }
 
 .navbar-expand-lg .navbar-collapse {
@@ -29,6 +33,10 @@ ul {
     background-color: turquoise;
 }
 
+.nav-item {
+    left: 30px;
+}
+
 .nav-btn {
     margin-left: 20px;
     padding: 0px;
@@ -48,19 +56,17 @@ ul {
     background-color: turquoise;
 }
 
-.img-size {
+.img-logo {
     margin-top: 10px;
 }
 
-
 /* Start Pack Styling Components */
-
 .nav-btn-big {
     width: 208px;
     margin-top: 0px;
 }
 
-h4 {
+.texth4 {
     margin-right: -8px;
     margin-top: 4px;
 }
@@ -77,10 +83,8 @@ h4 {
     width: 50px;
 }
 
-
 /* Equus & Passes Styling Components */
-
-h6 {
+.texth6 {
     margin-bottom: 0;
     font-weight: 700;
 }
@@ -177,9 +181,7 @@ h6 {
     padding-bottom: 2px;
 }
 
-
 /* Profile menu styling */
-
 .dropdown-divider {
     height: 0;
     width: 155px;
@@ -190,6 +192,7 @@ h6 {
 
 .hover-box {
     background-color: #ffff;
+    text-decoration: none;
 }
 
 .hover-box:hover {
@@ -204,6 +207,7 @@ h6 {
 .dropdown-item {
     margin-left: 10px;
     width: 87%;
+    text-decoration: none;
 }
 
 .seperate {
@@ -222,15 +226,40 @@ h6 {
 }
 
 .equus {
-    height: 65%; 
+    height: 65%;
     margin-left: -30px;
     margin-right: -20px;
     margin-top: -2px;
-  
 }
 
+.ui.menu {
+    display: flex;
+    margin: 1rem 0;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    background: none;
+    font-weight: 400;
+    border: none;
+    box-shadow: none;
+    min-height: 2.85714286em;
+}
 
-/* keep if needed ...
-    background: rgba(55,101,154,.5);
-    border:rgba(55,101,154,.5);
-    */
+@media (min-width: 578px) and (max-width: 767.98px) { 
+    .main-bar {
+        display: none;
+    } 
+}
+    
+/** Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .main-bar {
+        display: none;
+    }
+}
+           
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) { 
+    .main-bar {
+        display: none;
+    } 
+}
+    

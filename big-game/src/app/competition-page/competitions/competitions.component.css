@@ -2,9 +2,11 @@
     padding: 4px 0 4px 5px;
     color: maroon;
 }
+
 .label {
     margin-top: -6px;
 }
+
 p {
     margin-bottom: 5px;
 }
@@ -56,7 +58,7 @@ input {
 }
 
 .hrtop {
-    margin-top: -100px;
+    margin-top: 5px;
     margin-bottom: 2px;
     width: 450px;
     margin-left: -3px;
@@ -69,22 +71,13 @@ input {
 .td-top {
     border: 2px solid rgb(192, 189, 113);
     border-radius: 5px;
-  }
-
-  .td-line {
-    border-bottom: 2px solid rgb(192, 189, 113);
-    border-radius: 5px;
-  }
-  
-
-.mycard-light-green {
-    background-color: #F0F0B2;
-    color: #663300;
-    border-style: solid 2px;
-    border-radius: 5px;
-    margin-bottom: 20px;
 }
 
+.td-line {
+    border-bottom: 2px solid rgb(192, 189, 113);
+    border-radius: 5px;
+}
+  
 .card-title {
     font-weight: bold;
 }
@@ -97,3 +90,25 @@ input {
     margin-bottom: 0px;
 }
 
+.folder {
+    height: 480px;
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .hrtop {
+        width: 90%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .hrtop {
+        width: 135%;
+    }
+}
+
+@media (min-width: 992px) {
+    .hrtop {
+        width: 95%;
+    }
+} 

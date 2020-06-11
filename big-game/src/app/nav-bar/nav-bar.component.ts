@@ -20,7 +20,6 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
           this.userDataService.getUserByID(this.Uid).subscribe((result) => {
             this.user = result as UserData;
-            // console.log(this.user);
         });
         return this.user;
       }
@@ -28,4 +27,6 @@ export class NavBarComponent implements OnInit {
   Logout(){
     sessionStorage.clear();
   }
+
+  
 }
