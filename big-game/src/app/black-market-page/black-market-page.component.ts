@@ -30,8 +30,7 @@ export class BlackMarketPageComponent implements OnInit {
     this.horseService.getHorsesByUid().subscribe(
       res => {
         this.allHorses = res as Array<HorseData>;
-      }
-    )
+      })
   }
 
   idOfHorse: string;
