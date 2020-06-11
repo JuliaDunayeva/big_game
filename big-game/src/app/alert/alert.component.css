@@ -7,6 +7,7 @@
     background: rgba(0, 0, 0, 0.75);
     z-index: 50;
 }
+
 .alert-box{
     position: fixed;
     top: 30vh;
@@ -17,10 +18,8 @@
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .026);
     text-align: center;
-
 }
 
 .alert-box-actions{
     text-align: right;
-
 }
