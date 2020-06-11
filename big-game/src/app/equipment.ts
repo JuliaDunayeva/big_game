@@ -24,5 +24,5 @@ export class Equipment {
         this.speed_ = speed_;
         this.stamina_ = stamina_;
         this.trot_ = trot_;
-        }
     }
+}
