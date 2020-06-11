@@ -10,5 +10,4 @@ export class Breed {
 		this.skill = skill;
 		this.img_path = img_path;
 	}
-
 }

@@ -30,6 +30,16 @@ hr {
   height: 4px;
 }
 
+.st-repo-card {
+   width: 640px;
+   height: 300px;
+   margin-top: 40px;
+   margin-left: 15px;
+   background-color: #DCDB81;
+   color: #133300;
+   font-weight: bold;
+}
+
 .bl-st-head {
     font-size: 1.25rem;
     font-weight: bold;
@@ -47,6 +57,16 @@ i {
 .box-img {
     width: 150%;
     margin: 8px 0px 0px 4px;
+}
+
+.sm-card {
+    height: 110px;
+    width: 270px;
+    margin: 10px 10px 10px 10px; 
+    background-color: #F0F0B2;
+    color: #133300;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .box-head {

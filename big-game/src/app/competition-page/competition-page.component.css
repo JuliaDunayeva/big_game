@@ -22,7 +22,7 @@ p {
     margin-top: -5px;
 }
 
-.pad-left { /* common spacing to set left margin in folder */
+.pad-left {             /* common spacing to set left margin in folder */
     margin-left: 1rem;
     margin-top: 2 rem;
 }
@@ -141,7 +141,6 @@ p {
     margin-bottom: 0px;
 }
 
-
 @media (min-width: 576px) and (max-width: 767.98px) { 
     .table-light-green {
         width: auto;
@@ -220,4 +219,3 @@ p {
         margin-right: 2%;
     }
 }
-

@@ -10,7 +10,6 @@ import { CompetitionsComponent } from './competition-page/competitions/competiti
 import { HorseListComponent } from './horse-list/horse-list.component';
 import { HorseSaleComponent } from './horse-sale/horse-sale.component';
 
-
 const routes: Routes = [
   {
     path:'sign-up',
@@ -32,7 +31,6 @@ const routes: Routes = [
     path:'home-page',
     component: HomePageComponent
   },
-
   {
     path: 'store-page',
     component: StorePageComponent
