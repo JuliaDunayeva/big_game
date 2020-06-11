@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tack-page.component.css']
 })
 export class TackPageComponent implements OnInit {
-
+  public allHorses = [];
   constructor() { }
 
   ngOnInit(): void {

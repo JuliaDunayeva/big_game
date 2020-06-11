@@ -85,13 +85,13 @@
                                                         <div *ngFor="let horse of allHorses">
                                                             <label >
                                                                 <input type="radio"  [id]="horse.id" name="horse"
-                                                                    [value]="horse.id" (click)="onHorseSelect(horse.gender, horse.id)"/>
+                                                                    [value]="horse.id"/>
                                                                 <span class="checkmark radio-border"></span>
                                                                 {{ horse.name}} - {{horse.gender}}
                                                             </label>
                                                         </div>
                                                         <div>
-                                                             <button class="btn-shops btn-shops-lrg" (click)='swapGender()'>Change Gender</button>
+                                                             <button class="btn-shops btn-shops-lrg"></button>
                                                         </div>
                                                     </form> 
                                                 </div>
