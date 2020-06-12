@@ -7,9 +7,10 @@ import { Color } from '../color';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ColorService {
 
-  constructor(public db: AngularFirestore) { }
+  constructor(public db: AngularFirestore) {}
 
   //get all colors listed in firebase
   getColors() {
@@ -20,5 +21,4 @@ export class ColorService {
   getColorById(id: string) {
     return this.db.collection('color').doc(id).ref.get()
   }
-  
 }
