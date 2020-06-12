@@ -12,7 +12,7 @@ p {
 }
 
 .centered {
-    align-self: center;
+    text-align: center;
 }
 
 .move-left1 {
@@ -92,6 +92,33 @@ input {
 
 .folder {
     height: auto;
+}
+
+/* Lower Table */
+.tl-col1 {
+    width: 200px;
+    padding-left: 5px;
+}
+
+.tl-col2 {
+    width: 200px;
+    text-align: center;
+}
+
+.equus {
+    width: 25%;   
+}
+
+.tl-col3 {
+    width: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.tl-col4 {
+    width: 130px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 

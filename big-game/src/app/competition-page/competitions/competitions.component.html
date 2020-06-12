@@ -61,13 +61,32 @@
             </div>
         </div>
         <hr>
-        <div class="row display">
-            <Div class="col-5 card-light-green" >
+        <div class="row display pad-left">
+            <Div class="col-10 card-light-green" >
                 <form >
                     <div *ngIf="allCompetitions?.length > 0; else noItems">
-                        <ul class="display-vert" *ngFor="let competitions of allCompetitions">
-                            <li>{{competitions.compName}}, {{competitions.breed}}</li>
-                        </ul>
+                        <table class="pad-left ">
+                            <tr class="sm-card td-line">
+                                <th class="card-title tl-col1">Competition</th>
+                                <th class="card-title tl-col1">Breed Class</th>
+                                <th class="card-title tl-col1">Competion Style</th>
+                                <th class="card-title tl-col3 centered"><img class="equus pad-left" src="./assets/images/game_pieces/equus.png">Kitty</th>
+                                <th class="card-title tl-col2">Difficulty</th>
+                                <th class="card-title tl-col3 centered">Ranks</th>
+                                <th class="card-title tl-col3 centered">Energy</th>
+                                <th class="card-title tl-col4"> </th>
+                            </tr>
+                            <tr *ngFor="let competitions of allCompetitions">
+                                <td class="">{{competitions.compName}}</td>
+                                <td class="">{{competitions.breed}}</td>
+                                <td class="">{{competitions.compType}}</td>
+                                <td class="centered">{{competitions.kitty}}</td>
+                                <td class="centered">{{competitions.difficulty}}</td>
+                                <td class="centered">{{competitions.ranks}}</td>
+                                <td class="centered">{{competitions.energy}}</td>
+                            </tr>
+                        </table>
+                        
                     </div>
                 </form>
                 <br>
