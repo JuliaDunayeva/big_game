@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './mini-bar.component.html',
   styleUrls: ['./mini-bar.component.css']
 })
+
 export class MiniBarComponent implements OnInit {
   Uid: string = this.authService.getUId();
   user: any;
