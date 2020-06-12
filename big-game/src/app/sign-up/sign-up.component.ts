@@ -61,24 +61,24 @@ export class SignUpComponent implements OnInit {
   }
 
   getBreeds() {
-      this.breedService.getBreeds().subscribe((brd) => {
-        this.allBreeds = brd.map( res => {
-          return {
-            id: res.payload.doc.id,
-            breed: res.payload.doc.data()['breed'],
-            skill: res.payload.doc.data()['skill'],
-            img_path: res.payload.doc.data()['img_path']
-          }
-        });
+    this.breedService.getBreeds().subscribe((brd) => {
+      this.allBreeds = brd.map(res => {
+        return {
+          id: res.payload.doc.id,
+          breed: res.payload.doc.data()['breed'],
+          skill: res.payload.doc.data()['skill'],
+          img_path: res.payload.doc.data()['img_path']
+        }
+      });
       this.breedSelected = this.allBreeds[0];
       this.breedIdSelected = this.allBreeds[0].id
       this.skillSelected = this.breedSelected.skill
-      });
+    });
   }
 
   getColors() {
-      this.colorService.getColors().subscribe(clr => {
-        this.allColors = clr.map(res => {
+    this.colorService.getColors().subscribe(clr => {
+      this.allColors = clr.map(res => {
         return {
           id: res.payload.doc.id,
           color: res.payload.doc.data()['color'],
@@ -95,7 +95,7 @@ export class SignUpComponent implements OnInit {
     this.skillSelected = this.breedSelected.skill;
     this.breedIdSelected = breed.id;
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath +=  `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
+    this.imagePath += `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
   }
 
   getImage(color: Color) {
@@ -103,7 +103,7 @@ export class SignUpComponent implements OnInit {
     console.log(this.colorSelected);
     this.colorIdSelected = color.id
     this.imagePath = '../../assets/images/horses/';
-    this.imagePath +=  `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
+    this.imagePath += `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
   }
 
   onSubmit() {
@@ -112,15 +112,15 @@ export class SignUpComponent implements OnInit {
       if (a.length == 0) {
         this.validEmail = true;
         this.userService.createUser(this.signupForm.value).then((res) => {
-         sessionStorage.setItem('uid', res.id)
-         console.log(this.breedIdSelected, this.colorIdSelected, this.skillSelected)
+          sessionStorage.setItem('uid', res.id)
+          console.log(this.breedIdSelected, this.colorIdSelected, this.skillSelected)
           this.horseService
             .createRandomHorse(this.signupForm.value, res.id, this.breedIdSelected, this.colorIdSelected, this.skillSelected, "New Horse")
             .subscribe((e) => {
               this.router.navigate(['horse-list']);
             });
         })
-        
+
       } else {
         this.validEmail = false;
       }
