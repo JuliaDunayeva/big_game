@@ -3,7 +3,6 @@ import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { Sale } from '../sale';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +11,6 @@ export class SalesService {
   constructor(public db: AngularFirestore,
     private authService:AuthService) { }
 
-  
   horsesForSale() {
     return this.db.collection('sales').valueChanges()
   }
