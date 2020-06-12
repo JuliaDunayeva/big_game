@@ -22,8 +22,7 @@ export class CompetitionPageComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, 
     public horseDataService: HorseDataService,private authService:AuthService) {
-   this.id=this.authService.getHorseId();
-   
+    this.id=this.authService.getHorseId();
   }
 
   ngOnInit(): void {
