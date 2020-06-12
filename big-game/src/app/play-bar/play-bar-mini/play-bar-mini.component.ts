@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './play-bar-mini.component.html',
   styleUrls: ['./play-bar-mini.component.css']
 })
+
 export class PlayBarMiniComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
-
 }
