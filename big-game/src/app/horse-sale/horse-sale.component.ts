@@ -10,7 +10,6 @@ import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-
 @Component({
   selector: 'app-horse-sale',
   templateUrl: './horse-sale.component.html',
@@ -99,5 +98,4 @@ export class HorseSaleComponent implements OnInit {
       userId = this.authService.getUId()
       return userId
     }
-
 }
