@@ -42,15 +42,17 @@ export class HorsePageComponent implements OnInit {
   	CoverMareButtons:HorsePageButtons=new HorsePageButtons('covermare');
 	/* Declare temporary history Array */
   	public history:string[]=[];
-  	skill: string;
 	/* Declare Arrays for all the breeds and colors */  
 	allBreeds: Breed[];
-  	allColors: Color[];
+	allColors: Color[];
+	  /* Local variable that holds current user selected horse */
  	public horse: HorseData = new HorseData;
+	/* image path and file name for current user selected horse */
 	img_file: string;
 	img_path: string;
+	/* Save horse id to local variable */
  	public id: string=this.authService.getHorseId();
-
+/* Used to Collapse appropriate tabs on page */
   	public isRidesCollapsed = false;
   	public isCareCollapsed = false;
   	public isNightCollapsed = false;
@@ -59,30 +61,25 @@ export class HorsePageComponent implements OnInit {
   	public isCompetitionCollapsed = false;
   	public isHistoryCollapsed = false;
   	public isBreedingCollapsed = false;
-
+/* used by the Star Rating */
   	ctrl = new FormControl(null, Validators.required);
-  	public preventchange_1: true;
   	public readonly = true;
-  
-  	// Paths for horse images
+    	// Paths for horse images
   	public imagePath: string;
   	public imageFile: string;
-
 	  // string for care tab button images
   	public feedButton: string;
   	public drinkButton: string;
   	public strokeButton: string;
-
   	public groomButton: string;
   	public carrotButton: string;
   	public mashButton: string;
-
   	// string for ride tab button images
   	public forestButton: string;
   	public mountainButton: string;
-
+/* used to store image path for an empty button, for spacing */
   	public emptyButton: string;
-
+/* used to store image path for competition buttons */
   	public BarrelCompButton:string;
   	public CuttingCompButton:string;
   	public TrailClassCompButton:string;
@@ -91,14 +88,12 @@ export class HorsePageComponent implements OnInit {
 
   	public BreedingInfoButton:string;
   	public CoverMareButton:string;
-
-  	swap: boolean = false;
-
-  	//Buttons for night tab
+	//Buttons for night tab
   	public putToBedButton: string;
   	public ageButton: string;
-	
+	/* used to store percent, for the circular progress bar */
 	public percent: number ;
+
   	public hours: number = 24;
 
   	public eq_reg_button:string='assets/images/horse-page-icons/eq-reg-button-enabled.png';
@@ -124,18 +119,13 @@ ngOnInit(): void {
 	// Item list array
     	this.items.push('assets/images/tack-page/gold-peramid.png');
     	this.items.push('assets/images/tack-page/gold-apple.png');
-      /* This line sets an interval to refresh stuff, not working at the moment but will look into it*/
-  	//this.timerId = setInterval(this.alertFunc,1000);
+
   // Get Breed and Coat Color information
     	this.getBreeds();
     	this.getColors();
 // Get Currently selected Horse and User Information
 	this.id = this.authService.getHorseId();
-	//console.log(this.id);
-    
-    	this.getHorse();
-    //console.log(this.horse.id);
-    
+	this.getHorse();
     	this.userDataService
       		.getUserByID(this.authService.getUId())
       		.subscribe((ref) => {
@@ -237,6 +227,7 @@ ngOnInit(): void {
 
     	this.imageFile = 'assets/images/horse-page-icons/test-horse-image.png';
 	setTimeout(() => {
+		/* Check energy and disable/enable appropriate buttons */
 		this.checkEnergy();
   	}, 750);
 } // end of ngOnInit() function
@@ -244,19 +235,15 @@ ngOnInit(): void {
   getHorse() {
       	this.horseDataService.getHorseById(this.id).subscribe((res) => {
         this.horse = res as HorseData;
-        // this.percent = (Number(this.horse.time.currentHourString)*3600) / 1000;
         this.breedService.getBreedById(this.horse.breed).then( brd =>
-            { this.horse.breed = brd.data()['breed'];
-	    this.img_path = brd.data()['img_path'];
+            { 
+		this.horse.breed = brd.data()['breed'];
+		this.img_path = brd.data()['img_path'];
             //calculating percent for circle progress from database info
-            this.percent = Math.floor(
-              (
-                (Number(this.horse.time.currentHourString)*3600 
+        	this.percent = Math.floor(
+        	((Number(this.horse.time.currentHourString)*3600 
                  + Number(this.horse.time.currentMinuteString)*60)
-              )
-              / 240
-              *(100/360)
-            )
+        	) / 240 *(100/360))
             }
         )
         this.colorService.getColorById(this.horse.color).then( clr =>
@@ -267,44 +254,22 @@ ngOnInit(): void {
             }
         )
       });
+/* This line sets an interval to refresh stuff, not working at the moment but will look into it*/
+      //this.timerId = setInterval(this.alertFunc,1000);
     };
-
+/* test callback function for setInterval line in above function */
 public alertFunc(){
 	//if (this.horse?.morale<100) 
-	console.log(this.horse.id);
+	console.log(this.authService.getHorseId());
 	//this.id=this.horse.id;
 	//alert('not enough morale!');
 }
- 
-ms2Time(ms: number): string {
-	let secs = ms / 1000;
-    	ms = Math.floor(ms % 1000);
-    	let minutes = secs / 60;
-    	secs = Math.floor(secs % 60) * 100;
-    	let hours = minutes / 60;
-    	minutes = Math.floor(minutes % 60);
-    	hours = Math.floor(hours % 24);
-    	return hours + ':' + minutes + ':' + secs + '.' + ms;
-  }
-
-RefreshEnergy(ms: number) {
-	let secs = ms / 1000;
-    	ms = Math.floor(ms % 1000);
-    	let minutes = secs / 60;
-    	secs = Math.floor(secs % 60);
-    	let hours = minutes / 60;
-    	minutes = Math.floor(minutes % 60);
-
-    	hours = Math.floor(hours % 24);
-    	if (secs > 10) this.horse.energy += 5;
-    	return hours + ':' + minutes + ':' + secs + '.' + ms;
-  }
-
+/* Return number of seconds for specified about of hours and/or minutes */
   public returnSeconds(hr:number,min:number):number{
     	return (hr * 3600) + (min * 60);
   }
 // Drink Button fucntion
-  public DrinkButton() {
+public DrinkButton() {
     	this.history.unshift(this.horse.name+" is taking a drink");
     	//this.toggleButtons(this.DrinkButtons, 'drink',true);
     	this.horse.energy=this.horse.energy+this.DrinkButtons.energy;
@@ -318,88 +283,86 @@ RefreshEnergy(ms: number) {
               //this.toggleButtons(this.DrinkButtons,'drink',true);
               this.toggleButtons(this.GroomButtons,true);      
     	}
-  }// end of Drink Button function
+}// end of Drink Button function
 
   // Stroke Button function
-  public StrokeButton() {
+public StrokeButton() {
     this.history.unshift("Stroking "+this.horse.name);
     //this.toggleButtons(this.StrokeButtons, 'stroke',true);
-  } // end of Stroke Button function
+} // end of Stroke Button function
 
   // Groom Button function
-  public GroomButton() {
-    /*if (this.horse.energy <= 0) {
-      alert('no energy left');
-      this.toggleButtons(this.GroomButtons,false);
-      return;
-    }*/
-    this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.GroomButtons.hour, this.GroomButtons.minute);
-    this.history.unshift("Grooming " + this.horse.name);
+public GroomButton() {
+	if (this.horse.morale == 100) {
+      		alert('morale is maxed out');
+		this.toggleButtons(this.GroomButtons,false);
+		return;
+	}
+	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.GroomButtons.hour, this.GroomButtons.minute);
+	this.history.unshift("Grooming " + this.horse.name);
     
-    if (this.horse.morale > 0) this.horse.morale = this.horse.morale + this.GroomButtons.morale;
-    if (this.horse.morale>100) this.horse.morale=100;
-  //this.checkEnergy();
-
-    this.horseDataService.setHorseMorale(this.horse);
-  
+    	if (this.horse.morale > 0) this.horse.morale = this.horse.morale + this.GroomButtons.morale;
+    	if (this.horse.morale>100) this.horse.morale=100;
+      	this.horseDataService.setHorseMorale(this.horse);
     //this.toggleButtons(this.GroomButtons, 'groom',true);
   } // end of Groom Button function
 
   // Carrot Button function
-  public CarrotButton() {
-    this.history.unshift(this.horse.name+" ate a carrot");
+public CarrotButton() {
+	this.history.unshift(this.horse.name+" ate a carrot");
     //this.toggleButtons(this.CarrotButtons, 'carrot',true);
-  }// end of Carrot Button function
+}// end of Carrot Button function
 
   // Mash button function
-  public MashButton() {
-    this.toggleButtons(this.MashButtons, true);
-  }// end of Mash Button function
+public MashButton() {
+	this.toggleButtons(this.MashButtons, true);
+}// end of Mash Button function
 
   // Feed Button function
-  public FeedButton() {
-    	let totalseconds=0;
-    	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.FeedButtons.hour, this.FeedButtons.minute);
+public FeedButton() {
+	let totalseconds=0;
     	if (!this.FeedButtons.enabled){
       		alert('No energy to feed.');
       		return;
     	}
     	this.history.unshift("Feeding "+this.horse.name);
     //this.toggleButtons(this.FeedButtons, 'feed',true);
- 
-    	this.horse.energy= this.horse.energy+this.FeedButtons.energy;
-    	if (this.horse.energy>100) this.horse.energy=100;
-
-  	this.checkEnergy()
-    // write data back to database
+     	this.horse.energy= this.horse.energy+this.FeedButtons.energy;
+	if (this.horse.energy>100) this.horse.energy=100;
+	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.FeedButtons.hour, this.FeedButtons.minute);
+/* Check energy and disable/enable appropriate buttons */
+  	this.checkEnergy();
+/* write data back to database */
     	this.horseDataService.setHorseEnergy(this.horse);
   } //end of Feed Button function
 
-  public ForestButton(){
-    	if (this.horse.energy == 0) {
+public ForestButton(){
+	if (this.horse.energy == 0) {
     		alert('no energy left');
     		this.toggleButtons(this.ForestButtons,false);
     		return;
-  }
+  	}
   	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.ForestButtons.hour, this.ForestButtons.minute);
   	this.history.unshift(this.horse.name + " is taking a ride in the forest");
 	  
 	if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.ForestButtons.energy;
   	if (this.horse.morale > 0) this.horse.morale =this.horse.morale+this.ForestButtons.morale;
   	if (this.horse.energy>100) this.horse.energy=100;
-  	if (this.horse.morale>100) this.horse.morale=100;
+	if (this.horse.morale>100) this.horse.morale=100;
+	  /* Check energy and disable/enable appropriate buttons */
 	this.checkEnergy();
+	/* write data back to database */
   	this.horseDataService.setHorseEnergy(this.horse);
   	this.horseDataService.setHorseMorale(this.horse);
   //this.toggleButtons(this.ForestButtons, 'forest',true);   
-  }
+}
 
-  public MountainButton(){
-    	if (this.horse.energy == 0) {
-    	alert('no energy left');
-    	this.toggleButtons(this.MountainButtons,false);
-    	return;
-  }
+public MountainButton(){
+	if (this.horse.energy == 0) {
+    		alert('no energy left');
+    		this.toggleButtons(this.MountainButtons,false);
+    		return;
+  	}
   	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.MountainButtons.hour, this.MountainButtons.minute);
   	this.history.unshift(this.horse.name + " is taking a ride in the mountains");
   	if (this.horse.energy > 0) this.horse.energy =this.horse.energy+this.MountainButtons.energy;
@@ -410,13 +373,14 @@ RefreshEnergy(ms: number) {
   	if (this.horse.energy<0){
     		this.horse.energy=0;
 	}
-
+/* Check energy and disable/enable appropriate buttons */
 	this.checkEnergy();
+	/* write data back to database */
   	this.horseDataService.setHorseEnergy(this.horse);
   	this.horseDataService.setHorseMorale(this.horse);
     //this.toggleButtons(this.ForestButtons, 'forest',true);   
-  }
-
+}
+/* used to check energy and other stats and disable/enable appropriate buttons */
 public checkEnergy(){
 	if (this.horse.energy<50) this.horse.morale-5;
 	    
@@ -442,7 +406,7 @@ public checkEnergy(){
       		this.toggleButtons(this.MountainButtons,false);
     	}
   }
-
+/* Used to set default hours and/or minutes that each button will take/add from current horse time when clicked */
 public setButtonDefaults(button : HorsePageButtons,min:number,hour:number){
     	button.minute=min;
     	button.hour=hour;
@@ -453,9 +417,9 @@ public setButtonDefaults(button : HorsePageButtons,min:number,hour:number){
       buttonChange -> string name of which button to change
       toggle -> boolean, true or false to enable or disable button
   */
-  public toggleButtons(button: HorsePageButtons, toggle:boolean) {
+public toggleButtons(button: HorsePageButtons, toggle:boolean) {
       //button.enabled = !button.enabled;
-    	button.enabled=toggle;
+	button.enabled=toggle;
     	let buttonChange=button.name;
     	switch (buttonChange) {
       		case 'feed':
@@ -571,21 +535,21 @@ public setButtonDefaults(button : HorsePageButtons,min:number,hour:number){
           		}
           		break;
      }
-  }
+}
 /* toggle function for enabling and disabling of rating star changing */
-  toggle() {
+toggle() {
     if (this.ctrl.disabled) {
       this.ctrl.enable();
     } else {
       this.ctrl.disable();
     }
-  } // end of toggle() function
+} // end of toggle() function
 
   // Load Horse Image function
-  LoadHorseImage() {
-      this.imagePath = 'assets/images/horses/';
-      this.imagePath += `${this.img_path}/${this.img_file}`
-    } // end of LoadHorseImage() function
+LoadHorseImage() {
+	this.imagePath = 'assets/images/horses/';
+	this.imagePath += `${this.img_path}/${this.img_file}`
+} // end of LoadHorseImage() function
     
   // GetBreeds function, used to get the breed image file for horse
 public getBreeds() {
@@ -599,11 +563,11 @@ public getBreeds() {
           		}
         	});
       });
-    }// end of GetBreeds function
+}// end of GetBreeds function
   
     // GetColors function, used to get coat color image file for horse
-  getColors() {
-    	this.colorService.getColors().subscribe(clr => {
+getColors() {
+	this.colorService.getColors().subscribe(clr => {
       	this.allColors = clr.map(res => {
 	        return {
 	          	id: res.payload.doc.id,
@@ -612,5 +576,5 @@ public getBreeds() {
         		}
       		});
     	});
-  } // end of getColors function
+} // end of getColors function
 } // end horse-page component class
