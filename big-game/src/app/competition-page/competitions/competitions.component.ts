@@ -55,5 +55,4 @@ export class CompetitionsComponent implements OnInit {
 			console.log('comps ', this.allCompetitions)
 		})
 	}
-		
 }
