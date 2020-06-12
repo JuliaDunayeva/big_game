@@ -154,19 +154,15 @@
                         <div class="card-body">
                             <div class="col-10 form-group center-text card-middle-title">
                                 Energy
-                                <ngb-progressbar type="success" [value]="horse?.energy">%{{ horse?.energy }}
-                                </ngb-progressbar>
+                                <div id="energyBar" class="energyBar"></div>
                             </div>
                             <div class="col-10 form-group center-text card-middle-title">
                                 Health
-                                <!-- <div class="progress-bar " [style.width]="(horse?.health) "></div> -->
-                                <ngb-progressbar type="danger" [value]="horse?.health">%{{ horse?.health }}
-                                </ngb-progressbar>
+                                <div id="healthBar" class="healthBar"></div>
                             </div>
                             <div class="col-10 form-group center-text card-middle-title">
                                 Morale
-                                <ngb-progressbar type=" " [value]="horse?.morale ">%{{ horse?.morale }}
-                                </ngb-progressbar>
+                                <div id="moraleBar" class="moraleBar"></div>
                             </div>
                         </div>
                     </div>
