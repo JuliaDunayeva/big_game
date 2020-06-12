@@ -30,8 +30,6 @@ import { PlayBarMiniComponent } from './play-bar/play-bar-mini/play-bar-mini.com
 import { ModalOptionsComponent } from './modal-options/modal-options.component';
 import {TackPageComponent} from './../app/store-page/tack-page/tack-page.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,5 +77,5 @@ import {TackPageComponent} from './../app/store-page/tack-page/tack-page.compone
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 export class NgbdRatingFormModule {}
