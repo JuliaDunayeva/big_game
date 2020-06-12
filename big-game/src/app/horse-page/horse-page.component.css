@@ -32,9 +32,7 @@
     max-height: 200px;
 }
 
-
 /* Leave in horse page css */
-
 .bold-header {
     font-weight: bold;
 }
@@ -153,7 +151,6 @@
     border-radius: 10px;
 }
 
-
 /*equip my horse*/
 
 .inline-flex {
@@ -216,9 +213,7 @@ li {
     }
 }
 
-
 /** Medium devices (tablets, 768px and up)*/
-
 @media (min-width: 768px) and (max-width: 991.98px) {
     .max-width-column {
         margin-left: 50px;
@@ -239,9 +234,7 @@ li {
     }
 }
 
-
 /** Large devices (desktops, 992px and up)*/
-
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .max-width-column {
         margin-left: 5%;
