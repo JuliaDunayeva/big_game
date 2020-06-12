@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './play-bar.component.html',
   styleUrls: ['./play-bar.component.css'],
 })
+
 export class PlayBarComponent implements OnInit {
   
   id:any;
@@ -15,6 +16,4 @@ export class PlayBarComponent implements OnInit {
   ngOnInit(): void {
     this.id=sessionStorage.getItem('horseId');
   }
-  
-
 }
