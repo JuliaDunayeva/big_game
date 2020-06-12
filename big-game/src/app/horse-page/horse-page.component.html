@@ -263,12 +263,12 @@
             </div>
 
             <div class="card card-light-green card-middle-title ">
-                <div class="card-body card-title hight ">
+                <div class="card-body card-title hi-light ">
                     <div class="inline-block ">
                         <div>
-                            <p class="margin3 ">Items</p>
+                            <p class="item-title-margin">Items</p>
                         </div>
-                        <div class="margin2 ">
+                        <div class="item-list-margin">
                             <img *ngFor="let item of items" src="{{ item }}" />
 
                         </div>
@@ -323,7 +323,7 @@
                             </ng-template>
                         </ng-container>
                     </nav>
-                    <div [ngbNavOutlet]="nav " class="mt-2 card-light-green "></div>
+                    <div [ngbNavOutlet]="nav" class="card-light-green "></div>
                 </div>
             </div>
         </div>
@@ -454,4 +454,7 @@
         <br>
         <app-footer></app-footer>
     </div>
+</div>
+<div class="container-fluid center">
+    <app-footer></app-footer>
 </div>
