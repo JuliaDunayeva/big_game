@@ -24,9 +24,7 @@ export class NavBarComponent implements OnInit {
         return this.user;
       }
 
-  Logout(){
+  Logout() {
     sessionStorage.clear();
   }
-
-  
 }
