@@ -161,11 +161,11 @@ export class HorseDataService {
 
 		//return the number of seconds divided by 240 to return a circle degree
 		let percent = Math.floor(
-									(
-										(Number(updatedTime.currentHourString) * 3600 
-										 + Number(updatedTime.currentMinuteString) * 60)
-									) / 240 * (100/360)
-								)
+        (
+          (Number(updatedTime.currentHourString) * 3600 
+           + Number(updatedTime.currentMinuteString) * 60)
+        ) / 240 * (100/360)
+      )
 		console.log("time: ", updatedTime, "percent: ", percent);
 		
 		return percent;
@@ -203,7 +203,6 @@ export class HorseDataService {
 		updatedTime.currentHourString = newHour.toString()
 		updatedTime.currentMinuteString = newMinute.toString()
 
-		
 		//check if the hour and minute strings are 1 digit, add 0 before them.
 		if (updatedTime.currentMinuteString.length == 1) {
 			updatedTime.currentMinuteString = "0" + updatedTime.currentMinuteString;
@@ -212,8 +211,10 @@ export class HorseDataService {
 			updatedTime.currentHourString = "0" + updatedTime.currentHourString;
 		}
 		return updatedTime
-	} // end of calculateNewTime function
-/* Next two functions are used for selling a horse */
+	}
+  // end of calculateNewTime function
+  /* Next two functions are used for selling a horse */
+  
 	updateTheSale(id: string, toSell: boolean) {
 		return this.db.collection('/horse_data').doc(id).update({
 			'toSell': toSell
