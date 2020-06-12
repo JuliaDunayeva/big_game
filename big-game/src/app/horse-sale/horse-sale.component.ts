@@ -15,6 +15,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   templateUrl: './horse-sale.component.html',
   styleUrls: ['./horse-sale.component.css']
 })
+
 export class HorseSaleComponent implements OnInit {
   allHorses: Breed[];
   allHorseData: Array<HorseData>;
@@ -42,7 +43,7 @@ export class HorseSaleComponent implements OnInit {
         console.log('uid', this.authService.getUId())
     }
 
-    getHorseData(){
+    getHorseData() {
       this.horseService.getHorsesForSale().subscribe(
         res => {
           this.allHorseData = res as Array<HorseData>;
@@ -80,7 +81,7 @@ export class HorseSaleComponent implements OnInit {
       this.saleOfHorse = toSell;
     }
     
-    swapUser(){
+    swapUser() {
       const toSell = this.setSale(this.saleOfHorse)
       this.horseService.updateTheSale(this.idOfHorse, toSell)
       const userId = this.setUser(this.newId)
