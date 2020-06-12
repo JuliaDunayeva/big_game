@@ -19,17 +19,17 @@
                     <i class="angle double right icon"></i>Tack & Saddle Market
                 </a>
             </div>
-            <div class="col-sm-3 "></div>
+            <div class="col-sm-3 "><img class="st-img" src="./assets/images/black-store/marche-noir.png"></div>
             <div class="col-sm-4 ">
-                <img class="st-img" src="./assets/images/black-store/marche-noir.png">
+                
             </div>
         </div>
         <div class="row second-row">
-            <div class="col-md-6"><hr></div>
+            <div class="col-md-2"></div>
+            <h2 class="pad-left color-tx-maroon ">Tack & Saddle Market</h2><img class="st-img" src="\assets\images\tack-page\horse-tack.PNG">
         </div>
         <div class="row">
             <div class="col-md-3">
-                <h2 class="pad-left color-tx-maroon ">Tack & Saddle Market</h2>
             </div>
         </div>
         <div class="row">
@@ -45,11 +45,37 @@
                     <div class="col-md-5 mycard-light-green">
                         <div >
                             <div class="row ">
-                                <div class="col-sm-3">
-                                </div>
+                                <div class="col-sm-3"></div>
                                 <div class="col-sm-9">
-                                    <h5 class="b-st box-head">Italian tack</h5>
-                                    <p class="">Best quality, excellent fit.</p>
+                                    <div class="">
+                                        <li ngbDropdown >
+                                            <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                                <h5 class="box-head">Italian tack</h5>
+                                                <p class="">Best quality, excellent fit.</p>
+                                            </a>
+                                            <div ngbDropdownMenu class="drop-box" id="background">
+                                                <div class="popup color-beige color-tx-green">
+                                                    <div>
+                                                        <h3>Italian Tack</h3><img class="st-img" src="\assets\images\tack-page\black-saddle-resize.png">
+                                                    </div>
+                                                    <form>
+                                                        <div *ngFor="let horse of allHorses">
+                                                            <label >
+                                                                <input type="radio"  [id]="horse.id" name="horse"
+                                                                    [value]="horse.id"/>
+                                                                <span class="checkmark radio-border"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                             <button class="btn-shops btn-shops-lrg"></button>
+                                                        </div>
+                                                    </form> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                    <h5 class="b-st box-head"></h5>
+                                    <p class=""></p>
                                 </div>
                                 <div class="">
                                     <li ngbDropdown >
@@ -60,7 +86,7 @@
                                         <div ngbDropdownMenu class="drop-box" id="background">
                                             <div class="popup color-beige color-tx-green">
                                                 <div>
-                                                    <h3>List of the all the horses</h3>
+                                                    <h3>Western tack</h3><img class="st-img" src="\assets\images\tack-page\brown-saddle-resize.png">
                                                 </div>
                                                 <form>
                                                     <div *ngFor="let horse of allHorses">
@@ -98,7 +124,7 @@
                                             <div ngbDropdownMenu class="drop-box" id="background">
                                                 <div class="popup color-beige color-tx-green">
                                                     <div>
-                                                        <h3>List of the all the horses</h3>
+                                                        <h3>Fox-hunt tack</h3><img class="st-img" src="\assets\images\tack-page\dark-brown-saddle-resize.png">
                                                     </div>
                                                     <form>
                                                         <div *ngFor="let horse of allHorses">
@@ -125,19 +151,14 @@
                                             <div ngbDropdownMenu class="drop-box" id="background">
                                                 <div class="popup color-beige color-tx-green">
                                                     <div>
-                                                        <h3 class="box-head">Competition tack</h3>
-                                                        <p class="b-st ">Helping you gain that edge.</p>
-                                                    </div>
-                                                    <div>
-                                                        <h3>List of the all the horses</h3>
+                                                        <h3>Competition tack</h3><img class="st-img" src="\assets\images\tack-page\SADDLE_Cadence-Revised-Oct-24-2017-resize.png">
                                                     </div>
                                                     <form>
                                                         <div *ngFor="let horse of allHorses">
                                                             <label >
-                                                                <input type="radio"  [id]="horse.id" name="horse"
-                                                                    [value]="horse.id"/>
+                                                                <input type="radio"  [id]="" name=""
+                                                                    [value]=""/>
                                                                 <span class="checkmark radio-border"></span>
-                                                            
                                                             </label>
                                                         </div>
                                                         <div>
@@ -158,7 +179,6 @@
                         <div>
                             <div class="row ">
                                 <div class="col-sm-3">
-
                                 </div>
                                 <div class="col-sm-9"></div>
                             </div>
