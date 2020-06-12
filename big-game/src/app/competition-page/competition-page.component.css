@@ -86,7 +86,9 @@ p {
 }
 
 .equus {
-    width: 25%;   
+    width: 25%;
+    margin-right: 10px;
+    margin-left: 10px;   
 }
 
 .tl-col3 {
