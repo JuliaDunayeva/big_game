@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable, from } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Compete } from '../compete';
-import { Breed } from '../breed';
 import { BreedService } from './breed.service';
 
 @Injectable({
@@ -19,11 +16,12 @@ export class CompetitionService {
 	over: boolean;
 	raceDate: Date;
 	compType: string;
+	Compete: Compete[];
 
 	constructor(public db: AngularFirestore, private breedService: BreedService) {}
 
 	getCompetitions() {
-		return this.db.collection('/competitions').valueChanges();
+		return this.db.collection('competitions', ref=> ref.where('over','==', false)).valueChanges();
 	}
 
 	createCompetition(compName: string, breed: string, compType: string) {
@@ -37,8 +35,6 @@ export class CompetitionService {
 		this.ranks = this.getRandRank();
 		this.over = false;
 		let today = new Date();
-
-
 		this.db.collection('competitions').add({
 			compName: compName,
 			difficulty: this.difficulty,
@@ -50,7 +46,7 @@ export class CompetitionService {
 			raceDate: today,
 			compType: compType,
 		});
-	
+
 	}
 
 	getRandStats(): number {

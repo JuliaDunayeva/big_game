@@ -61,11 +61,23 @@
             </div>
         </div>
         <hr>
-        <!-- <div class="row ">
-            <Div class="col-sm-10 card-light-green pad-left display">
-                
+        <div class="row display">
+            <Div class="col-5 card-light-green" >
+                <form >
+                    <div *ngIf="allCompetitions?.length > 0; else noItems">
+                        <ul class="display-vert" *ngFor="let competitions of allCompetitions">
+                            <li>{{competitions.compName}}, {{competitions.breed}}</li>
+                        </ul>
+                    </div>
+                </form>
+                <br>
+            </Div>
+            <ng-template #noItems>
+                <h5>There are no Competitions</h5>
+            </ng-template>
+        </div>
             
-        </Div> -->
+        
     </div> <!-- folder end-->
     <br><br>
     <div>
