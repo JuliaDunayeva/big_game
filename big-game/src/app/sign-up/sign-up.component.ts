@@ -107,7 +107,6 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
-
       if (a.length == 0) {
         this.validEmail = true;
         this.userService.createUser(this.signupForm.value).then((res) => {
