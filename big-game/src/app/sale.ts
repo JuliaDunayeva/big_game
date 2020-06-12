@@ -16,7 +16,5 @@ export class Sale {
             this.buyDate = buyDate;
             this.sold = sold;
             this.price = price;
-        }
-        
-
+    }
 }
