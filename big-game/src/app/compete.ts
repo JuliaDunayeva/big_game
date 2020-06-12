@@ -21,5 +21,4 @@ constructor(compName: string, difficulty: number, energy: number, kitty: number,
   this.compType = compType;
   this.raceDate = raceDate;
   }
-
 }
