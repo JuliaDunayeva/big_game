@@ -7,9 +7,10 @@ import { Breed } from '../breed';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BreedService {
 
-  constructor(public db: AngularFirestore) { }
+  constructor(public db: AngularFirestore) {}
 
   // get all the breeds listed in firebase
   getBreeds(): Observable<any> {
@@ -20,5 +21,4 @@ export class BreedService {
   getBreedById(id: string){
     return this.db.collection('breed').doc(id).ref.get()
   }
-  
 }

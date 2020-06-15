@@ -72,10 +72,6 @@
                 <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
                     class="text-danger">Please enter a valid email!
                 </span>
-                <!-- <app-alert *ngIf="!validEmail"></app-alert>  -->
-                <!-- <span *ngIf="!validEmail" class="text-danger">
-                    {{warning}}
-                </span> -->
             </div>
             <div>
                 <label for="password">Password</label>
@@ -100,7 +96,6 @@
                 != signupForm.get('password').value" class="text-danger">
                     The passwords entered do not match
                 </span>
-
             </div>
             <div class="center">
                 <div>
@@ -116,17 +111,17 @@
                         </h4>
                     </div>
                 </div>
-                <br />
+                <br/>
                 <div>
                     <button class="btn-signup btn-lg" type="submit" value="Play" [disabled]="!signupForm.valid">
                         Play
                     </button>
                 </div>
-                <br />
+                <br/>
                 <div>
                     <p>
                         This information is collected by Owlient to create your account.
-                        <br />
+                        <br/>
                         <a>More information about the processing of your personal data and
                             your rights.
                         </a>

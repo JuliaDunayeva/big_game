@@ -1,4 +1,3 @@
-
 import { UserDataService } from './../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -108,7 +107,6 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     let user = this.userService.signUpUser(this.signupForm).subscribe((a) => {
-
       if (a.length == 0) {
         this.validEmail = true;
         this.userService.createUser(this.signupForm.value).then((res) => {

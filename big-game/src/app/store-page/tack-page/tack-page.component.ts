@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tack-page.component.html',
   styleUrls: ['./tack-page.component.css']
 })
+
 export class TackPageComponent implements OnInit {
   public allHorses = [];
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
-
 }

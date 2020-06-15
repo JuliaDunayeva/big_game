@@ -9,6 +9,7 @@ import { SaddlesService } from './../services/saddles.service';
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./modal-options.component.css']
 })
+
 export class ModalOptionsComponent  {
   allEquipment: Equipment[];
   path: string = 'assets/images/tack-page/'
@@ -19,9 +20,9 @@ export class ModalOptionsComponent  {
     this.showlist()
    }
 
-   showlist(){
-    this.saddlesService.getSaddlesList().subscribe(data =>{
-      this.allEquipment = data.map(res =>{
+   showlist() {
+    this.saddlesService.getSaddlesList().subscribe(data => {
+      this.allEquipment = data.map(res => {
         console.log('saddles', res)
         return{
           saddleId: res.payload.doc.id,
@@ -39,8 +40,5 @@ export class ModalOptionsComponent  {
        }
       })
     })
-
   }
-
-
 }

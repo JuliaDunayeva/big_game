@@ -138,7 +138,6 @@ hr {
 
 .centered {
     display: flex;
-
 }
 
 .plus {
@@ -162,7 +161,7 @@ hr {
         width: 100px;
     }  
 
-    .img-size{
+    .img-size {
         margin-left: 60px;
     }
 }
@@ -180,7 +179,7 @@ hr {
         margin-left: 30px;
     }
 
-    .col-md-7{
+    .col-md-7 {
         margin-left: 50px;
         max-width: 400px;
     }

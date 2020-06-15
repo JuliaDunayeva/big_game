@@ -100,16 +100,18 @@ input {
 .col-sm-5 {
   margin-top: 60px;
 }
+
 .hr-fix {
-    width: 98%;
-    margin-left: unset;
-  }
+  width: 98%;
+  margin-left: unset;
+}
 
 @media (min-width: 578px) and (max-width: 767.98px) {
   .col-sm-5 {
     width: 480px;
     display: block;
   }
+  
   .hr-fix {
     width: 76%;
     margin-left: unset;
@@ -126,5 +128,4 @@ input {
   .col-sm-5 {
     margin-top: 60px;
   }
- 
 }
