@@ -39,7 +39,10 @@ export class HorsePageComponent implements OnInit {
   	TrottingCompButtons:HorsePageButtons = new HorsePageButtons('trotting');
   	/* Breeding Tab Buttons*/
   	BreedingInfoButtons:HorsePageButtons = new HorsePageButtons('breedinginfo');
-  	CoverMareButtons:HorsePageButtons = new HorsePageButtons('covermare');
+	CoverMareButtons:HorsePageButtons = new HorsePageButtons('covermare');
+	  
+	PutToBedButtons:HorsePageButtons = new HorsePageButtons('bed');
+	AgeButtons:HorsePageButtons = new HorsePageButtons('age');
 	/* Declare temporary history Array */
   	public history:string[] = [];
 	/* Declare Arrays for all the breeds and colors */  
@@ -99,7 +102,7 @@ export class HorsePageComponent implements OnInit {
   	public eq_reg_button:string = 'assets/images/horse-page-icons/eq-reg-button-enabled.png';
   	public items:string[] = [];
 
-	  updatedTime: {currentHourString: string, currentMinuteString: string};
+	updatedTime: {currentHourString: string, currentMinuteString: string};
 
   	public user: UserData;
 
@@ -130,7 +133,7 @@ ngOnInit(): void {
       		.getUserByID(this.authService.getUId())
       		.subscribe((ref) => {
         		this.user = ref;
-	      });
+	     });
        // streamline buttons code
     /* Define images for Competition Tab Buttons */
 	this.BarrelCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png';
@@ -168,7 +171,7 @@ ngOnInit(): void {
     	this.GroomButtons.enabledImage =      'assets/images/horse-page-icons/groom-button-enabled.png';
     	this.GroomButtons.disabledImage =      'assets/images/horse-page-icons/groom-button-disabled.png';
 	    //this.GroomButtons.energy=-15;
-	this.GroomButtons.morale=5;
+		this.GroomButtons.morale=5;
     	this.setButtonDefaults(this.GroomButtons, 0, 15);
     
     	this.CarrotButtons.enabledImage =      'assets/images/horse-page-icons/carrot-button-enabled.png';
@@ -203,7 +206,16 @@ ngOnInit(): void {
     /* Define image for empty placeholder button*/
     	this.EmptyButtons.enabledImage = 'assets/images/horse-page-icons/empty-button.png';
     	this.EmptyButtons.disabledImage = 'assets/images/horse-page-icons/empty-button.png';
-    	this.setButtonDefaults(this.EmptyButtons, 0, 0);
+	this.setButtonDefaults(this.EmptyButtons, 0, 0);
+
+	this.PutToBedButtons.enabledImage = 'assets/images/horse-page-icons/put-to-bed-disabled.png';
+    	this.PutToBedButtons.disabledImage = 'assets/images/horse-page-icons/put-to-bed-enabled.png';
+	this.setButtonDefaults(this.PutToBedButtons, 0, 0);
+
+	this.AgeButtons.enabledImage = 'assets/images/horse-page-icons/age-button-enabled.png';
+    	this.AgeButtons.disabledImage = 'assets/images/horse-page-icons/age-button-disabled.png';
+	this.setButtonDefaults(this.AgeButtons, 0, 0);
+		
       /* Care Tab buttons */
     	this.toggleButtons(this.FeedButtons, true);
     	this.toggleButtons(this.DrinkButtons, true);
@@ -211,7 +223,10 @@ ngOnInit(): void {
     	this.toggleButtons(this.GroomButtons, false);
     	this.toggleButtons(this.CarrotButtons, false);
     	this.toggleButtons(this.MashButtons, false);
-    	this.toggleButtons(this.EmptyButtons, false);
+	this.toggleButtons(this.EmptyButtons, false);
+	/*Night tab Buttons */
+	this.toggleButtons(this.PutToBedButtons, true);
+	this.toggleButtons(this.AgeButtons, true);
     /* Ride tab buttons */
     	this.toggleButtons(this.ForestButtons, false);
     	this.toggleButtons(this.MountainButtons, false);
@@ -311,7 +326,7 @@ public GroomButton() {
 	this.checkButtons();
     //this.toggleButtons(this.GroomButtons, 'groom',true);
   } // end of Groom Button function
-
+ 
   // Carrot Button function
 public CarrotButton() {
 	this.history.unshift(this.horse.name + " ate a carrot");
@@ -325,6 +340,17 @@ public MashButton() {
 	this.toggleButtons(this.MashButtons, true);
 	this.checkButtons();
 }// end of Mash Button function
+
+
+public PutToBedButton() {
+	this.toggleButtons(this.PutToBedButtons, false);
+	this.checkButtons();
+}// end of Put to bed Button function
+
+public AgeButton() {
+	this.toggleButtons(this.AgeButtons, false);
+	this.checkButtons();
+}// end of Age Button function
 
   // Feed Button function
 public FeedButton() {
@@ -560,7 +586,21 @@ public toggleButtons(button: HorsePageButtons, toggle: boolean) {
           		} else {
             			this.WesternPleasureCompButton = button.disabledImage;
           		}
-          		break;
+				  break;
+			case 'bed':
+					if (button.enabled) {
+						  this.putToBedButton = button.enabledImage;
+					} else {
+						  this.putToBedButton = button.disabledImage;
+					}
+					break;
+			case 'age':
+					if (button.enabled) {
+						  this.ageButton = button.enabledImage;
+					} else {
+						  this.ageButton = button.disabledImage;
+					}
+					break;
      }
 }
 /* toggle function for enabling and disabling of rating star changing */
