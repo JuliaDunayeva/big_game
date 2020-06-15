@@ -146,8 +146,12 @@
                     <!-- Percent of time remaining-->
                     <div class="row">
                         <div class="positionRelative">
-                            <circle-progress class="time-left-padding time-top-padding" [clockwise]="false" [percent]="percent" [radius]="40" [maxPercent]="100" [outerStrokeWidth]="10" [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"
-                                [animationDuration]="300" [showBackground]="true" [showTitle]="true" [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString" [titleFontSize]="16 "[showSubtitle]="false" [showUnits]="false" [responsive]="false">
+                            <circle-progress class="time-left-padding time-top-padding" [clockwise]="false" [percent]="percent" [radius]="40" [maxPercent]="100" 
+                                [outerStrokeWidth]="10" [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"
+                                [animationDuration]="300" [showBackground]="true" [showTitle]="true" 
+                                [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString" 
+                                [titleFontSize]="16" [titleFontWeight]="700"
+                                [showSubtitle]="false" [showUnits]="false" [responsive]="false">
                             </circle-progress>
                             
                         </div>
