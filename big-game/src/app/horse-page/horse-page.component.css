@@ -153,10 +153,16 @@
     border-radius: 10px;
 }
 
+.outer-bar {
+    width: 256px;
+    background-color: aliceblue;
+}
+
 .energyBar {
     width: 1%;
     height: 15px;
     border: 1px solid #663300;
+    border-radius: 8px;
     background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
@@ -164,6 +170,7 @@
     width: 1%;
     height: 15px;
     border: 1px solid #663300;
+    border-radius: 8px;
     background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
@@ -171,6 +178,7 @@
     width: 1%;
     height: 15px;
     border: 1px solid #663300;
+    border-radius: 8px;
     background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
