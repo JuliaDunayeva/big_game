@@ -38,8 +38,9 @@
                     <div *ngIf="allHorseData?.length > 0; else noItems">
                         <label class="display-vert pad-left" *ngFor="let horse of allHorseData" >
                             <input type="radio" formControlName="userHorse" name="userHorse" [value]="horse.name" [id]="horse.id" 
-                            (click)="selectedHorse($event)" (click)="onHorseSelect(horse.id, horse.toSell)">
+                            (click)="selectedHorse($event)" (click)="onHorseSelect(horse.id, horse.toSell)"(click)="onhorseRetire(horse.id,horse.dob)">
                             &nbsp; &nbsp;<strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
+                        <span class="color-tx-green"> ({{horse.dob.seconds *1000| date: 'short'}})</span>
                         </label>
                     </div>
                     <div class="display centered">
@@ -51,6 +52,8 @@
                         [routerLink]="['/horse-sale']" routerLinkActive="router-link-active"
                          >
                         Sell 500e</button>
+                        <div class="col-1"></div>
+                        <button class="btn-shops btn-shops-lrg" (click)="retireHorse()">Retire</button>
                     </div>
                 </form>
                 <br>

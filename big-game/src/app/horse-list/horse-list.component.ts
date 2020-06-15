@@ -41,6 +41,7 @@ export class HorseListComponent implements OnInit {
   horseValues: { name, breed, color };
   selectHorse: FormGroup
   defaultHorse: any;
+  notnow = 'Its not the time to retire';
 
     constructor(private breedService: BreedService, 
         private colorService: ColorService, 
@@ -130,7 +131,7 @@ export class HorseListComponent implements OnInit {
   saleOfHorse: boolean;
   onHorseSelect(id, toSell: boolean) {
     this.idOfHorse = id;
-    this.saleOfHorse = toSell
+    this.saleOfHorse = toSell;
   }
 
   swapSale(){
@@ -143,5 +144,28 @@ export class HorseListComponent implements OnInit {
       return true
     } 
     return false 
+  }
+
+  delete(){
+    this.horseService.deleteHorsedata(this.idOfHorse)
+  }
+  
+  dobofHorse: any;
+  onhorseRetire(id, dob:any){
+    this.idOfHorse = id;
+    this.dobofHorse =dob;
+    console.log(this.dobofHorse);
+  }
+  
+  diffIndob:any;
+  retireHorse(){
+    const timestamp = Date.now()/1000;
+    this.diffIndob = this.dobofHorse.seconds-timestamp
+    console.log(this.diffIndob )
+    if (this.diffIndob <-605000) {
+    this.delete();
+    }else{
+      alert(this.notnow);
+    }
   }
 }

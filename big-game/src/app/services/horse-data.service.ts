@@ -226,4 +226,9 @@ export class HorseDataService {
 			'userId': userId
 		})
 	}// end of updateTheUser function
+
+	deleteHorsedata(id:string){
+		return this.db.collection('/horse_data').doc(id).delete()
+	}//end of delete function 
+	
 } // end of horse data service
