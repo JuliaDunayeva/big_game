@@ -352,7 +352,11 @@ public MashButton() {
 
 
 public PutToBedButton() {
+	if (this.horse.health<100) this.horse.health+=10;
+	if (this.horse.health>100) this.horse.health=100;
 	this.toggleButtons(this.PutToBedButtons, !this.PutToBedButtons.enabled);
+	this.horseDataService.setHorseHealth(this.horse);
+	this.updateHealthBar()
 	this.checkButtons();
 }// end of Put to bed Button function
 
@@ -436,6 +440,10 @@ public MountainButton(){
 
 public BarrelComp(){
 this.history.unshift(' is Competing in a Barrel Race Competition');
+if (this.horse.health>0 ) this.horse.health-=1;
+
+this.horseDataService.setHorseHealth(this.horse);
+	this.updateHealthBar()
 }
 
 public CuttingComp(){
