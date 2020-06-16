@@ -9,6 +9,11 @@ interface Time {
 	currentHourString: string,
 	currentMinuteString: string
 }
+interface Age {
+	year: number,
+	month: number,
+	day: number
+}
 
 @Injectable({
 	providedIn: 'root'
@@ -157,31 +162,35 @@ export class HorseDataService {
 	}
 
 	/* Update time used on horse page */
-	updateHorseTime(time: Time, hour: number, minute: number): number {
+	updateHorseTime(time: Time, age, hour: number, minute: number): number {
 		let id = this.authService.getHorseId();
 		let updatedTime: Time
-
+		let updated: { time: Time, age: Age }
 		//get the new time
-		updatedTime = this.calculateNewTime(time, hour, minute)
+		updated = this.calculateNewTime(time, age, hour, minute)
 		//update the database with new time
-		this.db.collection('horse_data').doc(id).update({ 'time': updatedTime })
+		this.db.collection('horse_data').doc(id).update({ 'time': updated.time })
+		this.db.collection('horse_data').doc(id).update({ 'age': updated.age })
 
 		//return the number of seconds divided by 240 to return a circle degree
 		let percent = Math.floor(
 			(
-				(Number(updatedTime.currentHourString) * 3600
-					+ Number(updatedTime.currentMinuteString) * 60)
+				(Number(updated.time.currentHourString) * 3600
+					+ Number(updated.time.currentMinuteString) * 60)
 			) / 240 * (100 / 360)
 		)
-		console.log("time: ", updatedTime, "percent: ", percent);
+		console.log("time: ", updated.time, "percent: ", percent);
 
 		return percent;
 	}//end of updateHorseTime function
 	/* Calculate new time for use on the horse page */
-	calculateNewTime(time: Time, hour: number, minute: number): Time {
+	calculateNewTime(time: Time, age: Age, hour: number, minute: number): { time: Time, age: Age } {
+		let updated: { time: Time, age: Age }
 		let updatedTime: Time = { currentHourString: '', currentMinuteString: '' }
+		let updatedAge: Age = age;
 		let newHour: number;
 		let newMinute: number;
+
 
 		/*retrieving the current time hour and minute from 'time' property
 		and using Number() to convert them to number*/
@@ -195,6 +204,10 @@ export class HorseDataService {
 		//updating updatedTime currentMinuteString property
 		if (newMinute == 0 && newHour == 0) {
 			newHour = 24;
+			//updating age day
+			updatedAge.day++;
+			//updating age month
+			updatedAge = this.updateAge(updatedAge);
 		} else if (newMinute < 0) {
 			newHour--;
 			newMinute = Math.abs(newMinute);
@@ -217,7 +230,31 @@ export class HorseDataService {
 		if (updatedTime.currentHourString.length == 1) {
 			updatedTime.currentHourString = "0" + updatedTime.currentHourString;
 		}
-		return updatedTime
+		updated = { time: updatedTime, age: updatedAge }
+		return updated;
+	}
+	updateAge(age: Age): Age {
+		let updatedAge: Age = age;
+
+		//update month
+		if (updatedAge.day == 30 && updatedAge.month == 2) {
+			updatedAge.day = 1;
+			updatedAge.month++
+		} else if (updatedAge.day == 31 && (updatedAge.month == 4 || 6 || 9 || 10)) {
+			updatedAge.day = 1;
+			updatedAge.month++
+		} else if (updatedAge.day == 32) {
+			updatedAge.day = 1;
+			updatedAge.month++;
+		}
+
+		//update year
+		if (updatedAge.month == 13) {
+			updatedAge.month = 1;
+			updatedAge.year++
+		}
+
+		return updatedAge
 	}
 	// end of calculateNewTime function
 	/* Next two functions are used for selling a horse */
