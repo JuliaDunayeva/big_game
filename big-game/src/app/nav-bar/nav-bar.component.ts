@@ -13,6 +13,7 @@ export class NavBarComponent implements OnInit {
 
   Uid: string = this.authService.getUId();
   user: any;
+  
 
   constructor(private authService: AuthService,
         private userDataService: UserDataService) { }
@@ -26,5 +27,9 @@ export class NavBarComponent implements OnInit {
 
   Logout() {
     sessionStorage.clear();
+  }
+
+  morePasses() {
+    this.userDataService.addPasses()
   }
 }
