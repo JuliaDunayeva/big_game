@@ -3,6 +3,8 @@ import { Breed } from './breed';
 
 export class HorseData {
 	id: string;
+	breed: string;
+	color: string;
 	skill: string;
 	energy: number;
 	gallop: number;
@@ -30,6 +32,5 @@ export class HorseData {
 	b: Breed;
 	isInBed: boolean;
 	time: {currentHourString: string, currentMinuteString: string};
-	age?: {year: number, month: number, day: number}
 	toSell: boolean;
 }
