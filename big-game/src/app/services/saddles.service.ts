@@ -9,9 +9,18 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class SaddlesService {
   Equipment: Equipment[];
 
-  constructor(public db: AngularFirestore) {}
+  constructor(public db: AngularFirestore) { }
 
   getSaddlesList() {
     return this.db.collection('saddles').snapshotChanges()
   }
+
+  getHorseSaddlesIds(horseId) {
+    return this.db.collection('horse_tack', ref => ref.where('horse_id', '==', horseId)).snapshotChanges()
+  }
+
+  getHorseSaddlesNames(saddleId: string){
+    return this.db.collection('saddles').doc(saddleId).ref.get();
+  }
+    
 }
