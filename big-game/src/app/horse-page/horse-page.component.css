@@ -24,8 +24,9 @@
 .scrolling-wrapper {
     overflow-x: hidden;
     overflow-y: scroll;
-    white-space: nowrap;
+    white-space: wrap;
     display: inline-block;
+    text-align: left;
 }
 
 .scroll-height {

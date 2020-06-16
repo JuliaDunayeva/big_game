@@ -219,7 +219,7 @@ ngOnInit(): void {
       /* Care Tab buttons */
     	this.toggleButtons(this.FeedButtons, true);
     	this.toggleButtons(this.DrinkButtons, true);
-    	this.toggleButtons(this.StrokeButtons, false);
+    	this.toggleButtons(this.StrokeButtons, true);
     	this.toggleButtons(this.GroomButtons, false);
     	this.toggleButtons(this.CarrotButtons, false);
     	this.toggleButtons(this.MashButtons, false);
@@ -292,7 +292,7 @@ public DrinkButton() {
 		this.toggleButtons(this.DrinkButtons,false);
 		return
 	}
-    	this.history.unshift(this.horse.name + " is taking a drink");
+    	this.history.unshift( " is taking a drink");
     	//this.toggleButtons(this.DrinkButtons, 'drink',true);
     	this.horse.energy=this.horse.energy + this.DrinkButtons.energy;
     	if (this.horse.energy > 100) this.horse.energy = 100;
@@ -304,7 +304,11 @@ public DrinkButton() {
 
   // Stroke Button function
 public StrokeButton() {
-	    this.history.unshift("Stroking " + this.horse.name);
+	if (!this.StrokeButtons.enabled){
+		alert('no need to stroke the beast');
+		return;
+	}
+	    //this.history.unshift("Stroking " + this.horse.name);
 	    this.checkButtons();
     //this.toggleButtons(this.StrokeButtons, 'stroke',true);
 } // end of Stroke Button function
@@ -317,7 +321,7 @@ public GroomButton() {
 		return;
 	}
 	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.GroomButtons.hour, this.GroomButtons.minute);
-	this.history.unshift("Grooming " + this.horse.name);
+	this.history.unshift(" is bieng Groomed");
     
     	if (this.horse.morale > 0) this.horse.morale = this.horse.morale + this.GroomButtons.morale;
     	if (this.horse.morale > 100) this.horse.morale = 100;
@@ -329,7 +333,11 @@ public GroomButton() {
  
   // Carrot Button function
 public CarrotButton() {
-	this.history.unshift(this.horse.name + " ate a carrot");
+	if (!this.CarrotButtons.enabled) {
+		alert('Have no carrots.');
+		return;
+	}
+	this.history.unshift(" ate a carrot");
 	this.toggleButtons(this.CarrotButtons, !this.CarrotButtons.enabled)
 	this.checkButtons();
     //this.toggleButtons(this.CarrotButtons, 'carrot',true);
@@ -361,7 +369,7 @@ public FeedButton() {
 		      this.toggleButtons(this.FeedButtons, false);
       		return;
     	}
-    	this.history.unshift("Feeding " + this.horse.name);
+    	this.history.unshift(" is eating");
     //this.toggleButtons(this.FeedButtons, 'feed',true);
      	this.horse.energy= this.horse.energy + this.FeedButtons.energy;
 	if (this.horse.energy > 100) this.horse.energy = 100;
@@ -383,7 +391,7 @@ public ForestButton(){
     		return;
   	}
   	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.ForestButtons.hour, this.ForestButtons.minute);
-  	this.history.unshift(this.horse.name + " is taking a ride in the forest");
+  	this.history.unshift(" is taking a ride in the forest");
 	  
 	if (this.horse.energy > 0) this.horse.energy = this.horse.energy  + this.ForestButtons.energy;
   	if (this.horse.morale > 0) this.horse.morale = this.horse.morale + this.ForestButtons.morale;
@@ -407,7 +415,7 @@ public MountainButton(){
     		return;
   	}
   	this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.MountainButtons.hour, this.MountainButtons.minute);
-  	this.history.unshift(this.horse.name + " is taking a ride in the mountains");
+  	this.history.unshift( " is taking a ride in the mountains");
   	if (this.horse.energy > 0) this.horse.energy =this.horse.energy + this.MountainButtons.energy;
   	if (this.horse.morale > 0) this.horse.morale =this.horse.morale + this.MountainButtons.morale;
   	if (this.horse.energy > 100) this.horse.energy = 100;
@@ -425,6 +433,28 @@ public MountainButton(){
 	this.updateMoraleBar();
     //this.toggleButtons(this.ForestButtons, 'forest',true);   
 }
+
+public BarrelComp(){
+this.history.unshift(' is Competing in a Barrel Race Competition');
+}
+
+public CuttingComp(){
+	this.history.unshift(' is Competing in a Cutting Competition');
+}
+
+public TrailComp(){
+	this.history.unshift(' is Competing in a Trail Ride Competition');
+}
+
+public ReignComp(){
+	this.history.unshift(' is Competing in a Reign Competition');
+}
+
+public WesternPleasureComp(){
+	this.history.unshift(' is Competing in a Western Pleasure Competition');
+
+}
+
 /* used to check energy and other stats and disable/enable appropriate buttons */
 public checkButtons(){
 	if (this.horse.energy < 50) this.horse.morale - 5;
