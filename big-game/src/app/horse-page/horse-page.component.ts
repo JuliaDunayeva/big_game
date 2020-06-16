@@ -330,6 +330,7 @@ public GroomButton() {
   // Carrot Button function
 public CarrotButton() {
 	this.history.unshift(this.horse.name + " ate a carrot");
+	this.toggleButtons(this.CarrotButtons, !this.CarrotButtons.enabled)
 	this.checkButtons();
     //this.toggleButtons(this.CarrotButtons, 'carrot',true);
     
@@ -337,18 +338,18 @@ public CarrotButton() {
 
   // Mash button function
 public MashButton() {
-	this.toggleButtons(this.MashButtons, true);
+	this.toggleButtons(this.MashButtons, !this.MashButtons.enabled);
 	this.checkButtons();
 }// end of Mash Button function
 
 
 public PutToBedButton() {
-	this.toggleButtons(this.PutToBedButtons, false);
+	this.toggleButtons(this.PutToBedButtons, !this.PutToBedButtons.enabled);
 	this.checkButtons();
 }// end of Put to bed Button function
 
 public AgeButton() {
-	this.toggleButtons(this.AgeButtons, false);
+	this.toggleButtons(this.AgeButtons, !this.AgeButtons.enabled);
 	this.checkButtons();
 }// end of Age Button function
 
