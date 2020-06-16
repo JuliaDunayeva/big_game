@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 interface Time {
 	currentHourString: string,
 	currentMinuteString: string
-  }
+}
 
 @Injectable({
 	providedIn: 'root'
@@ -19,80 +19,80 @@ export class HorseDataService {
 
 	constructor(
 		public db: AngularFirestore,
-		private authService:AuthService) {}
-/* Get horse data for currently logged in user */
-	getHorsesByUid() : Observable<HorseData[]>{
+		private authService: AuthService) { }
+	/* Get horse data for currently logged in user */
+	getHorsesByUid(): Observable<HorseData[]> {
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', this.authService.getUId()))
-		.snapshotChanges().pipe(
-			map(action => {
-			return action.map(res =>{
-				const horse = res.payload.doc.data() as HorseData;
-				const id = res.payload.doc.id;
-				return { id, ...horse };
+			.snapshotChanges().pipe(
+				map(action => {
+					return action.map(res => {
+						const horse = res.payload.doc.data() as HorseData;
+						const id = res.payload.doc.id;
+						return { id, ...horse };
+					})
 				})
-			})
-		);
+			);
 	} // end of getHorsesByUid function
-/* returns a single horse by user */
+	/* returns a single horse by user */
 	getHorseData() {
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', this.authService.getUId())).valueChanges()
 	} //  end of getHorseData function
-	
 
-/* Get data for horses that are for sale */
-	getHorsesForSale() : Observable<HorseData[]>{
+
+	/* Get data for horses that are for sale */
+	getHorsesForSale(): Observable<HorseData[]> {
 		return this.db.collection('/horse_data', ref => ref.where('toSell', '==', true))
-		.snapshotChanges().pipe(
-			map(action => {
-			return action.map(res =>{
-				const horse = res.payload.doc.data() as HorseData;
-				const id = res.payload.doc.id;
-				return { id, ...horse };
+			.snapshotChanges().pipe(
+				map(action => {
+					return action.map(res => {
+						const horse = res.payload.doc.data() as HorseData;
+						const id = res.payload.doc.id;
+						return { id, ...horse };
+					})
 				})
-			})
-		);
+			);
 	}// end of getHorsesForSale function
-/* write data back to database */
-	setHorseMorale(horse:HorseData){
+	/* write data back to database */
+	setHorseMorale(horse: HorseData) {
 		let cityRef = this.db.collection('/horse_data').doc(horse.id);
 		let setWithOptions = cityRef.set({
-			"morale":horse.morale
-		}, {merge: true});
+			"morale": horse.morale
+		}, { merge: true });
 	} // end of setHorseMorale()
-/* write data back to database */
-	setHorseHealth(horse:HorseData){
+	/* write data back to database */
+	setHorseHealth(horse: HorseData) {
 		let cityRef = this.db.collection('/horse_data').doc(horse.id);
 		let setWithOptions = cityRef.set({
-			"health":horse.health
-		}, {merge: true});
+			"health": horse.health
+		}, { merge: true });
 	}//end of setHorseHealth()
-/* write data back to database */
-	setHorseEnergy(horse:HorseData){
+	/* write data back to database */
+	setHorseEnergy(horse: HorseData) {
 		let cityRef = this.db.collection('/horse_data').doc(horse.id);
 		let setWithOptions = cityRef.set({
-		  "energy":horse.energy
-		}, {merge: true});
+			"energy": horse.energy
+		}, { merge: true });
 	}//end of setHorseEnergy()
-/* write data back to database */
-	setHorseTime(horse:HorseData,currentHourString:string,currentMinuteString:string){
+	/* write data back to database */
+	setHorseTime(horse: HorseData, currentHourString: string, currentMinuteString: string) {
 		let cityRef = this.db.collection('/horse_data').doc(horse.id);
 		let setWithOptions = cityRef.set({
-		  "time": {currentHourString, currentMinuteString}
-		}, {merge: true});
+			"time": { currentHourString, currentMinuteString }
+		}, { merge: true });
 	}//end of setHorseTime()
 	/* Randomly generate stats when creating a new horse */
 	getRandStats(): number {
 		return Math.floor(Math.random() * 100 + 1);
 	}//end of getRandStats()
-/* Randomly select horse gender */
+	/* Randomly select horse gender */
 	getRandGender(): string {
 		if (Math.random() < 0.5) {
 			return 'stallion';
 		}
 		return 'mare';
 	} //end of getRandGender()
-/* Create new horse using random data*/
-	createRandomHorse(value, userId: string, breedId:string, colorId:string, skill:string, name?: string): Observable<DocumentReference> {
+	/* Create new horse using random data*/
+	createRandomHorse(value, userId: string, breedId: string, colorId: string, skill: string, name?: string): Observable<DocumentReference> {
 		let stamina = this.getRandStats();
 		let speed = this.getRandStats();
 		let gallop = this.getRandStats();
@@ -127,33 +127,40 @@ export class HorseDataService {
 				tr_gallop: 0,
 				tr_trot: 0,
 				tr_jumping: 0,
-				time: {currentHourString: "24", currentMinuteString: "00"},
+				time: { currentHourString: "24", currentMinuteString: "00" },
 				toSell: false,
 			})
 		);
 	}//end of createRandomHorse()
-/* Get horse data using provided id */
+	/* Get horse data using provided id */
 	getHorseById(id: string): Observable<HorseData> {
 		return this.db.collection('/horse_data').doc(id).snapshotChanges().pipe(
 			map((res) => {
 				const horse = res.payload.data() as HorseData;
-				horse.id=res.payload.id;
-				
+				horse.id = res.payload.id;
+
 				return horse;
 			})
 		);
 	}// end of getHorseById function
-/* Update horse gender */
+	/* Update horse gender */
 	updateHorseGender(id: string, gender: String) {
 		return this.db.collection('/horse_data').doc(id).update({
 			'gender': gender
 		})
 	} // end of updateHorseGender function
-/* Update time used on horse page */
+
+	updateHorseAge(id, age) {
+		this.db.collection('horse_data').doc(id).update({
+			age: age
+		})
+	}
+
+	/* Update time used on horse page */
 	updateHorseTime(time: Time, hour: number, minute: number): number {
 		let id = this.authService.getHorseId();
-		let updatedTime: Time 
-		
+		let updatedTime: Time
+
 		//get the new time
 		updatedTime = this.calculateNewTime(time, hour, minute)
 		//update the database with new time
@@ -161,18 +168,18 @@ export class HorseDataService {
 
 		//return the number of seconds divided by 240 to return a circle degree
 		let percent = Math.floor(
-        (
-          (Number(updatedTime.currentHourString) * 3600 
-           + Number(updatedTime.currentMinuteString) * 60)
-        ) / 240 * (100/360)
-      )
+			(
+				(Number(updatedTime.currentHourString) * 3600
+					+ Number(updatedTime.currentMinuteString) * 60)
+			) / 240 * (100 / 360)
+		)
 		console.log("time: ", updatedTime, "percent: ", percent);
-		
+
 		return percent;
 	}//end of updateHorseTime function
-/* Calculate new time for use on the horse page */
-	calculateNewTime(time: Time, hour: number, minute: number): Time{
-		let updatedTime: Time = {currentHourString: '', currentMinuteString: ''}
+	/* Calculate new time for use on the horse page */
+	calculateNewTime(time: Time, hour: number, minute: number): Time {
+		let updatedTime: Time = { currentHourString: '', currentMinuteString: '' }
 		let newHour: number;
 		let newMinute: number;
 
@@ -180,24 +187,24 @@ export class HorseDataService {
 		and using Number() to convert them to number*/
 		let currentHour = Number(time.currentHourString)
 		let currentMinute = Number(time.currentMinuteString)
-		
+
 		//calculate the new left hour and minute
 		newHour = Number(currentHour) - Number(hour)
 		newMinute = Number(currentMinute) - Number(minute)
 
 		//updating updatedTime currentMinuteString property
-		if ( newMinute == 0 && newHour == 0) {
+		if (newMinute == 0 && newHour == 0) {
 			newHour = 24;
-		} else if (newMinute < 0 ){
+		} else if (newMinute < 0) {
 			newHour--;
 			newMinute = Math.abs(newMinute);
-		} 
+		}
 
 		//updating updatedTime currentHourString property
 		while (newHour < 0) {
 			newHour = 24 + newHour;
 		}
-		
+
 		/* new time Object to update database */
 		//update hour and minute property with the new strings
 		updatedTime.currentHourString = newHour.toString()
@@ -212,9 +219,9 @@ export class HorseDataService {
 		}
 		return updatedTime
 	}
-  // end of calculateNewTime function
-  /* Next two functions are used for selling a horse */
-  
+	// end of calculateNewTime function
+	/* Next two functions are used for selling a horse */
+
 	updateTheSale(id: string, toSell: boolean) {
 		return this.db.collection('/horse_data').doc(id).update({
 			'toSell': toSell
@@ -227,8 +234,8 @@ export class HorseDataService {
 		})
 	}// end of updateTheUser function
 
-	deleteHorsedata(id:string){
+	deleteHorsedata(id: string) {
 		return this.db.collection('/horse_data').doc(id).delete()
 	}//end of delete function 
-	
+
 } // end of horse data service
