@@ -87,7 +87,7 @@ export class HorseListComponent implements OnInit {
   }
 
   getHorseData(){
-    this.horseService.getHorsesByUid().subscribe(
+    this.horseService.getHorseList().subscribe(
       res => {
         this.allHorseData = res as Array<HorseData>;
         this.allHorseData.map(horse =>{
