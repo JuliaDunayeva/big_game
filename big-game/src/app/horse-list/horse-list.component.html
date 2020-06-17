@@ -24,7 +24,7 @@
                 <hr class="hrtop">
                 <br>
                 <h3 class="no-top-margin display card-title">List of horses for &nbsp;
-                    <span class="color-tx-green"> {{ user.userName }}</span></h3>
+                    <span class="color-tx-green"> {{ user?.userName }}</span></h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Select one of your horses from the farm to play with or to put for sale. </p>
                     <br><br>
@@ -62,9 +62,9 @@
             <Div class="col-5 card-light-green">
                 <br>
                 <h5 class="card-title color-tx-green">Create a new horse for &nbsp;
-                    <span class="color-tx-maroon"> {{ user.userName }}</span>
+                    <span class="color-tx-maroon"> {{ user?.userName }}</span>
                 </h5>
-                <p>You have {{user.equus}} available to spend.</p>
+                <p>You have {{user?.equus}} available to spend.</p>
                 <form class="">
                     <div class="display pad-left">
                         <label class="h6" for="name"  required>Horse Name</label>
@@ -91,7 +91,7 @@
                     <div class="display centered" >
                         <br>
                         <button class="btn-shops btn-shops-lrg pad-left" 
-                        (click)="createRandomHorse(name.value, breed.value, color.value, skill.value)">
+                        (click)="costCheck()" (click)="createRandomHorse(name.value, breed.value, color.value, skill.value)" >
                         <i class="shopping cart icon "></i>
                          1000e</button>
                     </div>
