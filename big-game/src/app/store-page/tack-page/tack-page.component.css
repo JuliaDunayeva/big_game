@@ -4,6 +4,28 @@ li {
     padding: 0;
 }
 
+.popup {
+    min-width: 1010px;
+    font-size: 12px;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #b3b14d;
+    position: relative;
+    box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    height: 500px;
+    right: 350px;
+    bottom: 300px;
+}
+
+.dropdown-menu[x-placement^="top"], 
+.dropdown-menu[x-placement^="right"], 
+.dropdown-menu[x-placement^="bottom"], 
+.dropdown-menu[x-placement^="left"] {
+    right: 0;
+    bottom: 0;
+}
+
 .horse-img {
     margin-left: -13%;
     margin-top: -28%;
