@@ -33,4 +33,5 @@ export class HorseData {
 	isInBed: boolean;
 	time: {currentHourString: string, currentMinuteString: string};
 	toSell: boolean;
+	stud: boolean;
 }

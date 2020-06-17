@@ -19,6 +19,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class HorseListComponent implements OnInit {
   skills = ['Stamina','Gallop', 'Speed', 'Jumping'];
   success = 'A new horse has been added';
+  fail = 'You do not have enough Equus';
+  notnow = 'Your horse is too young to retire';
   allBreeds: Breed[];
   allColors: Color[];
   allHorses: Breed[];
@@ -35,13 +37,12 @@ export class HorseListComponent implements OnInit {
   horseSelectedId: string;
   Uid: string = this.authService.getUId();
   user: any;
-  newHorseCost: number = 1000;
   newEquus: number;
   horse: HorseData;
   horseValues: { name, breed, color };
   selectHorse: FormGroup
   defaultHorse: any;
-  notnow = 'Its not the time to retire';
+  
 
     constructor(private breedService: BreedService, 
         private colorService: ColorService, 
@@ -115,8 +116,27 @@ export class HorseListComponent implements OnInit {
   }
 
   createRandomHorse(name: string, breedId: string, colorId: string, skill: string) {
+    console.log(this.haveMoney)
+    if (this.haveMoney == true) {
     this.horseService.createRandomHorse(this.horseValues, this.Uid, breedId, colorId, skill, name)
-    return alert(this.success);
+      return alert(this.success);
+    } alert(this.fail)
+  }
+
+  haveMoney: boolean;
+  newHorseCost(){
+   this.userService.subtractEquus(this.Uid, this.user.equus, 1000)
+  }
+
+  
+  costCheck(){
+    if(this.user.equus >= 1000){
+      this.newHorseCost();
+      return this.haveMoney = true;
+    } 
+    else{
+      return this.haveMoney = false;
+    }
   }
 
   selectedHorse(event: any) {

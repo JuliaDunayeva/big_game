@@ -37,6 +37,10 @@ export class HorseDataService {
 	getHorseData() {
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', this.authService.getUId())).valueChanges()
 	} //  end of getHorseData function
+
+	getStallions() {
+		return this.db.collection('/horse_data', ref => ref.where('gender', '==', 'stallion')).valueChanges()
+	} //  end of getStallions function
 	
 
 /* Get data for horses that are for sale */
@@ -129,6 +133,7 @@ export class HorseDataService {
 				tr_jumping: 0,
 				time: {currentHourString: "24", currentMinuteString: "00"},
 				toSell: false,
+				stud: false,
 			})
 		);
 	}//end of createRandomHorse()

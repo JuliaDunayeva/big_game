@@ -13,7 +13,8 @@ export class NavBarComponent implements OnInit {
 
   Uid: string = this.authService.getUId();
   user: any;
-  
+  passes:number;
+  equus: number;
 
   constructor(private authService: AuthService,
         private userDataService: UserDataService) { }
@@ -30,6 +31,12 @@ export class NavBarComponent implements OnInit {
   }
 
   morePasses() {
-    this.userDataService.addPasses()
+    console.log('old passes and UID', this.user.passes, this.Uid)
+   this.userDataService.addPasses(this.Uid, this.user.passes)
+  }
+
+  moreEquus() {
+    console.log('old equus and UID', this.user.equus, this.Uid)
+   this.userDataService.addEquus(this.Uid, this.user.equus)
   }
 }

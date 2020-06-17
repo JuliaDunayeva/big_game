@@ -57,6 +57,7 @@ export class UserDataService {
       ref.where('email', '==', form.value.email)).snapshotChanges();
   }
 
+  // Add and subtract values from the Equus and Passes
   addPasses(id: string, passes: number) {
     return this.db.collection('user_data').doc(id).update({
       'passes': passes + this.addPass
@@ -68,5 +69,17 @@ export class UserDataService {
       'equus': equus + this.addEq
     })
   } // adds value to equus
+
+  subtractPasses(id: string, passes: number, minusPasses: number) {
+    return this.db.collection('user_data').doc(id).update({
+      'passes': passes - minusPasses
+    })
+  } // subtracts value from passes
+
+  subtractEquus(id: string, equus: number, minusEquus: number) {
+    return this.db.collection('user_data').doc(id).update({
+      'equus': equus - minusEquus
+    })
+  } // subtracts value from equus
 
 }
