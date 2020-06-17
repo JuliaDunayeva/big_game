@@ -9,16 +9,20 @@ import { ColorService } from '../services/color.service';
 import { Color } from '../color';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-horse-list',
   templateUrl: './horse-list.component.html',
-  styleUrls: ['./horse-list.component.css']
+  styleUrls: ['./horse-list.component.css'],
+  providers: [DatePipe]
 })
 
 export class HorseListComponent implements OnInit {
   skills = ['Stamina','Gallop', 'Speed', 'Jumping'];
   success = 'A new horse has been added';
+  fail = 'You do not have enough Equus';
+  notnow = 'Your horse is too young to retire';
   allBreeds: Breed[];
   allColors: Color[];
   allHorses: Breed[];
@@ -35,13 +39,12 @@ export class HorseListComponent implements OnInit {
   horseSelectedId: string;
   Uid: string = this.authService.getUId();
   user: any;
-  newHorseCost: number = 1000;
   newEquus: number;
   horse: HorseData;
   horseValues: { name, breed, color };
   selectHorse: FormGroup
   defaultHorse: any;
-  notnow = 'Its not the time to retire';
+  
 
     constructor(private breedService: BreedService, 
         private colorService: ColorService, 
@@ -86,7 +89,7 @@ export class HorseListComponent implements OnInit {
   }
 
   getHorseData(){
-    this.horseService.getHorsesByUid().subscribe(
+    this.horseService.getHorseList().subscribe(
       res => {
         this.allHorseData = res as Array<HorseData>;
         this.allHorseData.map(horse =>{
@@ -115,8 +118,26 @@ export class HorseListComponent implements OnInit {
   }
 
   createRandomHorse(name: string, breedId: string, colorId: string, skill: string) {
+    // console.log(this.haveMoney)
+    if (this.haveMoney == true) {
     this.horseService.createRandomHorse(this.horseValues, this.Uid, breedId, colorId, skill, name)
-    return alert(this.success);
+      return alert(this.success);
+    } alert(this.fail)
+  }
+
+  newHorseCost(){
+   this.userService.subtractEquus(this.Uid, this.user.equus, 1000)
+  } // used to buy a new horse and pay 1000 Equus
+
+  haveMoney: boolean;
+  costCheck(){
+    if(this.user.equus >= 1000){
+      this.newHorseCost();
+      return this.haveMoney = true;
+    } 
+    else{
+      return this.haveMoney = false;
+    }
   }
 
   selectedHorse(event: any) {
@@ -137,7 +158,8 @@ export class HorseListComponent implements OnInit {
   swapSale(){
     const toSell = this.setSale(this.saleOfHorse)
     this.horseService.updateTheSale(this.idOfHorse, toSell)
-  }
+    this.userService.addEquus(this.Uid, this.user.equus, 500)
+  }  // used to sell the horse and collect 500 Equus
 
   setSale(toSell: boolean): boolean {
     if(toSell == false) {
@@ -154,14 +176,14 @@ export class HorseListComponent implements OnInit {
   onhorseRetire(id, dob:any){
     this.idOfHorse = id;
     this.dobofHorse =dob;
-    console.log(this.dobofHorse);
+    //console.log(this.dobofHorse);
   }
   
   diffIndob:any;
   retireHorse(){
     const timestamp = Date.now()/1000;
     this.diffIndob = this.dobofHorse.seconds-timestamp
-    console.log(this.diffIndob )
+    //console.log(this.diffIndob )
     if (this.diffIndob <-605000) {
     this.delete();
     }else{

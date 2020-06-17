@@ -13,20 +13,20 @@ import { AuthService } from '../services/auth.service';
 import { Breed } from '../breed';
 import { Color } from '../color';
 @Component({
-  selector: 'app-horse-page',
-  templateUrl: './horse-page.component.html',
-  styleUrls: ['./horse-page.component.css'],
+	selector: 'app-horse-page',
+	templateUrl: './horse-page.component.html',
+	styleUrls: ['./horse-page.component.css'],
 })
 export class HorsePageComponent implements OnInit {
 	/* Care Tab Buttons */
-  	FeedButtons: HorsePageButtons = new HorsePageButtons('feed');
-  	DrinkButtons: HorsePageButtons = new HorsePageButtons('drink');
-  	StrokeButtons: HorsePageButtons = new HorsePageButtons('stroke');
-  	GroomButtons: HorsePageButtons = new HorsePageButtons('groom');
-  	CarrotButtons: HorsePageButtons = new HorsePageButtons('carrot');
-  	MashButtons: HorsePageButtons = new HorsePageButtons('mash');
+	FeedButtons: HorsePageButtons = new HorsePageButtons('feed');
+	DrinkButtons: HorsePageButtons = new HorsePageButtons('drink');
+	StrokeButtons: HorsePageButtons = new HorsePageButtons('stroke');
+	GroomButtons: HorsePageButtons = new HorsePageButtons('groom');
+	CarrotButtons: HorsePageButtons = new HorsePageButtons('carrot');
+	MashButtons: HorsePageButtons = new HorsePageButtons('mash');
 	/* Empty Button*/
-  	EmptyButtons:HorsePageButtons = new HorsePageButtons('empty');
+	EmptyButtons: HorsePageButtons = new HorsePageButtons('empty');
 	/* Ride Tab Buttons*/
   	ForestButtons:HorsePageButtons = new HorsePageButtons('forest');
   	MountainButtons:HorsePageButtons = new HorsePageButtons('mountain');
@@ -92,8 +92,8 @@ export class HorsePageComponent implements OnInit {
   	public BreedingInfoButton: string;
   	public CoverMareButton: string;
 	//Buttons for night tab
-  	public putToBedButton: string;
-  	public ageButton: string;
+	public putToBedButton: string;
+	public ageButton: string;
 	/* used to store percent, for the circular progress bar */
 	public percent: number ;
 
