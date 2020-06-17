@@ -1,3 +1,4 @@
+import { from } from 'rxjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -23,10 +24,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CompetitionsComponent } from './competition-page/competitions/competitions.component';
 import { HorseListComponent } from './horse-list/horse-list.component';
+import { HorseSaleComponent } from './horse-sale/horse-sale.component';
+import { MiniBarComponent } from './nav-bar/mini-bar/mini-bar.component';
+import { PlayBarMiniComponent } from './play-bar/play-bar-mini/play-bar-mini.component';
+import { ModalOptionsComponent } from './modal-options/modal-options.component';
+import {TackPageComponent} from './../app/store-page/tack-page/tack-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ModalOptionsComponent,
     HomePageComponent,
     SignUpComponent,
     HorsePageComponent,
@@ -39,7 +46,11 @@ import { HorseListComponent } from './horse-list/horse-list.component';
     LoginBtnComponent,
     FlagsComponent,
     CompetitionsComponent,
-    HorseListComponent
+    HorseListComponent,
+    HorseSaleComponent,
+    MiniBarComponent,
+    PlayBarMiniComponent,
+    TackPageComponent
   ],
   
   imports: [
@@ -66,5 +77,5 @@ import { HorseListComponent } from './horse-list/horse-list.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 export class NgbdRatingFormModule {}

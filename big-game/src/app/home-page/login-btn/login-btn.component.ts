@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm, FormBuilder, Validators } from '@angular/forms';
 import { UserDataService } from 'src/app/services/user-data.service';
-import { UserData } from 'src/app/user-data';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -27,7 +26,6 @@ export class LoginBtnComponent implements OnInit {
   
    logIn() {
     this.userService.logInUser(this.logInForm).subscribe(res => {
-      //console.log(res[0].payload.doc)
      this.authService.setUid(res[0].payload.doc.id)
      this.router.navigate(['horse-list'])
     })

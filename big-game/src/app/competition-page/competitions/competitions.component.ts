@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Breed } from 'src/app/breed';
 import { BreedService } from 'src/app/services/breed.service';
 import { CompetitionService } from 'src/app/services/competition.service';
+import { Compete } from '../../compete';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-competitions',
@@ -13,21 +15,32 @@ export class CompetitionsComponent implements OnInit {
 	breedSelected: string;
 	compTypes = ['Trotting','Barrel Racing', 'Reining', 'Cutting', 'Trail Class', 'Western Pleasure'];
 	success = 'New Competition Created';
+	allCompetitions: Array<Compete>;
+	theCompetitions: FormGroup;
 
-	constructor(private breedService: BreedService, private competitionService: CompetitionService) {}
+	constructor(private breedService: BreedService, 
+				private fb: FormBuilder, 
+				private competitionService: CompetitionService) {}
 
 	ngOnInit(): void {
 		this.getBreeds();
+		this.showCompetitions();
+		console.log('competitions ', this.showCompetitions())
 	}
 
-	getBreeds(): Breed[] {
-		this.breedService.getBreeds().subscribe((result) => {
-			console.log(result);
-			this.allBreeds = result as Array<Breed>;
-		});
-		return this.allBreeds;
-	}
-
+	getBreeds() {
+		this.breedService.getBreeds().subscribe((brd) => {
+		  this.allBreeds = brd.map(res => {
+			return {
+			  id: res.payload.doc.id,
+			  breed: res.payload.doc.data()['breed'],
+			  skill: res.payload.doc.data()['skill'],
+			  img_path: res.payload.doc.data()['img_path']
+			}
+		  });
+		})
+	  }
+	  
 	createCompetition(
 		compName: string,
 		breed: string, 
@@ -36,4 +49,10 @@ export class CompetitionsComponent implements OnInit {
 		return alert(this.success);
 	}
 
+	showCompetitions() {
+		this.competitionService.getCompetitions().subscribe(res => {
+			this.allCompetitions = res as unknown as Array<Compete>;
+			console.log('comps ', this.allCompetitions)
+		})
+	}
 }

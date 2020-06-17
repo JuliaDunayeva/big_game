@@ -1,5 +1,3 @@
-import { Breed } from './breed';
-
 export class Compete {
   compName: string;
   difficulty: number;
@@ -8,7 +6,7 @@ export class Compete {
   ranks: number;
   over: boolean;
   breed: string;
-  Date: Date;
+  raceDate: Date;
   compType: string;
 
 constructor(compName: string, difficulty: number, energy: number, kitty: number, 
@@ -21,6 +19,6 @@ constructor(compName: string, difficulty: number, energy: number, kitty: number,
   this.breed = breed;
   this.over = false;
   this.compType = compType;
+  this.raceDate = raceDate;
   }
-
 }

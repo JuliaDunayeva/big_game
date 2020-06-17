@@ -17,7 +17,9 @@ p {
 }
 
 .image {
-    margin-left: 70px;
+    margin-left: 80px;
+    opacity: 65%;
+    margin-top: -5px;
 }
 
 .pad-left {             /* common spacing to set left margin in folder */
@@ -36,9 +38,9 @@ p {
 }
 
 .hrtop {
-    margin-top: -100px;
+    margin-top: -125px;
     margin-bottom: 2px;
-    width: 450px;
+    width: 490px;
     margin-left: -3px;
 }
 
@@ -50,17 +52,17 @@ p {
 .td-top {
     border: 2px solid rgb(192, 189, 113);
     border-radius: 5px;
-  }
+}
 
-  .td-line {
+.td-line {
     border-bottom: 2px solid rgb(192, 189, 113);
     border-radius: 5px;
-  }
+}
 
 .tu-col1 {
     width: 95px;
     padding-left: 5px;
-  }
+}
 
 .tu-col2 {
     width: 205px;
@@ -68,7 +70,7 @@ p {
 
 .tu-col3 {
     width: 85px;
-    padding-right:10px;
+    padding-right: 10px;
     text-align: end;
 }
 
@@ -76,28 +78,30 @@ p {
 .tl-col1 {
     width: 200px;
     padding-left: 5px;
-  }
+}
 
-  .tl-col2 {
+.tl-col2 {
     width: 200px;
     text-align: center;
-  }
+}
 
-  .equus {
-      width: 25%;   
-  }
+.equus {
+    width: 25%;
+    margin-right: 10px;
+    margin-left: 10px;   
+}
 
-  .tl-col3 {
+.tl-col3 {
     width: 100px;
     padding-left: 5px;
     padding-right: 5px;
-  }
+}
 
-  .tl-col4 {
+.tl-col4 {
     width: 130px;
     padding-left: 5px;
     padding-right: 5px;
-  }
+}
 
 .gold-color {
     color: rgb(224, 157, 11);
@@ -106,7 +110,7 @@ p {
     line-height: 90%;
 }
 
-.mycard-light-green {
+.card-light-green {
     background-color: #F0F0B2;
     color: #663300;
     border-style: solid 2px;
@@ -114,7 +118,7 @@ p {
     margin-bottom: 20px;
 }
 
-.mytable-light-green {
+.table-light-green {
     background-color: #F0F0B2;
     color: maroon;
     width: 930px;
@@ -137,4 +141,82 @@ p {
 
 .no-bottom-margin {
     margin-bottom: 0px;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .table-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
+
+    .card-light-green {
+        width: fit-content;
+    }
+
+    .image {
+        display: none;
+    }
+
+    .hrtop {
+        margin-top: 5px;
+        width: 250%;
+    }
+
+    .display {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .table-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
+
+    .card-light-green {
+        width: fit-content;
+    }
+
+    .image {
+        display: none;
+    }
+
+    .hrtop {
+        margin-top: 5px;
+        width: 200%;
+    }
+
+    .display {
+        display: initial;
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .table-light-green {
+        width: auto;
+    }
+
+    .card-light-green {
+        width: fit-content;
+    }
+
+    .hrtop {
+        margin-top:5px;
+        width: 140%;
+    }
+
+    .display {
+        display: initial;
+        margin-top: 5px;
+    }
+
+    .image {
+        display: none;
+    }
+
+    .table-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
 }

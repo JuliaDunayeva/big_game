@@ -21,7 +21,7 @@
 }
 
 .lower-page {
-  margin-top: 300px;
+  margin-top: 100px;
 }
 
 .info-lowertext {
@@ -32,4 +32,14 @@
 .disclaimer {
   margin: 2em auto;
   text-align: justify;
+}
+
+.signup-content {
+  justify-content: center;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .col-md-6 {
+    max-width: 80%;
+  }
 }

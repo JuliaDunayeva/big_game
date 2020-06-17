@@ -1,5 +1,6 @@
 <div class="container">
     <div>
+        <app-mini-bar></app-mini-bar>
         <app-nav-bar></app-nav-bar>
         <br><br>
         <app-play-bar></app-play-bar>
@@ -22,23 +23,25 @@
             <img class="col-sm-5 image" src="./assets/images/game_pieces/Competition.png">
         </div>
         <div class=""> <!-- Title & Description -->
-            <div class="col-md-6 pad-left color-tx-maroon ">
+            <div class="col-5 pad-left color-tx-maroon ">
                 <hr class="hrtop">
+                <br>
                 <h3 class="no-top-margin display card-title">Register for a trot competition</h3>
                 <div class="color-tx-green no-top-margin">
                     <p>For races, horses need to be good in speed and dressage, and excel in trotting. </p>
+                    <br>
                 </div>
             </div>
         </div> <!-- Title End -->
         <div class=""> <!-- competition stats for horse entering-->
-            <div class="col-sm-5 pad-left color-tx-maroon ">
-                <div class="mycard-light-green td-top">
+            <div class="col-5 pad-left color-tx-maroon ">
+                <div class="card-light-green td-top">
                     <div class="h6 sm-card no-bottom-margin td-line">
                         <H5 class="pad-left card-title"> {{ horse?.name }}</H5>
                     </div>
                     <div>
                     </div>
-                    <div class="color-tx-green card-title ">
+                    <div class="color-tx-green card-title no-bottom-margin">
                         <table class="">
                             <tr>
                                 <td class="tu-col1">Trot:</td>
@@ -71,17 +74,17 @@
                 </div>
             </div>
         </div> <!-- Stats End -->
-        <div class=""> <!-- Lower Competion table-->     
-            <div class="col-md-12 pad-left ">
+        <div class="pad-left"> <!-- Lower Competion table-->     
+            <div class="pad-left ">
                 <div class="display">
                     <input type="checkbox">
                     <p class="color-tx-green">&nbsp; Show competitions for low-level horses</p>
                 </div>
                 <h5 class="color-tx-maroon card-title"> Competitions open to all horses</h5>
-                <div class="mytable-light-green ">
+                <div class="table-light-green ">
                     <table class="td-top">
                         <tr class="sm-card td-line">
-                            <th class="card-title tl-col1">Name</th>
+                            <th class="card-title tl-col1">Competition</th>
                             <th class="card-title tl-col3">Kitty</th>
                             <th class="card-title tl-col3">Difficulty</th>
                             <th class="card-title tl-col2">Participants</th>
@@ -111,6 +114,7 @@
                         </tr>
                     </table>
                 </div>
+                <br><br>
             </div>
         </div>
     </div> <!-- folder end-->

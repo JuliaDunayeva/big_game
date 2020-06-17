@@ -9,6 +9,44 @@ a {
   font: 18px Arial, Helvetica, sans-serif;
 }
 
+.dropdown-menu[x-placement^="top"],
+.dropdown-menu[x-placement^="right"],
+.dropdown-menu[x-placement^="bottom"],
+.dropdown-menu[x-placement^="left"] {
+  right: auto;
+  bottom: auto;
+}
+
 .btn-primary {
   background-color: #2685ba;
+}
+
+.ui.menu {
+  display: flex;
+  margin: 1rem 0;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background: none;
+  font-weight: 400;
+  border: none;
+  box-shadow: none;
+  border-radius: 0.28571429rem;
+  min-height: 2.85714286em;
+}
+
+@media (min-width: 578px) and (max-width: 767.98px) {
+  .play-bar-mini {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .play-bar-mini {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .play-bar-mini {
+    display: none;
+  }
 }

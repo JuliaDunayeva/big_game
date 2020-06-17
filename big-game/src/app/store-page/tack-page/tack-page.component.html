@@ -1,0 +1,201 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <app-mini-bar></app-mini-bar>
+            <app-nav-bar></app-nav-bar>
+            <br><br>
+            <app-play-bar></app-play-bar>
+            <br>  
+        </div>
+    </div>
+    <div class="folder">
+        <div class="row">
+            <div class="col-sm-1">
+                <i class=" home-icon-place color-tx-green home icon"></i>
+            </div>
+            <div class="col-sm-3 text-pos">
+                <a class="b-st color-tx-green"> Trade </a>
+                <a class="color-tx-maroon "> 
+                    <i class="angle double right icon"></i>Tack & Saddle Market
+                </a>
+            </div>
+            <div class="col-sm-3 "><img class="st-img" src="./assets/images/black-store/marche-noir.png"></div>
+            <div class="col-sm-4 ">    
+            </div>
+        </div>
+        <div class="row second-row">
+            <div class="col-md-2"></div>
+            <h2 class="pad-left color-tx-maroon ">Tack & Saddle Market</h2><img class="st-img" src="\assets\images\tack-page\horse-tack.PNG">
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="pad-left col-md-7">
+                <p class="b-st  color-tx-green"> Canada's hottest tack shop for the competitive equestrian, select performance horse & rider products through our online market. We also offer personal, professional, and exceptional customer service. Just contact us with any questions - we're here to meet all your needs. </p>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-10 background-card">
+                <a class="bl-st-head"> SADDLE SELECTION FOR ALL YOUR NEEDS--- </a>
+                <a class=""> Please select your riding style </a>
+                <div class="row">
+                    <div class="col-md-5 mycard-light-green">
+                        <div >
+                            <div class="row ">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-9">
+                                    <div class="">
+                                        <li ngbDropdown >
+                                            <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                                <h5 class="box-head">Italian tack</h5>
+                                                <p class="">Best quality, excellent fit.</p>
+                                            </a>
+                                            <div ngbDropdownMenu class="drop-box" id="background">
+                                                <div class="popup color-beige color-tx-green">
+                                                    <div>
+                                                        <h3>Italian Tack</h3><img class="st-img" src="\assets\images\tack-page\black-saddle-resize.png">
+                                                    </div>
+                                                    <form>
+                                                        <div *ngFor="let horse of allHorses">
+                                                            <label >
+                                                                <input type="radio"  [id]="horse.id" name="horse"
+                                                                    [value]="horse.id"/>
+                                                                <span class="checkmark radio-border"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                             <button class="btn-shops btn-shops-lrg"></button>
+                                                        </div>
+                                                    </form> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                    <h5 class="b-st box-head"></h5>
+                                    <p class=""></p>
+                                </div>
+                                <div class="">
+                                    <li ngbDropdown >
+                                        <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                            <h5 class="box-head">Western tack</h5>
+                                            <p class="">For riding the trails... </p>
+                                        </a>
+                                        <div ngbDropdownMenu class="drop-box" id="background">
+                                            <div class="popup color-beige color-tx-green">
+                                                <div>
+                                                    <h3>Western tack</h3><img class="st-img" src="\assets\images\tack-page\brown-saddle-resize.png">
+                                                </div>
+                                                <form>
+                                                    <div *ngFor="let horse of allHorses">
+                                                        <label >
+                                                            <input type="radio"  [id]="horse.id" name="horse"
+                                                                [value]="horse.id"/>
+                                                            <span class="checkmark radio-border"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div>
+                                                         <button class="btn-shops btn-shops-lrg"></button>
+                                                    </div>
+                                                </form> 
+                                            </div>
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5 mycard-light-green">
+                        <div>
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="">
+                                        <li ngbDropdown >
+                                            <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                                <h5 class="box-head">Fox-hunt tack</h5>
+                                                <p class="">When riding for thrills and adventure.</p>
+                                            </a>
+                                            <div ngbDropdownMenu class="drop-box" id="background">
+                                                <div class="popup color-beige color-tx-green">
+                                                    <div>
+                                                        <h3>Fox-hunt tack</h3><img class="st-img" src="\assets\images\tack-page\dark-brown-saddle-resize.png">
+                                                    </div>
+                                                    <form>
+                                                        <div *ngFor="let horse of allHorses">
+                                                            <label >
+                                                                <input type="radio"  [id]="horse.id" name="horse"
+                                                                    [value]="horse.id"/>
+                                                                <span class="checkmark radio-border"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                             <button class="btn-shops btn-shops-lrg"></button>
+                                                        </div>
+                                                    </form> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                    <div class="">
+                                        <li ngbDropdown >
+                                            <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                                <h5 class="box-head">Competition tack</h5>
+                                                <p class="">When winning is everything!</p>
+                                            </a>
+                                            <div ngbDropdownMenu class="drop-box" id="background">
+                                                <div class="popup color-beige color-tx-green">
+                                                    <div>
+                                                        <h3>Competition tack</h3><img class="st-img" src="\assets\images\tack-page\SADDLE_Cadence-Revised-Oct-24-2017-resize.png">
+                                                    </div>
+                                                    <form>
+                                                        <div *ngFor="let horse of allHorses">
+                                                            <label >
+                                                                <input type="radio"  [id]="" name=""
+                                                                    [value]=""/>
+                                                                <span class="checkmark radio-border"></span>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                             <button class="btn-shops btn-shops-lrg"></button>
+                                                        </div>
+                                                    </form> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 mycard-light-green">
+                        <div>
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                </div>
+                                <div class="col-sm-9"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5 mycard-light-green">
+                        <div>
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                </div>
+                                <div class="col-sm-9">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

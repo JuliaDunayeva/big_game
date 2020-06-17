@@ -1,14 +1,15 @@
 <div class="container">
+  <br>
   <div class="row">
     <div class="col-md-2">
       <img src="./assets/images/home-page/logo.png">
     </div>
-    <div class="col-md-8 text-right"></div>
-    <div class="col-md-1 text-right">
-      <app-flags></app-flags>
-    </div>
-    <div class="col-md-1 text-right">
-      <app-login-btn></app-login-btn>
+    <div class="col-md-6 text-right"></div>
+    <div class="col-lg-4">
+     <p> 
+        <app-flags></app-flags>
+        <app-login-btn></app-login-btn> 
+      </p>
     </div>
   </div>
   <div class="row info-heading">
@@ -16,28 +17,29 @@
     <div class="col-md-8">
       <h2 class="info-text">Breed horses, enter competitions and manage your own equestrian center!</h2>
       <h5 class="info-text">Join a community of more than 12 million players!</h5>
+      <br>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-sm-1"></div>
   </div>
   <div class="row">
     <div class="col-md-5"></div>
-    <div class="col-md-4">
+    <div class="col-md-5">
       <button class="btn-signup" type="submit" (click)="signUp()">Sign-Up</button>
-      <a href="https://www.facebook.com/">
+      <a href="https://www.facebook.com/"><br><br>
         <h6 class="info-facebook">Or sign up with Facebook
           <img class="fb-icon" src="./assets/images/home-page/facebook.jpg">
         </h6>
       </a>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-2"></div>
   </div>
   <div class="row info-heading">
+    <div class="col-md-2"></div>
     <div class="col-md-4">
       <img src="./assets/images/home-page/gr-pml.png">
     </div>
-    <div class="col-md-5">
-    </div>
-    <div class="col-md-3">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
       <img src="./assets/images/home-page/horse-info.png">
     </div>
   </div>
@@ -75,5 +77,7 @@
       viruses or other harmful components.
     </p>
   </div>
-  <app-footer></app-footer>
+  <div>
+    <app-footer></app-footer>
+  </div>
 </div>
