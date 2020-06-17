@@ -29,6 +29,10 @@ p {
   border-style: solid 2px olive;
 }
 
+.sm-text {
+  font-size: smaller;
+}
+
 .image {
   margin-left: 67px;
 }
