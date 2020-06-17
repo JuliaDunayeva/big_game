@@ -10,8 +10,6 @@ import { AuthService } from './auth.service';
 })
 export class UserDataService {
 
-  addPass: number = 2;
-  addEq: number = 10;
   id: string = this.authService.getUId()
 
   constructor(public db: AngularFirestore, 
@@ -58,23 +56,23 @@ export class UserDataService {
   }
 
   // Add and subtract values from the Equus and Passes
-  addPasses(id: string, passes: number) {
+  addPasses(id: string, passes: number, addingPasses: number) {
     return this.db.collection('user_data').doc(id).update({
-      'passes': passes + this.addPass
+      'passes': passes + addingPasses
     })
   } // adds value to passes
-
-  addEquus(id: string, equus: number) {
-    return this.db.collection('user_data').doc(id).update({
-      'equus': equus + this.addEq
-    })
-  } // adds value to equus
 
   subtractPasses(id: string, passes: number, minusPasses: number) {
     return this.db.collection('user_data').doc(id).update({
       'passes': passes - minusPasses
     })
   } // subtracts value from passes
+
+  addEquus(id: string, equus: number, addingEquus: number) {
+    return this.db.collection('user_data').doc(id).update({
+      'equus': equus + addingEquus
+    })
+  } // adds value to equus
 
   subtractEquus(id: string, equus: number, minusEquus: number) {
     return this.db.collection('user_data').doc(id).update({

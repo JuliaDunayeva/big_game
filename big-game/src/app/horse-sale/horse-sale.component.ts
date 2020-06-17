@@ -17,6 +17,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 
 export class HorseSaleComponent implements OnInit {
+  success = 'Congratulations, You have purchased the horse';
+  fail = 'You do not have enough Equus';
   allHorses: Breed[];
   allHorseData: Array<HorseData>;
   horse: HorseData;
@@ -82,11 +84,14 @@ export class HorseSaleComponent implements OnInit {
     }
     
     swapUser() {
-      const toSell = this.setSale(this.saleOfHorse)
-      this.horseService.updateTheSale(this.idOfHorse, toSell)
-      const userId = this.setUser(this.newId)
-      this.horseService.updateTheUser(this.idOfHorse, userId)
-    }
+      if (this.haveMoney == true) {
+        const toSell = this.setSale(this.saleOfHorse)
+        this.horseService.updateTheSale(this.idOfHorse, toSell)
+        const userId = this.setUser(this.newId)
+        this.horseService.updateTheUser(this.idOfHorse, userId)
+      return alert(this.success);
+      } alert(this.fail)
+    } // used to buy a horse and pay 750 Equus, changes the owner id and resets the sale flag
    
     setSale(toSell: boolean): boolean {
       if(toSell == false) {
@@ -98,5 +103,17 @@ export class HorseSaleComponent implements OnInit {
     setUser(userId: string): string {
       userId = this.authService.getUId()
       return userId
+    }
+  
+    haveMoney: boolean;
+    costCheck(){
+      if (this.user.equus >= 750) {
+        this.userService.subtractEquus(this.Uid, this.user.equus, 750)
+        this.swapUser();
+        return this.haveMoney = true;
+      } 
+      else{
+        return this.haveMoney = false;
+      }
     }
 }
