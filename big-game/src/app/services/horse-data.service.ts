@@ -38,6 +38,20 @@ export class HorseDataService {
 				})
 			);
 	} // end of getHorsesByUid function
+
+	getHorseList(): Observable<HorseData[]> {
+		return this.db.collection('/horse_data', ref => ref.where('userId', '==', this.authService.getUId()).where('toSell', '==', false))
+			.snapshotChanges().pipe(
+				map(action => {
+					return action.map(res => {
+						const horse = res.payload.doc.data() as HorseData;
+						const id = res.payload.doc.id;
+						return { id, ...horse };
+					})
+				})
+			);
+	} // end of getHorsesByUid function
+
 	/* returns a single horse by user */
 	getHorseData() {
 		return this.db.collection('/horse_data', ref => ref.where('userId', '==', this.authService.getUId())).valueChanges()
@@ -134,6 +148,7 @@ export class HorseDataService {
 				tr_jumping: 0,
 				time: { currentHourString: "24", currentMinuteString: "00" },
 				toSell: false,
+				stud: false,
 			})
 		);
 	}//end of createRandomHorse()

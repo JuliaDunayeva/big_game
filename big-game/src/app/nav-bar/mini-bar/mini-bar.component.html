@@ -11,18 +11,18 @@
                         <i class="font-lg icon-qualty angle right icon"></i>
                     </div>
                     <hr>
-                    <div ngbDropdownItem class="">
+                    <div ngbDropdownItem (click)="moreEquus()">
                         <div class="equus">
                             <i> <img class="equus" src="./assets/images/game_pieces/equus.png"></i>
-                            <i class="font-sm">{{ user.equus }} </i>
+                            <i class="font-sm">{{ user?.equus }} </i>
                             <i class="font-sm">Equus</i>
                             <i class="font-md plus icon plus"></i>
                         </div>
                     </div>
-                    <div ngbDropdownItem>
+                    <div ngbDropdownItem (click)="morePasses()">
                         <div class="equus">
                             <i><img class="equus" src="./assets/images/game_pieces/pass.png"></i>
-                            <i class="font-sm">{{ user.passes }} </i>
+                            <i class="font-sm">{{ user?.passes }} </i>
                             <i class="font-sm">Passes</i>
                             <i class="font-md plus icon"></i>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="dropdown2-content">
                                 <a class="disabled">
                                     <i class="font-xl user circle icon"></i>
-                                    <p class="font-xmd">{{ user.userName }}</p>
+                                    <p class="font-xmd">{{ user?.userName }}</p>
                                     <hr>
                                 </a>
                                 <a class="disabled">
