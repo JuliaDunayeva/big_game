@@ -9,11 +9,13 @@ import { ColorService } from '../services/color.service';
 import { Color } from '../color';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-horse-list',
   templateUrl: './horse-list.component.html',
-  styleUrls: ['./horse-list.component.css']
+  styleUrls: ['./horse-list.component.css'],
+  providers: [DatePipe]
 })
 
 export class HorseListComponent implements OnInit {
@@ -116,19 +118,18 @@ export class HorseListComponent implements OnInit {
   }
 
   createRandomHorse(name: string, breedId: string, colorId: string, skill: string) {
-    console.log(this.haveMoney)
+    // console.log(this.haveMoney)
     if (this.haveMoney == true) {
     this.horseService.createRandomHorse(this.horseValues, this.Uid, breedId, colorId, skill, name)
       return alert(this.success);
     } alert(this.fail)
   }
 
-  haveMoney: boolean;
   newHorseCost(){
    this.userService.subtractEquus(this.Uid, this.user.equus, 1000)
-  }
+  } // used to buy a new horse and pay 1000 Equus
 
-  
+  haveMoney: boolean;
   costCheck(){
     if(this.user.equus >= 1000){
       this.newHorseCost();
@@ -157,7 +158,8 @@ export class HorseListComponent implements OnInit {
   swapSale(){
     const toSell = this.setSale(this.saleOfHorse)
     this.horseService.updateTheSale(this.idOfHorse, toSell)
-  }
+    this.userService.addEquus(this.Uid, this.user.equus, 500)
+  }  // used to sell the horse and collect 500 Equus
 
   setSale(toSell: boolean): boolean {
     if(toSell == false) {
@@ -174,14 +176,14 @@ export class HorseListComponent implements OnInit {
   onhorseRetire(id, dob:any){
     this.idOfHorse = id;
     this.dobofHorse =dob;
-    console.log(this.dobofHorse);
+    //console.log(this.dobofHorse);
   }
   
   diffIndob:any;
   retireHorse(){
     const timestamp = Date.now()/1000;
     this.diffIndob = this.dobofHorse.seconds-timestamp
-    console.log(this.diffIndob )
+    //console.log(this.diffIndob )
     if (this.diffIndob <-605000) {
     this.delete();
     }else{
