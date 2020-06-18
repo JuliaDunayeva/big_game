@@ -267,7 +267,9 @@ ngOnInit(): void {
 		this.updateMoraleBar();
 		/* This line sets an interval to refresh stuff, not working at the moment but will look into it*/
 	//this.timerId = setInterval(this.alertFunc(this.horse),1000);
-      });
+	  });
+	  //console.log(this.id);
+	  //console.log(this.horse.id);
     } // end of GetHorse() function
 /* test callback function for setInterval line in above function */
 alertFunc(myhorse: HorseData):any{
@@ -370,7 +372,7 @@ public PutToBedButton() {
 
 public AgeButton() {
 		this.toggleButtons(this.AgeButtons, !this.AgeButtons.enabled);
-		this.horseDataService.setHorseTime(this.horse, '23', '59');
+		this.horseDataService.setHorseTime(this.horse, '24', '00');
 		this.checkButtons();
 }// end of Age Button function
 
