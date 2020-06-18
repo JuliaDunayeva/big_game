@@ -12,6 +12,8 @@ import { HorsePageButtons } from '../horse-page-buttons';
 import { AuthService } from '../services/auth.service';
 import { Breed } from '../breed';
 import { Color } from '../color';
+import { TackItems } from '../tack-items';
+import { Training } from '../training';
 @Component({
 	selector: 'app-horse-page',
 	templateUrl: './horse-page.component.html',
@@ -49,7 +51,7 @@ export class HorsePageComponent implements OnInit {
 		allBreeds: Breed[];
 		allColors: Color[];
 	  /* Local variable that holds current user selected horse */
-		public horse: HorseData// = new HorseData;
+		public horse: HorseData = new HorseData;
 	/* image path and file name for current user selected horse */
 		img_file: string;
 		img_path: string;
@@ -97,14 +99,21 @@ export class HorsePageComponent implements OnInit {
 		public percent: number ;
 
   		public eq_reg_button:string = 'assets/images/horse-page-icons/eq-reg-button-enabled.png';
-  		public items:string[] = [];
+		public items: TackItems[]=[];  
+		public training: Training[]=[];
+		//public items:string[] = [];
 
 		updatedTime: {currentHourString: string, currentMinuteString: string};
 
   		public user: UserData;
 
-  		public timerId;
+		public timerId;
+		
+		private item: TackItems;
+		private train: Training;
 
+		public index:number;
+		
 constructor(
     private router: ActivatedRoute,
     private http: HttpClient,
@@ -112,13 +121,29 @@ constructor(
     private breedService: BreedService,
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
-    private authService: AuthService,
+    private authService: AuthService, 
 ) {}
 
 ngOnInit(): void {
 	// Item list array
-    	this.items.push('assets/images/tack-page/gold-peramid.png');
-    	this.items.push('assets/images/tack-page/gold-apple.png');
+	
+	this.item=new TackItems("Golden Apple","assets/images/tack-page/gold-apple.png");
+	//this.item.name="Golden Apple";
+	//this.item.imageFile="assets/images/tack-page/gold-apple.png";
+	this.items.push(this.item);
+	this.item=new TackItems("Golden Peramid","assets/images/tack-page/gold-peramid.png");
+
+	this.items.push(this.item);
+
+	this.train=new Training("Training 1","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+	this.train.done=true;
+	this.training.push(this.train);
+	this.train=new Training("Training 2","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+	this.train.done=false;
+	this.training.push(this.train);
+	console.log(this.items);
+	//this.items.push('assets/images/tack-page/gold-peramid.png');
+    //this.items.push('assets/images/tack-page/gold-apple.png');
 
   // Get Breed and Coat Color information
     	this.getBreeds();

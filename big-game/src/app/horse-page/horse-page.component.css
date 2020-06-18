@@ -36,6 +36,11 @@
 
 /* Leave in horse page css */
 
+.training-progress-width {
+    width: 150px;
+    position: relative;
+}
+
 .bold-header {
     font-weight: bold;
 }

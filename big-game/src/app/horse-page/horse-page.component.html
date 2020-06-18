@@ -256,8 +256,7 @@
                             <p class="item-title-margin">Items</p>
                         </div>
                         <div class="item-list-margin">
-                            <img *ngFor="let item of items" src="{{ item }}" />
-
+                            <img *ngFor="let itm of items" alt="{{ itm.name }}" src="{{ itm.imageFile }}" />
                         </div>
                     </div>
                 </div>
@@ -358,7 +357,25 @@
                 <div class="max-width-column " id="collapseExample " [ngbCollapse]="isTrainingCollapsed ">
                     <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
-                            Training information goes here.
+                            <div>
+                                <div *ngFor="let train of training">
+                                    <p *ngIf="train.done; then thenBlock else elseBlock"></p>
+                                    <ng-template #thenBlock>
+                                        <p class="training-progress-width">{{ train.name}}
+                                            <ngb-progressbar type="success" [value]="50">
+                                            </ngb-progressbar> <img src="{{ train.done_image }}" /></p>
+                                    </ng-template>
+                                    <ng-template #elseBlock>
+                                        <p class="training-progress-width">
+                                            {{ train.name}}
+
+                                            <ngb-progressbar type="success" [value]="50">
+                                            </ngb-progressbar>
+                                            <img src="{{ train.not_done_image }}" /></p>
+                                    </ng-template>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
