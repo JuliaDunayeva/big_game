@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,  Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ColorService } from '../services/color.service';
 import { BreedService } from '../services/breed.service';
@@ -12,6 +12,8 @@ import { HorsePageButtons } from '../horse-page-buttons';
 import { AuthService } from '../services/auth.service';
 import { Breed } from '../breed';
 import { Color } from '../color';
+import { TackItems } from '../tack-items';
+import { Training } from '../training';
 @Component({
 	selector: 'app-horse-page',
 	templateUrl: './horse-page.component.html',
@@ -49,7 +51,7 @@ export class HorsePageComponent implements OnInit {
 		allBreeds: Breed[];
 		allColors: Color[];
 	  /* Local variable that holds current user selected horse */
-		public horse: HorseData// = new HorseData;
+		public horse: HorseData = new HorseData;
 	/* image path and file name for current user selected horse */
 		img_file: string;
 		img_path: string;
@@ -97,28 +99,52 @@ export class HorsePageComponent implements OnInit {
 		public percent: number ;
 
   		public eq_reg_button:string = 'assets/images/horse-page-icons/eq-reg-button-enabled.png';
-  		public items:string[] = [];
+		public items: TackItems[]=[];  
+		public training: Training[]=[];
+		//public items:string[] = [];
 
 		updatedTime: {currentHourString: string, currentMinuteString: string};
 
   		public user: UserData;
 
-  		public timerId;
+		public timerId;
+		
+		private item: TackItems;
+		private train: Training;
 
+		public index:number;
+		
 constructor(
-    private router: ActivatedRoute,
+    private router: Router,
     private http: HttpClient,
     private colorService: ColorService,
     private breedService: BreedService,
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
-    private authService: AuthService,
+    private authService: AuthService, router2:Router,
 ) {}
 
 ngOnInit(): void {
+	//setTimeout(function(){}, 750); 
 	// Item list array
-    	this.items.push('assets/images/tack-page/gold-peramid.png');
-    	this.items.push('assets/images/tack-page/gold-apple.png');
+	
+	this.item=new TackItems("Golden Apple","assets/images/tack-page/gold-apple.png");
+	//this.item.name="Golden Apple";
+	//this.item.imageFile="assets/images/tack-page/gold-apple.png";
+	this.items.push(this.item);
+	this.item=new TackItems("Golden Peramid","assets/images/tack-page/gold-peramid.png");
+
+	this.items.push(this.item);
+
+	this.train=new Training("Training 1","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+	this.train.setPercent(100);
+	this.training.push(this.train);
+	this.train=new Training("Training 2","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+	this.train.setPercent(50);
+		this.training.push(this.train);
+	console.log(this.items);
+	//this.items.push('assets/images/tack-page/gold-peramid.png');
+    //this.items.push('assets/images/tack-page/gold-apple.png');
 
   // Get Breed and Coat Color information
     	this.getBreeds();
@@ -198,7 +224,8 @@ ngOnInit(): void {
     	this.setButtonTimeDefaults(this.BreedingInfoButtons, 0, 0);
     
     	this.CoverMareButtons.enabledImage = 'assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png';
-    	this.CoverMareButtons.disabledImage = 'assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png';
+		this.CoverMareButtons.disabledImage = 'assets/images/horse-page-icons/empty-button.png';
+		//breeding-cover-mare-button-disabled.
     	this.CoverMareButtons.name='covermare';
     	this.setButtonTimeDefaults(this.CoverMareButtons, 0, 0);
     /* Define image for empty placeholder button*/
@@ -230,7 +257,8 @@ ngOnInit(): void {
     	this.toggleButtons(this.MountainButtons, false);
     /* Breeding tab buttons */
 		this.toggleButtons(this.BreedingInfoButtons, true);
-    	this.toggleButtons(this.CoverMareButtons, true);
+		//this.toggleButtons(this.CoverMareButtons, true);
+		
 /* Competition tab buttons */
     	this.toggleButtons(this.BarrelCompButtons, false);
     	this.toggleButtons(this.CuttingCompButtons, false);
@@ -261,6 +289,7 @@ ngOnInit(): void {
               this.LoadHorseImage()
             }
 		)
+		//if (this.horse.gender=='mare') this.CoverMareButtons.enabled=true;
 		this.checkButtons();
 		this.updateEnergyBar();
 		this.updateHealthBar();
@@ -484,6 +513,16 @@ public WesternPleasureComp(){
 		this.history.unshift(' is Competing in a Western Pleasure Competition');
 }
 
+public coverMareButton(){
+	if (this.horse.gender=='mare'){
+		alert('mare');
+		this.router.navigate(['breeding'])
+	}
+	if (this.horse.gender=='stallion'){
+		alert('stallion');
+	}
+}
+
 public CheckStats(){
 		if (this.horse.energy>100) this.horse.energy=100;
 		if (this.horse.morale>100) this.horse.morale=100;
@@ -495,7 +534,13 @@ public CheckStats(){
 /* used to check energy and other stats and disable/enable appropriate buttons */
 public checkButtons(){
 		if (this.horse.energy < 50) this.horse.morale - 5;
-	    
+
+		if (this.horse.gender=="mare") {
+			this.toggleButtons(this.CoverMareButtons,true);
+		} else 	{
+		 	this.toggleButtons(this.CoverMareButtons,false);
+		}
+
 		if (this.horse.energy == 100){
 			this.toggleButtons(this.FeedButtons,false);
 			this.toggleButtons(this.PutToBedButtons, false);
