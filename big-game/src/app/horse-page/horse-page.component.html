@@ -117,7 +117,7 @@
                 <div class="max-width-column" id="collapseExample " [ngbCollapse]="isHistoryCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body  scrolling-wrapper scroll-height">
-                            <div *ngFor="let hist of history | slice:0:10; let i=index">
+                            <div *ngFor="let hist of history | slice:0:15; let i=index">
                                 <p> <strong> {{ horse.name }} </strong>{{ hist }}</p>
                             </div>
                         </div>
