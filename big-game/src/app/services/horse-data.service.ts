@@ -296,7 +296,8 @@ export class HorseDataService {
 	}//end of delete function 
 
 	getHorseForMare() {
-		return this.db.collection('/horse_data', ref => ref.where('gender', '==', 'stallion' ).where('stud', '==', true))
+		return this.db.collection('/horse_data', ref => ref.where('gender', '==', 'stallion' )
+		.where('stud', '==', true))
 		.snapshotChanges().pipe(
 			map(action => {
 				return action.map(res => {

@@ -14,13 +14,14 @@ import { Color } from '../color';
 })
 export class HorseBreedingComponent implements OnInit {
 
-  mareData:Array<HorseData>
+  mareData:HorseData = new HorseData;
   allBreeds: Breed[];
   allColors: Color[];
   allHorseData: Array<HorseData>;
   img_file: string;
   img_path: string;
   public imagePath: string;
+  public horse: HorseData = new HorseData;
 
   public id: string = this.authService.getHorseId();
   constructor(private horseService: HorseDataService,
@@ -34,6 +35,7 @@ export class HorseBreedingComponent implements OnInit {
     this.getBreeds();
     this.getColors();
     
+    
   }
 
   getStallionHorseData(){
@@ -43,33 +45,32 @@ export class HorseBreedingComponent implements OnInit {
     })
   }
 
-  breed:string;
-  color:string;
+
   getMaredata(){
-    this.horseService.getHorseById(this.id).subscribe(
-      res => {
-        this.mareData = res as unknown as Array<HorseData>;
-        console.log(this.mareData)
-        // this.breedService.getBreedById(this.mareData.breed).then( brd =>
-         // { 
-           // this.mareData.breed = brd.data()['breed'];
-           // this.img_path = brd.data()['img_path'];
-          //  this.colorService.getColorById(this.mareData.color).then( clr =>
-        //  {
-          //  this.mareData.color = clr.data()['color'];
-           // this.img_file = clr.data()['img_file'];
-           // this.LoadHorseImage()
-        //  })
-       // })
-      })
-  }
+       this.horseService.getHorseById(this.id).subscribe((res) => {
+         this.mareData = res as HorseData;
+         this.breedService.getBreedById(this.mareData.breed).then( brd =>
+        { 
+           this.mareData.breed = brd.data()['breed'];
+            this.img_path = brd.data()['img_path'];
+         })
+        this.colorService.getColorById(this.mareData.color).then( clr =>
+        {
+          this.mareData.color = clr.data()['color'];
+          this.img_file = clr.data()['img_file'];
+          this.LoadHorseImage()
+          
+        })
+        });
+  } 
 
   LoadHorseImage() {
 		this.imagePath = 'assets/images/horses/';
-		this.imagePath += `${this.img_path}/${this.img_file}`
+    this.imagePath += `${this.img_path}/${this.img_file}`
+    console.log(this.imagePath)
   }
   
-  public getBreeds() {
+  getBreeds() {
 		this.breedService.getBreeds().subscribe((brd) => {
         this.allBreeds = brd.map(res => {
         	return {
@@ -80,8 +81,9 @@ export class HorseBreedingComponent implements OnInit {
           		}
         	});
       });
-}
-getColors() {
+  }
+
+  getColors() {
   this.colorService.getColors().subscribe(clr => {
       this.allColors = clr.map(res => {
         return {
@@ -91,5 +93,5 @@ getColors() {
           }
         });
     });
-}
+  }
 }
