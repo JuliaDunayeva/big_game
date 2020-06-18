@@ -295,4 +295,16 @@ export class HorseDataService {
 		return this.db.collection('/horse_data').doc(id).delete()
 	}//end of delete function 
 
+	getHorseForMare() {
+		return this.db.collection('/horse_data', ref => ref.where('gender', '==', 'stallion' ).where('stud', '==', true))
+		.snapshotChanges().pipe(
+			map(action => {
+				return action.map(res => {
+					const horse = res.payload.doc.data() as HorseData;
+					const id = res.payload.doc.id;
+					return { id, ...horse };
+				})
+			})
+		);
+	}
 } // end of horse data service
