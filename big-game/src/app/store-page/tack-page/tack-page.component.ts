@@ -30,16 +30,14 @@ ngOnInit(): void {
       //loop throug the saddles Ids list to get the saddle object
       // console.log('saddleList is ', this.saddleIdList);
       for (let ind = 0; ind < this.saddleIdList.length; ind++) {
-          this.saddleService.getHorseSaddlesNames(this.saddleIdList[0]).then( res => {
-            this.saddle = res.data() as Equipment;
-            // console.log('one saddle ' ,  this.saddle)
-            this.saddleList.push(this.saddle);
-            // console.log('saddle as equip ', res.data())
-            // console.log('new saddles ' , this.saddleList);
-          }
-          )
+        this.saddleService.getHorseSaddlesNames(this.saddleIdList[0]).then( res => {
+          this.saddle = res.data() as Equipment;
+          console.log('one saddle ' ,  this.saddle)
+          this.saddleList.push(this.saddle);
+          // console.log('saddle as equip ', res.data())
+          // console.log('new saddles ' , this.saddleList);
+        }) 
       }
-        }
-    )
+    })
   } 
 }

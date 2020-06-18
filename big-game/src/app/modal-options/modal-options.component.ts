@@ -40,7 +40,7 @@ export class ModalOptionsComponent  {
             speed_: res.payload.doc.data()['speed_'],
             stamina_: res.payload.doc.data()['stamina_'],
             trot_: res.payload.doc.data()['trot_'],
-        }
+          }
         })
       })
   }

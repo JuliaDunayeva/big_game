@@ -12,10 +12,7 @@
             <div class="row center-text">
                 <p class="no-bottom-margin top-margin">
                     <!-- left panel 1 - Care -->
-                    <button type="button"
-                        class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border"
-                        (click)="isCareCollapsed = !isCareCollapsed" [attr.aria-expanded]="!isCareCollapsed"
-                        aria-controls="collapseExample ">
+                    <button type="button" class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border" (click)="isCareCollapsed = !isCareCollapsed" [attr.aria-expanded]="!isCareCollapsed" aria-controls="collapseExample ">
                         Care
                     </button>
                 </p>
@@ -65,10 +62,7 @@
                 </div>
                 <p class="no-bottom-margin top-margin">
                     <!-- left panel 2 - Night -->
-                    <button type="button "
-                        class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border"
-                        (click)="isNightCollapsed = !isNightCollapsed" [attr.aria-expanded]="!isNightCollapsed"
-                        aria-controls="collapseExample ">
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border" (click)="isNightCollapsed = !isNightCollapsed" [attr.aria-expanded]="!isNightCollapsed" aria-controls="collapseExample ">
                         Night
                     </button>
                 </p>
@@ -77,9 +71,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled">
-                                        <img class="img-btn-width"
-                                            src="../../assets/images/horse-page-icons/put-to-bed-disabled.png" />
+                                    <button (click)="PutToBedButton()" class="btn max-btn-width">
+                                        <img class="img-btn-width" src="{{ putToBedButton }}"/>
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding">
@@ -89,32 +82,17 @@
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled">
-                                        <img class="img-btn-width"
-                                            src="../../assets/images/horse-page-icons/age-button-disabled.png" />
+                                    <button (click)="AgeButton()" class="btn max-btn-width">
+                                        <img class="img-btn-width" src="{{ ageButton }}"/>
                                     </button>
                                 </div>
                             </div>
-                            <!-- <div class="row">
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width" src="../../assets/images/horse-page-icons/empty-button.png"></button>
-                                </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width " src="../../assets/images/horse-page-icons/empty-button.png"></button>
-                                </div>
-                                <div class="col-3 btn-padding">
-                                    <button class="btn max-btn-width disabled"><img class="img-btn-width " src="../../assets/images/horse-page-icons/empty-button.png"></button>
-                                </div>
-                            </div>-->
                         </div>
                     </div>
                 </div>
                 <p class="no-bottom-margin">
                     <!-- left panel 3 - Equestrian Centre -->
-                    <button type="button "
-                        class="btn btn-primary max-width-column card-green card-title no-bottom-margin top-margin card-title-border"
-                        (click)="isECCollapsed = !isECCollapsed" [attr.aria-expanded]="!isECCollapsed"
-                        aria-controls="collapseExample ">
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin top-margin card-title-border" (click)="isECCollapsed = !isECCollapsed" [attr.aria-expanded]="!isECCollapsed" aria-controls="collapseExample ">
                         Equestrian Centre
                     </button>
                 </p>
@@ -132,10 +110,7 @@
                 </div>
                 <p class="no-bottom-margin">
                     <!-- left panel 4 - History -->
-                    <button type="button "
-                        class="btn btn-primary max-width-column card-green card-title no-bottom-margin top-margin card-title-border"
-                        (click)="isHistoryCollapsed = !isHistoryCollapsed" [attr.aria-expanded]="!isHistoryCollapsed"
-                        aria-controls="collapseExample ">
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin top-margin card-title-border" (click)="isHistoryCollapsed = !isHistoryCollapsed" [attr.aria-expanded]="!isHistoryCollapsed" aria-controls="collapseExample ">
                         History
                     </button>
                 </p>
@@ -143,7 +118,7 @@
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body  scrolling-wrapper scroll-height">
                             <div *ngFor="let hist of history | slice:0:10; let i=index">
-                                <p>{{ hist }}</p>
+                                <p> <strong> {{ horse.name }} </strong>{{ hist }}</p>
                             </div>
                         </div>
                     </div>
@@ -161,12 +136,8 @@
                     <!-- Percent of time remaining-->
                     <div class="row">
                         <div class="positionRelative">
-                            <circle-progress class="time-left-padding time-top-padding" [clockwise]="false"
-                                [percent]="percent" [radius]="40" [maxPercent]="100" [outerStrokeWidth]="10"
-                                [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-                                [animation]="false" [animationDuration]="300" [showBackground]="true" [showTitle]="true"
-                                [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString"
-                                [titleFontSize]="16" [titleFontWeight]="700" [showSubtitle]="false" [showUnits]="false"
+                            <circle-progress class="time-left-padding time-top-padding" [clockwise]="false" [percent]="percent" [radius]="40" [maxPercent]="100" [outerStrokeWidth]="10" [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"
+                                [animationDuration]="300" [showBackground]="true" [showTitle]="true" [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString" [titleFontSize]="16" [titleFontWeight]="700" [showSubtitle]="false" [showUnits]="false"
                                 [responsive]="false">
                             </circle-progress>
 
@@ -174,19 +145,15 @@
                         <div class="card-body">
                             <div class="col-10 form-group center-text card-middle-title">
                                 Energy
-                                <ngb-progressbar type="success" [value]="horse?.energy">%{{ horse?.energy }}
-                                </ngb-progressbar>
+                                <div id="energyBar" class="energyBar"></div>
                             </div>
                             <div class="col-10 form-group center-text card-middle-title">
                                 Health
-                                <!-- <div class="progress-bar " [style.width]="(horse?.health) "></div> -->
-                                <ngb-progressbar type="danger" [value]="horse?.health">%{{ horse?.health }}
-                                </ngb-progressbar>
+                                <div id="healthBar" class="healthBar"></div>
                             </div>
                             <div class="col-10 form-group center-text card-middle-title">
                                 Morale
-                                <ngb-progressbar type=" " [value]="horse?.morale ">%{{ horse?.morale }}
-                                </ngb-progressbar>
+                                <div id="moraleBar" class="moraleBar"></div>
                             </div>
                         </div>
                     </div>
@@ -212,8 +179,7 @@
                             Stamina
                         </div>
                         <div class="col-sm-6 ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.stamina / 10 "
-                                class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.stamina / 10 " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-sm-3 center-text ">{{ horse?.stamina }}</div>
                     </div>
@@ -223,8 +189,7 @@
                             Speed
                         </div>
                         <div class="col-sm-6 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.speed / 10 "
-                                class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.speed / 10 " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-sm-3 center-text ">{{ horse?.speed }}</div>
                     </div>
@@ -234,8 +199,7 @@
                             Dressage
                         </div>
                         <div class="col-sm-6 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.dressage / 10 "
-                                class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.dressage / 10 " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-sm-3 center-text ">{{ horse?.dressage }}</div>
                     </div>
@@ -245,8 +209,7 @@
                             Gallop
                         </div>
                         <div class="col-sm-6 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.gallop / 10 "
-                                class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.gallop / 10 " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-sm-3 center-text ">{{ horse?.gallop }}</div>
                     </div>
@@ -256,8 +219,7 @@
                             Trot
                         </div>
                         <div class="col-sm-6 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.trot / 10 "
-                                class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.trot / 10 " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-sm-3 center-text ">{{ horse?.trot }}</div>
                     </div>
@@ -267,8 +229,7 @@
                         </div>
                         <div class="col-sm-6 center-text ">
                             <!-- horse jumping-->
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.jumping / 10 "
-                                class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.jumping / 10 " class="gold-color "></ngb-rating>
                         </div>
                         <div class="col-sm-3 center-text ">{{ horse?.jumping }}</div>
                     </div>
@@ -295,8 +256,7 @@
                             <p class="item-title-margin">Items</p>
                         </div>
                         <div class="item-list-margin">
-                            <img *ngFor="let item of items" src="{{ item }}" />
-
+                            <img *ngFor="let itm of items" alt="{{ itm.name }}" src="{{ itm.imageFile }}" />
                         </div>
                     </div>
                 </div>
@@ -337,29 +297,17 @@
                         <ng-container ngbNavItem>
                             <a ngbNavLink class="card-light-green">Genetic</a>
                             <ng-template ngbNavContent>
-                                <p> Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
-                                    artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress,
-                                    commodo enim craft beer mlkshk aliquip jean shorts ullamco
-                                    ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
-                                    mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown.
-                                    Vegan fanny pack odio cillum wes anderson 8-bit,
-                                    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel Art
-                                    party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed
-                                    echo park.</p>
+                                <p> Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                                    ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
+                                    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
                             <a ngbNavLink class="card-light-green">Bonus</a>
                             <ng-template ngbNavContent>
-                                <div class="">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
-                                    sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum
-                                    aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus
-                                    ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent
-                                    fringilla tortor arcu. Vivamus faucibus nisl enim,
-                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio.
-                                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                    mus. Mauris aliquet odio ac lorem aliquet ultricies
+                                <div class="">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent fringilla tortor arcu. Vivamus faucibus nisl enim,
+                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
                                     in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</div>
                             </ng-template>
                         </ng-container>
@@ -372,10 +320,7 @@
             <div class="row center-text ">
                 <p class="no-bottom-margin ">
                     <!--right  panel 1 - Rides-->
-                    <button type="button "
-                        class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border "
-                        (click)="isRidesCollapsed=! isRidesCollapsed " [attr.aria-expanded]="!isRidesCollapsed "
-                        aria-controls="collapseExample ">
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isRidesCollapsed=! isRidesCollapsed " [attr.aria-expanded]="!isRidesCollapsed " aria-controls="collapseExample ">
                         Rides
                     </button>
                 </p>
@@ -404,9 +349,7 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right panel 2 - Training -->
-                    <button type="button "
-                        class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border "
-                        (click)="isTrainingCollapsed=! isTrainingCollapsed " [attr.aria-expanded]="!isTrainingCollapsed
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isTrainingCollapsed=! isTrainingCollapsed " [attr.aria-expanded]="!isTrainingCollapsed
                                 " aria-controls="collapseExample ">
                         Training
                     </button>
@@ -414,15 +357,29 @@
                 <div class="max-width-column " id="collapseExample " [ngbCollapse]="isTrainingCollapsed ">
                     <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
-                            Training information goes here.
+                            <div>
+                                <div *ngFor="let train of training">
+                                    <p *ngIf="train.isDone(); then thenBlock else elseBlock"></p>
+                                    <ng-template #thenBlock>
+                                        <p class="training-progress-width">{{ train.getName() }}
+                                            <ngb-progressbar type="warning" [value]="(train.getPercent())">
+                                            </ngb-progressbar> <img src="{{ train.getDoneImage() }}" /></p>
+                                    </ng-template>
+                                    <ng-template #elseBlock>
+                                        <p class="training-progress-width">
+                                            {{ train.getName() }}
+                                            <ngb-progressbar type="warning" [value]="(train.getPercent())">
+                                            </ngb-progressbar>
+                                            <img src="{{ train.getNotDoneImage() }}" /></p>
+                                    </ng-template>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right  panel 3 - Competition -->
-                    <button type="button "
-                        class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border "
-                        (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
                                 " aria-controls="collapseExample ">
                         Competition
                     </button>
@@ -432,26 +389,26 @@
                         <div class="card-body ">
                             <div class="row ">
                                 <div class="col-3 btn-padding ">
-                                    <button class="btn max-btn-width ">
-                                        <img class="img-btn-width " src="{{ BarrelCompButton }} " />
+                                    <button (click)="BarrelComp()" class="btn max-btn-width ">
+                                        <img class="img-btn-width " src="{{ BarrelCompButton }} "/>
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
-                                    <button class="btn max-btn-width ">
-                                        <img class="img-btn-width " src="{{ CuttingCompButton }} " />
+                                    <button (click)="CuttingComp()" class="btn max-btn-width ">
+                                        <img class="img-btn-width " src="{{ CuttingCompButton }} "/>
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
-                                    <button class="btn max-btn-width ">
-                                        <img class="img-btn-width " src="{{ TrailClassCompButton }} " />
+                                    <button (click)=" TrailComp()" class="btn max-btn-width ">
+                                        <img class="img-btn-width " src="{{ TrailClassCompButton }} "/>
                                     </button>
                                 </div>
                             </div>
                             <div class="row ">
                                 <div class="col-3 btn-padding ">
-                                    <button class="btn max-btn-width ">
+                                    <button (click)="ReignComp()" class="btn max-btn-width ">
                                         <img class="img-btn-width " src="{{ ReignCompButton }} " />
-                                    </button>
+                                        </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
                                     <button class="btn max-btn-width disabled ">
@@ -459,8 +416,8 @@
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
-                                    <button class="btn max-btn-width ">
-                                        <img class="img-btn-width " src="{{ WesternPleasureCompButton }} " />
+                                    <button (click)="WesternPleasureComp()" class="btn max-btn-width ">
+                                        <img class="img-btn-width " src="{{ WesternPleasureCompButton }} "/>
                                     </button>
                                 </div>
                             </div>
@@ -469,9 +426,7 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right  panel 4 - Breeding -->
-                    <button type="button "
-                        class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border "
-                        (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed
+                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed
                                 " aria-controls="collapseExample ">
                         Breeding
                     </button>
@@ -490,7 +445,7 @@
                                 </button>
                             </div>
                             <div class="col-3 btn-padding ">
-                                <button class="btn max-btn-width ">
+                                <button (click)="coverMareButton()" class="btn max-btn-width ">
                                     <img class="img-btn-width " src="{{ CoverMareButton}} " />
                                 </button>
                             </div>

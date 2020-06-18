@@ -24,15 +24,23 @@
 .scrolling-wrapper {
     overflow-x: hidden;
     overflow-y: scroll;
-    white-space: nowrap;
+    white-space: wrap;
     display: inline-block;
+    text-align: left;
 }
 
 .scroll-height {
     max-height: 200px;
 }
 
+
 /* Leave in horse page css */
+
+.training-progress-width {
+    width: 150px;
+    position: relative;
+}
+
 .bold-header {
     font-weight: bold;
 }
@@ -151,6 +159,36 @@
     border-radius: 10px;
 }
 
+.outer-bar {
+    width: 256px;
+    background-color: aliceblue;
+}
+
+.energyBar {
+    width: 1%;
+    height: 15px;
+    border: 1px solid #663300;
+    border-radius: 8px;
+    background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+}
+
+.moraleBar {
+    width: 1%;
+    height: 15px;
+    border: 1px solid #663300;
+    border-radius: 8px;
+    background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+}
+
+.healthBar {
+    width: 1%;
+    height: 15px;
+    border: 1px solid #663300;
+    border-radius: 8px;
+    background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+}
+
+
 /*equip my horse*/
 
 .inline-flex {
@@ -209,7 +247,9 @@ li {
     }
 }
 
+
 /** Medium devices (tablets, 768px and up)*/
+
 @media (min-width: 768px) and (max-width: 991.98px) {
     .max-width-column {
         margin-left: 50px;
@@ -230,7 +270,9 @@ li {
     }
 }
 
+
 /** Large devices (desktops, 992px and up)*/
+
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .max-width-column {
         margin-left: 5%;
