@@ -56,7 +56,7 @@
                                             <div ngbDropdownMenu class="drop-box" id="background">
                                                 <div class="popup color-beige color-tx-green">
                                                     <div>
-                                                        <h3>Italian Tack</h3><img class="st-img" src="\assets\images\tack-page\black-saddle-resize.png">
+                                                        <h3>Italian Tack</h3><img class="st-img" src="\assets\images\tack-page\black-saddle-resize.png"><img class="st-img horse-img" src="\assets\images\tack-page\BitlessBridal.jpg">
                                                     </div>
                                                     <form>
                                                         <div *ngFor="let horse of allHorses">
@@ -86,7 +86,7 @@
                                         <div ngbDropdownMenu class="drop-box" id="background">
                                             <div class="popup color-beige color-tx-green">
                                                 <div>
-                                                    <h3>Western tack</h3><img class="st-img" src="\assets\images\tack-page\brown-saddle-resize.png">
+                                                    <h3>Western tack</h3><img class="st-img" src="\assets\images\tack-page\brown-saddle-resize.png"><img class="st-img horse-img" src="\assets\images\tack-page\WesternBridal.jpg">
                                                 </div>
                                                 <form>
                                                     <div *ngFor="let horse of allHorses">
@@ -120,8 +120,7 @@
                                             <div ngbDropdownMenu class="drop-box" id="background">
                                                 <div class="popup color-beige color-tx-green">
                                                     <div>
-                                                        <h3>Fox-hunt tack</h3>
-                                                        <img class="st-img" src="\assets\images\tack-page\dark-brown-saddle-resize.png">
+                                                        <h3>Fox-hunt tack</h3><img class="st-img" src="\assets\images\tack-page\dark-brown-saddle-resize.png"><img class="st-img horse-img" src="\assets\images\tack-page\EnglishBridal.jpg">
                                                     </div>
                                                     <form>
                                                         <div *ngFor="let horse of allHorses">
@@ -133,26 +132,6 @@
                                                         </div>
                                                         <div>
                                                              <button class="btn-shops btn-shops-lrg"></button>
-                                                             
-                                                            <div *ngIf="saddleIdList?.length > 0;else noSaddleIdList">
-                                                                
-                                                                <ul *ngFor="let saddleIdList of saddleIdList"><i class="up-arrow caret up icon "></i>
-                                                                <li class="equipment-box">
-                                                                    <p class="equipment-text"><strong>{{saddleIdList.name}}</strong></p>
-                                                                    <p class="equipment-text">Color: {{saddleIdList.color}}</p>
-                                                                    <p class="equipment-text">Dressage:+ {{saddleIdList.dressage_}}</p>
-                                                                    <p class="equipment-text">Gallop:+ {{saddleIdList.gallop_}}</p>
-                                                                    <p class="equipment-text">Speed:+ {{saddleIdList.speed_}}</p>
-                                                                    <p class="equipment-text"> Stamina:+ {{saddleIdList.stamina_}} </p>
-                                                                    <p class="equipment-text"> Trot:+ {{saddleIdList.trot_}} </p>
-                                                                    <p class="equipment-text">Jumping:+ {{saddleIdList.jumping_}}</p>
-                                                                </li>
-                                                                </ul>
-                                                            </div>
-                                                            <ng-template #noSaddleIdList>
-                                                                <hr>
-                                                                <h5>There is no list to display</h5>
-                                                            </ng-template>
                                                         </div>
                                                     </form> 
                                                 </div>
@@ -168,7 +147,7 @@
                                             <div ngbDropdownMenu class="drop-box" id="background">
                                                 <div class="popup color-beige color-tx-green">
                                                     <div>
-                                                        <h3>Competition tack</h3><img class="st-img" src="\assets\images\tack-page\SADDLE_Cadence-Revised-Oct-24-2017-resize.png">
+                                                        <h3>Competition tack</h3><img class="st-img" src="\assets\images\tack-page\SADDLE_Cadence-Revised-Oct-24-2017-resize.png"><img class="st-img horse-img" src="\assets\images\tack-page\CompetitionBridal.jpg">
                                                     </div>
                                                     <form>
                                                         <div *ngFor="let horse of allHorses">
