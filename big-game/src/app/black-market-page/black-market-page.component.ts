@@ -4,6 +4,8 @@ import { HorseData } from '../horse-data';
 import { AuthService } from '../services/auth.service';
 import { BreedService } from '../services/breed.service';
 import { ColorService } from '../services/color.service';
+import { UserData } from '../user-data';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-black-market-page',
@@ -12,13 +14,18 @@ import { ColorService } from '../services/color.service';
 })
 
 export class BlackMarketPageComponent implements OnInit {
+  success = 'You have changed the horse gender';
+  fail = 'You do not have enough Passes';
   Name: string ;
   allHorses: HorseData[];
   selectedHorse:string;
   gender: string;
+  Uid: string = this.authservice.getUId();
+  user: any;
 
   constructor(private horseService: HorseDataService,
     private authservice: AuthService,
+    private userService: UserDataService,
     private breedService: BreedService,
     private colorService: ColorService) {}
 
@@ -43,10 +50,13 @@ export class BlackMarketPageComponent implements OnInit {
 
   horse:HorseData
   swapGender(){
-    console.log(this.genderOfHorse);
+    //console.log(this.genderOfHorse);
+    this.costCheck();
     const gender = this.defineGender(this.genderOfHorse)
-    console.log(gender);
+    console.log(gender, this.haveMoney);
     this.horseService.updateHorseGender(this.idOfHorse, gender)
+    this.userService.subtractPasses(this.Uid, this.user.passes, 95)
+    alert(this.success)
   }
 
   defineGender(gender: string): string {
@@ -54,5 +64,16 @@ export class BlackMarketPageComponent implements OnInit {
       return "stallion"
     } 
     return "mare"  
+  }
+
+  haveMoney: boolean;
+    costCheck() {
+      if (this.user.passes < 95) {
+        return this.haveMoney = false;
+      }
+      else {
+        this.haveMoney = true;
+    };
+    console.log(this.costCheck)
   }
 }
