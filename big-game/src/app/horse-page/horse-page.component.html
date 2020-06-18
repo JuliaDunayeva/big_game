@@ -445,7 +445,7 @@
                                 </button>
                             </div>
                             <div class="col-3 btn-padding ">
-                                <button class="btn max-btn-width ">
+                                <button *ngIf coverMareButton.enable (click)="coverMareButton()" class="btn max-btn-width ">
                                     <img class="img-btn-width " src="{{ CoverMareButton}} " />
                                 </button>
                             </div>
