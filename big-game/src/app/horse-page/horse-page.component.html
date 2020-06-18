@@ -359,21 +359,19 @@
                         <div class="card-body ">
                             <div>
                                 <div *ngFor="let train of training">
-                                    <p *ngIf="train.done; then thenBlock else elseBlock"></p>
+                                    <p *ngIf="train.isDone(); then thenBlock else elseBlock"></p>
                                     <ng-template #thenBlock>
-                                        <p class="training-progress-width">{{ train.name}}
-                                            <ngb-progressbar type="success" [value]="50">
-                                            </ngb-progressbar> <img src="{{ train.done_image }}" /></p>
+                                        <p class="training-progress-width">{{ train.getName() }}
+                                            <ngb-progressbar type="warning" [value]="(train.getPercent())">
+                                            </ngb-progressbar> <img src="{{ train.getDoneImage() }}" /></p>
                                     </ng-template>
                                     <ng-template #elseBlock>
                                         <p class="training-progress-width">
-                                            {{ train.name}}
-
-                                            <ngb-progressbar type="success" [value]="50">
+                                            {{ train.getName() }}
+                                            <ngb-progressbar type="warning" [value]="(train.getPercent())">
                                             </ngb-progressbar>
-                                            <img src="{{ train.not_done_image }}" /></p>
+                                            <img src="{{ train.getNotDoneImage() }}" /></p>
                                     </ng-template>
-
                                 </div>
                             </div>
                         </div>

@@ -136,11 +136,11 @@ ngOnInit(): void {
 	this.items.push(this.item);
 
 	this.train=new Training("Training 1","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
-	this.train.done=true;
+	this.train.setPercent(100);
 	this.training.push(this.train);
 	this.train=new Training("Training 2","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
-	this.train.done=false;
-	this.training.push(this.train);
+	this.train.setPercent(50);
+		this.training.push(this.train);
 	console.log(this.items);
 	//this.items.push('assets/images/tack-page/gold-peramid.png');
     //this.items.push('assets/images/tack-page/gold-apple.png');
