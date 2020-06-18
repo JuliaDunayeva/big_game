@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute,Route } from '@angular/router';
+import { ActivatedRoute,  Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ColorService } from '../services/color.service';
 import { BreedService } from '../services/breed.service';
@@ -115,13 +115,13 @@ export class HorsePageComponent implements OnInit {
 		public index:number;
 		
 constructor(
-    private router: ActivatedRoute,
+    private router: Router,
     private http: HttpClient,
     private colorService: ColorService,
     private breedService: BreedService,
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
-    private authService: AuthService, 
+    private authService: AuthService, router2:Router,
 ) {}
 
 ngOnInit(): void {
@@ -224,7 +224,8 @@ ngOnInit(): void {
     	this.setButtonTimeDefaults(this.BreedingInfoButtons, 0, 0);
     
     	this.CoverMareButtons.enabledImage = 'assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png';
-    	this.CoverMareButtons.disabledImage = 'assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png';
+		this.CoverMareButtons.disabledImage = 'assets/images/horse-page-icons/empty-button.png';
+		//breeding-cover-mare-button-disabled.
     	this.CoverMareButtons.name='covermare';
     	this.setButtonTimeDefaults(this.CoverMareButtons, 0, 0);
     /* Define image for empty placeholder button*/
@@ -257,11 +258,7 @@ ngOnInit(): void {
     /* Breeding tab buttons */
 		this.toggleButtons(this.BreedingInfoButtons, true);
 		//this.toggleButtons(this.CoverMareButtons, true);
-		if (this.horse.gender=="mare") {
-			this.toggleButtons(this.CoverMareButtons,true);
-		} else 	{
-		 	this.toggleButtons(this.CoverMareButtons,false);
-		}
+		
 /* Competition tab buttons */
     	this.toggleButtons(this.BarrelCompButtons, false);
     	this.toggleButtons(this.CuttingCompButtons, false);
@@ -292,7 +289,7 @@ ngOnInit(): void {
               this.LoadHorseImage()
             }
 		)
-		if (this.horse.gender=='mare') this.CoverMareButtons.enabled=true;
+		//if (this.horse.gender=='mare') this.CoverMareButtons.enabled=true;
 		this.checkButtons();
 		this.updateEnergyBar();
 		this.updateHealthBar();
@@ -519,7 +516,7 @@ public WesternPleasureComp(){
 public coverMareButton(){
 	if (this.horse.gender=='mare'){
 		alert('mare');
-		//this.router.navigate(['horse-breeding'])
+		this.router.navigate(['breeding'])
 	}
 	if (this.horse.gender=='stallion'){
 		alert('stallion');
@@ -537,6 +534,12 @@ public CheckStats(){
 /* used to check energy and other stats and disable/enable appropriate buttons */
 public checkButtons(){
 		if (this.horse.energy < 50) this.horse.morale - 5;
+
+		if (this.horse.gender=="mare") {
+			this.toggleButtons(this.CoverMareButtons,true);
+		} else 	{
+		 	this.toggleButtons(this.CoverMareButtons,false);
+		}
 
 		if (this.horse.energy == 100){
 			this.toggleButtons(this.FeedButtons,false);
