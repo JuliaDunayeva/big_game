@@ -33,7 +33,6 @@ export class BlackMarketPageComponent implements OnInit {
   ngOnInit(): void {
     this.getHorses();
     this.getUserData();
-    console.log(this.userInfo.passes)
   }
 
   getHorses() {
@@ -53,7 +52,6 @@ export class BlackMarketPageComponent implements OnInit {
 
   horse:HorseData
   swapGender(){
-    //console.log(this.genderOfHorse);
     if (this.haveMoney == true) {
       const gender = this.defineGender(this.genderOfHorse)
       console.log(gender, this.haveMoney);
@@ -74,15 +72,13 @@ export class BlackMarketPageComponent implements OnInit {
   }
 
   haveMoney: boolean;
-    costCheck() {
-      if (this.userInfo.passes < 95) {
-        console.log(this.userInfo.passes)
+  costCheck() {
+    if (this.userInfo.passes < 95) {
         return this.haveMoney = false;
       }
-      else {
-        this.haveMoney = true;
+    else {
+      this.haveMoney = true;
     };
-    console.log(this.costCheck)
   }
 
   getUserData(){
