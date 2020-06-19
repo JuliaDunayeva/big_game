@@ -295,7 +295,7 @@ export class HorseDataService {
 		return this.db.collection('/horse_data').doc(id).delete()
 	}//end of delete function 
 
-	getHorseForMare() {
+	getHorseForMare(): Observable<HorseData[]>{
 		return this.db.collection('/horse_data', ref => ref.where('gender', '==', 'stallion' )
 		.where('stud', '==', true))
 		.snapshotChanges().pipe(
@@ -323,7 +323,7 @@ export class HorseDataService {
 	} 
 	updateStudStatus(id: string, stud: boolean) {
 		return this.db.collection('/horse_data').doc(id).update({
-			'toSell': stud
+			'stud': stud
 		})
 	}
 } // end of horse data service
