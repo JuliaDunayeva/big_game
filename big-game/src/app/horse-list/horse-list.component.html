@@ -40,7 +40,7 @@
                             <input type="radio" formControlName="userHorse" name="userHorse" [value]="horse.name" [id]="horse.id" 
                             (click)="selectedHorse($event)" (click)="onHorseSelect(horse.id, horse.toSell)"(click)="onhorseRetire(horse.id,horse.dob)">
                             &nbsp; &nbsp;<strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
-                            <span class="color-tx-green sm-text"> ({{horse.dob.seconds *1000| date: 'mm/dd/yyyy'}})</span>
+                            <span class="color-tx-green sm-text"> ({{horse.dob.seconds * (1000.0)| date: 'yyyy-MM-dd'}})</span>
                         </label>
                     </div>
                     <div class="display centered">

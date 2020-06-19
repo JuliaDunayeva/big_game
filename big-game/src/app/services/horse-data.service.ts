@@ -151,7 +151,7 @@ export class HorseDataService {
 				tr_trot: 0,
 				tr_jumping: 0,
 				time: { currentHourString: "24", currentMinuteString: "00" },
-				age: { year: 10, month: 1, day: 1 },
+				age: { year: 1, month: 1, day: 1 },
 				toSell: false,
 				stud: false,
 			})
