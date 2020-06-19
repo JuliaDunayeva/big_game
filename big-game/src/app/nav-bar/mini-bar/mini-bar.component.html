@@ -1,84 +1,85 @@
 <div class="container mini-bar">
-    <div class="row">
-        <div class="col-md-1 main-btn">
-            <div ngbDropdown class="d-inline-block">
-                <button class="menu-btn" id="dropdownBasic1" ngbDropdownToggle>
-                    Menu
-                </button>
-                <div ngbDropdownMenu="dropdownBasic1" class="background">
-                    <div ngbDropdownItem>
-                        <i class="head-text">Start Pack</i>
-                        <i class="font-lg icon-qualty angle right icon"></i>
-                    </div>
-                    <hr>
-                    <div ngbDropdownItem (click)="moreEquus()">
-                        <div class="equus">
-                            <i> <img class="equus" src="./assets/images/game_pieces/equus.png"></i>
-                            <i class="font-sm">{{ user?.equus }} </i>
-                            <i class="font-sm">Equus</i>
-                            <i class="font-md plus icon plus"></i>
+    <div class="d-flex justify-content-between">
+        <div class="row justify-content-start">
+            <div class="main-btn mr-3">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="menu-btn" id="dropdownBasic1" ngbDropdownToggle>
+                        Menu
+                    </button>
+                    <div ngbDropdownMenu="dropdownBasic1" class="background">
+                        <div ngbDropdownItem>
+                            <i class="head-text">Start Pack</i>
+                            <i class="font-lg icon-qualty angle right icon"></i>
                         </div>
-                    </div>
-                    <div ngbDropdownItem (click)="morePasses()">
-                        <div class="equus">
-                            <i><img class="equus" src="./assets/images/game_pieces/pass.png"></i>
-                            <i class="font-sm">{{ user?.passes }} </i>
-                            <i class="font-sm">Passes</i>
-                            <i class="font-md plus icon"></i>
+                        <hr>
+                        <div ngbDropdownItem (click)="moreEquus()">
+                            <div class="equus">
+                                <i> <img class="equus" src="./assets/images/game_pieces/equus.png"></i>
+                                <i class="font-sm">{{ user?.equus }} </i>
+                                <i class="font-sm">Equus</i>
+                                <i class="font-md plus icon plus"></i>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div ngbDropdownItem>
-                        <i class="leaf-size leaf icon"></i>
-                    </div>
-                    <div ngbDropdownItem>
-                        <i class="leaf-size envelope icon"></i>
-                    </div>
-                    <hr>
-                    <div ngbDropdownItem>
-                        <div class="dropdown2">
-                            <button class="dropbtn2"><i class="leaf-size user icon"></i></button>
-                            <div class="dropdown2-content">
-                                <a class="disabled">
-                                    <i class="font-xl user circle icon"></i>
-                                    <p class="font-xmd">{{ user?.userName }}</p>
-                                    <hr>
-                                </a>
-                                <a class="disabled">
-                                    <i class="key icon"></i>Supscription
-                                    <hr>
-                                </a>
-                                <a class="disabled">
-                                    <i class="cog icon"></i>Account
-                                    <hr>
-                                </a>
-                                <a class="disabled">
-                                    <i class="seperate flag-bg canada flag"></i>
-                                    <i class="seperate united states flag"></i>
-                                    <i class="seperate japan flag"></i>
-                                    <i class="seperate palestine flag"></i>
-                                    <hr>
-                                </a>
-                                <a class="disabled">
-                                    <i class="angle right icon"></i>Versions
-                                    <hr>
-                                </a>
-                                <a routerLink="/home-page">
-                                    <button class="btn-primary " (click)="Logout()"> 
-                                        <i class="power off icon"></i>log Out
-                                    </button>
-                                </a>
+                        <div ngbDropdownItem (click)="morePasses()">
+                            <div class="equus">
+                                <i><img class="equus" src="./assets/images/game_pieces/pass.png"></i>
+                                <i class="font-sm">{{ user?.passes }} </i>
+                                <i class="font-sm">Passes</i>
+                                <i class="font-md plus icon"></i>
+                            </div>
+                        </div>
+                        <hr>
+                        <div ngbDropdownItem>
+                            <i class="leaf-size leaf icon"></i>
+                        </div>
+                        <div ngbDropdownItem>
+                            <i class="leaf-size envelope icon"></i>
+                        </div>
+                        <hr>
+                        <div ngbDropdownItem>
+                            <div class="dropdown2">
+                                <button class="dropbtn2"><i class="leaf-size user icon"></i></button>
+                                <div class="dropdown2-content">
+                                    <a class="disabled">
+                                        <i class="font-xl user circle icon"></i>
+                                        <p class="font-xmd">{{ user?.userName }}</p>
+                                        <hr>
+                                    </a>
+                                    <a class="disabled">
+                                        <i class="key icon"></i>Supscription
+                                        <hr>
+                                    </a>
+                                    <a class="disabled">
+                                        <i class="cog icon"></i>Account
+                                        <hr>
+                                    </a>
+                                    <a class="disabled">
+                                        <i class="seperate flag-bg canada flag"></i>
+                                        <i class="seperate united states flag"></i>
+                                        <i class="seperate japan flag"></i>
+                                        <i class="seperate palestine flag"></i>
+                                        <hr>
+                                    </a>
+                                    <a class="disabled">
+                                        <i class="angle right icon"></i>Versions
+                                        <hr>
+                                    </a>
+                                    <a routerLink="/home-page">
+                                        <button class="btn-primary " (click)="Logout()">
+                                            <i class="power off icon"></i>log Out
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="play-bar-pos">
+                <app-play-bar-mini></app-play-bar-mini>
+            </div>
         </div>
-        <div class="col-md-1 play-bar-pos">
-            <app-play-bar-mini></app-play-bar-mini>
-        </div>
-        <div class="col-md-7"></div>
-        <div class="col-md-1">
+        <div class="howrse-logo">
             <img class="img-size" src="./assets/images/home-page/logo.png" />
         </div>
     </div>
