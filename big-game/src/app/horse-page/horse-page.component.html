@@ -5,9 +5,9 @@
     <br>
     <app-play-bar></app-play-bar>
     <!-- game nav bar placement-->
-    <div class="d-flex justify-content-between mt-5">
+    <div class="horse-page-main-div d-lg-flex flex-lg-nowrap d-xs-flex flex-xs-column justify-content-between mt-5">
         <!-- horse information placement-->
-        <div class="mt-lg-5 mr-md-3">
+        <div class="order-lg-0 order-sm-1 order-xs-1 mt-lg-5">
             <div class="center-text">
                 <p class="no-bottom-margin top-margin">
                     <!-- left panel 1 - Care -->
@@ -149,7 +149,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-lg-5 text-center mr-md-3">
+        <div class="col-lg-5 mt-lg-5 text-center">
             <img class="col-xl-12" src="{{ imagePath }} " />
             <div class="card-light-green card-title no-bottom-margin card-title-border">
                 {{ horse?.name }}
@@ -157,31 +157,31 @@
             <div>
                 <div class="card card-light-green">
                     <!-- Percent of time remaining-->
-                    <div class="d-flex flex-wrap">
+                    <div class="d-flex flex-wrap flex-sm-nowrap">
                         <div class="positionRelative">
-                            <circle-progress class="time-left-padding time-top-padding" [clockwise]="false"
-                                [percent]="percent" [radius]="40" [maxPercent]="100" [outerStrokeWidth]="10"
-                                [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'"
-                                [animation]="false" [animationDuration]="300" [showBackground]="true" [showTitle]="true"
+                            <circle-progress class="" [clockwise]="false" [percent]="percent" [radius]="40"
+                                [maxPercent]="100" [outerStrokeWidth]="7" [innerStrokeWidth]="4"
+                                [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"
+                                [animationDuration]="300" [showBackground]="true" [showTitle]="true"
                                 [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString"
                                 [titleFontSize]="16" [titleFontWeight]="700" [showSubtitle]="false" [showUnits]="false"
                                 [responsive]="false">
                             </circle-progress>
 
                         </div>
-                        <div class="card-body">
-                            <div class="col-10 form-group center-text card-middle-title">
+                        <div class="col-7 card-body">
+                            <div class="form-group center-text card-middle-title">
                                 Energy
                                 <ngb-progressbar type="success" [value]="horse?.energy">%{{ horse?.energy }}
                                 </ngb-progressbar>
                             </div>
-                            <div class="col-10 form-group center-text card-middle-title">
+                            <div class="form-group center-text card-middle-title">
                                 Health
                                 <!-- <div class="progress-bar " [style.width]="(horse?.health) "></div> -->
                                 <ngb-progressbar type="danger" [value]="horse?.health">%{{ horse?.health }}
                                 </ngb-progressbar>
                             </div>
-                            <div class="col-10 form-group center-text card-middle-title">
+                            <div class="form-group center-text card-middle-title">
                                 Morale
                                 <ngb-progressbar type=" " [value]="horse?.morale ">%{{ horse?.morale }}
                                 </ngb-progressbar>
@@ -366,7 +366,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-lg-5">
+        <div class="order-sm-1 order-xs-1 mt-lg-5">
             <div class="center-text ">
                 <p class="no-bottom-margin ">
                     <!--right  panel 1 - Rides-->
