@@ -22,6 +22,7 @@ export class BlackMarketPageComponent implements OnInit {
   gender: string;
   Uid: string = this.authservice.getUId();
   user: any;
+  userInfo: UserData;
 
   constructor(private horseService: HorseDataService,
     private authservice: AuthService,
@@ -30,7 +31,9 @@ export class BlackMarketPageComponent implements OnInit {
     private colorService: ColorService) {}
 
   ngOnInit(): void {
-    this.getHorses() 
+    this.getHorses();
+    this.getUserData();
+    console.log(this.userInfo.passes)
   }
 
   getHorses() {
@@ -51,12 +54,16 @@ export class BlackMarketPageComponent implements OnInit {
   horse:HorseData
   swapGender(){
     //console.log(this.genderOfHorse);
-    this.costCheck();
-    const gender = this.defineGender(this.genderOfHorse)
-    console.log(gender, this.haveMoney);
-    this.horseService.updateHorseGender(this.idOfHorse, gender)
-    this.userService.subtractPasses(this.Uid, this.user.passes, 95)
-    alert(this.success)
+    if (this.haveMoney == true) {
+      const gender = this.defineGender(this.genderOfHorse)
+      console.log(gender, this.haveMoney);
+      this.horseService.updateHorseGender(this.idOfHorse, gender)
+      this.userService.subtractPasses(this.Uid, this.userInfo.passes, 95)
+      alert(this.success)
+    }
+    else {
+      alert(this.fail)
+    }
   }
 
   defineGender(gender: string): string {
@@ -68,7 +75,8 @@ export class BlackMarketPageComponent implements OnInit {
 
   haveMoney: boolean;
     costCheck() {
-      if (this.user.passes < 95) {
+      if (this.userInfo.passes < 95) {
+        console.log(this.userInfo.passes)
         return this.haveMoney = false;
       }
       else {
@@ -76,4 +84,11 @@ export class BlackMarketPageComponent implements OnInit {
     };
     console.log(this.costCheck)
   }
+
+  getUserData(){
+    this.userService.getUserByID(this.Uid).subscribe((res) => {
+      this.userInfo = res as UserData;
+    })
+  }
+
 }
