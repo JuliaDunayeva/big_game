@@ -23,6 +23,7 @@ export class BlackMarketPageComponent implements OnInit {
   Uid: string = this.authservice.getUId();
   user: any;
   userInfo: UserData;
+  allmales: HorseData[];
 
   constructor(private horseService: HorseDataService,
     private authservice: AuthService,
@@ -33,6 +34,7 @@ export class BlackMarketPageComponent implements OnInit {
   ngOnInit(): void {
     this.getHorses();
     this.getUserData();
+    this.showStallions();
   }
 
   getHorses() {
@@ -45,7 +47,6 @@ export class BlackMarketPageComponent implements OnInit {
   idOfHorse: string;
   genderOfHorse: string;
   onHorseSelect(gender: string, id) {
-    console.log(gender);
     this.genderOfHorse = gender
     this.idOfHorse = id;
   }
@@ -54,7 +55,6 @@ export class BlackMarketPageComponent implements OnInit {
   swapGender(){
     if (this.haveMoney == true) {
       const gender = this.defineGender(this.genderOfHorse)
-      console.log(gender, this.haveMoney);
       this.horseService.updateHorseGender(this.idOfHorse, gender)
       this.userService.subtractPasses(this.Uid, this.userInfo.passes, 95)
       alert(this.success)
@@ -87,4 +87,36 @@ export class BlackMarketPageComponent implements OnInit {
     })
   }
 
+  showStallions(){
+    this.horseService.getStallions().subscribe(
+      res => {
+      this.allmales = res as Array<HorseData>
+      });
+  }
+
+  idHorse: string;
+  studStatusOfHorse: boolean;
+  horseSelect(stud: boolean, id) {
+    this.studStatusOfHorse = stud
+    this.idHorse = id;
+  }
+
+  swapStudStatus(){
+    if (this.haveMoney == true) {
+      const stud = this.defineStudStatus(this.studStatusOfHorse)
+      this.horseService.updateStudStatus(this.idHorse, stud)
+      this.userService.subtractPasses(this.Uid, this.userInfo.passes, 50)
+      alert(this.success)
+    }
+    else {
+      alert(this.fail)
+    }
+  }
+
+  defineStudStatus(stud: boolean): boolean {
+    if(stud == false) {
+      return true
+    } 
+    return false 
+  }
 }

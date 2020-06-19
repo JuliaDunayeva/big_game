@@ -128,16 +128,46 @@
                                 <div class="col-sm-3">
                                     <img class="box-img" src="./assets/images/black-store/fleche-artemis.png">
                                 </div>
-                                <div class="col-sm-9">
-                                    <h5 class="box-head">Artemis' Arrow</h5>
-                                    <p class="">Accelerate your mare's gestation.</p>
+                            <div>
+                            <li ngbDropdown >
+                                <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                    <div class="col-sm-9">
+                                        <h5 class="box-head">Artemis' Arrow</h5>
+                                        <p class="">Make your Stallion into a Stud.</p>
+                                        <p class="pass">50 <img class="pass-img" src="./assets/images/black-store/pass.png">
+                                    </div>
+                                </a>
+                                <div ngbDropdownMenu class="drop-box" id="background">
+                                    <div class="popup color-beige color-tx-green">
+                                        <div>
+                                            <h3 class="box-head">Artemis' Arrow</h3>
+                                            <p class="bold-text  ">Artemis' Arrow enables you to turn your Stallion into a Stud !!!</p>
+                                        </div>
+                                        <div>
+                                            <h3>List of the all the horses</h3>
+                                        </div>
+                                        <form>
+                                            <div *ngFor="let horse of allmales">
+                                                <label >
+                                                    <input type="radio"  [id]="horse.id" name="horse"
+                                                    [value]="horse.id" (click)="horseSelect(horse.stud, horse.id)"/>
+                                                    <span class="checkmark radio-border"></span>
+                                                    {{ horse.name}} - {{horse.stud}}
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <button class="btn-shops btn-shops-lrg" (click)= "costCheck()" (click)="swapStudStatus()">Make Stud</button>
+                                           </div>
+                                        </form> 
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
     <app-footer></app-footer>
 </div>

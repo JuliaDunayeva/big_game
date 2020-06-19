@@ -308,4 +308,22 @@ export class HorseDataService {
 			})
 		);
 	}
+
+	getStallions(): Observable<HorseData[]> {
+		return this.db.collection('/horse_data', ref => ref.where('userId', '==', this.authService.getUId()).where('gender', '==', 'stallion'))
+			.snapshotChanges().pipe(
+				map(action => {
+					return action.map(res => {
+						const horse = res.payload.doc.data() as HorseData;
+						const id = res.payload.doc.id;
+						return { id, ...horse };
+					})
+				})
+			);
+	} 
+	updateStudStatus(id: string, stud: boolean) {
+		return this.db.collection('/horse_data').doc(id).update({
+			'toSell': stud
+		})
+	}
 } // end of horse data service
