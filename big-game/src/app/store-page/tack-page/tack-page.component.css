@@ -3,6 +3,9 @@ li {
     margin: 0;
     padding: 0;
 }
+.box-img {
+    margin-left: 100px;
+}
 
 .popup {
     min-width: 1010px;
@@ -14,7 +17,7 @@ li {
     box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
     padding: 10px;
     height: 500px;
-    right: 350px;
+    right: 150px;
     bottom: 300px;
 }
 
