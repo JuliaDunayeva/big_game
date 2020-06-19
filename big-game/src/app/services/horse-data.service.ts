@@ -73,28 +73,32 @@ export class HorseDataService {
 	}// end of getHorsesForSale function
 	/* write data back to database */
 	setHorseMorale(horse: HorseData) {
-		let cityRef = this.db.collection('/horse_data').doc(horse.id);
+		let id=this.authService.getHorseId();
+		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
 			"morale": horse.morale
 		}, { merge: true });
 	} // end of setHorseMorale()
 	/* write data back to database */
 	setHorseHealth(horse: HorseData) {
-		let cityRef = this.db.collection('/horse_data').doc(horse.id);
+		let id=this.authService.getHorseId();
+		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
 			"health": horse.health
 		}, { merge: true });
 	}//end of setHorseHealth()
 	/* write data back to database */
 	setHorseEnergy(horse: HorseData) {
-		let cityRef = this.db.collection('/horse_data').doc(horse.id);
+		let id=this.authService.getHorseId();
+		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
 			"energy": horse.energy
 		}, { merge: true });
 	}//end of setHorseEnergy()
 	/* write data back to database */
 	setHorseTime(horse: HorseData, currentHourString: string, currentMinuteString: string) {
-		let cityRef = this.db.collection('/horse_data').doc(horse.id);
+		let id=this.authService.getHorseId();
+		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
 			"time": { currentHourString, currentMinuteString }
 		}, { merge: true });
@@ -147,7 +151,7 @@ export class HorseDataService {
 				tr_trot: 0,
 				tr_jumping: 0,
 				time: { currentHourString: "24", currentMinuteString: "00" },
-				age: { year: 10, month: 1, day: 1 },
+				age: { year: 1, month: 1, day: 1 },
 				toSell: false,
 				stud: false,
 			})
@@ -291,4 +295,17 @@ export class HorseDataService {
 		return this.db.collection('/horse_data').doc(id).delete()
 	}//end of delete function 
 
+	getHorseForMare() {
+		return this.db.collection('/horse_data', ref => ref.where('gender', '==', 'stallion' )
+		.where('stud', '==', true))
+		.snapshotChanges().pipe(
+			map(action => {
+				return action.map(res => {
+					const horse = res.payload.doc.data() as HorseData;
+					const id = res.payload.doc.id;
+					return { id, ...horse };
+				})
+			})
+		);
+	}
 } // end of horse data service
