@@ -33,12 +33,10 @@ export class NavBarComponent implements OnInit {
   }
 
   morePasses() {
-    console.log('old passes and UID', this.user.passes, this.Uid)
    this.userDataService.addPasses(this.Uid, this.user.passes, this.addingPasses)
   }
 
   moreEquus() {
-    console.log('old equus and UID', this.user.equus, this.Uid)
    this.userDataService.addEquus(this.Uid, this.user.equus, this.addingEquus)
   }
 }

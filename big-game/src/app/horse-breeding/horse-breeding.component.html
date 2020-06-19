@@ -40,7 +40,8 @@
                     <div *ngIf="allHorseData?.length > 0; else noItems">
                         <table class="">
                             <tr class="row row-head">
-                                <td>Horse name</td>
+                                <td>Horse Name</td>
+                                <td>Breed </td>
                                 <td>Stamina</td>
                                 <td>Energy</td>
                                 <td>Morale</td>
@@ -50,13 +51,14 @@
                             <label class="display-vert pad-left" *ngFor="let horse of allHorseData" >
                                 <tr class="row">
                                     <td>{{ horse.name }}</td>
+                                    <td>{{ horse.breed }}</td>
                                     <td>{{horse.stamina}}</td>
                                     <td>{{horse.energy}}</td>
                                     <td>{{horse.morale}}</td>
                                     <td>{{horse.skill}}</td>
                                     <td> 
                                         <button class="btn-shops btn-shops-lrg">
-                                            Select 750e
+                                            Breed for 750e
                                         </button>
                                     </td>
                                 </tr>

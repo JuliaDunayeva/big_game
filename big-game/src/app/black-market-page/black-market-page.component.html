@@ -78,7 +78,8 @@
                                                         <p class="bold-text  ">Zeus' Lightning Bolt enables you to change the gender of your horses. Mares in gestation and geldings cannot benefit from this item.</p>
                                                     </div>
                                                     <div>
-                                                        <h3>List of the all the horses</h3>
+                                                        <h5>List of your horses...</h5>
+                                                        <br>
                                                     </div>
                                                     <form>
                                                         <div *ngFor="let horse of allHorses">
@@ -86,10 +87,12 @@
                                                                 <input type="radio"  [id]="horse.id" name="horse"
                                                                     [value]="horse.id" (click)="onHorseSelect(horse.gender, horse.id)"/>
                                                                 <span class="checkmark radio-border"></span>
-                                                                {{ horse.name}} - {{horse.gender}}
+                                                                {{ horse.name}} - 
+                                                                {{horse.gender}}
                                                             </label>
                                                         </div>
                                                         <div>
+                                                            <br>
                                                              <button class="btn-shops btn-shops-lrg" (click)= "costCheck()" (click)="swapGender()">Change Gender</button>
                                                         </div>
                                                     </form> 
@@ -131,7 +134,7 @@
                                     <div class="col-sm-9">
                                         <h5 class="box-head">Artemis' Arrow</h5>
                                         <p class="">Make your Stallion into a Stud.</p>
-                                        <p class="pass">50 <img class="pass-img" src="./assets/images/black-store/pass.png">
+                                        <p class="pass">95 <img class="pass-img" src="./assets/images/black-store/pass.png">
                                     </div>
                                 </a>
                                 <div ngbDropdownMenu class="drop-box" id="background">
@@ -141,10 +144,11 @@
                                             <p class="bold-text  ">Artemis' Arrow enables you to turn your Stallion into a Stud !!!</p>
                                         </div>
                                         <div>
-                                            <h3>List of the all the horses</h3>
+                                            <h5>List of the all the horses</h5>
+                                            <br>
                                         </div>
                                         <form>
-                                            <div *ngFor="let horse of allmales">
+                                            <div *ngFor="let horse of allMales">
                                                 <label >
                                                     <input type="radio"  [id]="horse.id" name="horse"
                                                     [value]="horse.id" (click)="horseSelect(horse.stud, horse.id)"/>
@@ -153,6 +157,7 @@
                                                 </label>
                                             </div>
                                             <div>
+                                                <br>
                                                 <button class="btn-shops btn-shops-lrg" (click)= "costCheck()" (click)="swapStudStatus()">Make Stud</button>
                                            </div>
                                         </form> 
