@@ -151,7 +151,7 @@ export class HorseDataService {
 				tr_trot: 0,
 				tr_jumping: 0,
 				time: { currentHourString: "24", currentMinuteString: "00" },
-				age: { year: 10, month: 1, day: 1 },
+				age: { year: 1, month: 1, day: 1 },
 				toSell: false,
 				stud: false,
 			})
@@ -307,5 +307,23 @@ export class HorseDataService {
 				})
 			})
 		);
+	}
+
+	getStallions(): Observable<HorseData[]> {
+		return this.db.collection('/horse_data', ref => ref.where('userId', '==', this.authService.getUId()).where('gender', '==', 'stallion'))
+			.snapshotChanges().pipe(
+				map(action => {
+					return action.map(res => {
+						const horse = res.payload.doc.data() as HorseData;
+						const id = res.payload.doc.id;
+						return { id, ...horse };
+					})
+				})
+			);
+	} 
+	updateStudStatus(id: string, stud: boolean) {
+		return this.db.collection('/horse_data').doc(id).update({
+			'toSell': stud
+		})
 	}
 } // end of horse data service

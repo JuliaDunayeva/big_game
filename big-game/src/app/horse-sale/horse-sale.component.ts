@@ -107,13 +107,13 @@ export class HorseSaleComponent implements OnInit {
   
     haveMoney: boolean;
     costCheck(){
-      if (this.user.equus >= 750) {
-        this.userService.subtractEquus(this.Uid, this.user.equus, 750)
-        this.swapUser();
-        return this.haveMoney = true;
+      if (this.user.equus < 750) {
+        return this.haveMoney = false;
       } 
       else{
-        return this.haveMoney = false;
+        this.haveMoney = true;
+        this.userService.subtractEquus(this.Uid, this.user.equus, 750)
+        this.swapUser();
       }
     }
 }

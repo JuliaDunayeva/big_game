@@ -47,7 +47,7 @@
 
 .gradient {
     background: rgb(242, 6, 6);
-    background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
 .center-text {
@@ -152,7 +152,7 @@
 
 #progressbar>div {
     background-color: orange;
-    background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
     width: 70%;
     /* Adjust with JavaScript */
     height: 15px;
@@ -169,7 +169,7 @@
     height: 15px;
     border: 1px solid #663300;
     border-radius: 8px;
-    background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
 .moraleBar {
@@ -177,7 +177,7 @@
     height: 15px;
     border: 1px solid #663300;
     border-radius: 8px;
-    background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
 .healthBar {
@@ -185,7 +185,7 @@
     height: 15px;
     border: 1px solid #663300;
     border-radius: 8px;
-    background: linear-gradient( 90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+    background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
 }
 
 
@@ -226,6 +226,7 @@ li {
 .positionRelative {
     position: relative;
     margin: auto;
+    padding: 0;
 }
 
 .percentageValue {
@@ -244,6 +245,15 @@ li {
     }
     .padding {
         padding: 0rem;
+    }
+    /*Moj added */
+    .horse-page-main-div {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        grid-template-rows: auto auto
+    }
+    .horse-page-main-div>div:nth-child(2) {
+        grid-row: 1/span all;
     }
 }
 
@@ -268,6 +278,15 @@ li {
     .padding {
         padding: 0rem;
     }
+    /*Moj added */
+    .horse-page-main-div {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        grid-template-rows: auto auto
+    }
+    .horse-page-main-div>div:nth-child(2) {
+        grid-row: 1/span all;
+    }
 }
 
 
@@ -287,5 +306,25 @@ li {
     }
     .max-width-right {
         margin-top: -240px;
+    }
+}
+
+
+/*Moj added */
+
+@media (max-width: 767px) {
+    .horse-page-main-div {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        margin: auto;
+    }
+    .horse-page-main-div>div:nth-child(2) {
+        order: 0;
+        padding: 0;
+    }
+    .horse-page-main-div>div:nth-child(1),
+    .horse-page-main-div>div:nth-child(3) {
+        order: 1;
     }
 }
