@@ -1,22 +1,24 @@
-<div class="ui container-xl">
+<div class="container overflow-hidden">
     <app-mini-bar></app-mini-bar>
     <app-nav-bar></app-nav-bar>
     <!-- account nav bar here-->
     <br>
     <app-play-bar></app-play-bar>
     <!-- game nav bar placement-->
-    <br><br>
-    <div class="row">
+    <div class="horse-page-main-div d-lg-flex flex-lg-nowrap d-xs-flex flex-xs-column justify-content-between mt-5">
         <!-- horse information placement-->
-        <div class="col-sm-3 max-width-column max-width-left">
-            <div class="row center-text">
+        <div class="order-lg-0 order-sm-1 order-xs-1 mt-lg-5">
+            <div class="center-text">
                 <p class="no-bottom-margin top-margin">
                     <!-- left panel 1 - Care -->
-                    <button type="button" class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border" (click)="isCareCollapsed = !isCareCollapsed" [attr.aria-expanded]="!isCareCollapsed" aria-controls="collapseExample ">
+                    <button type="button"
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border"
+                        (click)="isCareCollapsed = !isCareCollapsed" [attr.aria-expanded]="!isCareCollapsed"
+                        aria-controls="collapseExample ">
                         Care
                     </button>
                 </p>
-                <div class="no-top-margin max-width-column" id="collapseExample" [ngbCollapse]="isCareCollapsed">
+                <div class="no-top-margin w-100" id="collapseExample" [ngbCollapse]="isCareCollapsed">
                     <div class="card card-green bottom-margin">
                         <div class="card-body no-padding">
                             <div class="row no-margin">
@@ -62,11 +64,14 @@
                 </div>
                 <p class="no-bottom-margin top-margin">
                     <!-- left panel 2 - Night -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border" (click)="isNightCollapsed = !isNightCollapsed" [attr.aria-expanded]="!isNightCollapsed" aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border"
+                        (click)="isNightCollapsed = !isNightCollapsed" [attr.aria-expanded]="!isNightCollapsed"
+                        aria-controls="collapseExample ">
                         Night
                     </button>
                 </p>
-                <div class="max-width-column" id="collapseExample " [ngbCollapse]="isNightCollapsed">
+                <div class="w-100" id="collapseExample " [ngbCollapse]="isNightCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body">
                             <div class="row">
@@ -92,11 +97,14 @@
                 </div>
                 <p class="no-bottom-margin">
                     <!-- left panel 3 - Equestrian Centre -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin top-margin card-title-border" (click)="isECCollapsed = !isECCollapsed" [attr.aria-expanded]="!isECCollapsed" aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin top-margin card-title-border"
+                        (click)="isECCollapsed = !isECCollapsed" [attr.aria-expanded]="!isECCollapsed"
+                        aria-controls="collapseExample ">
                         Equestrian Centre
                     </button>
                 </p>
-                <div class="max-width-column" id="collapseExample " [ngbCollapse]="isECCollapsed">
+                <div class="w-100" id="collapseExample " [ngbCollapse]="isECCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body">
                             Your horse is not registered in an Equestrian Centre yet.
@@ -110,11 +118,14 @@
                 </div>
                 <p class="no-bottom-margin">
                     <!-- left panel 4 - History -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin top-margin card-title-border" (click)="isHistoryCollapsed = !isHistoryCollapsed" [attr.aria-expanded]="!isHistoryCollapsed" aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin top-margin card-title-border"
+                        (click)="isHistoryCollapsed = !isHistoryCollapsed" [attr.aria-expanded]="!isHistoryCollapsed"
+                        aria-controls="collapseExample ">
                         History
                     </button>
                 </p>
-                <div class="max-width-column" id="collapseExample " [ngbCollapse]="isHistoryCollapsed">
+                <div class="w-100" id="collapseExample " [ngbCollapse]="isHistoryCollapsed">
                     <div class="card card-green bottom-margin no-padding">
                         <div class="card-body  scrolling-wrapper scroll-height">
                             <div *ngFor="let hist of history | slice:0:10; let i=index">
@@ -125,8 +136,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-1 center-text max-width-middle-column">
+        <div class="col-lg-5 mt-lg-5 text-center">
             <img class="col-xl-12" src="{{ imagePath }} " />
             <div class="card-light-green card-title no-bottom-margin card-title-border">
                 {{ horse?.name }}
@@ -134,24 +144,28 @@
             <div>
                 <div class="card card-light-green">
                     <!-- Percent of time remaining-->
-                    <div class="row">
+                    <div class="d-flex flex-wrap flex-sm-nowrap">
                         <div class="positionRelative">
-                            <circle-progress class="time-left-padding time-top-padding" [clockwise]="false" [percent]="percent" [radius]="40" [maxPercent]="100" [outerStrokeWidth]="10" [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"
-                                [animationDuration]="300" [showBackground]="true" [showTitle]="true" [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString" [titleFontSize]="16" [titleFontWeight]="700" [showSubtitle]="false" [showUnits]="false"
+                            <circle-progress class="" [clockwise]="false" [percent]="percent" [radius]="40"
+                                [maxPercent]="100" [outerStrokeWidth]="7" [innerStrokeWidth]="4"
+                                [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"
+                                [animationDuration]="300" [showBackground]="true" [showTitle]="true"
+                                [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString"
+                                [titleFontSize]="16" [titleFontWeight]="700" [showSubtitle]="false" [showUnits]="false"
                                 [responsive]="false">
                             </circle-progress>
 
                         </div>
-                        <div class="card-body">
-                            <div class="col-10 form-group center-text card-middle-title">
+                        <div class="col-7 card-body">
+                            <div class="form-group center-text card-middle-title">
                                 Energy
                                 <div id="energyBar" class="energyBar"></div>
                             </div>
-                            <div class="col-10 form-group center-text card-middle-title">
+                            <div class="form-group center-text card-middle-title">
                                 Health
                                 <div id="healthBar" class="healthBar"></div>
                             </div>
-                            <div class="col-10 form-group center-text card-middle-title">
+                            <div class="form-group center-text card-middle-title">
                                 Morale
                                 <div id="moraleBar" class="moraleBar"></div>
                             </div>
@@ -316,15 +330,18 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 max-width-column max-width-right ">
-            <div class="row center-text ">
+        <div class="order-sm-1 order-xs-1 mt-lg-5">
+            <div class="center-text ">
                 <p class="no-bottom-margin ">
                     <!--right  panel 1 - Rides-->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isRidesCollapsed=! isRidesCollapsed " [attr.aria-expanded]="!isRidesCollapsed " aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
+                        (click)="isRidesCollapsed=! isRidesCollapsed " [attr.aria-expanded]="!isRidesCollapsed "
+                        aria-controls="collapseExample ">
                         Rides
                     </button>
                 </p>
-                <div class="max-width-column " id="collapseExample " [ngbCollapse]="isRidesCollapsed ">
+                <div class="w-100 " id="collapseExample " [ngbCollapse]="isRidesCollapsed ">
                     <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
                             <div class="row ">
@@ -349,12 +366,14 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right panel 2 - Training -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isTrainingCollapsed=! isTrainingCollapsed " [attr.aria-expanded]="!isTrainingCollapsed
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
+                        (click)="isTrainingCollapsed=! isTrainingCollapsed " [attr.aria-expanded]="!isTrainingCollapsed
                                 " aria-controls="collapseExample ">
                         Training
                     </button>
                 </p>
-                <div class="max-width-column " id="collapseExample " [ngbCollapse]="isTrainingCollapsed ">
+                <div class="w-100 " id="collapseExample " [ngbCollapse]="isTrainingCollapsed ">
                     <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
                             <div>
@@ -379,12 +398,14 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right  panel 3 - Competition -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
+                        (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
                                 " aria-controls="collapseExample ">
                         Competition
                     </button>
                 </p>
-                <div class="max-width-column " id="collapseExample " [ngbCollapse]="isCompetitionCollapsed ">
+                <div class="w-100 " id="collapseExample " [ngbCollapse]="isCompetitionCollapsed ">
                     <div class="card card-green bottom-margin no-padding ">
                         <div class="card-body ">
                             <div class="row ">
@@ -426,12 +447,14 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right  panel 4 - Breeding -->
-                    <button type="button " class="btn btn-primary max-width-column card-green card-title no-bottom-margin card-title-border " (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
+                        (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed
                                 " aria-controls="collapseExample ">
                         Breeding
                     </button>
                 </p>
-                <div class="card card-green bottom-margin no-padding max-width-column ">
+                <div class="card card-green bottom-margin no-padding w-100 ">
                     <div class="card-body ">
                         <div class="row ">
                             <div class="col-3 btn-padding ">
