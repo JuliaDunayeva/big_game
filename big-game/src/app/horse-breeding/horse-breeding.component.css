@@ -87,7 +87,8 @@ td {
 }
 
 .mare-img-size {
-  margin-left: 20rem;
+  margin-left:1rem;
   width:400px;
   height:300px;
+  margin-top: -5rem;
 }
