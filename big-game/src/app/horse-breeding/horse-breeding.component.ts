@@ -41,25 +41,41 @@ export class HorseBreedingComponent implements OnInit {
   getStallionHorseData(){
     this.horseService.getHorseForMare().subscribe(
       res => {
-        this.allHorseData = res as Array<HorseData>;
-    })
+        this.allHorseData = res as Array<HorseData>
+        this.allHorseData.map(horse =>{
+          this.breedService.getBreedById(horse.breed).then( res =>{
+            horse.breed = res.data()['breed']}
+            )
+          }
+        )
+        this.allHorseData.map(horse =>{
+          this.colorService.getColorById(horse.color).then( res =>
+            horse.color = res.data()['color']
+            )
+          }
+        )
+      }
+    )
   }
+  
 
 
   getMaredata(){
        this.horseService.getHorseById(this.id).subscribe((res) => {
          this.mareData = res as HorseData;
+         console.log(this.mareData)
          this.breedService.getBreedById(this.mareData.breed).then( brd =>
         { 
            this.mareData.breed = brd.data()['breed'];
             this.img_path = brd.data()['img_path'];
+            console.log('brred',this.img_path)
          })
         this.colorService.getColorById(this.mareData.color).then( clr =>
         {
           this.mareData.color = clr.data()['color'];
           this.img_file = clr.data()['img_file'];
+          console.log('color',this.img_file)
           this.LoadHorseImage()
-          
         })
         });
   } 

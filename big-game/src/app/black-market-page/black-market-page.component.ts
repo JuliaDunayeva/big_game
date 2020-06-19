@@ -16,6 +16,7 @@ import { UserDataService } from '../services/user-data.service';
 export class BlackMarketPageComponent implements OnInit {
   success = 'You have changed the horse gender';
   fail = 'You do not have enough Passes';
+  studly = ' You have changed the stallion into a stud!!!'
   Name: string ;
   allHorses: HorseData[];
   selectedHorse:string;
@@ -23,7 +24,7 @@ export class BlackMarketPageComponent implements OnInit {
   Uid: string = this.authservice.getUId();
   user: any;
   userInfo: UserData;
-  allmales: HorseData[];
+  allMales: HorseData[];
 
   constructor(private horseService: HorseDataService,
     private authservice: AuthService,
@@ -90,7 +91,7 @@ export class BlackMarketPageComponent implements OnInit {
   showStallions(){
     this.horseService.getStallions().subscribe(
       res => {
-      this.allmales = res as Array<HorseData>
+      this.allMales = res as Array<HorseData>
       });
   }
 
@@ -106,7 +107,7 @@ export class BlackMarketPageComponent implements OnInit {
       const stud = this.defineStudStatus(this.studStatusOfHorse)
       this.horseService.updateStudStatus(this.idHorse, stud)
       this.userService.subtractPasses(this.Uid, this.userInfo.passes, 50)
-      alert(this.success)
+      alert(this.studly)
     }
     else {
       alert(this.fail)
