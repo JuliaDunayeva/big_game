@@ -137,14 +137,15 @@
             </div>
         </div>
         <div class="col-lg-5 mt-lg-5 text-center">
-            <img class="col-xl-12" src="{{ imagePath }} " />
-            <div class="card-light-green card-title no-bottom-margin card-title-border">
-                {{ horse?.name }}
+            <img class="col-xl-10" src="{{ imagePath }} " />
+            <div
+                class="horse-name rounded-card lighter-gradient col-8 mx-auto card-light-green card-title no-bottom-margin card-title-border">
+                <div class="mt-2">{{ horse?.name }}</div>
             </div>
-            <div>
-                <div class="card card-light-green">
+            <div class="rounded-card">
+                <div class="card card-light-green card-title-border rounded-card border-bottom-none">
                     <!-- Percent of time remaining-->
-                    <div class="d-flex flex-wrap flex-sm-nowrap">
+                    <div class="darker-gradient rounded-card border-bottom-none d-flex flex-wrap flex-sm-nowrap">
                         <div class="positionRelative">
                             <circle-progress class="" [clockwise]="false" [percent]="percent" [radius]="40"
                                 [maxPercent]="100" [outerStrokeWidth]="7" [innerStrokeWidth]="4"
