@@ -127,25 +127,18 @@ constructor(
 ngOnInit(): void {
 	//setTimeout(function(){}, 750); 
 	// Item list array
-	
-	this.item=new TackItems("Golden Apple","assets/images/tack-page/gold-apple.png");
-	//this.item.name="Golden Apple";
-	//this.item.imageFile="assets/images/tack-page/gold-apple.png";
-	this.items.push(this.item);
-	this.item=new TackItems("Golden Peramid","assets/images/tack-page/gold-peramid.png");
-
-	this.items.push(this.item);
-
-	this.train=new Training("Training 1","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
-	this.train.setPercent(100);
-	this.training.push(this.train);
-	this.train=new Training("Training 2","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
-	this.train.setPercent(50);
+		this.item=new TackItems("Golden Apple","assets/images/tack-page/gold-apple.png");
+		this.items.push(this.item);
+		this.item=new TackItems("Golden Peramid","assets/images/tack-page/gold-peramid.png");
+		this.items.push(this.item);
+		// setup training items list
+		this.train=new Training("Training 1","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train.setPercent(100);
 		this.training.push(this.train);
-	console.log(this.items);
-	//this.items.push('assets/images/tack-page/gold-peramid.png');
-    //this.items.push('assets/images/tack-page/gold-apple.png');
-
+		this.train=new Training("Training 2","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train.setPercent(50);
+		this.training.push(this.train);
+		console.log(this.items);
   // Get Breed and Coat Color information
     	this.getBreeds();
     	this.getColors();
