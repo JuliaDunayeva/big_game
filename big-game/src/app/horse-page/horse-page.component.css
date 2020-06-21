@@ -8,8 +8,21 @@
   border: 2px solid #bebd58;
 }
 
+.bordered-sides {
+  border-left: 2px solid #bebd58;
+  border-right: 2px solid #bebd58;
+}
+
+.bordered-U {
+  border: 2px solid #bebd58;
+}
+
 .border-bottom-none {
   border-bottom: none;
+}
+
+.border-top-none {
+  border-top: none;
 }
 
 .card-green {
@@ -32,6 +45,14 @@
 
 .rounded-card {
   border-radius: 10px 10px 10px 10px;
+}
+
+.rounded-card-bottom {
+  border-radius: 0px 0px 10px 10px;
+}
+
+.rounded-none {
+  border-radius: 0;
 }
 
 .nav {
