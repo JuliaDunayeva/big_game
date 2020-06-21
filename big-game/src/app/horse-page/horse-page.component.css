@@ -25,6 +25,14 @@
   border-top: none;
 }
 
+.bordered-top {
+  border-top: 1px solid #bebd58;
+}
+
+.bordered-left {
+  border-left: 1px solid #bebd58;
+}
+
 .card-green {
   background-color: #dcdb81;
   color: #663300;
