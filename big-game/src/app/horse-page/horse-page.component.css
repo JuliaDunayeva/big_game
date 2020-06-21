@@ -60,6 +60,7 @@
 }
 
 .nav-link {
+  background-color: rgba(228, 228, 169);
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -77,6 +78,10 @@
 
 .bottom-layer {
   z-index: 9;
+}
+
+.font-size-1 {
+  font-size: 1rem;
 }
 
 .gold-color {
@@ -311,15 +316,15 @@ li {
 }
 
 .lighter-gradient {
-  background: linear-gradient(180deg, rgba(224, 224, 124, 0.8435574913559174) 40%, rgba(240, 240, 178, 1) 100%);
+  background: linear-gradient(180deg, rgba(228, 228, 169, 0.8435574913559174) 40%, rgba(240, 240, 178, 1) 100%);
 }
 
 .darker-gradient {
-  background: linear-gradient(180deg, rgba(240, 240, 178, 1)50%, rgba(224, 224, 124, 0.8435574913559174) 100%);
+  background: linear-gradient(180deg, rgba(240, 240, 178, 1)50%, rgba(228, 228, 169, 0.8435574913559174) 100%);
 }
 
 .full-gradient {
-  background: linear-gradient(180deg, rgba(224, 224, 124, 1) 0%, rgba(240, 240, 178, 1)15%, rgba(240, 240, 178, 1)75%, rgba(224, 224, 124, 1) 100%);
+  background: linear-gradient(180deg, rgba(228, 228, 169, 1) 0%, rgba(240, 240, 178, 1)15%, rgba(240, 240, 178, 1)75%, rgba(228, 228, 169, 1) 100%);
   ;
 }
 
