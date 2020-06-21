@@ -180,7 +180,7 @@
                 Skills
             </div> -->
             <div class="mb-3">
-                <div class="card card-light-green rounded-card full-gradient p-3">
+                <div class="card card-light-green rounded-card full-gradient p-3 bordered">
                     <div class="d-flex justify-content-between card-body p-0 rounded-card">
                         <div class="form-group card-title ">Skills</div>
                         <!-- <div class=" col-sm-6 center-text ">nothing here</div> -->
@@ -254,12 +254,12 @@
                     </div>
                 </div>
             </div>
-            <div class="card card-light-green bg-transparent">
+            <div class="card card-light-green bg-transparent border-none">
                 <div class="card-body p-0">
-                    <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green bg-transparent">
+                    <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green bg-transparent border-none">
                         <ng-container ngbNavItem>
                             <a ngbNavLink
-                                class="card-light-green rounded-card-top mr-2 pt-1 pb-0 px-2">Characteristics</a>
+                                class="card-light-green rounded-card-top mr-3 pb-1 px-2 lighter-gradient bordered font-weight-bold">Characteristics</a>
                             <ng-template ngbNavContent>
 
                                 <div class="col-xl-8 ">
@@ -284,7 +284,8 @@
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green rounded-card-top mr-2 pt-1 pb-0 px-2">Genetic</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top mr-3 pb-1 px-2 lighter-gradient bordered font-weight-bold">Genetic</a>
                             <ng-template ngbNavContent>
                                 <p> Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
                                     artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress,
@@ -298,7 +299,8 @@
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green rounded-card-top pt-1 pb-0 px-2">Bonus</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top pb-1 px-2 lighter-gradient bordered font-weight-bold">Bonus</a>
                             <ng-template ngbNavContent>
                                 <div class="">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
                                     sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum
@@ -313,7 +315,8 @@
                             </ng-template>
                         </ng-container>
                     </nav>
-                    <div [ngbNavOutlet]="nav" class="card-light-green "></div>
+                    <div [ngbNavOutlet]="nav" class="card-light-green rounded-top-right bordered border-bottom-none">
+                    </div>
                 </div>
                 <div>
                     <div class=" card card-light-green card-middle-title ">
