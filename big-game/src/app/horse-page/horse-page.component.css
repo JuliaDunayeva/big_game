@@ -84,6 +84,13 @@
   font-size: 1rem;
 }
 
+.hr {
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  margin: 4px 0;
+}
+
 .gold-color {
   color: rgb(224, 157, 11);
   font-size: 23px;

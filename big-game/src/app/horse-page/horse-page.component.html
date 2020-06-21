@@ -181,14 +181,14 @@
             </div> -->
             <div class="mb-3">
                 <div class="card card-light-green rounded-card full-gradient p-3 bordered">
-                    <div class="d-flex justify-content-between card-body p-0 rounded-card">
+                    <div class="d-flex justify-content-between align-item-center card-body p-0 rounded-card">
                         <div class="form-group card-title ">Skills</div>
                         <!-- <div class=" col-sm-6 center-text ">nothing here</div> -->
                         <div class="center-text card-title ">Total: 1,000</div>
                     </div>
                     <!-- horse stamina-->
-                    <div class="d-flex justify-content-between card-body skillRating text-left">
-                        <div class="col-2 form-group text-left bold-title p-0">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-2 form-group m-0 text-left bold-title p-0">
                             Stamina
                         </div>
                         <div class="col-7">
@@ -197,9 +197,10 @@
                         </div>
                         <div class="text-right col-2 p-0">{{ horse?.stamina }}</div>
                     </div>
+                    <hr class="hr">
                     <!-- horse speed-->
-                    <div class="d-flex justify-content-between card-body skillRating text-left">
-                        <div class="col-2 form-group text-left bold-title p-0">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-2 form-group m-0 text-left bold-title p-0">
                             Speed
                         </div>
                         <div class="col-7">
@@ -208,9 +209,10 @@
                         </div>
                         <div class="text-right col-2 p-0">{{ horse?.speed }}</div>
                     </div>
+                    <hr class="hr">
                     <!-- horse dressage-->
-                    <div class="d-flex justify-content-between card-body skillRating text-left">
-                        <div class="col-2 form-group text-left bold-title p-0">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-2 form-group m-0 text-left bold-title p-0">
                             Dressage
                         </div>
                         <div class="col-7">
@@ -219,9 +221,10 @@
                         </div>
                         <div class="text-right col-2 p-0">{{ horse?.dressage }}</div>
                     </div>
+                    <hr class="hr">
                     <!-- horse gallop-->
-                    <div class="d-flex justify-content-between card-body skillRating text-left">
-                        <div class="col-2 form-group text-left bold-title p-0">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-2 form-group m-0 text-left bold-title p-0">
                             Gallop
                         </div>
                         <div class="col-7">
@@ -230,9 +233,10 @@
                         </div>
                         <div class="text-right col-2 p-0">{{ horse?.gallop }}</div>
                     </div>
+                    <hr class="hr">
                     <!-- horse trot-->
-                    <div class="d-flex justify-content-between card-body skillRating text-left">
-                        <div class="col-2 form-group text-left bold-title p-0">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-2 form-group m-0 text-left bold-title p-0">
                             Trot
                         </div>
                         <div class="col-7">
@@ -241,8 +245,9 @@
                         </div>
                         <div class="text-right col-2 p-0">{{ horse?.trot }}</div>
                     </div>
-                    <div class="d-flex justify-content-between card-body skillRating text-left">
-                        <div class="col-2 form-group text-left bold-title p-0">
+                    <hr class="hr">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-2 form-group m-0 text-left bold-title p-0">
                             Jumping
                         </div>
                         <div class="col-7">
@@ -262,27 +267,28 @@
                                 class="card-light-green rounded-card-top mr-3 px-2 bordered font-weight-bold">Characteristics</a>
                             <ng-template ngbNavContent>
                                 <div class="row p-3">
-                                    <div class="col-6 text-left py-1">
+                                    <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Owner:
                                             </span>{{ user?.userName }}</p>
                                     </div>
-                                    <div class="col-6 text-right py-1">
+                                    <div class="col-6 text-right py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Breed:
                                             </span>{{ horse?.breed }}</p>
                                     </div>
-                                    <div class="col-6 text-left py-1">
+                                    <hr class="hr mx-3">
+                                    <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Age:
                                             </span>{{ horse?.age.year }} years old</p>
                                     </div>
-                                    <div class="col-6 text-right py-1">
+                                    <div class="col-6 text-right py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Gender:
                                             </span>{{ horse?.gender }}</p>
                                     </div>
-
+                                    <hr class="hr mx-3">
                                     <!-- <div>
                                         <p class="font-size-1"><span class="font-weight-bold">Species: </span>{{ horse?.species }}</p>
                                     </div> -->
-                                    <div class="col-6 text-left py-1">
+                                    <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Coat:
                                             </span>{{ horse?.color }}</p>
                                     </div>
@@ -293,7 +299,8 @@
                             <a ngbNavLink
                                 class="card-light-green rounded-card-top mr-3 px-2 bordered font-weight-bold">Genetic</a>
                             <ng-template ngbNavContent>
-                                <p> Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
+                                <div class="p-3 text-left"> Exercitation +1 labore velit, blog sartorial PBR leggings next level
+                                    wes anderson
                                     artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress,
                                     commodo enim craft beer mlkshk aliquip jean shorts ullamco
                                     ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
@@ -301,14 +308,14 @@
                                     Vegan fanny pack odio cillum wes anderson 8-bit,
                                     sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel Art
                                     party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed
-                                    echo park.</p>
+                                    echo park.</div>
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
                             <a ngbNavLink
                                 class="card-light-green rounded-card-top px-2 bordered font-weight-bold">Bonus</a>
                             <ng-template ngbNavContent>
-                                <div class="">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
+                                <div class="p-3 text-left">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
                                     sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum
                                     aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
                                     Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus
