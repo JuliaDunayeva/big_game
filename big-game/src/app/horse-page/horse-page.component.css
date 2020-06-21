@@ -38,10 +38,16 @@
   margin-bottom: -1px;
 }
 
+.nav-link {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .nav-link.active {
   border: 2px solid #bebd58;
   border-bottom: none;
   z-index: 1000;
+  background-color: #f0f0b2
 }
 
 .top-layer {
