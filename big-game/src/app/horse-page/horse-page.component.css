@@ -1,7 +1,7 @@
 /* Move to master styles.css */
 
 .card-title-border {
-  border: 2px solid #bebd58;
+  border: 1px ridge #bebd58;
 }
 
 .card-green {
@@ -15,7 +15,7 @@
 }
 
 .rounded-card {
-  border-radius: 8px 8px 0 0;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .gold-color {
@@ -241,8 +241,9 @@ li {
 .horse-name {
   height: 3%;
   border-bottom: none;
-  margin-bottom: -2px;
+  margin-bottom: -1px;
   z-index: 90;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .border-bottom-none {
@@ -250,11 +251,16 @@ li {
 }
 
 .lighter-gradient {
-  background: linear-gradient(180deg, rgba(224, 224, 124, 0.8435574913559174) 5%, rgba(240, 240, 178, 1) 60%);
+  background: linear-gradient(180deg, rgba(224, 224, 124, 0.8435574913559174) 40%, rgba(240, 240, 178, 1) 100%);
 }
 
 .darker-gradient {
   background: linear-gradient(180deg, rgba(240, 240, 178, 1)50%, rgba(224, 224, 124, 0.8435574913559174) 100%);
+}
+
+.full-gradient {
+  background: linear-gradient(180deg, rgba(224, 224, 124, 1) 0%, rgba(240, 240, 178, 1)15%, rgba(240, 240, 178, 1)75%, rgba(224, 224, 124, 1) 100%);
+  ;
 }
 
 @media (min-width: 578px) and (max-width: 767.98px) {
