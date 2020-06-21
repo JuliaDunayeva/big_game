@@ -1,7 +1,7 @@
 /* Move to master styles.css */
 
 .card-title-border {
-  border: 1px ridge #bebd58;
+  border: 1px solid #bebd58;
 }
 
 .card-green {
@@ -12,6 +12,10 @@
 .card-light-green {
   background-color: #f0f0b2;
   color: #663300;
+}
+
+.rounded-card-top {
+  border-radius: 10px 10px 0px 0px;
 }
 
 .rounded-card {
@@ -243,7 +247,6 @@ li {
   border-bottom: none;
   margin-bottom: -1px;
   z-index: 90;
-  border-radius: 10px 10px 0px 0px;
 }
 
 .border-bottom-none {

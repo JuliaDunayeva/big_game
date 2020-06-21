@@ -139,8 +139,8 @@
         <div class="col-lg-5 mt-lg-5 text-center">
             <img class="col-xl-10" src="{{ imagePath }} " />
             <div
-                class="horse-name lighter-gradient col-8 mx-auto card-light-green card-title no-bottom-margin card-title-border">
-                <div class="mt-3">{{ horse?.name }}</div>
+                class="horse-name lighter-gradient col-8 mx-auto card-light-green card-title no-bottom-margin card-title-border rounded-card-top">
+                <div class="mt-2">{{ horse?.name }}</div>
             </div>
             <div class="rounded-card mb-3">
                 <div class="card card-light-green card-title-border rounded-card">
@@ -254,38 +254,12 @@
                     </div>
                 </div>
             </div>
-
-            <!-- middle panel - after skills -->
-            <div>
-                <div class=" card card-light-green card-middle-title ">
-                    <div class=" card-body card-title inline-block ">
-                        <div>
-                            <p class=" margin ">Tack</p>
-                        </div>
-                        <!---tack popup, Equip my horse, roaa-->
-                        <app-modal-options></app-modal-options>
-                    </div>
-                </div>
-            </div>
-
-            <div class=" card card-light-green card-middle-title ">
-                <div class=" card-body card-title hi-light ">
-                    <div class=" inline-block ">
-                        <div>
-                            <p class=" item-title-margin">Items</p>
-                        </div>
-                        <div class="item-list-margin">
-                            <img *ngFor="let itm of items" alt="{{ itm.name }}" src="{{ itm.imageFile }}" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-light-green ">
-                <div class="card-body ">
-                    <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green ">
+            <div class="card card-light-green bg-transparent">
+                <div class="card-body p-0">
+                    <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green bg-transparent">
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green ">Characteristics</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top mr-2 pt-1 pb-0 px-2">Characteristics</a>
                             <ng-template ngbNavContent>
 
                                 <div class="col-xl-8 ">
@@ -307,14 +281,10 @@
                                 <div class="col-xl-8 ">
                                     <p>Coat [ <strong>{{ horse?.color }} </strong>]</p>
                                 </div>
-
-                                <div class="card-body card-title ">
-                                    Victories
-                                </div>
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green">Genetic</a>
+                            <a ngbNavLink class="card-light-green rounded-card-top mr-2 pt-1 pb-0 px-2">Genetic</a>
                             <ng-template ngbNavContent>
                                 <p> Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
                                     artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress,
@@ -328,7 +298,7 @@
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green">Bonus</a>
+                            <a ngbNavLink class="card-light-green rounded-card-top pt-1 pb-0 px-2">Bonus</a>
                             <ng-template ngbNavContent>
                                 <div class="">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
                                     sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum
@@ -345,7 +315,35 @@
                     </nav>
                     <div [ngbNavOutlet]="nav" class="card-light-green "></div>
                 </div>
+                <div>
+                    <div class=" card card-light-green card-middle-title ">
+                        <div class=" card-body card-title inline-block ">
+                            <div>
+                                <p class=" margin ">Tack</p>
+                            </div>
+                            <!---tack popup, Equip my horse, roaa-->
+                            <app-modal-options></app-modal-options>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-light-green card-middle-title ">
+                    <div class=" card-body card-title hi-light ">
+                        <div class=" inline-block ">
+                            <div>
+                                <p class=" item-title-margin">Items</p>
+                            </div>
+                            <div class="item-list-margin">
+                                <img *ngFor="let itm of items" alt="{{ itm.name }}" src="{{ itm.imageFile }}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-light-green card-body card-title m-0">
+                    Victories
+                </div>
             </div>
+            <!-- middle panel - after skills -->
+
         </div>
         <div class="order-sm-1 order-xs-1 mt-lg-5">
             <div class="center-text ">
