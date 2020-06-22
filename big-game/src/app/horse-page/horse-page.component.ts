@@ -14,6 +14,10 @@ import { Breed } from '../breed';
 import { Color } from '../color';
 import { TackItems } from '../tack-items';
 import { Training } from '../training';
+//import { ModalOptionsComponent } from '../modal-options/modal-options.component';
+import { Equipment } from '../equipment';
+import { SaddlesService } from './../services/saddles.service';
+
 @Component({
 	selector: 'app-horse-page',
 	templateUrl: './horse-page.component.html',
@@ -114,6 +118,12 @@ export class HorsePageComponent implements OnInit {
 
 		public index:number;
 		
+		allEquipment: Equipment[];
+		currentSaddle:Equipment;
+		currentBridal:Equipment;
+		currentSaddleBlanket:Equipment;
+		public saddleIndex=1;
+		
 constructor(
     private router: Router,
     private http: HttpClient,
@@ -121,10 +131,17 @@ constructor(
     private breedService: BreedService,
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
-    private authService: AuthService, router2:Router,
+	private authService: AuthService, router2:Router,
+	public saddlesService: SaddlesService,
+	//private mod: ModalOptionsComponent,
 ) {}
 
 ngOnInit(): void {
+	this.GetEquipmentList();
+	//this.currentBridal=this.allEquipment[1];
+	//this.currentSaddle=this.allEquipment[1];
+	//this.currentSaddleBlanket=this.allEquipment[1];
+//this.mod.showlist();
 	//setTimeout(function(){}, 750); 
 	// Item list array
 		this.item=new TackItems("Golden Apple","assets/images/tack-page/gold-apple.png");
@@ -132,13 +149,16 @@ ngOnInit(): void {
 		this.item=new TackItems("Golden Peramid","assets/images/tack-page/gold-peramid.png");
 		this.items.push(this.item);
 		// setup training items list
-		this.train=new Training("Training 1","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
-		this.train.setPercent(100);
+		this.train=new Training("Barrel Racing","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train.setPercent(0);
 		this.training.push(this.train);
 		this.train=new Training("Training 2","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
 		this.train.setPercent(50);
 		this.training.push(this.train);
-		console.log(this.items);
+		this.train=new Training("Training 3","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train.setPercent(75);
+		this.training.push(this.train);
+		//console.log(this.items);
   // Get Breed and Coat Color information
     	this.getBreeds();
     	this.getColors();
@@ -290,12 +310,14 @@ ngOnInit(): void {
 		/* This line sets an interval to refresh stuff, not working at the moment but will look into it*/
 	//this.timerId = setInterval(this.alertFunc(this.horse),1000);
 	  });
+
+	  
 	  //console.log(this.id);
 	  //console.log(this.horse.id);
     } // end of GetHorse() function
 /* test callback function for setInterval line in above function */
 alertFunc(myhorse: HorseData):any{
-		console.log(myhorse);
+		//console.log(myhorse);
 		myhorse.energy--;
 		this.updateEnergyBar();
 }
@@ -367,6 +389,10 @@ public CarrotButton() {
 public MashButton() {
 		this.toggleButtons(this.MashButtons, !this.MashButtons.enabled);
 		this.checkButtons();
+		this.returnCurrentSaddle();
+		this.currentBridal=this.allEquipment[1];
+	this.currentSaddle=this.allEquipment[1];
+	this.currentSaddleBlanket=this.allEquipment[1];
 }// end of Mash Button function
 
 
@@ -482,6 +508,7 @@ public BarrelComp(){
 		if (this.horse.health>0 ) this.horse.health-=1;
 		if (this.horse.morale>0) this.horse.morale-=5;
 		if (this.horse.energy>0) this.horse.energy-=5;
+		if (this.training[0].getPercent()<100) this.training[0].setPercent(this.training[0].getPercent()+10)
 		this.CheckStats();
 		this.horseDataService.setHorseHealth(this.horse);
 		this.horseDataService.setHorseMorale(this.horse);	
@@ -765,5 +792,99 @@ updateHealthBar(){
 updateMoraleBar(){
 	let elem = document.getElementById('moraleBar');
 	elem.style.width = this.horse.morale + "%";
+}
+returnCurrentSaddle(){
+	for (let i=0; i< this.allEquipment.length;i++){
+		//console.log(this.allEquipment[i].name)
+	}
+}
+/* Functions used by HTML to calculate each new stat based on equipment, currently only applies to a specific saddle for testing */
+calculateJumpSkill(){
+	return this.horse.jumping+ this.allEquipment[this.saddleIndex].jumping_;
+	//return this.horse.jumping+ this.currentBridal.jumping_ + this.currentSaddle.jumping_ + this.currentSaddleBlanket.jumping_;
+}
+calculateStaminaSkill(){
+	return this.horse.stamina+ this.allEquipment[this.saddleIndex].stamina_;
+	//return this.horse.stamina+ this.currentBridal.stamina_ + this.currentSaddle.stamina_ + this.currentSaddleBlanket.stamina_;
+}
+calculateSpeedSkill(){
+	return this.horse.speed+ this.allEquipment[this.saddleIndex].speed_;
+	//return this.horse.speed+ this.currentBridal.speed_ + this.currentSaddle.speed_ + this.currentSaddleBlanket.speed_;
+}
+calculateDressageSkill(){
+	return this.horse.dressage+ this.allEquipment[this.saddleIndex].dressage_;
+	//return this.horse.dressage+ this.currentBridal.dressage_ + this.currentSaddle.dressage_ + this.currentSaddleBlanket.dressage_;
+}
+calculateGallopSkill(){
+	return this.horse.gallop+ this.allEquipment[this.saddleIndex].gallop_;
+	//return this.horse.gallop+ this.currentBridal.gallop_ + this.currentSaddle.gallop_ + this.currentSaddleBlanket.gallop_;
+}
+calculateTrotSkill(){
+	return this.horse.trot+ this.allEquipment[this.saddleIndex].trot_;
+	//return this.horse.trot+ this.currentBridal.trot_ + this.currentSaddle.trot_ + this.currentSaddleBlanket.trot_;
+}
+/* Caculate total stats based on selected equipment,  currently only applies to specific saddle for testing */
+calculateTotalSkills(){
+	//console.log(this.allEquipment[this.saddleIndex].name);
+	return this.addCommas(this.horse.jumping+ this.allEquipment[this.saddleIndex].jumping_ + this.horse.stamina+ this.allEquipment[this.saddleIndex].stamina_ + 
+	 this.horse.speed+ this.allEquipment[this.saddleIndex].speed_ + this.horse.dressage+ this.allEquipment[this.saddleIndex].dressage_ +	 
+	 this.horse.gallop+ this.allEquipment[this.saddleIndex].gallop_ +  this.horse.trot+ this.allEquipment[this.saddleIndex].trot_);
+	
+	return '1,000';
+}
+/* Adds commas for use on displaying numbers with thousands separator */
+addCommas(str) {
+    var parts = (str + "").split("."),
+        main = parts[0],
+        len = main.length,
+        output = "",
+        first = main.charAt(0),
+        i;
+
+    if (first === '-') {
+        main = main.slice(1);
+        len = main.length;    
+    } else {
+        first = "";
+    }
+    i = len - 1;
+    while(i >= 0) {
+        output = main.charAt(i) + output;
+        if ((len - i) % 3 === 0 && i > 0) {
+            output = "," + output;
+        }
+        --i;
+    }
+    // put sign back
+    output = first + output;
+    // put decimal part back
+    if (parts.length > 1) {
+        output += "." + parts[1];
+    }
+    return output;
+}
+
+GetEquipmentList(){
+	this.saddlesService.getSaddlesList()
+	.subscribe(data => {
+	  this.allEquipment = data.map(res => {
+		//console.log('saddles', res)
+		return{
+		  saddleId: res.payload.doc.id,
+		  name: res.payload.doc.data()['name'],
+		  color: res.payload.doc.data()['color'],
+		  equipment: res.payload.doc.data()['equipment'],
+		  img_file: res.payload.doc.data()['img_file'],
+		  id: res.payload.doc.data()['id'],
+		  group: res.payload.doc.data()['group'],
+		  dressage_: res.payload.doc.data()['dressage_'],
+		  gallop_: res.payload.doc.data()['gallop_'],
+		  jumping_: res.payload.doc.data()['jumping_'],
+		  speed_: res.payload.doc.data()['speed_'],
+		  stamina_: res.payload.doc.data()['stamina_'],
+		  trot_: res.payload.doc.data()['trot_'],
+		}
+	  })
+	})
 }
 } // end horse-page component class

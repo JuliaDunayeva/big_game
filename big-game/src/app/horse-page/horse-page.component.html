@@ -166,7 +166,7 @@
                     <div class="d-flex justify-content-between align-item-center card-body p-0 rounded-card">
                         <div class="form-group card-title ">Skills</div>
                         <!-- <div class=" col-sm-6 center-text ">nothing here</div> -->
-                        <div class="center-text card-title ">Total: 1,000</div>
+                        <div class="center-text card-title ">Total : {{ calculateTotalSkills() }}</div>
                     </div>
                     <!-- horse stamina-->
                     <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
@@ -176,7 +176,7 @@
                         <div class="col-7">
                             <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.stamina / 10 " class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="text-right col-2 p-0">{{ horse?.stamina }}</div>
+                        <div class="text-right col-2 p-0">{{ calculateStaminaSkill() }}</div>
                     </div>
                     <hr class="hr">
                     <!-- horse speed-->
@@ -187,7 +187,7 @@
                         <div class="col-7">
                             <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.speed / 10 " class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="text-right col-2 p-0">{{ horse?.speed }}</div>
+                        <div class="text-right col-2 p-0">{{ calculateSpeedSkill() }}</div>
                     </div>
                     <hr class="hr">
                     <!-- horse dressage-->
@@ -198,7 +198,7 @@
                         <div class="col-7">
                             <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.dressage / 10 " class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="text-right col-2 p-0">{{ horse?.dressage }}</div>
+                        <div class="text-right col-2 p-0">{{ calculateDressageSkill() }}</div>
                     </div>
                     <hr class="hr">
                     <!-- horse gallop-->
@@ -209,7 +209,7 @@
                         <div class="col-7">
                             <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.gallop / 10 " class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="text-right col-2 p-0">{{ horse?.gallop }}</div>
+                        <div class="text-right col-2 p-0">{{ calculateGallopSkill() }}</div>
                     </div>
                     <hr class="hr">
                     <!-- horse trot-->
@@ -220,7 +220,7 @@
                         <div class="col-7">
                             <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.trot / 10 " class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="text-right col-2 p-0">{{ horse?.trot }}</div>
+                        <div class="text-right col-2 p-0">{{ calculateTrotSkill() }}</div>
                     </div>
                     <hr class="hr">
                     <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
@@ -231,7 +231,7 @@
                             <!-- horse jumping-->
                             <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.jumping / 10 " class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="text-right col-2 p-0">{{ horse?.jumping }}</div>
+                        <div class="text-right col-2 p-0">{{ calculateJumpSkill() }}</div>
                     </div>
                 </div>
             </div>
