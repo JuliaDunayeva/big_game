@@ -4,6 +4,35 @@
     border: 2px solid #bebd58;
 }
 
+.bordered {
+  border: 2px solid #bebd58;
+}
+
+.bordered-sides {
+  border-left: 2px solid #bebd58;
+  border-right: 2px solid #bebd58;
+}
+
+.bordered-U {
+  border: 2px solid #bebd58;
+}
+
+.border-bottom-none {
+  border-bottom: none;
+}
+
+.border-top-none {
+  border-top: none;
+}
+
+.bordered-top {
+  border-top: 1px solid #bebd58;
+}
+
+.bordered-left {
+  border-left: 1px solid #bebd58;
+}
+
 .card-green {
     background-color: #dcdb81;
     color: #663300;
@@ -12,6 +41,62 @@
 .card-light-green {
     background-color: #f0f0b2;
     color: #663300;
+}
+
+.rounded-top-right {
+  border-radius: 0px 10px 0 0;
+}
+
+.rounded-card-top {
+  border-radius: 10px 10px 0px 0px;
+}
+
+.rounded-card {
+  border-radius: 10px 10px 10px 10px;
+}
+
+.rounded-card-bottom {
+  border-radius: 0px 0px 10px 10px;
+}
+
+.rounded-none {
+  border-radius: 0;
+}
+
+.nav {
+  margin-bottom: -1px;
+}
+
+.nav-link {
+  background-color: rgba(228, 228, 169);
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.nav-link.active {
+  border: 2px solid #bebd58;
+  border-bottom: none;
+  z-index: 1000;
+  background-color: #f0f0b2
+}
+
+.top-layer {
+  z-index: 99;
+}
+
+.bottom-layer {
+  z-index: 9;
+}
+
+.font-size-1 {
+  font-size: 1rem;
+}
+
+.hr {
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  margin: 4px 0;
 }
 
 .gold-color {
@@ -232,6 +317,30 @@ li {
 .percentageValue {
     position: absolute;
     text-align: center
+}
+
+.horse-name {
+  height: 3%;
+  border-bottom: none;
+  margin-bottom: -2px;
+  z-index: 90;
+}
+
+.border-none {
+  border: none;
+}
+
+.lighter-gradient {
+  background: linear-gradient(180deg, rgba(228, 228, 169, 0.8435574913559174) 40%, rgba(240, 240, 178, 1) 100%);
+}
+
+.darker-gradient {
+  background: linear-gradient(180deg, rgba(240, 240, 178, 1)50%, rgba(228, 228, 169, 0.8435574913559174) 100%);
+}
+
+.full-gradient {
+  background: linear-gradient(180deg, rgba(228, 228, 169, 1) 0%, rgba(240, 240, 178, 1)15%, rgba(240, 240, 178, 1)75%, rgba(228, 228, 169, 1) 100%);
+  ;
 }
 
 @media (min-width: 578px) and (max-width: 767.98px) {

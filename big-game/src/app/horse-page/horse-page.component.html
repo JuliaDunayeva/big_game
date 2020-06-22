@@ -1,4 +1,4 @@
-<div class="container overflow-hidden">
+<div class="container">
     <app-mini-bar></app-mini-bar>
     <app-nav-bar></app-nav-bar>
     <!-- account nav bar here-->
@@ -77,7 +77,7 @@
                             <div class="row">
                                 <div class="col-3 btn-padding">
                                     <button (click)="PutToBedButton()" class="btn max-btn-width">
-                                        <img class="img-btn-width" src="{{ putToBedButton }}"/>
+                                        <img class="img-btn-width" src="{{ putToBedButton }}" />
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding">
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-3 btn-padding">
                                     <button (click)="AgeButton()" class="btn max-btn-width">
-                                        <img class="img-btn-width" src="{{ ageButton }}"/>
+                                        <img class="img-btn-width" src="{{ ageButton }}" />
                                     </button>
                                 </div>
                             </div>
@@ -137,14 +137,15 @@
             </div>
         </div>
         <div class="col-lg-5 mt-lg-5 text-center">
-            <img class="col-xl-12" src="{{ imagePath }} " />
-            <div class="card-light-green card-title no-bottom-margin card-title-border">
-                {{ horse?.name }}
+            <img class="col-xl-10" src="{{ imagePath }} " />
+            <div
+                class="horse-name lighter-gradient col-8 mx-auto card-light-green card-title no-bottom-margin card-title-border rounded-card-top">
+                <div class="mt-2">{{ horse?.name }}</div>
             </div>
-            <div>
-                <div class="card card-light-green">
+            <div class="rounded-card mb-3">
+                <div class="card card-light-green card-title-border rounded-card">
                     <!-- Percent of time remaining-->
-                    <div class="d-flex flex-wrap flex-sm-nowrap">
+                    <div class="darker-gradient rounded-card d-flex flex-wrap flex-sm-nowrap">
                         <div class="positionRelative">
                             <circle-progress class="" [clockwise]="false" [percent]="percent" [radius]="40"
                                 [maxPercent]="100" [outerStrokeWidth]="7" [innerStrokeWidth]="4"
@@ -175,160 +176,196 @@
                 <!-- end of percent of time remaining-->
             </div>
             <!-- Middle panels - Skills   max-width-middle-column center-text card-light-green card-title no-bottom-margin card-title-border-->
-            <div class="card-light-green card-title no-bottom-margin card-title-border ">
+            <!-- <div class="card-light-green card-title no-bottom-margin card-title-border">
                 Skills
-            </div>
-            <div class="no-top-margin ">
-                <div class="card card-light-green ">
-                    <div class="card-body row ">
-                        <div class="col-sm-3 form-group card-title ">
-                            Skills
-                        </div>
-                        <div class="col-sm-6 center-text ">nothing here</div>
-                        <div class="col-sm-3 center-text card-title ">Total: 1,000</div>
+            </div> -->
+            <div class="mb-3">
+                <div class="card card-light-green rounded-card full-gradient p-3 bordered">
+                    <div class="d-flex justify-content-between align-item-center card-body p-0 rounded-card">
+                        <div class="form-group card-title ">Skills</div>
+                        <!-- <div class=" col-sm-6 center-text ">nothing here</div> -->
+                        <div class="center-text card-title ">Total: 1,000</div>
                     </div>
                     <!-- horse stamina-->
-                    <div class="card-body row skillRating ">
-                        <div class="col-sm-3 form-group bold-title ">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-3 form-group m-0 text-left bold-title p-0">
                             Stamina
                         </div>
-                        <div class="col-sm-6 ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.stamina / 10 " class="gold-color "></ngb-rating>
+                        <div class="col-7">
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.stamina / 10 "
+                                class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="col-sm-3 center-text ">{{ horse?.stamina }}</div>
+                        <div class="text-right col-2 p-0">{{ horse?.stamina }}</div>
                     </div>
+                    <hr class="hr">
                     <!-- horse speed-->
-                    <div class="card-body row skillRating ">
-                        <div class="col-sm-3 form-group center-text bold-title ">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-3 form-group m-0 text-left bold-title p-0">
                             Speed
                         </div>
-                        <div class="col-sm-6 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.speed / 10 " class="gold-color "></ngb-rating>
+                        <div class="col-7">
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.speed / 10 "
+                                class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="col-sm-3 center-text ">{{ horse?.speed }}</div>
+                        <div class="text-right col-2 p-0">{{ horse?.speed }}</div>
                     </div>
+                    <hr class="hr">
                     <!-- horse dressage-->
-                    <div class="card-body row skillRating ">
-                        <div class="col-sm-3 form-group center-text bold-title ">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-3 form-group m-0 text-left bold-title p-0">
                             Dressage
                         </div>
-                        <div class="col-sm-6 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.dressage / 10 " class="gold-color "></ngb-rating>
+                        <div class="col-7">
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.dressage / 10 "
+                                class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="col-sm-3 center-text ">{{ horse?.dressage }}</div>
+                        <div class="text-right col-2 p-0">{{ horse?.dressage }}</div>
                     </div>
+                    <hr class="hr">
                     <!-- horse gallop-->
-                    <div class="card-body row skillRating ">
-                        <div class="col-sm-3 form-group center-text bold-title ">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-3 form-group m-0 text-left bold-title p-0">
                             Gallop
                         </div>
-                        <div class="col-sm-6 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.gallop / 10 " class="gold-color "></ngb-rating>
+                        <div class="col-7">
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.gallop / 10 "
+                                class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="col-sm-3 center-text ">{{ horse?.gallop }}</div>
+                        <div class="text-right col-2 p-0">{{ horse?.gallop }}</div>
                     </div>
+                    <hr class="hr">
                     <!-- horse trot-->
-                    <div class="card-body row skillRating ">
-                        <div class="col-sm-3 form-group center-text bold-title ">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-3 form-group m-0 text-left bold-title p-0">
                             Trot
                         </div>
-                        <div class="col-sm-6 center-text ">
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.trot / 10 " class="gold-color "></ngb-rating>
+                        <div class="col-7">
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.trot / 10 "
+                                class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="col-sm-3 center-text ">{{ horse?.trot }}</div>
+                        <div class="text-right col-2 p-0">{{ horse?.trot }}</div>
                     </div>
-                    <div class="card-body row skillRating ">
-                        <div class="col-sm-3 form-group center-text bold-title ">
+                    <hr class="hr">
+                    <div class="d-flex justify-content-between align-items-centercard-body skillRating text-left">
+                        <div class="col-3 form-group m-0 text-left bold-title p-0">
                             Jumping
                         </div>
-                        <div class="col-sm-6 center-text ">
+                        <div class="col-7">
                             <!-- horse jumping-->
-                            <ngb-rating [formControl]="ctrl " [readonly]="readonly " [rate]="horse?.jumping / 10 " class="gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" horse?.jumping / 10 "
+                                class=" gold-color "></ngb-rating>
                         </div>
-                        <div class="col-sm-3 center-text ">{{ horse?.jumping }}</div>
+                        <div class="text-right col-2 p-0">{{ horse?.jumping }}</div>
                     </div>
                 </div>
             </div>
-
-            <!-- middle panel - after skills -->
-            <div>
-                <div class="card card-light-green card-middle-title ">
-                    <div class="card-body card-title inline-block ">
-                        <div>
-                            <p class="margin ">Tack</p>
-                        </div>
-                        <!---tack popup, Equip my horse, roaa-->
-                        <app-modal-options></app-modal-options>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-light-green card-middle-title ">
-                <div class="card-body card-title hi-light ">
-                    <div class="inline-block ">
-                        <div>
-                            <p class="item-title-margin">Items</p>
-                        </div>
-                        <div class="item-list-margin">
-                            <img *ngFor="let itm of items" alt="{{ itm.name }}" src="{{ itm.imageFile }}" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-light-green ">
-                <div class="card-body ">
-                    <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green ">
+            <div class="card card-light-green bg-transparent border-none">
+                <div class="card-body p-0">
+                    <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green bg-transparent border-none">
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green ">Characteristics</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top mr-3 px-2 bordered font-weight-bold">Characteristics</a>
                             <ng-template ngbNavContent>
-
-                                <div class="col-xl-8 ">
-                                    <p>Owner [ <strong>{{ user?.userName }} </strong>]</p>
-                                </div>
-                                <div class="col-xl-8 ">
-                                    <p>Breed [<strong> {{ horse?.breed }} </strong>]</p>
-                                </div>
-                                <div class="col-xl-8 ">
-                                    <p>Age [<strong> {{ horse?.age.year }} years old </strong>]</p>
-                                </div>
-                                <div class="col-xl-8 ">
-                                    <p>Gender [<strong> {{ horse?.gender }}</strong>]</p>
-                                </div>
-
-                                <!-- <div>
-                                    <p>Species [ {{ horse?.species }} </p>
-                                </div> -->
-                                <div class="col-xl-8 ">
-                                    <p>Coat [ <strong>{{ horse?.color }} </strong>]</p>
-                                </div>
-
-                                <div class="card-body card-title ">
-                                    Victories
+                                <div class="row p-3">
+                                    <div class="col-6 text-left py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Owner:
+                                            </span>{{ user?.userName }}</p>
+                                    </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Breed:
+                                            </span>{{ horse?.breed }}</p>
+                                    </div>
+                                    <hr class="hr mx-3">
+                                    <div class="col-6 text-left py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Age:
+                                            </span>{{ horse?.age.year }} years old</p>
+                                    </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Gender:
+                                            </span>{{ horse?.gender }}</p>
+                                    </div>
+                                    <hr class="hr mx-3">
+                                    <!-- <div>
+                                        <p class="font-size-1"><span class="font-weight-bold">Species: </span>{{ horse?.species }}</p>
+                                    </div> -->
+                                    <div class="col-6 text-left py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Coat:
+                                            </span>{{ horse?.color }}</p>
+                                    </div>
                                 </div>
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green">Genetic</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top mr-3 px-2 bordered font-weight-bold">Genetic</a>
                             <ng-template ngbNavContent>
-                                <p> Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
-                                    ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-                                    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                                <div class="p-3 text-left"> Exercitation +1 labore velit, blog sartorial PBR leggings
+                                    next level
+                                    wes anderson
+                                    artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress,
+                                    commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                                    ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
+                                    mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown.
+                                    Vegan fanny pack odio cillum wes anderson 8-bit,
+                                    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel Art
+                                    party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed
+                                    echo park.</div>
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green">Bonus</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top px-2 bordered font-weight-bold">Bonus</a>
                             <ng-template ngbNavContent>
-                                <div class="">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent fringilla tortor arcu. Vivamus faucibus nisl enim,
-                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
+                                <div class="p-3 text-left">Sed commodo, leo at suscipit dictum, quam est porttitor
+                                    sapien, eget
+                                    sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum
+                                    aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus
+                                    ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent
+                                    fringilla tortor arcu. Vivamus faucibus nisl enim,
+                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio.
+                                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                                    mus. Mauris aliquet odio ac lorem aliquet ultricies
                                     in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</div>
                             </ng-template>
                         </ng-container>
                     </nav>
-                    <div [ngbNavOutlet]="nav" class="card-light-green "></div>
+                    <div [ngbNavOutlet]="nav"
+                        class="card-light-green rounded-top-right bordered border-bottom-none full-gradient">
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="d-flex card-light-green card-middle-title flex-direction-row bordered-sides bordered-top rounded-none p-3">
+                        <div class="col-6 card-body card-title inline-block m-0 p-0">
+                            <div>
+                                <p class="text-left mb-2">Tack</p>
+                            </div>
+                            <!---tack popup, Equip my horse, roaa-->
+                            <app-modal-options></app-modal-options>
+                        </div>
+                        <div class="col-6 card-body card-title hi-light m-0 p-0 bordered-left">
+                            <div class=" inline-block ml-3">
+                                <div>
+                                    <p class="text-left mb-2">Items</p>
+                                </div>
+                                <div class="d-flex">
+                                    <img *ngFor="let itm of items" alt="{{ itm.name }}" src="{{ itm.imageFile }}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-light-green card-middle-title bordered-sides rounded-none darker-gradients">
+
+                </div>
+                <div
+                    class="card-light-green card-body card-title m-0 rounded-card-bottom bordered-U bordered-top border-top-none text-left">
+                    Victories
                 </div>
             </div>
+            <!-- middle panel - after skills -->
+
         </div>
         <div class="order-sm-1 order-xs-1 mt-lg-5">
             <div class="center-text ">
@@ -411,17 +448,17 @@
                             <div class="row ">
                                 <div class="col-3 btn-padding ">
                                     <button (click)="BarrelComp()" class="btn max-btn-width ">
-                                        <img class="img-btn-width " src="{{ BarrelCompButton }} "/>
+                                        <img class="img-btn-width " src="{{ BarrelCompButton }} " />
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
                                     <button (click)="CuttingComp()" class="btn max-btn-width ">
-                                        <img class="img-btn-width " src="{{ CuttingCompButton }} "/>
+                                        <img class="img-btn-width " src="{{ CuttingCompButton }} " />
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
                                     <button (click)=" TrailComp()" class="btn max-btn-width ">
-                                        <img class="img-btn-width " src="{{ TrailClassCompButton }} "/>
+                                        <img class="img-btn-width " src="{{ TrailClassCompButton }} " />
                                     </button>
                                 </div>
                             </div>
@@ -429,7 +466,7 @@
                                 <div class="col-3 btn-padding ">
                                     <button (click)="ReignComp()" class="btn max-btn-width ">
                                         <img class="img-btn-width " src="{{ ReignCompButton }} " />
-                                        </button>
+                                    </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
                                     <button class="btn max-btn-width disabled ">
@@ -438,7 +475,7 @@
                                 </div>
                                 <div class="col-3 btn-padding ">
                                     <button (click)="WesternPleasureComp()" class="btn max-btn-width ">
-                                        <img class="img-btn-width " src="{{ WesternPleasureCompButton }} "/>
+                                        <img class="img-btn-width " src="{{ WesternPleasureCompButton }} " />
                                     </button>
                                 </div>
                             </div>
