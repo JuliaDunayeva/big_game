@@ -3,12 +3,14 @@ li {
     margin: 0;
     padding: 0;
 }
-.box-img {
-    margin-left: 100px;
+
+element.style {
+     position: absolute;
+     top: none;
 }
 
 .popup {
-    min-width: 1010px;
+    min-width: 839px;
     font-size: 12px;
     display: block;
     border-radius: 4px;
@@ -19,6 +21,34 @@ li {
     height: 500px;
     right: 150px;
     bottom: 300px;
+}
+
+.fox-pop {
+    margin-left: -25px;
+    margin-top: -106px;
+}
+
+.italian-pop {
+    margin-left: 149px;
+    margin-top: -129px;
+}
+
+.western-pop {
+    margin-left: 152px;
+    margin-top: -135px;
+}
+
+.competition-pop {
+    margin-left: -36px;
+    margin-top: -135px;
+}
+
+.box-img {
+    width: 100px;
+    width: 111px;
+    height: 112px;
+    margin-left: 45px;
+    margin-bottom: 50px;
 }
 
 .up-arrow {
