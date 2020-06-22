@@ -1,4 +1,5 @@
 export class Equipment {
+        saddleId: string;
         name: string;
         color: string;
         equipment: string;
