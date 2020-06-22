@@ -232,7 +232,7 @@ ngOnInit(): void {
 
 		this.AgeButtons.enabledImage = 'assets/images/horse-page-icons/age-button-enabled.png';
     	this.AgeButtons.disabledImage = 'assets/images/horse-page-icons/age-button-disabled.png';
-		this.setButtonTimeDefaults(this.AgeButtons, 0, 0);
+		this.setButtonTimeDefaults(this.AgeButtons, 24, 0);
 		
       /* Care Tab buttons */
     	this.toggleButtons(this.FeedButtons, true);
@@ -394,6 +394,7 @@ public PutToBedButton() {
 
 public AgeButton() {
 		this.toggleButtons(this.AgeButtons, !this.AgeButtons.enabled);
+		this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.horse.age, this.AgeButtons.hour, this.AgeButtons.minute);
 		this.horseDataService.setHorseTime(this.horse, '24', '00');
 		this.checkButtons();
 }// end of Age Button function
