@@ -18,12 +18,12 @@ export class HorsePageButtons {
         this.minute = minute;
     }
 
-    toggleButton(toggle:boolean):string{
-        this.enabled=toggle;
+    toggleButton(toggle: boolean): string{
+        this.enabled = toggle;
         if (this.enabled) {
-            return this.enabledImage;
+                return this.enabledImage;
         } else {
-              return this.disabledImage;
+                return this.disabledImage;
         }
     }
 }
