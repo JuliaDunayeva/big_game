@@ -25,7 +25,7 @@ export class ModalOptionsComponent  {
     this.saddlesService.getSaddlesList()
       .subscribe(data => {
         this.allEquipment = data.map(res => {
-          console.log('saddles', res)
+          //console.log('saddles', res)
           return{
             saddleId: res.payload.doc.id,
             name: res.payload.doc.data()['name'],
