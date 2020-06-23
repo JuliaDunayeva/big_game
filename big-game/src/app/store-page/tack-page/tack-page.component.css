@@ -58,7 +58,7 @@ element.style {
 .up-arrow {
     color: #f0f0b2;
     font-size: 5.5em !important;
-    margin: -71px 0px 0 83px !important;
+    margin: -71px 0px 0 29px !important;
 }
 
 .equipment-text {
@@ -69,9 +69,9 @@ element.style {
 
 .equipment-box {
     cursor: pointer;
-    margin: -35px 0px 0 27px;
+    margin: -35px 0px 0 -28px;
     width: 114px;
-    height: 182px;
+    height: 202px;
     background-color: #f0f0b2 ;
     color: #133300;
     border-color: #663300 !important;
