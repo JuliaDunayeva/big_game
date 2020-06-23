@@ -12,4 +12,18 @@ export class HorsePageButtons {
     constructor(name:string){
         this.name=name;
     }
+
+    setDefaultTime(hour : number, minute : number){
+        this.hour = hour;
+        this.minute = minute;
+    }
+
+    toggleButton(toggle:boolean):string{
+        this.enabled=toggle;
+        if (this.enabled) {
+            return this.enabledImage;
+        } else {
+              return this.disabledImage;
+        }
+    }
 }
