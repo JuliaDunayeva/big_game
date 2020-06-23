@@ -310,8 +310,6 @@ ngOnInit(): void {
 		/* This line sets an interval to refresh stuff, not working at the moment but will look into it*/
 	//this.timerId = setInterval(this.alertFunc(this.horse),1000);
 	  });
-
-	  
 	  //console.log(this.id);
 	  //console.log(this.horse.id);
     } // end of GetHorse() function
@@ -794,44 +792,104 @@ updateMoraleBar(){
 	elem.style.width = this.horse.morale + "%";
 }
 returnCurrentSaddle(){
-	for (let i=0; i< this.allEquipment.length;i++){
+	for (let i = 0; i < this.allEquipment.length; i++){
 		//console.log(this.allEquipment[i].name)
 	}
 }
 /* Functions used by HTML to calculate each new stat based on equipment, currently only applies to a specific saddle for testing */
 calculateJumpSkill(){
-	return this.horse.jumping+ this.allEquipment[this.saddleIndex].jumping_;
+	return this.horse.jumping + this.allEquipment[this.saddleIndex].jumping_;
 	//return this.horse.jumping+ this.currentBridal.jumping_ + this.currentSaddle.jumping_ + this.currentSaddleBlanket.jumping_;
 }
 calculateStaminaSkill(){
-	return this.horse.stamina+ this.allEquipment[this.saddleIndex].stamina_;
+	return this.horse.stamina + this.allEquipment[this.saddleIndex].stamina_;
 	//return this.horse.stamina+ this.currentBridal.stamina_ + this.currentSaddle.stamina_ + this.currentSaddleBlanket.stamina_;
 }
 calculateSpeedSkill(){
-	return this.horse.speed+ this.allEquipment[this.saddleIndex].speed_;
+	return this.horse.speed + this.allEquipment[this.saddleIndex].speed_;
 	//return this.horse.speed+ this.currentBridal.speed_ + this.currentSaddle.speed_ + this.currentSaddleBlanket.speed_;
 }
 calculateDressageSkill(){
-	return this.horse.dressage+ this.allEquipment[this.saddleIndex].dressage_;
+	return this.horse.dressage + this.allEquipment[this.saddleIndex].dressage_;
 	//return this.horse.dressage+ this.currentBridal.dressage_ + this.currentSaddle.dressage_ + this.currentSaddleBlanket.dressage_;
 }
 calculateGallopSkill(){
-	return this.horse.gallop+ this.allEquipment[this.saddleIndex].gallop_;
+		return this.horse.gallop + this.allEquipment[this.saddleIndex].gallop_;
 	//return this.horse.gallop+ this.currentBridal.gallop_ + this.currentSaddle.gallop_ + this.currentSaddleBlanket.gallop_;
 }
 calculateTrotSkill(){
-	return this.horse.trot+ this.allEquipment[this.saddleIndex].trot_;
+		return this.horse.trot+ this.allEquipment[this.saddleIndex].trot_;
 	//return this.horse.trot+ this.currentBridal.trot_ + this.currentSaddle.trot_ + this.currentSaddleBlanket.trot_;
 }
 /* Caculate total stats based on selected equipment,  currently only applies to specific saddle for testing */
 calculateTotalSkills(){
 	//console.log(this.allEquipment[this.saddleIndex].name);
-	return this.addCommas(this.horse.jumping+ this.allEquipment[this.saddleIndex].jumping_ + this.horse.stamina+ this.allEquipment[this.saddleIndex].stamina_ + 
-	 this.horse.speed+ this.allEquipment[this.saddleIndex].speed_ + this.horse.dressage+ this.allEquipment[this.saddleIndex].dressage_ +	 
-	 this.horse.gallop+ this.allEquipment[this.saddleIndex].gallop_ +  this.horse.trot+ this.allEquipment[this.saddleIndex].trot_);
-	
-	return '1,000';
+		return this.addCommas(this.horse.jumping + this.allEquipment[this.saddleIndex].jumping_ + this.horse.stamina + this.allEquipment[this.saddleIndex].stamina_ + 
+	 		this.horse.speed + this.allEquipment[this.saddleIndex].speed_ + this.horse.dressage + this.allEquipment[this.saddleIndex].dressage_ +	 
+	 		this.horse.gallop + this.allEquipment[this.saddleIndex].gallop_ +  this.horse.trot + this.allEquipment[this.saddleIndex].trot_);
 }
+returnTotalSkills():number{
+	//console.log(this.allEquipment[this.saddleIndex].name);
+		let result=(this.horse.jumping + this.allEquipment[this.saddleIndex].jumping_ + this.horse.stamina + this.allEquipment[this.saddleIndex].stamina_ + 
+		this.horse.speed + this.allEquipment[this.saddleIndex].speed_ + this.horse.dressage + this.allEquipment[this.saddleIndex].dressage_ +	 
+		this.horse.gallop + this.allEquipment[this.saddleIndex].gallop_ +  this.horse.trot + this.allEquipment[this.saddleIndex].trot_);
+	/* Return a value number between 1 and 10 based on values retrieved */
+		if (result <= 100) return (result / 10);
+		if (result > 100 && result <= 1000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 1000);
+}
+returnStaminaSkills():number{
+	//console.log(this.allEquipment[this.saddleIndex].name);
+		let result = (this.horse.stamina + this.allEquipment[this.saddleIndex].stamina_); 
+/* Return a value number between 1 and 10 based on values retrieved */
+		if (result <= 100) return (result / 10);
+		if (result > 100 && result <= 1000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 1000);
+}
+
+returnSpeedSkills():number{
+	//console.log(this.allEquipment[this.saddleIndex].name);
+		let result = (this.horse.speed + this.allEquipment[this.saddleIndex].speed_); 
+/* Return a value number between 1 and 10 based on values retrieved */		
+		if (result <= 100) return (result / 10);
+		if (result > 100 && result <= 1000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 1000);
+}
+
+returnDressageSkills():number{
+	//console.log(this.allEquipment[this.saddleIndex].name);
+		let result = (this.horse.dressage + this.allEquipment[this.saddleIndex].dressage_); 
+/* Return a value number between 1 and 10 based on values retrieved */		
+		if (result <= 100) return (result / 10);
+		if (result > 100 && result <= 1000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 100);
+}
+
+returnGallopSkills():number{
+	//console.log(this.allEquipment[this.saddleIndex].name);
+		let result = (this.horse.gallop + this.allEquipment[this.saddleIndex].gallop_); 
+/* Return a value number between 1 and 10 based on values retrieved */		
+		if (result <= 100) return (result / 10);
+		if (result > 100 && result <= 1000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 1000);
+}
+returnTrotSkills():number{
+	//console.log(this.allEquipment[this.saddleIndex].name);
+		let result=(this.horse.trot+ this.allEquipment[this.saddleIndex].trot_); 
+/* Return a value number between 1 and 10 based on values retrieved */		
+		if (result<=100) return (result/10);
+		if (result>100 && result<=1000) return (result/100);
+		if (result>1000 && result<=10000) return (result/1000);
+}
+returnJumpSkills():number{
+	//console.log(this.allEquipment[this.saddleIndex].name);
+		let result=(this.horse.jumping+ this.allEquipment[this.saddleIndex].jumping_); 
+/* Return a value number between 1 and 10 based on values retrieved */		
+		if (result<=100) return (result/10);
+		if (result>100 && result<=1000) return (result/100);
+		if (result>1000 && result<=10000) return (result/1000);
+}
+
 /* Adds commas for use on displaying numbers with thousands separator */
 addCommas(str) {
     var parts = (str + "").split("."),
