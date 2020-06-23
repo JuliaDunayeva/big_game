@@ -136,8 +136,8 @@
                                                                 <i class="shopping cart icon"></i>  
                                                             </button>
                                                         <div *ngIf="saddleList?.length > 0;else noAllEquipment">
-                                                            <ul *ngFor="let equipment of saddleList">
-                                                            <li class="equipment-box">
+                                                            <ul *ngFor="let equipment of saddleList" >
+                                                            <li class="equipment-box" *ngIf="equipment.saddleId == '846kMecLmAV8qu0Pbv5K'">
                                                                 <p class="equipment-text"><strong>{{equipment.name}}</strong></p>
                                                                 <p class="equipment-text">Color: {{equipment.color}}</p>
                                                                 <p class="equipment-text">Dressage:+ {{equipment.dressage_}}</p>
