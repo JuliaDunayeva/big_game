@@ -10,7 +10,7 @@ element.style {
 }
 
 .popup {
-    min-width: 839px;
+    min-width: 1272px;
     font-size: 12px;
     display: block;
     border-radius: 4px;
@@ -18,43 +18,47 @@ element.style {
     position: relative;
     box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
     padding: 10px;
-    height: 500px;
-    right: 150px;
-    bottom: 300px;
+    height: 509px;
+    right: 325px;
+    bottom: 357px;
 }
 
-.fox-pop {
-    margin-left: -25px;
-    margin-top: -106px;
+.app {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.fox-pop {    
+    margin-left: -87px;
+    margin-top: -48px;
 }
 
 .italian-pop {
     margin-left: 149px;
-    margin-top: -129px;
+    margin-top: -54px;
 }
 
 .western-pop {
     margin-left: 152px;
-    margin-top: -135px;
+    margin-top: -73px;
 }
 
 .competition-pop {
-    margin-left: -36px;
-    margin-top: -135px;
+    margin-left: -78px;
+    margin-top: -70px;
 }
 
 .box-img {
-    width: 100px;
-    width: 111px;
-    height: 112px;
-    margin-left: 45px;
+    width: 135px;
+    height: 129px;
     margin-bottom: 50px;
 }
 
 .up-arrow {
     color: #f0f0b2;
-    font-size: 7.5em !important;
-    margin: -27px 0px 0 17px !important;
+    font-size: 5.5em !important;
+    margin: -71px 0px 0 83px !important;
 }
 
 .equipment-text {
@@ -65,9 +69,9 @@ element.style {
 
 .equipment-box {
     cursor: pointer;
-    margin-top: 22px;
-    width: 142px;
-    height: 157px;
+    margin: -35px 0px 0 27px;
+    width: 114px;
+    height: 182px;
     background-color: #f0f0b2 ;
     color: #133300;
     border-color: #663300 !important;
