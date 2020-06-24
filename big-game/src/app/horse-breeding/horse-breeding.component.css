@@ -1,9 +1,9 @@
 .card-light-green {
-    background-color: #f0f0b2;
-    color: #663300;
-    border-style: solid 2px #663300 ;
-    border-radius: 5px;
-    margin-bottom: 20px;
+  background-color: #f0f0b2;
+  color: #663300;
+  border-style: solid 2px #663300 ;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
   
 .card-title {
@@ -15,15 +15,15 @@
 }
   
 .no-bottom-margin {
-   margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .display {
   display: flex;
   margin-top: 5px;
 }
+
 .pad-left {
-  /* common spacing to set left margin in folder */
   margin-left: 1rem;
 }
 
@@ -70,24 +70,52 @@ td {
   width: 130px;
   padding-left: 5px;
   height: 40px;
-  padding-top: 5px;;
+  padding-top: 5px;
 }
 
-.row-head{
+.row-head {
   background-color: #DCDB81;
   border: 2px solid rgb(192, 189, 113);
 }
 
-.table-left{
-  margin-left:40px;
+.table-left {
+  margin-left: 40px;
 }
 
-.btn-shops-lrg{
-  width:130px;
+.btn-shops-lrg {
+  width: 130px;
 }
 
 .mare-img-size {
-  margin-left:150px;
+  margin-left: 150px;
   width: 75%;
   margin-top: -5rem;
+}
+
+@media (min-width: 578px) and (max-width: 767.98px) {
+  td {
+    width: 50px;
+    height: 60px;
+  }
+
+  .col-md-10{
+    max-width: 480px;
+    margin-left: 20px;
+  }
+}
+
+/** Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  td {
+    width: 90px;
+    height: auto;
+  }
+}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  td {
+    width: 90px;
+    height: auto;
+  }
 }
