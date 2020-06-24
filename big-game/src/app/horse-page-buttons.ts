@@ -18,6 +18,10 @@ export class HorsePageButtons {
         this.minute = minute;
     }
 
+      /* Toggle buttons function
+        Parameters: 
+            toggle -> boolean, true or false to enable or disable button
+  */
     toggleButton(toggle: boolean): string{
         this.enabled = toggle;
         if (this.enabled) {
