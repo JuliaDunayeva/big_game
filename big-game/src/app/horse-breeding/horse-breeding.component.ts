@@ -34,11 +34,9 @@ export class HorseBreedingComponent implements OnInit {
     this.getMaredata();
     this.getBreeds();
     this.getColors();
-    
-    
   }
 
-  getStallionHorseData(){
+  getStallionHorseData() {
     this.horseService.getHorseForMare().subscribe(
       res => {
         this.allHorseData = res as Array<HorseData>
@@ -58,8 +56,6 @@ export class HorseBreedingComponent implements OnInit {
     )
   }
   
-
-
   getMaredata(){
        this.horseService.getHorseById(this.id).subscribe((res) => {
          this.mareData = res as HorseData;
