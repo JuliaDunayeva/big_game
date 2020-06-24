@@ -123,7 +123,13 @@ export class HorsePageComponent implements OnInit {
 		currentBridal:Equipment;
 		currentSaddleBlanket:Equipment;
 		public saddleIndex=1;
+
+		public imgpath="assets/images/tack-page/";
+		public imgfile="AnkleBoots.jpg";
 		
+		buildpath(file:string):string{
+			return this.imgpath+this.imgfile;
+		}
 constructor(
     private router: Router,
     private http: HttpClient,
