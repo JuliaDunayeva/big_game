@@ -20,14 +20,14 @@ export class EquipmentComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.getEquipmentList()
+    this.getEquipmentList();
   }
 
   getEquipmentList() {
     this.saddlesService.getSaddlesList()
       .subscribe(data => {
         this.allEquipment = data.map(res => {
-          //console.log('saddles', res)
+          console.log('saddles', res)
           return{
             saddleId: res.payload.doc.id,
             name: res.payload.doc.data()['name'],
@@ -42,10 +42,28 @@ export class EquipmentComponent implements OnInit {
             speed_: res.payload.doc.data()['speed_'],
             stamina_: res.payload.doc.data()['stamina_'],
             trot_: res.payload.doc.data()['trot_'],
-            cost: res.payload.doc.data()['cost '],
+            cost: res.payload.doc.data()['cost'],
           }
         })
       })
   }
+  addEquipment(
+    name: string,
+		color: string, 
+    equipment: string,
+    img_file: string,
+    id: string,
+    group: string,
+    dressage_: number,
+    gallop_: number,
+    jumping_: number,
+    speed_: number,
+    stamina_: number,
+    trot_: number,
+    cost: number,
+    ) {
+      this.saddlesService.createEquipment(name, color, equipment, img_file, id, group, dressage_, gallop_, jumping_, speed_, stamina_, trot_, cost);
+		return alert(this.success);
+    }
 
 }

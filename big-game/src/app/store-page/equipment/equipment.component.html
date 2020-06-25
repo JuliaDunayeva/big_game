@@ -38,10 +38,8 @@
                     <div class="color-tx-green card-title no-bottom-margin">
                         <table class="">
                             <tr>
-                                <th class="tu-col1">Equipment</th>
-                                <th class="tu-col2"></th>
-                                <th class="tu-col1">Abilities (0-5)</th>
-                                <th class="tu-col3"></th>
+                                <th colspan="2" class="tu-col1">Equipment</th>
+                                <th colspan="2" class="tu-col1">Abilities (0-5)</th>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Name:</td>
@@ -109,11 +107,11 @@
                     <div class="">
                         <br><br>
                         <p>How much will this item cost?</p>
-                        <input class="sm-card" type="text" value="0.00" #cost>
+                        <input class="sm-card" type="text" value="0" #cost>
                         <br><br>
                         <button class="btn-shops btn-shops-lrg pad-left" 
-                        (click)="addEquipment(name.value, img_file.value, equipment.value, group.value, color.value, id.value, cost.value, 
-                                                dressage_.value, gallop_.value, jumping_.value, speed_.value, stamina_.value, trot_.value)" >
+                        (click)="addEquipment(name.value, color.value, equipment.value, img_file.value, id.value, group.value, 
+                                                dressage_.value, gallop_.value, jumping_.value, speed_.value, stamina_.value, trot_.value, cost.value)" >
                         add to <i class="shopping cart icon "></i>
                         </button>
                     </div>
@@ -143,20 +141,20 @@
                                     <th class="card-title tl-col3">Trot</th>
                                     <th class="card-title tl-col4"> <img class="equus" src="./assets/images/game_pieces/equus.png"></th>
                                 </tr>
-                                <tr class="color-tx-green">
-                                    <td class="tl-col1">Name</td>
-                                    <td class="tl-col1">Image File</td>
-                                    <td class="tl-col2">saddle</td>
-                                    <td class="tl-col2">fox-hunt</td>
-                                    <td class="tl-col3">black</td>
-                                    <td class="tl-col3">1</td>
-                                    <td class="card-title tl-col3">2</td>
-                                    <td class="card-title tl-col3">2</td>
-                                    <td class="card-title tl-col3">2</td>
-                                    <td class="card-title tl-col3">2</td>
-                                    <td class="card-title tl-col3">2</td>
-                                    <td class="card-title tl-col3">2</td>
-                                    <td class="tl-col4">100</td>
+                                <tr class="color-tx-green" *ngFor="let saddle of allEquipment">
+                                    <td class="tl-col1">{{saddle.name}}</td>
+                                    <td class="tl-col1">{{saddle.img_file}}</td>
+                                    <td class="tl-col2">{{saddle.equipment}}</td>
+                                    <td class="tl-col2">{{saddle.group}}</td>
+                                    <td class="tl-col3">{{saddle.color}}</td>
+                                    <td class="tl-col3">{{saddle.id}}</td>
+                                    <td class="card-title tl-col3">{{saddle.dressage_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.gallop_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.jumping_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.speed_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.stamina_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.trot_}}</td>
+                                    <td class="tl-col4">{{saddle.cost}}</td>
                                 </tr>
                             </table>
                         </div>
