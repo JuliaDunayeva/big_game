@@ -19,7 +19,6 @@ export class PlayBarComponent implements OnInit {
       this.horseselected=true;
     } else {
       this.horseselected=false;
-
     }
     
     this.id=sessionStorage.getItem('horseId');
