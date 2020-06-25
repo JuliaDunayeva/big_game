@@ -105,7 +105,7 @@
                     </div>
                     <div class="col-2"></div>
                     <div class="">
-                        <br><br>
+                        <br>
                         <p>How much will this item cost?</p>
                         <input class="input-sml" type="text" value="0" #cost>
                         <br><br>
@@ -114,6 +114,14 @@
                                                 dressage_.value, gallop_.value, jumping_.value, speed_.value, stamina_.value, trot_.value, cost.value)" >
                         add to <i class="shopping cart icon "></i>
                         </button>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="">
+                        <br>
+                        <p>Select a row to delete from the tack shop.</p>
+                        <br>
+                        <button class="btn-shops btn-shops-lrg pad-left" (click)="removeEquipment()"> 
+                        Delete</button>
                     </div>
                 </div>
             </div>
@@ -127,6 +135,7 @@
                         <div *ngIf="allEquipment?.length > 0; else noItems">
                             <table class="td-top">
                                 <tr class="sm-card td-line">
+                                    <th><input class="input-xsml" type="checkbox"></th>
                                     <th class="card-title tl-col1">Name</th>
                                     <th class="card-title tl-col1">Image File</th>
                                     <th class="card-title tl-col2">Category</th>
@@ -141,7 +150,8 @@
                                     <th class="card-title tl-col3">Trot</th>
                                     <th class="card-title tl-col3"> <img class="equus" src="./assets/images/game_pieces/equus.png"></th>
                                 </tr>
-                                <tr class="color-tx-green " *ngFor="let saddle of allEquipment">
+                                <tr class="color-tx-green " *ngFor="let saddle of allEquipment; let i = index">
+                                    <td ><input class="input-xsml" type="checkbox" #selectId (change)='onSelectItem(i)'></td>
                                     <td class="tl-col1">{{saddle.name}}</td>
                                     <td class="tl-col1">{{saddle.img_file}}</td>
                                     <td class="tl-col2">{{saddle.equipment}}</td>

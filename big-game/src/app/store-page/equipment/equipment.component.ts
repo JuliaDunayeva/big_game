@@ -13,8 +13,10 @@ export class EquipmentComponent implements OnInit {
   colors = ['black','blue','brown', 'turquoise', 'white', 'b & w'];
   success = 'New Equipment has been added';
   fail = 'Nothing added, incomplete fields';
-  newEquipment: FormGroup;
+  rmvEquipment: FormGroup;
   allEquipment: Equipment[];
+  selectId: boolean = false;
+  itemsRemoved: Array<Equipment> = [];
 
 
   constructor(private saddlesService: SaddlesService,
@@ -63,8 +65,18 @@ export class EquipmentComponent implements OnInit {
     trot_: number,
     cost: number,
     ) {
-      this.saddlesService.createEquipment(name, color, equipment, img_file, id, group, dressage_, gallop_, jumping_, speed_, stamina_, trot_, cost);
+      this.saddlesService.createSaddle(name, color, equipment, img_file, id, group, dressage_, gallop_, jumping_, speed_, stamina_, trot_, cost);
 		return alert(this.success);
     }
+
+  removeEquipment() {
+    console.log('deleted')
+    this.saddlesService.deleteSaddle(this.itemsRemoved)
+  }
+
+  onSelectItem(ind) {
+    this.itemsRemoved.push(this.allEquipment[ind])
+    console.log('Itesm to be removed ', this.itemsRemoved);
+  }
 
 }
