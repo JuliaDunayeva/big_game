@@ -12,21 +12,24 @@ export class EquipmentComponent implements OnInit {
   abilities = ['0','1','2', '3', '4', '5'];
   success = 'New Equipment has been added';
   fail = 'Nothing added, incomplete fields';
+  saddleList: Array<any> = []
   newEquipment: FormGroup;
   allEquipment: Equipment[];
 
 
   constructor(private saddlesService: SaddlesService,
+              private equipmentService: EquipmentComponent,
               private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.getEquipmentList()
+    this.getEquipmentList();
+    console.log(this.saddleList);
   }
 
   getEquipmentList() {
     this.saddlesService.getSaddlesList()
       .subscribe(data => {
-        this.allEquipment = data.map(res => {
+        this.saddleList = data.map(res => {
           //console.log('saddles', res)
           return{
             saddleId: res.payload.doc.id,
@@ -42,10 +45,30 @@ export class EquipmentComponent implements OnInit {
             speed_: res.payload.doc.data()['speed_'],
             stamina_: res.payload.doc.data()['stamina_'],
             trot_: res.payload.doc.data()['trot_'],
-            cost: res.payload.doc.data()['cost '],
+            cost: res.payload.doc.data()['cost']
           }
         })
       })
   }
+
+  // addEquipment(
+  //   name: string,
+	// 	color: string, 
+  //   equipment: string,
+  //   img_file: string,
+  //   id: string,
+  //   group: string,
+  //   dressage_: number,
+  //   gallop_: number,
+  //   jumping_: number,
+  //   speed_: number,
+  //   stamina_: number,
+  //   trot_: number,
+  //   cost: number,
+  //   ) {
+  //     this.saddlesService.createEquipment(name, color, equipment, img_file, id, group, dressage_, gallop_, jumping_, speed_, stamina_, trot_, cost);
+	// 	return alert(this.success);
+  //   }
+    
 
 }
