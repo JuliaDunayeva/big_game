@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute,  Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { ColorService } from '../services/color.service';
 import { BreedService } from '../services/breed.service';
 import { UserData } from '../user-data';
@@ -132,14 +131,12 @@ export class HorsePageComponent implements OnInit {
 		}
 constructor(
     private router: Router,
-    private http: HttpClient,
     private colorService: ColorService,
     private breedService: BreedService,
     private userDataService: UserDataService,
     private horseDataService: HorseDataService,
-	private authService: AuthService, router2:Router,
+	private authService: AuthService,
 	public saddlesService: SaddlesService,
-	//private mod: ModalOptionsComponent,
 ) {}
 
 ngOnInit(): void {
