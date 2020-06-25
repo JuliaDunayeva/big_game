@@ -37,8 +37,8 @@
                 <div class="card-light-green td-top display">
                     <div class="color-tx-green card-title no-bottom-margin">
                         <table class="">
-                            <tr>
-                                <th colspan="2" class="tu-col1">Equipment</th>
+                            <tr class="th">
+                                <th colspan="2" class="tu-col1">Equipment</th> 
                                 <th colspan="2" class="tu-col1">Abilities (0-5)</th>
                             </tr>
                             <tr>
@@ -52,7 +52,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="tu-col1">Image File:</td>
+                                <td class="tu-col1">Image_File:</td>
                                 <td class="tu-col2 sm-card"><input type="text" required #img_file></td>
                                 <td class="tu-col1">Gallop:</td>
                                 <td class="tu-col3 sm-card">
@@ -103,11 +103,11 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-7"></div>
+                    <div class="col-2"></div>
                     <div class="">
                         <br><br>
                         <p>How much will this item cost?</p>
-                        <input class="sm-card" type="text" value="0" #cost>
+                        <input class="input-sml" type="text" value="0" #cost>
                         <br><br>
                         <button class="btn-shops btn-shops-lrg pad-left" 
                         (click)="addEquipment(name.value, color.value, equipment.value, img_file.value, id.value, group.value, 
@@ -118,12 +118,12 @@
                 </div>
             </div>
         </div> <!-- Stats End -->
-        <div class="pad-left"> <!-- Lower Competion table-->     
-            <div class="pad-left ">
+        <div class="pad-left col-12"> <!-- Lower Competion table-->     
+            <div class=" ">
                 <div class="display"></div>
                 <h5 class="color-tx-maroon card-title"> All <i class="shopping cart icon "></i> Equipment</h5>
                 <div class="table-light-green ">
-                    <form action="">
+                    <form class="scrolling-wrapper scroll-height">
                         <div *ngIf="allEquipment?.length > 0; else noItems">
                             <table class="td-top">
                                 <tr class="sm-card td-line">
@@ -139,9 +139,9 @@
                                     <th class="card-title tl-col3">Speed</th>
                                     <th class="card-title tl-col3">Stamina</th>
                                     <th class="card-title tl-col3">Trot</th>
-                                    <th class="card-title tl-col4"> <img class="equus" src="./assets/images/game_pieces/equus.png"></th>
+                                    <th class="card-title tl-col3"> <img class="equus" src="./assets/images/game_pieces/equus.png"></th>
                                 </tr>
-                                <tr class="color-tx-green" *ngFor="let saddle of allEquipment">
+                                <tr class="color-tx-green " *ngFor="let saddle of allEquipment">
                                     <td class="tl-col1">{{saddle.name}}</td>
                                     <td class="tl-col1">{{saddle.img_file}}</td>
                                     <td class="tl-col2">{{saddle.equipment}}</td>
@@ -154,7 +154,7 @@
                                     <td class="card-title tl-col3">{{saddle.speed_}}</td>
                                     <td class="card-title tl-col3">{{saddle.stamina_}}</td>
                                     <td class="card-title tl-col3">{{saddle.trot_}}</td>
-                                    <td class="tl-col4">{{saddle.cost}}</td>
+                                    <td class="tl-col3">{{saddle.cost}}</td>
                                 </tr>
                             </table>
                         </div>
