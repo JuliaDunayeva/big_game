@@ -1,27 +1,29 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Equipment } from './../equipment';
-import { SaddlesService } from './../services/saddles.service';
+import { Component, OnInit } from '@angular/core';
+import { Equipment } from './../../equipment';
+import { SaddlesService } from './../../services/saddles.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-modal-options',
-  templateUrl: './modal-options.component.html',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./modal-options.component.css']
+  selector: 'app-equipment',
+  templateUrl: './equipment.component.html',
+  styleUrls: ['./equipment.component.css']
 })
-
-export class ModalOptionsComponent  {
+export class EquipmentComponent implements OnInit {
+  abilities = ['0','1','2', '3', '4', '5'];
+  success = 'New Equipment has been added';
+  fail = 'Nothing added, incomplete fields';
+  newEquipment: FormGroup;
   allEquipment: Equipment[];
-  path: string = 'assets/images/tack-page/'
 
-  constructor(public modalService: NgbModal, public saddlesService: SaddlesService  ) {}
-   
+
+  constructor(private saddlesService: SaddlesService,
+              private fb: FormBuilder) { }
+
   ngOnInit(): void {
-    this.showlist()
+    this.getEquipmentList()
+  }
 
-   }
-
-   showlist() {
+  getEquipmentList() {
     this.saddlesService.getSaddlesList()
       .subscribe(data => {
         this.allEquipment = data.map(res => {
@@ -45,4 +47,5 @@ export class ModalOptionsComponent  {
         })
       })
   }
+
 }

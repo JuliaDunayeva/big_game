@@ -11,6 +11,7 @@ import { HorseListComponent } from './horse-list/horse-list.component';
 import { HorseSaleComponent } from './horse-sale/horse-sale.component';
 import { TackPageComponent } from './store-page/tack-page/tack-page.component';
 import { HorseBreedingComponent } from './horse-breeding/horse-breeding.component';
+import { EquipmentComponent } from './store-page/equipment/equipment.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'tack-page',
     component: TackPageComponent
+  },
+  {
+    path: 'equipment',
+    component: EquipmentComponent
   },
   {
     path: '',
