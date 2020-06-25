@@ -103,8 +103,8 @@ export class HorsePageComponent implements OnInit {
 
   		public eq_reg_button:string = 'assets/images/horse-page-icons/eq-reg-button-enabled.png';
 		// Arrays for tack items and training
-		  public items: TackItems[]=[];  
-		public training: Training[]=[];
+		  public items: TackItems[] = [];  
+		public training: Training[] = [];
 		//  used for horse time
 		updatedTime: {currentHourString: string, currentMinuteString: string};
 		// used for user data
@@ -121,13 +121,12 @@ export class HorsePageComponent implements OnInit {
 		currentSaddle:Equipment;
 		currentBridal:Equipment;
 		currentSaddleBlanket:Equipment;
-		public saddleIndex=1;
+		public saddleIndex = 1;
 
-		public imgpath="assets/images/tack-page/";
-		public imgfile="AnkleBoots.jpg";
-		
+		public imgpath = "assets/images/tack-page/";
+				
 		buildpath(file:string):string{
-			return this.imgpath+this.imgfile;
+			return this.imgpath+file;
 		}
 constructor(
     private router: Router,
@@ -147,27 +146,27 @@ ngOnInit(): void {
 //this.mod.showlist();
 	//setTimeout(function(){}, 750); 
 	// Item list array
-		this.item=new TackItems("Golden Apple","assets/images/tack-page/gold-apple.png");
+		this.item = new TackItems("Golden Apple","assets/images/tack-page/gold-apple.png");
 		this.items.push(this.item);
-		this.item=new TackItems("Golden Peramid","assets/images/tack-page/gold-peramid.png");
+		this.item = new TackItems("Golden Peramid","assets/images/tack-page/gold-peramid.png");
 		this.items.push(this.item);
 		// setup training items list
-		this.train=new Training("Stamina","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Stamina","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train=new Training("Speed","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Speed","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train=new Training("Dressage","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Dressage","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train=new Training("Gallop","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Gallop","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train=new Training("Trot","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Trot","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train=new Training("Jumping","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Jumping","assets/images/horse-page-icons/training-complete.png","assets/images/horse-page-icons/training-incomplete.png");
 		this.train.setPercent(0);
 		this.training.push(this.train);
   // Get Breed and Coat Color information
@@ -186,29 +185,29 @@ ngOnInit(): void {
 		this.BarrelCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png';
 		this.BarrelCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-barrel-racing-button-enabled.png';
 		this.BarrelCompButtons.setDefaultTime(4, 0);
-		this.BarrelCompButtons.setStatModifiers(5,5,5,5,5,5);
+		this.BarrelCompButtons.setStatModifiers(5, 5, 5, 5, 5, 5);
 
     	this.CuttingCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-cutting-button-enabled.png';
 		this.CuttingCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-cutting-button-enabled.png';
 		this.CuttingCompButtons.setDefaultTime(4, 0);
-		this.CuttingCompButtons.setStatModifiers(20,20,20,20,20,20);
+		this.CuttingCompButtons.setStatModifiers(20, 20, 20, 20, 20, 20);
     
     	this.TrailClassCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-trail-class-button-enabled.png';
 		this.TrailClassCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-trail-class-button-enabled.png';
 		this.TrailClassCompButtons.setDefaultTime(4, 0);
-		this.TrailClassCompButtons.setStatModifiers(5,5,5,5,5,5);
+		this.TrailClassCompButtons.setStatModifiers(5, 5, 5, 5, 5, 5);
     
     	this.ReignCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-reining-button-enabled.png';
 		this.ReignCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-reining-button-enabled.png';
-		this.ReignCompButtons.setStatModifiers(5,5,5,5,5,5);
+		this.ReignCompButtons.setStatModifiers(5, 5, 5, 5, 5, 5);
 
     	this.WesternPleasureCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png';
 		this.WesternPleasureCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png';
-		this.WesternPleasureCompButtons.setStatModifiers(5,5,5,5,5,5);
+		this.WesternPleasureCompButtons.setStatModifiers(5, 5, 5, 5, 5, 5);
 
     	this.TrottingCompButtons.enabledImage =      'assets/images/horse-page-icons/competition-trotting-button-enabled.png';
 		this.TrottingCompButtons.disabledImage =      'assets/images/horse-page-icons/competition-trotting-button-enabled.png';
-		this.TrottingCompButtons.setStatModifiers(5,5,5,5,5,5);
+		this.TrottingCompButtons.setStatModifiers(5, 5, 5, 5, 5, 5);
 /* Define images for Care Tab buttons */
     	this.FeedButtons.enabledImage =      'assets/images/horse-page-icons/feed-button-enabled.png';
     	this.FeedButtons.disabledImage =      'assets/images/horse-page-icons/empty-button.png';
@@ -251,13 +250,13 @@ ngOnInit(): void {
       
     	this.BreedingInfoButtons.enabledImage = 'assets/images/horse-page-icons/breeding-information-button-enabled.png';
     	this.BreedingInfoButtons.disabledImage = 'assets/images/horse-page-icons/breeding-information-button-enabled.png';
-    	this.BreedingInfoButtons.name='breedinginfo';
+    	this.BreedingInfoButtons.name = 'breedinginfo';
     	this.BreedingInfoButtons.setDefaultTime(0, 0);
     
     	this.CoverMareButtons.enabledImage = 'assets/images/horse-page-icons/breeding-cover-mare-button-disabled.png';
 		this.CoverMareButtons.disabledImage = 'assets/images/horse-page-icons/empty-button.png';
 		//breeding-cover-mare-button-disabled.
-    	this.CoverMareButtons.name='covermare';
+    	this.CoverMareButtons.name = 'covermare';
     	this.CoverMareButtons.setDefaultTime(0, 0);
     /* Define image for empty placeholder button*/
     	this.EmptyButtons.enabledImage = 'assets/images/horse-page-icons/empty-button.png';
@@ -508,7 +507,7 @@ public MountainButton(){
 }
 // Barrel Competition Function
 public BarrelComp(){
-		if (this.horse.energy==0) {
+		if (this.horse.energy == 0) {
 			alert('no energy to enter competition');
 			return;
 		}
@@ -820,7 +819,7 @@ calculateTotalSkills(){
 	 		this.horse.gallop + this.allEquipment[this.saddleIndex].gallop_ +  this.horse.trot + this.allEquipment[this.saddleIndex].trot_);
 }
 returnTotalSkills():number{
-		let result=(this.horse.jumping + this.allEquipment[this.saddleIndex].jumping_ + this.horse.stamina + this.allEquipment[this.saddleIndex].stamina_ + 
+		let result = (this.horse.jumping + this.allEquipment[this.saddleIndex].jumping_ + this.horse.stamina + this.allEquipment[this.saddleIndex].stamina_ + 
 		this.horse.speed + this.allEquipment[this.saddleIndex].speed_ + this.horse.dressage + this.allEquipment[this.saddleIndex].dressage_ +	 
 		this.horse.gallop + this.allEquipment[this.saddleIndex].gallop_ +  this.horse.trot + this.allEquipment[this.saddleIndex].trot_);
 	/* Return a value number between 1 and 10 based on values retrieved */
@@ -860,18 +859,18 @@ returnGallopSkills():number{
 		if (result > 1000 && result <= 10000) return (result / 1000);
 }
 returnTrotSkills():number{
-		let result=(this.horse.trot+ this.allEquipment[this.saddleIndex].trot_); 
+		let result = (this.horse.trot+ this.allEquipment[this.saddleIndex].trot_); 
 /* Return a value number between 1 and 10 based on values retrieved */		
-		if (result<=100) return (result/10);
-		if (result>100 && result<=1000) return (result/100);
-		if (result>1000 && result<=10000) return (result/1000);
+		if (result <= 100) return (result / 10);
+		if (result > 100 && result <= 1000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 1000);
 }
 returnJumpSkills():number{
-		let result=(this.horse.jumping+ this.allEquipment[this.saddleIndex].jumping_); 
+		let result = (this.horse.jumping+ this.allEquipment[this.saddleIndex].jumping_); 
 /* Return a value number between 1 and 10 based on values retrieved */		
-		if (result<=100) return (result/10);
-		if (result>100 && result<=1000) return (result/100);
-		if (result>1000 && result<=10000) return (result/1000);
+		if (result <= 100) return (result / 10);
+		if (result > 100 && result <= 1000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 1000);
 }
 
 /* Adds commas for use on displaying numbers with thousands separator */
