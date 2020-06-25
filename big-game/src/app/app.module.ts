@@ -30,6 +30,7 @@ import { PlayBarMiniComponent } from './play-bar/play-bar-mini/play-bar-mini.com
 import { ModalOptionsComponent } from './modal-options/modal-options.component';
 import {TackPageComponent} from './../app/store-page/tack-page/tack-page.component';
 import { HorseBreedingComponent } from './horse-breeding/horse-breeding.component';
+import { TackDataComponent } from './../app/store-page/tack-page/tack-data/tack-data.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { HorseBreedingComponent } from './horse-breeding/horse-breeding.componen
     MiniBarComponent,
     PlayBarMiniComponent,
     TackPageComponent,
-    HorseBreedingComponent
+    HorseBreedingComponent,
+    TackDataComponent
   ],
   
   imports: [
