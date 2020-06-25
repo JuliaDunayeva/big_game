@@ -1,5 +1,4 @@
 import { stripSummaryForJitNameSuffix } from '@angular/compiler/src/aot/util';
-
 export class HorsePageButtons {
     public name:string;
     public enabledImage:string;
