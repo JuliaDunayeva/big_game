@@ -11,6 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class EquipmentComponent implements OnInit {
   abilities = ['0','1','2', '3', '4', '5'];
   colors = ['black','blue','brown', 'turquoise', 'white', 'b & w'];
+  groups = [ 'TBD','', '', '', '']
   success = 'New Equipment has been added';
   fail = 'Nothing added, incomplete fields';
   rmvEquipment: FormGroup;
@@ -76,7 +77,7 @@ export class EquipmentComponent implements OnInit {
 
   onSelectItem(ind) {
     this.itemsRemoved.push(this.allEquipment[ind])
-    console.log('Itesm to be removed ', this.itemsRemoved);
+    console.log('Items to be removed ', this.itemsRemoved);
   }
 
 }
