@@ -61,6 +61,7 @@ export class HorseListComponent implements OnInit {
       this.userService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
       });
+      sessionStorage.setItem("selected-horse","false");
     }
 
     getBreeds() {
@@ -141,6 +142,7 @@ export class HorseListComponent implements OnInit {
   }
 
   selectedHorse(event: any) {
+    sessionStorage.setItem("selected-horse","true");
     this.horseSelectedId = (<HTMLInputElement>event.target).id;
   }
 
