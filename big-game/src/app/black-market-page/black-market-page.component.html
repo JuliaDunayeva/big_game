@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div  class="col-sm-12">
             <app-mini-bar></app-mini-bar>
             <app-nav-bar></app-nav-bar>
             <br><br>
@@ -38,97 +38,89 @@
                 <p class="bold-text  color-tx-green"> Discover exceptional items to use on your horses and improve your game!</p>
             </div>
         </div>
-        <div>
-            <div class="col-md-10 background-card">
-                <a class="bl-st-head"> Reproduction </a>
-                <a> to ensure the performance of your horses' descendants</a>
-                <div class="row">
-                    <div class="col-md-5 card-light-green">
-                        <div >
-                            <div class="row ">
-                                <div class="col-sm-3">
-                                    <img class="box-img" src="./assets/images/black-store/larmes-aphrodite.png">
-                                </div>
-                                <div class="col-sm-9">
-                                    <h5 class="bold-text box-head">Aphrodite's Tears</h5>
-                                    <p class="">Increase inborn foal skills by 50%.</p>
-                                </div>
-                            </div>
+        <div class="col-md-10 background-card">
+            <a class="bl-st-head"> Reproduction </a>
+            <a> to ensure the performance of your horses' descendants</a>
+            <div class="row">
+                <div class="col-md-5 card-light-green">
+                    <div class="row ">
+                        <div class="col-sm-3">
+                            <img class="box-img" src="./assets/images/black-store/larmes-aphrodite.png">
+                        </div>
+                        <div class="col-sm-9">
+                            <h5 class="bold-text box-head">Aphrodite's Tears</h5>
+                            <p class="">Increase inborn foal skills by 50%.</p>
                         </div>
                     </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5 card-light-green">
-                        <div>
-                            <div class="row ">
-                                <div class="col-sm-3">
-                                    <img class="box-img" src="./assets/images/black-store/eclair-zeus.png">
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="">
-                                        <li ngbDropdown >
-                                            <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
-                                                <h5 class="box-head">Zeus' Lightning Bolt</h5>
-                                                <p class="">Change your horse's gender.</p>
-                                                <p class="pass">95 <img class="pass-img" src="./assets/images/black-store/pass.png">
-                                            </a>
-                                            <div ngbDropdownMenu class="drop-box" id="background">
-                                                <div class="popup color-beige color-tx-green">
-                                                    <div>
-                                                        <h3 class="box-head">Zeus' Lightning Bolt</h3>
-                                                        <p class="bold-text  ">Zeus' Lightning Bolt enables you to change the gender of your horses. Mares in gestation and geldings cannot benefit from this item.</p>
-                                                    </div>
-                                                    <div>
-                                                        <h5>List of your horses...</h5>
-                                                        <br>
-                                                    </div>
-                                                    <form>
-                                                        <div *ngFor="let horse of allHorses">
-                                                            <label >
-                                                                <input type="radio"  [id]="horse.id" name="horse"
-                                                                    [value]="horse.id" (click)="onHorseSelect(horse.gender, horse.id)"/>
-                                                                <span class="checkmark radio-border"></span>
-                                                                {{ horse.name}} - 
-                                                                {{horse.gender}}
-                                                            </label>
-                                                        </div>
-                                                        <div>
-                                                            <br>
-                                                             <button class="btn-shops btn-shops-lrg" (click)= "costCheck()" (click)="swapGender()">Change Gender</button>
-                                                        </div>
-                                                    </form> 
-                                                </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5 card-light-green">
+                    <div class="row ">
+                        <div class="col-sm-3">
+                            <img class="box-img" src="./assets/images/black-store/eclair-zeus.png">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="">
+                                <li ngbDropdown >
+                                    <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                        <h5 class="box-head">Zeus' Lightning Bolt</h5>
+                                        <p class="">Change your horse's gender.</p>
+                                        <p class="pass">95 <img class="pass-img" src="./assets/images/black-store/pass.png">
+                                    </a>
+                                    <div ngbDropdownMenu class="drop-box" id="background">
+                                        <div class="popup color-beige color-tx-green">
+                                            <div>
+                                                <h3 class="box-head">Zeus' Lightning Bolt</h3>
+                                                <p class="bold-text  ">Zeus' Lightning Bolt enables you to change the gender of your horses. Mares in gestation and geldings cannot benefit from this item.</p>
                                             </div>
-                                        </li>
+                                            <div>
+                                                <h5>List of your horses...</h5>
+                                                <br>
+                                            </div>
+                                            <form>
+                                                <div *ngFor="let horse of allHorses">
+                                                    <label >
+                                                        <input type="radio"  [id]="horse.id" name="horse"
+                                                            [value]="horse.id" (click)="onHorseSelect(horse.gender, horse.id)"/>
+                                                        <span class="checkmark radio-border"></span>
+                                                        {{ horse.name}} - 
+                                                        {{horse.gender}}
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <br>
+                                                        <button class="btn-shops btn-shops-lrg" (click)= "costCheck()" (click)="swapGender()">Change Gender</button>
+                                                </div>
+                                            </form> 
+                                        </div>
                                     </div>
-                                </div>
+                                </li>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-5 card-light-green">
-                        <div>
-                            <div class="row ">
-                                <div class="col-sm-3">
-                                    <img class="box-img" src="./assets/images/black-store/baton-fertilite.png">
-                                </div>
-                                <div class="col-sm-9">
-                                    <h5 class="box-head">Fertility Wand</h5>
-                                    <p>Your mare will give birth to twins!</p>
-                                    <p class="pass">95 <img class="pass-img" src="./assets/images/black-store/pass.png">
-                                    </p>
-                                </div>
-                            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 card-light-green">
+                    <div class="row ">
+                        <div class="col-sm-3">
+                            <img class="box-img" src="./assets/images/black-store/baton-fertilite.png">
+                        </div>
+                        <div class="col-sm-9">
+                            <h5 class="box-head">Fertility Wand</h5>
+                            <p>Your mare will give birth to twins!</p>
+                            <p class="pass">95 <img class="pass-img" src="./assets/images/black-store/pass.png">
+                            </p>
                         </div>
                     </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5 card-light-green">
-                        <div>
-                            <div class="row ">
-                                <div class="col-sm-3">
-                                    <img class="box-img" src="./assets/images/black-store/fleche-artemis.png">
-                                </div>
-                            <div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5 card-light-green">
+                    <div class="row ">
+                        <div class="col-sm-3">
+                            <img class="box-img" src="./assets/images/black-store/fleche-artemis.png">
+                        </div>
+                        <div class="">
                             <li ngbDropdown >
                                 <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
                                     <div class="col-sm-9">
@@ -159,7 +151,7 @@
                                             <div>
                                                 <br>
                                                 <button class="btn-shops btn-shops-lrg" (click)= "costCheck()" (click)="swapStudStatus()">Make Stud</button>
-                                           </div>
+                                            </div>
                                         </form> 
                                     </div>
                                 </div>
@@ -168,7 +160,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
     <br>
     <app-footer></app-footer>
