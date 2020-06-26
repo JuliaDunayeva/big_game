@@ -44,7 +44,6 @@ export class HorseListComponent implements OnInit {
   horseValues: { name, breed, color };
   selectHorse: FormGroup
   defaultHorse: any;
-  
 
     constructor(private breedService: BreedService, 
         private colorService: ColorService, 
@@ -61,6 +60,7 @@ export class HorseListComponent implements OnInit {
       this.userService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
       });
+      sessionStorage.setItem("selected-horse","false");
     }
 
     getBreeds() {
@@ -118,7 +118,6 @@ export class HorseListComponent implements OnInit {
   }
 
   createRandomHorse(name: string, breedId: string, colorId: string, skill: string) {
-    // console.log(this.haveMoney)
     if (this.haveMoney == true) {
     this.horseService.createRandomHorse(this.horseValues, this.Uid, breedId, colorId, skill, name)
       return alert(this.success);
@@ -141,6 +140,7 @@ export class HorseListComponent implements OnInit {
   }
 
   selectedHorse(event: any) {
+    sessionStorage.setItem("selected-horse", "true");
     this.horseSelectedId = (<HTMLInputElement>event.target).id;
   }
 
@@ -176,14 +176,12 @@ export class HorseListComponent implements OnInit {
   onhorseRetire(id, dob:any){
     this.idOfHorse = id;
     this.dobofHorse =dob;
-    //console.log(this.dobofHorse);
   }
   
   diffIndob:any;
   retireHorse(){
     const timestamp = Date.now()/1000;
     this.diffIndob = this.dobofHorse.seconds-timestamp
-    //console.log(this.diffIndob )
     if (this.diffIndob <-605000) {
     this.delete();
     }else{

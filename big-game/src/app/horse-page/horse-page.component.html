@@ -253,7 +253,7 @@
                                     <hr class="hr mx-3">
                                     <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Age:
-                                            </span>{{ horse?.age.year }} years old</p>
+                                            </span>{{ horse?.age.year }} years, {{ horse?.age.day }} days, {{ horse?.age.month }} months old</p>
                                     </div>
                                     <div class="col-6 text-right py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Gender:
@@ -297,7 +297,7 @@
                             <div>
                                 <p class="text-left mb-2">Tack</p>
                             </div>
-                            <button class="btn"><app-modal-options></app-modal-options></button>
+                            <app-modal-options></app-modal-options>
                             <!---tack popup, Equip my horse, roaa-->
 
                         </div>
@@ -368,16 +368,20 @@
                                 <div *ngFor="let train of training">
                                     <p *ngIf="train.isDone(); then thenBlock else elseBlock"></p>
                                     <ng-template #thenBlock>
-                                        <p class="training-progress-width">{{ train.getName() }}
-                                            <ngb-progressbar type="warning" [value]="(train.getPercent())">
-                                            </ngb-progressbar> <img src="{{ train.getDoneImage() }}" /></p>
+                                        <p class="training-title-width"> {{ train.getName() }}</p>
+                                        <p class="training-progress-width">
+                                            <ngb-progressbar type="warning" [value]="(train.getPercent()) "></ngb-progressbar>
+                                        </p>
+                                        <img class="training-check-width" src="{{ train.getDoneImage() }} " />
+
                                     </ng-template>
                                     <ng-template #elseBlock>
+                                        <p class="training-title-width"> {{ train.getName() }}</p>
                                         <p class="training-progress-width">
-                                            {{ train.getName() }}
-                                            <ngb-progressbar type="warning" [value]="(train.getPercent())">
-                                            </ngb-progressbar>
-                                            <img src="{{ train.getNotDoneImage() }}" /></p>
+                                            <ngb-progressbar type="warning " [value]="(train.getPercent()) "></ngb-progressbar>
+                                        </p>
+                                        <img class="training-check-width " src="{{ train.getNotDoneImage() }} " />
+
                                     </ng-template>
                                 </div>
                             </div>
@@ -387,7 +391,7 @@
                 <p class="no-bottom-margin ">
                     <!--right  panel 3 - Competition -->
                     <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border " (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
-                                " aria-controls="collapseExample ">
+                                            " aria-controls="collapseExample ">
                         Competition
                     </button>
                 </p>
@@ -396,24 +400,24 @@
                         <div class="card-body ">
                             <div class="row ">
                                 <div class="col-3 btn-padding ">
-                                    <button (click)="BarrelComp()" class="btn max-btn-width ">
+                                    <button (click)="BarrelComp() " class="btn max-btn-width ">
                                         <img class="img-btn-width " src="{{ BarrelCompButton }} " />
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
-                                    <button (click)="CuttingComp()" class="btn max-btn-width ">
+                                    <button (click)="CuttingComp() " class="btn max-btn-width ">
                                         <img class="img-btn-width " src="{{ CuttingCompButton }} " />
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
-                                    <button (click)=" TrailComp()" class="btn max-btn-width ">
+                                    <button (click)=" TrailComp() " class="btn max-btn-width ">
                                         <img class="img-btn-width " src="{{ TrailClassCompButton }} " />
                                     </button>
                                 </div>
                             </div>
                             <div class="row ">
                                 <div class="col-3 btn-padding ">
-                                    <button (click)="ReignComp()" class="btn max-btn-width ">
+                                    <button (click)="ReignComp() " class="btn max-btn-width ">
                                         <img class="img-btn-width " src="{{ ReignCompButton }} " />
                                     </button>
                                 </div>
@@ -423,7 +427,7 @@
                                     </button>
                                 </div>
                                 <div class="col-3 btn-padding ">
-                                    <button (click)="WesternPleasureComp()" class="btn max-btn-width ">
+                                    <button (click)="WesternPleasureComp() " class="btn max-btn-width ">
                                         <img class="img-btn-width " src="{{ WesternPleasureCompButton }} " />
                                     </button>
                                 </div>
@@ -433,13 +437,12 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right  panel 4 - Breeding -->
-                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border " (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed
-                                " aria-controls="collapseExample ">
+                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border " (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed " aria-controls="collapseExample ">
                         Breeding
                     </button>
                 </p>
-                <div class="card card-green bottom-margin no-padding w-100 ">
-                    <div class="card-body ">
+                <div class="card card-green bottom-margin no-padding w-100 " id="collapseExample " [ngbCollapse]="isBreedingCollapsed">
+                    <div class=" card-body ">
                         <div class="row ">
                             <div class="col-3 btn-padding ">
                                 <button class="btn max-btn-width ">
@@ -452,7 +455,7 @@
                                 </button>
                             </div>
                             <div class="col-3 btn-padding ">
-                                <button (click)="coverMareButton()" class="btn max-btn-width ">
+                                <button (click)="coverMareButton() " class="btn max-btn-width ">
                                     <img class="img-btn-width " src="{{ CoverMareButton}} " />
                                 </button>
                             </div>
@@ -463,7 +466,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container ">
     <br>
     <app-footer></app-footer>
 </div>
