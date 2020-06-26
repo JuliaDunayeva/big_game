@@ -16,8 +16,9 @@ export class TackPageComponent implements OnInit {
     saddleList: Array<any> = []
     saddle: Equipment;
     public equipment: Equipment;
-  constructor(private authService: AuthService,
-    private saddlesService: SaddlesService) { }
+
+    constructor(private authService: AuthService,
+                private saddlesService: SaddlesService) { }
 
   ngOnInit(): void {
     this.showlist()

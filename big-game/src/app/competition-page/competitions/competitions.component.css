@@ -130,8 +130,8 @@ input {
   }
   
   .scroll-height {
-    max-height: 100px;
-    
+    max-height: 160px;
+    width: 900px;
   }
 
 

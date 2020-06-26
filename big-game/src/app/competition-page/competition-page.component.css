@@ -143,6 +143,19 @@ p {
     margin-bottom: 0px;
 }
 
+.scrolling-wrapper {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: wrap;
+    display: inline-block;
+    text-align: left;
+  }
+  
+  .scroll-height {
+    max-height: 100px;
+    
+  }
+
 @media (min-width: 576px) and (max-width: 767.98px) { 
     .table-light-green {
         width: auto;
