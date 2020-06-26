@@ -30,7 +30,7 @@ export class TackPageComponent implements OnInit {
       for (let ind = 0; ind < this.saddleIdList.length; ind++) {
         this.saddlesService.getHorseSaddlesNames(this.saddleIdList[0]).then( res => {
           this.saddle = res.data() as Equipment;
-          console.log('one saddle ' ,  this.saddle)
+          // console.log('one saddle ' ,  this.saddle)
           this.saddleList.push(this.saddle);
         }) 
       }
@@ -39,7 +39,7 @@ export class TackPageComponent implements OnInit {
 
   showlist() {
     this.saddlesService.getEquipmentList("western").subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.saddleList = data.map(res => {
         return {
           saddleId: res.payload.doc.id,
