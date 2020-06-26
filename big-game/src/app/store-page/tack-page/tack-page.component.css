@@ -191,6 +191,32 @@ element.style {
         right: 325px;
         bottom: 357px;
     }
+
+    .fox-pop {    
+        margin-left: -87px;
+        margin-top: -48px;
+    }
+    
+    .italian-pop {
+        margin-left: 149px;
+        margin-top: -54px;
+    }
+    
+    .western-pop {
+        margin-left: 152px;
+        margin-top: -73px;
+    }
+    
+    .competition-pop {
+        margin-left: -78px;
+        margin-top: -70px;
+    }
+    
+    .box-img {
+        width: 135px;
+        height: 129px;
+        margin-bottom: 50px;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) { 
@@ -260,6 +286,32 @@ element.style {
         height: 531px;
         right: 246px;
         bottom: 357px;
+    }
+
+    .fox-pop {    
+        margin-left: -87px;
+        margin-top: -48px;
+    }
+    
+    .italian-pop {
+        margin-left: 149px;
+        margin-top: -54px;
+    }
+    
+    .western-pop {
+        margin-left: 152px;
+        margin-top: -73px;
+    }
+    
+    .competition-pop {
+        margin-left: -78px;
+        margin-top: -70px;
+    }
+    
+    .box-img {
+        width: 135px;
+        height: 129px;
+        margin-bottom: 50px;
     }
 }
 
@@ -347,6 +399,32 @@ element.style {
         right: 233px;
         bottom: 390px;
     }
+
+    .fox-pop {    
+        margin-left: -87px;
+        margin-top: -48px;
+    }
+    
+    .italian-pop {
+        margin-left: 149px;
+        margin-top: -54px;
+    }
+    
+    .western-pop {
+        margin-left: 152px;
+        margin-top: -73px;
+    }
+    
+    .competition-pop {
+        margin-left: -78px;
+        margin-top: -70px;
+    }
+    
+    .box-img {
+        width: 135px;
+        height: 129px;
+        margin-bottom: 50px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) { 
@@ -411,5 +489,31 @@ element.style {
         height: 540px;
         right: 240px;
         bottom: 390px;
+    }
+
+    .fox-pop {    
+        margin-left: -87px;
+        margin-top: -48px;
+    }
+    
+    .italian-pop {
+        margin-left: 149px;
+        margin-top: -54px;
+    }
+    
+    .western-pop {
+        margin-left: 152px;
+        margin-top: -73px;
+    }
+    
+    .competition-pop {
+        margin-left: -78px;
+        margin-top: -70px;
+    }
+    
+    .box-img {
+        width: 135px;
+        height: 129px;
+        margin-bottom: 50px;
     }
 }
