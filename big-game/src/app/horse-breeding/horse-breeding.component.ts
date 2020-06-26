@@ -59,18 +59,18 @@ export class HorseBreedingComponent implements OnInit {
   getMaredata(){
        this.horseService.getHorseById(this.id).subscribe((res) => {
          this.mareData = res as HorseData;
-         console.log(this.mareData)
+        //  console.log(this.mareData)
          this.breedService.getBreedById(this.mareData.breed).then( brd =>
         { 
            this.mareData.breed = brd.data()['breed'];
             this.img_path = brd.data()['img_path'];
-            console.log('brred',this.img_path)
+            // console.log('brred',this.img_path)
          })
         this.colorService.getColorById(this.mareData.color).then( clr =>
         {
           this.mareData.color = clr.data()['color'];
           this.img_file = clr.data()['img_file'];
-          console.log('color',this.img_file)
+          // console.log('color',this.img_file)
           this.LoadHorseImage()
         })
         });
@@ -79,7 +79,7 @@ export class HorseBreedingComponent implements OnInit {
   LoadHorseImage() {
 		this.imagePath = 'assets/images/horses/';
     this.imagePath += `${this.img_path}/${this.img_file}`
-    console.log(this.imagePath)
+    // console.log(this.imagePath)
   }
   
   getBreeds() {

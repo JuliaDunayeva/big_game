@@ -5,8 +5,8 @@ li {
 }
 
 element.style {
-     position: absolute;
-     top: none;
+    position: absolute;
+    top: none;
 }
 
 .popup {
@@ -133,6 +133,7 @@ element.style {
     .center {
         margin-left: 3%;
     }
+
     .marche-img {
         margin-left: 52px;
         margin-top: -25px;
@@ -175,6 +176,46 @@ element.style {
     
     .box-left {
         margin-left: 0px;
+    }
+
+    .popup {
+        min-width: 1272px;
+        font-size: 12px;
+        display: block;
+        border-radius: 4px;
+        border: 1px solid #b3b14d;
+        position: relative;
+        box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        height: 509px;
+        right: 325px;
+        bottom: 357px;
+    }
+
+    .fox-pop {    
+        margin-left: -87px;
+        margin-top: -48px;
+    }
+    
+    .italian-pop {
+        margin-left: 149px;
+        margin-top: -54px;
+    }
+    
+    .western-pop {
+        margin-left: 152px;
+        margin-top: -73px;
+    }
+    
+    .competition-pop {
+        margin-left: -78px;
+        margin-top: -70px;
+    }
+    
+    .box-img {
+        width: 135px;
+        height: 129px;
+        margin-bottom: 50px;
     }
 }
 
@@ -233,23 +274,62 @@ element.style {
     .box-left {
         margin-left: 0px;
     }
+
+    .popup {
+        min-width: 672px;
+        display: block;
+        border-radius: 4px;
+        border: 1px solid #b3b14d;
+        position: relative;
+        box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        height: 531px;
+        right: 246px;
+        bottom: 357px;
+    }
+
+    .fox-pop {    
+        margin-left: -87px;
+        margin-top: -48px;
+    }
+    
+    .italian-pop {
+        margin-left: 149px;
+        margin-top: -54px;
+    }
+    
+    .western-pop {
+        margin-left: 152px;
+        margin-top: -73px;
+    }
+    
+    .competition-pop {
+        margin-left: -78px;
+        margin-top: -70px;
+    }
+    
+    .box-img {
+        width: 135px;
+        height: 129px;
+        margin-bottom: 50px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) { 
     .sto-hed {
-    margin: 90px 0 0 10px;
+        margin: 90px 0 0 10px;
     }
 
     .center {
-    margin-left: 3%;
+        margin-left: 3%;
     }
 
     .background {
-    display: none;
+        display: none;
     }
 
     .size {
-    margin-left: -22%;
+        margin-left: -22%;
     }
 
     .sto-hed {
@@ -257,11 +337,11 @@ element.style {
     }
 
     .center {
-    margin-left: 3%;
+        margin-left: 3%;
     }
     
     .background {
-    display: none;
+        display: none;
     }
     
     .marche-img {
@@ -299,25 +379,65 @@ element.style {
     .row-container {
         margin: 11px;
         margin-left: -4px;
-    
     }
     
     .box-left {
         margin-left: 59px;
     }
+
+    .popup {
+        min-width: 950px;
+        min-width: 707px;
+        font-size: 12px;
+        display: block;
+        border-radius: 4px;
+        border: 1px solid #b3b14d;
+        position: relative;
+        box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        height: 540px;
+        right: 233px;
+        bottom: 390px;
+    }
+
+    .fox-pop {    
+        margin-left: -87px;
+        margin-top: -48px;
+    }
+    
+    .italian-pop {
+        margin-left: 149px;
+        margin-top: -54px;
+    }
+    
+    .western-pop {
+        margin-left: 152px;
+        margin-top: -73px;
+    }
+    
+    .competition-pop {
+        margin-left: -78px;
+        margin-top: -70px;
+    }
+    
+    .box-img {
+        width: 135px;
+        height: 129px;
+        margin-bottom: 50px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) { 
     .sto-hed {
-    margin: 90px 0 0 10px;
+        margin: 90px 0 0 10px;
     }
 
     .center {
-    margin-left: 3%;
+        margin-left: 3%;
     }
     
     .background {
-    display: none;
+         display: none;
     }
     
     .marche-img {
@@ -355,5 +475,45 @@ element.style {
     
     .box-left {
         margin-left: 26px;
+    }
+
+    .popup {
+        min-width: 952px;
+        font-size: 12px;
+        display: block;
+        border-radius: 4px;
+        border: 1px solid #b3b14d;
+        position: relative;
+        box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        height: 540px;
+        right: 240px;
+        bottom: 390px;
+    }
+
+    .fox-pop {    
+        margin-left: -87px;
+        margin-top: -48px;
+    }
+    
+    .italian-pop {
+        margin-left: 149px;
+        margin-top: -54px;
+    }
+    
+    .western-pop {
+        margin-left: 152px;
+        margin-top: -73px;
+    }
+    
+    .competition-pop {
+        margin-left: -78px;
+        margin-top: -70px;
+    }
+    
+    .box-img {
+        width: 135px;
+        height: 129px;
+        margin-bottom: 50px;
     }
 }

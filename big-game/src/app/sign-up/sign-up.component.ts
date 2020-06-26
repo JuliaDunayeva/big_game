@@ -99,7 +99,7 @@ export class SignUpComponent implements OnInit {
 
   getImage(color: Color) {
     this.colorSelected = color;
-    console.log(this.colorSelected);
+    // console.log(this.colorSelected);
     this.colorIdSelected = color.id
     this.imagePath = '../../assets/images/horses/';
     this.imagePath += `${this.breedSelected.img_path}/${this.colorSelected.img_file}`;
@@ -111,7 +111,7 @@ export class SignUpComponent implements OnInit {
         this.validEmail = true;
         this.userService.createUser(this.signupForm.value).then((res) => {
           sessionStorage.setItem('uid', res.id)
-          console.log(this.breedIdSelected, this.colorIdSelected, this.skillSelected)
+          // console.log(this.breedIdSelected, this.colorIdSelected, this.skillSelected)
           this.horseService
             .createRandomHorse(this.signupForm.value, res.id, this.breedIdSelected, this.colorIdSelected, this.skillSelected, "New Horse")
             .subscribe((e) => {

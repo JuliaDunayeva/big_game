@@ -32,3 +32,100 @@
 .flex {
     display: flex;
 }
+
+@media (max-width: 575.98px) {
+    .box-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .equipment-box {
+        cursor: pointer;
+        width: 114px;
+        height: 221px;
+        background-color: #f0f0b2 ;
+        color: #133300;
+        border-color: #663300 !important;
+    }
+}
+
+@media (min-width: 578px) and (max-width: 767px) {
+    .box-img {
+        width: 81px !important;
+        height: 120px;
+    }
+    
+    .equipment-box {
+        cursor: pointer;
+    width: 86px;
+    height: 247px;
+    background-color: #f0f0b2;
+    color: #133300;
+    border-color: #663300 !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 930px) {
+    .box-img {
+        width: 84px;
+        height: 112px;
+    }
+
+    .equipment-box {
+        cursor: pointer;
+        width: 91px;
+        height: 257px;
+        background-color: #f0f0b2 ;
+        color: #133300;
+        border-color: #663300 !important;
+    }
+    
+}
+
+@media (min-width: 931px) and (max-width: 992px) {
+    .box-img {
+        width: 84px;
+        height: 112px;
+    }
+
+    .equipment-box {
+        cursor: pointer;
+        width: 91px;
+        height: 257px;
+        background-color: #f0f0b2 ;
+        color: #133300;
+        border-color: #663300 !important;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1199.98px) {
+    .box-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .equipment-box {
+        cursor: pointer;
+        width: 114px;
+        height: 221px;
+        background-color: #f0f0b2 ;
+        color: #133300;
+        border-color: #663300 !important;
+    }
+}   
+
+@media (min-width: 1110px) {
+    .box-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .equipment-box {
+        cursor: pointer;
+        width: 114px;
+        height: 221px;
+        background-color: #f0f0b2 ;
+        color: #133300;
+        border-color: #663300 !important;
+    }
+}

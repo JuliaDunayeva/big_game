@@ -42,7 +42,7 @@ export class HorseSaleComponent implements OnInit {
       this.userService.getUserByID(this.Uid).subscribe((result) => {
         this.user = result as UserData;
       });
-        console.log('uid', this.authService.getUId())
+        // console.log('uid', this.authService.getUId())
     }
 
     getHorseData() {
@@ -63,7 +63,7 @@ export class HorseSaleComponent implements OnInit {
     }
 
     createForm() {
-      console.log(this.defaultHorse)
+      // console.log(this.defaultHorse)
       this.selectHorse = this.fb.group({
         userHorse: [this.defaultHorse, Validators.required]
       })
