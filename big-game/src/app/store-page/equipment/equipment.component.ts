@@ -76,8 +76,14 @@ export class EquipmentComponent implements OnInit {
   }
 
   onSelectItem(ind) {
-    this.itemsRemoved.push(this.allEquipment[ind])
-    console.log('Items to be removed ', this.itemsRemoved);
+    if (this.itemsRemoved.includes(this.allEquipment[ind])) {
+      let indToRemove: number = this.itemsRemoved.indexOf(this.allEquipment[ind]);
+      this.itemsRemoved.splice(indToRemove, 1);
+      // console.log('Items to be removed ', this.itemsRemoved);
+    } else {
+      this.itemsRemoved.push(this.allEquipment[ind])
+      // console.clear();
+      // console.log('Items to be removed ', this.itemsRemoved);
+    }
   }
-
 }
