@@ -73,7 +73,7 @@ export class HorseDataService {
 	}// end of getHorsesForSale function
 	/* write data back to database */
 	setHorseMorale(horse: HorseData) {
-		let id=this.authService.getHorseId();
+		let id = this.authService.getHorseId();
 		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
 			"morale": horse.morale
@@ -81,7 +81,7 @@ export class HorseDataService {
 	} // end of setHorseMorale()
 	/* write data back to database */
 	setHorseHealth(horse: HorseData) {
-		let id=this.authService.getHorseId();
+		let id = this.authService.getHorseId();
 		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
 			"health": horse.health
@@ -89,7 +89,7 @@ export class HorseDataService {
 	}//end of setHorseHealth()
 	/* write data back to database */
 	setHorseEnergy(horse: HorseData) {
-		let id=this.authService.getHorseId();
+		let id = this.authService.getHorseId();
 		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
 			"energy": horse.energy
@@ -97,7 +97,7 @@ export class HorseDataService {
 	}//end of setHorseEnergy()
 	/* write data back to database */
 	setHorseTime(horse: HorseData, currentHourString: string, currentMinuteString: string) {
-		let id=this.authService.getHorseId();
+		let id = this.authService.getHorseId();
 		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
 			"time": { currentHourString, currentMinuteString }
@@ -295,18 +295,18 @@ export class HorseDataService {
 		return this.db.collection('/horse_data').doc(id).delete()
 	}//end of delete function 
 
-	getHorseForMare(): Observable<HorseData[]>{
-		return this.db.collection('/horse_data', ref => ref.where('gender', '==', 'stallion' )
-		.where('stud', '==', true))
-		.snapshotChanges().pipe(
-			map(action => {
-				return action.map(res => {
-					const horse = res.payload.doc.data() as HorseData;
-					const id = res.payload.doc.id;
-					return { id, ...horse };
+	getHorseForMare(): Observable<HorseData[]> {
+		return this.db.collection('/horse_data', ref => ref.where('gender', '==', 'stallion')
+			.where('stud', '==', true))
+			.snapshotChanges().pipe(
+				map(action => {
+					return action.map(res => {
+						const horse = res.payload.doc.data() as HorseData;
+						const id = res.payload.doc.id;
+						return { id, ...horse };
+					})
 				})
-			})
-		);
+			);
 	}
 
 	getStallions(): Observable<HorseData[]> {
@@ -320,7 +320,7 @@ export class HorseDataService {
 					})
 				})
 			);
-	} 
+	}
 	updateStudStatus(id: string, stud: boolean) {
 		return this.db.collection('/horse_data').doc(id).update({
 			'stud': stud

@@ -7,26 +7,25 @@ import { SaddlesService } from './../services/saddles.service';
   selector: 'app-modal-options',
   templateUrl: './modal-options.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./modal-options.component.css']
+  styleUrls: ['./modal-options.component.css']
 })
 
-export class ModalOptionsComponent  {
+export class ModalOptionsComponent {
   allEquipment: Equipment[];
   path: string = 'assets/images/tack-page/'
 
-  constructor(public modalService: NgbModal, public saddlesService: SaddlesService  ) {}
-   
+  constructor(public modalService: NgbModal, public saddlesService: SaddlesService) { }
+
   ngOnInit(): void {
     this.showlist()
+  }
 
-   }
-
-   showlist() {
+  showlist() {
     this.saddlesService.getSaddlesList()
       .subscribe(data => {
         this.allEquipment = data.map(res => {
           //console.log('saddles', res)
-          return{
+          return {
             saddleId: res.payload.doc.id,
             name: res.payload.doc.data()['name'],
             color: res.payload.doc.data()['color'],

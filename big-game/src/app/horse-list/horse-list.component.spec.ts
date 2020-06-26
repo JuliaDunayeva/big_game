@@ -8,9 +8,9 @@ describe('HorseListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HorseListComponent ]
+      declarations: [HorseListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

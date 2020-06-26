@@ -1,23 +1,22 @@
-
 <div class="d-flex justify-content-around" *ngIf="list?.length > 0;else noAllEquipment">
-    <ul class="d-flex justfiy-content-around list-unstyled" *ngFor="let equipment of list" >
-    <li class="" >
-        <div>
-            <img class="box-img image-responsive" src="{{ buildpath(equipment.img_file) }}" />
-        </div> <br> <br> 
-        <div class="equipment-box">
-            <i class="up-arrow caret up icon "></i>
-            <p class="equipment-text"><strong>{{equipment.name}}</strong></p>
-            <p class="equipment-text">Color: {{equipment.color}}</p>
-            <p class="equipment-text">Dressage:+ {{equipment.dressage_}}</p>
-            <p class="equipment-text">Gallop:+ {{equipment.gallop_}}</p>
-            <p class="equipment-text">Speed:+ {{equipment.speed_}}</p>
-            <p class="equipment-text"> Stamina:+ {{equipment.stamina_}} </p>
-            <p class="equipment-text"> Trot:+ {{equipment.trot_}} </p>
-            <p class="equipment-text">Jumping:+ {{equipment.jumping_}}</p>
-        </div>
-    </li>
-    </ul> 
+    <ul class="d-flex justfiy-content-around list-unstyled" *ngFor="let equipment of list">
+        <li class="">
+            <div>
+                <img class="box-img image-responsive" src="{{ buildpath(equipment.img_file) }}" />
+            </div> <br> <br>
+            <div class="equipment-box">
+                <i class="up-arrow caret up icon "></i>
+                <p class="equipment-text"><strong>{{equipment.name}}</strong></p>
+                <p class="equipment-text">Color: {{equipment.color}}</p>
+                <p class="equipment-text">Dressage:+ {{equipment.dressage_}}</p>
+                <p class="equipment-text">Gallop:+ {{equipment.gallop_}}</p>
+                <p class="equipment-text">Speed:+ {{equipment.speed_}}</p>
+                <p class="equipment-text"> Stamina:+ {{equipment.stamina_}} </p>
+                <p class="equipment-text"> Trot:+ {{equipment.trot_}} </p>
+                <p class="equipment-text">Jumping:+ {{equipment.jumping_}}</p>
+            </div>
+        </li>
+    </ul>
 </div>
 <ng-template #noAllEquipment>
     <hr>

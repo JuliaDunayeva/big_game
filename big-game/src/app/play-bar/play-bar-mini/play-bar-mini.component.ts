@@ -8,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PlayBarMiniComponent implements OnInit {
-  id:any;
-  horseselected:boolean=false;
+  id: any;
+  horseselected: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-      if (sessionStorage.getItem("selected-horse")=="true"){
-          this.horseselected=true;
-      } else {
-          this.horseselected=false;
-      }
-    this.id=sessionStorage.getItem('horseId');
+    if (sessionStorage.getItem("selected-horse") == "true") {
+      this.horseselected = true;
+    } else {
+      this.horseselected = false;
+    }
+    this.id = sessionStorage.getItem('horseId');
   }
 }

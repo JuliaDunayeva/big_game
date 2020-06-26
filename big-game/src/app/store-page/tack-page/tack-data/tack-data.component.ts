@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 @Component({
   selector: 'app-tack-data',
   templateUrl: './tack-data.component.html',
@@ -10,11 +9,11 @@ export class TackDataComponent implements OnInit {
 
   constructor() { }
 
-  public imgpath="assets/images/tack-page/";
-		
-		buildpath(file:string):string{
-			return this.imgpath+file;
-    }
+  public imgpath = "assets/images/tack-page/";
+
+  buildpath(file: string): string {
+    return this.imgpath + file;
+  }
 
   ngOnInit(): void {
   }

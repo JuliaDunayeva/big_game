@@ -1,19 +1,19 @@
 .card-light-green {
   background-color: #f0f0b2;
   color: #663300;
-  border-style: solid 2px #663300 ;
+  border-style: solid 2px #663300;
   border-radius: 5px;
   margin-bottom: 20px;
 }
-  
+
 .card-title {
   font-weight: bold;
 }
-  
+
 .no-top-margin {
   margin-top: 0px;
 }
-  
+
 .no-bottom-margin {
   margin-bottom: 0px;
 }
@@ -32,36 +32,36 @@
   color: maroon;
   width: 120px;
 }
-  
+
 .label {
   margin-top: -6px;
 }
-  
+
 p {
   margin-bottom: 5px;
 }
-  
+
 .centered {
   justify-content: center;
   padding-top: 25px;
 }
-  
+
 .move-left1 {
   margin-left: -18px;
   width: 140px;
   margin-top: 2px;
   margin-bottom: 2px;
 }
-  
+
 .sm-card {
   background-color: #dcdb81;
   border-style: solid 2px olive;
 }
-  
+
 .sm-text {
   font-size: smaller;
 }
-  
+
 .image {
   margin-left: 67px;
 }
@@ -74,7 +74,7 @@ td {
 }
 
 .row-head {
-  background-color: #DCDB81;
+  background-color: #dcdb81;
   border: 2px solid rgb(192, 189, 113);
 }
 
@@ -98,7 +98,7 @@ td {
     height: 60px;
   }
 
-  .col-md-10{
+  .col-md-10 {
     max-width: 480px;
     margin-left: 20px;
   }

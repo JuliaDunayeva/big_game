@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div  class="col-sm-12">
+        <div class="col-sm-12">
             <app-mini-bar></app-mini-bar>
             <app-nav-bar></app-nav-bar>
             <br><br>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-3 text-pos">
                 <a class="bold-text  color-tx-green"> Trade </a>
-                <a class="color-tx-maroon "> 
+                <a class="color-tx-maroon ">
                     <i class="angle double right icon"></i>Black Market
                 </a>
             </div>
@@ -26,7 +26,9 @@
             </div>
         </div>
         <div class="row second-row">
-            <div class="col-md-6"><hr></div>
+            <div class="col-md-6">
+                <hr>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-3">
@@ -35,7 +37,8 @@
         </div>
         <div class="row">
             <div class="pad-left col-md-7">
-                <p class="bold-text  color-tx-green"> Discover exceptional items to use on your horses and improve your game!</p>
+                <p class="bold-text  color-tx-green"> Discover exceptional items to use on your horses and improve your
+                    game!</p>
             </div>
         </div>
         <div class="col-md-10 background-card">
@@ -61,17 +64,20 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="">
-                                <li ngbDropdown >
+                                <li ngbDropdown>
                                     <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
                                         <h5 class="box-head">Zeus' Lightning Bolt</h5>
                                         <p class="">Change your horse's gender.</p>
-                                        <p class="pass">95 <img class="pass-img" src="./assets/images/black-store/pass.png">
+                                        <p class="pass">95 <img class="pass-img"
+                                                src="./assets/images/black-store/pass.png">
                                     </a>
                                     <div ngbDropdownMenu class="drop-box" id="background">
                                         <div class="popup color-beige color-tx-green">
                                             <div>
                                                 <h3 class="box-head">Zeus' Lightning Bolt</h3>
-                                                <p class="bold-text  ">Zeus' Lightning Bolt enables you to change the gender of your horses. Mares in gestation and geldings cannot benefit from this item.</p>
+                                                <p class="bold-text  ">Zeus' Lightning Bolt enables you to change the
+                                                    gender of your horses. Mares in gestation and geldings cannot
+                                                    benefit from this item.</p>
                                             </div>
                                             <div>
                                                 <h5>List of your horses...</h5>
@@ -79,19 +85,21 @@
                                             </div>
                                             <form>
                                                 <div *ngFor="let horse of allHorses">
-                                                    <label >
-                                                        <input type="radio"  [id]="horse.id" name="horse"
-                                                            [value]="horse.id" (click)="onHorseSelect(horse.gender, horse.id)"/>
+                                                    <label>
+                                                        <input type="radio" [id]="horse.id" name="horse"
+                                                            [value]="horse.id"
+                                                            (click)="onHorseSelect(horse.gender, horse.id)" />
                                                         <span class="checkmark radio-border"></span>
-                                                        {{ horse.name}} - 
+                                                        {{ horse.name}} -
                                                         {{horse.gender}}
                                                     </label>
                                                 </div>
                                                 <div>
                                                     <br>
-                                                        <button class="btn-shops btn-shops-lrg" (click)= "costCheck()" (click)="swapGender()">Change Gender</button>
+                                                    <button class="btn-shops btn-shops-lrg" (click)="costCheck()"
+                                                        (click)="swapGender()">Change Gender</button>
                                                 </div>
-                                            </form> 
+                                            </form>
                                         </div>
                                     </div>
                                 </li>
@@ -121,19 +129,21 @@
                             <img class="box-img" src="./assets/images/black-store/fleche-artemis.png">
                         </div>
                         <div class="">
-                            <li ngbDropdown >
+                            <li ngbDropdown>
                                 <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
                                     <div class="col-sm-9">
                                         <h5 class="box-head">Artemis' Arrow</h5>
                                         <p class="">Make your Stallion into a Stud.</p>
-                                        <p class="pass">95 <img class="pass-img" src="./assets/images/black-store/pass.png">
+                                        <p class="pass">95 <img class="pass-img"
+                                                src="./assets/images/black-store/pass.png">
                                     </div>
                                 </a>
                                 <div ngbDropdownMenu class="drop-box" id="background">
                                     <div class="popup color-beige color-tx-green">
                                         <div>
                                             <h3 class="box-head">Artemis' Arrow</h3>
-                                            <p class="bold-text  ">Artemis' Arrow enables you to turn your Stallion into a Stud !!!</p>
+                                            <p class="bold-text  ">Artemis' Arrow enables you to turn your Stallion into
+                                                a Stud !!!</p>
                                         </div>
                                         <div>
                                             <h5>List of the all the horses</h5>
@@ -141,18 +151,19 @@
                                         </div>
                                         <form>
                                             <div *ngFor="let horse of allMales">
-                                                <label >
-                                                    <input type="radio"  [id]="horse.id" name="horse"
-                                                    [value]="horse.id" (click)="horseSelect(horse.stud, horse.id)"/>
+                                                <label>
+                                                    <input type="radio" [id]="horse.id" name="horse" [value]="horse.id"
+                                                        (click)="horseSelect(horse.stud, horse.id)" />
                                                     <span class="checkmark radio-border"></span>
                                                     {{ horse.name}} - {{horse.stud}}
                                                 </label>
                                             </div>
                                             <div>
                                                 <br>
-                                                <button class="btn-shops btn-shops-lrg" (click)= "costCheck()" (click)="swapStudStatus()">Make Stud</button>
+                                                <button class="btn-shops btn-shops-lrg" (click)="costCheck()"
+                                                    (click)="swapStudStatus()">Make Stud</button>
                                             </div>
-                                        </form> 
+                                        </form>
                                     </div>
                                 </div>
                             </li>
@@ -160,7 +171,7 @@
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
     <br>
     <app-footer></app-footer>

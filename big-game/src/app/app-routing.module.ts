@@ -1,7 +1,7 @@
 import { CompetitionPageComponent } from './competition-page/competition-page.component';
 import { BlackMarketPageComponent } from './black-market-page/black-market-page.component';
 import { StorePageComponent } from './store-page/store-page.component';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -14,27 +14,27 @@ import { HorseBreedingComponent } from './horse-breeding/horse-breeding.componen
 
 const routes: Routes = [
   {
-    path:'sign-up',
+    path: 'sign-up',
     component: SignUpComponent
   },
   {
     path: 'horse-list',
-    component: HorseListComponent 
+    component: HorseListComponent
   },
   {
     path: 'horse-page',
-    component: HorsePageComponent 
+    component: HorsePageComponent
   },
   {
     path: 'horse-sale',
-    component: HorseSaleComponent 
+    component: HorseSaleComponent
   },
   {
     path: 'breeding',
-    component: HorseBreedingComponent 
+    component: HorseBreedingComponent
   },
-   {
-    path:'home-page',
+  {
+    path: 'home-page',
     component: HomePageComponent
   },
   {
@@ -60,12 +60,12 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/home-page',
-    pathMatch:'full'
+    pathMatch: 'full'
   },
   {
-      path: '**', 
-      redirectTo: '/home-page',
-      pathMatch: 'full'
+    path: '**',
+    redirectTo: '/home-page',
+    pathMatch: 'full'
   }
 ];
 

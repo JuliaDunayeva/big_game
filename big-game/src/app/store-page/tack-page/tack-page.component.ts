@@ -10,12 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class TackPageComponent implements OnInit {
-    public allHorses = [];
-    relationsArray: Array<string>
-    saddleIdList: Array<string>
-    saddleList: Array<any> = []
-    saddle: Equipment;
-    public equipment: Equipment;
+  public allHorses = [];
+  relationsArray: Array<string>
+  saddleIdList: Array<string>
+  saddleList: Array<any> = []
+  saddle: Equipment;
+  public equipment: Equipment;
   constructor(private authService: AuthService,
     private saddlesService: SaddlesService) { }
 
@@ -28,14 +28,14 @@ export class TackPageComponent implements OnInit {
     this.saddlesService.getHorseSaddlesIds(horseId).subscribe(res => {
       this.saddleIdList = res.map(el => el.payload.doc.data()['saddle_id']);
       for (let ind = 0; ind < this.saddleIdList.length; ind++) {
-        this.saddlesService.getHorseSaddlesNames(this.saddleIdList[0]).then( res => {
+        this.saddlesService.getHorseSaddlesNames(this.saddleIdList[0]).then(res => {
           this.saddle = res.data() as Equipment;
           // console.log('one saddle ' ,  this.saddle)
           this.saddleList.push(this.saddle);
-        }) 
+        })
       }
     })
-  } 
+  }
 
   showlist() {
     this.saddlesService.getEquipmentList("western").subscribe(data => {

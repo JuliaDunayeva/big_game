@@ -23,8 +23,8 @@ export class SaddlesService {
     return this.db.collection('horse_tack', ref => ref.where('horse_id', '==', horseId)).snapshotChanges()
   }
 
-  getHorseSaddlesNames(saddleId: string){
+  getHorseSaddlesNames(saddleId: string) {
     return this.db.collection('saddles').doc(saddleId).ref.get();
   }
-    
+
 }

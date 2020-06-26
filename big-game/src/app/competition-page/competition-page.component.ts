@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HorseData } from '../horse-data';
-import { HorseDataService} from '../services/horse-data.service';
+import { HorseDataService } from '../services/horse-data.service';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -16,30 +16,29 @@ export class CompetitionPageComponent implements OnInit {
   public horse: HorseData;
   public id?: string;
   public readonly = true;
-  public rate:number;
+  public rate: number;
 
   ctrl = new FormControl(null, Validators.required);
 
-  constructor(private router: ActivatedRoute, 
-    public horseDataService: HorseDataService,private authService:AuthService) {
-    this.id=this.authService.getHorseId();
+  constructor(private router: ActivatedRoute,
+    public horseDataService: HorseDataService, private authService: AuthService) {
+    this.id = this.authService.getHorseId();
   }
 
   ngOnInit(): void {
-    setTimeout(() => 
-	{
-    this.horseDataService.getHorseById(this.id).subscribe(res => {
-      this.horse = res;
-  });
-}, 750);
-}
+    setTimeout(() => {
+      this.horseDataService.getHorseById(this.id).subscribe(res => {
+        this.horse = res;
+      });
+    }, 750);
+  }
 
   getHorseData(): HorseData[] {
-    this.horseDataService.getHorseData().subscribe(result =>{
-              this.allHorseData = result as Array<HorseData>;
-            }
-        );
-	return this.allHorseData;
+    this.horseDataService.getHorseData().subscribe(result => {
+      this.allHorseData = result as Array<HorseData>;
+    }
+    );
+    return this.allHorseData;
   }
 
   toggle() {
@@ -48,5 +47,5 @@ export class CompetitionPageComponent implements OnInit {
     } else {
       this.ctrl.disable();
     }
-  } 
+  }
 }

@@ -19,7 +19,7 @@ import { DatePipe } from '@angular/common';
 })
 
 export class HorseListComponent implements OnInit {
-  skills = ['Stamina','Gallop', 'Speed', 'Jumping'];
+  skills = ['Stamina', 'Gallop', 'Speed', 'Jumping'];
   success = 'A new horse has been added';
   fail = 'You do not have enough Equus';
   notnow = 'Your horse is too young to retire';
@@ -45,39 +45,39 @@ export class HorseListComponent implements OnInit {
   selectHorse: FormGroup
   defaultHorse: any;
 
-    constructor(private breedService: BreedService, 
-        private colorService: ColorService, 
-        private authService: AuthService,
-        private userService: UserDataService,
-        private horseService: HorseDataService,
-        private fb: FormBuilder) {
-    }
+  constructor(private breedService: BreedService,
+    private colorService: ColorService,
+    private authService: AuthService,
+    private userService: UserDataService,
+    private horseService: HorseDataService,
+    private fb: FormBuilder) {
+  }
 
-    ngOnInit(): void {
-      this.getBreeds();
-      this.getColors();
-      this.getHorseData();
-      this.userService.getUserByID(this.Uid).subscribe((result) => {
-        this.user = result as UserData;
+  ngOnInit(): void {
+    this.getBreeds();
+    this.getColors();
+    this.getHorseData();
+    this.userService.getUserByID(this.Uid).subscribe((result) => {
+      this.user = result as UserData;
+    });
+    sessionStorage.setItem("selected-horse", "false");
+    /*document.getElementById("selected-horse").className = "disabled";
+    document.getElementById("selected-horse").setAttribute("routerLink", "");*/
+  }
+
+  getBreeds() {
+    this.breedService.getBreeds().subscribe((brd) => {
+      this.allBreeds = brd.map(res => {
+        return {
+          id: res.payload.doc.id,
+          breed: res.payload.doc.data()['breed'],
+          skill: res.payload.doc.data()['skill'],
+          img_path: res.payload.doc.data()['img_path']
+        }
       });
-      sessionStorage.setItem("selected-horse","false");
-      /*document.getElementById("selected-horse").className = "disabled";
-      document.getElementById("selected-horse").setAttribute("routerLink", "");*/
-    }
+    })
+  }
 
-    getBreeds() {
-      this.breedService.getBreeds().subscribe((brd) => {
-        this.allBreeds = brd.map(res => {
-          return {
-            id: res.payload.doc.id,
-            breed: res.payload.doc.data()['breed'],
-            skill: res.payload.doc.data()['skill'],
-            img_path: res.payload.doc.data()['img_path']
-          }
-        });
-      })
-    }
-    
   getColors() {
     this.colorService.getColors().subscribe(clr => {
       this.allColors = clr.map(res => {
@@ -90,24 +90,25 @@ export class HorseListComponent implements OnInit {
     });
   }
 
-  getHorseData(){
+  getHorseData() {
     this.horseService.getHorseList().subscribe(
       res => {
         this.allHorseData = res as Array<HorseData>;
-        this.allHorseData.map(horse =>{
+        this.allHorseData.map(horse => {
           this.defaultHorse = this.allHorseData[0].name
           this.horseSelectedId = this.allHorseData[0].id
           this.createForm();
-          this.breedService.getBreedById(horse.breed).then( res =>{
-            horse.breed = res.data()['breed']}
-            )
+          this.breedService.getBreedById(horse.breed).then(res => {
+            horse.breed = res.data()['breed']
           }
+          )
+        }
         )
-        this.allHorseData.map(horse =>{
-          this.colorService.getColorById(horse.color).then( res =>
+        this.allHorseData.map(horse => {
+          this.colorService.getColorById(horse.color).then(res =>
             horse.color = res.data()['color']
-            )
-          }
+          )
+        }
         )
       }
     )
@@ -121,22 +122,22 @@ export class HorseListComponent implements OnInit {
 
   createRandomHorse(name: string, breedId: string, colorId: string, skill: string) {
     if (this.haveMoney == true) {
-    this.horseService.createRandomHorse(this.horseValues, this.Uid, breedId, colorId, skill, name)
+      this.horseService.createRandomHorse(this.horseValues, this.Uid, breedId, colorId, skill, name)
       return alert(this.success);
     } alert(this.fail)
   }
 
-  newHorseCost(){
-   this.userService.subtractEquus(this.Uid, this.user.equus, 1000)
+  newHorseCost() {
+    this.userService.subtractEquus(this.Uid, this.user.equus, 1000)
   } // used to buy a new horse and pay 1000 Equus
 
   haveMoney: boolean;
-  costCheck(){
-    if(this.user.equus >= 1000){
+  costCheck() {
+    if (this.user.equus >= 1000) {
       this.newHorseCost();
       return this.haveMoney = true;
-    } 
-    else{
+    }
+    else {
       return this.haveMoney = false;
     }
   }
@@ -157,36 +158,36 @@ export class HorseListComponent implements OnInit {
     this.saleOfHorse = toSell;
   }
 
-  swapSale(){
+  swapSale() {
     const toSell = this.setSale(this.saleOfHorse)
     this.horseService.updateTheSale(this.idOfHorse, toSell)
     this.userService.addEquus(this.Uid, this.user.equus, 500)
   }  // used to sell the horse and collect 500 Equus
 
   setSale(toSell: boolean): boolean {
-    if(toSell == false) {
+    if (toSell == false) {
       return true
-    } 
-    return false 
+    }
+    return false
   }
 
-  delete(){
+  delete() {
     this.horseService.deleteHorsedata(this.idOfHorse)
   }
-  
+
   dobofHorse: any;
-  onhorseRetire(id, dob:any){
+  onhorseRetire(id, dob: any) {
     this.idOfHorse = id;
-    this.dobofHorse =dob;
+    this.dobofHorse = dob;
   }
-  
-  diffIndob:any;
-  retireHorse(){
-    const timestamp = Date.now()/1000;
-    this.diffIndob = this.dobofHorse.seconds-timestamp
-    if (this.diffIndob <-605000) {
-    this.delete();
-    }else{
+
+  diffIndob: any;
+  retireHorse() {
+    const timestamp = Date.now() / 1000;
+    this.diffIndob = this.dobofHorse.seconds - timestamp
+    if (this.diffIndob < -605000) {
+      this.delete();
+    } else {
       alert(this.notnow);
     }
   }

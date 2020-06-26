@@ -1,15 +1,183 @@
 li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 element.style {
-    position: absolute;
-    top: none;
+  position: absolute;
+  top: none;
 }
 
 .popup {
+  min-width: 1272px;
+  font-size: 12px;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #b3b14d;
+  position: relative;
+  box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  height: 509px;
+  right: 325px;
+  bottom: 357px;
+}
+
+.app {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.fox-pop {
+  margin-left: -87px;
+  margin-top: -48px;
+}
+
+.italian-pop {
+  margin-left: 149px;
+  margin-top: -54px;
+}
+
+.western-pop {
+  margin-left: 152px;
+  margin-top: -73px;
+}
+
+.competition-pop {
+  margin-left: -78px;
+  margin-top: -70px;
+}
+
+.box-img {
+  width: 135px;
+  height: 129px;
+  margin-bottom: 50px;
+}
+
+.up-arrow {
+  color: #f0f0b2;
+  font-size: 5.5em !important;
+  margin: -71px 0px 0 29px !important;
+}
+
+.equipment-text {
+  font-size: 13px;
+  margin-bottom: 4.2px;
+  margin-left: 11px;
+}
+
+.equipment-box {
+  cursor: pointer;
+  margin: -35px 0px 0 -28px;
+  width: 114px;
+  height: 202px;
+  background-color: #f0f0b2;
+  color: #133300;
+  border-color: #663300 !important;
+}
+
+.dropdown-menu[x-placement^="top"],
+.dropdown-menu[x-placement^="right"],
+.dropdown-menu[x-placement^="bottom"],
+.dropdown-menu[x-placement^="left"] {
+  right: 0;
+  bottom: 0;
+}
+
+.horse-img {
+  margin-left: -13%;
+  margin-top: -28%;
+  width: 308px;
+  height: 308px;
+}
+
+.titel-position {
+  margin-left: -11%;
+  margin-top: -9%;
+  font-size: 33px;
+}
+
+.description-position {
+  margin-top: 2%;
+  margin-left: 54px;
+  font-size: 20px;
+}
+
+.description-sm {
+  margin-top: 2%;
+  margin-left: 18px;
+  font-size: 17px;
+}
+
+.row-container {
+  margin: 50px;
+}
+
+.box-left {
+  margin-left: 0px;
+}
+
+.inline-block {
+  display: flex;
+}
+
+@media (max-width: 575.98px) {
+  .background {
+    width: 98%;
+    opacity: 88%;
+    padding-bottom: 22%;
+    margin-left: 1%;
+  }
+
+  .center {
+    margin-left: 3%;
+  }
+
+  .marche-img {
+    margin-left: 52px;
+    margin-top: -25px;
+    width: 303px;
+    height: 163px;
+  }
+
+  .horse-img {
+    margin-left: -57%;
+    margin-top: 20%;
+    width: 217px;
+    height: 218px;
+  }
+
+  .titel-position {
+    margin-left: 6%;
+    margin-top: -9%;
+    font-size: 24px;
+  }
+
+  .description-position {
+    margin-top: 5%;
+    margin-left: 54px;
+    font-size: 20px;
+    width: 434px;
+    height: 175px;
+  }
+
+  .description-sm {
+    margin-top: 5%;
+    margin-left: 18px;
+    font-size: 17px;
+  }
+
+  .row-container {
+    margin: 11px;
+    margin-left: -4px;
+  }
+
+  .box-left {
+    margin-left: 0px;
+  }
+
+  .popup {
     min-width: 1272px;
     font-size: 12px;
     display: block;
@@ -21,499 +189,329 @@ element.style {
     height: 509px;
     right: 325px;
     bottom: 357px;
-}
+  }
 
-.app {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-
-.fox-pop {    
+  .fox-pop {
     margin-left: -87px;
     margin-top: -48px;
-}
+  }
 
-.italian-pop {
+  .italian-pop {
     margin-left: 149px;
     margin-top: -54px;
-}
+  }
 
-.western-pop {
+  .western-pop {
     margin-left: 152px;
     margin-top: -73px;
-}
+  }
 
-.competition-pop {
+  .competition-pop {
     margin-left: -78px;
     margin-top: -70px;
-}
+  }
 
-.box-img {
+  .box-img {
     width: 135px;
     height: 129px;
     margin-bottom: 50px;
+  }
 }
 
-.up-arrow {
-    color: #f0f0b2;
-    font-size: 5.5em !important;
-    margin: -71px 0px 0 29px !important;
-}
-
-.equipment-text {
-    font-size: 13px;
-    margin-bottom: 4.2px;
-    margin-left: 11px;
-}
-
-.equipment-box {
-    cursor: pointer;
-    margin: -35px 0px 0 -28px;
-    width: 114px;
-    height: 202px;
-    background-color: #f0f0b2 ;
-    color: #133300;
-    border-color: #663300 !important;
-}
-
-.dropdown-menu[x-placement^="top"], 
-.dropdown-menu[x-placement^="right"], 
-.dropdown-menu[x-placement^="bottom"], 
-.dropdown-menu[x-placement^="left"] {
-    right: 0;
-    bottom: 0;
-}
-
-.horse-img {
-    margin-left: -13%;
-    margin-top: -28%;
-    width: 308px;
-    height: 308px;
-}
-
-.titel-position {
-    margin-left: -11%;
-    margin-top: -9%;
-    font-size: 33px;
-}
-
-.description-position {
-    margin-top: 2%;
-    margin-left: 54px;
-    font-size: 20px;
-}
-
-.description-sm {
-    margin-top: 2%;
-    margin-left: 18px;
-    font-size: 17px;
-}
-
-.row-container {
-    margin: 50px;
-}
-
-.box-left{
-    margin-left: 0px;
-}
-
-.inline-block {
-    display: flex;
-}
-
-@media (max-width: 575.98px) { 
-    .background {
-        width: 98%;
-        opacity: 88%;
-        padding-bottom: 22%;
-        margin-left: 1%;
-    }
-
-    .center {
-        margin-left: 3%;
-    }
-
-    .marche-img {
-        margin-left: 52px;
-        margin-top: -25px;
-        width: 303px;
-        height: 163px
-    }
-
-    .horse-img {
-        margin-left: -57%;
-        margin-top: 20%;
-        width: 217px;
-        height: 218px;
-    }
-    
-    .titel-position {
-        margin-left: 6%;
-        margin-top: -9%;
-        font-size: 24px;
-    }
-    
-    .description-position {
-        margin-top: 5%;
-        margin-left: 54px;
-        font-size: 20px;
-        width: 434px;
-        height: 175px;
-    }
-    
-    .description-sm {
-        margin-top: 5%;
-        margin-left: 18px;
-        font-size: 17px;
-    }
-    
-    .row-container {
-        margin: 11px;
-        margin-left: -4px;
-    
-    }
-    
-    .box-left {
-        margin-left: 0px;
-    }
-
-    .popup {
-        min-width: 1272px;
-        font-size: 12px;
-        display: block;
-        border-radius: 4px;
-        border: 1px solid #b3b14d;
-        position: relative;
-        box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
-        padding: 10px;
-        height: 509px;
-        right: 325px;
-        bottom: 357px;
-    }
-
-    .fox-pop {    
-        margin-left: -87px;
-        margin-top: -48px;
-    }
-    
-    .italian-pop {
-        margin-left: 149px;
-        margin-top: -54px;
-    }
-    
-    .western-pop {
-        margin-left: 152px;
-        margin-top: -73px;
-    }
-    
-    .competition-pop {
-        margin-left: -78px;
-        margin-top: -70px;
-    }
-    
-    .box-img {
-        width: 135px;
-        height: 129px;
-        margin-bottom: 50px;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) { 
-    .background {
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .background {
     width: 98%;
     opacity: 88%;
     padding-bottom: 22%;
     margin-left: 1%;
-    }
+  }
 
-    .center {
+  .center {
     margin-left: 3%;
-    }
-    
-    .marche-img {
-        margin-left: 52px;
-        margin-top: -25px;
-        width: 303px;
-        height: 163px
-    }
+  }
 
-    .horse-img {
-        margin-left: -57%;
-        margin-top: 20%;
-        width: 217px;
-        height: 218px;
-    }
-    
-    .titel-position {
-        margin-left: 6%;
-        margin-top: -9%;
-        font-size: 24px;
-    }
-    
-    .description-position {
-        margin-top: 5%;
-        margin-left: 54px;
-        font-size: 20px;
-        width: 434px;
-        height: 175px;
-    }
-    
-    .description-sm {
-        margin-top: 5%;
-        margin-left: 18px;
-        font-size: 17px;
-    }
-    
-    .row-container {
-        margin: 11px;
-        margin-left: -4px;
-    
-    }
-    
-    .box-left {
-        margin-left: 0px;
-    }
+  .marche-img {
+    margin-left: 52px;
+    margin-top: -25px;
+    width: 303px;
+    height: 163px;
+  }
 
-    .popup {
-        min-width: 672px;
-        display: block;
-        border-radius: 4px;
-        border: 1px solid #b3b14d;
-        position: relative;
-        box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
-        padding: 10px;
-        height: 531px;
-        right: 246px;
-        bottom: 357px;
-    }
+  .horse-img {
+    margin-left: -57%;
+    margin-top: 20%;
+    width: 217px;
+    height: 218px;
+  }
 
-    .fox-pop {    
-        margin-left: 121px;
-        margin-top: -48px;
-    }
-    
-    .italian-pop {
-        margin-left: 149px;
-        margin-top: -54px;
-    }
-    
-    .western-pop {
-        margin-left: 152px;
-        margin-top: -73px;
-    }
-    
-    .competition-pop {
-        margin-left: 124px;
-        margin-top: -70px;
-    }
-    
-    .box-img {
-        width: 135px;
-        height: 129px;
-        margin-bottom: 50px;
-    }
+  .titel-position {
+    margin-left: 6%;
+    margin-top: -9%;
+    font-size: 24px;
+  }
+
+  .description-position {
+    margin-top: 5%;
+    margin-left: 54px;
+    font-size: 20px;
+    width: 434px;
+    height: 175px;
+  }
+
+  .description-sm {
+    margin-top: 5%;
+    margin-left: 18px;
+    font-size: 17px;
+  }
+
+  .row-container {
+    margin: 11px;
+    margin-left: -4px;
+  }
+
+  .box-left {
+    margin-left: 0px;
+  }
+
+  .popup {
+    min-width: 672px;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #b3b14d;
+    position: relative;
+    box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    height: 531px;
+    right: 246px;
+    bottom: 357px;
+  }
+
+  .fox-pop {
+    margin-left: 121px;
+    margin-top: -48px;
+  }
+
+  .italian-pop {
+    margin-left: 149px;
+    margin-top: -54px;
+  }
+
+  .western-pop {
+    margin-left: 152px;
+    margin-top: -73px;
+  }
+
+  .competition-pop {
+    margin-left: 124px;
+    margin-top: -70px;
+  }
+
+  .box-img {
+    width: 135px;
+    height: 129px;
+    margin-bottom: 50px;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) { 
-    .sto-hed {
-        margin: 90px 0 0 10px;
-    }
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .sto-hed {
+    margin: 90px 0 0 10px;
+  }
 
-    .center {
-        margin-left: 3%;
-    }
+  .center {
+    margin-left: 3%;
+  }
 
-    .background {
-        display: none;
-    }
+  .background {
+    display: none;
+  }
 
-    .size {
-        margin-left: -22%;
-    }
+  .size {
+    margin-left: -22%;
+  }
 
-    .sto-hed {
-        margin: 90px 0 0 10px;
-    }
+  .sto-hed {
+    margin: 90px 0 0 10px;
+  }
 
-    .center {
-        margin-left: 3%;
-    }
-    
-    .background {
-        display: none;
-    }
-    
-    .marche-img {
-        margin-left: 90px;
-        margin-top: -34px;
-        width: 323px
-    }
+  .center {
+    margin-left: 3%;
+  }
 
-    .horse-img {
-        margin-left: -9%;
-        margin-top: -32%;
-        width: 207px;
-        height: 208px
-    }
-    
-    .titel-position {
-        margin-left: -11%;
-        margin-top: -12%;
-        font-size: 32px;
-    }
-    
-    .description-position {
-        margin-top: 2%;
-        margin-left: 54px;
-        font-size: 20px;
-        width: 547px
-    }
-    
-    .description-sm {
-        margin-top: 5%;
-        margin-left: 18px;
-        font-size: 17px;
-    }
-    
-    .row-container {
-        margin: 11px;
-        margin-left: -4px;
-    }
-    
-    .box-left {
-        margin-left: 59px;
-    }
+  .background {
+    display: none;
+  }
 
-    .popup {
-        min-width: 950px;
-        min-width: 707px;
-        font-size: 12px;
-        display: block;
-        border-radius: 4px;
-        border: 1px solid #b3b14d;
-        position: relative;
-        box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
-        padding: 10px;
-        height: 540px;
-        right: 233px;
-        bottom: 390px;
-    }
+  .marche-img {
+    margin-left: 90px;
+    margin-top: -34px;
+    width: 323px;
+  }
 
-    .fox-pop {    
-        margin-left: -87px;
-        margin-top: -48px;
-    }
-    
-    .italian-pop {
-        margin-left: 149px;
-        margin-top: -54px;
-    }
-    
-    .western-pop {
-        margin-left: 152px;
-        margin-top: -73px;
-    }
-    
-    .competition-pop {
-        margin-left: -78px;
-        margin-top: -70px;
-    }
-    
-    .box-img {
-        width: 135px;
-        height: 129px;
-        margin-bottom: 50px;
-    }
+  .horse-img {
+    margin-left: -9%;
+    margin-top: -32%;
+    width: 207px;
+    height: 208px;
+  }
+
+  .titel-position {
+    margin-left: -11%;
+    margin-top: -12%;
+    font-size: 32px;
+  }
+
+  .description-position {
+    margin-top: 2%;
+    margin-left: 54px;
+    font-size: 20px;
+    width: 547px;
+  }
+
+  .description-sm {
+    margin-top: 5%;
+    margin-left: 18px;
+    font-size: 17px;
+  }
+
+  .row-container {
+    margin: 11px;
+    margin-left: -4px;
+  }
+
+  .box-left {
+    margin-left: 59px;
+  }
+
+  .popup {
+    min-width: 950px;
+    min-width: 707px;
+    font-size: 12px;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #b3b14d;
+    position: relative;
+    box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    height: 540px;
+    right: 233px;
+    bottom: 390px;
+  }
+
+  .fox-pop {
+    margin-left: -87px;
+    margin-top: -48px;
+  }
+
+  .italian-pop {
+    margin-left: 149px;
+    margin-top: -54px;
+  }
+
+  .western-pop {
+    margin-left: 152px;
+    margin-top: -73px;
+  }
+
+  .competition-pop {
+    margin-left: -78px;
+    margin-top: -70px;
+  }
+
+  .box-img {
+    width: 135px;
+    height: 129px;
+    margin-bottom: 50px;
+  }
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) { 
-    .sto-hed {
-        margin: 90px 0 0 10px;
-    }
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .sto-hed {
+    margin: 90px 0 0 10px;
+  }
 
-    .center {
-        margin-left: 3%;
-    }
-    
-    .background {
-         display: none;
-    }
-    
-    .marche-img {
-        margin-left: 49px;
-    }
+  .center {
+    margin-left: 3%;
+  }
 
-    .horse-img {
-        margin-left: -13%;
-        margin-top: -28%;
-        width: 317px;
-        height: 318px;
-    }
-    
-    .titel-position {
-        margin-left: -11%;
-        margin-top: -10%;
-        font-size: 33px;
-    }
-    
-    .description-position {
-        margin-top: 2%;
-        margin-left: 54px;
-        font-size: 20px;
-    }
-    
-    .description-sm {
-        margin-top: 2%;
-        margin-left: 18px;
-        font-size: 17px;
-    }
-    
-    .row-container {
-        margin: 26px;
-    }
-    
-    .box-left {
-        margin-left: 26px;
-    }
+  .background {
+    display: none;
+  }
 
-    .popup {
-        min-width: 952px;
-        font-size: 12px;
-        display: block;
-        border-radius: 4px;
-        border: 1px solid #b3b14d;
-        position: relative;
-        box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
-        padding: 10px;
-        height: 540px;
-        right: 240px;
-        bottom: 390px;
-    }
+  .marche-img {
+    margin-left: 49px;
+  }
 
-    .fox-pop {    
-        margin-left: -87px;
-        margin-top: -48px;
-    }
-    
-    .italian-pop {
-        margin-left: 149px;
-        margin-top: -54px;
-    }
-    
-    .western-pop {
-        margin-left: 152px;
-        margin-top: -73px;
-    }
-    
-    .competition-pop {
-        margin-left: -78px;
-        margin-top: -70px;
-    }
-    
-    .box-img {
-        width: 135px;
-        height: 129px;
-        margin-bottom: 50px;
-    }
+  .horse-img {
+    margin-left: -13%;
+    margin-top: -28%;
+    width: 317px;
+    height: 318px;
+  }
+
+  .titel-position {
+    margin-left: -11%;
+    margin-top: -10%;
+    font-size: 33px;
+  }
+
+  .description-position {
+    margin-top: 2%;
+    margin-left: 54px;
+    font-size: 20px;
+  }
+
+  .description-sm {
+    margin-top: 2%;
+    margin-left: 18px;
+    font-size: 17px;
+  }
+
+  .row-container {
+    margin: 26px;
+  }
+
+  .box-left {
+    margin-left: 26px;
+  }
+
+  .popup {
+    min-width: 952px;
+    font-size: 12px;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #b3b14d;
+    position: relative;
+    box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    height: 540px;
+    right: 240px;
+    bottom: 390px;
+  }
+
+  .fox-pop {
+    margin-left: -87px;
+    margin-top: -48px;
+  }
+
+  .italian-pop {
+    margin-left: 149px;
+    margin-top: -54px;
+  }
+
+  .western-pop {
+    margin-left: 152px;
+    margin-top: -73px;
+  }
+
+  .competition-pop {
+    margin-left: -78px;
+    margin-top: -70px;
+  }
+
+  .box-img {
+    width: 135px;
+    height: 129px;
+    margin-bottom: 50px;
+  }
 }

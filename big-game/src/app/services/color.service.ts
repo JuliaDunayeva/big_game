@@ -10,7 +10,7 @@ import { Color } from '../color';
 
 export class ColorService {
 
-  constructor(public db: AngularFirestore) {}
+  constructor(public db: AngularFirestore) { }
 
   //get all colors listed in firebase
   getColors() {
