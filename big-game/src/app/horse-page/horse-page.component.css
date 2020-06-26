@@ -36,6 +36,8 @@
 .card-green {
     background-color: #dcdb81;
     color: #663300;
+    max-width: 350px;
+    min-width: 350px;
 }
 
 .card-light-green {
@@ -124,8 +126,21 @@
 .training-progress-width {
     display: inline-block;
     width: 75%;
-    /*height: 50px;
-    position: relative;*/
+    /*height: 50px;*/
+    position: relative;
+}
+
+.training-check-width {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.training-title-width {
+    text-align: left;
+    text-justify: auto;
+    width: 4.5em;
+    position: relative;
 }
 
 .bold-header {
