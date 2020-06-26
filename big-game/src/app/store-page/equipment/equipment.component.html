@@ -38,7 +38,7 @@
                     <div class="color-tx-green card-title no-bottom-margin">
                         <table class="">
                             <tr class="th">
-                                <th colspan="2" class="tu-col1">Equipment</th> 
+                                <th colspan="2" class="tu-col1">Tack Equipment Details</th> 
                                 <th colspan="2" class="tu-col1">Abilities (0-5)</th>
                             </tr>
                             <tr>
@@ -63,7 +63,11 @@
                             </tr>
                             <tr>
                                 <td class="tu-col1">Category:</td>
-                                <td class="tu-col2 sm-card"><input type="text" required #equipment></td>
+                                <td class="tu-col2 sm-card">
+                                    <select class="sm-card line-up" #equipment >
+                                        <option *ngFor="let category of categories" [ngValue]="equipment">{{category}}</option>
+                                    </select>
+                                </td>
                                 <td class="tu-col1">Jumping:</td>
                                 <td class="tu-col3 sm-card">
                                     <select class="sm-card " #jumping_ >
@@ -73,7 +77,11 @@
                             </tr>
                             <tr>
                                 <td class="tu-col1">Group:</td>
-                                <td class="tu-col2 sm-card"><input type="text" required #group></td>
+                                <td class="tu-col2 sm-card">
+                                    <select class="sm-card line-up" #group >
+                                        <option *ngFor="let group of groups" [ngValue]="group">{{group}}</option>
+                                    </select>
+                                </td>
                                 <td class="tu-col1">Speed:</td>
                                 <td class="tu-col3 sm-card">
                                     <select class="sm-card " #speed_ >
@@ -83,7 +91,11 @@
                             </tr>
                             <tr>
                                 <td class="tu-col1">Color:</td>
-                                <td class="tu-col2 sm-card"><input type="text" value="black" required #color></td>
+                                <td class="tu-col2 sm-card">
+                                    <select class="sm-card line-up" #color >
+                                        <option *ngFor="let color of colors" [ngValue]="color">{{color}}</option>
+                                    </select>
+                                </td>
                                 <td class="tu-col1">Stamina:</td>
                                 <td class="tu-col3 sm-card">
                                     <select class="sm-card " #stamina_ >

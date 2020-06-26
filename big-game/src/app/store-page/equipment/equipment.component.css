@@ -131,6 +131,10 @@ select {
     margin-bottom: 3px;   
 }
 
+.line-up {
+    justify-items: end;
+}
+
 .scrolling-wrapper {
     overflow-x: hidden;
     overflow-y: scroll;
