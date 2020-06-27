@@ -92,6 +92,19 @@ td {
   margin-top: -5rem;
 }
 
+.scrolling-wrapper {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  white-space: wrap;
+  display: inline-block;
+  text-align: left;
+}
+
+.scroll-height {
+  max-height: 270px;
+  width: 420px;
+}
+
 @media (min-width: 578px) and (max-width: 767.98px) {
   td {
     width: 50px;

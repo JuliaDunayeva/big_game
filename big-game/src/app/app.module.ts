@@ -31,6 +31,7 @@ import { ModalOptionsComponent } from './modal-options/modal-options.component';
 import {TackPageComponent} from './../app/store-page/tack-page/tack-page.component';
 import { HorseBreedingComponent } from './horse-breeding/horse-breeding.component';
 import { TackDataComponent } from './../app/store-page/tack-page/tack-data/tack-data.component';
+import { EquipmentComponent } from './store-page/equipment/equipment.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,9 @@ import { TackDataComponent } from './../app/store-page/tack-page/tack-data/tack-
     PlayBarMiniComponent,
     TackPageComponent,
     HorseBreedingComponent,
-    TackDataComponent
+    TackDataComponent,
+    EquipmentComponent,
+    
   ],
   
   imports: [

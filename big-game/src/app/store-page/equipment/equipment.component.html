@@ -1,0 +1,194 @@
+<div class="container">
+    <div>
+        <app-mini-bar></app-mini-bar>
+        <app-nav-bar></app-nav-bar>
+        <br><br>
+        <app-play-bar></app-play-bar>
+        <br>
+    </div>
+    <div class="folder">
+        <div class="row "> <!-- Path Information -->
+            <div class="col-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
+                <div class="color-tx-green">
+                    <i class="home icon"></i>
+                    <a class=""> Achievements &nbsp;</a>
+                    <i class="angle double right icon"> </i>
+                </div>
+                <a class=""> Collections &nbsp;</a>
+                <i class="angle double right icon"> </i>
+                <a class=""> Add Equipment &nbsp;</a>
+            </div>
+        </div>
+        <div class=""> <!-- Title & Description -->
+            <div class="col-6 color-tx-maroon ">
+                <hr class="hrtop">
+                <h3 class="no-top-margin display card-title">Add new equipment for sale in the tack shop</h3>
+                <div class="color-tx-green no-top-margin">
+                    <p>Add products that will enhance a horse's abilities in competitions and keep your horse happy and healthy</p>
+                    <br>
+                </div>
+            </div>
+        </div> <!-- Title End -->
+        <div class=""> <!-- competition stats for horse entering-->
+            <div class="col-5 pad-left color-tx-maroon ">
+                <div class="h6 sm-card no-bottom-margin td-line">
+                    <H6 class="pad-left card-title">New Equipment Item </H6>
+                </div>
+                <div class="card-light-green td-top display">
+                    <div class="color-tx-green card-title no-bottom-margin">
+                        <table class="">
+                            <tr class="th">
+                                <th colspan="2" class="tu-col1">Tack Equipment Details</th> 
+                                <th colspan="2" class="tu-col1">Abilities (0-5)</th>
+                            </tr>
+                            <tr>
+                                <td class="tu-col1">Name:</td>
+                                <td class="tu-col2 sm-card"><input type="text" required #name></td>
+                                <td class="tu-col1">Dressage:</td>
+                                <td class="tu-col3 sm-card">
+                                    <select class="sm-card " #dressage_ >
+                                        <option *ngFor="let ability of abilities" [ngValue]="dressage_">{{ability}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tu-col1">Image_File:</td>
+                                <td class="tu-col2 sm-card"><input type="text" required #img_file></td>
+                                <td class="tu-col1">Gallop:</td>
+                                <td class="tu-col3 sm-card">
+                                    <select class="sm-card " #gallop_ >
+                                        <option *ngFor="let ability of abilities" [ngValue]="gallop_">{{ability}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tu-col1">Category:</td>
+                                <td class="tu-col2 sm-card">
+                                    <select class="sm-card line-up" #equipment >
+                                        <option *ngFor="let category of categories" [ngValue]="equipment">{{category}}</option>
+                                    </select>
+                                </td>
+                                <td class="tu-col1">Jumping:</td>
+                                <td class="tu-col3 sm-card">
+                                    <select class="sm-card " #jumping_ >
+                                        <option *ngFor="let ability of abilities" [ngValue]="jumping_">{{ability}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tu-col1">Group:</td>
+                                <td class="tu-col2 sm-card">
+                                    <select class="sm-card line-up" #group >
+                                        <option *ngFor="let group of groups" [ngValue]="group">{{group}}</option>
+                                    </select>
+                                </td>
+                                <td class="tu-col1">Speed:</td>
+                                <td class="tu-col3 sm-card">
+                                    <select class="sm-card " #speed_ >
+                                        <option *ngFor="let ability of abilities" [ngValue]="speed_">{{ability}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tu-col1">Color:</td>
+                                <td class="tu-col2 sm-card">
+                                    <select class="sm-card line-up" #color >
+                                        <option *ngFor="let color of colors" [ngValue]="color">{{color}}</option>
+                                    </select>
+                                </td>
+                                <td class="tu-col1">Stamina:</td>
+                                <td class="tu-col3 sm-card">
+                                    <select class="sm-card " #stamina_ >
+                                        <option *ngFor="let ability of abilities" [ngValue]="stamina_">{{ability}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tu-col1">ID:</td>
+                                <td class="tu-col2 sm-card"><input type="text" #id></td>
+                                <td class="tu-col1">Trot:</td>
+                                <td class="tu-col3 sm-card">
+                                    <select class="sm-card " #trot_ >
+                                        <option *ngFor="let ability of abilities" [ngValue]="trot_">{{ability}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="">
+                        <br>
+                        <p>How much will this item cost?</p>
+                        <input class="input-sml" type="text" value="0" #cost>
+                        <br><br>
+                        <button class="btn-shops btn-shops-lrg pad-left" 
+                        (click)="addEquipment(name.value, color.value, equipment.value, img_file.value, id.value, group.value, 
+                                                dressage_.value, gallop_.value, jumping_.value, speed_.value, stamina_.value, trot_.value, cost.value)" >
+                        add to <i class="shopping cart icon "></i>
+                        </button>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="">
+                        <br>
+                        <p>Select a row to delete from the tack shop.</p>
+                        <br>
+                        <button class="btn-shops btn-shops-lrg pad-left" (click)="removeEquipment()"> 
+                        Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Stats End -->
+        <div class="pad-left col-12"> <!-- Lower Competion table-->     
+            <div class=" ">
+                <div class="display"></div>
+                <h5 class="color-tx-maroon card-title"> All <i class="shopping cart icon "></i> Equipment</h5>
+                <div class="table-light-green ">
+                    <form class="scrolling-wrapper scroll-height">
+                        <div *ngIf="allEquipment?.length > 0; else noItems">
+                            <table class="td-top">
+                                <tr class="sm-card td-line">
+                                    <th><input class="input-xsml" type="checkbox"></th>
+                                    <th class="card-title tl-col1">Name</th>
+                                    <th class="card-title tl-col1">Image File</th>
+                                    <th class="card-title tl-col2">Category</th>
+                                    <th class="card-title tl-col2">Group</th>
+                                    <th class="card-title tl-col3">Color</th>
+                                    <th class="card-title tl-col3">ID</th>
+                                    <th class="card-title tl-col3">Dress</th>
+                                    <th class="card-title tl-col3">Gallop</th>
+                                    <th class="card-title tl-col3">Jump</th>
+                                    <th class="card-title tl-col3">Speed</th>
+                                    <th class="card-title tl-col3">Stamina</th>
+                                    <th class="card-title tl-col3">Trot</th>
+                                    <th class="card-title tl-col3"> <img class="equus" src="./assets/images/game_pieces/equus.png"></th>
+                                </tr>
+                                <tr class="color-tx-green " *ngFor="let saddle of allEquipment; let i = index">
+                                    <td ><input class="input-xsml" type="checkbox" #selectId (change)='onSelectItem(i)'></td>
+                                    <td class="tl-col1">{{saddle.name}}</td>
+                                    <td class="tl-col1">{{saddle.img_file}}</td>
+                                    <td class="tl-col2">{{saddle.equipment}}</td>
+                                    <td class="tl-col2">{{saddle.group}}</td>
+                                    <td class="tl-col3">{{saddle.color}}</td>
+                                    <td class="tl-col3">{{saddle.id}}</td>
+                                    <td class="card-title tl-col3">{{saddle.dressage_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.gallop_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.jumping_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.speed_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.stamina_}}</td>
+                                    <td class="card-title tl-col3">{{saddle.trot_}}</td>
+                                    <td class="tl-col3">{{saddle.cost}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <ng-template #noItems>
+            <h5>There are no Competitions</h5>
+        </ng-template>
+    </div> <!-- folder end-->
+    <br><br>
+    <app-footer></app-footer>
+</div>
