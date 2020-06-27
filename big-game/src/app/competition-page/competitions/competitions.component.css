@@ -122,7 +122,6 @@ input {
   padding-right: 5px;
 }
 
-<<<<<<< HEAD
 .scrolling-wrapper {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -144,15 +143,6 @@ input {
     .sm-card {
        width: 108px;
     }
-=======
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .hrtop {
-    width: 90%;
-  }
-  .sm-card {
-    width: 108px;
-  }
->>>>>>> sandbox_pre-develop
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
