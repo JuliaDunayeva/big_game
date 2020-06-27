@@ -4,8 +4,8 @@ import { HorseData } from '../horse-data';
 import { AuthService } from '../services/auth.service';
 import { BreedService } from '../services/breed.service';
 import { ColorService } from '../services/color.service';
-import { UserData } from '../user-data';
-import { UserDataService } from '../services/user-data.service';
+import { UserData } from '../user-data';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-black-market-page',
@@ -17,9 +17,9 @@ export class BlackMarketPageComponent implements OnInit {
   success = 'You have changed the horse gender';
   fail = 'You do not have enough Passes';
   studly = ' You have changed the stallion into a stud!!!'
-  Name: string ;
+  Name: string;
   allHorses: HorseData[];
-  selectedHorse:string;
+  selectedHorse: string;
   gender: string;
   Uid: string = this.authservice.getUId();
   user: any;
@@ -28,9 +28,9 @@ export class BlackMarketPageComponent implements OnInit {
 
   constructor(private horseService: HorseDataService,
     private authservice: AuthService,
-    private userService: UserDataService,
+    private userService: UserDataService,
     private breedService: BreedService,
-    private colorService: ColorService) {}
+    private colorService: ColorService) { }
 
   ngOnInit(): void {
     this.getHorses();
@@ -52,8 +52,8 @@ export class BlackMarketPageComponent implements OnInit {
     this.idOfHorse = id;
   }
 
-  horse:HorseData
-  swapGender(){
+  horse: HorseData
+  swapGender() {
     if (this.haveMoney == true) {
       const gender = this.defineGender(this.genderOfHorse)
       this.horseService.updateHorseGender(this.idOfHorse, gender)
@@ -66,32 +66,32 @@ export class BlackMarketPageComponent implements OnInit {
   }
 
   defineGender(gender: string): string {
-    if(gender === "mare") {
+    if (gender === "mare") {
       return "stallion"
-    } 
-    return "mare"  
+    }
+    return "mare"
   }
 
   haveMoney: boolean;
   costCheck() {
     if (this.userInfo.passes < 95) {
-        return this.haveMoney = false;
-      }
+      return this.haveMoney = false;
+    }
     else {
       this.haveMoney = true;
     };
   }
 
-  getUserData(){
+  getUserData() {
     this.userService.getUserByID(this.Uid).subscribe((res) => {
       this.userInfo = res as UserData;
     })
   }
 
-  showStallions(){
+  showStallions() {
     this.horseService.getStallions().subscribe(
       res => {
-      this.allMales = res as Array<HorseData>
+        this.allMales = res as Array<HorseData>
       });
   }
 
@@ -102,7 +102,7 @@ export class BlackMarketPageComponent implements OnInit {
     this.idHorse = id;
   }
 
-  swapStudStatus(){
+  swapStudStatus() {
     if (this.haveMoney == true) {
       const stud = this.defineStudStatus(this.studStatusOfHorse)
       this.horseService.updateStudStatus(this.idHorse, stud)
@@ -115,9 +115,9 @@ export class BlackMarketPageComponent implements OnInit {
   }
 
   defineStudStatus(stud: boolean): boolean {
-    if(stud == false) {
+    if (stud == false) {
       return true
-    } 
-    return false 
+    }
+    return false
   }
 }

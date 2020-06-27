@@ -7,9 +7,9 @@ describe('BlackMarketPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlackMarketPageComponent ]
+      declarations: [BlackMarketPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

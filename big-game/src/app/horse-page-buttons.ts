@@ -14,14 +14,14 @@ export class HorsePageButtons {
     speed: number;
     dressage: number;
     gallop: number;
-    trot:  number;
+    trot: number;
     jumping: number;
 
-    constructor(name:string){
+    constructor(name: string) {
         this.name = name;
     }
 
-    setStatModifiers(stamina: number, speed: number, dressage: number, gallop: number, trot: number, jumping: number){
+    setStatModifiers(stamina: number, speed: number, dressage: number, gallop: number, trot: number, jumping: number) {
         this.stamina = stamina;
         this.speed = speed;
         this.dressage = dressage;
@@ -30,21 +30,21 @@ export class HorsePageButtons {
         this.jumping = jumping;
     }
 
-    setDefaultTime(hour : number, minute : number){
+    setDefaultTime(hour: number, minute: number) {
         this.hour = hour;
         this.minute = minute;
     }
 
-      /* Toggle buttons function
-        Parameters: 
-            toggle -> boolean, true or false to enable or disable button
-  */
-    toggleButton(toggle: boolean): string{
+    /* Toggle buttons function
+      Parameters: 
+          toggle -> boolean, true or false to enable or disable button
+*/
+    toggleButton(toggle: boolean): string {
         this.enabled = toggle;
         if (this.enabled) {
-                return this.enabledImage;
+            return this.enabledImage;
         } else {
-                return this.disabledImage;
+            return this.disabledImage;
         }
     }
 }

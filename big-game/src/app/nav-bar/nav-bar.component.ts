@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserData } from '../user-data';
-import { UserDataService } from '../services/user-data.service';
+import { UserData } from '../user-data';
+import { UserDataService } from '../services/user-data.service';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -13,30 +13,30 @@ export class NavBarComponent implements OnInit {
 
   Uid: string = this.authService.getUId();
   user: any;
-  passes:number;
+  passes: number;
   equus: number;
   addingPasses: number = 2;
   addingEquus: number = 10;
 
   constructor(private authService: AuthService,
-        private userDataService: UserDataService) { }
+    private userDataService: UserDataService) { }
 
-  ngOnInit(): void {
-          this.userDataService.getUserByID(this.Uid).subscribe((result) => {
-            this.user = result as UserData;
-        });
-        return this.user;
-      }
+  ngOnInit(): void {
+    this.userDataService.getUserByID(this.Uid).subscribe((result) => {
+      this.user = result as UserData;
+    });
+    return this.user;
+  }
 
   Logout() {
     sessionStorage.clear();
   }
 
   morePasses() {
-   this.userDataService.addPasses(this.Uid, this.user.passes, this.addingPasses)
+    this.userDataService.addPasses(this.Uid, this.user.passes, this.addingPasses)
   }
 
   moreEquus() {
-   this.userDataService.addEquus(this.Uid, this.user.equus, this.addingEquus)
+    this.userDataService.addEquus(this.Uid, this.user.equus, this.addingEquus)
   }
 }

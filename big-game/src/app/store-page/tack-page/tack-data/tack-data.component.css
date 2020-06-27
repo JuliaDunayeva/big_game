@@ -1,131 +1,129 @@
 .box-img {
-    width: 120px;
-    height: 120px;
+  width: 120px;
+  height: 120px;
 }
 
 .up-arrow {
-    color: #f0f0b2;
-    font-size: 5.5em !important;
-    margin: -71px 0px 0 29px !important;
+  color: #f0f0b2;
+  font-size: 5.5em !important;
+  margin: -71px 0px 0 29px !important;
 }
 
 .equipment-text {
-    font-size: 13px;
-    margin-bottom: 4.2px;
-    margin-left: 11px;
+  font-size: 13px;
+  margin-bottom: 4.2px;
+  margin-left: 11px;
 }
 
 .equipment-box {
-    cursor: pointer;
-    width: 114px;
-    height: 221px;
-    background-color: #f0f0b2 ;
-    color: #133300;
-    border-color: #663300 !important;
+  cursor: pointer;
+  width: 114px;
+  height: 221px;
+  background-color: #f0f0b2;
+  color: #133300;
+  border-color: #663300 !important;
 }
 
 .block {
-    display: block;
-    
+  display: block;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 @media (max-width: 575.98px) {
-    .box-img {
-        width: 120px;
-        height: 120px;
-    }
+  .box-img {
+    width: 120px;
+    height: 120px;
+  }
 
-    .equipment-box {
-        cursor: pointer;
-        width: 114px;
-        height: 221px;
-        background-color: #f0f0b2 ;
-        color: #133300;
-        border-color: #663300 !important;
-    }
+  .equipment-box {
+    cursor: pointer;
+    width: 114px;
+    height: 221px;
+    background-color: #f0f0b2;
+    color: #133300;
+    border-color: #663300 !important;
+  }
 }
 
 @media (min-width: 578px) and (max-width: 767px) {
-    .box-img {
-        width: 81px !important;
-        height: 120px;
-    }
-    
-    .equipment-box {
-        cursor: pointer;
+  .box-img {
+    width: 81px !important;
+    height: 120px;
+  }
+
+  .equipment-box {
+    cursor: pointer;
     width: 86px;
     height: 247px;
     background-color: #f0f0b2;
     color: #133300;
     border-color: #663300 !important;
-    }
+  }
 }
 
 @media (min-width: 768px) and (max-width: 930px) {
-    .box-img {
-        width: 84px;
-        height: 112px;
-    }
+  .box-img {
+    width: 84px;
+    height: 112px;
+  }
 
-    .equipment-box {
-        cursor: pointer;
-        width: 91px;
-        height: 257px;
-        background-color: #f0f0b2 ;
-        color: #133300;
-        border-color: #663300 !important;
-    }
-    
+  .equipment-box {
+    cursor: pointer;
+    width: 91px;
+    height: 257px;
+    background-color: #f0f0b2;
+    color: #133300;
+    border-color: #663300 !important;
+  }
 }
 
 @media (min-width: 931px) and (max-width: 992px) {
-    .box-img {
-        width: 84px;
-        height: 112px;
-    }
+  .box-img {
+    width: 84px;
+    height: 112px;
+  }
 
-    .equipment-box {
-        cursor: pointer;
-        width: 91px;
-        height: 257px;
-        background-color: #f0f0b2 ;
-        color: #133300;
-        border-color: #663300 !important;
-    }
+  .equipment-box {
+    cursor: pointer;
+    width: 91px;
+    height: 257px;
+    background-color: #f0f0b2;
+    color: #133300;
+    border-color: #663300 !important;
+  }
 }
 
 @media (min-width: 993px) and (max-width: 1199.98px) {
-    .box-img {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .equipment-box {
-        cursor: pointer;
-        width: 114px;
-        height: 221px;
-        background-color: #f0f0b2 ;
-        color: #133300;
-        border-color: #663300 !important;
-    }
-}   
+  .box-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .equipment-box {
+    cursor: pointer;
+    width: 114px;
+    height: 221px;
+    background-color: #f0f0b2;
+    color: #133300;
+    border-color: #663300 !important;
+  }
+}
 
 @media (min-width: 1110px) {
-    .box-img {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .equipment-box {
-        cursor: pointer;
-        width: 114px;
-        height: 221px;
-        background-color: #f0f0b2 ;
-        color: #133300;
-        border-color: #663300 !important;
-    }
+  .box-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .equipment-box {
+    cursor: pointer;
+    width: 114px;
+    height: 221px;
+    background-color: #f0f0b2;
+    color: #133300;
+    border-color: #663300 !important;
+  }
 }

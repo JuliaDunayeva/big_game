@@ -8,9 +8,9 @@ describe('PlayBarMiniComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayBarMiniComponent ]
+      declarations: [PlayBarMiniComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

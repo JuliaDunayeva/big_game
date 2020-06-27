@@ -10,7 +10,7 @@ import { Breed } from '../breed';
 
 export class BreedService {
 
-  constructor(public db: AngularFirestore) {}
+  constructor(public db: AngularFirestore) { }
 
   // get all the breeds listed in firebase
   getBreeds(): Observable<any> {
@@ -18,7 +18,7 @@ export class BreedService {
   }
 
   // get the breed info from firebase (@param: id is 'breed' in horse_data ref in firebase)
-  getBreedById(id: string){
+  getBreedById(id: string) {
     return this.db.collection('breed').doc(id).ref.get()
   }
 }

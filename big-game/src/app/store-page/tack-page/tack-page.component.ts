@@ -29,14 +29,14 @@ export class TackPageComponent implements OnInit {
     this.saddlesService.getHorseSaddlesIds(horseId).subscribe(res => {
       this.saddleIdList = res.map(el => el.payload.doc.data()['saddle_id']);
       for (let ind = 0; ind < this.saddleIdList.length; ind++) {
-        this.saddlesService.getHorseSaddlesNames(this.saddleIdList[0]).then( res => {
+        this.saddlesService.getHorseSaddlesNames(this.saddleIdList[0]).then(res => {
           this.saddle = res.data() as Equipment;
           // console.log('one saddle ' ,  this.saddle)
           this.saddleList.push(this.saddle);
-        }) 
+        })
       }
     })
-  } 
+  }
 
   showlist() {
     this.saddlesService.getEquipmentList("western").subscribe(data => {
@@ -56,6 +56,7 @@ export class TackPageComponent implements OnInit {
           speed_: res.payload.doc.data()['speed_'],
           stamina_: res.payload.doc.data()['stamina_'],
           trot_: res.payload.doc.data()['trot_'],
+          cost: res.payload.doc.data()['cost'],
         }
       })
       return data;

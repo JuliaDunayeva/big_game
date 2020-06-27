@@ -8,9 +8,9 @@ describe('HorseBreedingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HorseBreedingComponent ]
+      declarations: [HorseBreedingComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

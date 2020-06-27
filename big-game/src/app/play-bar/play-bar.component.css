@@ -30,7 +30,7 @@ a {
   box-shadow: none;
   border-radius: 0.28571429rem;
   min-height: 2.85714286em;
-  background-color: #2685ba
+  background-color: #2685ba;
 }
 
 @media (min-width: 578px) and (max-width: 767.98px) {

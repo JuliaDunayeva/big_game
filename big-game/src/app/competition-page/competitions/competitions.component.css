@@ -1,126 +1,128 @@
 .h6 {
-    padding: 4px 0 4px 5px;
-    color: maroon;
+  padding: 4px 0 4px 5px;
+  color: maroon;
 }
 
 .label {
-    margin-top: -6px;
+  margin-top: -6px;
 }
 
 p {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .centered {
-    text-align: center;
+  text-align: center;
 }
 
 .move-left1 {
-    margin-left: 39px;
-    width: 140px;
+  margin-left: 39px;
+  width: 140px;
 }
 
 .move-left2 {
-    margin-left: 15px;
-    margin-top: -7px;
-    width: 140px;
+  margin-left: 15px;
+  margin-top: -7px;
+  width: 140px;
 }
 
 .sm-card {
-    background-color: #DCDB81;
-    border-style: solid 2px olive;
+  background-color: #dcdb81;
+  border-style: solid 2px olive;
 }
 
 .image {
-    margin-left: 67px;
+  margin-left: 67px;
 }
 
 input {
-    font-size: 1rem;
-    width: 200px;
-    margin-left: 0.5em;
-    background-color: #F0F0B2;
-  }
+  font-size: 1rem;
+  width: 200px;
+  margin-left: 0.5em;
+  background-color: #f0f0b2;
+}
 
-.pad-left { /* common spacing to set left margin in folder */
-    margin-left: 1rem;
-    margin-top: 2 rem;
+.pad-left {
+  /* common spacing to set left margin in folder */
+  margin-left: 1rem;
+  margin-top: 2 rem;
 }
 
 .display {
-    display: flex;
-    margin-top: 5px;
+  display: flex;
+  margin-top: 5px;
 }
 
 .display-vert {
-    display: block;
-    margin: -2px 0;
+  display: block;
+  margin: -2px 0;
 }
 
 .hrtop {
-    margin-top: 5px;
-    margin-bottom: 2px;
-    width: 450px;
-    margin-left: -3px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  width: 450px;
+  margin-left: -3px;
 }
 
 .btn-right {
-    margin-left: 600px;
+  margin-left: 600px;
 }
 
 .td-top {
-    border: 2px solid rgb(192, 189, 113);
-    border-radius: 5px;
+  border: 2px solid rgb(192, 189, 113);
+  border-radius: 5px;
 }
 
 .td-line {
-    border-bottom: 2px solid rgb(192, 189, 113);
-    border-radius: 5px;
+  border-bottom: 2px solid rgb(192, 189, 113);
+  border-radius: 5px;
 }
-  
+
 .card-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .no-top-margin {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .no-bottom-margin {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .folder {
-    height: auto;
+  height: auto;
 }
 
 /* Lower Table */
 .tl-col1 {
-    width: 200px;
-    padding-left: 5px;
+  width: 200px;
+  padding-left: 5px;
 }
 
 .tl-col2 {
-    width: 200px;
-    text-align: center;
+  width: 200px;
+  text-align: center;
 }
 
 .equus {
-    width: 25%;   
+  width: 25%;
 }
 
 .tl-col3 {
-    width: 100px;
-    padding-left: 5px;
-    padding-right: 5px;
+  width: 100px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .tl-col4 {
-    width: 130px;
-    padding-left: 5px;
-    padding-right: 5px;
+  width: 130px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
+<<<<<<< HEAD
 .scrolling-wrapper {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -142,16 +144,25 @@ input {
     .sm-card {
        width: 108px;
     }
+=======
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hrtop {
+    width: 90%;
+  }
+  .sm-card {
+    width: 108px;
+  }
+>>>>>>> sandbox_pre-develop
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) { 
-    .hrtop {
-        width: 135%;
-    }
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hrtop {
+    width: 135%;
+  }
 }
 
 @media (min-width: 992px) {
-    .hrtop {
-        width: 95%;
-    }
-} 
+  .hrtop {
+    width: 95%;
+  }
+}

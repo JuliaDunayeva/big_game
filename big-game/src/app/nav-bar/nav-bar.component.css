@@ -76,7 +76,7 @@ ul {
   margin-right: -17px;
   margin-left: 59px;
   border-style: solid;
-  border-color: #61C5C9;
+  border-color: #61c5c9;
   border-width: 5px;
   border-radius: 50%;
   height: 50px;
@@ -94,7 +94,7 @@ ul {
   margin-right: -17px;
   margin-left: 14px;
   border-style: solid;
-  border-color: #61C5C9;
+  border-color: #61c5c9;
   border-width: 5px;
   border-radius: 50%;
   height: 50px;
@@ -106,7 +106,7 @@ ul {
 }
 
 .nav-link {
-  padding: .4rem 1rem !important;
+  padding: 0.4rem 1rem !important;
   color: white;
 }
 
@@ -234,7 +234,7 @@ ul {
 
 .ui.menu {
   display: flex;
-  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: none;
   font-weight: 400;
   border: none;

@@ -7,7 +7,8 @@
         <br>
     </div>
     <div class="folder">
-        <div class="row "> <!-- Path Information & Picture -->
+        <div class="row ">
+            <!-- Path Information & Picture -->
             <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green">
                     <i class="home icon"></i>
@@ -22,7 +23,8 @@
             </div>
             <img class="col-sm-5 image" src="./assets/images/game_pieces/Competition.png">
         </div>
-        <div class=""> <!-- Title & Description -->
+        <div class="">
+            <!-- Title & Description -->
             <div class="col-5 pad-left color-tx-maroon ">
                 <hr class="hrtop">
                 <br>
@@ -33,7 +35,8 @@
                 </div>
             </div>
         </div> <!-- Title End -->
-        <div class=""> <!-- competition stats for horse entering-->
+        <div class="">
+            <!-- competition stats for horse entering-->
             <div class="col-5 pad-left color-tx-maroon ">
                 <div class="card-light-green td-top">
                     <div class="h6 sm-card no-bottom-margin td-line">
@@ -46,21 +49,24 @@
                             <tr>
                                 <td class="tu-col1">Trot:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.trot/10)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.trot/10)"
+                                        [readonly]="readonly"></ngb-rating>
                                 </td>
                                 <td class="tu-col3">{{ horse?.trot }}.00</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Speed:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.speed/10)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.speed/10)"
+                                        [readonly]="readonly"></ngb-rating>
                                 </td>
                                 <td class="tu-col3">{{ horse?.speed }}.00</td>
                             </tr>
                             <tr>
                                 <td class="tu-col1">Dressage:</td>
                                 <td class="tu-col2 sm-card">
-                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.dressage/10)" [readonly]="readonly"></ngb-rating>
+                                    <ngb-rating class="gold-color" [formControl]="ctrl" [rate]="(horse?.dressage/10)"
+                                        [readonly]="readonly"></ngb-rating>
                                 </td>
                                 <td class="tu-col3">{{ horse?.dressage }}.00</td>
                             </tr>
@@ -74,7 +80,8 @@
                 </div>
             </div>
         </div> <!-- Stats End -->
-        <div class="pad-left"> <!-- Lower Competion table-->     
+        <div class="pad-left">
+            <!-- Lower Competion table-->
             <div class="pad-left ">
                 <div class="display">
                     <input type="checkbox">

@@ -7,7 +7,8 @@
         <br>
     </div>
     <div class="folder">
-        <div class="row "> <!-- Path Information & Picture -->
+        <div class="row ">
+            <!-- Path Information & Picture -->
             <div class="col-md-7 display pad-left small card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green ">
                     <i class="home icon"></i>
@@ -19,7 +20,8 @@
                 <a class=""> Create a Competition &nbsp;</a>
             </div>
         </div>
-        <div class="row"> <!-- Title & Description -->
+        <div class="row">
+            <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon card-title">
                 <hr class="hrtop">
                 <br>
@@ -29,35 +31,36 @@
                 </div>
             </div>
         </div> <!-- Title End -->
-        <div class="display"> <!-- Create a competition form -->
-           <div class="col-sm-4">
-            <form>
-                <div class="display pad-left">
-                    <label class="h6" for="compName"  >Competition Name</label>
-                    <input class="form-control" required type="text" #compName />
-                </div>
-                <div class="display pad-left">
-                    <label class="h6" for="breed">Select a Breed</label>
-                    <select class="h6 move-left1 sm-card" #breed>
-                        <option  *ngFor="let item of allBreeds" [ngValue]="item">{{item.breed}}</option>
-                    </select>               
-                </div>
-                <div class="display pad-left">
-                    <label class="h6 label" for="compType">Competition Type</label>
-                    <select class="h6 move-left2 sm-card" #compType>
-                        <option  *ngFor="let compType of compTypes" [ngValue]="compType">{{compType}}</option>
-                    </select>               
-                </div>
-            </form>
+        <div class="display">
+            <!-- Create a competition form -->
+            <div class="col-sm-4">
+                <form>
+                    <div class="display pad-left">
+                        <label class="h6" for="compName" required>Competition Name</label>
+                        <input class="form-control" type="text" #compName />
+                    </div>
+                    <div class="display pad-left">
+                        <label class="h6" for="breed">Select a Breed</label>
+                        <select class="h6 move-left1 sm-card" #breed>
+                            <option *ngFor="let item of allBreeds" [ngValue]="item">{{item.breed}}</option>
+                        </select>
+                    </div>
+                    <div class="display pad-left">
+                        <label class="h6 label" for="compType">Competition Type</label>
+                        <select class="h6 move-left2 sm-card" #compType>
+                            <option *ngFor="let compType of compTypes" [ngValue]="compType">{{compType}}</option>
+                        </select>
+                    </div>
+                </form>
             </div>
             <div class="col-1"></div>
             <div>
                 <br><br><br>
-                <button class="btn-shops btn-shops-lrg pad-left" 
-                (click)="createCompetition(compName.value, breed.value, compType.value)" 
-                [routerLink]="['/competition-page']" routerLinkActive="router-link-active" >
-                <i class="shopping cart icon "></i>
-                100e</button>
+                <button class="btn-shops btn-shops-lrg pad-left"
+                    (click)="createCompetition(compName.value, breed.value, compType.value)"
+                    [routerLink]="['/competition-page']" routerLinkActive="router-link-active">
+                    <i class="shopping cart icon "></i>
+                    100e</button>
             </div>
         </div>
         <hr>
@@ -70,7 +73,8 @@
                                 <th class="card-title tl-col1">Competition</th>
                                 <th class="card-title tl-col1">Breed Class</th>
                                 <th class="card-title tl-col1">Competition Style</th>
-                                <th class="card-title tl-col3 centered"><img class="equus pad-left" src="./assets/images/game_pieces/equus.png">Kitty</th>
+                                <th class="card-title tl-col3 centered"><img class="equus pad-left"
+                                        src="./assets/images/game_pieces/equus.png">Kitty</th>
                                 <th class="card-title tl-col2">Difficulty</th>
                                 <th class="card-title tl-col3 centered">Ranks</th>
                                 <th class="card-title tl-col3 centered">Energy</th>
@@ -99,5 +103,4 @@
     <div>
         <app-footer></app-footer>
     </div>
-</div>    
-
+</div>

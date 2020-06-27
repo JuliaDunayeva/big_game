@@ -12,8 +12,8 @@ export class UserDataService {
 
   id: string = this.authService.getUId()
 
-  constructor(public db: AngularFirestore, 
-              private authService:AuthService) { }
+  constructor(public db: AngularFirestore,
+    private authService: AuthService) { }
 
   getUserData() {
     return this.db.collection('/user_data').valueChanges()
