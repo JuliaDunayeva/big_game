@@ -107,7 +107,7 @@ a {
 }
 
 .popup {
-  min-width: 700px;
+  min-width: 600px;
   font-size: 12px;
   display: block;
   border-radius: 4px;
@@ -115,7 +115,7 @@ a {
   position: relative;
   box-shadow: 0 0 0 1500px rgba(0, 0, 0, 0.8);
   padding: 10px;
-  height: 500px;
+  height: 420px;
   right: 250px;
   bottom: 200px;
 }
@@ -145,6 +145,19 @@ a {
   margin: 20px;
   margin-top: 30px;
   padding-bottom: 20px;
+}
+
+.scrolling-wrapper {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  white-space: wrap;
+  display: inline-block;
+  text-align: left;
+}
+
+.scroll-height {
+  max-height: 220px;
+  width: 420px;
 }
 
 /** Small devices (landscape phones,576px and up)*/

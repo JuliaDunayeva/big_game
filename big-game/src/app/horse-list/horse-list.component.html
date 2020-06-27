@@ -36,8 +36,8 @@
         <div class="row pad-left display">
             <Div class="col-5 card-light-green">
                 <br>
-                <form [formGroup]="selectHorse">
-                    <div *ngIf="allHorseData?.length > 0; else noItems">
+                <form [formGroup]="selectHorse" >
+                    <div class="scrolling-wrapper scroll-height" *ngIf="allHorseData?.length > 0; else noItems">
                         <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
                             <input type="radio" formControlName="userHorse" name="userHorse" [value]="horse.name"
                                 [id]="horse.id" (click)="selectedHorse($event)"

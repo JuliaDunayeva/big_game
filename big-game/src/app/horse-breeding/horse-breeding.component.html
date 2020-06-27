@@ -29,6 +29,7 @@
                 </h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Select one of the horse for the Breeding. </p>
+                    <br>
                 </div>
             </div>
             <div class="col-md-5">
@@ -37,8 +38,8 @@
         </div>
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-10  card-light-green ">
-                <form [formGroup]="">
+            <div class="col-md-10  card-light-green scrolling-wrapper scroll-height">
+                <form  [formGroup]="">
                     <div *ngIf="allHorseData?.length > 0; else noItems">
                         <table class="">
                             <tr class="row row-head">
