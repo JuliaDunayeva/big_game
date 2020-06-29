@@ -382,8 +382,7 @@
                                             <ngb-progressbar type="warning " [value]="(train.getPercent()) ">
                                             </ngb-progressbar>
                                         </p>
-                                        <button (click)="train.Train()"></button> <img class="training-check-width " src="{{ train.getNotDoneImage() }} " /></button>
-
+                                        <button class="btn" (click)="train.Train(horse)" ngbPopover="{{ train.getName() }} + {{ train.whichStats() }}" triggers="mouseenter:mouseleave" popoverTitle="{{ train.getName() }}"> <img class="training-check-width " src="{{ train.getNotDoneImage() }} " /></button>
                                     </ng-template>
                                 </div>
                             </div>

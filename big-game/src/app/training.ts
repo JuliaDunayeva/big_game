@@ -1,7 +1,9 @@
 import { min } from 'rxjs/operators';
 import { HorseData } from './horse-data';
+import { HorseDataService } from './services/horse-data.service';
 
 export class Training {
+    
     private name: string;
     private done: boolean;
     private percent: number;
@@ -11,27 +13,55 @@ export class Training {
     private hour: number;
     private minute: number;
 
-    private energy: number;
-    private speed: number;
-    private gallop: number;
-    private trot: number;
-    private stamina: number;
-    private dressage: number;
-    private jumping: number;
+    private energy: number = 0;
+    private speed: number = 0;
+    private gallop: number = 0;
+    private trot: number = 0;
+    private stamina: number = 0;
+    private dressage: number = 0;
+    private jumping: number = 0;
 
-    constructor(name: string, done_image: string, not_done_image: string) {
+    private maxTrain=10;
+    private horseDataService:  HorseDataService
+
+    constructor(name: string, done_image: string, not_done_image: string, private HDS:  HorseDataService) {
         this.name = name;
         this.done_image = done_image;
         this.not_done_image = not_done_image;
         this.done = false;
+        this.horseDataService = HDS;
     }
 
     public Train(horse: HorseData){
+        //console.log(horse);
         switch (this.name)
         {
-            case 'stamina':{
-            horse.stamina = horse.stamina +this.stamina;
+            case 'Stamina':{
+            horse.stamina += this.stamina;
+            this.percent += horse.stamina / ( ( this.stamina) * 10 );
+            if (this.percent>100){
+                this.percent=100;
+                this.done=true;
+            }
+            horse.energy -= this.energy;
+            this.horseDataService.updateHorseTime(horse.time, horse.age, this.hour, this.minute);
+            this.horseDataService.setHorseEnergy(horse);
+            this.horseDataService.setHorseStamina(horse);
+            //console.log(horse.stamina);
             break;
+            }
+            case 'Speed':{ horse.speed += this.speed;
+                this.percent += horse.speed / ( ( this.speed) * 10 );
+                if (this.percent>100){
+                    this.percent=100;
+                    this.done=true;
+                }
+                horse.energy -= this.energy;
+                this.horseDataService.updateHorseTime(horse.time, horse.age, this.hour, this.minute);
+                this.horseDataService.setHorseEnergy(horse);
+                this.horseDataService.setHorseSpeed(horse);
+                //console.log(horse.stamina);
+                break;
             }
 
         }
@@ -93,8 +123,16 @@ export class Training {
         return this.energy;
     }
 
+    public setEnergy(energy: number){
+        this.energy = energy;
+    }
+
     public getDressage(){
         return this.dressage;
+    }
+
+    public setDressage(dressage: number){
+        this.dressage = dressage;
     }
 
     public getName(): string {
@@ -104,6 +142,36 @@ export class Training {
     public setName(name: string) {
         this.name = name;
 
+    }
+
+    public whichStats(){
+        switch (this.name) {
+
+            case "Stamina":{
+                return this.stamina;
+                break;
+            }
+            case "Speed":{
+                return this.speed;
+                break;
+            }
+            case "Gallop":{
+                return this.gallop;
+                break;
+            }
+            case "Trot":{
+                return this.trot;
+                break;
+            }
+            case "Jumping":{
+                return this.jumping;
+                break;
+            }
+            case "Dressage":{
+                return this.dressage;
+                break;
+            }
+        }
     }
 
     public setImages(done_image: string, not_done_image: string) {

@@ -151,22 +151,28 @@ export class HorsePageComponent implements OnInit {
 		this.item = new TackItems("Golden Peramid", "assets/images/tack-page/gold-peramid.png");
 		this.items.push(this.item);
 		// setup training items list
-		this.train = new Training("Stamina", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Stamina", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
+		this.train.setStamina(25);
+		this.train.setEnergy(25);
+		this.train.setTime(1, 30);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Speed", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Speed", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
+		this.train.setSpeed(25);
+		this.train.setEnergy(25);
+		this.train.setTime(1, 30);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Dressage", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Dressage", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Gallop", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Gallop", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Trot", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Trot", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Jumping", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Jumping", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
 		this.train.setPercent(0);
 		this.training.push(this.train);
 		// Get Breed and Coat Color information
