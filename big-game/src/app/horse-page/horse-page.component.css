@@ -134,12 +134,14 @@
 
 .training-progress-width {
     display: inline-block;
-    width: 75%;
-    /*height: 50px;*/
+    width: 50%;
+    height: 25px;
     position: relative;
 }
 
 .training-check-width {
+    margin: none;
+    padding: none;
     width: 20px;
     height: 20px;
     position: relative;
@@ -147,6 +149,10 @@
 
 .training-title-width {
     text-align: left;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding: 0px 0px 0px 0px;
+    margin: none;
     text-justify: auto;
     width: 4.5em;
     position: relative;
@@ -210,11 +216,11 @@
 }
 
 .no-padding {
-    padding: 0px;
+    padding: 0px 0px 0px 0px;
 }
 
 .no-margin {
-    margin: 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 .skillRating {

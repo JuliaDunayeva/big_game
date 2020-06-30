@@ -155,13 +155,13 @@ export class HorsePageComponent implements OnInit {
 		this.train.setStamina(25);
 		this.train.setEnergy(25);
 		this.train.setTime(1, 30);
-		this.train.setPercent(this.horse.tr_stamina);
+		this.train.setPercent(0);
 		this.training.push(this.train);
 		this.train = new Training("Speed", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
 		this.train.setSpeed(25);
 		this.train.setEnergy(25);
 		this.train.setTime(1, 30);
-		this.train.setPercent(this.horse.tr_speed);
+		this.train.setPercent(0);
 		this.training.push(this.train);
 		this.train = new Training("Dressage", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
 		this.train.setDressage(25);
@@ -173,19 +173,19 @@ export class HorsePageComponent implements OnInit {
 		this.train.setGallop(25);
 		this.train.setEnergy(25);
 		this.train.setTime(1, 30);
-		this.train.setPercent(this.horse.tr_gallop);
+		this.train.setPercent(0);
 		this.training.push(this.train);
 		this.train = new Training("Trot", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
 		this.train.setTrot(25);
 		this.train.setEnergy(25);
 		this.train.setTime(1, 30);
-		this.train.setPercent(this.horse.tr_trot);
+		this.train.setPercent(0);
 		this.training.push(this.train);
 		this.train = new Training("Jumping", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
 		this.train.setJumping(25);
 		this.train.setEnergy(25);
 		this.train.setTime(1, 30);
-		this.train.setPercent(this.horse.tr_jumping);
+		this.train.setPercent(0);
 		this.training.push(this.train);
 		// Get Breed and Coat Color information
 		this.getBreeds();

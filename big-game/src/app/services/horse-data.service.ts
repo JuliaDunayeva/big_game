@@ -122,12 +122,12 @@ export class HorseDataService {
 		let id = this.authService.getHorseId();
 		let cityRef = this.db.collection('/horse_data').doc(id);
 		let setWithOptions = cityRef.set({
-			"tr_stamina": horse.tr_stamina,
-			"tr_speed": horse.tr_speed,
-			"tr_gallop": horse.tr_gallop,
-			"tr_jumping": horse.tr_jumping,
-			"tr_trot": horse.tr_trot,
-			"tr_dressage": horse.tr_dressage
+			"stamina": horse.stamina,
+			"speed": horse.speed,
+			"gallop": horse.gallop,
+			"jumping": horse.jumping,
+			"trot": horse.trot,
+			"dressage": horse.dressage
 		}, { merge: true });
 	}//end of setHorseDressage()
 	/* write data back to database */

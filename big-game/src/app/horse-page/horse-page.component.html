@@ -255,7 +255,7 @@
                                     <hr class="hr mx-3">
                                     <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Age:
-                                            </span>{{ horse?.age.year }} years, {{ horse?.age.day }} days, {{ horse?.age.month }} months old</p>
+                                            </span>{{ horse?.age.year }} years, {{ horse?.age.month }} months, {{ horse?.age.day }} days old</p>
                                     </div>
                                     <div class="col-6 text-right py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Gender:
@@ -368,21 +368,21 @@
                                 <div *ngFor="let train of training">
                                     <p *ngIf="train.isDone(); then thenBlock else elseBlock"></p>
                                     <ng-template #thenBlock>
-                                        <p class="training-title-width"> {{ train.getName() }}</p>
-                                        <p class="training-progress-width">
+                                        <p class="training-title-width  no-padding no-margin"> {{ train.getName() }}</p>
+                                        <p class="training-progress-width  no-padding no-margin">
                                             <ngb-progressbar type="warning" [value]="(train.getPercent()) ">
                                             </ngb-progressbar>
                                         </p>
-                                        <img class="training-check-width" src="{{ train.getDoneImage() }} " />
+                                        <img class="training-check-width  no-padding no-margin" src="{{ train.getDoneImage() }} " />
 
                                     </ng-template>
                                     <ng-template #elseBlock>
-                                        <p class="training-title-width"> {{ train.getName() }}</p>
-                                        <p class="training-progress-width">
-                                            <ngb-progressbar type="warning " [value]="(train.getPercent()) ">
-                                            </ngb-progressbar>
+                                        <p class="training-title-width no-padding no-margin"> {{ train.getName() }}</p>
+                                        <p class="training-progress-width  no-padding no-margin">
+                                            <ngb-progressbar type="warning " [value]="(train.getPercent()) "></ngb-progressbar>
                                         </p>
-                                        <button class="btn" (click)="train.Train(horse)" popoverClass="my-custom-class" placement="left" ngbPopover="{{ train.getName() }} + {{ train.whichStats() }} Energy -{{ train.getEnergy() }}%" triggers="mouseenter:mouseleave" popoverTitle="{{ train.getName() }}"> <img class="training-check-width " src="{{ train.getNotDoneImage() }} " /></button>
+                                        <button class="btn no-maring no-padding" (click)="train.Train(horse)" popoverClass="my-custom-class" placement="left" ngbPopover="{{ train.getName() }} + {{ train.whichStats() }} Energy -{{ train.getEnergy() }}%" triggers="mouseenter:mouseleave" popoverTitle="{{ train.getName() }}"> <img class="training-check-width " src="{{ train.getNotDoneImage() }} " /></button>
+
                                     </ng-template>
                                 </div>
                             </div>
