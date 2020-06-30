@@ -111,6 +111,25 @@ export class HorseDataService {
 			"speed": horse.speed
 		}, { merge: true });
 	}//end of setHorseStamina()
+	setHorseDressage(horse: HorseData) {
+		let id = this.authService.getHorseId();
+		let cityRef = this.db.collection('/horse_data').doc(id);
+		let setWithOptions = cityRef.set({
+			"dressage": horse.dressage
+		}, { merge: true });
+	}//end of setHorseDressage()
+	setHorseTraining(horse: HorseData) {
+		let id = this.authService.getHorseId();
+		let cityRef = this.db.collection('/horse_data').doc(id);
+		let setWithOptions = cityRef.set({
+			"tr_stamina": horse.tr_stamina,
+			"tr_speed": horse.tr_speed,
+			"tr_gallop": horse.tr_gallop,
+			"tr_jumping": horse.tr_jumping,
+			"tr_trot": horse.tr_trot,
+			"tr_dressage": horse.tr_dressage
+		}, { merge: true });
+	}//end of setHorseDressage()
 	/* write data back to database */
 	setHorseTime(horse: HorseData, currentHourString: string, currentMinuteString: string) {
 		let id = this.authService.getHorseId();
