@@ -13,10 +13,12 @@ export class SaddlesService {
 
   constructor(public db: AngularFirestore) { }
 
+  // get all the saddles listed in firebase
   getSaddlesList() {
     return this.db.collection('saddles').snapshotChanges()
   }
 
+  // get the ref =>'group' from db.collection('saddles')
   getEquipmentList(group: string) {
     return this.db.collection('saddles', ref => ref.where("group", "==", group)).snapshotChanges()
   }

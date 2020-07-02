@@ -14,6 +14,9 @@ export class TackPageComponent implements OnInit {
     relationsArray: Array<string>
     saddleIdList: Array<string>
     saddleList: Array<any> = []
+    competitionList: Array<any> = []
+    foxHuntList: Array<any> = []
+    italianList: Array<any> = []
     saddle: Equipment;
     public equipment: Equipment;
 
@@ -22,6 +25,9 @@ export class TackPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.showlist()
+    this.competitionlist()
+    this.foxHuntlist()
+    this.italianlist()
   }
 
   getHorseSaddlesIds() {
@@ -38,6 +44,8 @@ export class TackPageComponent implements OnInit {
     })
   }
 
+
+    //for wstern list
   showlist() {
     this.saddlesService.getEquipmentList("western").subscribe(data => {
       // console.log(data);
@@ -62,4 +70,87 @@ export class TackPageComponent implements OnInit {
       return data;
     })
   }
+
+
+  //for the competition list
+  competitionlist() {
+    this.saddlesService.getEquipmentList("competition").subscribe(data => {
+      // console.log(data);
+      this.competitionList = data.map(res => {
+        return {
+          saddleId: res.payload.doc.id,
+          name: res.payload.doc.data()['name'],
+          color: res.payload.doc.data()['color'],
+          equipment: res.payload.doc.data()['equipment'],
+          img_file: res.payload.doc.data()['img_file'],
+          id: res.payload.doc.data()['id'],
+          group: res.payload.doc.data()['group'],
+          dressage_: res.payload.doc.data()['dressage_'],
+          gallop_: res.payload.doc.data()['gallop_'],
+          jumping_: res.payload.doc.data()['jumping_'],
+          speed_: res.payload.doc.data()['speed_'],
+          stamina_: res.payload.doc.data()['stamina_'],
+          trot_: res.payload.doc.data()['trot_'],
+          cost: res.payload.doc.data()['cost'],
+        }
+      })
+      return data;
+    })
+  }
+
+
+
+  //for the fox hunt list
+  foxHuntlist() {
+    this.saddlesService.getEquipmentList("fox-hunt").subscribe(data => {
+      // console.log(data);
+      this.foxHuntList = data.map(res => {
+        return {
+          saddleId: res.payload.doc.id,
+          name: res.payload.doc.data()['name'],
+          color: res.payload.doc.data()['color'],
+          equipment: res.payload.doc.data()['equipment'],
+          img_file: res.payload.doc.data()['img_file'],
+          id: res.payload.doc.data()['id'],
+          group: res.payload.doc.data()['group'],
+          dressage_: res.payload.doc.data()['dressage_'],
+          gallop_: res.payload.doc.data()['gallop_'],
+          jumping_: res.payload.doc.data()['jumping_'],
+          speed_: res.payload.doc.data()['speed_'],
+          stamina_: res.payload.doc.data()['stamina_'],
+          trot_: res.payload.doc.data()['trot_'],
+          cost: res.payload.doc.data()['cost'],
+        }
+      })
+      return data;
+    })
+  }
+
+
+  //for the italian list
+  italianlist() {
+    this.saddlesService.getEquipmentList("italian").subscribe(data => {
+      // console.log(data);
+      this.italianList = data.map(res => {
+        return {
+          saddleId: res.payload.doc.id,
+          name: res.payload.doc.data()['name'],
+          color: res.payload.doc.data()['color'],
+          equipment: res.payload.doc.data()['equipment'],
+          img_file: res.payload.doc.data()['img_file'],
+          id: res.payload.doc.data()['id'],
+          group: res.payload.doc.data()['group'],
+          dressage_: res.payload.doc.data()['dressage_'],
+          gallop_: res.payload.doc.data()['gallop_'],
+          jumping_: res.payload.doc.data()['jumping_'],
+          speed_: res.payload.doc.data()['speed_'],
+          stamina_: res.payload.doc.data()['stamina_'],
+          trot_: res.payload.doc.data()['trot_'],
+          cost: res.payload.doc.data()['cost'],
+        }
+      })
+      return data;
+    })
+  }
 } 
+                                                                                                                                                
