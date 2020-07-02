@@ -187,7 +187,7 @@
                             Speed
                         </div>
                         <div class="col-7">
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" returnSpeedSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnSpeedSkills()" class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateSpeedSkill() }}</div>
                     </div>
@@ -198,7 +198,7 @@
                             Dressage
                         </div>
                         <div class="col-7">
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" returnDressageSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnDressageSkills()" class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateDressageSkill() }}</div>
                     </div>
@@ -220,7 +220,7 @@
                             Trot
                         </div>
                         <div class="col-7">
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" returnTrotSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnTrotSkills()" class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateTrotSkill() }}</div>
                     </div>
@@ -231,7 +231,7 @@
                         </div>
                         <div class="col-7">
                             <!-- horse jumping-->
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]=" returnJumpSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnJumpSkills()" class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateJumpSkill() }}</div>
                     </div>
@@ -299,7 +299,7 @@
                             <div>
                                 <p class="text-left mb-2">Tack</p>
                             </div>
-                            <app-modal-options></app-modal-options>
+                            <app-modal-options *ngIf="!show"></app-modal-options>
                             <!---tack popup, Equip my horse, roaa-->
                         </div>
                         <div class="col-6 card-body card-title hi-light m-0 p-0 bordered-left">

@@ -23,6 +23,8 @@ import { SaddlesService } from './../services/saddles.service';
 	styleUrls: ['./horse-page.component.css'],
 })
 export class HorsePageComponent implements OnInit {
+
+	public show: boolean=false;
 	/* Care Tab Buttons */
 	FeedButtons: HorsePageButtons = new HorsePageButtons('feed');
 	DrinkButtons: HorsePageButtons = new HorsePageButtons('drink');
@@ -863,7 +865,7 @@ export class HorsePageComponent implements OnInit {
 		/* Return a value number between 1 and 10 based on values retrieved */
 		if (result <= 100) return (result / 10);
 		if (result > 100 && result <= 1000) return (result / 100);
-		if (result > 1000 && result <= 10000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 1000);
 	}
 
 	returnGallopSkills(): number {
