@@ -326,4 +326,47 @@ export class HorseDataService {
 			'stud': stud
 		})
 	}
+
+	newBaby(userId: string, breedId: string, colorId: string, skill: string, name?: string): Observable<DocumentReference> {
+		let stamina = this.getRandStats();
+		let speed = this.getRandStats();
+		let gallop = this.getRandStats();
+		let trot = this.getRandStats();
+		let jumping = this.getRandStats();
+		let dressage = this.getRandStats();
+		let gender = this.getRandGender();
+		let today = new Date();
+		return from(
+			this.db.collection('/horse_data').add({
+				breed: breedId,
+				skill: skill,
+				color: colorId,
+				name: name,
+				gender: gender,
+				userId: userId,
+				stamina: stamina,
+				speed: speed,
+				gallop: gallop,
+				dressage: dressage,
+				trot: trot,
+				jumping: jumping,
+				dob: today,
+				height: 14.5,
+				weight: 400,
+				energy: 100,
+				health: 80,
+				morale: 50,
+				dayTime: 24,
+				tr_stamina: 0,
+				tr_speed: 0,
+				tr_gallop: 0,
+				tr_trot: 0,
+				tr_jumping: 0,
+				time: { currentHourString: "24", currentMinuteString: "00" },
+				age: { year: 1, month: 1, day: 1 },
+				toSell: false,
+				stud: false,
+			})
+		);
+	}
 } // end of horse data service
