@@ -21,9 +21,12 @@ export class TackPageComponent implements OnInit {
                 private saddlesService: SaddlesService) { }
 
   ngOnInit(): void {
-    this.showlist()
+    /*setTimeout(() => {
+      this.showlist();
+      }
+    , 750);*/
+    this.showlist();
   }
-
   getHorseSaddlesIds() {
     let horseId = this.authService.getHorseId()
     this.saddlesService.getHorseSaddlesIds(horseId).subscribe(res => {
@@ -37,7 +40,6 @@ export class TackPageComponent implements OnInit {
       }
     })
   }
-
   showlist() {
     this.saddlesService.getEquipmentList("western").subscribe(data => {
       // console.log(data);

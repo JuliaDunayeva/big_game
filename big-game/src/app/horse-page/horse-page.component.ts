@@ -23,6 +23,8 @@ import { SaddlesService } from './../services/saddles.service';
 	styleUrls: ['./horse-page.component.css'],
 })
 export class HorsePageComponent implements OnInit {
+
+	public show: boolean=false;
 	/* Care Tab Buttons */
 	FeedButtons: HorsePageButtons = new HorsePageButtons('feed');
 	DrinkButtons: HorsePageButtons = new HorsePageButtons('drink');
@@ -151,22 +153,40 @@ export class HorsePageComponent implements OnInit {
 		this.item = new TackItems("Golden Peramid", "assets/images/tack-page/gold-peramid.png");
 		this.items.push(this.item);
 		// setup training items list
-		this.train = new Training("Stamina", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Stamina", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
+		this.train.setStamina(25);
+		this.train.setEnergy(25);
+		this.train.setTime(1, 30);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Speed", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Speed", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
+		this.train.setSpeed(25);
+		this.train.setEnergy(25);
+		this.train.setTime(1, 30);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Dressage", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Dressage", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
+		this.train.setDressage(25);
+		this.train.setEnergy(25);
+		this.train.setTime(1, 30);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Gallop", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Gallop", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
+		this.train.setGallop(25);
+		this.train.setEnergy(25);
+		this.train.setTime(1, 30);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Trot", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Trot", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
+		this.train.setTrot(25);
+		this.train.setEnergy(25);
+		this.train.setTime(1, 30);
 		this.train.setPercent(0);
 		this.training.push(this.train);
-		this.train = new Training("Jumping", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png");
+		this.train = new Training("Jumping", "assets/images/horse-page-icons/training-complete.png", "assets/images/horse-page-icons/training-incomplete.png", this.horseDataService);
+		this.train.setJumping(25);
+		this.train.setEnergy(25);
+		this.train.setTime(1, 30);
 		this.train.setPercent(0);
 		this.training.push(this.train);
 		// Get Breed and Coat Color information
@@ -845,7 +865,7 @@ export class HorsePageComponent implements OnInit {
 		/* Return a value number between 1 and 10 based on values retrieved */
 		if (result <= 100) return (result / 10);
 		if (result > 100 && result <= 1000) return (result / 100);
-		if (result > 1000 && result <= 10000) return (result / 100);
+		if (result > 1000 && result <= 10000) return (result / 1000);
 	}
 
 	returnGallopSkills(): number {
