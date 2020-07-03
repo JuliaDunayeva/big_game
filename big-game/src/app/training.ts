@@ -234,7 +234,7 @@ export class Training {
     }
 
     public getPercent(): number {
-        console.log(this.percent);
+        //console.log(this.percent);
         return this.percent;
     }
 
