@@ -280,7 +280,7 @@
                                     <hr class="hr mx-3">
                                     <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Age:
-                                            </span>{{ horse?.age.year }} years, {{ horse?.age.month }} months</p>
+                                            </span>{{ horse?.age.year }} year<span *ngIf="horse.age.year != 1">s</span>, {{ horse?.age.month }} month<span *ngIf="horse.age.year != 1">s</span></p>
                                     </div>
                                     <div class="col-6 text-right py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Gender:
