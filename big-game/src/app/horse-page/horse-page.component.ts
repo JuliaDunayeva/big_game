@@ -321,7 +321,9 @@ export class HorsePageComponent implements OnInit {
 	// GetHorse function, used to get currently selected horse's data
 	getHorse() {
 		this.horseDataService.getHorseById(this.id).subscribe((res) => {
+			console.log('my horse ', res);
 			this.horse = res as HorseData;
+			this.horse.dob = new Date(res.dob['seconds'] * 1000);
 			this.breedService.getBreedById(this.horse.breed).then(brd => {
 				this.horse.breed = brd.data()['breed'];
 				this.img_path = brd.data()['img_path'];

@@ -270,29 +270,49 @@
                             <ng-template ngbNavContent>
                                 <div class="row p-3">
                                     <div class="col-6 text-left py-0">
-                                        <p class="font-size-1"><span class="font-weight-bold">Owner:
-                                            </span>{{ user?.userName }}</p>
-                                    </div>
-                                    <div class="col-6 text-right py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Breed:
                                             </span>{{ horse?.breed }}</p>
                                     </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Age:
+                                            </span>{{ horse?.age.year }} year<span *ngIf="horse.age.year != 1">s</span>
+                                            {{ horse?.age.month }} month<span *ngIf="horse.age.year != 1">s</span></p>
+                                    </div>
                                     <hr class="hr mx-3">
                                     <div class="col-6 text-left py-0">
-                                        <p class="font-size-1"><span class="font-weight-bold">Age:
-                                            </span>{{ horse?.age.year }} year<span *ngIf="horse.age.year != 1">s</span>, {{ horse?.age.month }} month<span *ngIf="horse.age.year != 1">s</span></p>
+                                        <p class="font-size-1"><span class="font-weight-bold">Species:
+                                            </span>{{ horse?.breed }}</p>
                                     </div>
                                     <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Height:
+                                            </span>{{ horse?.height }} hands</p>
+                                    </div>
+                                    <hr class="hr mx-3">
+                                    <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Gender:
                                             </span>{{ horse?.gender }}</p>
                                     </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Weight:
+                                            </span>{{ horse?.weight }} pounds</p>
+                                    </div>
                                     <hr class="hr mx-3">
-                                    <!-- <div>
-                                        <p class="font-size-1"><span class="font-weight-bold">Species: </span>{{ horse?.species }}</p>
-                                    </div> -->
                                     <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Coat:
                                             </span>{{ horse?.color }}</p>
+                                    </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Date of Birth:
+                                            </span>{{ horse?.dob.getUTCDate() }}-{{ horse?.dob.getUTCMonth() + 1 }}-{{ horse?.dob.getUTCFullYear() }}</p>
+                                    </div>
+                                    <hr class="hr mx-3">
+                                    <div class="col-6 text-left py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Producer:
+                                            </span>{{ user?.userName }}</p>
+                                    </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Earnings:
+                                            </span>{{ 150 }} Equus</p>
                                     </div>
                                 </div>
                                 <div>
