@@ -219,14 +219,17 @@ export class HorsePageComponent implements OnInit {
 
 		this.ReignCompButtons.enabledImage = 'assets/images/horse-page-icons/competition-reining-button-enabled.png';
 		this.ReignCompButtons.disabledImage = 'assets/images/horse-page-icons/competition-reining-button-enabled.png';
+		this.ReignCompButtons.setDefaultTime(4, 0);
 		this.ReignCompButtons.setStatModifiers(5, 5, 5, 5, 5, 5);
 
 		this.WesternPleasureCompButtons.enabledImage = 'assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png';
 		this.WesternPleasureCompButtons.disabledImage = 'assets/images/horse-page-icons/competition-western-pleasure-button-enabled.png';
+		this.WesternPleasureCompButtons.setDefaultTime(4, 0);
 		this.WesternPleasureCompButtons.setStatModifiers(5, 5, 5, 5, 5, 5);
 
 		this.TrottingCompButtons.enabledImage = 'assets/images/horse-page-icons/competition-trotting-button-enabled.png';
 		this.TrottingCompButtons.disabledImage = 'assets/images/horse-page-icons/competition-trotting-button-enabled.png';
+		this.TrottingCompButtons.setDefaultTime(4, 0);
 		this.TrottingCompButtons.setStatModifiers(5, 5, 5, 5, 5, 5);
 		/* Define images for Care Tab buttons */
 		this.FeedButtons.enabledImage = 'assets/images/horse-page-icons/feed-button-enabled.png';
@@ -356,6 +359,16 @@ export class HorsePageComponent implements OnInit {
 		myhorse.energy--;
 		alert('tick');
 		this.updateEnergyBar();
+	}
+	public Competition():boolean {
+		let win = Math.floor(Math.random() * 10 + 1);
+		//alert(win);
+		if ((win > 0)  && (win < 5)) {
+			return false;
+		} 
+		if ((win > 5) && (win <= 10)) {
+			return true;
+		}
 	}
 	/* Return number of seconds for specified about of hours and/or minutes */
 	public returnSeconds(hr: number, min: number): number {
@@ -528,16 +541,11 @@ export class HorsePageComponent implements OnInit {
 			alert('no energy to enter competition');
 			return;
 		}
-		if (this.training[0].isDone()) {
-			//alert('Training is done');
-			//return;
-		}
 		this.history.unshift(' is Competing in a Barrel Race Competition');
 		if (this.horse.health > 0) this.horse.health -= 1;
 		if (this.horse.morale > 0) this.horse.morale -= 5;
 		if (this.horse.energy > 0) this.horse.energy -= 5;
 		this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.horse.age, this.BarrelCompButtons.hour, this.BarrelCompButtons.minute);
-		this.updateTraining();
 		this.CheckStats();
 		this.horseDataService.setHorseHealth(this.horse);
 		this.horseDataService.setHorseMorale(this.horse);
@@ -545,6 +553,11 @@ export class HorsePageComponent implements OnInit {
 		this.updateHealthBar()
 		this.updateEnergyBar()
 		this.updateMoraleBar()
+		if (!this.Competition()) {
+			alert("Lost Barrel Racing Competition");
+		} else {
+			alert("Wins Barrel Racing Competition");
+		}
 	}
 
 	updateTraining() {
@@ -561,17 +574,12 @@ export class HorsePageComponent implements OnInit {
 			alert('no energy to enter competition');
 			return;
 		}
-		if (this.training[1].isDone()) {
-			//alert('Training is done');
-			//return;
-		}
 		this.history.unshift(' is Competing in a Cutting Competition');
 		if (this.horse.health > 0) this.horse.health -= 1;
 		if (this.horse.morale > 0) this.horse.morale -= 5;
 		if (this.horse.energy > 0) this.horse.energy -= 5;
 		this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.horse.age, this.CuttingCompButtons.hour, this.CuttingCompButtons.minute);
 		//if (this.training[1].getPercent() < 100) this.training[1].setPercent(this.training[1].getPercent() + 10)
-		this.updateTraining();
 		this.CheckStats();
 		this.horseDataService.setHorseHealth(this.horse);
 		this.horseDataService.setHorseMorale(this.horse);
@@ -579,21 +587,86 @@ export class HorsePageComponent implements OnInit {
 		this.updateHealthBar()
 		this.updateEnergyBar()
 		this.updateMoraleBar()
+		if (!this.Competition()) {
+			alert("Lost Cutting Competition");
+		} else {
+			alert("Wins Cutting Competition");
+		}
 	}
 	// Trail Class Competition Function
 	public TrailComp() {
+		if (this.horse.energy == 0) {
+			alert('no energy to enter competition');
+			return;
+		}
 		this.history.unshift(' is Competing in a Trail Ride Competition');
-		this.updateTraining();
+		if (this.horse.health > 0) this.horse.health -= 1;
+		if (this.horse.morale > 0) this.horse.morale -= 5;
+		if (this.horse.energy > 0) this.horse.energy -= 5;
+		this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.horse.age, this.TrailClassCompButtons.hour, this.TrailClassCompButtons.minute);
+		//if (this.training[1].getPercent() < 100) this.training[1].setPercent(this.training[1].getPercent() + 10)
+		this.CheckStats();
+		this.horseDataService.setHorseHealth(this.horse);
+		this.horseDataService.setHorseMorale(this.horse);
+		this.horseDataService.setHorseEnergy(this.horse);
+		this.updateHealthBar()
+		this.updateEnergyBar()
+		this.updateMoraleBar()
+		if (!this.Competition()) {
+			alert("Lost Trail Class Competition");
+		} else {
+			alert("Wins Trail Class Competition");
+		}
 	}
 	//Reign Competition Function
 	public ReignComp() {
+		if (this.horse.energy == 0) {
+			alert('no energy to enter competition');
+			return;
+		}
 		this.history.unshift(' is Competing in a Reign Competition');
-		this.updateTraining();
+		if (this.horse.health > 0) this.horse.health -= 1;
+		if (this.horse.morale > 0) this.horse.morale -= 5;
+		if (this.horse.energy > 0) this.horse.energy -= 5;
+		this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.horse.age, this.ReignCompButtons.hour, this.ReignCompButtons.minute);
+		//if (this.training[1].getPercent() < 100) this.training[1].setPercent(this.training[1].getPercent() + 10)
+		this.CheckStats();
+		this.horseDataService.setHorseHealth(this.horse);
+		this.horseDataService.setHorseMorale(this.horse);
+		this.horseDataService.setHorseEnergy(this.horse);
+		this.updateHealthBar()
+		this.updateEnergyBar()
+		this.updateMoraleBar()
+		if (!this.Competition()) {
+			alert("Lost Reigning Competition");
+		} else {
+			alert("Wins Reigning Competition");
+		}
 	}
 	//Western Pleasure Competition Function
 	public WesternPleasureComp() {
+		if (this.horse.energy == 0) {
+			alert('no energy to enter competition');
+			return;
+		}
 		this.history.unshift(' is Competing in a Western Pleasure Competition');
-		this.updateTraining();
+		if (this.horse.health > 0) this.horse.health -= 1;
+		if (this.horse.morale > 0) this.horse.morale -= 5;
+		if (this.horse.energy > 0) this.horse.energy -= 5;
+		this.percent = this.horseDataService.updateHorseTime(this.horse.time, this.horse.age, this.WesternPleasureCompButtons.hour, this.WesternPleasureCompButtons.minute);
+		//if (this.training[1].getPercent() < 100) this.training[1].setPercent(this.training[1].getPercent() + 10)
+		this.CheckStats();
+		this.horseDataService.setHorseHealth(this.horse);
+		this.horseDataService.setHorseMorale(this.horse);
+		this.horseDataService.setHorseEnergy(this.horse);
+		this.updateHealthBar()
+		this.updateEnergyBar()
+		this.updateMoraleBar()
+		if (!this.Competition()) {
+			alert("Lost Western Pleasure Competition");
+		} else {
+			alert("Wins Western Pleasure Competition");
+		}
 	}
 	//Breeding function
 	public coverMareButton() {
@@ -633,6 +706,7 @@ export class HorsePageComponent implements OnInit {
 			this.MountainButtons.toggleButton(true);
 		}
 		if (this.horse.energy > 1 && this.horse.energy < 99) {
+			this.PutToBedButtons.toggleButton(true);
 			this.FeedButtons.toggleButton(true);
 			this.DrinkButtons.toggleButton(true);
 			this.GroomButtons.toggleButton(true);
