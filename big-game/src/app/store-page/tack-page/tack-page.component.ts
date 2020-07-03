@@ -23,7 +23,6 @@ export class TackPageComponent implements OnInit {
   ngOnInit(): void {
     this.showlist()
   }
-
   getHorseSaddlesIds() {
     let horseId = this.authService.getHorseId()
     this.saddlesService.getHorseSaddlesIds(horseId).subscribe(res => {
@@ -37,7 +36,6 @@ export class TackPageComponent implements OnInit {
       }
     })
   }
-
   showlist() {
     this.saddlesService.getEquipmentList("western").subscribe(data => {
       // console.log(data);

@@ -14,8 +14,6 @@ export class TackDataComponent implements OnInit {
   buildpath(file: string): string {
     return this.imgpath + file;
   }
-
   ngOnInit(): void {
   }
-
 } 
