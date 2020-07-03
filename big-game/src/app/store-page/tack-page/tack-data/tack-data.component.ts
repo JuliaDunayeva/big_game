@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SaddlesService } from '../../../services/saddles.service';
+
 @Component({
   selector: 'app-tack-data',
   templateUrl: './tack-data.component.html',

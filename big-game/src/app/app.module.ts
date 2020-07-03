@@ -32,6 +32,7 @@ import {TackPageComponent} from './../app/store-page/tack-page/tack-page.compone
 import { HorseBreedingComponent } from './horse-breeding/horse-breeding.component';
 import { TackDataComponent } from './../app/store-page/tack-page/tack-data/tack-data.component';
 import { EquipmentComponent } from './store-page/equipment/equipment.component';
+import { EquipmentUpdateComponent } from './store-page/equipment/equipment-update/equipment-update.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { EquipmentComponent } from './store-page/equipment/equipment.component';
     HorseBreedingComponent,
     TackDataComponent,
     EquipmentComponent,
+    EquipmentUpdateComponent,
     
   ],
   
