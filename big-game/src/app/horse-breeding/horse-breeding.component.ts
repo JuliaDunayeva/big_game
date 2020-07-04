@@ -96,14 +96,13 @@ export class HorseBreedingComponent implements OnInit {
         this.userService.getUserByID(userID).subscribe((result) => {
           this.stallionUserInfo = result as UserData;
           this.stallionUserEquus = this.stallionUserInfo.equus;
-          console.log('value coming from',this.stallionUserInfo.equus);
         });
-        this.addmoney(userID, this.stallionUserEquus);
-      }
+        this.addmoney(userID, this.stallionUserInfo.equus);
+    }
   }
 
   addmoney(userID:string, equus:number){
-    this.userService.addEquus(userID,equus, 500);
+    this.userService.addEquus(userID, equus, 500);
   }
   
   newHorseCost() {
