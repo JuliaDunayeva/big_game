@@ -161,7 +161,7 @@ export class HorseBreedingComponent implements OnInit {
 
   createBaby(name:string) {
     if (this.haveMoney == true) {
-      this.horseService.newBaby( this.Uid, this.stallionBreed, this.mareColorId, this.mareData.skill, name)
+      this.horseService.newBaby( this.Uid, this.mareBreedId, this.mareColorId, this.mareData.skill, name)
       this.newHorseCost();
       return alert(this.success);
     } alert(this.fail)
