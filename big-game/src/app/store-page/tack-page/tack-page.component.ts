@@ -2,7 +2,6 @@ import { Equipment } from './../../equipment';
 import { SaddlesService } from './../../services/saddles.service';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { type } from 'os';
 
 @Component({
   selector: 'app-tack-page',
@@ -16,17 +15,14 @@ export class TackPageComponent implements OnInit {
     saddleIdList: Array<string>
     saddleList: Array<any> = []
     saddle: Equipment;
+    
     public equipment: Equipment;
 
     constructor(private authService: AuthService,
                 private saddlesService: SaddlesService) { }
 
   ngOnInit(): void {
-    /*setTimeout(() => {
-      this.showlist();
-      }
-    , 750);*/
-    this.showlist();
+   
   }
 
   getHorseSaddlesIds() {
