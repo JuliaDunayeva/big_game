@@ -34,6 +34,7 @@ import { TackDataComponent } from './../app/store-page/tack-page/tack-data/tack-
 import { EquipmentComponent } from './store-page/equipment/equipment.component';
 import { EqcenterComponent } from './eqcenter/eqcenter.component';
 import { EqcenterRegisterComponent } from './eqcenter-register/eqcenter-register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { EqcenterRegisterComponent } from './eqcenter-register/eqcenter-register
     EquipmentComponent,
     EqcenterComponent,
     EqcenterRegisterComponent,
+    ProfileComponent,
     
   ],
   
