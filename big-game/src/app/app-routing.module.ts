@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 import { CompetitionPageComponent } from './competition-page/competition-page.component';
 import { BlackMarketPageComponent } from './black-market-page/black-market-page.component';
 import { StorePageComponent } from './store-page/store-page.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   },
   {
     path: 'horse-list',
