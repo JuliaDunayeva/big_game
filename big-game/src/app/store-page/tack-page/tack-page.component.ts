@@ -24,7 +24,6 @@ export class TackPageComponent implements OnInit {
   ngOnInit(): void {
    
   }
-
   getHorseSaddlesIds() {
     let horseId = this.authService.getHorseId()
     this.saddlesService.getHorseSaddlesIds(horseId).subscribe(res => {
