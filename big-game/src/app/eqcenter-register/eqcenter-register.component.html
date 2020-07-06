@@ -10,30 +10,38 @@
         <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
             <div class="color-tx-green ">
                 <i class="home icon"></i>
-                <a class=""> Equestrian Centre &nbsp;</a>
+                <a class=""> Equestrian Centre</a>
                 <i class="angle double right icon"> </i>
+                <a class="color-tx-maroon"> Register</a>
             </div>
-            <a class=""> Register &nbsp;</a>
+            <h2>
+                <br>
+                <p class="color-tx-maroon">Board a horse</p>
+            </h2>
+            <p class="color-tx-green">The prestige and cleanliness of the centre that you choose has a significant impact on the wellness of your horse. Before you make a decision, feel free to visit each centre.</p>
         </div>
         <br>
         <br>
         <br>
         <br>
+        <h3>
+            <p class="color-tx-maroon pad-left">Choose an equestrian centre</p>
+        </h3>
         <br>
         <table class="pad-left ">
-            <tr class="sm-card td-line">
-                <th class="card-title comp-cell-width">Competition</th>
-                <th class="card-title breed-cell-width">Breed Class</th>
-                <th class="card-title compType-cell-width">Competition Style</th>
-                <th class="card-title kitty-cell-width"><img class="equus pad-left" src="./assets/images/game_pieces/equus.png">Kitty</th>
-                <th class="card-title difficult-cell-width">Difficulty</th>
-                <th class="card-title ranks-cell-width">Ranks</th>
-                <th class="card-title energy-cell-width">Energy</th>
-                <!-- <th class="card-title tl-col4"> </th>-->
+            <tr class="sm-card td-line ">
+                <th class="card-title comp-cell-width ">Competition</th>
+                <th class="card-title breed-cell-width ">Breed Class</th>
+                <th class="card-title compType-cell-width ">Competition Style</th>
+                <th class="card-title kitty-cell-width "><img class="equus pad-left " src="./assets/images/game_pieces/equus.png ">Kitty</th>
+                <th class="card-title difficult-cell-width ">Difficulty</th>
+                <th class="card-title ranks-cell-width ">Ranks</th>
+                <th class="card-title energy-cell-width ">Energy</th>
+                <!-- <th class="card-title tl-col4 "> </th>-->
             </tr>
         </table>
         <form class="scrolling-wrapper scroll-height">
-            <div *ngIf="allCompetitions?.length > 0; else noItems">
+            <div *ngIf="allCompetitions?.length> 0; else noItems">
                 <table class="pad-left ">
                     <tr *ngFor="let competitions of allCompetitions">
                         <input type="radio" />

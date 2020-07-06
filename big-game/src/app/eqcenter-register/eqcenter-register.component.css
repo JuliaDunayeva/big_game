@@ -46,3 +46,9 @@
 .equus {
     width: 25%;
 }
+
+.pad-left {
+    /* common spacing to set left margin in folder */
+    margin-left: 1rem;
+    margin-top: 2 rem;
+}
