@@ -18,7 +18,7 @@
 .equipment-box {
   cursor: pointer;
   width: 114px;
-  height: 221px;
+  height: 240px !important;
   background-color: #f0f0b2;
   color: #133300;
   border-color: #663300 !important;
