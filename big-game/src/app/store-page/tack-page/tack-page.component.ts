@@ -15,17 +15,14 @@ export class TackPageComponent implements OnInit {
     saddleIdList: Array<string>
     saddleList: Array<any> = []
     saddle: Equipment;
+    
     public equipment: Equipment;
 
     constructor(private authService: AuthService,
                 private saddlesService: SaddlesService) { }
 
   ngOnInit(): void {
-    /*setTimeout(() => {
-      this.showlist();
-      }
-    , 750);*/
-    this.showlist();
+   
   }
   getHorseSaddlesIds() {
     let horseId = this.authService.getHorseId()
@@ -40,8 +37,11 @@ export class TackPageComponent implements OnInit {
       }
     })
   }
-  showlist() {
-    this.saddlesService.getEquipmentList("western").subscribe(data => {
+
+
+    //for wstern list
+  showlist(type: string) {
+    this.saddlesService.getEquipmentList(type).subscribe(data => {
       // console.log(data);
       this.saddleList = data.map(res => {
         return {
@@ -65,3 +65,4 @@ export class TackPageComponent implements OnInit {
     })
   }
 } 
+                                                                                                                                                
