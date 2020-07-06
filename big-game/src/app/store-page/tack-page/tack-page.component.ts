@@ -22,7 +22,11 @@ export class TackPageComponent implements OnInit {
                 private saddlesService: SaddlesService) { }
 
   ngOnInit(): void {
-    this.showlist()
+    /*setTimeout(() => {
+      this.showlist();
+      }
+    , 750);*/
+    this.showlist();
   }
 
   getHorseSaddlesIds() {
