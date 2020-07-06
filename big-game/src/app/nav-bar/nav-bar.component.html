@@ -67,7 +67,7 @@
                         <i class="font-md2 icon-qualty user icon"></i>
                     </a>
                     <div ngbDropdownMenu class="drop-box">
-                        <button ngbDropdownItem class="hover-box disabled">
+                        <button [routerLink]="['/profile']" routerLinkActive="router-link-active"  ngbDropdownItem class="hover-box">
                             <div class="inline-block">
                                 <i class="font-xl user circle icon"></i>
                                 <p class="font-xmd">{{ user?.userName }}</p>
