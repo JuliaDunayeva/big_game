@@ -60,7 +60,9 @@ export class HorseListComponent implements OnInit {
     this.userService.getUserByID(this.Uid).subscribe((result) => {
       this.user = result as UserData;
     });
-    sessionStorage.setItem("selected-horse", "false");
+    sessionStorage.setItem("selected-horse", "true");
+    this.horse=this.allHorseData[0];
+    this.horseSelectedId=this.horse.id;
     /*document.getElementById("selected-horse").className = "disabled";
     document.getElementById("selected-horse").setAttribute("routerLink", "");*/
   }
