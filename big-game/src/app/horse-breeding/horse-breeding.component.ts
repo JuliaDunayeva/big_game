@@ -27,7 +27,8 @@ export class HorseBreedingComponent implements OnInit {
   stallionUserInfo:UserData;
   Uid: string = this.authService.getUId();
   public mareBreedId: string;
-  public marecolorId: string;
+  public mareColorId: string;
+  public stallionBreed: string;
   public imagePath: string;
   public horse: HorseData = new HorseData;
   public stallionUserEquus:number;
@@ -54,7 +55,7 @@ export class HorseBreedingComponent implements OnInit {
     this.horseService.getHorseById(this.id).subscribe((res) => {
       this.mareData = res as HorseData;
       this.mareBreedId = this.mareData.breed;
-      this.marecolorId = this.mareData.color;
+      this.mareColorId = this.mareData.color;
       console.log('first',this.mareBreedId);
       this.breedService.getBreedById(this.mareData.breed).then(brd => {
         this.mareData.breed = brd.data()['breed'];
@@ -91,19 +92,19 @@ export class HorseBreedingComponent implements OnInit {
   }
 
 
-  selectedStallion(userID:string){
+  selectedStallion(userID:string, breedId:string){
     if (this.haveMoney == true) {
+      this.stallionBreed = breedId;
         this.userService.getUserByID(userID).subscribe((result) => {
           this.stallionUserInfo = result as UserData;
           this.stallionUserEquus = this.stallionUserInfo.equus;
-          console.log('value coming from',this.stallionUserInfo.equus);
         });
-        this.addmoney(userID, this.stallionUserEquus);
-      }
+        this.addmoney(userID, this.stallionUserInfo.equus);
+    }
   }
 
   addmoney(userID:string, equus:number){
-    this.userService.addEquus(userID,equus, 500);
+    this.userService.addEquus(userID, equus, 500);
   }
   
   newHorseCost() {
@@ -160,7 +161,7 @@ export class HorseBreedingComponent implements OnInit {
 
   createBaby(name:string) {
     if (this.haveMoney == true) {
-      this.horseService.newBaby( this.Uid, this.mareBreedId, this.mareBreedId, this.mareData.skill, name)
+      this.horseService.newBaby( this.Uid, this.stallionBreed, this.mareColorId, this.mareData.skill, name)
       this.newHorseCost();
       return alert(this.success);
     } alert(this.fail)
