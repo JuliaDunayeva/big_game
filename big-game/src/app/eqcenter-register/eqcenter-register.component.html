@@ -27,28 +27,28 @@
         <br>
         <table class="pad-left ">
             <tr class="sm-card td-line ">
-                <th class="card-title comp-cell-width ">Competition</th>
-                <th class="card-title breed-cell-width ">Breed Class</th>
-                <th class="card-title compType-cell-width ">Competition Style</th>
+                <th class="card-title comp-cell-width ">EQ Center</th>
+                <th class="card-title breed-cell-width ">Cost</th>
+                <!-- <th class="card-title compType-cell-width ">Competition Style</th>
                 <th class="card-title kitty-cell-width "><img class="equus pad-left " src="./assets/images/game_pieces/equus.png ">Kitty</th>
                 <th class="card-title difficult-cell-width ">Difficulty</th>
                 <th class="card-title ranks-cell-width ">Ranks</th>
-                <th class="card-title energy-cell-width ">Energy</th>
+                <th class="card-title energy-cell-width ">Energy</th>-->
                 <!-- <th class="card-title tl-col4 "> </th>-->
             </tr>
         </table>
         <form class="scrolling-wrapper scroll-height">
-            <div *ngIf="allCompetitions?.length> 0; else noItems">
+            <div *ngIf="alleqCenters?.length> 0; else noItems">
                 <table class="pad-left ">
-                    <tr *ngFor="let competitions of allCompetitions">
+                    <tr *ngFor="let eqcenter of alleqCenters">
                         <input type="radio" />
-                        <td class="comp-cell-width">{{competitions.compName}}</td>
-                        <td class="breed-cell-width">{{competitions.breed}}</td>
-                        <td class="compType-cell-width">{{competitions.compType}}</td>
-                        <td class="kitty-cell-width centered">{{competitions.kitty}}</td>
-                        <td class="difficult-cell-width centered">{{competitions.difficulty}}</td>
-                        <td class="ranks-cell-width centered">{{competitions.ranks}}</td>
-                        <td class="energy-cell-width centered">{{competitions.energy}}</td>
+                        <td class="comp-cell-width">{{eqcenter.eqName}}</td>
+                        <td class="breed-cell-width">{{eqcenter.cost}}</td>
+                        <!-- <td class="compType-cell-width">{{eqcenter.compType}}</td>
+                        <td class="kitty-cell-width centered">{{eqcenter.kitty}}</td>
+                        <td class="difficult-cell-width centered">{{eqcenter.difficulty}}</td>
+                        <td class="ranks-cell-width centered">{{eqcenter.ranks}}</td>
+                        <td class="energy-cell-width centered">{{eqcenter.energy}}</td>-->
                     </tr>
                 </table>
             </div>
