@@ -1,3 +1,8 @@
+table {
+    border: 1px black dashed;
+    text-align: center;
+}
+
 .scrolling-wrapper {
     overflow-x: hidden;
     overflow-y: scroll;

@@ -29,6 +29,7 @@
             <tr class="sm-card td-line ">
                 <th class="card-title comp-cell-width ">EQ Center</th>
                 <th class="card-title breed-cell-width ">Cost</th>
+
                 <!-- <th class="card-title compType-cell-width ">Competition Style</th>
                 <th class="card-title kitty-cell-width "><img class="equus pad-left " src="./assets/images/game_pieces/equus.png ">Kitty</th>
                 <th class="card-title difficult-cell-width ">Difficulty</th>
@@ -39,18 +40,24 @@
         </table>
         <form class="scrolling-wrapper scroll-height">
             <div *ngIf="alleqCenters?.length> 0; else noItems">
-                <table class="pad-left ">
-                    <tr *ngFor="let eqcenter of alleqCenters">
-                        <input type="radio" />
-                        <td class="comp-cell-width">{{eqcenter.eqName}}</td>
-                        <td class="breed-cell-width">{{eqcenter.cost}}</td>
-                        <!-- <td class="compType-cell-width">{{eqcenter.compType}}</td>
+                <form [formGroup]="selectEQCenter">
+                    <table class="pad-left ">
+
+                        <tr *ngFor="let eqcenter of alleqCenters">
+                            eqcenter.
+                            <!-- <input type="radio" />-->
+                            <td class="comp-cell-width">{{eqcenter.eqName}}</td>
+                            <td class="breed-cell-width">{{eqcenter.cost}}</td>
+                            <td><button class="btn btn-primary">Select</button></td>
+                            <!-- formControlName="eqSelect" name="eqSelect" (click)="selectEQ('something')" [value]="" [id]="'something'" -->
+                            <!-- <td class="compType-cell-width">{{eqcenter.compType}}</td>
                         <td class="kitty-cell-width centered">{{eqcenter.kitty}}</td>
                         <td class="difficult-cell-width centered">{{eqcenter.difficulty}}</td>
                         <td class="ranks-cell-width centered">{{eqcenter.ranks}}</td>
                         <td class="energy-cell-width centered">{{eqcenter.energy}}</td>-->
-                    </tr>
-                </table>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </form>
         <ng-template #noItems>
