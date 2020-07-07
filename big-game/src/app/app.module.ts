@@ -32,6 +32,8 @@ import {TackPageComponent} from './../app/store-page/tack-page/tack-page.compone
 import { HorseBreedingComponent } from './horse-breeding/horse-breeding.component';
 import { TackDataComponent } from './../app/store-page/tack-page/tack-data/tack-data.component';
 import { EquipmentComponent } from './store-page/equipment/equipment.component';
+import { EqcenterComponent } from './eqcenter/eqcenter.component';
+import { EqcenterRegisterComponent } from './eqcenter-register/eqcenter-register.component';
 import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
@@ -58,6 +60,8 @@ import { ProfileComponent } from './profile/profile.component';
     HorseBreedingComponent,
     TackDataComponent,
     EquipmentComponent,
+    EqcenterComponent,
+    EqcenterRegisterComponent,
     ProfileComponent,
     
   ],

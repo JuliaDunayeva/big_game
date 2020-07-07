@@ -13,6 +13,8 @@ import { HorseSaleComponent } from './horse-sale/horse-sale.component';
 import { TackPageComponent } from './store-page/tack-page/tack-page.component';
 import { HorseBreedingComponent } from './horse-breeding/horse-breeding.component';
 import { EquipmentComponent } from './store-page/equipment/equipment.component';
+import { EqcenterRegisterComponent } from './eqcenter-register/eqcenter-register.component';
+import { EqcenterComponent } from './eqcenter/eqcenter.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,14 @@ const routes: Routes = [
   {
     path: 'equipment',
     component: EquipmentComponent
+  },
+  {
+    path: 'eqRegister',
+    component: EqcenterRegisterComponent
+  },
+  {
+    path: 'eqCenter',
+    component: EqcenterComponent
   },
   {
     path: '',
