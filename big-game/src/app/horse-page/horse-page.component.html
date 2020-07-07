@@ -13,7 +13,10 @@
             <div class="center-text">
                 <p class="no-bottom-margin top-margin">
                     <!-- left panel 1 - Care -->
-                    <button type="button" class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border" (click)="isCareCollapsed = !isCareCollapsed" [attr.aria-expanded]="!isCareCollapsed" aria-controls="collapseExample ">
+                    <button type="button"
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border"
+                        (click)="isCareCollapsed = !isCareCollapsed" [attr.aria-expanded]="!isCareCollapsed"
+                        aria-controls="collapseExample ">
                         Care
                     </button>
                 </p>
@@ -63,7 +66,10 @@
                 </div>
                 <p class="no-bottom-margin top-margin">
                     <!-- left panel 2 - Night -->
-                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border" (click)="isNightCollapsed = !isNightCollapsed" [attr.aria-expanded]="!isNightCollapsed" aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border"
+                        (click)="isNightCollapsed = !isNightCollapsed" [attr.aria-expanded]="!isNightCollapsed"
+                        aria-controls="collapseExample ">
                         Night
                     </button>
                 </p>
@@ -93,7 +99,10 @@
                 </div>
                 <p class="no-bottom-margin">
                     <!-- left panel 3 - Equestrian Centre -->
-                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin top-margin card-title-border" (click)="isECCollapsed = !isECCollapsed" [attr.aria-expanded]="!isECCollapsed" aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin top-margin card-title-border"
+                        (click)="isECCollapsed = !isECCollapsed" [attr.aria-expanded]="!isECCollapsed"
+                        aria-controls="collapseExample ">
                         Equestrian Centre
                     </button>
                 </p>
@@ -111,7 +120,10 @@
                 </div>
                 <p class="no-bottom-margin">
                     <!-- left panel 4 - History -->
-                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin top-margin card-title-border" (click)="isHistoryCollapsed = !isHistoryCollapsed" [attr.aria-expanded]="!isHistoryCollapsed" aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin top-margin card-title-border"
+                        (click)="isHistoryCollapsed = !isHistoryCollapsed" [attr.aria-expanded]="!isHistoryCollapsed"
+                        aria-controls="collapseExample ">
                         History
                     </button>
                 </p>
@@ -128,7 +140,8 @@
         </div>
         <div class="col-lg-5 mt-lg-5 text-center">
             <img class="col-xl-10" src="{{ imagePath }} " />
-            <div class="horse-name lighter-gradient col-8 mx-auto card-light-green card-title no-bottom-margin card-title-border rounded-card-top">
+            <div
+                class="horse-name lighter-gradient col-8 mx-auto card-light-green card-title no-bottom-margin card-title-border rounded-card-top">
                 <div class="mt-2">{{ horse?.name }}</div>
             </div>
             <div class="rounded-card mb-3">
@@ -136,8 +149,13 @@
                     <!-- Percent of time remaining-->
                     <div class="darker-gradient rounded-card d-flex flex-wrap flex-sm-nowrap">
                         <div class="positionRelative">
-                            <circle-progress class="" [clockwise]="false" [percent]="percent" [radius]="40" [maxPercent]="100" [outerStrokeWidth]="7" [innerStrokeWidth]="4" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false" [animationDuration]="300"
-                                [showBackground]="true" [showTitle]="true" [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString" [titleFontSize]="16" [titleFontWeight]="700" [showSubtitle]="false" [showUnits]="false" [responsive]="false">
+                            <circle-progress class="" [clockwise]="false" [percent]="percent" [radius]="40"
+                                [maxPercent]="100" [outerStrokeWidth]="7" [innerStrokeWidth]="4"
+                                [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="false"
+                                [animationDuration]="300" [showBackground]="true" [showTitle]="true"
+                                [title]="horse.time.currentHourString + ':' + horse.time.currentMinuteString"
+                                [titleFontSize]="16" [titleFontWeight]="700" [showSubtitle]="false" [showUnits]="false"
+                                [responsive]="false">
                             </circle-progress>
 
                         </div>
@@ -176,7 +194,8 @@
                             Stamina
                         </div>
                         <div class="col-7">
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnStaminaSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnStaminaSkills()"
+                                class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateStaminaSkill() }}</div>
                     </div>
@@ -187,7 +206,8 @@
                             Speed
                         </div>
                         <div class="col-7">
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnSpeedSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnSpeedSkills()"
+                                class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateSpeedSkill() }}</div>
                     </div>
@@ -198,7 +218,8 @@
                             Dressage
                         </div>
                         <div class="col-7">
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnDressageSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnDressageSkills()"
+                                class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateDressageSkill() }}</div>
                     </div>
@@ -209,7 +230,8 @@
                             Gallop
                         </div>
                         <div class="col-7">
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnGallopSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnGallopSkills()"
+                                class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateGallopSkill() }}</div>
                     </div>
@@ -220,7 +242,8 @@
                             Trot
                         </div>
                         <div class="col-7">
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnTrotSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnTrotSkills()"
+                                class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateTrotSkill() }}</div>
                     </div>
@@ -231,7 +254,8 @@
                         </div>
                         <div class="col-7">
                             <!-- horse jumping-->
-                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnJumpSkills()" class=" gold-color "></ngb-rating>
+                            <ngb-rating [formControl]=" ctrl " [readonly]=" readonly " [rate]="returnJumpSkills()"
+                                class=" gold-color "></ngb-rating>
                         </div>
                         <div class="text-right col-2 p-0">{{ calculateJumpSkill() }}</div>
                     </div>
@@ -241,85 +265,197 @@
                 <div class="card-body p-0">
                     <nav ngbNav #nav="ngbNav" class="nav-tabs card-light-green bg-transparent border-none">
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green rounded-card-top mr-3 px-2 bordered font-weight-bold">Characteristics</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top mr-3 px-2 bordered font-weight-bold">Characteristics</a>
                             <ng-template ngbNavContent>
                                 <div class="row p-3">
                                     <div class="col-6 text-left py-0">
-                                        <p class="font-size-1"><span class="font-weight-bold">Owner:
-                                            </span>{{ user?.userName }}</p>
-                                    </div>
-                                    <div class="col-6 text-right py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Breed:
                                             </span>{{ horse?.breed }}</p>
                                     </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Age:
+                                            </span>{{ horse?.age.year }} year<span *ngIf="horse.age.year != 1">s</span>
+                                            {{ horse?.age.month }} month<span *ngIf="horse.age.year != 1">s</span></p>
+                                    </div>
                                     <hr class="hr mx-3">
                                     <div class="col-6 text-left py-0">
-                                        <p class="font-size-1"><span class="font-weight-bold">Age:
-                                            </span>{{ horse?.age.year }} years, {{ horse?.age.month }} months, {{ horse?.age.day }} days old</p>
+                                        <p class="font-size-1"><span class="font-weight-bold">Species:
+                                            </span>{{ horse?.breed }}</p>
                                     </div>
                                     <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Height:
+                                            </span>{{ horse?.height }} hands</p>
+                                    </div>
+                                    <hr class="hr mx-3">
+                                    <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Gender:
                                             </span>{{ horse?.gender }}</p>
                                     </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Weight:
+                                            </span>{{ horse?.weight }} pounds</p>
+                                    </div>
                                     <hr class="hr mx-3">
-                                    <!-- <div>
-                                        <p class="font-size-1"><span class="font-weight-bold">Species: </span>{{ horse?.species }}</p>
-                                    </div> -->
                                     <div class="col-6 text-left py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Coat:
                                             </span>{{ horse?.color }}</p>
                                     </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Date of Birth:
+                                            </span>{{ horse?.dob.getUTCDate() }}-{{ horse?.dob.getUTCMonth() + 1 }}-{{ horse?.dob.getUTCFullYear() }}
+                                        </p>
+                                    </div>
+                                    <hr class="hr mx-3">
+                                    <div class="col-6 text-left py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Producer:
+                                            </span>{{ user?.userName }}</p>
+                                    </div>
+                                    <div class="col-6 text-right py-0">
+                                        <p class="font-size-1"><span class="font-weight-bold">Earnings:
+                                            </span>{{ 150 }} Equus</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        class="d-flex card-light-green card-middle-title flex-direction-row bordered-top rounded-none p-3">
+                                        <div class="col-6 card-body card-title inline-block m-0 p-0">
+                                            <div>
+                                                <p class="text-left mb-2">Tack</p>
+                                            </div>
+                                            <app-modal-options *ngIf="!show"></app-modal-options>
+                                            <!---tack popup, Equip my horse, roaa-->
+                                        </div>
+                                        <div class="col-6 card-body card-title hi-light m-0 p-0 bordered-left">
+                                            <div class=" inline-block ml-3">
+                                                <div>
+                                                    <p class="text-left mb-2">Items</p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <img *ngFor="let itm of items" alt="{{ itm.name }}"
+                                                        src="{{ itm.imageFile }}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-light-green card-middle-title rounded-none darker-gradients">
+
+                                </div>
+                                <div
+                                    class="card-light-green card-body card-title m-0 rounded-card-bottom bordered-top border-top-none text-left">
+                                    <p class="text-left mb-0">Victories</p>
+                                    <table class="table m-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-8 border-none p-0" scope="col"></th>
+                                                <th class="medalion col-1 p-0 border-none text-center align-middle" scope="col"><i></i></th>
+                                                <th class="g-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
+                                                <th class="s-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
+                                                <th class="b-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">
+                                                    Galloping race</td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                    <hr class="hr">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">Trotting
+                                                    race</td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                <hr class="hr">
+                                            </td>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">
+                                                    Cross-country</td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                <hr class="hr">
+                                            </td>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">Show
+                                                    Jumping</td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                <hr class="hr">
+                                            </td>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">Dressage
+                                                </td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                <hr class="hr">
+                                            </td>
+                                        </tbody>
+
+                                    </table>
                                 </div>
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green rounded-card-top mr-3 px-2 bordered font-weight-bold">Genetic</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top mr-3 px-2 bordered font-weight-bold">Genetic</a>
                             <ng-template ngbNavContent>
-                                <div class="p-3 text-left"> Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
-                                    ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-                                    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</div>
+                                <div class="p-3 text-left"> Exercitation +1 labore velit, blog sartorial PBR leggings
+                                    next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                                    booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco
+                                    ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
+                                    mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown.
+                                    Vegan fanny pack odio cillum wes anderson 8-bit,
+                                    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel Art
+                                    party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed
+                                    echo park.</div>
                             </ng-template>
                         </ng-container>
                         <ng-container ngbNavItem>
-                            <a ngbNavLink class="card-light-green rounded-card-top px-2 bordered font-weight-bold">Bonus</a>
+                            <a ngbNavLink
+                                class="card-light-green rounded-card-top px-2 bordered font-weight-bold">Bonus</a>
                             <ng-template ngbNavContent>
-                                <div class="p-3 text-left">Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent fringilla tortor arcu. Vivamus faucibus nisl enim,
-                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
+                                <div class="p-3 text-left">Sed commodo, leo at suscipit dictum, quam est porttitor
+                                    sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae
+                                    odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus
+                                    ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent
+                                    fringilla tortor arcu. Vivamus faucibus nisl enim,
+                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio.
+                                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                                    mus. Mauris aliquet odio ac lorem aliquet ultricies
                                     in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</div>
                             </ng-template>
                         </ng-container>
                     </nav>
-                    <div [ngbNavOutlet]="nav" class="card-light-green rounded-top-right bordered border-bottom-none full-gradient">
+                    <div [ngbNavOutlet]="nav"
+                        class="card-light-green rounded-top-right rounded-card-bottom bordered full-gradient">
                     </div>
                 </div>
-                <div>
-                    <div class="d-flex card-light-green card-middle-title flex-direction-row bordered-sides bordered-top rounded-none p-3">
-                        <div class="col-6 card-body card-title inline-block m-0 p-0">
-                            <div>
-                                <p class="text-left mb-2">Tack</p>
-                            </div>
-                            <app-modal-options *ngIf="!show"></app-modal-options>
-                            <!---tack popup, Equip my horse, roaa-->
-                        </div>
-                        <div class="col-6 card-body card-title hi-light m-0 p-0 bordered-left">
-                            <div class=" inline-block ml-3">
-                                <div>
-                                    <p class="text-left mb-2">Items</p>
-                                </div>
-                                <div class="d-flex">
-                                    <img *ngFor="let itm of items" alt="{{ itm.name }}" src="{{ itm.imageFile }}" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-light-green card-middle-title bordered-sides rounded-none darker-gradients">
 
-                </div>
-                <div class="card-light-green card-body card-title m-0 rounded-card-bottom bordered-U bordered-top border-top-none text-left">
-                    Victories
-                </div>
             </div>
             <!-- middle panel - after skills -->
         </div>
@@ -327,7 +463,10 @@
             <div class="center-text ">
                 <p class="no-bottom-margin ">
                     <!--right  panel 1 - Rides-->
-                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border " (click)="isRidesCollapsed=! isRidesCollapsed " [attr.aria-expanded]="!isRidesCollapsed " aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
+                        (click)="isRidesCollapsed=! isRidesCollapsed " [attr.aria-expanded]="!isRidesCollapsed "
+                        aria-controls="collapseExample ">
                         Rides
                     </button>
                 </p>
@@ -356,7 +495,9 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right panel 2 - Training -->
-                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border " (click)="isTrainingCollapsed=! isTrainingCollapsed " [attr.aria-expanded]="!isTrainingCollapsed
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
+                        (click)="isTrainingCollapsed=! isTrainingCollapsed " [attr.aria-expanded]="!isTrainingCollapsed
                                 " aria-controls="collapseExample ">
                         Training
                     </button>
@@ -373,16 +514,22 @@
                                             <ngb-progressbar type="warning" [value]="(train.getPercent()) ">
                                             </ngb-progressbar>
                                         </p>
-                                        <img class="training-check-width  no-padding no-margin" src="{{ train.getDoneImage() }} " />
+                                        <img class="training-check-width  no-padding no-margin"
+                                            src="{{ train.getDoneImage() }} " />
 
                                     </ng-template>
                                     <ng-template #elseBlock>
                                         <p class="training-title-width no-padding no-margin"> {{ train.getName() }}</p>
                                         <p class="training-progress-width  no-padding no-margin">
-                                            <ngb-progressbar type="warning " [value]="(train.getPercent()) "></ngb-progressbar>
+                                            <ngb-progressbar type="warning " [value]="(train.getPercent()) ">
+                                            </ngb-progressbar>
                                         </p>
-                                        <button class="btn no-maring no-padding" (click)="train.Train(horse)" popoverClass="my-custom-class" placement="left" ngbPopover="{{ train.getName() }} + {{ train.whichStats() }} Energy -{{ train.getEnergy() }}%" triggers="mouseenter:mouseleave" popoverTitle="{{ train.getName() }}"> <img class="training-check-width " src="{{ train.getNotDoneImage() }} " /></button>
-
+                                        <button class="btn no-maring no-padding" (click)="train.Train(horse)"
+                                            popoverClass="my-custom-class" placement="left"
+                                            ngbPopover="{{ train.getName() }} + {{ train.whichStats() }} Energy -{{ train.getEnergy() }}%"
+                                            triggers="mouseenter:mouseleave" popoverTitle="{{ train.getName() }}"> <img
+                                                class="training-check-width "
+                                                src="{{ train.getNotDoneImage() }} " /></button>
                                     </ng-template>
                                 </div>
                             </div>
@@ -391,8 +538,10 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right  panel 3 - Competition -->
-                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border " (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
-                                            " aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
+                        (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
+                        " aria-controls="collapseExample ">
                         Competition
                     </button>
                 </p>
@@ -438,11 +587,15 @@
                 </div>
                 <p class="no-bottom-margin ">
                     <!--right  panel 4 - Breeding -->
-                    <button type="button " class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border " (click)="isBreedingCollapsed=! isBreedingCollapsed " [attr.aria-expanded]="!isBreedingCollapsed " aria-controls="collapseExample ">
+                    <button type="button "
+                        class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
+                        (click)="isBreedingCollapsed=! isBreedingCollapsed "
+                        [attr.aria-expanded]="!isBreedingCollapsed " aria-controls="collapseExample ">
                         Breeding
                     </button>
                 </p>
-                <div class="card card-green bottom-margin no-padding w-100 " id="collapseExample " [ngbCollapse]="isBreedingCollapsed">
+                <div class="card card-green bottom-margin no-padding w-100 " id="collapseExample "
+                    [ngbCollapse]="isBreedingCollapsed">
                     <div class=" card-body ">
                         <div class="row ">
                             <div class="col-3 btn-padding ">
