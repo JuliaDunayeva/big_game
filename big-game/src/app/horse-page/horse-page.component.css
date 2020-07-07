@@ -121,6 +121,24 @@
     max-height: 300px;
 }
 
+.medalion i::after {
+    display: inline-block;
+    content: " ";
+    background: url('../../assets/images/horse-page-icons/medalion.png') 0 0 no-repeat;
+    width: 25px;
+    height: 25px;
+    background-size: 100%;
+}
+
+.g-trophy i::after {
+    content: url('../../assets/images/horse-page-icons/trophy-gold.png');
+}
+.s-trophy i::after {
+    content: url('../../assets/images/horse-page-icons/trophy-silver.png');
+}
+.b-trophy i::after {
+    content: url('../../assets/images/horse-page-icons/trophy-bronze.png');
+}
 
 /* Leave in horse page css */
 

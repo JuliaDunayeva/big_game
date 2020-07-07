@@ -303,7 +303,8 @@
                                     </div>
                                     <div class="col-6 text-right py-0">
                                         <p class="font-size-1"><span class="font-weight-bold">Date of Birth:
-                                            </span>{{ horse?.dob.getUTCDate() }}-{{ horse?.dob.getUTCMonth() + 1 }}-{{ horse?.dob.getUTCFullYear() }}</p>
+                                            </span>{{ horse?.dob.getUTCDate() }}-{{ horse?.dob.getUTCMonth() + 1 }}-{{ horse?.dob.getUTCFullYear() }}
+                                        </p>
                                     </div>
                                     <hr class="hr mx-3">
                                     <div class="col-6 text-left py-0">
@@ -343,7 +344,78 @@
                                 </div>
                                 <div
                                     class="card-light-green card-body card-title m-0 rounded-card-bottom bordered-top border-top-none text-left">
-                                    Victories
+                                    <p class="text-left mb-0">Victories</p>
+                                    <table class="table m-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-8 border-none p-0" scope="col"></th>
+                                                <th class="medalion col-1 p-0 border-none text-center align-middle" scope="col"><i></i></th>
+                                                <th class="g-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
+                                                <th class="s-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
+                                                <th class="b-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">
+                                                    Galloping race</td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                    <hr class="hr">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">Trotting
+                                                    race</td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                <hr class="hr">
+                                            </td>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">
+                                                    Cross-country</td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                <hr class="hr">
+                                            </td>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">Show
+                                                    Jumping</td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                <hr class="hr">
+                                            </td>
+                                            <tr>
+                                                <td class="col-8 border-none p-0 font-weight-light" scope="row">Dressage
+                                                </td>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                                <th class="col-1 border-none p-0 text-center" scope="row">0</th>
+                                            </tr>
+                                            <td class="col-12 border-none p-0" colspan="5" scope="row">
+                                                <hr class="hr">
+                                            </td>
+                                        </tbody>
+
+                                    </table>
                                 </div>
                             </ng-template>
                         </ng-container>
@@ -458,7 +530,6 @@
                                             triggers="mouseenter:mouseleave" popoverTitle="{{ train.getName() }}"> <img
                                                 class="training-check-width "
                                                 src="{{ train.getNotDoneImage() }} " /></button>
-
                                     </ng-template>
                                 </div>
                             </div>
@@ -470,7 +541,7 @@
                     <button type="button "
                         class="btn btn-primary w-100 card-green card-title no-bottom-margin card-title-border "
                         (click)="isCompetitionCollapsed=! isCompetitionCollapsed " [attr.aria-expanded]="!isCompetitionCollapsed
-                                            " aria-controls="collapseExample ">
+                        " aria-controls="collapseExample ">
                         Competition
                     </button>
                 </p>
