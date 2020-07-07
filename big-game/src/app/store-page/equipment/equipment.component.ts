@@ -87,4 +87,25 @@ export class EquipmentComponent implements OnInit {
       // console.log('Items to be removed ', this.itemsRemoved);
     }
   }
+
+  updateEquipment(
+    
+    name: string,
+		color: string, 
+    equipment: string,
+    img_file: string,
+    id: string,
+    group: string,
+    dressage_: number,
+    gallop_: number,
+    jumping_: number,
+    speed_: number,
+    stamina_: number,
+    trot_: number,
+    cost: number,
+    ) {
+      this.saddlesService.updateSaddle(name, color, equipment, img_file, id, group, dressage_, gallop_, jumping_, speed_, stamina_, trot_, cost);
+		return alert(this.success);
+    }
+
 }
