@@ -23,51 +23,40 @@
                 <div>
                 </div>
                 <div class="color-tx-green card-title no-bottom-margin">
-                    <table class="">
-                        <tr>
-                            <td class="tu-col1">User Name: {{userInfo.userName}}</td>
-                        </tr>
-                        <br>
-                        <tr>
-                            <td class="tu-col1">equus: {{userInfo.equus}}</td>
-                        </tr>
-                        <br>
-                        <tr>
-                            <td class="tu-col1">passes: {{userInfo.passes}}</td>
-                        </tr>
-                        <br>
-                        <tr>
-                            <td class="tu-col1">Email: {{userInfo.email}}</td>
-                        </tr>
-                        <br>
-                        <tr>
-                            <td class="tu-col1">Password: {{userInfo.password}}</td>
-                        </tr>
-                        <br>
-                    </table>
-                    <div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="inputGroup-sizing-default">change user name</span>
-                            </div>
-                            <input type="text" class="form-control" id="username" name="username" #username>
-                            <button (click)="updateUserName(username.value)"  class="btn btn-danger">change user name</button>
-                          </div>
-                          <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="inputGroup-sizing-default">change email</span>
-                            </div>
-                            <input type="text"  class="form-control" id="email" name="email" #email>
-                            <button (click)="updateUserEmail(email.value)" class="btn btn-danger">change email</button>
-                          </div>
-                          <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="inputGroup-sizing-default">change password</span>
-                            </div>
-                            <input (click)="updateUserPass(password.value)" type="text" class="form-control"  id="password" name="password" #password>
-                            <button  class="btn btn-danger">change password</button>
-                          </div>
+                    <div class="card" style="width: 18rem;">
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">User Name: {{userInfo.userName}}</li>
+                            <li class="list-group-item">equus: {{userInfo.equus}}</li>
+                            <li class="list-group-item">passes: {{userInfo.passes}}</li>
+                            <li class="list-group-item">Email: {{userInfo.email}}</li>
+                            <li class="list-group-item">Password: {{userInfo.password}}</li>
+                        </ul>
                     </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button (click)="updateUserName(username.value)" class="btn btn-danger">Change User
+                                Name</button>
+                        </div>
+                        <input type="text" class="form-control" id="username" name="username" #username>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button (click)="updateUserEmail(email.value)" class="btn btn-danger">Change Email</button>
+                        </div>
+                        <input type="text" class="form-control" id="email" name="email" #email>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button (click)="updateUserPass(password.value)" class="btn btn-danger">Change
+                                Password</button>
+                        </div>
+                        <input type="text" class="form-control" id="password" name="password" #password>
+                    </div>
+                    <br>
                 </div>
             </div>
         </div>
