@@ -24,8 +24,8 @@ export class SaddlesService {
     return this.db.collection('saddles', ref => ref.where("group", "==", group)).snapshotChanges()
   }
 
-  getHorseSaddlesIds(horseId) {
-    return this.db.collection('horse_tack', ref => ref.where('horse_id', '==', horseId)).snapshotChanges()
+  getHorseSaddlesIds(horse_id) {
+    return this.db.collection('horse_tack', ref => ref.where('horse_id', '==', horse_id)).snapshotChanges()
   }
 
   getHorseSaddlesNames(saddleId: string) {
