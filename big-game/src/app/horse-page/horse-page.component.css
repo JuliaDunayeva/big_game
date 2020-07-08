@@ -146,6 +146,10 @@
   margin-top: auto;
 }
 
+.bonus span {
+    font-weight: bold;
+}
+
 .eques i::after {
   content: url('../../assets/images/horse-page-icons/eques-bonus.png');
 }
