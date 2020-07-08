@@ -143,11 +143,11 @@
 }
 
 .bonus i {
-  margin-top: auto;
+  margin-top: 5%;
 }
 
 .bonus span {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .eques i::after {
@@ -159,12 +159,12 @@
 }
 
 .give-bonus {
-    color: #663300;
-    text-decoration: none;
+  color: #663300;
+  text-decoration: none;
 }
 
 .give-bonus:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Leave in horse page css */
@@ -349,6 +349,13 @@
   border: 1px solid #663300;
   border-radius: 8px;
   background: linear-gradient(90deg, rgba(242, 6, 6, 1) 0%, rgba(247, 244, 5, 1) 50%, rgba(0, 255, 29, 1) 100%);
+}
+
+.blupBar {
+  width: 1%;
+  height: 12px;
+  border: 1px solid #663300;
+  /* border-radius: 8px; */
 }
 
 
