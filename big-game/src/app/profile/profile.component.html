@@ -11,8 +11,9 @@
             <!-- Path Information -->
             <div class="col-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green">
-                    <i class="home icon"></i>
-                    <a class=""> Profile &nbsp;</a>
+                    <i class="home icon padding-pro"></i>
+                    <a class="font-size"> Profile &nbsp;</a>
+                    <hr>
                 </div>
             </div>
         </div>
@@ -23,7 +24,7 @@
                 <div>
                 </div>
                 <div class="color-tx-green card-title no-bottom-margin">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card pro-color" style="width: 18rem;">
 
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">User Name: {{userInfo.userName}}</li>
@@ -46,7 +47,7 @@
                         <div class="input-group-prepend">
                             <button (click)="updateUserEmail(email.value)" class="btn btn-danger">Change Email</button>
                         </div>
-                        <input type="text" class="form-control" id="email" name="email" #email>
+                        <input type="text" class="form-control" id="email" name="email" #email >
                     </div>
                     <br>
                     <div class="input-group mb-3">
