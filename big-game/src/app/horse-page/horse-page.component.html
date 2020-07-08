@@ -113,7 +113,8 @@
                         </div>
                         <div class="card-body">
                             <p class="max-btn-width">
-                                <img routerLink="/eqRegister" class="img-btn-width" src="{{ eq_reg_button}}" />Register my horse
+                                <img routerLink="/eqRegister" class="img-btn-width" src="{{ eq_reg_button}}" />Register
+                                my horse
                             </p>
                         </div>
                     </div>
@@ -349,10 +350,14 @@
                                         <thead>
                                             <tr>
                                                 <th class="col-8 border-none p-0" scope="col"></th>
-                                                <th class="medalion col-1 p-0 border-none text-center align-middle" scope="col"><i></i></th>
-                                                <th class="g-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
-                                                <th class="s-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
-                                                <th class="b-trophy col-1 p-0 border-none text-center" scope="col"><i></i></th>
+                                                <th class="medalion col-1 p-0 border-none text-center align-middle"
+                                                    scope="col"><i></i></th>
+                                                <th class="g-trophy col-1 p-0 border-none text-center" scope="col">
+                                                    <i></i></th>
+                                                <th class="s-trophy col-1 p-0 border-none text-center" scope="col">
+                                                    <i></i></th>
+                                                <th class="b-trophy col-1 p-0 border-none text-center" scope="col">
+                                                    <i></i></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -438,16 +443,39 @@
                             <a ngbNavLink
                                 class="card-light-green rounded-card-top px-2 bordered font-weight-bold">Bonus</a>
                             <ng-template ngbNavContent>
-                                <div class="p-3 text-left">Sed commodo, leo at suscipit dictum, quam est porttitor
-                                    sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae
-                                    odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus
-                                    ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque Praesent
-                                    fringilla tortor arcu. Vivamus faucibus nisl enim,
-                                    nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio.
-                                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                    mus. Mauris aliquet odio ac lorem aliquet ultricies
-                                    in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</div>
+                                <div class="bonus p-3 text-left">
+                                    <div class="eques d-flex">
+                                        <i></i>
+                                        <div class="ml-3">
+                                            <p class="card-title m-0">Equestrian center bonuses</p>
+                                            <h6 class="m-0">
+                                                stamina:<span> +6</span>,
+                                                speed:<span> +6</span>,
+                                                dressage:<span> +6</span>,<br />
+                                                gallop:<span> +6</span>,
+                                                trot:<span> +6</span>,
+                                                jumping:<span> +6</span>,
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <hr class="hr">
+                                    <div class="saddle d-flex">
+                                        <i></i>
+                                        <div class="ml-3">
+                                            <p class="card-title m-0">1* Classical Saddle</p>
+                                            <h6 class="m-0">
+                                                stamina:<span> +6</span>,
+                                                speed:<span> +6</span>,
+                                                dressage:<span> +6</span>,<br />
+                                                gallop:<span> +6</span>,
+                                                trot:<span> +6</span>,
+                                                jumping:<span> +6</span>,
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <hr class="hr">
+                                    <h6 class="mt-3 ml-5"><a class="give-bonus" href="#">Give a bonus</a></h6>
+                                </div>
                             </ng-template>
                         </ng-container>
                     </nav>
