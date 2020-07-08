@@ -25,7 +25,14 @@ export class EqcenterRegisterComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.horseDataService.getHorseById(this.authService.getHorseId()).subscribe(res => {
+
+      this.horse = res as HorseData;
+    });
+   
+
     this.showEqCenters();
+   
     this.createForm();
   }
 
@@ -36,16 +43,27 @@ export class EqcenterRegisterComponent implements OnInit {
   }
 
   showEqCenters() {
+    eq:EqCenters;
 		this.eqcenterService.geteqCenters().subscribe(res => {
-			this.alleqCenters = res as unknown as Array<EqCenters>;
+
+      this.alleqCenters = res as unknown as Array<EqCenters>;
+
+      //this.alleqCenters.sort();
+      //this.alleqCenters.reverse();
 			//console.log('comps ', this.allCompetitions)
 		})
   }
   
   selectEQ(event: any){
+    //2this.horse.id=this.authService.getHorseId();
     //let something = (<HTMLInputElement>event.target).id;
     //console.log(something);
-    console.log('clicked');
+    //alert((<HTMLInputElement>event.target).id);
+    //alert((<HTMLInputElement>event.target).value);
+    this.horse.eqCenter=(<HTMLInputElement>event.target).id;
+    //alert(this.horse.eqCenter);
+    this.horseDataService.setHorseEQCenter(this.horse,(<HTMLInputElement>event.target).value);
+    //console.log('clicked');
   }
 
 }
