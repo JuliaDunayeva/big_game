@@ -22,8 +22,10 @@ export class StorePageComponent implements OnInit {
   id: string;
   cost: number;
   public equipment: Equipment;
-  tackList: HorseTack[];
+ // tackList: HorseTack[];
+  tackList: Array<any> = [];
   user: any;
+  tack_id:string;
 
 constructor(private authService: AuthService,
     private saddlesService: SaddlesService,
@@ -31,25 +33,46 @@ constructor(private authService: AuthService,
     private userService: UserDataService) { }
 
   ngOnInit(): void {
-    this.getHorseTack();
+    this.getHorseTack2();
     this.userService.getUserByID(this.UId).subscribe((result) => {
       this.user=result as UserData;
     });
   }
 
-  getHorseTack() {
-    this.tackService.getTackByHorse(this.horse_id).subscribe(res => {
-        this.tackList = res.map(tack =>
-          tack.payload.doc.data() as HorseTack
-        );  
-        console.log('horse_tack', this.tackList);
+  // getHorseTack() {
+  //   this.tackService.getTackByHorse(this.horse_id).subscribe(res => {
+  //       this.tackList = res.map(tack =>
+  //         tack.payload.doc.data() as HorseTack,
+  //       );  
+  //       console.log('horse_tack', this.tackList);
+  //       for (let i = 0; i < this.tackList.length; i++ ) {
+  //         this.saddlesService.getHorseSaddlesNames(this.tackList[i].saddle_id).then(
+  //           tack => 
+  //           this.tackList[i].saddle_id = tack.data()['name']
+  //         )}
+  //     })
+  //   this.saddlesService.getHorseSaddlesIds(this.horse_id);
+  // }
+
+  getHorseTack2() {
+    this.tackService.getTackByHorse(this.horse_id).subscribe(data => {
+        this.tackList = data.map(res => {
+          return {
+            tack_id: res.payload.doc.id,
+            horse_id: res.payload.doc.data()['horse_id'],
+            saddle_id: res.payload.doc.data()['saddle_id'],
+            buy_date: res.payload.doc.data()['buy_date'],
+            cost: res.payload.doc.data()['cost'],
+          }
+        });
         for (let i = 0; i < this.tackList.length; i++ ) {
-          this.saddlesService.getHorseSaddlesNames(this.tackList[i].saddle_id).then(
-            tack => 
-            this.tackList[i].saddle_id = tack.data()['name']
-          )}
-      })
-    this.saddlesService.getHorseSaddlesIds(this.horse_id);
+            this.saddlesService.getHorseSaddlesNames(this.tackList[i].saddle_id).then(
+           tack => 
+           this.tackList[i].saddle_id = tack.data()['name']
+            )}
+           })
+          this.saddlesService.getHorseSaddlesIds(this.horse_id);
+          console.log('horse_tack', this.tackList);
   }
 
   selectItem(id: string, cost: number) {
@@ -65,6 +88,7 @@ constructor(private authService: AuthService,
   sellTackItem() {
     this.deleteItems();
     this.userService.addEquus(this.UId, this.user.equus, this.cost);
+    alert('Your item has been sold for ' + this.cost)
   }
 
 }
