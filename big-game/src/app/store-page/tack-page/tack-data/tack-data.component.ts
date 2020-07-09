@@ -16,6 +16,7 @@ export class TackDataComponent implements OnInit {
   userEquus: number;
   buyCost: number;
   horse_id: string = this.authService.getHorseId();
+  haveMoney: boolean;
 
   constructor(private userService: UserDataService, 
               private authService: AuthService, 
@@ -26,6 +27,7 @@ export class TackDataComponent implements OnInit {
   buildpath(file: string): string {
     return this.imgpath + file;
   }
+
   ngOnInit(): void {
     console.log('begining')
     this.userService.getUserByID(this.Uid).subscribe((result) => {
@@ -35,7 +37,6 @@ export class TackDataComponent implements OnInit {
     })
   }
 
-  haveMoney: boolean;
   costCheck(equipment: Equipment) {
     if (this.userEquus >= equipment.cost) {
         this.userService.subtractEquus(this.Uid, this.userEquus, equipment.cost ); 

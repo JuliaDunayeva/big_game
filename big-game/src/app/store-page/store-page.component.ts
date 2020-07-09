@@ -2,11 +2,10 @@ import { Equipment } from './../equipment';
 import { SaddlesService } from './../services/saddles.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { TackService } from '../services/tack.service';
-import { HorseTack } from '../horse-tack';
 import { UserDataService } from '../services/user-data.service';
-import { map } from 'rxjs/operators';
+
 import { UserData } from '../user-data';
 
 @Component({
@@ -22,10 +21,8 @@ export class StorePageComponent implements OnInit {
   id: string;
   cost: number;
   public equipment: Equipment;
- // tackList: HorseTack[];
   tackList: Array<any> = [];
   user: any;
-  tack_id:string;
 
 constructor(private authService: AuthService,
     private saddlesService: SaddlesService,
@@ -38,21 +35,6 @@ constructor(private authService: AuthService,
       this.user=result as UserData;
     });
   }
-
-  // getHorseTack() {
-  //   this.tackService.getTackByHorse(this.horse_id).subscribe(res => {
-  //       this.tackList = res.map(tack =>
-  //         tack.payload.doc.data() as HorseTack,
-  //       );  
-  //       console.log('horse_tack', this.tackList);
-  //       for (let i = 0; i < this.tackList.length; i++ ) {
-  //         this.saddlesService.getHorseSaddlesNames(this.tackList[i].saddle_id).then(
-  //           tack => 
-  //           this.tackList[i].saddle_id = tack.data()['name']
-  //         )}
-  //     })
-  //   this.saddlesService.getHorseSaddlesIds(this.horse_id);
-  // }
 
   getHorseTack2() {
     this.tackService.getTackByHorse(this.horse_id).subscribe(data => {
@@ -72,13 +54,13 @@ constructor(private authService: AuthService,
             )}
            })
           this.saddlesService.getHorseSaddlesIds(this.horse_id);
-          console.log('horse_tack', this.tackList);
+          // console.log('horse_tack', this.tackList);
   }
 
   selectItem(id: string, cost: number) {
     this.id = id;
     this.cost = cost/2;
-    console.log('select', this.id, this.cost)
+    // console.log('select', this.id, this.cost)
   }
 
   deleteItems() {
