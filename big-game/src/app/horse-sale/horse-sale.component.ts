@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserData } from '../user-data';
-import { UserDataService } from '../services/user-data.service';
+import { UserData } from '../user-data';
+import { UserDataService } from '../services/user-data.service';
 import { HorseData } from '../horse-data';
-import { HorseDataService} from '../services/horse-data.service';
-import { SalesService } from '../services/sales.service';
+import { HorseDataService } from '../services/horse-data.service';
 import { BreedService } from '../services/breed.service';
 import { Breed } from '../breed';
 import { AuthService } from '../services/auth.service';
@@ -17,6 +16,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 
 export class HorseSaleComponent implements OnInit {
+  success = 'Congratulations, You have purchased the horse';
+  fail = 'You do not have enough Equus';
   allHorses: Breed[];
   allHorseData: Array<HorseData>;
   horse: HorseData;
@@ -26,77 +27,93 @@ export class HorseSaleComponent implements OnInit {
   horseSelectedId: string;
   Uid: string = this.authService.getUId();
   user: any;
+  haveMoney: boolean;
 
   constructor(private authService: AuthService,
-        public db: AngularFirestore,
-        private userService: UserDataService,
-        private horseService: HorseDataService,
-        private fb: FormBuilder,
-        private breedService: BreedService,
-         ) { }
+    public db: AngularFirestore,
+    private userService: UserDataService,
+    private horseService: HorseDataService,
+    private fb: FormBuilder,
+    private breedService: BreedService,
+  ) { }
 
-    ngOnInit(): void {
-      this.getHorseData();
-      this.userService.getUserByID(this.Uid).subscribe((result) => {
-        this.user = result as UserData;
-      });
-        console.log('uid', this.authService.getUId())
-    }
+  ngOnInit(): void {
+    this.getHorseData();
+    this.userService.getUserByID(this.Uid).subscribe((result) => {
+      this.user = result as UserData;
+    });
+    // console.log('uid', this.authService.getUId())
+  }
 
-    getHorseData() {
-      this.horseService.getHorsesForSale().subscribe(
-        res => {
-          this.allHorseData = res as Array<HorseData>;
-          this.allHorseData.map(horse =>{
-            this.defaultHorse = this.allHorseData[0].name
-            this.horseSelectedId = this.allHorseData[0].id
-            this.createForm();
-            this.breedService.getBreedById(horse.breed).then( res =>{
-              horse.breed = res.data()['breed']}
-              )
-            }
+  getHorseData() {
+    this.horseService.getHorsesForSale().subscribe(
+      res => {
+        this.allHorseData = res as Array<HorseData>;
+        this.allHorseData.map(horse => {
+          this.defaultHorse = this.allHorseData[0].name
+          this.horseSelectedId = this.allHorseData[0].id
+          this.createForm();
+          this.breedService.getBreedById(horse.breed).then(res => {
+            horse.breed = res.data()['breed']
+          }
           )
         }
-      )
-    }
+        )
+      }
+    )
+  }
 
-    createForm() {
-      console.log(this.defaultHorse)
-      this.selectHorse = this.fb.group({
-        userHorse: [this.defaultHorse, Validators.required]
-      })
-    }
-  
-    onSelectHorse() {
-      this.authService.setHorseId(this.horseSelectedId)
-    }
+  createForm() {
+    // console.log(this.defaultHorse)
+    this.selectHorse = this.fb.group({
+      userHorse: [this.defaultHorse, Validators.required]
+    })
+  }
 
-    newId: string;  
-    userId: string;
-    idOfHorse: string;
-    saleOfHorse: boolean;
-    onHorseSelect(id, userId, toSell: boolean) {
-      this.idOfHorse = id;
-      this.newId = this.userId;
-      this.saleOfHorse = toSell;
-    }
-    
-    swapUser() {
+  onSelectHorse() {
+    this.authService.setHorseId(this.horseSelectedId)
+  }
+
+  newId: string;
+  userId: string;
+  idOfHorse: string;
+  saleOfHorse: boolean;
+  onHorseSelect(id, userId, toSell: boolean) {
+    this.idOfHorse = id;
+    this.newId = this.userId;
+    this.saleOfHorse = toSell;
+  }
+
+  swapUser() {
+    if (this.haveMoney == true) {
       const toSell = this.setSale(this.saleOfHorse)
       this.horseService.updateTheSale(this.idOfHorse, toSell)
       const userId = this.setUser(this.newId)
       this.horseService.updateTheUser(this.idOfHorse, userId)
-    }
-   
-    setSale(toSell: boolean): boolean {
-      if(toSell == false) {
-        return true
-      } 
-      return false 
-    }
+      return alert(this.success);
+    } alert(this.fail)
+  } // used to buy a horse and pay 750 Equus, changes the owner id and resets the sale flag
 
-    setUser(userId: string): string {
-      userId = this.authService.getUId()
-      return userId
+  setSale(toSell: boolean): boolean {
+    if (toSell == false) {
+      return true
     }
+    return false
+  }
+
+  setUser(userId: string): string {
+    userId = this.authService.getUId()
+    return userId
+  }
+
+  costCheck() {
+    if (this.user.equus < 750) {
+      return this.haveMoney = false;
+    }
+    else {
+      this.haveMoney = true;
+      this.userService.subtractEquus(this.Uid, this.user.equus, 750)
+      this.swapUser();
+    }
+  }
 }

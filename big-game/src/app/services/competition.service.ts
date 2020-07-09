@@ -18,10 +18,10 @@ export class CompetitionService {
 	compType: string;
 	Compete: Compete[];
 
-	constructor(public db: AngularFirestore, private breedService: BreedService) {}
+	constructor(public db: AngularFirestore, private breedService: BreedService) { }
 
 	getCompetitions() {
-		return this.db.collection('competitions', ref=> ref.where('over','==', false)).valueChanges();
+		return this.db.collection('competitions', ref => ref.where('over', '==', false)).valueChanges();
 	}
 
 	createCompetition(compName: string, breed: string, compType: string) {

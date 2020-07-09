@@ -4,6 +4,8 @@ import { HorseData } from '../horse-data';
 import { AuthService } from '../services/auth.service';
 import { BreedService } from '../services/breed.service';
 import { ColorService } from '../services/color.service';
+import { UserData } from '../user-data';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-black-market-page',
@@ -12,18 +14,28 @@ import { ColorService } from '../services/color.service';
 })
 
 export class BlackMarketPageComponent implements OnInit {
-  Name: string ;
+  success = 'You have changed the horse gender';
+  fail = 'You do not have enough Passes';
+  studly = ' You have changed the stallion into a stud!!!'
+  Name: string;
   allHorses: HorseData[];
-  selectedHorse:string;
+  selectedHorse: string;
   gender: string;
+  Uid: string = this.authservice.getUId();
+  user: any;
+  userInfo: UserData;
+  allMales: HorseData[];
 
   constructor(private horseService: HorseDataService,
     private authservice: AuthService,
+    private userService: UserDataService,
     private breedService: BreedService,
-    private colorService: ColorService) {}
+    private colorService: ColorService) { }
 
   ngOnInit(): void {
-    this.getHorses() 
+    this.getHorses();
+    this.getUserData();
+    this.showStallions();
   }
 
   getHorses() {
@@ -36,23 +48,76 @@ export class BlackMarketPageComponent implements OnInit {
   idOfHorse: string;
   genderOfHorse: string;
   onHorseSelect(gender: string, id) {
-    console.log(gender);
     this.genderOfHorse = gender
     this.idOfHorse = id;
   }
 
-  horse:HorseData
-  swapGender(){
-    console.log(this.genderOfHorse);
-    const gender = this.defineGender(this.genderOfHorse)
-    console.log(gender);
-    this.horseService.updateHorseGender(this.idOfHorse, gender)
+  horse: HorseData
+  swapGender() {
+    if (this.haveMoney == true) {
+      const gender = this.defineGender(this.genderOfHorse)
+      this.horseService.updateHorseGender(this.idOfHorse, gender)
+      this.userService.subtractPasses(this.Uid, this.userInfo.passes, 95)
+      alert(this.success)
+    }
+    else {
+      alert(this.fail)
+    }
   }
 
   defineGender(gender: string): string {
-    if(gender === "mare") {
+    if (gender === "mare") {
       return "stallion"
-    } 
-    return "mare"  
+    }
+    return "mare"
+  }
+
+  haveMoney: boolean;
+  costCheck() {
+    if (this.userInfo.passes < 95) {
+      return this.haveMoney = false;
+    }
+    else {
+      this.haveMoney = true;
+    };
+  }
+
+  getUserData() {
+    this.userService.getUserByID(this.Uid).subscribe((res) => {
+      this.userInfo = res as UserData;
+    })
+  }
+
+  showStallions() {
+    this.horseService.getStallions().subscribe(
+      res => {
+        this.allMales = res as Array<HorseData>
+      });
+  }
+
+  idHorse: string;
+  studStatusOfHorse: boolean;
+  horseSelect(stud: boolean, id) {
+    this.studStatusOfHorse = stud
+    this.idHorse = id;
+  }
+
+  swapStudStatus() {
+    if (this.haveMoney == true) {
+      const stud = this.defineStudStatus(this.studStatusOfHorse)
+      this.horseService.updateStudStatus(this.idHorse, stud)
+      this.userService.subtractPasses(this.Uid, this.userInfo.passes, 50)
+      alert(this.studly)
+    }
+    else {
+      alert(this.fail)
+    }
+  }
+
+  defineStudStatus(stud: boolean): boolean {
+    if (stud == false) {
+      return true
+    }
+    return false
   }
 }

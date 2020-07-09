@@ -1,42 +1,41 @@
 .footer-bkgrd {
-    border-style: none;
-    margin: 5px 25px 5px 25px;
-    border-radius: 5px;
+  border-style: none;
+  margin: 5px 25px 5px 25px;
+  border-radius: 5px;
 }
 
 .list .footer-font {
-    color: white;
+  color: white;
 }
 
 div a {
-    padding: 0;
-    text-decoration: none;
+  padding: 0;
+  text-decoration: none;
 }
 
 .spc-right {
-    /* Space between link icons */
-    margin: 0 25px 0 0;
+  /* Space between link icons */
+  margin: 0 25px 0 0;
 }
 
 .icon-size {
-    display: flex;
-    justify-content: center;
-    font-size: x-large;
-    color: white;
-    background-color: transparent;
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+  color: white;
+  background-color: transparent;
 }
 
 .display {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .display-vert {
-    display: inline-block;
-    justify-content: center;
+  display: inline-block;
+  justify-content: center;
 }
 
 .centered {
-    align-content: center;
+  align-content: center;
 }
-

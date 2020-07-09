@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './store-page.component.html',
   styleUrls: ['./store-page.component.css']
 })
+
 export class StorePageComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
   }
- 
 }

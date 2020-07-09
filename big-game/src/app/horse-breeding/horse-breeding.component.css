@@ -1,0 +1,121 @@
+.card-light-green {
+  background-color: #f0f0b2;
+  color: #663300;
+  border-style: solid 2px #663300;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.no-top-margin {
+  margin-top: 0px;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+.display {
+  display: flex;
+  margin-top: 5px;
+}
+
+.pad-left {
+  margin-left: 1rem;
+}
+
+.h6 {
+  padding: 4px 0 4px 5px;
+  color: maroon;
+  width: 120px;
+}
+
+.label {
+  margin-top: -6px;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+.centered {
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.move-left1 {
+  margin-left: -18px;
+  width: 140px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.sm-card {
+  background-color: #dcdb81;
+  border-style: solid 2px olive;
+}
+
+.sm-text {
+  font-size: smaller;
+}
+
+.image {
+  margin-left: 67px;
+}
+
+td {
+  width: 130px;
+  padding-left: 5px;
+  height: 40px;
+  padding-top: 5px;
+}
+
+.row-head {
+  background-color: #dcdb81;
+  border: 2px solid rgb(192, 189, 113);
+}
+
+.table-left {
+  margin-left: 40px;
+}
+
+.btn-shops-lrg {
+  width: 130px;
+}
+
+.mare-img-size {
+  margin-left: 150px;
+  width: 75%;
+  margin-top: -5rem;
+}
+
+@media (min-width: 578px) and (max-width: 767.98px) {
+  td {
+    width: 50px;
+    height: 60px;
+  }
+
+  .col-md-10 {
+    max-width: 480px;
+    margin-left: 20px;
+  }
+}
+
+/** Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  td {
+    width: 90px;
+    height: auto;
+  }
+}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  td {
+    width: 90px;
+    height: auto;
+  }
+}

@@ -5,7 +5,7 @@
             <app-nav-bar></app-nav-bar>
             <br><br>
             <app-play-bar></app-play-bar>
-            <br>  
+            <br>
         </div>
     </div>
     <div class="folder">
@@ -15,154 +15,244 @@
             </div>
             <div class="col-sm-3 text-pos">
                 <a class="b-st color-tx-green"> Trade </a>
-                <a class="color-tx-maroon "> 
+                <a class="color-tx-maroon ">
                     <i class="angle double right icon"></i>Tack & Saddle Market
                 </a>
             </div>
-            <div class="col-sm-3 "><img class="st-img" src="./assets/images/black-store/marche-noir.png"></div>
-            <div class="col-sm-4 ">    
+            <div class="col-sm-3 ">
+                <img class="st-img marche-img" src="./assets/images/black-store/marche-noir.png">
             </div>
         </div>
         <div class="row second-row">
             <div class="col-md-2"></div>
-            <h2 class="pad-left color-tx-maroon ">Tack & Saddle Market</h2><img class="st-img" src="\assets\images\tack-page\horse-tack.PNG">
+            <h2 class="pad-left color-tx-maroon titel-position">Tack & Saddle Market</h2>
         </div>
         <div class="row">
-            <div class="col-md-3">
-            </div>
         </div>
         <div class="row">
             <div class="pad-left col-md-7">
-                <p class="b-st  color-tx-green"> Canada's hottest tack shop for the competitive equestrian, select performance horse & rider products through our online market. We also offer personal, professional, and exceptional customer service. Just contact us with any questions - we're here to meet all your needs. </p>
+                <p class="  color-tx-green description-position">
+                    Canada's hottest tack shop for the competitive equestrian,
+                    select performance horse & rider products through our online market.
+                    We also offer personal, professional, and exceptional customer service.
+                    Just contact us with any questions - we're here to meet all your needs.
+                </p>
             </div>
         </div>
-        <div>
-            <div class="col-md-10 background-card">
-                <a class="bl-st-head"> SADDLE SELECTION FOR ALL YOUR NEEDS--- </a>
-                <a class=""> Please select your riding style </a>
-                <div class="row">
-                    <div class="col-md-5 mycard-light-green">
-                        <div >
-                            <div class="row ">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-9">
-                                    <div class="">
-                                        <li ngbDropdown >
-                                            <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
-                                                <h5 class="box-head">Italian tack</h5>
-                                                <p class="">Best quality, excellent fit.</p>
-                                            </a>
-                                            <div ngbDropdownMenu class="drop-box" id="background">
-                                                <div class="popup color-beige color-tx-green">
-                                                    <div>
-                                                        <h3>Italian Tack</h3><img class="st-img" src="\assets\images\tack-page\black-saddle-resize.png">
-                                                    </div>
-                                                    <form>
-                                                        <div *ngFor="let horse of allHorses">
-                                                            <label >
-                                                                <input type="radio"  [id]="horse.id" name="horse"
-                                                                    [value]="horse.id"/>
-                                                                <span class="checkmark radio-border"></span>
-                                                            </label>
+        <div class="inline-block">
+            <div>
+                <div class="col-md-10 background-card description-sm">
+                    <a class="bl-st-head description-sm"> SADDLE SELECTION FOR ALL YOUR NEEDS--- </a>
+                    <a> Please select your riding style </a>
+                    <div class="row row-container">
+                        <div class="col-md-5 mycard-light-green">
+                            <div>
+                                <div class="row ">
+                                    <div class="col-sm-9">
+                                        <div>
+                                            <li ngbDropdown>
+                                                <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                                    <h5 class="box-head">Italian tack</h5>
+                                                    <p>Best quality, excellent fit.</p>
+                                                </a>
+                                                <div ngbDropdownMenu class="drop-box" id="background">
+                                                    <div class="popup italian-pop color-beige color-tx-green">
+                                                        <h1>Italian Tack</h1>
+                                                        <div class="app">
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\ItalianSaddle.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'eHf5SZrdKVxjufzZ5zde'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\BitlessBridal.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'AH1oqmCPl0hFD2fX3pKs'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\headcap.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'LTehD87ACOkmZTE3u7WI'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\ItalianHeadCover.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'jRvKoeXlWtrQOo0cn84B'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\Reins.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == '846kMecLmAV8qu0Pbv5K'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                             <button class="btn-shops btn-shops-lrg"></button>
-                                                        </div>
-                                                    </form> 
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div>
-                                    <h5 class="b-st box-head"></h5>
-                                    <p class=""></p>
-                                </div>
-                                <div class="">
-                                    <li ngbDropdown >
-                                        <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
-                                            <h5 class="box-head">Western tack</h5>
-                                            <p class="">For riding the trails... </p>
-                                        </a>
-                                        <div ngbDropdownMenu class="drop-box" id="background">
-                                            <div class="popup color-beige color-tx-green">
-                                                <div>
-                                                    <h3>Western tack</h3><img class="st-img" src="\assets\images\tack-page\brown-saddle-resize.png">
-                                                </div>
-                                                <form>
-                                                    <div *ngFor="let horse of allHorses">
-                                                        <label >
-                                                            <input type="radio"  [id]="horse.id" name="horse"
-                                                                [value]="horse.id"/>
-                                                            <span class="checkmark radio-border"></span>
-                                                        </label>
+                                                        <form>
+                                                            <div>
+                                                                <button class="btn-shops btn-shops-lrg">
+                                                                    <i class="shopping cart icon"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                    <div>
-                                                         <button class="btn-shops btn-shops-lrg"></button>
-                                                    </div>
-                                                </form> 
-                                            </div>
+                                                </div>
+                                            </li>
                                         </div>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5 mycard-light-green">
-                        <div>
-                            <div class="row ">
-                                <div class="col-sm-3">
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="">
-                                        <li ngbDropdown >
-                                            <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
-                                                <h5 class="box-head">Fox-hunt tack</h5>
-                                                <p class="">When riding for thrills and adventure.</p>
-                                            </a>
-                                            <div ngbDropdownMenu class="drop-box" id="background">
-                                                <div class="popup color-beige color-tx-green">
-                                                    <div>
-                                                        <h3>Fox-hunt tack</h3><img class="st-img" src="\assets\images\tack-page\dark-brown-saddle-resize.png">
-                                                    </div>
-                                                    <form>
-                                                        <div *ngFor="let horse of allHorses">
-                                                            <label >
-                                                                <input type="radio"  [id]="horse.id" name="horse"
-                                                                    [value]="horse.id"/>
-                                                                <span class="checkmark radio-border"></span>
-                                                            </label>
-                                                        </div>
-                                                        <div>
-                                                             <button class="btn-shops btn-shops-lrg"></button>
-                                                        </div>
-                                                    </form> 
-                                                </div>
-                                            </div>
-                                        </li>
+                                        <h5 class="b-st box-head"></h5>
+                                        <p></p>
                                     </div>
-                                    <div class="">
-                                        <li ngbDropdown >
+                                    <div class="col-sm-9">
+                                        <li ngbDropdown>
                                             <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
-                                                <h5 class="box-head">Competition tack</h5>
-                                                <p class="">When winning is everything!</p>
+                                                <h5 class="box-head">Western tack</h5>
+                                                <p>For riding the trails... </p>
                                             </a>
-                                            <div ngbDropdownMenu class="drop-box" id="background">
-                                                <div class="popup color-beige color-tx-green">
+                                            <div ngbDropdownMenu class="drop-box " id="background">
+                                                <div class="popup western-pop color-beige color-tx-green">
+                                                    <h1>Western tack</h1>
                                                     <div>
-                                                        <h3>Competition tack</h3><img class="st-img" src="\assets\images\tack-page\SADDLE_Cadence-Revised-Oct-24-2017-resize.png">
+                                                        <app-tack-data [list]=saddleList></app-tack-data>
                                                     </div>
                                                     <form>
-                                                        <div *ngFor="let horse of allHorses">
-                                                            <label >
-                                                                <input type="radio"  [id]="" name=""
-                                                                    [value]=""/>
-                                                                <span class="checkmark radio-border"></span>
-                                                            </label>
-                                                        </div>
                                                         <div>
-                                                             <button class="btn-shops btn-shops-lrg"></button>
+                                                            <button class="btn-shops btn-shops-lrg">
+                                                                <i class="shopping cart icon"></i>
+                                                            </button>
                                                         </div>
-                                                    </form> 
+                                                    </form>
                                                 </div>
                                             </div>
                                         </li>
@@ -170,31 +260,405 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5 mycard-light-green">
-                        <div>
-                            <div class="row ">
-                                <div class="col-sm-3">
+                        <div class="col-md-5 mycard-light-green box-left">
+                            <div>
+                                <div class="row ">
+                                    <div class="col-sm-9">
+                                        <div>
+                                            <li ngbDropdown>
+                                                <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                                    <h5 class="box-head">Fox-hunt tack</h5>
+                                                    <p>When riding for thrills and adventure.</p>
+                                                </a>
+                                                <div ngbDropdownMenu class="drop-box" id="background">
+                                                    <div class="popup fox-pop color-beige color-tx-green">
+                                                        <h1>Fox-hunt</h1>
+                                                        <div class="app">
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\black-saddle-resize.png">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == '2Kuxesfc2ErrbXOhjhta'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\EnglishBridal.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'BC1vPogDuCy1fvG6iMWb'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\EnglishPad.jpg">
+                                                                <i class="up-arrow caret up icon "></i> <br> <br>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == '0Cd0Dm4MBh64M53n0Aju'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\mini-bridle-and-reins-english.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'LTehD87ACOkmZTE3u7WI'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\UnicornBridal.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'VMTJY09m2XSnQtZG7JX4'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                        </div>
+                                                        <form>
+                                                            <div>
+
+                                                                <button class="btn-shops btn-shops-lrg">
+                                                                    <i class="shopping cart icon"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </div>
+                                        <div>
+                                            <li ngbDropdown>
+                                                <a href (click)="(false)" class="bolt-link" ngbDropdownToggle>
+                                                    <h5 class="box-head">Competition tack</h5>
+                                                    <p>When winning is everything!</p>
+                                                </a>
+                                                <div ngbDropdownMenu class="drop-box" id="background">
+                                                    <div class="popup competition-pop color-beige color-tx-green">
+                                                        <h1>Competition tack</h1>
+                                                        <div class="app">
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\SADDLE_Cadence-Revised-Oct-24-2017-resize.png">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'TcO1s408dUuqYU24QUKN'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\CompetitionBridal.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == '5PFZff2lgPLrpowMBiNz'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\AnkleBoots.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == '6VeMR3ghIVgtcMumw48K'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\back-on-track-royal-quick-wraps-black.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == 'F4sWsbqGpz6ZUnt14YK5'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                            <div>
+                                                                <img class="card st-img box-img"
+                                                                    src="\assets\images\tack-page\polo_wraps.jpg">
+                                                                <i class="up-arrow caret up icon "></i>
+                                                                <div *ngIf="saddleList?.length > 0;else noAllEquipment">
+                                                                    <ul *ngFor="let equipment of saddleList">
+                                                                        <li class="equipment-box"
+                                                                            *ngIf="equipment.saddleId == '8noJaYccD3fwDXAO4giL'">
+                                                                            <p class="equipment-text">
+                                                                                <strong>{{equipment.name}}</strong></p>
+                                                                            <p class="equipment-text">Color:
+                                                                                {{equipment.color}}</p>
+                                                                            <p class="equipment-text">Dressage:+
+                                                                                {{equipment.dressage_}}</p>
+                                                                            <p class="equipment-text">Gallop:+
+                                                                                {{equipment.gallop_}}</p>
+                                                                            <p class="equipment-text">Speed:+
+                                                                                {{equipment.speed_}}</p>
+                                                                            <p class="equipment-text"> Stamina:+
+                                                                                {{equipment.stamina_}} </p>
+                                                                            <p class="equipment-text"> Trot:+
+                                                                                {{equipment.trot_}} </p>
+                                                                            <p class="equipment-text">Jumping:+
+                                                                                {{equipment.jumping_}}</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <ng-template #noAllEquipment>
+                                                                    <hr>
+                                                                    <h5>There is no list to display</h5>
+                                                                </ng-template>
+                                                            </div>
+                                                        </div>
+                                                        <form>
+                                                            <div>
+                                                                <button class="btn-shops btn-shops-lrg">
+                                                                    <i class="shopping cart icon"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-sm-9"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5 mycard-light-green">
-                        <div>
-                            <div class="row ">
-                                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-md-5 mycard-light-green">
+                            <div>
+                                <div class="row ">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-9"></div>
                                 </div>
-                                <div class="col-sm-9">
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5 mycard-light-green">
+                            <div>
+                                <div class="row ">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-9">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div><img class="st-img horse-img" src="\assets\images\tack-page\horse-tack.PNG"></div>
         </div>
     </div>
     <app-footer></app-footer>

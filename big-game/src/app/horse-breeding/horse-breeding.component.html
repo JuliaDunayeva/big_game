@@ -1,0 +1,80 @@
+<div class="container">
+    <div>
+        <app-mini-bar></app-mini-bar>
+        <app-nav-bar></app-nav-bar>
+        <br><br>
+        <app-play-bar></app-play-bar>
+        <br>
+    </div>
+    <div class="folder">
+        <div class="row ">
+            <div class="col-md-7 display pad-left card-title color-tx-maroon no-bottom-margin">
+                <div class="color-tx-green ">
+                    <i class="home icon"></i>
+                    <a class=""> Breeding Farm &nbsp;</a>
+                    <i class="angle double right icon"> </i>
+                </div>
+                <a class=""> Horse List &nbsp;</a>
+                <i class="angle double right icon "> </i>
+                <a class=""> Select a horse</a>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Title & Description -->
+            <div class="col-md-6 pad-left color-tx-maroon">
+                <hr class="hrtop">
+                <br>
+                <h3 class="no-top-margin display card-title">
+                    List of horses for {{mareData.name}} &nbsp;
+                </h3>
+                <div class="color-tx-green no-top-margin">
+                    <p>Select one of the horse for the Breeding. </p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img class=" mare-img-size" src="{{ imagePath }} " />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10  card-light-green ">
+                <form [formGroup]="">
+                    <div *ngIf="allHorseData?.length > 0; else noItems">
+                        <table class="">
+                            <tr class="row row-head">
+                                <td>Horse Name</td>
+                                <td>Breed </td>
+                                <td>Stamina</td>
+                                <td>Energy</td>
+                                <td>Morale</td>
+                                <td>Skill</td>
+                                <td></td>
+                            </tr>
+                            <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                                <tr class="row">
+                                    <td>{{ horse.name }}</td>
+                                    <td>{{ horse.breed }}</td>
+                                    <td>{{horse.stamina}}</td>
+                                    <td>{{horse.energy}}</td>
+                                    <td>{{horse.morale}}</td>
+                                    <td>{{horse.skill}}</td>
+                                    <td>
+                                        <button class="btn-shops btn-shops-lrg">
+                                            Breed for 750e
+                                        </button>
+                                    </td>
+                                </tr>
+                            </label>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <br><br>
+    <app-footer></app-footer>
+</div>
+<ng-template #noItems>
+    <h5>No horse is available now</h5>
+</ng-template>

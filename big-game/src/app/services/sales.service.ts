@@ -9,17 +9,17 @@ import { Sale } from '../sale';
 export class SalesService {
 
   constructor(public db: AngularFirestore,
-    private authService:AuthService) { }
+    private authService: AuthService) { }
 
   horsesForSale() {
     return this.db.collection('sales').valueChanges()
   }
 
   horseSaleList() {
-      return this.db.collection('sales').snapshotChanges()
+    return this.db.collection('sales').snapshotChanges()
   }
 
-  sellHorse (value) {
+  sellHorse(value) {
     let today = new Date();
     return this.db.collection('sales').add({
       horseId: this.authService.getHorseId(),
@@ -30,7 +30,7 @@ export class SalesService {
     })
   }
 
-  buyHorse (value) {
+  buyHorse(value) {
     let today = new Date();
     return this.db.collection('sales').add({
       buyerId: this.authService.getUId(),

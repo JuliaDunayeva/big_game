@@ -23,7 +23,6 @@ a {
 
 .ui.menu {
   display: flex;
-  margin: 1rem 0;
   font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: none;
   font-weight: 400;
@@ -31,6 +30,7 @@ a {
   box-shadow: none;
   border-radius: 0.28571429rem;
   min-height: 2.85714286em;
+  background-color: #2685ba;
 }
 
 @media (min-width: 578px) and (max-width: 767.98px) {

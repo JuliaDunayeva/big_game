@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PlayBarMiniComponent implements OnInit {
+  id: any;
+  horseselected: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem("selected-horse") == "true") {
+      this.horseselected = true;
+    } else {
+      this.horseselected = false;
+    }
+    this.id = sessionStorage.getItem('horseId');
   }
 }

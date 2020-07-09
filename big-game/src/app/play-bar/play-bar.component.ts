@@ -8,12 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PlayBarComponent implements OnInit {
-  
-  id:any;
+  id: any;
+  horseselected: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.id=sessionStorage.getItem('horseId');
+    if (sessionStorage.getItem("selected-horse") == "true") {
+      this.horseselected = true;
+      /*document.getElementById("selected-horse").className = "";
+      document.getElementById("selected-horse").setAttribute("routerLink", "/horse-page");*/
+    } else {
+      this.horseselected = false;
+      /*document.getElementById("selected-horse").className = "disabled";
+      document.getElementById("selected-horse").setAttribute("routerLink", "");*/
+    }
+    this.id = sessionStorage.getItem('horseId');
   }
 }

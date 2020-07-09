@@ -7,7 +7,8 @@
         <br>
     </div>
     <div class="folder">
-        <div class="row "> <!-- Path Information & Picture -->
+        <div class="row ">
+            <!-- Path Information & Picture -->
             <div class="col-md-7 display pad-left card-title color-tx-maroon no-bottom-margin">
                 <div class="color-tx-green ">
                     <i class="home icon"></i>
@@ -19,12 +20,13 @@
                 <a class=""> Select a horse</a>
             </div>
         </div>
-        <div class="row"> <!-- Title & Description -->
+        <div class="row">
+            <!-- Title & Description -->
             <div class="col-md-6 pad-left color-tx-maroon">
                 <hr class="hrtop">
                 <br>
                 <h3 class="no-top-margin display card-title">List of horses for &nbsp;
-                    <span class="color-tx-green"> {{ user.userName }}</span></h3>
+                    <span class="color-tx-green"> {{ user?.userName }}</span></h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Select one of your horses from the farm to play with or to put for sale. </p>
                     <br><br>
@@ -32,25 +34,31 @@
             </div>
         </div> <!-- Title End -->
         <div class="row pad-left display">
-            <Div class="col-5 card-light-green" >
+            <Div class="col-5 card-light-green">
                 <br>
                 <form [formGroup]="selectHorse">
                     <div *ngIf="allHorseData?.length > 0; else noItems">
-                        <label class="display-vert pad-left" *ngFor="let horse of allHorseData" >
-                            <input type="radio" formControlName="userHorse" name="userHorse" [value]="horse.name" [id]="horse.id" 
-                            (click)="selectedHorse($event)" (click)="onHorseSelect(horse.id, horse.toSell)">
-                            &nbsp; &nbsp;<strong>{{ horse.name }} </strong><span class="color-tx-green"> ({{ horse.breed }})</span>
+                        <label class="display-vert pad-left" *ngFor="let horse of allHorseData">
+                            <input type="radio" formControlName="userHorse" name="userHorse" [value]="horse.name"
+                                [id]="horse.id" (click)="selectedHorse($event)"
+                                (click)="onHorseSelect(horse.id, horse.toSell)"
+                                (click)="onhorseRetire(horse.id,horse.dob)">
+                            &nbsp; &nbsp;<strong>{{ horse.name }} </strong><span class="color-tx-green">
+                                ({{ horse.breed }})</span>
+                            <span class="color-tx-green sm-text">
+                                ({{horse.dob.seconds * (1000.0)| date: 'yyyy-MM-dd'}})</span>
                         </label>
                     </div>
                     <div class="display centered">
-                        <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()"
-                        [routerLink]="['/horse-page']" routerLinkActive="router-link-active" >
-                        Play</button>
+                        <button class="btn-shops btn-shops-lrg" (click)="onSelectHorse()" [routerLink]="['/horse-page']"
+                            routerLinkActive="router-link-active">
+                            Play</button>
                         <div class="col-1"></div>
-                        <button class="btn-shops btn-shops-lrg" (click)="swapSale()"
-                        [routerLink]="['/horse-sale']" routerLinkActive="router-link-active"
-                         >
-                        Sell 500e</button>
+                        <button class="btn-shops btn-shops-lrg" (click)="swapSale()" [routerLink]="['/horse-sale']"
+                            routerLinkActive="router-link-active">
+                            Sell 500e</button>
+                        <div class="col-1"></div>
+                        <button class="btn-shops btn-shops-lrg" (click)="retireHorse()">Retire</button>
                     </div>
                 </form>
                 <br>
@@ -59,38 +67,40 @@
             <Div class="col-5 card-light-green">
                 <br>
                 <h5 class="card-title color-tx-green">Create a new horse for &nbsp;
-                    <span class="color-tx-maroon"> {{ user.userName }}</span>
+                    <span class="color-tx-maroon"> {{ user?.userName }}</span>
                 </h5>
-                <p>You have {{user.equus}} available to spend.</p>
+                <p>You have {{user?.equus}} available to spend.</p>
                 <form class="">
                     <div class="display pad-left">
-                        <label class="h6" for="name"  required>Horse Name</label>
-                        <input class="form-control pad-left"  type="text" #name />
+                        <label class="h6" for="name" required>Horse Name</label>
+                        <input class="form-control pad-left" type="text" #name />
                     </div>
                     <div class="display pad-left">
                         <label class="h6" for="breed">Breed</label>
                         <select class="h6 move-left1 sm-card" #breed>
-                            <option  *ngFor="let breed of allBreeds" [value]="breed.id" [id]="breed.id">{{breed.breed}}</option>
-                        </select>               
+                            <option *ngFor="let breed of allBreeds" [value]="breed.id" [id]="breed.id">{{breed.breed}}
+                            </option>
+                        </select>
                     </div>
                     <div class="display pad-left">
                         <label class="h6" for="breed">Color</label>
                         <select class="h6 move-left1 sm-card" #color>
-                            <option  *ngFor="let color of allColors" [value]="color.id" name="color.id">{{color.color}}</option>
-                        </select>               
+                            <option *ngFor="let color of allColors" [value]="color.id" name="color.id">{{color.color}}
+                            </option>
+                        </select>
                     </div>
                     <div class="display pad-left">
                         <label class="h6" for="breed">Skills</label>
                         <select class="h6 move-left1 sm-card" #skill>
-                            <option  *ngFor="let skill of skills" [ngValue]="skill">{{skill}}</option>
-                        </select>               
+                            <option *ngFor="let skill of skills" [ngValue]="skill">{{skill}}</option>
+                        </select>
                     </div>
-                    <div class="display centered" >
+                    <div class="display centered">
                         <br>
-                        <button class="btn-shops btn-shops-lrg pad-left" 
-                        (click)="createRandomHorse(name.value, breed.value, color.value, skill.value)">
-                        <i class="shopping cart icon "></i>
-                         1000e</button>
+                        <button class="btn-shops btn-shops-lrg pad-left" (click)="costCheck()"
+                            (click)="createRandomHorse(name.value, breed.value, color.value, skill.value)">
+                            <i class="shopping cart icon "></i>
+                            1000e</button>
                     </div>
                 </form>
                 <br>

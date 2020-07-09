@@ -10,11 +10,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class MiniBarComponent implements OnInit {
+
   Uid: string = this.authService.getUId();
   user: any;
-  
+  passes: number;
+  equus: number;
+  addingPasses: number = 2;
+  addingEquus: number = 10;
+
   constructor(private authService: AuthService,
-        private userDataService: UserDataService) { }
+    private userDataService: UserDataService) { }
 
   ngOnInit(): void {
     this.userDataService.getUserByID(this.Uid).subscribe((result) => {
@@ -22,8 +27,16 @@ export class MiniBarComponent implements OnInit {
     });
     return this.user;
   }
-  
-  Logout(){
+
+  Logout() {
     sessionStorage.clear();
+  }
+
+  morePasses() {
+    this.userDataService.addPasses(this.Uid, this.user.passes, this.addingPasses)
+  }
+
+  moreEquus() {
+    this.userDataService.addEquus(this.Uid, this.user.equus, this.addingEquus)
   }
 }
