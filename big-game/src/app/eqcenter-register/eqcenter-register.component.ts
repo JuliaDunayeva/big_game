@@ -60,7 +60,7 @@ export class EqcenterRegisterComponent implements OnInit {
     //console.log(something);
     //alert((<HTMLInputElement>event.target).id);
     //alert((<HTMLInputElement>event.target).value);
-    this.horse.eqCenter=(<HTMLInputElement>event.target).id;
+    this.horse.eqCenter=(<HTMLInputElement>event.target).id.trim();
     //alert(this.horse.eqCenter);
     this.horseDataService.setHorseEQCenter(this.horse,(<HTMLInputElement>event.target).value);
     //console.log('clicked');
