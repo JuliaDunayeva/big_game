@@ -71,6 +71,16 @@ export class HorseDataService {
 				})
 			);
 	}// end of getHorsesForSale function
+
+	setHorseEQCenter(horse: HorseData,days: string){
+		let id = horse.id;
+		//this.authService.getHorseId();
+		let cityRef = this.db.collection('/horse_data').doc(id);
+		let setWithOptions = cityRef.set({
+			"eqCenter": horse.eqCenter,
+			"days": days
+		}, { merge: true });
+	}
 	/* write data back to database */
 	setHorseMorale(horse: HorseData) {
 		let id = this.authService.getHorseId();

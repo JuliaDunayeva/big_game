@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HorseData } from '../horse-data';
 import { HorseDataService } from '../services/horse-data.service';
 import { AuthService } from '../services/auth.service';
-import { CompetitionService } from 'src/app/services/competition.service';
 import { EqCenterService } from 'src/app/services/eq-center-service.service';
 import { EqCenters } from '../eq-centers';
 
@@ -25,7 +24,11 @@ export class EqcenterRegisterComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.showEqCenters();
+    this.horseDataService.getHorseById(this.authService.getHorseId()).subscribe(res => {
+
+      this.horse = res as HorseData;
+    });this.showEqCenters();
+   
     this.createForm();
   }
 
@@ -37,15 +40,13 @@ export class EqcenterRegisterComponent implements OnInit {
 
   showEqCenters() {
 		this.eqcenterService.geteqCenters().subscribe(res => {
-			this.alleqCenters = res as unknown as Array<EqCenters>;
-			//console.log('comps ', this.allCompetitions)
+      this.alleqCenters = res as unknown as Array<EqCenters>;
 		})
   }
   
   selectEQ(event: any){
-    //let something = (<HTMLInputElement>event.target).id;
-    //console.log(something);
-    console.log('clicked');
+    this.horse.eqCenter=(<HTMLInputElement>event.target).id.trim();
+    this.horseDataService.setHorseEQCenter(this.horse,(<HTMLInputElement>event.target).value);
   }
 
 }
