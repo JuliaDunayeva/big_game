@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10  card-light-green scrolling-wrapper scroll-height">
-                <form  [formGroup]="">
+                <form [formGroup]="">
                     <div class="display pad-left">
                         <label class="h6" for="name" required>Horse Baby Name</label>
                         <input class="form-control pad-left" type="text" #name />
@@ -64,8 +64,9 @@
                                     <td>{{horse.morale}}</td>
                                     <td>{{horse.skill}}</td>
                                     <td>
-                                        <button (click)="costCheck()" (click)= "createBaby(name.value)" 
-                                            (click)="selectedStallion(horse.userId, horse.breed)" class="btn-shops btn-shops-lrg">
+                                        <button (click)="costCheck()" (click)="createBaby(name.value)"
+                                            (click)="selectedStallion(horse.userId, horse.breed)"
+                                            class="btn-shops btn-shops-lrg">
                                             Breed for 750e
                                         </button>
                                     </td>
