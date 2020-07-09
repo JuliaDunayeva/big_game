@@ -2,6 +2,28 @@
   margin-top: 50px;
 }
 
+
+.btn-shops {
+  width: 94px;
+}
+
+.margin {
+  margin-bottom: 5px;
+}
+
+.scrolling-wrapper {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  white-space: wrap;
+  display: grid;
+  text-align: left;
+}
+
+.scroll-height[_ngcontent-rou-c121] {
+  max-height: 185px;
+  width: 420px;
+}
+
 .sto-hed {
   margin: 5px 0 0 15px;
 }
