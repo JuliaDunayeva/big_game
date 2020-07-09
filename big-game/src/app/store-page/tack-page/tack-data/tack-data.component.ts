@@ -4,7 +4,6 @@ import { AuthService } from '../../../services/auth.service';
 import { Equipment } from 'src/app/equipment';
 import { TackService } from 'src/app/services/tack.service';
 
-
 @Component({
   selector: 'app-tack-data',
   templateUrl: './tack-data.component.html',
@@ -17,7 +16,6 @@ export class TackDataComponent implements OnInit {
   userEquus: number;
   buyCost: number;
   horse_id: string = this.authService.getHorseId();
-
 
   constructor(private userService: UserDataService, 
               private authService: AuthService, 
@@ -49,6 +47,5 @@ export class TackDataComponent implements OnInit {
     } 
     // used to buy a new Tack and pay X Equus
   }
-
 
 }
