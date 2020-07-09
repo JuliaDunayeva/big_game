@@ -5,6 +5,7 @@ import { AngularFirestore} from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class TackService {
+  horse_id: string;
 
   constructor(private db: AngularFirestore
     ) { }
@@ -19,4 +20,8 @@ export class TackService {
       buy_date: today,
     })
   }
+  getTackByHorse(horse_id) {
+    return this.db.collection('horse_tack', ref => ref.where('horse_id', '==', horse_id)).snapshotChanges()
+  }
 }
+
