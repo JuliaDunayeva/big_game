@@ -36,4 +36,5 @@ export class HorseData {
 	age?: { year: number, month: number, day: number }
 	toSell: boolean;
 	stud: boolean;
+	eqCenter: string;
 }
