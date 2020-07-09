@@ -138,7 +138,7 @@
                 </div>
             </div>
         </div> <!-- Stats End -->
-        <div class="pad-left col-12"> <!-- Lower Competion table-->     
+        <div class="pad-left"> <!-- Lower Competion table-->     
             <div class=" ">
                 <div class="display"></div>
                 <h5 class="color-tx-maroon card-title"> All <i class="shopping cart icon "></i> Equipment</h5>
@@ -161,6 +161,7 @@
                                     <th class="card-title tl-col3">Stamina</th>
                                     <th class="card-title tl-col3">Trot</th>
                                     <th class="card-title tl-col3"> <img class="equus" src="./assets/images/game_pieces/equus.png"></th>
+                                    <th class="card-title "> Edit </th>
                                 </tr>
                                 <tr class="color-tx-green " *ngFor="let saddle of allEquipment; let i = index">
                                     <td ><input class="input-xsml" type="checkbox" #selectId (change)='onSelectItem(i)'></td>
@@ -177,6 +178,7 @@
                                     <td class="card-title tl-col3">{{saddle.stamina_}}</td>
                                     <td class="card-title tl-col3">{{saddle.trot_}}</td>
                                     <td class="tl-col3">{{saddle.cost}}</td>
+                                    <td class="card-title "><button class="btn-shops btn-shops-lrg pad-left"></button></td>
                                 </tr>
                             </table>
                         </div>
