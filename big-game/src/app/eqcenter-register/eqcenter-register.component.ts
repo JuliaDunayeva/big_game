@@ -25,10 +25,8 @@ export class EqcenterRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.horseDataService.getHorseById(this.authService.getHorseId()).subscribe(res => {
-
       this.horse = res as HorseData;
     });this.showEqCenters();
-   
     this.createForm();
   }
 
@@ -48,5 +46,4 @@ export class EqcenterRegisterComponent implements OnInit {
     this.horse.eqCenter=(<HTMLInputElement>event.target).id.trim();
     this.horseDataService.setHorseEQCenter(this.horse,(<HTMLInputElement>event.target).value);
   }
-
 }
