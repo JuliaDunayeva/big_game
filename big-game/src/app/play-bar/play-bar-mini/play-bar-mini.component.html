@@ -9,16 +9,13 @@
                     <a href (click)="(false)" class="nav-link" ngbDropdownToggle>
                         <i class="chess knight icon"></i>Breeding Farm</a>
                     <div ngbDropdownMenu>
-
                         <button ngbDropdownItem routerLink="/horse-list">
                                     <i class="chess knight icon"></i>Horse List</button>
-
                         <div class="dropdown-divider"></div>
                         <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="chess knight icon"></i> Horses</button>
                         <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/horse-page">
                                     <i class="chess knight icon"></i> Horses</button>
-
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Competition Results</button>
                     </div>
