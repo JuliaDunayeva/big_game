@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserData } from '../user-data';
@@ -9,7 +9,6 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserDataService {
-
   id: string = this.authService.getUId()
 
   constructor(public db: AngularFirestore,
@@ -80,4 +79,21 @@ export class UserDataService {
     })
   } // subtracts value from equus
 
+  updateName(id: string, username: string){
+   return this.db.collection('user_data').doc(id).update({
+     'userName': username
+   })
+  }
+  
+  updateEmail(id: string, email: string){
+    return this.db.collection('user_data').doc(id).update({
+      'email': email
+    })
+   }
+
+   updatePass(id: string, password: string){
+    return this.db.collection('user_data').doc(id).update({
+      'password': password
+    })
+   }
 }

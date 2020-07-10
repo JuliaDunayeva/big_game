@@ -29,6 +29,7 @@
                 </h3>
                 <div class="color-tx-green no-top-margin">
                     <p>Select one of the horse for the Breeding. </p>
+                    <br>
                 </div>
             </div>
             <div class="col-md-5">
@@ -37,8 +38,12 @@
         </div>
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-10  card-light-green ">
+            <div class="col-md-10  card-light-green scrolling-wrapper scroll-height">
                 <form [formGroup]="">
+                    <div class="display pad-left">
+                        <label class="h6" for="name" required>Horse Baby Name</label>
+                        <input class="form-control pad-left" type="text" #name />
+                    </div>
                     <div *ngIf="allHorseData?.length > 0; else noItems">
                         <table class="">
                             <tr class="row row-head">
@@ -59,7 +64,9 @@
                                     <td>{{horse.morale}}</td>
                                     <td>{{horse.skill}}</td>
                                     <td>
-                                        <button class="btn-shops btn-shops-lrg">
+                                        <button (click)="costCheck()" (click)="createBaby(name.value)"
+                                            (click)="selectedStallion(horse.userId, horse.breed)"
+                                            class="btn-shops btn-shops-lrg">
                                             Breed for 750e
                                         </button>
                                     </td>

@@ -22,14 +22,30 @@
       </div>
     </div>
     <div class="row">
-      <div class="sto-desc col-md-5">
+      <div class="sto-desc col-md-5 ">
         <p>In this store, you will find everything you need to take care of your horses and manage your Equestrian
           Center. </p>
-        <img src="assets\images\game_pieces\equus.png" alt="">
-        <h3>Sell Items</h3>
-        <a routerLink="/tack-page"><img class="left-side" src="\assets\images\store-page\store_left_side.png"
-            alt=""></a>
-        <button class="btn-shops btn-shops-sml"><i class="shopping cart icon "></i></button>
+        <div>
+          <button class="btn-shops btn-shops-lg bottom margin" routerLink="/tack-page"><i class="shopping cart icon "></i> Buy Tack</button>
+          <div class="block">
+            <h3>My Horse's Items</h3>
+            <form [formGroup]="selectTack" class="">
+              <div class="scrolling-wrapper scroll-height block" *ngIf="tackList?.length > 0; else noItems">
+                  <label class="display-vert pad-left" *ngFor="let tack of tackList">
+                      <input type="radio" formControlName="horseTack" name="horseTack" 
+                          (click)="selectItem(tack.tack_id, tack.cost)"> {{tack.saddle_id}} - {{tack.cost}}
+                  </label>
+              </div>
+              <div class="display centered">
+                  <button class="btn-shops" (click)="sellTackItem()">
+                    <img class="image" src="assets\images\game_pieces\equus.png">Sell Tack</button>
+              </div>
+            </form>
+            <ng-template #noItems>
+              <h5>No Items to display.</h5>
+            </ng-template>
+          </div>
+       </div>
       </div>
       <div class="col-md-1"></div>
       <div class=" col-md-5 black_market">

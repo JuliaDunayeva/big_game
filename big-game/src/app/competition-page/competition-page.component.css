@@ -141,83 +141,96 @@ p {
 }
 
 .no-bottom-margin {
-  margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .table-light-green {
-    width: auto;
-    margin-right: 2%;
-  }
-
-  .card-light-green {
-    width: fit-content;
-  }
-
-  .image {
-    display: none;
-  }
-
-  .hrtop {
-    margin-top: 5px;
-    width: 250%;
-  }
-
-  .display {
+.scrolling-wrapper {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: wrap;
     display: inline-block;
+    text-align: left;
   }
+  
+  .scroll-height {
+    max-height: 100px;
+    
+  }
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .table-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
+
+    .card-light-green {
+        width: fit-content;
+    }
+
+    .image {
+        display: none;
+    }
+
+    .hrtop {
+        margin-top: 5px;
+        width: 250%;
+    }
+
+    .display {
+        display: inline-block;
+    }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .table-light-green {
-    width: auto;
-    margin-right: 2%;
-  }
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .table-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
 
-  .card-light-green {
-    width: fit-content;
-  }
+    .card-light-green {
+        width: fit-content;
+    }
 
-  .image {
-    display: none;
-  }
+    .image {
+        display: none;
+    }
 
-  .hrtop {
-    margin-top: 5px;
-    width: 200%;
-  }
+    .hrtop {
+        margin-top: 5px;
+        width: 200%;
+    }
 
-  .display {
-    display: initial;
-    margin-top: 5px;
-  }
+    .display {
+        display: initial;
+        margin-top: 5px;
+    }
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .table-light-green {
-    width: auto;
-  }
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .table-light-green {
+        width: auto;
+    }
 
-  .card-light-green {
-    width: fit-content;
-  }
+    .card-light-green {
+        width: fit-content;
+    }
 
-  .hrtop {
-    margin-top: 5px;
-    width: 140%;
-  }
+    .hrtop {
+        margin-top:5px;
+        width: 140%;
+    }
 
-  .display {
-    display: initial;
-    margin-top: 5px;
-  }
+    .display {
+        display: initial;
+        margin-top: 5px;
+    }
 
-  .image {
-    display: none;
-  }
+    .image {
+        display: none;
+    }
 
-  .table-light-green {
-    width: auto;
-    margin-right: 2%;
-  }
+    .table-light-green {
+        width: auto;
+        margin-right: 2%;
+    }
 }

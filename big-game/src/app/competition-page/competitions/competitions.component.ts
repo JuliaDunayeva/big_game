@@ -25,7 +25,7 @@ export class CompetitionsComponent implements OnInit {
 	ngOnInit(): void {
 		this.getBreeds();
 		this.showCompetitions();
-		// console.log('competitions ', this.showCompetitions())
+		//console.log('competitions ', this.showCompetitions())
 	}
 
 	getBreeds() {
@@ -52,7 +52,7 @@ export class CompetitionsComponent implements OnInit {
 	showCompetitions() {
 		this.competitionService.getCompetitions().subscribe(res => {
 			this.allCompetitions = res as unknown as Array<Compete>;
-			// console.log('comps ', this.allCompetitions)
+			//console.log('comps ', this.allCompetitions)
 		})
 	}
 }

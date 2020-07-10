@@ -18,7 +18,7 @@
                                 <i class="chess knight icon"></i> Horse</button>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <button ngbDropdownItem class="disabled">Competition Results</button>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">Competition Results</button>
                     </div>
                 </li>
                 <li ngbDropdown class="nav-item">
@@ -34,9 +34,12 @@
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Workshops</button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/competition-page"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="trophy icon"></i> Competitions
-                            </button></a>
+                            </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/competition-page">
+                                <i class="trophy icon"></i> Competitions
+                            </button>
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Employees</button>
                     </div>
@@ -45,19 +48,25 @@
                     <a href (click)="(false)" class="nav-link" ngbDropdownToggle><i class="handshake outline icon"></i>
                         Trade</a>
                     <div ngbDropdownMenu>
-                        <a routerLink="/horse-sale"><button ngbDropdownItem>
+                        <button ngbDropdownItem routerLink="/horse-sale">
                                 <i class="dollar sign icon"></i> Horse Sale
-                            </button></a>
+                            </button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/store-page"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="shopping bag icon"></i> Store
-                            </button></a>
+                            </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/store-page">
+                                <i class="shopping bag icon"></i> Store
+                            </button>
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Item Exchange</button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/bmarket-page"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="user secret icon"></i> Black Market
-                            </button></a>
+                            </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/bmarket-page">
+                                <i class="user secret icon"></i> Black Market
+                            </button>
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Piggy Bank</button>
                     </div>
@@ -84,9 +93,12 @@
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Invite Players</button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/competitions"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="money bill alternate icon"></i> Creation Space
-                            </button></a>
+                            </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/competitions">
+                                <i class="money bill alternate icon"></i> Creation Space
+                            </button>
                     </div>
                 </li>
                 <li ngbDropdown class="nav-item">
@@ -97,9 +109,10 @@
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">General Ranking</button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/breeding"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="money bill alternate icon"></i> Breeding
-                            </button></a>
+                            </button>
+                        <button ngbDropdownItem class="disabled"> Breeding </button>
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Best Horses</button>
                         <div class="dropdown-divider"></div>
@@ -115,7 +128,12 @@
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Special Horses</button>
                         <div class="dropdown-divider"></div>
-                        <button ngbDropdownItem class="disabled">Collections</button>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
+                            <i class="money bill alternate icon"></i> Collections
+                        </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/equipment">
+                            <i class="money bill alternate icon"></i> Collections
+                        </button>
                     </div>
                 </li>
             </ul>

@@ -1,0 +1,64 @@
+table {
+    border: 1px black dashed;
+    text-align: center;
+}
+
+.scrolling-wrapper {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: wrap;
+    display: inline-block;
+    text-align: left;
+}
+
+.scroll-height {
+    max-height: 160px;
+    width: 950px;
+}
+
+.equus-img-size {
+    width: 30%;
+    height: 60%;
+}
+
+.comp-cell-width {
+    width: 200px;
+}
+
+.breed-cell-width {
+    width: 125px;
+}
+
+.compType-cell-width {
+    width: 150px;
+}
+
+.kitty-cell-width {
+    width: 125px;
+    text-align: center;
+}
+
+.difficult-cell-width {
+    width: 125px;
+    text-align: center;
+}
+
+.ranks-cell-width {
+    width: 125px;
+    text-align: center;
+}
+
+.energy-cell-width {
+    width: 125px;
+    text-align: center;
+}
+
+.equus {
+    width: 25%;
+}
+
+.pad-left {
+    /* common spacing to set left margin in folder */
+    margin-left: 1rem;
+    margin-top: 2 rem;
+}

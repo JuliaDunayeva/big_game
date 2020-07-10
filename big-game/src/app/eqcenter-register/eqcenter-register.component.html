@@ -1,0 +1,60 @@
+<div class="container">
+    <div>
+        <app-mini-bar></app-mini-bar>
+        <app-nav-bar></app-nav-bar>
+        <br><br>
+        <app-play-bar></app-play-bar>
+        <br>
+    </div>
+    <div class="folder">
+        <div class="col-md-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
+            <div class="color-tx-green ">
+                <i class="home icon"></i>
+                <a class=""> Equestrian Centre</a>
+                <i class="angle double right icon"> </i>
+                <a class="color-tx-maroon"> Register</a>
+            </div>
+            <h2>
+                <br>
+                <p class="color-tx-maroon">Board a horse</p>
+            </h2>
+            <p class="color-tx-green">The prestige and cleanliness of the centre that you choose has a significant impact on the wellness of your horse. Before you make a decision, feel free to visit each centre.</p>
+        </div>
+        <br>
+        <h3>
+            <p class="color-tx-maroon pad-left">Choose an equestrian centre</p>
+        </h3>
+        <br>
+        <table class="pad-left ">
+            <tr class="sm-card td-line ">
+                <th class="card-title comp-cell-width ">EQ Center</th>
+                <th class="card-title breed-cell-width ">1 Day <img class="equus-img-size" src="../../assets/images/game_pieces/equus.png" /></th>
+                <th class="card-title breed-cell-width ">6 Days <img class="equus-img-size" src="../../assets/images/game_pieces/equus.png" /></th>
+                <th class="card-title breed-cell-width ">12 Days<img class="equus-img-size" src="../../assets/images/game_pieces/equus.png" /></th>
+                <th class="card-title breed-cell-width ">24 Days<img class="equus-img-size" src="../../assets/images/game_pieces/equus.png" /></th>
+            </tr>
+        </table>
+        <form class="scrolling-wrapper scroll-height">
+            <div *ngIf="alleqCenters?.length> 0; else noItems">
+                <form [formGroup]="selectEQCenter">
+                    <table class="pad-left ">
+                        <tr *ngFor="let eqcenter of alleqCenters">
+                            <td class="comp-cell-width">{{eqcenter.eqName}}</td>
+                            <td><button [id]="eqcenter.id" [value]="'one_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.one_day}}</button></td>
+                            <td><button [id]="eqcenter.id" [value]="'six_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.six_day}}</button></td>
+                            <td><button [id]="eqcenter.id" [value]="'twelve_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.twelve_day}}</button></td>
+                            <td><button [id]="eqcenter.id" [value]="'twentyfour_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.twentyfour_day}}</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </form>
+        <ng-template #noItems>
+            <h5>There are no Equestrian Centres to list</h5>
+        </ng-template>
+    </div>
+    <div>
+        <br>
+        <app-footer></app-footer>
+    </div>
+</div>

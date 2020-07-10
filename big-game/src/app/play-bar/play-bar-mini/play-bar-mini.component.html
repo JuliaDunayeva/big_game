@@ -9,13 +9,13 @@
                     <a href (click)="(false)" class="nav-link" ngbDropdownToggle>
                         <i class="chess knight icon"></i>Breeding Farm</a>
                     <div ngbDropdownMenu>
-                        <a routerLink="/horse-list"><button ngbDropdownItem>
-                                <i class="chess knight icon"></i>Horse List</button>
-                        </a>
+                        <button ngbDropdownItem routerLink="/horse-list">
+                                    <i class="chess knight icon"></i>Horse List</button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/horse-page"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="chess knight icon"></i> Horses</button>
-                        </a>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/horse-page">
+                                    <i class="chess knight icon"></i> Horses</button>
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Competition Results</button>
                     </div>
@@ -33,9 +33,12 @@
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Workshops</button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/competition-page"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="trophy icon"></i> Competitions
-                            </button></a>
+                            </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/competition-page">
+                                <i class="trophy icon"></i> Competitions
+                            </button>
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Employees</button>
                     </div>
@@ -48,15 +51,21 @@
                                 <i class="dollar sign icon"></i> Horse Sale
                             </button></a>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/store-page"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="shopping bag icon"></i> Store
-                            </button></a>
+                            </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/store-page">
+                                <i class="shopping bag icon"></i> Store
+                            </button>
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Item Exchange</button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/bmarket-page"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="user secret icon"></i> Black Market
-                            </button></a>
+                            </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/bmarket-page">
+                                <i class="user secret icon"></i> Black Market
+                            </button>
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Piggy Bank</button>
                     </div>
@@ -83,9 +92,12 @@
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Invite Players</button>
                         <div class="dropdown-divider"></div>
-                        <a routerLink="/competitions"><button ngbDropdownItem>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">
                                 <i class="money bill alternate icon"></i> Creation Space
-                            </button></a>
+                            </button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/competitions">
+                                <i class="money bill alternate icon"></i> Creation Space
+                            </button>
                     </div>
                 </li>
                 <li ngbDropdown class="nav-item">
@@ -112,7 +124,8 @@
                         <div class="dropdown-divider"></div>
                         <button ngbDropdownItem class="disabled">Special Horses</button>
                         <div class="dropdown-divider"></div>
-                        <button ngbDropdownItem class="disabled">Collections</button>
+                        <button *ngIf="horseselected==false" ngbDropdownItem class="disabled">Collections</button>
+                        <button *ngIf="horseselected==true" ngbDropdownItem routerLink="/equipment">Collections</button>
                     </div>
                 </li>
                 <li>

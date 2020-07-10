@@ -10,17 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class TackPageComponent implements OnInit {
-  public allHorses = [];
-  relationsArray: Array<string>
-  saddleIdList: Array<string>
-  saddleList: Array<any> = []
-  saddle: Equipment;
-  public equipment: Equipment;
-  constructor(private authService: AuthService,
-    private saddlesService: SaddlesService) { }
+    public allHorses = [];
+    relationsArray: Array<string>
+    saddleIdList: Array<string>
+    saddleList: Array<any> = []
+    saddle: Equipment;
+    
+    public equipment: Equipment;
+
+    constructor(private authService: AuthService,
+                private saddlesService: SaddlesService) { }
 
   ngOnInit(): void {
-    this.showlist()
+    if (document.referrer !== document.location.href) {
+      setTimeout(function() {
+          document.location.reload()
+    }, 100);
+    }
   }
 
   getHorseSaddlesIds() {
@@ -37,8 +43,8 @@ export class TackPageComponent implements OnInit {
     })
   }
 
-  showlist() {
-    this.saddlesService.getEquipmentList("western").subscribe(data => {
+  showlist(type: string) {
+    this.saddlesService.getEquipmentList(type).subscribe(data => {
       // console.log(data);
       this.saddleList = data.map(res => {
         return {
@@ -55,9 +61,11 @@ export class TackPageComponent implements OnInit {
           speed_: res.payload.doc.data()['speed_'],
           stamina_: res.payload.doc.data()['stamina_'],
           trot_: res.payload.doc.data()['trot_'],
+          cost: res.payload.doc.data()['cost'],
         }
       })
       return data;
     })
   }
 } 
+                                                                                                                                                
