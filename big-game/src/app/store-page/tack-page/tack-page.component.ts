@@ -25,7 +25,7 @@ export class TackPageComponent implements OnInit {
     if (document.referrer !== document.location.href) {
       setTimeout(function() {
           document.location.reload()
-    }, 5000);
+    }, 100);
     }
   }
 
