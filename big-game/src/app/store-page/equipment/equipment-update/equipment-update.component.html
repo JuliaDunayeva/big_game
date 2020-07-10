@@ -1,0 +1,86 @@
+<div class="table-light-green ">
+    <form class="">
+        <div>
+            <table class="td-top">
+                <tr class="sm-card td-line">
+                    <th><input class="input-xsml" type="checkbox"></th>
+                    <th class="card-title tl-col1">Name</th>
+                    <th class="card-title tl-col1">Image File</th>
+                    <th class="card-title tl-col2">Category</th>
+                    <th class="card-title tl-col2">Group</th>
+                    <th class="card-title tl-col3">Color</th>
+                    <th class="card-title tl-col3">ID</th>
+                    <th class="card-title tl-col3">Dress</th>
+                    <th class="card-title tl-col3">Gallop</th>
+                    <th class="card-title tl-col3">Jump</th>
+                    <th class="card-title tl-col3">Speed</th>
+                    <th class="card-title tl-col3">Stamina</th>
+                    <th class="card-title tl-col3">Trot</th>
+                    <th class="card-title tl-col3"> <img class="equus" src="./assets/images/game_pieces/equus.png"></th>
+                </tr>
+                <tr class="color-tx-green " >
+                    <td ></td>
+                    <td class="tl-col1">
+                        <input type="text" required #name>
+                    </td>
+                    <td class="tl-col1">
+                        <input type="text" required #img_file>
+                    </td>
+                    <td class="tl-col2">
+                        <select class="sm-card line-up" #equipment >
+                            <option *ngFor="let category of categories" [ngValue]="equipment">{{category}}</option>
+                        </select>
+                    </td>
+                    <td class="tl-col2">
+                        <select class="sm-card line-up" #group >
+                            <option *ngFor="let group of groups" [ngValue]="group">{{group}}</option>
+                        </select>
+                    </td>
+                    <td class="tl-col3">
+                        <select class="sm-card line-up" #color >
+                            <option *ngFor="let color of colors" [ngValue]="color">{{color}}</option>
+                        </select>
+                    </td>
+                    <td class="tl-col3">
+                        <input type="text" #id>
+                    </td>
+                    <td class="card-title tl-col3">
+                        <select class="sm-card " #dressage_ >
+                            <option *ngFor="let ability of abilities" [ngValue]="dressage_">{{ability}}</option>
+                        </select>
+                    </td>
+                    <td class="card-title tl-col3"><select class="sm-card " #gallop_ >
+                        <option *ngFor="let ability of abilities" [ngValue]="gallop_">{{ability}}</option>
+                    </select></td>
+                    <td class="card-title tl-col3">
+                        <select class="sm-card " #jumping_ >
+                            <option *ngFor="let ability of abilities" [ngValue]="jumping_">{{ability}}</option>
+                        </select>
+                    </td>
+                    <td class="card-title tl-col3">
+                        <select class="sm-card " #speed_ >
+                            <option *ngFor="let ability of abilities" [ngValue]="speed_">{{ability}}</option>
+                        </select>
+                    </td>
+                    <td class="card-title tl-col3">
+                        <select class="sm-card " #stamina_ >
+                            <option *ngFor="let ability of abilities" [ngValue]="stamina_">{{ability}}</option>
+                        </select>
+                    </td>
+                    <td class="card-title tl-col3">
+                        <select class="sm-card " #trot_ >
+                            <option *ngFor="let ability of abilities" [ngValue]="trot_">{{ability}}</option>
+                        </select>
+                    </td>
+                    <td class="tl-col3">
+                        <input class="" type="text" value="0" #cost>
+                    </td>
+                </tr>
+            </table>
+            <button class="btn-shops btn-shops-lrg pad-left">
+                        
+                        save
+            </button>
+        </div>
+    </form>
+</div>

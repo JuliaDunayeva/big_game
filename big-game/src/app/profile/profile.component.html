@@ -1,0 +1,66 @@
+<div class="container">
+    <div>
+        <app-mini-bar></app-mini-bar>
+        <app-nav-bar></app-nav-bar>
+        <br><br>
+        <app-play-bar></app-play-bar>
+        <br>
+    </div>
+    <div class="folder">
+        <div class="row ">
+            <!-- Path Information -->
+            <div class="col-6 display pad-left small card-title color-tx-maroon no-bottom-margin">
+                <div class="color-tx-green">
+                    <i class="home icon padding-pro"></i>
+                    <a class="font-size"> Profile &nbsp;</a>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 pad-left color-tx-maroon ">
+            <div class="card-light-green td-top">
+                <div class="h6 sm-card no-bottom-margin td-line">
+                </div>
+                <div>
+                </div>
+                <div class="color-tx-green card-title no-bottom-margin">
+                    <div class="card pro-color" style="width: 18rem;">
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">User Name: {{userInfo.userName}}</li>
+                            <li class="list-group-item">equus: {{userInfo.equus}}</li>
+                            <li class="list-group-item">passes: {{userInfo.passes}}</li>
+                            <li class="list-group-item">Email: {{userInfo.email}}</li>
+                            <li class="list-group-item">Password: {{userInfo.password}}</li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button (click)="updateUserName(username.value)" class="btn btn-danger">Change User
+                                Name</button>
+                        </div>
+                        <input type="text" class="form-control" id="username" name="username" #username>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button (click)="updateUserEmail(email.value)" class="btn btn-danger">Change Email</button>
+                        </div>
+                        <input type="text" class="form-control" id="email" name="email" #email>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button (click)="updateUserPass(password.value)" class="btn btn-danger">Change
+                                Password</button>
+                        </div>
+                        <input type="text" class="form-control" id="password" name="password" #password>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -93,6 +93,19 @@ input {
   font-weight: bold;
 }
 
+.scrolling-wrapper {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  white-space: wrap;
+  display: inline-block;
+  text-align: left;
+}
+
+.scroll-height {
+  max-height: 185px;
+  width: 420px;
+}
+
 .no-top-margin {
   margin-top: 0px;
 }

@@ -6,6 +6,8 @@ import { BreedService } from '../services/breed.service';
 import { AuthService } from '../services/auth.service';
 import { ColorService } from '../services/color.service';
 import { Color } from '../color';
+import { UserDataService } from '../services/user-data.service';
+import { UserData } from '../user-data';
 
 @Component({
   selector: 'app-horse-breeding',
@@ -13,30 +15,62 @@ import { Color } from '../color';
   styleUrls: ['./horse-breeding.component.css']
 })
 export class HorseBreedingComponent implements OnInit {
-
+  haveMoney: boolean;
   mareData: HorseData = new HorseData;
   allBreeds: Breed[];
   allColors: Color[];
   allHorseData: Array<HorseData>;
   img_file: string;
   img_path: string;
+  user: any;
+  userInfo: UserData;
+  stallionUserInfo:UserData;
+  Uid: string = this.authService.getUId();
+  public mareBreedId: string;
+  public mareColorId: string;
+  public stallionBreed: string;
   public imagePath: string;
   public horse: HorseData = new HorseData;
+  public stallionUserEquus:number;
+  success = 'A new horse is born';
+  fail = 'You do not have enough Equus for this stallion';
 
   public id: string = this.authService.getHorseId();
   constructor(private horseService: HorseDataService,
     private breedService: BreedService,
     private authService: AuthService,
+    private userService: UserDataService,
     private colorService: ColorService,) { }
 
   ngOnInit(): void {
-    this.getStallionHorseData();
     this.getMaredata();
     this.getBreeds();
     this.getColors();
+    this.getUserData();
+    this.getStallionHorseData()
+  }
+
+  
+  getMaredata() {
+    this.horseService.getHorseById(this.id).subscribe((res) => {
+      this.mareData = res as HorseData;
+      this.mareBreedId = this.mareData.breed;
+      this.mareColorId = this.mareData.color;
+      console.log('first',this.mareBreedId);
+      this.breedService.getBreedById(this.mareData.breed).then(brd => {
+        this.mareData.breed = brd.data()['breed'];
+        this.img_path = brd.data()['img_path'];
+      })
+      this.colorService.getColorById(this.mareData.color).then(clr => {
+        this.mareData.color = clr.data()['color'];
+        this.img_file = clr.data()['img_file'];
+        this.LoadHorseImage()
+      })
+    });
   }
 
   getStallionHorseData() {
+    console.log('test',this.mareBreedId);
     this.horseService.getHorseForMare().subscribe(
       res => {
         this.allHorseData = res as Array<HorseData>
@@ -57,28 +91,30 @@ export class HorseBreedingComponent implements OnInit {
     )
   }
 
-  getMaredata() {
-    this.horseService.getHorseById(this.id).subscribe((res) => {
-      this.mareData = res as HorseData;
-      //  console.log(this.mareData)
-      this.breedService.getBreedById(this.mareData.breed).then(brd => {
-        this.mareData.breed = brd.data()['breed'];
-        this.img_path = brd.data()['img_path'];
-        // console.log('brred',this.img_path)
-      })
-      this.colorService.getColorById(this.mareData.color).then(clr => {
-        this.mareData.color = clr.data()['color'];
-        this.img_file = clr.data()['img_file'];
-        // console.log('color',this.img_file)
-        this.LoadHorseImage()
-      })
-    });
+
+  selectedStallion(userID:string, breedId:string){
+    if (this.haveMoney == true) {
+      this.stallionBreed = breedId;
+        this.userService.getUserByID(userID).subscribe((result) => {
+          this.stallionUserInfo = result as UserData;
+          this.stallionUserEquus = this.stallionUserInfo.equus;
+        });
+        this.addmoney(userID, this.stallionUserInfo.equus);
+    }
+  }
+
+  addmoney(userID:string, equus:number){
+    this.userService.addEquus(userID, equus, 500);
+  }
+  
+  newHorseCost() {
+    this.userService.subtractEquus(this.Uid, this.userInfo.equus, 750)
   }
 
   LoadHorseImage() {
     this.imagePath = 'assets/images/horses/';
     this.imagePath += `${this.img_path}/${this.img_file}`
-    // console.log(this.imagePath)
+    console.log(this.imagePath)
   }
 
   getBreeds() {
@@ -104,5 +140,30 @@ export class HorseBreedingComponent implements OnInit {
         }
       });
     });
+  }
+
+  getUserData() {
+    this.userService.getUserByID(this.Uid).subscribe((res) => {
+      this.userInfo = res as UserData;
+      console.log(this.userInfo.equus);
+    })
+  }
+
+ 
+  costCheck() {
+    if (this.userInfo.equus < 750) {
+      return this.haveMoney = false;
+    }
+    else {
+      this.haveMoney = true;
+    };
+  } 
+
+  createBaby(name:string) {
+    if (this.haveMoney == true) {
+      this.horseService.newBaby( this.Uid, this.mareBreedId, this.mareColorId, this.mareData.skill, name)
+      this.newHorseCost();
+      return alert(this.success);
+    } alert(this.fail)
   }
 }

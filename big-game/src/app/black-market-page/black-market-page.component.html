@@ -83,7 +83,7 @@
                                                 <h5>List of your horses...</h5>
                                                 <br>
                                             </div>
-                                            <form>
+                                            <form class="scrolling-wrapper scroll-height">
                                                 <div *ngFor="let horse of allHorses">
                                                     <label>
                                                         <input type="radio" [id]="horse.id" name="horse"
@@ -94,12 +94,12 @@
                                                         {{horse.gender}}
                                                     </label>
                                                 </div>
-                                                <div>
-                                                    <br>
-                                                    <button class="btn-shops btn-shops-lrg" (click)="costCheck()"
-                                                        (click)="swapGender()">Change Gender</button>
-                                                </div>
                                             </form>
+                                            <div>
+                                                <br>
+                                                <button class="btn-shops btn-shops-lrg" (click)="costCheck()"
+                                                    (click)="swapGender()">Change Gender</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -149,7 +149,7 @@
                                             <h5>List of the all the horses</h5>
                                             <br>
                                         </div>
-                                        <form>
+                                        <form class="scrolling-wrapper scroll-height">
                                             <div *ngFor="let horse of allMales">
                                                 <label>
                                                     <input type="radio" [id]="horse.id" name="horse" [value]="horse.id"
@@ -158,12 +158,12 @@
                                                     {{ horse.name}} - {{horse.stud}}
                                                 </label>
                                             </div>
-                                            <div>
-                                                <br>
-                                                <button class="btn-shops btn-shops-lrg" (click)="costCheck()"
-                                                    (click)="swapStudStatus()">Make Stud</button>
-                                            </div>
                                         </form>
+                                        <div>
+                                            <br>
+                                            <button class="btn-shops btn-shops-lrg" (click)="costCheck()"
+                                                (click)="swapStudStatus()">Make Stud</button>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
