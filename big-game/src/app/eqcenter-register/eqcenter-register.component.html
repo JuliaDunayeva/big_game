@@ -38,7 +38,6 @@
             <div *ngIf="alleqCenters?.length> 0; else noItems">
                 <form [formGroup]="selectEQCenter">
                     <table class="pad-left ">
-
                         <tr *ngFor="let eqcenter of alleqCenters">
                             <td class="comp-cell-width">{{eqcenter.eqName}}</td>
                             <td><button [id]="eqcenter.id" [value]="'one_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.one_day}}</button></td>
