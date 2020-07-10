@@ -84,6 +84,7 @@ export class UserDataService {
      'userName': username
    })
   }
+  
   updateEmail(id: string, email: string){
     return this.db.collection('user_data').doc(id).update({
       'email': email
@@ -95,5 +96,4 @@ export class UserDataService {
       'password': password
     })
    }
- 
 }
