@@ -89,7 +89,6 @@ export class EquipmentComponent implements OnInit {
   }
 
   updateEquipment(
-    
     name: string,
 		color: string, 
     equipment: string,
