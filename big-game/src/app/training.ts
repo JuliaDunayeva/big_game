@@ -9,10 +9,8 @@ export class Training {
     private percent: number;
     private done_image: string;
     private not_done_image: string;
-    
     private hour: number;
     private minute: number=0;
-
     private energy: number = 0;
     private speed: number = 0;
     private gallop: number = 0;
@@ -20,7 +18,6 @@ export class Training {
     private stamina: number = 0;
     private dressage: number = 0;
     private jumping: number = 0;
-
     private maxTrain=100;
     private horseDataService:  HorseDataService
 
