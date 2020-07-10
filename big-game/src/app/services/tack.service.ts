@@ -28,7 +28,4 @@ export class TackService {
   getTackByHorse(horse_id) {
     return this.db.collection('horse_tack', ref => ref.where('horse_id', '==', horse_id)).snapshotChanges()
   }
-
-
 }
-
