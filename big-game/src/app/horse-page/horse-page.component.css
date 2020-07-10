@@ -492,9 +492,7 @@ li {
   }
 }
 
-
 /** Large devices (desktops, 992px and up)*/
-
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .max-width-column {
     margin-left: 5%;
@@ -515,9 +513,7 @@ li {
   }
 }
 
-
 /*Moj added */
-
 @media (max-width: 767px) {
   .horse-page-main-div {
     display: flex;
