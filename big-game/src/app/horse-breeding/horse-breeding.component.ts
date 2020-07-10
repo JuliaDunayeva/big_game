@@ -50,13 +50,11 @@ export class HorseBreedingComponent implements OnInit {
     this.getStallionHorseData()
   }
 
-  
   getMaredata() {
     this.horseService.getHorseById(this.id).subscribe((res) => {
       this.mareData = res as HorseData;
       this.mareBreedId = this.mareData.breed;
       this.mareColorId = this.mareData.color;
-      console.log('first',this.mareBreedId);
       this.breedService.getBreedById(this.mareData.breed).then(brd => {
         this.mareData.breed = brd.data()['breed'];
         this.img_path = brd.data()['img_path'];
@@ -70,27 +68,21 @@ export class HorseBreedingComponent implements OnInit {
   }
 
   getStallionHorseData() {
-    console.log('test',this.mareBreedId);
     this.horseService.getHorseForMare().subscribe(
       res => {
         this.allHorseData = res as Array<HorseData>
         this.allHorseData.map(horse => {
           this.breedService.getBreedById(horse.breed).then(res => {
             horse.breed = res.data()['breed']
-          }
-          )
-        }
-        )
+          })
+        })
         this.allHorseData.map(horse => {
           this.colorService.getColorById(horse.color).then(res =>
             horse.color = res.data()['color']
           )
-        }
-        )
-      }
-    )
+        })
+      })
   }
-
 
   selectedStallion(userID:string, breedId:string){
     if (this.haveMoney == true) {
@@ -149,7 +141,6 @@ export class HorseBreedingComponent implements OnInit {
     })
   }
 
- 
   costCheck() {
     if (this.userInfo.equus < 750) {
       return this.haveMoney = false;
