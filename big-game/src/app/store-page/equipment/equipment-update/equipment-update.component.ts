@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipment } from '../../../equipment';
 import { SaddlesService } from './../../../services/saddles.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-equipment-update',

@@ -33,7 +33,7 @@
               <div class="scrolling-wrapper scroll-height block" *ngIf="tackList?.length > 0; else noItems">
                   <label class="display-vert pad-left" *ngFor="let tack of tackList">
                       <input type="radio" formControlName="horseTack" name="horseTack" 
-                          (click)="getHorseTack()"> {{tack.saddle_id}} - {{tack.cost}}
+                          (click)="selectItem(tack.tack_id, tack.cost)"> {{tack.saddle_id}} - {{tack.cost}}
                   </label>
               </div>
               <div class="display centered">

@@ -28,14 +28,10 @@
         <table class="pad-left ">
             <tr class="sm-card td-line ">
                 <th class="card-title comp-cell-width ">EQ Center</th>
-                <th class="card-title breed-cell-width ">Cost</th>
-
-                <!-- <th class="card-title compType-cell-width ">Competition Style</th>
-                <th class="card-title kitty-cell-width "><img class="equus pad-left " src="./assets/images/game_pieces/equus.png ">Kitty</th>
-                <th class="card-title difficult-cell-width ">Difficulty</th>
-                <th class="card-title ranks-cell-width ">Ranks</th>
-                <th class="card-title energy-cell-width ">Energy</th>-->
-                <!-- <th class="card-title tl-col4 "> </th>-->
+                <th class="card-title breed-cell-width ">1 Day <img class="equus-img-size" src="../../assets/images/game_pieces/equus.png" /></th>
+                <th class="card-title breed-cell-width ">6 Days <img class="equus-img-size" src="../../assets/images/game_pieces/equus.png" /></th>
+                <th class="card-title breed-cell-width ">12 Days<img class="equus-img-size" src="../../assets/images/game_pieces/equus.png" /></th>
+                <th class="card-title breed-cell-width ">24 Days<img class="equus-img-size" src="../../assets/images/game_pieces/equus.png" /></th>
             </tr>
         </table>
         <form class="scrolling-wrapper scroll-height">
@@ -44,23 +40,18 @@
                     <table class="pad-left ">
 
                         <tr *ngFor="let eqcenter of alleqCenters">
-                            <!-- <input type="radio" />-->
                             <td class="comp-cell-width">{{eqcenter.eqName}}</td>
-                            <td class="breed-cell-width">{{eqcenter.cost}}</td>
-                            <td><button class="btn btn-primary">Select</button></td>
-                            <!-- formControlName="eqSelect" name="eqSelect" (click)="selectEQ('something')" [value]="" [id]="'something'" -->
-                            <!-- <td class="compType-cell-width">{{eqcenter.compType}}</td>
-                        <td class="kitty-cell-width centered">{{eqcenter.kitty}}</td>
-                        <td class="difficult-cell-width centered">{{eqcenter.difficulty}}</td>
-                        <td class="ranks-cell-width centered">{{eqcenter.ranks}}</td>
-                        <td class="energy-cell-width centered">{{eqcenter.energy}}</td>-->
+                            <td><button [id]="eqcenter.id" [value]="'one_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.one_day}}</button></td>
+                            <td><button [id]="eqcenter.id" [value]="'six_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.six_day}}</button></td>
+                            <td><button [id]="eqcenter.id" [value]="'twelve_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.twelve_day}}</button></td>
+                            <td><button [id]="eqcenter.id" [value]="'twentyfour_day'" (click)="selectEQ($event)" class="btn btn-success breed-cell-width">{{eqcenter.twentyfour_day}}</button></td>
                         </tr>
                     </table>
                 </form>
             </div>
         </form>
         <ng-template #noItems>
-            <h5>There are no Competitions</h5>
+            <h5>There are no Equestrian Centres to list</h5>
         </ng-template>
     </div>
     <div>
