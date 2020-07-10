@@ -22,7 +22,11 @@ export class TackPageComponent implements OnInit {
                 private saddlesService: SaddlesService) { }
 
   ngOnInit(): void {
-   
+    if (document.referrer !== document.location.href) {
+      setTimeout(function() {
+          document.location.reload()
+    }, 100);
+    }
   }
 
   getHorseSaddlesIds() {

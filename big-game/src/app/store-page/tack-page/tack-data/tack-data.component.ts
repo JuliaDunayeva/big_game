@@ -31,7 +31,6 @@ export class TackDataComponent implements OnInit {
   ngOnInit(): void {
     console.log('begining')
     this.userService.getUserByID(this.Uid).subscribe((result) => {
-      // console.log('user info', result)
       this.userEquus = result.equus
       console.log('equus', this.userEquus)
     })
