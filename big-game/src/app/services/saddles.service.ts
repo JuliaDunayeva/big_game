@@ -78,5 +78,4 @@ export class SaddlesService {
           'cost': cost,
         })
     }// end of updateSaddle function
-
 }
