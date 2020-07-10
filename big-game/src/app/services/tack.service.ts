@@ -20,8 +20,15 @@ export class TackService {
       buy_date: today,
     })
   }
+
+  sellTack(saddle_id: string) {
+    return this.db.collection('horse_tack').doc(saddle_id).delete()
+  }
+
   getTackByHorse(horse_id) {
     return this.db.collection('horse_tack', ref => ref.where('horse_id', '==', horse_id)).snapshotChanges()
   }
+
+
 }
 

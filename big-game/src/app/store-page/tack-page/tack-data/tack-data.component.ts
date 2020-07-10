@@ -4,7 +4,6 @@ import { AuthService } from '../../../services/auth.service';
 import { Equipment } from 'src/app/equipment';
 import { TackService } from 'src/app/services/tack.service';
 
-
 @Component({
   selector: 'app-tack-data',
   templateUrl: './tack-data.component.html',
@@ -17,7 +16,7 @@ export class TackDataComponent implements OnInit {
   userEquus: number;
   buyCost: number;
   horse_id: string = this.authService.getHorseId();
-
+  haveMoney: boolean;
 
   constructor(private userService: UserDataService, 
               private authService: AuthService, 
@@ -28,16 +27,15 @@ export class TackDataComponent implements OnInit {
   buildpath(file: string): string {
     return this.imgpath + file;
   }
+
   ngOnInit(): void {
     console.log('begining')
     this.userService.getUserByID(this.Uid).subscribe((result) => {
-      // console.log('user info', result)
       this.userEquus = result.equus
       console.log('equus', this.userEquus)
     })
   }
 
-  haveMoney: boolean;
   costCheck(equipment: Equipment) {
     if (this.userEquus >= equipment.cost) {
         this.userService.subtractEquus(this.Uid, this.userEquus, equipment.cost ); 
@@ -49,6 +47,5 @@ export class TackDataComponent implements OnInit {
     } 
     // used to buy a new Tack and pay X Equus
   }
-
 
 }

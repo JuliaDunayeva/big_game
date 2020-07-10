@@ -16,6 +16,11 @@ table {
     width: 950px;
 }
 
+.equus-img-size {
+    width: 30%;
+    height: 60%;
+}
+
 .comp-cell-width {
     width: 200px;
 }
